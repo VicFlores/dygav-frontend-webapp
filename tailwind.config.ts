@@ -18,7 +18,7 @@ const config: Config = {
       black900: '#404040',
       black700: '#171717',
       gray300: '#D4D4D4',
-      gray: '#737373',
+      gray: '#F5F5F5',
     },
     extend: {
       backgroundImage: {
@@ -31,6 +31,12 @@ const config: Config = {
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367752/Dygav/11_uhpghg.png')",
         madrid:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367758/Dygav/15_kfihjl.png')",
+        welcomeWorld:
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691789897/Dygav/undraw_World_re_768g_afxop1.png')",
+        digitalAparment:
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691789289/Dygav/undraw_Best_place_re_lne9_sn3p88.png')",
+        aboutUsAviable:
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691768615/Dygav/icon-image_gtwgyc.png')",
       },
     },
   },
