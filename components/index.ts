@@ -7,3 +7,4 @@ export * from './AboutUs';
 export * from './AboutUsCard';
 export * from './OurComments';
 export * from './OurCommentsCard';
+export * from './BrandContent';
