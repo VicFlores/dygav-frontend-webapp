@@ -5,3 +5,5 @@ export * from './Hero';
 export * from './Carousel';
 export * from './AboutUs';
 export * from './AboutUsCard';
+export * from './OurComments';
+export * from './OurCommentsCard';
