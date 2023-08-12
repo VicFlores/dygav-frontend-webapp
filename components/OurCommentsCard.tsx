@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import React from 'react';
 
 const userInfo = [
@@ -27,11 +27,11 @@ const userInfo = [
 
 export const OurCommentsCard = () => {
   return (
-    <div className='flex lg:items-center mt-2 lg:justify-center lg:p-0 md:p-6 md:overscroll-x-contain md:overflow-y-hidden'>
+    <div className='flex lg:items-center mt-2 lg:justify-center lg:p-0 sm:p-6 sm:overscroll-x-contain sm:overflow-y-hidden'>
       <div className='flex space-x-6 border-t-4 border-t-p600 pt-14'>
         {userInfo.map((item, index) => (
           <div
-            className='w-[350px] h-auto border-2 border-l-4 border-p600 md:overflow-hidden '
+            className='w-[350px] h-auto border-2 border-l-4 border-p600 sm:overflow-hidden '
             id='CardContainer'
             key={index}
           >
@@ -43,9 +43,8 @@ export const OurCommentsCard = () => {
                 <Image
                   src={item.path}
                   alt={item.headerTitle}
-                  layout='fill' // required
-                  objectFit='' // change to suit your needs
-                  className='rounded-full' // just an example
+                  layout='fill'
+                  className='rounded-full'
                 />
               </div>
               <div>
@@ -56,7 +55,7 @@ export const OurCommentsCard = () => {
               </div>
             </div>
 
-            <div className='border-t-2 border-y-p600   p-4' id='CardBody'>
+            <div className='border-t-2 border-y-p600 p-4' id='CardBody'>
               <h4>{item.comment}</h4>
             </div>
           </div>
