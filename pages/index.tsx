@@ -1,4 +1,4 @@
-import { Layout, Hero, Carousel, AboutUs } from '@/components';
+import { Layout, Hero, Carousel, AboutUs, OurComments } from '@/components';
 
 const imageUrl =
   'https://res.cloudinary.com/vicflores11/image/upload/v1691367753/Dygav/12_yxhpq1.png';
@@ -17,6 +17,8 @@ export default function Home() {
       <Carousel />
 
       <AboutUs />
+
+      <OurComments />
     </section>
   );
 }
