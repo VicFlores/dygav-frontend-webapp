@@ -1,7 +1,7 @@
 import { TMenuItem } from '@/types';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 
 const menuItem: TMenuItem[] = [
   { title: 'Viaja', path: '/' },
@@ -16,7 +16,7 @@ const imageUrl =
 export const NavBar = () => {
   return (
     <nav className='w-full h-32 hidden lg:flex p-4 justify-between items-center static'>
-      <div className='h-auto w-auto'>
+      <div className='h-auto w-auto relative'>
         <Image
           src={imageUrl}
           alt='DyGav Log'
