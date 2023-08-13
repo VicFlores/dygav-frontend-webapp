@@ -37,6 +37,8 @@ const config: Config = {
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1691789289/Dygav/undraw_Best_place_re_lne9_sn3p88.png')",
         aboutUsAviable:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1691768615/Dygav/icon-image_gtwgyc.png')",
+        brandContent:
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367775/Dygav/19_skargh.png')",
       },
     },
   },
