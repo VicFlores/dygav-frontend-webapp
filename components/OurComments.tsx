@@ -9,7 +9,7 @@ export const OurComments = () => {
           LO QUE DICEN DE NOSOTROS
         </p>
         <p className='text-[31.25px] text-center text-black900 pt-1'>
-          Las esperiencias de nuestros propietarios
+          Las experiencias de nuestros propietarios
         </p>
       </div>
 
