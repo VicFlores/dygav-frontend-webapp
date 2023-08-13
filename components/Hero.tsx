@@ -7,12 +7,12 @@ export const Hero = () => {
   return (
     <section className='w-full  text-white px-[66px] py-[70px]'>
       <div>
-        <h3 className='text-[45px]'>Bienvenidos a DYGAV</h3>
-        <h4 className='text-[27px]'>
+        <p className='lg:text-[45px] md:text-[40px]'>Bienvenidos a DYGAV</p>
+        <p className='lg:text-[27px] md:text-[22px]'>
           Donde la excelencia en la gestión de apartamentos <br /> turísticos
           cobra vida respaldada por la experiencia y el renombre del Grupo
           Pacitel.
-        </h4>
+        </p>
       </div>
 
       <form className='grid lg:grid-cols-4 gap-4 p-[30px] mt-16 bg-p600/50'>
