@@ -49,12 +49,12 @@ const imageProps: TImageProps[] = [
 
 export const BrandContent = () => {
   return (
-    <section className='bg-brandContent grid items-center justify-center w-full bg-center bg-cover bg-no-repeat h-[300px] mt-28 mb-28'>
-      <p className='text-white text-2xl text-center'>
+    <section className='bg-brandContent grid items-center justify-center w-full bg-center bg-cover bg-no-repeat lg:h-[350px] md:h-auto mt-28 mb-28'>
+      <p className='text-white text-2xl text-center md:pt-10 pb-10'>
         Descubre tu refugio perfecto a solo un clic de distancia.
       </p>
 
-      <div className='grid grid-cols-6 justify-center gap-8 items-center self-start'>
+      <div className='grid lg:grid-cols-6 md:grid-cols-3 justify-center lg:gap-8 items-center self-start'>
         {imageProps.map((item, index) => (
           <div className={'text-center relative'} key={index}>
             <Image
