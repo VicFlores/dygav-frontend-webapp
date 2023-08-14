@@ -39,13 +39,23 @@ export const NavBar = () => {
       </div>
 
       <div className='space-x-6'>
-        <button id='toggle' className='bg-white text-p600 w-36 h-10'>
+        <Link
+          href='register'
+          passHref
+          id='toggle'
+          className='bg-white text-p600 px-5 py-2'
+        >
           Crear Cuenta
-        </button>
+        </Link>
 
-        <button id='toggle' className='bg-p600 text-white w-36 h-10'>
+        <Link
+          href='login'
+          passHref
+          id='toggle'
+          className='bg-p600 text-white px-5 py-2'
+        >
           Iniciar Sesion
-        </button>
+        </Link>
       </div>
     </nav>
   );
