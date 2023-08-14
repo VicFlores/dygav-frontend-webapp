@@ -8,3 +8,5 @@ export * from './AboutUsCard';
 export * from './OurComments';
 export * from './OurCommentsCard';
 export * from './BrandContent';
+export * from './Login';
+export * from './Register';
