@@ -25,6 +25,8 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        heroContent:
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367753/Dygav/12_yxhpq1.png')",
         costaBlanca:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367753/Dygav/1_j8qeqo.png')",
         pirineos:
