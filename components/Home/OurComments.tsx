@@ -1,5 +1,5 @@
 import React from 'react';
-import { OurCommentsCard } from './';
+import { OurCommentsCard } from '..';
 
 export const OurComments = () => {
   return (

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React, { FC, ReactNode } from 'react';
-import { BurgerMenu, NavBar } from './';
+import { BurgerMenu, NavBar } from '..';
 
 interface Props {
   children?: ReactNode;
