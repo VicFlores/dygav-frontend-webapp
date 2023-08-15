@@ -65,7 +65,7 @@ export const ContactYou = () => {
         <Button
           type='submit'
           endIcon={<CallIcon />}
-          className='bg-p600 hover:bg-p800 py-2 px-4 w-auto text-xl justify-self-center text-white'
+          className='bg-p600 hover:bg-p800 w-[230px] text-xl justify-self-center text-white'
         >
           +34 614 165 736
         </Button>
@@ -73,7 +73,7 @@ export const ContactYou = () => {
         <Button
           type='submit'
           endIcon={<CallIcon />}
-          className='bg-p600 hover:bg-p800 py-2 px-4 w-auto text-xl justify-self-center text-white'
+          className='bg-p600 hover:bg-p800 w-[230px] text-xl justify-self-center text-white'
         >
           +34 614 214 250
         </Button>
