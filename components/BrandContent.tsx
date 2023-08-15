@@ -1,12 +1,6 @@
+import { TImageProps } from '@/types';
 import Image from 'next/legacy/image';
 import React from 'react';
-
-type TImageProps = {
-  src: string;
-  alt: string;
-  height: number;
-  width: number;
-};
 
 const imageProps: TImageProps[] = [
   {
