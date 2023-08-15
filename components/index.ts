@@ -12,3 +12,6 @@ export * from './Login';
 export * from './Register';
 export * from './HeroSearcher';
 export * from './SearcherCards';
+export * from './HeroOwners';
+export * from './PeachOwners';
+export * from './ContactYou';
