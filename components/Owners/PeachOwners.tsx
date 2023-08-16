@@ -2,7 +2,7 @@ import React from 'react';
 
 export const PeachOwners = () => {
   return (
-    <section className='grid gap-4 mt-24 mb-24 pr-28 pl-28'>
+    <section className='grid gap-4 mt-24 mb-16 pr-28 pl-28'>
       <p className='text-center text-[34px] text-black700'>
         ¡Descubre Nuestros servicios de <br /> Gestión de Apartamentos <br />{' '}
         Vacacionales!
