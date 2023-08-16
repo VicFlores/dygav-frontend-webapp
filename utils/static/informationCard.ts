@@ -1,9 +1,4 @@
-import { TImageProps } from '@/types';
-
-type TCardProps = TImageProps & {
-  title: string;
-  subtitle: string;
-};
+import { TCardProps } from '@/types';
 
 export const informationCard: TCardProps[] = [
   {
