@@ -1,5 +1,10 @@
-import { HeroOwners, Layout, PeachOwners, ContactYou } from '@/components';
-import React from 'react';
+import {
+  HeroOwners,
+  Layout,
+  PeachOwners,
+  ContactYou,
+  Information,
+} from '@/components';
 
 const OwnersPage = () => {
   return (
@@ -16,6 +21,8 @@ const OwnersPage = () => {
       <PeachOwners />
 
       <ContactYou />
+
+      <Information />
     </section>
   );
 };
