@@ -6,7 +6,7 @@ export const Contact = () => {
     <section className='grid px-28 mb-28 gap-2 '>
       <p className='text-center text-[34px] '>Prepárate para el Éxito</p>
 
-      <div className='border-t-4 border-t-p600 pt-8 px-8 space-y-4'>
+      <div className='border-t-4 border-t-p600 pt-8 px-8 space-y-4 text-lg text-black900'>
         <p>
           En DYGAV trabajamos para que que tu propiedad cumpla con los criterios
           de habitabilidad, seguridad y servicios exigidos.
