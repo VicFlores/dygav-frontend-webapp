@@ -4,6 +4,7 @@ import {
   PeachOwners,
   ContactYou,
   Information,
+  Contact,
 } from '@/components';
 
 const OwnersPage = () => {
@@ -23,6 +24,8 @@ const OwnersPage = () => {
       <ContactYou />
 
       <Information />
+
+      <Contact />
     </section>
   );
 };
