@@ -17,3 +17,6 @@ export * from './Owners/PeachOwners';
 export * from './Owners/ContactYou';
 export * from './Owners/Information';
 export * from './Owners/Contact';
+export * from './Licenses/HeroLicense';
+export * from './Licenses/GetLicense';
+export * from './Licenses/LicenseTourist';
