@@ -33,8 +33,9 @@ export const Hero = () => {
           <label className='relative'>
             <ExtensionIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3' />
             <input
-              type='date'
-              placeholder='Fecha deseada'
+              type='text'
+              placeholder='Fecha'
+              onFocus={(e) => (e.target.type = 'date')}
               className='pl-10 pr-4 lg:w-64 md:w-96 w-full bg-transparent shadow appearance-none border border-white placeholder:text-white rounded py-2 text-white leading-tight focus:outline-none focus:shadow-outline'
             />
           </label>
