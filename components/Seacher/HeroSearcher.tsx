@@ -1,17 +1,16 @@
 import React from 'react';
 import ExtensionIcon from '@mui/icons-material/Extension';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { Button } from '@mui/material';
 
 export const HeroSearcher = () => {
   return (
     <section className='w-full text-white px-[66px] py-[70px]'>
-      <p className='lg:text-[45px] md:text-[38px] text-[26px]'>
+      <p className='lg:text-[45px] text-center md:text-start text-[30px] md:text-[38px] font-semibold'>
         ¿A Donde Te Apetece Ir?
       </p>
 
-      <form className='lg:flex lg:space-x-8 lg:space-y-0 md:block md:space-y-8 p-[30px] mt-5 bg-p600/70'>
-        <div className='grid lg:grid-cols-3 lg:gap-5 md:gap-8'>
+      <form className='lg:flex space-y-12 lg:space-x-8 lg:space-y-0 md:block md:space-y-8 p-[30px] mt-5 bg-p600/70'>
+        <div className='grid lg:grid-cols-3 gap-10 lg:gap-5 md:gap-8'>
           <div className='grid items-center justify-center relative'>
             <label className='relative'>
               <ExtensionIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3' />
@@ -70,10 +69,10 @@ export const HeroSearcher = () => {
 
         <div className='flex justify-center items-center relative'>
           <div className='relative'>
-            <CheckCircleIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 md:right-5 lg:right-7' />
+            <CheckCircleIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 right-11 md:right-5 lg:right-7' />
             <button
               id='toggle'
-              className='bg-p600 hover:bg-p800 py-2 px-4 md:w-[200px] lg:w-[180px] text-center lg:text-left text-white justify-self-center self-center'
+              className='bg-p600 hover:bg-p800 py-2 px-4 w-[250px] md:w-[200px] lg:w-[180px] text-center lg:text-left text-white justify-self-center self-center'
             >
               Buscar ahora
             </button>

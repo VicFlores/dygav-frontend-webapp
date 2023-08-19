@@ -137,7 +137,7 @@ export const SearcherCards = () => {
         <div
           id='CardContainer'
           key={index}
-          className='md:w-[320px] lg:w-[347px] h-auto self-center justify-self-center'
+          className='w-[300px] md:w-[320px] lg:w-[347px] h-auto self-center justify-self-center'
         >
           <div id='CardHeader' className='space-y-4 '>
             <Image
@@ -146,36 +146,40 @@ export const SearcherCards = () => {
               width={item.width}
               height={item.height}
             />
-            <p className='text-center text-black900 md:text-sm lg:text-base'>
+            <p className='text-center text-black900 text-xs md:text-sm lg:text-base'>
               {item.imgSubtitle}
             </p>
           </div>
 
           <div id='CardBody' className='space-y-4 mt-6 mb-6'>
-            <p className='md:text-[20px] lg:text-[25px]'>{item.title}</p>
-            <p className='md:text-[14px] lg:text-base'>{item.subtitle}</p>
+            <p className='text-[18px] md:text-[20px] lg:text-[25px] text-center md:text-start'>
+              {item.title}
+            </p>
+            <p className='text-[13px] md:text-[14px] lg:text-base'>
+              {item.subtitle}
+            </p>
           </div>
 
           <div id='CardFooter' className='flex h-[48px] space-x-1 text-white'>
             <div className='bg-p600 pt-1 pb-1 w-[119px] h-full text-center'>
-              <p className='font-semibold md:text-[14px] lg:text-[16px]'>
+              <p className='font-semibold text-[13px] md:text-[14px] lg:text-[16px]'>
                 {item.bedroom}
               </p>
-              <p className='md:text-[10px] lg:text-[12px]'>Dormitorios</p>
+              <p className='text-[10px] lg:text-[12px]'>Dormitorios</p>
             </div>
 
             <div className='bg-p600 pt-1 pb-1 w-[119px] h-full text-center '>
-              <p className='font-semibold md:text-[14px] lg:text-[16px]'>
+              <p className='font-semibold text-[13px] md:text-[14px] lg:text-[16px]'>
                 {item.bathroom}
               </p>
-              <p className='md:text-[10px] lg:text-[12px]'>Baños</p>
+              <p className='text-[10px] lg:text-[12px]'>Baños</p>
             </div>
 
             <div className='bg-p600 pt-1 pb-1 w-[119px] h-full text-center '>
-              <p className='font-semibold md:text-[14px] lg:text-[16px]'>
+              <p className='font-semibold text-[13px] md:text-[14px] lg:text-[16px]'>
                 {item.size}
               </p>
-              <p className='md:text-[10px] lg:text-[12px]'>Tamaño</p>
+              <p className='text-[10px] lg:text-[12px]'>Tamaño</p>
             </div>
           </div>
         </div>
