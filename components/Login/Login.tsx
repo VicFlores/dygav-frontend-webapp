@@ -6,48 +6,56 @@ import { Button } from '@mui/material';
 export const Login = () => {
   return (
     <div className='flex items-center justify-center mt-4'>
-      <div className='bg-white px-6 py-10 space-y-5 w-[450px]'>
+      <div className='bg-white px-6 py-4 md:py-6 lg:py-10 space-y-5 w-[350px] md:w-[450px]'>
         <div className='space-y-3'>
-          <p className='font-semibold text-3xl'>¡Bienvenido!</p>
-          <p className='text-xl'>Inicia sesión en DYGAV</p>
+          <p className='font-semibold text-lg md:text-xl lg:text-3xl'>
+            ¡Bienvenido!
+          </p>
+          <p className='text-base md:text-lg lg:text-xl'>
+            Inicia sesión en DYGAV
+          </p>
         </div>
 
         <form className='grid items-center justify-center gap-8 pt-4'>
           <label className='relative'>
-            <ExtensionIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <ExtensionIcon className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
             <input
               type='email'
               placeholder='Escribe tu email'
-              className='py-3 pl-10 pr-4 bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
+              className='py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
             />
           </label>
 
           <label className='relative'>
-            <ExtensionIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <ExtensionIcon className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
             <input
               type='password'
               placeholder='Escribe tu contraseña'
-              className='py-3 pl-10 pr-4 bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
+              className='py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
             />
           </label>
         </form>
 
-        <div className='grid gap-y-4 justify-center items-center pt-8'>
-          <Button
-            type='submit'
-            endIcon={<CheckCircleIcon />}
-            className='bg-p600 hover:bg-p800 py-2 px-4 w-[300px] justify-self-center text-white'
-          >
-            Crear nueva cuenta
-          </Button>
+        <div className='grid gap-y-4 justify-center items-center pt-6 md:pt-8'>
+          <div className='relative'>
+            <CheckCircleIcon className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-6 md:right-5 lg:right-7' />
+            <button
+              id='toggle'
+              className='bg-p600 hover:bg-p800 text-center text-xs md:text-sm lg:text-base py-2 px-4 w-[220px] md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
+            >
+              Crear nueva cuenta
+            </button>
+          </div>
 
-          <Button
-            type='submit'
-            endIcon={<GoogleIcon />}
-            className='bg-white py-2 px-4 w-[300px] text-p600 border-solid border-2 border-p600'
-          >
-            Iniciar sesión con Google
-          </Button>
+          <div className='relative'>
+            <GoogleIcon className='w-4 h-4 md:w-5 md:h-5 absolute text-white top-1/2 -translate-y-1/2 right-7 md:right-4 lg:right-8' />
+            <button
+              id='toggle'
+              className='bg-p600 hover:bg-p800 text-left text-xs md:text-sm lg:text-base py-2 px-4 w-[220px] md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
+            >
+              Crear cuenta con Google
+            </button>
+          </div>
         </div>
       </div>
     </div>
