@@ -12,19 +12,19 @@ const imageProps: TImageProps[] = [
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691868899/Dygav/ABNB_ugauy3.png',
     alt: 'AirBnb',
-    height: 120,
-    width: 125,
-  },
-  {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691882182/Dygav/Comment-contacter-Vrbo_jkhslp.png',
-    alt: 'Vrbo',
-    height: 120,
+    height: 100,
     width: 125,
   },
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691882177/Dygav/0x0_j8hysr.png',
     alt: 'Rentalia',
     height: 40,
+    width: 125,
+  },
+  {
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691882182/Dygav/Comment-contacter-Vrbo_jkhslp.png',
+    alt: 'Vrbo',
+    height: 100,
     width: 125,
   },
   {
@@ -36,7 +36,7 @@ const imageProps: TImageProps[] = [
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691882174/Dygav/EXPEDIA-LOGO-1_ko2beq.png',
     alt: 'Xpedia',
-    height: 120,
+    height: 100,
     width: 140,
   },
 ];
@@ -44,19 +44,18 @@ const imageProps: TImageProps[] = [
 export const BrandContent = () => {
   return (
     <section className='bg-brandContent grid items-center justify-center w-full bg-center bg-cover bg-no-repeat lg:h-[350px] md:h-auto mt-28 mb-28'>
-      <p className='text-white text-2xl text-center md:pt-10 pb-10'>
+      <p className='text-white text-[18px] md:text-2xl text-center p-10'>
         Descubre tu refugio perfecto a solo un clic de distancia.
       </p>
 
-      <div className='grid lg:grid-cols-6 md:grid-cols-3 justify-center lg:gap-8 items-center self-start'>
+      <div className='grid grid-cols-1 lg:grid-cols-6 md:grid-cols-3 justify-center lg:gap-8 items-center self-start'>
         {imageProps.map((item, index) => (
-          <div className={'text-center relative'} key={index}>
+          <div className={'text-center'} key={index}>
             <Image
               src={item.src}
               alt={item.alt}
               width={item.width}
               height={item.height}
-              className='self-center justify-self-center'
             />
           </div>
         ))}
