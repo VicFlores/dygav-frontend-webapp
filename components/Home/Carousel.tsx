@@ -14,11 +14,11 @@ export const Carousel = () => {
   return (
     <div className='w-full h-auto grid grid-cols-2' id='recomendadas'>
       <div className='self-center justify-self-center divide-y-4 divide-p600'>
-        <p className='text-[34px]  text-black700'>
+        <p className='lg:text-[34px] md:text-[28px] text-black700'>
           ENCUENTRA TU <br /> ALOJAMIENTO IDEAL
         </p>
 
-        <p className='text-[31.25px] text-black900 pt-3'>
+        <p className='lg:text-[31px] md:text-[26px] text-black900 pt-3'>
           ¿Donde Será Tú Próxima <br /> Aventura?
         </p>
       </div>

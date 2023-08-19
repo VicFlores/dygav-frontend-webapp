@@ -5,10 +5,10 @@ export const AboutUs = () => {
   return (
     <section className='w-full h-auto grid mt-[90px]'>
       <div className='self-center justify-self-center'>
-        <p className='text-[34px] text-center  text-black700'>
+        <p className='lg:text-[34px] md:text-[28px] text-center  text-black700'>
           DESCUBRE QUIENES SOMOS
         </p>
-        <p className='text-[31.25px] text-center text-black900 pt-1'>
+        <p className='lg:text-[31px] md:text-[26px] text-center text-black900 pt-1'>
           Sobre nosotros
         </p>
       </div>

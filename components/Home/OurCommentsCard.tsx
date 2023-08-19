@@ -48,14 +48,19 @@ export const OurCommentsCard = () => {
                 />
               </div>
               <div>
-                <p className='text-black700 text-[22px]'>{item.headerTitle}</p>
-                <p className='text-black900 text-[15px]'>
+                <p className='text-black700 lg:text-[22px] md:text-[20px]'>
+                  {item.headerTitle}
+                </p>
+                <p className='text-black900 lg:text-[15px] md:text-[13px]'>
                   {item.headerSubtitle}
                 </p>
               </div>
             </div>
 
-            <div className='border-t-2 border-y-p600 p-4' id='CardBody'>
+            <div
+              className='border-t-2 border-y-p600 p-4 lg:text-base md:text-[15px]'
+              id='CardBody'
+            >
               <h4>{item.comment}</h4>
             </div>
           </div>
