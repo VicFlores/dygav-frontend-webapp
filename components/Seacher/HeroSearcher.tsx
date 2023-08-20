@@ -1,6 +1,5 @@
-import React from 'react';
-import ExtensionIcon from '@mui/icons-material/Extension';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { BiExtension } from 'react-icons/bi';
+import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 export const HeroSearcher = () => {
   return (
@@ -13,7 +12,7 @@ export const HeroSearcher = () => {
         <div className='grid lg:grid-cols-3 gap-10 lg:gap-5 md:gap-8'>
           <div className='grid items-center justify-center relative'>
             <label className='relative'>
-              <ExtensionIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3' />
+              <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3' />
               <input
                 type='text'
                 placeholder='Tipo de propiedad'
@@ -24,7 +23,7 @@ export const HeroSearcher = () => {
 
           <div className='grid items-center justify-center relative'>
             <label className='relative'>
-              <ExtensionIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3' />
+              <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3' />
               <input
                 type='text'
                 placeholder='Servicios'
@@ -35,7 +34,7 @@ export const HeroSearcher = () => {
 
           <div className='grid items-center justify-center relative'>
             <label className='relative'>
-              <ExtensionIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3' />
+              <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3' />
               <input
                 type='text'
                 placeholder='Prestaciones'
@@ -46,7 +45,7 @@ export const HeroSearcher = () => {
 
           <div className='grid items-center md:justify-center lg:justify-normal relative lg:col-start-1 lg:col-end-3'>
             <label className='relative'>
-              <ExtensionIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3' />
+              <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3' />
               <input
                 type='text'
                 placeholder='Servicios basicos'
@@ -57,7 +56,7 @@ export const HeroSearcher = () => {
 
           <div className='grid items-center justify-center relative'>
             <label className='relative'>
-              <ExtensionIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3' />
+              <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3' />
               <input
                 type='text'
                 placeholder='Huespedes'
@@ -69,7 +68,7 @@ export const HeroSearcher = () => {
 
         <div className='flex justify-center items-center relative'>
           <div className='relative'>
-            <CheckCircleIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 right-11 md:right-5 lg:right-7' />
+            <AiOutlineCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 right-11 md:right-5 lg:right-7' />
             <button
               id='toggle'
               className='bg-p600 hover:bg-p800 py-2 px-4 w-[250px] md:w-[200px] lg:w-[180px] text-center lg:text-left text-white justify-self-center self-center'

@@ -1,8 +1,5 @@
-import React from 'react';
-import ExtensionIcon from '@mui/icons-material/Extension';
-import { Button } from '@mui/material';
-import ContactMailIcon from '@mui/icons-material/ContactMail';
-import CallIcon from '@mui/icons-material/Call';
+import { BiExtension, BiPhoneCall } from 'react-icons/bi';
+import { BsMailbox } from 'react-icons/bs';
 
 export const ContactYou = () => {
   return (
@@ -16,7 +13,7 @@ export const ContactYou = () => {
           <p className='text-xl text-center'>Completa tu información</p>
 
           <label className='relative'>
-            <ExtensionIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
             <input
               type='text'
               placeholder='Escribe tu nombre completo'
@@ -25,7 +22,7 @@ export const ContactYou = () => {
           </label>
 
           <label className='relative'>
-            <ExtensionIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
             <input
               type='email'
               placeholder='Escribe tu correo electronico'
@@ -34,7 +31,7 @@ export const ContactYou = () => {
           </label>
 
           <label className='relative'>
-            <ExtensionIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
             <input
               type='number'
               placeholder='Escribe tu telefono'
@@ -43,7 +40,7 @@ export const ContactYou = () => {
           </label>
 
           <label className='relative'>
-            <ExtensionIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
             <input
               type='text'
               placeholder='Cuentanos un poco mas'
@@ -51,32 +48,38 @@ export const ContactYou = () => {
             />
           </label>
 
-          <Button
-            type='submit'
-            endIcon={<ContactMailIcon />}
-            className='bg-p600 hover:bg-p800 py-2 px-4 w-[300px] justify-self-center text-white'
-          >
-            Contacta con nosotros
-          </Button>
+          <div className='relative'>
+            <BsMailbox className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-6 md:right-5 lg:right-7' />
+            <button
+              id='toggle'
+              className='bg-p600 hover:bg-p800 text-center text-xs md:text-sm lg:text-base py-2 px-4 w-[220px] md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
+            >
+              Contacta con nosotros
+            </button>
+          </div>
         </form>
       </div>
 
       <div className='grid grid-cols-2 mt-10'>
-        <Button
-          type='submit'
-          endIcon={<CallIcon />}
-          className='bg-p600 hover:bg-p800 w-[230px] text-xl justify-self-center text-white'
-        >
-          +34 614 165 736
-        </Button>
+        <div className='relative'>
+          <BiPhoneCall className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-6 md:right-5 lg:right-7' />
+          <button
+            id='toggle'
+            className='bg-p600 hover:bg-p800 text-center text-xs md:text-sm lg:text-base py-2 px-4 w-[220px] md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
+          >
+            +34 614 165 736
+          </button>
+        </div>
 
-        <Button
-          type='submit'
-          endIcon={<CallIcon />}
-          className='bg-p600 hover:bg-p800 w-[230px] text-xl justify-self-center text-white'
-        >
-          +34 614 214 250
-        </Button>
+        <div className='relative'>
+          <BiPhoneCall className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-6 md:right-5 lg:right-7' />
+          <button
+            id='toggle'
+            className='bg-p600 hover:bg-p800 text-center text-xs md:text-sm lg:text-base py-2 px-4 w-[220px] md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
+          >
+            +34 614 214 250
+          </button>
+        </div>
       </div>
     </section>
   );

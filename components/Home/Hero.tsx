@@ -1,7 +1,5 @@
-import React from 'react';
-import ExtensionIcon from '@mui/icons-material/Extension';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { Button } from '@mui/material';
+import { BiExtension } from 'react-icons/bi';
+import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 export const Hero = () => {
   return (
@@ -20,7 +18,7 @@ export const Hero = () => {
       <form className='grid lg:grid-cols-4 lg:gap-4 md:gap-8 gap-10 p-[30px] mt-16 bg-p600/50'>
         <div className='self-center justify-self-center relative'>
           <label className='relative'>
-            <ExtensionIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3' />
+            <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3' />
             <input
               type='text'
               placeholder='Ubicacion'
@@ -31,7 +29,7 @@ export const Hero = () => {
 
         <div className='self-center justify-self-center relative'>
           <label className='relative'>
-            <ExtensionIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3' />
+            <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3' />
             <input
               type='text'
               placeholder='Fecha'
@@ -43,7 +41,7 @@ export const Hero = () => {
 
         <div className='self-center justify-self-center relative'>
           <label className='relative'>
-            <ExtensionIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3' />
+            <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3' />
             <input
               type='number'
               placeholder='Huespedes'
@@ -54,7 +52,7 @@ export const Hero = () => {
 
         <div className='self-center justify-self-center relative'>
           <div className='relative'>
-            <CheckCircleIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 right-7' />
+            <AiOutlineCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 right-7' />
             <button
               id='toggle'
               className='bg-p600 hover:bg-p800 py-2 px-4 w-[180px] text-left text-white justify-self-center self-center'

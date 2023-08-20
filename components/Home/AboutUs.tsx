@@ -1,5 +1,5 @@
 import React from 'react';
-import { AboutUsCard } from '..';
+import { AboutUsCard } from '../';
 
 export const AboutUs = () => {
   return (

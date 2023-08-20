@@ -1,5 +1,4 @@
-import { Button } from '@mui/material';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 export const Contact = () => {
   return (
@@ -22,13 +21,15 @@ export const Contact = () => {
         </p>
       </div>
 
-      <Button
-        type='submit'
-        endIcon={<CheckCircleIcon />}
-        className='bg-p600 hover:bg-p800 py-2 px-4 w-[300px] justify-self-center text-white mt-16'
-      >
-        Contactanos ahora
-      </Button>
+      <div className='relative'>
+        <AiOutlineCheckCircle className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-6 md:right-5 lg:right-7' />
+        <button
+          id='toggle'
+          className='bg-p600 hover:bg-p800 text-center text-xs md:text-sm lg:text-base py-2 px-4 w-[220px] md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
+        >
+          Contactanos ahora
+        </button>
+      </div>
     </section>
   );
 };

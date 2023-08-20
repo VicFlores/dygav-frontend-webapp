@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
-import MenuIcon from '@mui/icons-material/Menu';
 import { TMenuItem } from '@/types';
 import { UIContext } from '@/context';
-import { IconButton } from '@mui/material';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 const menuItem: TMenuItem[] = [
   { title: 'Viaja', path: '/' },
@@ -22,9 +21,7 @@ export const BurgerMenu = () => {
   return (
     <nav className='w-full h-auto lg:hidden p-4 static'>
       <div onClick={handlerToogleMenu}>
-        <IconButton>
-          <MenuIcon sx={{ color: 'white', fontSize: '40px' }} />
-        </IconButton>
+        <GiHamburgerMenu className='text-white text-[30px] ' />
       </div>
 
       {sideMenu ? (

@@ -1,7 +1,6 @@
-import ExtensionIcon from '@mui/icons-material/Extension';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import GoogleIcon from '@mui/icons-material/Google';
-import { Button } from '@mui/material';
+import { BiExtension } from 'react-icons/bi';
+import { AiOutlineCheckCircle } from 'react-icons/ai';
+import { FcGoogle } from 'react-icons/fc';
 
 export const Register = () => {
   return (
@@ -14,7 +13,7 @@ export const Register = () => {
 
         <form className='grid items-center justify-center gap-8 pt-4'>
           <label className='relative'>
-            <ExtensionIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
             <input
               type='text'
               placeholder='Escribe tu nombre completo'
@@ -23,7 +22,7 @@ export const Register = () => {
           </label>
 
           <label className='relative'>
-            <ExtensionIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
             <input
               type='email'
               placeholder='Escribe tu email'
@@ -32,7 +31,7 @@ export const Register = () => {
           </label>
 
           <label className='relative'>
-            <ExtensionIcon className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
             <input
               type='password'
               placeholder='Escribe tu contraseña'
@@ -42,21 +41,25 @@ export const Register = () => {
         </form>
 
         <div className='grid gap-y-4 justify-center items-center pt-5 pb-5'>
-          <Button
-            type='submit'
-            endIcon={<CheckCircleIcon />}
-            className='bg-p600 hover:bg-p800 py-2 px-4 w-[300px] justify-self-center text-white'
-          >
-            Crear nueva cuenta
-          </Button>
+          <div className='relative'>
+            <AiOutlineCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 right-11 md:right-5 lg:right-7' />
+            <button
+              id='toggle'
+              className='bg-p600 hover:bg-p800 py-2 px-4 w-[300px] justify-self-center text-white'
+            >
+              Crear nueva cuenta
+            </button>
+          </div>
 
-          <Button
-            type='submit'
-            endIcon={<GoogleIcon />}
-            className='bg-white py-2 px-4 w-[300px] text-p600 border-solid border-2 border-p600'
-          >
-            Crear cuenta con Google
-          </Button>
+          <div className='relative'>
+            <FcGoogle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 right-11 md:right-5 lg:right-7' />
+            <button
+              id='toggle'
+              className='bg-white py-2 px-4 w-[300px] text-p600 border-solid border-2 border-p600'
+            >
+              Crear cuenta con Google
+            </button>
+          </div>
         </div>
       </div>
     </div>
