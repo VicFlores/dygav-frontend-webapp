@@ -4,7 +4,7 @@ import { FcGoogle } from 'react-icons/fc';
 
 export const Login = () => {
   return (
-    <div className='flex items-center justify-center mt-4'>
+    <div className='flex items-center justify-center mt-10 md:mt-8 lg:mt-0'>
       <div className='bg-white px-6 py-4 md:py-6 lg:py-10 space-y-5 w-[350px] md:w-[450px]'>
         <div className='space-y-3'>
           <p className='font-semibold text-lg md:text-xl lg:text-3xl'>
