@@ -1,4 +1,4 @@
-import { TImageProps } from './';
+import { TImageProps } from '..';
 
 export type TCardProps = TImageProps & {
   title: string;
