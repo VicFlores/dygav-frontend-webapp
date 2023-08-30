@@ -22,7 +22,7 @@ export const Hero = () => {
             <input
               type='text'
               placeholder='Ubicacion'
-              className='pl-10 lg:w-64 md:w-96 w-full bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 rounded py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
+              className='pl-10 lg:w-56 lg:h-11 md:w-96 w-full bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 rounded py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
             />
           </label>
         </div>
@@ -34,7 +34,7 @@ export const Hero = () => {
               type='text'
               placeholder='Fecha'
               onFocus={(e) => (e.target.type = 'date')}
-              className='pl-10 pr-4 lg:w-64 md:w-96 w-full bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 rounded py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
+              className='pl-10 pr-4 lg:w-56 lg:h-11 md:w-96 w-full bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 rounded py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
             />
           </label>
         </div>
@@ -45,7 +45,7 @@ export const Hero = () => {
             <input
               type='number'
               placeholder='Huespedes'
-              className='pl-10 pr-4 lg:w-64 md:w-96 w-full bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 rounded py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
+              className='pl-10 pr-4 lg:w-56 lg:h-11 md:w-96 w-full bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 rounded py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
             />
           </label>
         </div>
