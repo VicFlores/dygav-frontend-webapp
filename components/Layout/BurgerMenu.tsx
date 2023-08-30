@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { TMenuItem } from '@/types';
 import { UIContext } from '@/context';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import Image from 'next/legacy/image';
 
 const menuItem: TMenuItem[] = [
   { title: 'Viaja', path: '/' },
@@ -10,6 +11,9 @@ const menuItem: TMenuItem[] = [
   { title: 'Propietarios', path: '/' },
   { title: 'Licencias VUT', path: '/' },
 ];
+
+const imageUrl =
+  'https://res.cloudinary.com/vicflores11/image/upload/v1691366906/Dygav/DYGAV_lce25q.svg';
 
 export const BurgerMenu = () => {
   const { sideMenu, isToogleBurgerMenu } = useContext(UIContext);
@@ -20,8 +24,20 @@ export const BurgerMenu = () => {
 
   return (
     <nav className='w-full h-auto lg:hidden p-4 static'>
-      <div onClick={handlerToogleMenu}>
-        <GiHamburgerMenu className='text-white text-[30px] ' />
+      <div className='flex justify-between items-center'>
+        <div className='h-auto w-auto'>
+          <Image
+            src={imageUrl}
+            alt='DyGav Log'
+            width={70}
+            height={70}
+            priority
+          />
+        </div>
+
+        <div onClick={handlerToogleMenu}>
+          <GiHamburgerMenu className='text-white text-4xl md:text-5xl' />
+        </div>
       </div>
 
       {sideMenu ? (
@@ -38,13 +54,23 @@ export const BurgerMenu = () => {
             ))}
           </div>
           <div className='grid justify-center items-center gap-y-4'>
-            <button id='toggle' className='bg-white text-p600 w-36 h-10'>
+            <Link
+              href='register'
+              passHref
+              id='toggle'
+              className='bg-white text-p600 px-5 py-2'
+            >
               Crear Cuenta
-            </button>
+            </Link>
 
-            <button id='toggle' className='bg-p600 text-white w-36 h-10'>
+            <Link
+              href='login'
+              passHref
+              id='toggle'
+              className='bg-p600 text-white px-5 py-2'
+            >
               Iniciar Sesion
-            </button>
+            </Link>
           </div>
         </div>
       ) : (
