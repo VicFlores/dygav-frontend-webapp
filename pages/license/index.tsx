@@ -6,9 +6,13 @@ import {
   Layout,
   LicenseTourist,
 } from '@/components';
-import React from 'react';
+import { useSession } from 'next-auth/react';
 
-const index = () => {
+export default function License() {
+  const { data: session } = useSession();
+
+  console.log('session:', { session });
+
   return (
     <section>
       <div
@@ -29,6 +33,4 @@ const index = () => {
       <Contact />
     </section>
   );
-};
-
-export default index;
+}
