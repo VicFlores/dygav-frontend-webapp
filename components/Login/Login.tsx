@@ -34,7 +34,15 @@ export const Login = () => {
 
     if (res?.error) return setError(res.error);
 
-    if (res?.ok) return router.push('/');
+    if (res?.ok) return router.push('/license');
+  };
+
+  const handleGoogleLogin = async () => {
+    const res = await signIn('google');
+
+    if (res?.error) return setError(res.error);
+
+    if (res?.ok) return router.push('/license');
   };
 
   return (
@@ -89,7 +97,7 @@ export const Login = () => {
           <div className='relative'>
             <FcGoogle className='w-5 md:h-5 absolute text-white top-1/2 -translate-y-1/2 right-4 md:right-4 lg:right-8' />
             <button
-              id='toggle'
+              onClick={handleGoogleLogin}
               className='bg-p600 hover:bg-p800 text-left text-[13px] md:text-sm lg:text-base py-2 px-4 w-[220px] md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
             >
               Iniciar Sesion con Google
