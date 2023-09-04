@@ -1,7 +1,8 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import User from '@/models/user';
+import GoogleProvider from 'next-auth/providers/google';
 import bcrypt from 'bcrypt';
+import User from '@/models/user';
 import { connectDB } from '@/utils/db/database';
 
 export default NextAuth({
@@ -9,9 +10,10 @@ export default NextAuth({
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
-        email: { label: 'Email', type: 'email', placeholder: 'jsmith' },
+        email: { label: 'Email', type: 'email' },
         password: { label: 'Password', type: 'password' },
       },
+
       async authorize(credentials, req) {
         await connectDB();
 
@@ -31,10 +33,36 @@ export default NextAuth({
         return userFound;
       },
     }),
+
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRECT as string,
+    }),
   ],
 
   callbacks: {
-    jwt({ account, token, user, profile, session }) {
+    async signIn({ account, profile }) {
+      await connectDB();
+
+      if (account?.provider === 'google') {
+        const userFound = await User.findOne({ email: profile?.email });
+
+        if (!userFound) {
+          const user = new User({
+            fullname: profile?.name,
+            email: profile?.email,
+          });
+
+          await user.save();
+
+          return true;
+        }
+      }
+
+      return true;
+    },
+
+    jwt({ token, user }) {
       if (user) token.user = user;
 
       return token;
