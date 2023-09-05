@@ -12,7 +12,7 @@ interface Props {
 export const Layout: FC<Props> = ({
   children,
   session = null,
-  title = 'OpenJira App',
+  title = 'Dygav App',
 }) => {
   return (
     <div>
@@ -21,9 +21,9 @@ export const Layout: FC<Props> = ({
       </Head>
 
       <NavBar session={session} />
-      <BurgerMenu />
+      <BurgerMenu session={session} />
 
-      <div>{children}</div>
+      <>{children}</>
     </div>
   );
 };
