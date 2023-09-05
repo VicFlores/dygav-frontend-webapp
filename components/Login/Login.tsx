@@ -34,7 +34,7 @@ export const Login = () => {
 
     if (res?.error) return setError(res.error);
 
-    if (res?.ok) return router.push('/license');
+    if (res?.ok) return router.push('/dashboard');
   };
 
   const handleGoogleLogin = async () => {
