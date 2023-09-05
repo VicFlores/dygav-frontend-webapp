@@ -20,3 +20,4 @@ export * from './Owners/Contact';
 export * from './Licenses/HeroLicense';
 export * from './Licenses/GetLicense';
 export * from './Licenses/LicenseTourist';
+export * from './Dashboard/Dashboard';
