@@ -1,38 +1,21 @@
-import { TMenuItem } from '@/types';
-import { Session } from 'next-auth';
+import { TSession } from '@/types';
+import { accountMenuItem, publicMenuItem } from '@/utils';
 import { signOut } from 'next-auth/react';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { FC } from 'react';
 
-const publicMenuItem: TMenuItem[] = [
-  { title: 'Viaja', path: '/' },
-  { title: 'Apartamentos', path: '/' },
-  { title: 'Propietarios', path: '/' },
-  { title: 'Licencias VUT', path: '/' },
-];
-
-const accountMenuItem: TMenuItem[] = [
-  { title: 'Reservaciones', path: '/' },
-  { title: 'Apartamentos', path: '/' },
-  { title: 'Mi perfil', path: '/' },
-];
-
 const imageUrl =
   'https://res.cloudinary.com/vicflores11/image/upload/v1691366906/Dygav/DYGAV_lce25q.svg';
 
-interface Props {
-  session: Session | null;
-}
-
-export const NavBar: FC<Props> = ({ session }) => {
+export const NavBar: FC<TSession> = ({ session }) => {
   const router = useRouter();
 
   return (
     <>
       {session?.user ? (
-        <nav className='w-full h-32 hidden lg:flex p-4 justify-between items-center static bg-p600'>
+        <nav className='w-full h-28 hidden lg:flex p-4 justify-between items-center static bg-p600'>
           <div className='h-auto w-auto relative'>
             <Image
               src={imageUrl}
@@ -43,7 +26,7 @@ export const NavBar: FC<Props> = ({ session }) => {
             />
           </div>
 
-          <div className='space-x-8'>
+          <div className='flex justify-evenly items-center grow'>
             {accountMenuItem.map((item, index) => (
               <Link
                 key={index}
@@ -53,6 +36,17 @@ export const NavBar: FC<Props> = ({ session }) => {
                 {item.title}
               </Link>
             ))}
+
+            <div className='h-16 w-16 relative'>
+              <Image
+                src={
+                  'https://res.cloudinary.com/vicflores11/image/upload/v1667669217/frontend-utec-timestamp/pexels-photo-2467392_xvfn2a.webp'
+                }
+                alt={'Profile picture'}
+                layout='fill'
+                className='rounded-full'
+              />
+            </div>
           </div>
 
           <div className='space-x-6'>
