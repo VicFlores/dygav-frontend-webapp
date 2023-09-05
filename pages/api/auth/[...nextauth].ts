@@ -17,7 +17,7 @@ export default NextAuth({
       async authorize(credentials, req) {
         await connectDB();
 
-        const userFound = await User.findOne({
+        let userFound = await User.findOne({
           email: credentials?.email,
         }).select('+password');
 
@@ -29,6 +29,10 @@ export default NextAuth({
         );
 
         if (!passwordMatch) throw new Error('Invalid credentials');
+
+        userFound = userFound.toObject();
+
+        delete userFound.password;
 
         return userFound;
       },
