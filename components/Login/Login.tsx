@@ -34,7 +34,7 @@ export const Login = () => {
 
     if (res?.error) return setError(res.error);
 
-    if (res?.ok) return router.push('/dashboard');
+    if (res?.ok) return router.push('/private/dashboard');
   };
 
   const handleGoogleLogin = async () => {
