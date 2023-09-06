@@ -5,7 +5,7 @@ export default function RegisterPage() {
     <section>
       <div
         className={
-          'w-full bg-brandContent bg-center bg-cover bg-no-repeat h-screen'
+          'w-full bg-brandContent bg-center bg-cover bg-no-repeat h-[calc(100vh+280px)] md:h-screen'
         }
       >
         <Layout title='DyGav Register' />
