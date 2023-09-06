@@ -37,10 +37,10 @@ export const NavBar: FC<TSession> = ({ session }) => {
               </Link>
             ))}
 
-            <div className='h-16 w-16 relative'>
+            <div className='h-14 w-14 relative'>
               <Image
                 src={
-                  'https://res.cloudinary.com/vicflores11/image/upload/v1667669217/frontend-utec-timestamp/pexels-photo-2467392_xvfn2a.webp'
+                  'https://res.cloudinary.com/vicflores11/image/upload/v1667262306/frontend-utec-timestamp/pexels-photo-3284698_c9w9ds.jpg'
                 }
                 alt={'Profile picture'}
                 layout='fill'
