@@ -104,7 +104,7 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
                   href='register'
                   passHref
                   id='toggle'
-                  className='bg-white text-p600 px-5 py-2'
+                  className='text-sm md:text-base bg-white text-p600 px-5 py-2'
                 >
                   Crear Cuenta
                 </Link>
@@ -113,7 +113,7 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
                   href='login'
                   passHref
                   id='toggle'
-                  className='bg-p600 text-white px-5 py-2'
+                  className='text-sm md:text-base bg-p600 text-white px-5 py-2'
                 >
                   Iniciar Sesion
                 </Link>
