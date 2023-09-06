@@ -1,6 +1,6 @@
 import React, { FC, useContext } from 'react';
 import Link from 'next/link';
-import { TMenuItem, TSession } from '@/types';
+import { TSession } from '@/types';
 import { UIContext } from '@/context';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import Image from 'next/legacy/image';
