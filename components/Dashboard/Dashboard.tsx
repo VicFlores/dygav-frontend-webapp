@@ -36,11 +36,11 @@ export const Dashboard = () => {
         Mis Reservaciones
       </p>
 
-      {reservation ? (
+      {reservation.length > 0 ? (
         <div className='grid gap-y-10 md:grid-cols-2 md:gap-y-8 lg:grid-cols-3 '>
           {reservation.map((item) => (
             <div
-              className='rounded-xl space-y-4 justify-self-center border-[1px] border-p600 px-5 py-5 bg-gray300/[.2] w-[300px] md:w-[310px]'
+              className='rounded-xl space-y-4 justify-self-center border-[1px] border-p600 px-5 py-5 bg-gray300/[.14] w-[300px] md:w-[310px]'
               key={item.id}
             >
               <figure className='text-center'>
@@ -61,7 +61,7 @@ export const Dashboard = () => {
 
               <div className='relative'>
                 <AiOutlineCheckCircle className='w-5 md:h-5 text-p600 absolute top-1/2 -translate-y-1/2 right-5 md:right-12 lg:right-10' />
-                <button className='bg-white text-center text-p600 hover:bg-gray300 border-[1px] border-p600 rounded-md text-[13px] md:text-sm lg:text-base py-2 px-4 w-full'>
+                <button className='text-center text-p600 hover:bg-gray300 border-[1px] border-p600 rounded-md text-[13px] md:text-sm lg:text-base py-2 px-4 w-full'>
                   Ver reservación
                 </button>
               </div>
