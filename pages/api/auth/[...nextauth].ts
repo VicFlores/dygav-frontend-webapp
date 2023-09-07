@@ -5,6 +5,12 @@ import bcrypt from 'bcrypt';
 import User from '@/models/user';
 import { connectDB } from '@/utils/db/database';
 
+export interface GoogleProfile extends Record<string, any> {
+  email: string;
+  email_verified: boolean;
+  name: string;
+}
+
 export default NextAuth({
   providers: [
     CredentialsProvider({
@@ -46,20 +52,29 @@ export default NextAuth({
 
   callbacks: {
     async signIn({ account, profile }) {
-      await connectDB();
-
       if (account?.provider === 'google') {
-        const userFound = await User.findOne({ email: profile?.email });
+        try {
+          await connectDB();
 
-        if (!userFound) {
-          const user = new User({
-            fullname: profile?.name,
-            email: profile?.email,
-          });
+          const userFound = await User.findOne({ email: profile?.email });
 
-          await user.save();
+          if (!userFound) {
+            const randomPassword = Math.random().toString(36).slice(-12);
+            const hashedPassword = await bcrypt.hash(randomPassword, 12);
+
+            await User.create({
+              fullname: profile?.name,
+              email: profile?.email,
+              password: hashedPassword,
+            });
+
+            return true;
+          }
 
           return true;
+        } catch (error) {
+          console.error(error);
+          return false;
         }
       }
 
