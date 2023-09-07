@@ -37,14 +37,6 @@ export const Login = () => {
     if (res?.ok) return router.push('/private/dashboard');
   };
 
-  const handleGoogleLogin = async () => {
-    const res = await signIn('google');
-
-    if (res?.error) return setError(res.error);
-
-    if (res?.ok) return router.push('/license');
-  };
-
   return (
     <div className='flex items-center justify-center mt-10 md:mt-8 lg:mt-0'>
       <div className='bg-white px-6 py-4 md:py-6 lg:py-10 space-y-5 w-[350px] md:w-[450px]'>
@@ -97,7 +89,9 @@ export const Login = () => {
           <div className='relative'>
             <FcGoogle className='w-5 md:h-5 absolute text-white top-1/2 -translate-y-1/2 right-4 md:right-4 lg:right-8' />
             <button
-              onClick={handleGoogleLogin}
+              onClick={async () =>
+                await signIn('google', { callbackUrl: '/private/dashboard' })
+              }
               className='bg-p600 hover:bg-p800 text-left text-[13px] md:text-sm lg:text-base py-2 px-4 w-[220px] md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
             >
               Iniciar Sesion con Google
