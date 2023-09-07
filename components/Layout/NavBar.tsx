@@ -1,6 +1,6 @@
 import { TSession } from '@/types';
 import { accountMenuItem, publicMenuItem } from '@/utils';
-import { signOut } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -38,14 +38,23 @@ export const NavBar: FC<TSession> = ({ session }) => {
             ))}
 
             <div className='h-14 w-14 relative'>
-              <Image
-                src={
-                  'https://res.cloudinary.com/vicflores11/image/upload/v1667262306/frontend-utec-timestamp/pexels-photo-3284698_c9w9ds.jpg'
-                }
-                alt={'Profile picture'}
-                layout='fill'
-                className='rounded-full'
-              />
+              {session?.user.image ? (
+                <Image
+                  src={session.user.image}
+                  alt={'Profile picture'}
+                  layout='fill'
+                  className='rounded-full'
+                />
+              ) : (
+                <Image
+                  src={
+                    'https://res.cloudinary.com/vicflores11/image/upload/v1667262306/frontend-utec-timestamp/pexels-photo-3284698_c9w9ds.jpg'
+                  }
+                  alt={'Profile picture'}
+                  layout='fill'
+                  className='rounded-full'
+                />
+              )}
             </div>
           </div>
 
