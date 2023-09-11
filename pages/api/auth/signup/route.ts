@@ -7,6 +7,7 @@ type TSignup = {
   fullname: string;
   email: string;
   password: string;
+  role: string;
 };
 
 export default async function handler(
@@ -14,7 +15,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === 'POST') {
-    const { fullname, email, password }: TSignup = req.body;
+    const { fullname, email, password, role }: TSignup = req.body;
 
     if (!password || password.length < 6)
       return res
@@ -31,7 +32,12 @@ export default async function handler(
 
       const hashedPassword = await bcrypt.hash(password, 12);
 
-      const user = new User({ fullname, email, password: hashedPassword });
+      const user = new User({
+        fullname,
+        email,
+        password: hashedPassword,
+        role,
+      });
 
       const savedUser = await user.save();
 
