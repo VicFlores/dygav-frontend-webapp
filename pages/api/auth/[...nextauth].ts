@@ -25,7 +25,7 @@ export default NextAuth({
 
         let userFound = await User.findOne({
           email: credentials?.email,
-        }).select('+password');
+        }).select(['+password', '+role']);
 
         if (!userFound) throw new Error('Invalid credentials');
 
@@ -51,12 +51,14 @@ export default NextAuth({
   ],
 
   callbacks: {
-    async signIn({ account, profile }) {
+    async signIn({ account, profile, user }) {
       if (account?.provider === 'google') {
         try {
           await connectDB();
 
-          const userFound = await User.findOne({ email: profile?.email });
+          const userFound = await User.findOne({
+            email: profile?.email,
+          }).select('+role');
 
           if (!userFound) {
             const randomPassword = Math.random().toString(36).slice(-12);
@@ -71,18 +73,22 @@ export default NextAuth({
             return true;
           }
 
+          user.role = userFound.role;
+          user.id = userFound._id;
+
           return true;
         } catch (error) {
           console.error(error);
           return false;
         }
       }
-
       return true;
     },
 
     jwt({ token, user }) {
-      if (user) token.user = user;
+      if (user) {
+        token.user = user;
+      }
 
       return token;
     },
