@@ -20,6 +20,7 @@ const userSchema = new Schema({
 
   role: {
     type: String,
+    enum: ['tourist', 'owner'],
     required: true,
     select: false,
   },
