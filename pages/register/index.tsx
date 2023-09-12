@@ -1,6 +1,9 @@
-import { Layout, Register } from '@/components';
+import { useSession } from 'next-auth/react';
+import { NavBar, Register } from '@/components';
 
 export default function RegisterPage() {
+  const { data: session } = useSession();
+
   return (
     <section>
       <div
@@ -8,7 +11,8 @@ export default function RegisterPage() {
           'w-full bg-brandContent bg-center bg-cover bg-no-repeat h-[calc(100vh+320px)] md:h-screen'
         }
       >
-        <Layout title='DyGav Register' />
+        <NavBar session={session} />
+
         <Register />
       </div>
     </section>

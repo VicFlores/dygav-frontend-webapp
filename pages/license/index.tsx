@@ -1,13 +1,16 @@
+import { useSession } from 'next-auth/react';
 import {
   Contact,
   ContactYou,
   GetLicense,
   HeroLicense,
-  Layout,
   LicenseTourist,
+  NavBar,
 } from '@/components';
 
 export default function License() {
+  const { data: session } = useSession();
+
   return (
     <section>
       <div
@@ -15,7 +18,7 @@ export default function License() {
           'w-full h-screen bg-heroContent bg-center bg-cover bg-no-repeat '
         }
       >
-        <Layout title='DyGav Owners' />
+        <NavBar session={session} />
         <HeroLicense />
       </div>
 

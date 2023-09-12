@@ -1,13 +1,16 @@
+import { useSession } from 'next-auth/react';
 import {
   HeroOwners,
-  Layout,
   PeachOwners,
   ContactYou,
   Information,
   Contact,
+  NavBar,
 } from '@/components';
 
 const OwnersPage = () => {
+  const { data: session } = useSession();
+
   return (
     <section>
       <div
@@ -15,7 +18,7 @@ const OwnersPage = () => {
           'w-full h-screen bg-heroContent bg-center bg-cover bg-no-repeat '
         }
       >
-        <Layout title='DyGav Owners' />
+        <NavBar session={session} />
         <HeroOwners />
       </div>
 

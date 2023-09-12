@@ -1,17 +1,20 @@
+import { useSession } from 'next-auth/react';
 import {
-  Layout,
   Hero,
   Carousel,
   AboutUs,
   OurComments,
   BrandContent,
+  NavBar,
 } from '@/components';
 
 export default function HomePage() {
+  const { data: session } = useSession();
+
   return (
     <section>
       <div className={'w-full bg-heroContent bg-center bg-cover bg-no-repeat '}>
-        <Layout title='DyGav Home' />
+        <NavBar session={session} />
         <Hero />
       </div>
 
