@@ -1,5 +1,5 @@
 import { useSession } from 'next-auth/react';
-import { Dashboard, Layout } from '@/components';
+import { TouristDashboard, Layout } from '@/components';
 
 export default function DashboardPage() {
   const { data: session } = useSession();
@@ -7,7 +7,7 @@ export default function DashboardPage() {
   return (
     <section>
       <Layout session={session} title='Dygav Dash'>
-        <Dashboard />
+        <TouristDashboard />
       </Layout>
     </section>
   );

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 
-export const Dashboard = () => {
+export const TouristDashboard = () => {
   const reservation = [
     {
       id: 1,

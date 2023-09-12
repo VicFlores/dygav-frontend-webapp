@@ -20,5 +20,5 @@ export * from './Owners/Contact';
 export * from './Licenses/HeroLicense';
 export * from './Licenses/GetLicense';
 export * from './Licenses/LicenseTourist';
-export * from './Dashboard/Dashboard';
+export * from './TouristDashboard/TouristDashboard';
 export * from './Reservation/Reservation';
