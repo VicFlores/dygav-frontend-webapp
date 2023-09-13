@@ -1,6 +1,7 @@
 export * from './Layout/Layout';
 export * from './Layout/NavBar';
 export * from './Layout/BurgerMenu';
+export * from './Layout/Footer';
 export * from './Home/Hero';
 export * from './Home/Carousel';
 export * from './Home/AboutUs';
@@ -22,4 +23,4 @@ export * from './Licenses/GetLicense';
 export * from './Licenses/LicenseTourist';
 export * from './TouristDashboard/TouristDashboard';
 export * from './Reservation/Reservation';
-export * from './Layout/Footer';
+export * from './OwnerDashboard/OwnerDashboard';
