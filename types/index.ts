@@ -3,3 +3,4 @@ export * from './UI/TImageProps';
 export * from './UI/TCardProps';
 export * from './UI/TSession';
 export * from './TUserToken';
+export * from './TAccomodations';
