@@ -1,4 +1,7 @@
-export type Accomodation = {
+import { Document, ObjectId } from 'mongoose';
+
+export type Accomodation = Document & {
+  userId: ObjectId;
   name: string;
   web: string;
   bookingMode: string;
@@ -8,21 +11,12 @@ export type Accomodation = {
   rentalType: string;
   cancellationPolicy: CancellationPolicy;
   advance: Advance;
-  privatePrivacyPolicy: BookingConditions;
   bookingConditions: BookingConditions;
   entryTime: string;
   departureTime: string;
   fullPayment: boolean;
-  depositAmount: number;
-  depositCharge: number;
-  depositType: string;
-  depositRefund: number;
-  depositPayment: number;
-  minBookingPeriod: number;
-  maxBookingPeriod: number;
   description: BookingConditions;
   introduction: BookingConditions;
-  tradeName: BookingConditions;
   units: Unit[];
 };
 
@@ -33,20 +27,11 @@ export type Advance = {
 
 export type BookingConditions = {
   es: string;
-  en: string;
-  ca: string;
-  de: string;
-  fr: string;
-  it: string;
-  pt: string;
-  nl: string;
-  ru: string;
 };
 
 export type CancellationPolicy = {
   type: string;
   days: number;
-  additionalPolicy: BookingConditions;
 };
 
 export type Location = {
@@ -67,13 +52,9 @@ export type Unit = {
   capacity: number;
   additionalCapacity: number;
   extraCapacity: number;
-  checkInDay: string;
-  departureDay: string;
   forceWeekend: boolean;
   minimumStay: number;
   weekPrice: number;
   weekendPrice: number;
   additionalPricePerPerson: number;
-  unitSeasons: any[];
-  unitExtras: any[];
 };
