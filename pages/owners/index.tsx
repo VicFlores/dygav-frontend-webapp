@@ -6,6 +6,7 @@ import {
   Information,
   Contact,
   NavBar,
+  Footer,
 } from '@/components';
 
 const OwnersPage = () => {
@@ -29,6 +30,8 @@ const OwnersPage = () => {
       <Information />
 
       <Contact />
+
+      <Footer />
     </section>
   );
 };

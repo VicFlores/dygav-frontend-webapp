@@ -2,6 +2,7 @@ import { useSession } from 'next-auth/react';
 import {
   Contact,
   ContactYou,
+  Footer,
   GetLicense,
   HeroLicense,
   LicenseTourist,
@@ -29,6 +30,8 @@ export default function License() {
       <LicenseTourist />
 
       <Contact />
+
+      <Footer />
     </section>
   );
 }

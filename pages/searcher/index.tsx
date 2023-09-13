@@ -1,5 +1,5 @@
 import { useSession } from 'next-auth/react';
-import { HeroSearcher, NavBar, SearcherCards } from '@/components';
+import { Footer, HeroSearcher, NavBar, SearcherCards } from '@/components';
 
 export default function SearcherPage() {
   const { data: session } = useSession();
@@ -16,6 +16,8 @@ export default function SearcherPage() {
       </div>
 
       <SearcherCards />
+
+      <Footer />
     </section>
   );
 }

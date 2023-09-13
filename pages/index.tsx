@@ -6,6 +6,7 @@ import {
   OurComments,
   BrandContent,
   NavBar,
+  Footer,
 } from '@/components';
 
 export default function HomePage() {
@@ -25,6 +26,8 @@ export default function HomePage() {
       <OurComments />
 
       <BrandContent />
+
+      <Footer />
     </section>
   );
 }
