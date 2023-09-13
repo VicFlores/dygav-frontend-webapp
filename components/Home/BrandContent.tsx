@@ -43,7 +43,7 @@ const imageProps: TImageProps[] = [
 
 export const BrandContent = () => {
   return (
-    <section className='bg-brandContent grid items-center justify-center w-full bg-center bg-cover bg-no-repeat lg:h-[350px] md:h-auto mt-28 mb-28'>
+    <section className='bg-brandContent grid items-center justify-center w-full bg-center bg-cover bg-no-repeat lg:h-[350px] md:h-auto mt-28'>
       <p className='text-white text-[18px] md:text-2xl text-center p-10'>
         Descubre tu refugio perfecto a solo un clic de distancia.
       </p>
