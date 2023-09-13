@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React, { FC, ReactNode } from 'react';
 import { BurgerMenu, NavBar } from '..';
 import { Session } from 'next-auth';
+import { Footer } from './Footer';
 
 interface Props {
   children?: ReactNode;
@@ -24,6 +25,8 @@ export const Layout: FC<Props> = ({
       <BurgerMenu session={session} />
 
       <>{children}</>
+
+      <Footer />
     </div>
   );
 };
