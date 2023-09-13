@@ -1,6 +1,6 @@
 import { Document, ObjectId } from 'mongoose';
 
-export type Accomodation = Document & {
+export type Accomodations = Document & {
   userId: ObjectId;
   name: string;
   web: string;
