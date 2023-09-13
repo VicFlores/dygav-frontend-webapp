@@ -87,7 +87,11 @@ export default NextAuth({
 
     jwt({ token, user }) {
       if (user) {
-        token.user = user;
+        token.user = {
+          ...user,
+          id: user.id,
+          role: user.role,
+        };
       }
 
       return token;
