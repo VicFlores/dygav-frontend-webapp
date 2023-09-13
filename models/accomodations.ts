@@ -1,8 +1,8 @@
 import { Schema, model, models } from 'mongoose';
-import { Accomodation } from '@/types';
+import { Accomodations } from '@/types';
 
-const AccomodationSchema = new Schema<Accomodation>({
-  userId: { type: String, required: true },
+const AccomodationSchema = new Schema<Accomodations>({
+  userId: { type: Schema.Types.ObjectId, required: true, ref: 'User' },
   name: { type: String, required: [true, 'Name is required'] },
   web: { type: String, default: 'Dygav' },
   bookingMode: { type: String, default: 'ON-LINE' },
