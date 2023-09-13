@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, ChangeEventHandler, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import axios, { AxiosError } from 'axios';
@@ -14,6 +14,7 @@ export const Register = () => {
     fullname: '',
     email: '',
     password: '',
+    role: 'default',
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -25,14 +26,24 @@ export const Register = () => {
     });
   };
 
+  const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    const values = e.target.value;
+
+    setInfoState({
+      ...infoState,
+      [e.target.name]: values,
+    });
+  };
+
   const handleRegister = async () => {
-    const { fullname, email, password } = infoState;
+    const { fullname, email, password, role } = infoState;
 
     try {
       const signupResponse = await axios.post('/api/auth/signup/route', {
         fullname,
         email,
         password,
+        role,
       });
 
       const res = await signIn('credentials', {
@@ -43,7 +54,7 @@ export const Register = () => {
 
       if (res?.error) return setError(res.error);
 
-      if (res?.ok) return router.push('/');
+      if (res?.ok) return router.push('/login');
     } catch (error) {
       if (error instanceof AxiosError) {
         setError(error.response?.data.message);
@@ -59,7 +70,7 @@ export const Register = () => {
             ¡Bienvenido!
           </p>
           <p className='text-base md:text-lg lg:text-xl'>
-            Inicia sesión en DYGAV
+            Crear una cuenta en DYGAV
           </p>
         </div>
 
@@ -98,6 +109,22 @@ export const Register = () => {
               placeholder='Escribe tu contraseña'
               className='py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
             />
+          </label>
+
+          <label className='relative'>
+            <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <select
+              name='role'
+              value={infoState.role}
+              onChange={handleSelectChange}
+              className='py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
+            >
+              <option value='default' disabled>
+                Selecciona tu tipo de cuenta
+              </option>
+              <option value='owner'>Propietario</option>
+              <option value='tourist'>Turista</option>
+            </select>
           </label>
         </form>
 
