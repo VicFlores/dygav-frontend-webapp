@@ -1,4 +1,4 @@
-import { NavBar, Register } from '@/components';
+import { BurgerMenu, NavBar, Register } from '@/components';
 
 export default function RegisterPage() {
   return (
@@ -9,6 +9,7 @@ export default function RegisterPage() {
         }
       >
         <NavBar />
+        <BurgerMenu />
 
         <Register />
       </div>

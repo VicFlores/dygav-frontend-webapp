@@ -1,4 +1,4 @@
-import { Login, NavBar } from '@/components';
+import { BurgerMenu, Login, NavBar } from '@/components';
 
 export default function LoginPage() {
   return (
@@ -9,6 +9,7 @@ export default function LoginPage() {
         }
       >
         <NavBar />
+        <BurgerMenu />
         <Login />
       </div>
     </section>

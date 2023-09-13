@@ -1,4 +1,10 @@
-import { Footer, HeroSearcher, NavBar, SearcherCards } from '@/components';
+import {
+  BurgerMenu,
+  Footer,
+  HeroSearcher,
+  NavBar,
+  SearcherCards,
+} from '@/components';
 
 export default function SearcherPage() {
   return (
@@ -9,6 +15,7 @@ export default function SearcherPage() {
         }
       >
         <NavBar />
+        <BurgerMenu />
         <HeroSearcher />
       </div>
 

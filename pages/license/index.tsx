@@ -1,4 +1,5 @@
 import {
+  BurgerMenu,
   Contact,
   ContactYou,
   Footer,
@@ -17,6 +18,7 @@ export default function License() {
         }
       >
         <NavBar />
+        <BurgerMenu />
         <HeroLicense />
       </div>
 

@@ -6,6 +6,7 @@ import {
   Contact,
   NavBar,
   Footer,
+  BurgerMenu,
 } from '@/components';
 
 const OwnersPage = () => {
@@ -17,6 +18,8 @@ const OwnersPage = () => {
         }
       >
         <NavBar />
+        <BurgerMenu />
+
         <HeroOwners />
       </div>
 

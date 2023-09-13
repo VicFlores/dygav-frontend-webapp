@@ -6,6 +6,7 @@ import {
   BrandContent,
   NavBar,
   Footer,
+  BurgerMenu,
 } from '@/components';
 
 export default function HomePage() {
@@ -13,6 +14,7 @@ export default function HomePage() {
     <section>
       <div className={'w-full bg-heroContent bg-center bg-cover bg-no-repeat '}>
         <NavBar />
+        <BurgerMenu />
         <Hero />
       </div>
 
