@@ -15,8 +15,12 @@ export const AboutUsCard = () => {
             </p>
 
             <p className='text-black900 text-xs lg:text-sm md:text-sm px-4'>
-              Lorem ipsum dolor sit amet consectetur. Aliquam quisque tortor sit
-              ac. Ante dolor ultrices dapibus ullamcorper condimentum.
+              Somos una empresa con amplia experiencia en el sector inmobiliario
+              y gestión de patrimonio. Entendemos las necesidades y exigencias
+              del mercado actual. Nos enorgullecemos de ofrecer soluciones
+              integrales enfocadas en maximizar el rendimiento económico de tus
+              propiedades vacacionales. Nuestro objetivo es adaptarnos a cada
+              cliente para ofrecer un servicio personalizado y de alta calidad.
             </p>
           </div>
         </div>
@@ -32,8 +36,12 @@ export const AboutUsCard = () => {
             </p>
 
             <p className='text-black900 text-xs lg:text-sm md:text-sm px-4'>
-              Lorem ipsum dolor sit amet consectetur. Aliquam quisque tortor sit
-              ac. Ante dolor ultrices dapibus ullamcorper condimentum.
+              Mediante la digitalización, optimizamos la gestión de propiedades
+              para nuestros clientes. Somos líderes en tecnología para
+              apartamentos turísticos, ofreciendo una gestión ágil y segura. Nos
+              comprometemos a brindar soluciones innovadoras que mejoren la
+              experiencia de los propietarios y maximicen su retorno de
+              inversión, creando experiencias únicas para nuestros huéspedes.
             </p>
           </div>
         </div>
@@ -49,8 +57,12 @@ export const AboutUsCard = () => {
             </p>
 
             <p className='text-black900 text-xs lg:text-sm md:text-sm px-4'>
-              Lorem ipsum dolor sit amet consectetur. Aliquam quisque tortor sit
-              ac. Ante dolor ultrices dapibus ullamcorper condimentum.
+              Nuestro equipo de profesionales expertos tiene un conocimiento
+              profundo del sector inmobiliario y de la gestión de patrimonio.
+              Ofrecemos un servicio de alta calidad que supera las expectativas
+              de nuestros huéspedes. Nuestra flexibilidad nos permite adaptarnos
+              a las necesidades específicas de cada propietario, asegurando una
+              gestión eficaz y sin complicaciones para todos los involucrados.
             </p>
           </div>
         </div>

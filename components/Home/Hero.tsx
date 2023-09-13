@@ -9,9 +9,7 @@ export const Hero = () => {
           Bienvenidos a DYGAV
         </p>
         <p className='lg:text-[27px] md:text-[20px] text-[18px]'>
-          Donde la excelencia en la gestión de apartamentos <br /> turísticos
-          cobra vida respaldada por la experiencia y el renombre del Grupo
-          Pacitel.
+          Estás a unos clics de tu nuevo lugar favorito
         </p>
       </div>
 
