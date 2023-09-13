@@ -1,13 +1,13 @@
 import { useSession } from 'next-auth/react';
-import { Dashboard, Layout } from '@/components';
+import { Layout, OwnerDashboard } from '@/components';
 
-export default function DashboardPage() {
+export default function OwnerDashboardPage() {
   const { data: session } = useSession();
 
   return (
     <section>
       <Layout session={session} title='Dygav Dash'>
-        <h1>Hola desde Owner Dashboard</h1>
+        <OwnerDashboard />
       </Layout>
     </section>
   );
