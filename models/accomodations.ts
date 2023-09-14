@@ -5,6 +5,7 @@ const AccomodationSchema = new Schema<Accomodations>({
   userId: { type: Schema.Types.ObjectId, required: true, ref: 'User' },
   name: { type: String, required: [true, 'Name is required'] },
   web: { type: String, default: 'Dygav' },
+  image: { type: String, required: [true, 'Image is required'] },
   bookingMode: { type: String, default: 'ON-LINE' },
   environment: { type: String, required: [true, 'Environment is required'] },
   rentalType: { type: String, required: [true, 'Rental type is required'] },
