@@ -4,6 +4,7 @@ export type Accomodations = Document & {
   userId: ObjectId;
   name: string;
   web: string;
+  image: string;
   bookingMode: string;
   accommodationType: string;
   environment: string;
