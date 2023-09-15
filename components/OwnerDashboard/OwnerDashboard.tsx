@@ -1,12 +1,27 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { Accomodations } from '@/types';
+import { Session } from 'next-auth';
+import { axiosConfig } from '@/utils';
 
-export const OwnerDashboard: FC<{ data: Accomodations[] }> = ({ data }) => {
+export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
+  const [data, setData] = useState<Accomodations[]>([]);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    const accomodations = async () => {
+      const { data } = await axiosConfig.get(
+        `/api/accomodations/findByUserId/${session.user?._id}`
+      );
+
+      setData(data);
+    };
+
+    accomodations();
+  }, []);
 
   return (
     <div className='px-8 space-y-12 mb-24'>
