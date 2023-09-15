@@ -1,34 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { FC, useState } from 'react';
+import { AiOutlineCheckCircle } from 'react-icons/ai';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
-import { AiOutlineCheckCircle } from 'react-icons/ai';
+import { Accomodations } from '@/types';
 
-export const OwnerDashboard = () => {
-  const reservation = [
-    {
-      id: 1,
-      imgUrl:
-        'https://res.cloudinary.com/vicflores11/image/upload/v1691367754/Dygav/20_zc0zeu.png',
-      title: 'Card title',
-      information:
-        'Lorem ipsum dolor sit amet consectetur. Aliquam quisque tortor sit ac. Ante dolor ultrices dapibus ullamcorper condimentum.',
-    },
-    {
-      id: 2,
-      imgUrl:
-        'https://res.cloudinary.com/vicflores11/image/upload/v1691367754/Dygav/20_zc0zeu.png',
-      title: 'Card title',
-      information:
-        'Lorem ipsum dolor sit amet consectetur. Aliquam quisque tortor sit ac. Ante dolor ultrices dapibus ullamcorper condimentum.',
-    },
-    {
-      id: 3,
-      imgUrl:
-        'https://res.cloudinary.com/vicflores11/image/upload/v1691367754/Dygav/20_zc0zeu.png',
-      title: 'Card title',
-      information:
-        'Lorem ipsum dolor sit amet consectetur. Aliquam quisque tortor sit ac. Ante dolor ultrices dapibus ullamcorper condimentum.',
-    },
-  ];
+export const OwnerDashboard: FC<{ data: Accomodations[] }> = ({ data }) => {
+  const [error, setError] = useState('');
 
   return (
     <div className='px-8 space-y-12 mb-24'>
@@ -36,17 +14,17 @@ export const OwnerDashboard = () => {
         Mis Alojamientos
       </p>
 
-      {reservation.length > 0 ? (
+      {data.length > 0 ? (
         <div className='grid gap-y-10 md:grid-cols-2 md:gap-y-8 lg:grid-cols-3 '>
-          {reservation.map((item) => (
+          {data.map((item) => (
             <div
-              className='rounded-xl space-y-4 justify-self-center border-[1px] border-p600 px-5 py-5 bg-gray300/[.14] w-[300px] md:w-[310px]'
-              key={item.id}
+              className='rounded-xl space-y-4 justify-self-center border-[1px] border-p600 px-5 py-5 bg-gray300/[.14] w-[300px] md:w-[330px]'
+              key={String(item.userId)}
             >
               <figure className='text-center'>
                 <Image
-                  src={item.imgUrl}
-                  alt={item.title}
+                  src={item.image}
+                  alt={item.name}
                   height={176}
                   width={267}
                   priority
@@ -55,8 +33,8 @@ export const OwnerDashboard = () => {
               </figure>
 
               <div className='space-y-2'>
-                <p className='text-lg md:text-xl'>{item.title}</p>
-                <p className='text-xs md:text-sm'>{item.information}</p>
+                <p className='text-lg md:text-xl'>{item.name}</p>
+                <p className='text-xs md:text-sm'>{item.description.es}</p>
               </div>
 
               <div className='flex justify-center items-center relative'>
