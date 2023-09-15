@@ -5,12 +5,6 @@ import bcrypt from 'bcrypt';
 import User from '@/models/user';
 import { connectDB } from '@/utils/db/database';
 
-export interface GoogleProfile extends Record<string, any> {
-  email: string;
-  email_verified: boolean;
-  name: string;
-}
-
 export default NextAuth({
   providers: [
     CredentialsProvider({
