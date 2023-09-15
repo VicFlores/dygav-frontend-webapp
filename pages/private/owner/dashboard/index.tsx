@@ -17,11 +17,14 @@ export const getServerSideProps: GetServerSideProps<OwnerDash> = async (
 
   const id = session?.user?._id;
 
-  const accomodationByUser = await axiosConfig.get(
-    `/api/accomodations/findByUserId/${id}`
+  const res = await fetch(
+    `https://dygav-fronted-webapp.vercel.app/api/accomodations/findByUserId/${id}`,
+    {
+      method: 'GET',
+    }
   );
 
-  const data = accomodationByUser.data;
+  const data = await res.json();
 
   return { props: { session, data } };
 };
