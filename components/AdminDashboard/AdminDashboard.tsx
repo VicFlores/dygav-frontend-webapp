@@ -32,7 +32,7 @@ export const AdminDashboard: FC<{ session: Session }> = ({ session }) => {
 
         <Link
           className=' md:text-base lg:text-lg text-white bg-p600 px-4 py-[5px] mb-4 mt-4 md:mb-2 md:mt-0'
-          href='/private/owner/addAccomodation'
+          href='/private/admin/addAccomodation'
         >
           Crear nuevo alojamiento
         </Link>
