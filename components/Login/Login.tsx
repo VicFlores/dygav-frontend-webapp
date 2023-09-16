@@ -40,7 +40,7 @@ export const Login = () => {
     }
 
     if (res?.ok && session?.user?.role === 'owner') {
-      return router.push('/private/owner/dashboard');
+      return router.push('/private/admin/dashboard');
     }
   };
 

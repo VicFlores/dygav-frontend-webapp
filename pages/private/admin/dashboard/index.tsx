@@ -1,5 +1,5 @@
 import { getSession, useSession } from 'next-auth/react';
-import { Layout, OwnerDashboard } from '@/components';
+import { Layout, AdminDashboard } from '@/components';
 
 export default function OwnerDashboardPage() {
   const { data: session } = useSession();
@@ -8,7 +8,7 @@ export default function OwnerDashboardPage() {
     <section>
       <Layout session={session} title='Dygav Dash'>
         {session ? (
-          <OwnerDashboard session={session} />
+          <AdminDashboard session={session} />
         ) : (
           <>
             <h1>Waiting</h1>

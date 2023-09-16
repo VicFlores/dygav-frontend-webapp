@@ -23,5 +23,5 @@ export * from './Licenses/GetLicense';
 export * from './Licenses/LicenseTourist';
 export * from './TouristDashboard/TouristDashboard';
 export * from './Reservation/Reservation';
-export * from './OwnerDashboard/OwnerDashboard';
+export * from './AdminDashboard/AdminDashboard';
 export * from './NewAccomodation/NewAccomodation';
