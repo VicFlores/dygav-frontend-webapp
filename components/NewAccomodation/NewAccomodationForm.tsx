@@ -95,11 +95,8 @@ const NewAccomodationForm = () => {
         infoAccomodation
       );
 
-      console.log(res);
-
-      /* if (res?.error) return setError(res.error);
-
-      if (res?.ok) return router.push('/private/owner/dashboard'); */
+      if (res?.statusText === 'OK')
+        return router.push('/private/owner/dashboard');
     } catch (error) {
       if (error instanceof AxiosError) {
         setError(error.response?.data.message);
