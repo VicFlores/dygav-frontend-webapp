@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { FC, useEffect, useState } from 'react';
-import { AiOutlineCheckCircle } from 'react-icons/ai';
-import Image from 'next/legacy/image';
-import Link from 'next/link';
-import { Accomodations } from '@/types';
 import { Session } from 'next-auth';
+import Link from 'next/link';
+import Image from 'next/legacy/image';
+import { AiOutlineCheckCircle } from 'react-icons/ai';
+import { Accomodations } from '@/types';
 import { axiosConfig } from '@/utils';
 
 export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
@@ -34,7 +34,7 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
           {data.map((item) => (
             <div
               className='rounded-xl space-y-4 justify-self-center border-[1px] border-p600 px-5 py-5 bg-gray300/[.14] w-[300px] md:w-[330px]'
-              key={String(item.userId)}
+              key={String(item._id)}
             >
               <figure className='text-center'>
                 <Image
