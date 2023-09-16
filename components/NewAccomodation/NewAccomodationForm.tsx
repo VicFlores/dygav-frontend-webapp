@@ -3,7 +3,6 @@ import { BiExtension } from 'react-icons/bi';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
-import { useSession } from 'next-auth/react';
 import { axiosConfig } from '@/utils';
 import User from '@/models/user';
 
@@ -17,6 +16,7 @@ const NewAccomodationForm = () => {
 
   const [infoState, setInfoState] = useState({
     name: '',
+    userId: 'default',
     image: '',
     environment: 'default',
     rentalType: 'default',
@@ -42,7 +42,6 @@ const NewAccomodationForm = () => {
   });
   const [error, setError] = useState('');
   const router = useRouter();
-  const { data: session } = useSession();
 
   useEffect(() => {
     const userByRole = async () => {
@@ -74,7 +73,7 @@ const NewAccomodationForm = () => {
 
   const handleCreateAccomodation = async () => {
     const infoAccomodation = {
-      userId: session?.user?._id,
+      userId: infoState.userId,
       name: infoState.name,
       image: infoState.image,
       environment: infoState.environment,
@@ -439,8 +438,8 @@ const NewAccomodationForm = () => {
         <label className='relative'>
           <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900/[.8]' />
           <select
-            name='country'
-            value={infoState.country}
+            name='userId'
+            value={infoState.userId}
             onChange={handleSelectChange}
             className='text-black900/[.7] py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-[1px] border-r-black900  w-full leading-tight focus:outline-none focus:shadow-outline'
           >
