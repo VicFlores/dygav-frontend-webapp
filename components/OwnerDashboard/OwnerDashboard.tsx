@@ -25,15 +25,24 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
 
   return (
     <div className='px-8 space-y-12 mb-24'>
-      <p className=' text-black900/[.7] border-b-[1px] mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl'>
-        Mis Alojamientos
-      </p>
+      <div className='flex flex-col md:flex-row justify-center items-center md:justify-between md:items-end border-b-[1px]'>
+        <p className=' text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl'>
+          Mis Alojamientos
+        </p>
+
+        <Link
+          className=' md:text-base lg:text-lg text-white bg-p600 px-4 py-[5px] mb-4 mt-4 md:mb-2 md:mt-0'
+          href='/private/owner/addAccomodation'
+        >
+          Crear nuevo alojamiento
+        </Link>
+      </div>
 
       {data.length > 0 ? (
-        <div className='grid gap-y-10 md:grid-cols-2 md:gap-y-8 lg:grid-cols-3 '>
+        <div className='grid gap-y-10 md:grid-cols-2 md:gap-y-8 lg:grid-cols-3'>
           {data.map((item) => (
             <div
-              className='rounded-xl space-y-4 justify-self-center border-[1px] border-p600 px-5 py-5 bg-gray300/[.14] w-[300px] md:w-[330px]'
+              className='h-fit rounded-xl space-y-4 justify-self-center border-[1px] border-p600 px-5 py-5 bg-gray300/[.14] w-[300px] md:w-[330px]'
               key={String(item._id)}
             >
               <figure className='text-center'>
