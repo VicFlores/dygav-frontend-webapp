@@ -1,6 +1,7 @@
 export enum Role {
   tourist = 'tourist',
   owner = 'owner',
+  admin = 'admin',
 }
 
 declare module 'next-auth' {
