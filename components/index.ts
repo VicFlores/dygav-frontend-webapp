@@ -25,3 +25,4 @@ export * from './TouristDashboard/TouristDashboard';
 export * from './Reservation/Reservation';
 export * from './AdminDashboard/AdminDashboard';
 export * from './NewAccomodation/NewAccomodation';
+export * from './OwnerDashboard/OwnerDashboard';
