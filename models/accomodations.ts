@@ -10,7 +10,7 @@ const AccomodationSchema = new Schema<Accomodations>({
   environment: { type: String, required: [true, 'Environment is required'] },
   rentalType: { type: String, required: [true, 'Rental type is required'] },
   entryTime: { type: String, required: [true, 'Entry time is required'] },
-  fullPayment: { type: Boolean, required: true },
+  fullPayment: { type: Boolean },
 
   departureTime: {
     type: String,
