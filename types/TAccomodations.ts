@@ -1,6 +1,7 @@
 import { ObjectId } from 'mongoose';
 
 export type Accomodations = {
+  _id: ObjectId;
   userId: ObjectId;
   name: string;
   web?: string;
