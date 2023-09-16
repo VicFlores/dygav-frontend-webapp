@@ -1,11 +1,20 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { BiExtension } from 'react-icons/bi';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
+import { axiosConfig } from '@/utils';
+import User from '@/models/user';
 
 const NewAccomodationForm = () => {
+  const [user, setUser] = useState([
+    {
+      _id: '',
+      email: '',
+    },
+  ]);
+
   const [infoState, setInfoState] = useState({
     name: '',
     image: '',
@@ -34,6 +43,16 @@ const NewAccomodationForm = () => {
   const [error, setError] = useState('');
   const router = useRouter();
   const { data: session } = useSession();
+
+  useEffect(() => {
+    const userByRole = async () => {
+      const { data } = await axiosConfig.get('/api/users/findUserRole');
+
+      setUser(data);
+    };
+
+    userByRole();
+  }, []);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const values = e.target.value;
@@ -69,7 +88,7 @@ const NewAccomodationForm = () => {
         city: infoState.city,
         region: infoState.region,
         country: infoState.country,
-        area: infoState.area,
+        area: infoState.environment,
       },
       bookingConditions: { es: infoState.bookingConditions },
       description: { es: infoState.description },
@@ -99,7 +118,7 @@ const NewAccomodationForm = () => {
       delete res.data?.image;
       delete res.data?.userId;
 
-      const resAvaibookawait = await axios.post(
+      await axios.post(
         'https://api.avaibook.biz/api/owner/accommodations/',
         res.data,
         {
@@ -111,12 +130,10 @@ const NewAccomodationForm = () => {
         }
       );
 
-      console.log(resAvaibookawait);
-
-      /* return router.push('/private/admin/dashboard'); */
+      return router.push('/private/admin/dashboard');
     } catch (error) {
       if (error instanceof AxiosError) {
-        setError(error.response?.data.message);
+        setError(error.response?.data);
       }
     }
   };
@@ -291,25 +308,10 @@ const NewAccomodationForm = () => {
             </option>
           </select>
         </label>
-
         <label className='relative'>
           <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900/[.8]' />
           <input
-            type='text'
-            name='area'
-            value={infoState.area}
-            onChange={handleChange}
-            placeholder='Area del alojamiento'
-            className='py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-[1px] border-r-black900 placeholder:text-black900/[.7] w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
-          />
-        </label>
-      </form>
-
-      <form className='grid md:grid-cols-2 lg:grid-cols-3 mt-8 md:px-12'>
-        <label className='relative'>
-          <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900/[.8]' />
-          <input
-            type='text'
+            type='url'
             name='image'
             value={infoState.image}
             onChange={handleChange}
@@ -317,7 +319,20 @@ const NewAccomodationForm = () => {
             className='py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-[1px] border-r-black900 placeholder:text-black900/[.7] w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
           />
         </label>
+      </form>
 
+      <form className='grid md:grid-cols-2 lg:grid-cols-3 mt-8 md:px-12'>
+        <label className='relative lg:col-start-1 lg:col-end-3'>
+          <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900/[.8]' />
+          <input
+            type='text'
+            name='description'
+            value={infoState.description}
+            onChange={handleChange}
+            placeholder='Descripcion del alojamiento'
+            className='py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-[1px] border-r-black900 placeholder:text-black900/[.7] w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
+          />
+        </label>
         <label className='relative'>
           <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900/[.8]' />
           <input
@@ -340,17 +355,7 @@ const NewAccomodationForm = () => {
             className='py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-[1px] border-r-black900 placeholder:text-black900/[.7] w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
           />
         </label>
-        <label className='relative lg:col-start-1 lg:col-end-3'>
-          <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900/[.8]' />
-          <input
-            type='text'
-            name='description'
-            value={infoState.description}
-            onChange={handleChange}
-            placeholder='Descripcion del alojamiento'
-            className='py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-[1px] border-r-black900 placeholder:text-black900/[.7] w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
-          />
-        </label>
+
         <label className='relative'>
           <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900/[.8]' />
           <input
@@ -430,6 +435,24 @@ const NewAccomodationForm = () => {
             placeholder='Precio adicional por persona'
             className='py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-[1px] border-r-black900 placeholder:text-black900/[.7] w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
           />
+        </label>
+        <label className='relative'>
+          <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900/[.8]' />
+          <select
+            name='country'
+            value={infoState.country}
+            onChange={handleSelectChange}
+            className='text-black900/[.7] py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-[1px] border-r-black900  w-full leading-tight focus:outline-none focus:shadow-outline'
+          >
+            <option value='default' disabled>
+              Usuario para asignar alojamiento
+            </option>
+            {user.map((item) => (
+              <option key={item._id} className='text-black900' value={item._id}>
+                {item.email}
+              </option>
+            ))}
+          </select>
         </label>
       </form>
 
