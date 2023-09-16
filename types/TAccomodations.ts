@@ -1,21 +1,21 @@
-import { Document, ObjectId } from 'mongoose';
+import { ObjectId } from 'mongoose';
 
-export type Accomodations = Document & {
+export type Accomodations = {
   userId: ObjectId;
   name: string;
-  web: string;
+  web?: string;
   image: string;
-  bookingMode: string;
+  bookingMode?: string;
   accommodationType: string;
   environment: string;
   location: Location;
   rentalType: string;
-  cancellationPolicy: CancellationPolicy;
-  advance: Advance;
+  cancellationPolicy?: CancellationPolicy;
+  advance?: Advance;
   bookingConditions: BookingConditions;
   entryTime: string;
   departureTime: string;
-  fullPayment: boolean;
+  fullPayment?: boolean;
   description: BookingConditions;
   introduction: BookingConditions;
   units: Unit[];
@@ -42,18 +42,18 @@ export type Location = {
   region: string;
   country: string;
   area: string;
-  longitude: number;
-  latitude: number;
+  longitude?: number;
+  latitude?: number;
 };
 
 export type Unit = {
   name: BookingConditions;
-  tradeName: BookingConditions;
+  tradeName?: BookingConditions;
   description: BookingConditions;
   capacity: number;
   additionalCapacity: number;
   extraCapacity: number;
-  forceWeekend: boolean;
+  forceWeekend?: boolean;
   minimumStay: number;
   weekPrice: number;
   weekendPrice: number;
