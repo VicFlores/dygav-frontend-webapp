@@ -14,7 +14,7 @@ export const AdminDashboard: FC<{ session: Session }> = ({ session }) => {
   useEffect(() => {
     const accomodations = async () => {
       const { data } = await axiosConfig.get(
-        `/api/accomodations/findByUserId/${session.user?._id}`
+        'api/accomodations/findAllAccomodations/route'
       );
 
       setData(data);
