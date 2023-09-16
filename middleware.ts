@@ -7,7 +7,7 @@ export default withAuth(
     const { pathname } = req.nextUrl;
     const { role } = req.nextauth.token?.user as TUserToken;
 
-    if (pathname.startsWith('/private/admin/dashboard') && role !== 'owner') {
+    if (pathname.startsWith('/private/admin/dashboard') && role !== 'admin') {
       return NextResponse.rewrite(new URL('/denied', req.url));
     }
 
