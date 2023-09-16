@@ -3,11 +3,11 @@ import { signIn, useSession } from 'next-auth/react';
 import { BiExtension } from 'react-icons/bi';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, FC, useState } from 'react';
+import { TSession } from '@/types';
 
-export const Login = () => {
+export const Login: FC<TSession> = ({ session }) => {
   const [error, setError] = useState('');
-  const { data: session } = useSession();
   const router = useRouter();
 
   const [infoState, setInfoState] = useState({
@@ -37,13 +37,9 @@ export const Login = () => {
 
     if (res?.ok && session?.user?.role === 'tourist') {
       return router.push('/private/dashboard');
-    }
-
-    if (res?.ok && session?.user?.role === 'owner') {
+    } else if (res?.ok && session?.user?.role === 'owner') {
       return router.push('/private/owner/dashboard');
-    }
-
-    if (res?.ok && session?.user?.role === 'admin') {
+    } else if (res?.ok && session?.user?.role === 'admin') {
       return router.push('/private/admin/dashboard');
     }
   };

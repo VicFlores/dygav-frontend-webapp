@@ -1,6 +1,9 @@
 import { BurgerMenu, Login, NavBar } from '@/components';
+import { useSession } from 'next-auth/react';
 
 export default function LoginPage() {
+  const { data: session } = useSession();
+
   return (
     <section>
       <div
@@ -10,7 +13,7 @@ export default function LoginPage() {
       >
         <NavBar />
         <BurgerMenu />
-        <Login />
+        <Login session={session} />
       </div>
     </section>
   );
