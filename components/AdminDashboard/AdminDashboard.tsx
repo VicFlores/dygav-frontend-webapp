@@ -7,7 +7,7 @@ import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { Accomodations } from '@/types';
 import { axiosConfig } from '@/utils';
 
-export const AdminDashboard: FC<{ session: Session }> = ({ session }) => {
+export const AdminDashboard = () => {
   const [data, setData] = useState<Accomodations[]>([]);
   const [error, setError] = useState('');
 
