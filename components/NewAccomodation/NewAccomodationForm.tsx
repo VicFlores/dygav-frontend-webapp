@@ -9,8 +9,8 @@ const NewAccomodationForm = () => {
   const [infoState, setInfoState] = useState({
     name: '',
     image: '',
-    environment: '',
-    rentalType: '',
+    environment: 'default',
+    rentalType: 'default',
     entryTime: '',
     departureTime: '',
     accommodationType: 'default',
@@ -18,7 +18,7 @@ const NewAccomodationForm = () => {
     zipCode: '',
     city: '',
     region: '',
-    country: '',
+    country: 'default',
     area: '',
     bookingConditions: '',
     description: '',
@@ -95,7 +95,25 @@ const NewAccomodationForm = () => {
         infoAccomodation
       );
 
-      return router.push('/private/admin/dashboard');
+      delete res.data?._id;
+      delete res.data?.image;
+      delete res.data?.userId;
+
+      const resAvaibookawait = await axios.post(
+        'https://api.avaibook.biz/api/owner/accommodations/',
+        res.data,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'X-AUTH-TOKEN':
+              '7fd52cc3b7e215ac8e5173cd1a0d176eabe0ced50fdf1dd346676fd36d051920',
+          },
+        }
+      );
+
+      console.log(resAvaibookawait);
+
+      /* return router.push('/private/admin/dashboard'); */
     } catch (error) {
       if (error instanceof AxiosError) {
         setError(error.response?.data.message);
@@ -120,31 +138,54 @@ const NewAccomodationForm = () => {
 
         <label className='relative'>
           <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900/[.8]' />
-          <input
-            type='text'
+          <select
             name='environment'
             value={infoState.environment}
-            onChange={handleChange}
-            placeholder='Entorno del alojamiento'
-            className='py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-[1px] border-r-black900 placeholder:text-black900/[.7] w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
-          />
+            onChange={handleSelectChange}
+            className='text-black900/[.7] py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-[1px] border-r-black900  w-full leading-tight focus:outline-none focus:shadow-outline'
+          >
+            <option value='default' disabled>
+              Entorno del alojamiento
+            </option>
+            <option className='text-black900' value='BEACH'>
+              Playa
+            </option>
+            <option className='text-black900' value='RURAL'>
+              Rural
+            </option>
+            <option className='text-black900' value='CITY'>
+              Cuidad
+            </option>
+            <option className='text-black900' value='SKI'>
+              Ski
+            </option>
+          </select>
         </label>
 
         <label className='relative'>
           <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900/[.8]' />
-          <input
-            type='text'
+          <select
             name='rentalType'
             value={infoState.rentalType}
-            onChange={handleChange}
-            placeholder='Tipo de renta'
-            className='py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-[1px] border-r-black900 placeholder:text-black900/[.7] w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
-          />
+            onChange={handleSelectChange}
+            className='text-black900/[.7] py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-[1px] border-r-black900  w-full leading-tight focus:outline-none focus:shadow-outline'
+          >
+            <option value='default' disabled>
+              Tipo de renta
+            </option>
+            <option className='text-black900' value='FULL'>
+              Completa
+            </option>
+            <option className='text-black900' value='ROOMS'>
+              Habitaciones
+            </option>
+          </select>
         </label>
         <label className='relative'>
           <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900/[.8]' />
           <input
             type='text'
+            onFocus={(e) => (e.target.type = 'time')}
             name='entryTime'
             value={infoState.entryTime}
             onChange={handleChange}
@@ -157,6 +198,7 @@ const NewAccomodationForm = () => {
           <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900/[.8]' />
           <input
             type='text'
+            onFocus={(e) => (e.target.type = 'time')}
             name='departureTime'
             value={infoState.departureTime}
             onChange={handleChange}
@@ -175,11 +217,14 @@ const NewAccomodationForm = () => {
             <option value='default' disabled>
               Selecciona tu tipo de alojamiento
             </option>
-            <option className='text-black900' value='house'>
+            <option className='text-black900' value='HOUSE'>
               Casa
             </option>
-            <option className='text-black900' value='apartament'>
+            <option className='text-black900' value='APARTMENT'>
               Apartamento
+            </option>
+            <option className='text-black900' value='CAMPING'>
+              Campamento
             </option>
           </select>
         </label>
@@ -232,14 +277,19 @@ const NewAccomodationForm = () => {
 
         <label className='relative'>
           <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900/[.8]' />
-          <input
-            type='text'
+          <select
             name='country'
             value={infoState.country}
-            onChange={handleChange}
-            placeholder='Pais del alojamiento'
-            className='py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-[1px] border-r-black900 placeholder:text-black900/[.7] w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
-          />
+            onChange={handleSelectChange}
+            className='text-black900/[.7] py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-[1px] border-r-black900  w-full leading-tight focus:outline-none focus:shadow-outline'
+          >
+            <option value='default' disabled>
+              Pais del alojamiento
+            </option>
+            <option className='text-black900' value='ES'>
+              España
+            </option>
+          </select>
         </label>
 
         <label className='relative'>
