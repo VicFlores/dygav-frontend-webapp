@@ -3,6 +3,7 @@ import { ObjectId } from 'mongoose';
 export type Accomodations = {
   _id: ObjectId;
   userId: ObjectId;
+  accomodationId: string;
   name: string;
   web?: string;
   image: string;
