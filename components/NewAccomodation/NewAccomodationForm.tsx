@@ -16,6 +16,7 @@ const NewAccomodationForm = () => {
 
   const [infoState, setInfoState] = useState({
     name: '',
+    accomodationId: '',
     userId: 'default',
     image: '',
     environment: 'default',
@@ -72,8 +73,9 @@ const NewAccomodationForm = () => {
   };
 
   const handleCreateAccomodation = async () => {
-    const infoAccomodation = {
+    let infoAccomodation = {
       userId: infoState.userId,
+      accomodationId: infoState.accomodationId,
       name: infoState.name,
       image: infoState.image,
       environment: infoState.environment,
@@ -107,19 +109,67 @@ const NewAccomodationForm = () => {
       ],
     };
 
+    const infoAvaibookAccomodation = {
+      name: infoState.name,
+      web: 'google.com',
+      bookingMode: 'ON-LINE',
+      environment: infoState.environment,
+      rentalType: infoState.rentalType,
+      entryTime: infoState.entryTime,
+      departureTime: infoState.departureTime,
+      accommodationType: infoState.accommodationType,
+      fullPayment: true,
+      advance: {
+        type: 'NIGHTS',
+        num: 1,
+      },
+      location: {
+        address: infoState.address,
+        zipCode: infoState.zipCode,
+        city: infoState.city,
+        region: infoState.region,
+        country: infoState.country,
+        area: infoState.environment,
+        longitude: 0,
+        latitude: 0,
+      },
+      cancellationPolicy: {
+        type: 'ADVANCE',
+        days: 3,
+      },
+      bookingConditions: {
+        es: infoState.bookingConditions,
+      },
+      description: {
+        es: infoState.description,
+      },
+      introduction: {
+        es: infoState.introduction,
+      },
+      units: [
+        {
+          name: {
+            es: infoState.name,
+          },
+          description: {
+            es: infoState.description,
+          },
+          capacity: infoState.capacity,
+          additionalCapacity: infoState.additionalCapacity,
+          extraCapacity: infoState.extraCapacity,
+          forceWeekend: false,
+          minimumStay: infoState.minimumStay,
+          weekPrice: infoState.weekPrice,
+          weekendPrice: infoState.weekendPrice,
+          additionalPricePerPerson: infoState.additionalPricePerPerson,
+        },
+      ],
+    };
+
     try {
-      const res = await axios.post(
-        '/api/accomodations/route',
-        infoAccomodation
-      );
-
-      delete res.data?._id;
-      delete res.data?.image;
-      delete res.data?.userId;
-
-      await axios.post(
+      const avaibookRes = await axios.post(
         'https://api.avaibook.biz/api/owner/accommodations/',
-        res.data,
+        infoAvaibookAccomodation,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -128,6 +178,17 @@ const NewAccomodationForm = () => {
           },
         }
       );
+
+      console.log(avaibookRes.data.id);
+
+      infoAccomodation.accomodationId = avaibookRes.data.id;
+
+      const res = await axios.post(
+        '/api/accomodations/route',
+        infoAccomodation
+      );
+
+      console.log(res.data);
 
       return router.push('/private/admin/dashboard');
     } catch (error) {
