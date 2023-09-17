@@ -3,7 +3,7 @@ import { Accomodations } from '@/types';
 
 const AccomodationSchema = new Schema<Accomodations>({
   userId: { type: Schema.Types.ObjectId, required: true, ref: 'User' },
-  accomodationId: { type: String, required: [true, 'Name is required'] },
+  accomodationId: { type: String, required: true },
   name: { type: String, required: [true, 'Name is required'] },
   web: { type: String, default: 'Dygav' },
   image: { type: String, required: [true, 'Image is required'] },
