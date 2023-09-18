@@ -1,86 +1,153 @@
-import Image from 'next/legacy/image';
-import { TImageProps } from '@/types';
+import { TReservation } from '@/types';
+import axios from 'axios';
+import { FC, useEffect, useState } from 'react';
 
-type TSearcherCard = TImageProps & {
-  imgSubtitle: string;
-  title: string;
-  subtitle: string;
-  bedroom: number;
-  bathroom: number;
-  size: string;
-};
+export const Reservation: FC<{ id: string }> = ({ id }) => {
+  const [reservationInfo, setReservationInfo] = useState<TReservation>();
 
-const searcherCard: TSearcherCard[] = [
-  {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691367769/Dygav/5_mhpa2f.png',
-    alt: 'Search Image Card',
-    imgSubtitle: 'Torrevieja-100€  noche',
-    title: 'Piso céntrico en Torrevieja: Ubicación ideal para tu escapada',
-    subtitle:
-      'Disfruta de una estancia cómoda en nuestro acogedor piso en el centro de Torrevieja. Habitación elegante y comodidades modernas. ¡Reserva ahora y descubre la encantadora ciudad costera!',
-    bedroom: 1,
-    bathroom: 1,
-    size: '90m²',
-  },
-];
+  useEffect(() => {
+    const accomodationByUnitId = async () => {
+      const res = await axios.get(
+        `https://api.avaibook.biz/api/owner/bookings/${id}/`,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'X-AUTH-TOKEN':
+              '7fd52cc3b7e215ac8e5173cd1a0d176eabe0ced50fdf1dd346676fd36d051920',
+          },
+        }
+      );
 
-export const Reservation = () => {
+      setReservationInfo(res.data);
+    };
+
+    accomodationByUnitId();
+  }, [id]);
+
+  console.log(reservationInfo);
+
   return (
-    <div className='flex flex-col justify-center items-center mt-16 space-y-12 mb-28'>
-      <p className='md:text-xl lg:text-2xl text-black900/[.7] text-center md:px-20 lg:px-40'>
-        Tu estadía es esta habilitada desde el 15 de Septiembre hasta el 25 de
-        Septiembre
-      </p>
+    <div className='px-8 space-y-12 mb-24'>
+      <div className='flex flex-col md:flex-row justify-center items-center md:justify-between md:items-end border-b-[1px]'>
+        <p className=' text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl'>
+          Detalles de reservacion
+        </p>
+      </div>
 
-      {searcherCard.map((item, index) => (
-        <div
-          id='CardContainer'
-          key={index}
-          className='w-[300px] md:w-[320px] lg:w-[340px] h-auto self-center justify-self-center'
-        >
-          <div id='CardHeader' className='space-y-4 w-full h-[210px] relative'>
-            <Image src={item.src} alt={item.alt} layout='fill' priority />
-          </div>
+      {reservationInfo ? (
+        <div className='flex justify-center items-center'>
+          <div className='text-center h-fit rounded-xl space-y-4  border-[1px] border-p600 px-5 py-5 bg-gray300/[.14] w-auto'>
+            <div className='grid grid-cols-1 justify-center items-center md:grid-cols-3 gap-4'>
+              <span>
+                <p className='text-base md:text-lg font-semibold'>
+                  Nombre del alojamiento:
+                </p>
+                <p className='text-sm md:text-base'>
+                  {reservationInfo.accommodationName}
+                </p>
+              </span>
 
-          <div id='CardBody' className='space-y-4 mt-6 mb-6 px-4'>
-            <p className='text-center text-black900 text-xs md:text-sm lg:text-base'>
-              {item.imgSubtitle}
-            </p>
-            <p className='text-[18px] md:text-lg lg:text-xl text-center'>
-              {item.title}
-            </p>
-            <p className='text-black900 text-[13px] md:text-xs lg:text-sm'>
-              {item.subtitle}
-            </p>
-          </div>
+              <span>
+                <p className='text-base md:text-lg font-semibold'>
+                  Plataforma de reserva:
+                </p>
+                <p className='text-sm md:text-base'>{reservationInfo.origin}</p>
+              </span>
 
-          <div
-            id='CardFooter'
-            className='flex h-[40px] space-x-[2px] text-white'
-          >
-            <div className='bg-p600 pt-1 pb-1 w-[119px] h-full text-center'>
-              <p className='font-semibold text-[13px] md:text-[14px] lg:text-xs'>
-                {item.bedroom}
-              </p>
-              <p className='text-[10px] lg:text-[12px]'>Dormitorios</p>
-            </div>
+              <span>
+                <p className='text-base md:text-lg font-semibold'>Huespedes:</p>
+                <p className='text-sm md:text-base'>
+                  {reservationInfo.numberOfguests} personas
+                </p>
+              </span>
 
-            <div className='bg-p600 pt-1 pb-1 w-[119px] h-full text-center '>
-              <p className='font-semibold text-[13px] md:text-[14px] lg:text-xs'>
-                {item.bathroom}
-              </p>
-              <p className='text-[10px] lg:text-[12px]'>Baños</p>
-            </div>
+              <span>
+                <p className='text-base md:text-lg font-semibold'>
+                  Dia de entrada - Dia de salida:
+                </p>
+                <p className='text-sm md:text-base'>
+                  {reservationInfo.checkInDate.toString()} -{' '}
+                  {reservationInfo.checkOutDate.toString()}
+                </p>
+              </span>
 
-            <div className='bg-p600 pt-1 pb-1 w-[119px] h-full text-center '>
-              <p className='font-semibold text-[13px] md:text-[14px] lg:text-xs'>
-                {item.size}
-              </p>
-              <p className='text-[10px] lg:text-[12px]'>Tamaño</p>
+              <span>
+                <p className='text-base md:text-lg font-semibold'>
+                  Hora de entrada - Hora de salida
+                </p>
+                <p className='text-sm md:text-base'>
+                  {reservationInfo.checkinTime} - {reservationInfo.checkoutTime}
+                </p>
+              </span>
+
+              <span>
+                <p className='text-base md:text-lg font-semibold'>
+                  Comision de plataforma vacacional:
+                </p>
+                <p className='text-sm md:text-base'>
+                  ${reservationInfo.partnerFee}
+                </p>
+              </span>
+
+              <span>
+                <p className='text-base md:text-lg font-semibold'>
+                  Nombre del viajero:
+                </p>
+                <p className='text-sm md:text-base'>
+                  {reservationInfo.travellerName}
+                </p>
+              </span>
+
+              <span>
+                <p className='text-base md:text-lg font-semibold'>
+                  Correo electronico del viajero:
+                </p>
+                <p className='text-sm md:text-base'>
+                  {reservationInfo.travellerEmail}
+                </p>
+              </span>
+
+              <span>
+                <p className='text-base md:text-lg font-semibold'>
+                  Telefono del viajero:
+                </p>
+                <p className='text-sm md:text-base'>
+                  {reservationInfo.defaultLeaderPhone}
+                </p>
+              </span>
+
+              <span>
+                <p className='text-base md:text-lg font-semibold'>
+                  Primer pago:
+                </p>
+                <p className='text-sm md:text-base'>
+                  ${reservationInfo.advance}
+                </p>
+              </span>
+
+              <span>
+                <p className='text-base md:text-lg font-semibold'>
+                  Pago restante:
+                </p>
+                <p className='text-sm md:text-base'>
+                  ${reservationInfo.secondPayment}
+                </p>
+              </span>
+
+              <span>
+                <p className='text-base md:text-lg font-semibold'>
+                  Total a pagar:
+                </p>
+                <p className='text-sm md:text-base'>
+                  ${reservationInfo.totalAmount}
+                </p>
+              </span>
             </div>
           </div>
         </div>
-      ))}
+      ) : (
+        <p>Cargando...</p>
+      )}
     </div>
   );
 };
