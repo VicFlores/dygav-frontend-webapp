@@ -120,8 +120,8 @@ const NewAccomodationForm = () => {
       accommodationType: infoState.accommodationType,
       fullPayment: true,
       advance: {
-        type: 'NIGHTS',
-        num: 1,
+        type: 'PERCENTAGE',
+        num: 25,
       },
       location: {
         address: infoState.address,
