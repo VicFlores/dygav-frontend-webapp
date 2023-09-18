@@ -32,8 +32,6 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
     accomodationByUnitId();
   }, [id]);
 
-  console.log(accomodationByReservation);
-
   return (
     <div className='px-8 space-y-12 mb-24'>
       <div className='flex flex-col md:flex-row justify-center items-center md:justify-between md:items-end border-b-[1px]'>
@@ -71,42 +69,46 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
                 )}
 
                 <p className='text-base md:text-lg font-semibold'>Estado:</p>
-                <p className='text-sm md:text-base'>{item.status}</p>
-
-                {item.status !== 'CANCELLED' ? (
+                {item.status === 'PENDING_PAYMENT' ? (
                   <>
+                    <p className='text-sm md:text-base'>Pago pendiente</p>
                     <p className='text-base md:text-lg font-semibold'>
-                      Link de pago:
+                      Mas informacion:
                     </p>
-                    <div className='flex justify-center items-center relative'>
-                      <AiOutlineCheckCircle className='w-5 md:h-5 text-p600 absolute top-1/2 -translate-y-1/2 right-5 md:right-12 lg:right-10' />
-                      <Link
-                        href={item.paymentUrl}
-                        target='_blank'
-                        passHref
-                        className='text-center text-p600 hover:bg-gray300 border-[1px] border-p600 rounded-md text-[13px] md:text-sm lg:text-base py-2 px-4 w-full'
-                      >
-                        Ver link
-                      </Link>
-                    </div>
+                    <p className='text-sm md:text-base'>
+                      Esperando pago, para ver detalles
+                    </p>
                   </>
-                ) : (
+                ) : item.status === 'CONFIRMED' ? (
                   <>
+                    <p className='text-sm md:text-base'>Confirmado</p>
                     <p className='text-base md:text-lg font-semibold'>
                       Mas informacion:
                     </p>
                     <div className='flex justify-center items-center relative'>
-                      <AiOutlineCheckCircle className='w-5 md:h-5 text-p600 absolute top-1/2 -translate-y-1/2 right-5 md:right-12 lg:right-10' />
+                      <AiOutlineCheckCircle className='w-5 md:h-5 text-p600 absolute top-1/2 -translate-y-1/2 right-5 md:right-12 lg:right-12' />
                       <Link
-                        href={item.paymentUrl}
-                        target='_blank'
+                        href={`/private/owner/reservation/${item.id}`}
                         passHref
                         className='text-center text-p600 hover:bg-gray300 border-[1px] border-p600 rounded-md text-[13px] md:text-sm lg:text-base py-2 px-4 w-full'
                       >
-                        Ver link
+                        Ver detalles
                       </Link>
                     </div>
                   </>
+                ) : item.status === 'CANCELLED' ? (
+                  <>
+                    <p className='text-sm md:text-base'>Cancelado</p>
+                    <p className='text-base md:text-lg font-semibold'>
+                      Mas informacion:
+                    </p>
+                    <p className='text-sm md:text-base'>
+                      Reservacion cancelada, para mayor informacion comuniquese
+                      con su administrador
+                    </p>
+                  </>
+                ) : (
+                  <p className='text-sm md:text-base'>{item.status}</p>
                 )}
               </div>
             </div>
