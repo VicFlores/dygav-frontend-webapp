@@ -8,7 +8,6 @@ export const publicMenuItem: TMenuItem[] = [
 ];
 
 export const accountMenuItem: TMenuItem[] = [
-  { title: 'Reservaciones', path: '/private/dashboard' },
-  { title: 'Apartamentos', path: '/' },
+  { title: 'Alojamiento', path: '/private/owner/dashboard' },
   { title: 'Mi perfil', path: '/' },
 ];
