@@ -5,3 +5,4 @@ export * from './UI/TSession';
 export * from './TUserToken';
 export * from './TAccomodations';
 export * from './TReservationAvaibook';
+export * from './TReservation';
