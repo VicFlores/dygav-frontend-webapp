@@ -27,3 +27,4 @@ export * from './AdminDashboard/AdminDashboard';
 export * from './NewAccomodation/NewAccomodation';
 export * from './OwnerDashboard/OwnerDashboard';
 export * from './OwnerAccomodationReservationDetails/OwnerAccomodationReservationDetails';
+export * from './ReservationCalendar/ReservationCalendar';
