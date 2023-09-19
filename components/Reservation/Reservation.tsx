@@ -36,22 +36,41 @@ export const Reservation: FC<{ id: string }> = ({ id }) => {
 
       {reservationInfo ? (
         <div className='flex justify-center items-center'>
-          <div className='text-center h-fit rounded-xl space-y-4  border-[1px] border-p600 px-5 py-5 bg-gray300/[.14] w-auto'>
-            <div className='grid grid-cols-1 justify-center items-center md:grid-cols-3 gap-4'>
-              <span>
-                <p className='text-base md:text-lg font-semibold'>
-                  Nombre del alojamiento:
-                </p>
-                <p className='text-sm md:text-base'>
-                  {reservationInfo.accommodationName}
-                </p>
-              </span>
+          <div className='text-center h-fit rounded-xl space-y-4 border-[1px] border-p600 px-5 py-5 bg-gray300/[.14] w-auto'>
+            <p className='text-base md:text-2xl font-semibold'>
+              {reservationInfo.accommodationName}
+            </p>
 
+            <p className='text-base md:text-lg font-semibold'>Fechas:</p>
+            <p className='text-sm md:text-base'>
+              Checkin: {reservationInfo.checkInDate.toString()} - Checkout :
+              {reservationInfo.checkOutDate.toString()}
+            </p>
+
+            <div className='grid grid-cols-1 justify-center items-center md:grid-cols-3 gap-4'>
               <span>
                 <p className='text-base md:text-lg font-semibold'>
                   Plataforma de reserva:
                 </p>
                 <p className='text-sm md:text-base'>{reservationInfo.origin}</p>
+              </span>
+
+              <span>
+                <p className='text-base md:text-lg font-semibold'>
+                  Nombre del viajero:
+                </p>
+                <p className='text-sm md:text-base'>
+                  {reservationInfo.travellerName}
+                </p>
+              </span>
+
+              <span>
+                <p className='text-base md:text-lg font-semibold'>
+                  Checkin - Checkout
+                </p>
+                <p className='text-sm md:text-base'>
+                  {reservationInfo.checkinTime} - {reservationInfo.checkoutTime}
+                </p>
               </span>
 
               <span>
@@ -63,20 +82,26 @@ export const Reservation: FC<{ id: string }> = ({ id }) => {
 
               <span>
                 <p className='text-base md:text-lg font-semibold'>
-                  Dia de entrada - Dia de salida:
+                  Total estancia:
                 </p>
                 <p className='text-sm md:text-base'>
-                  {reservationInfo.checkInDate.toString()} -{' '}
-                  {reservationInfo.checkOutDate.toString()}
+                  ${reservationInfo.totalAmount}
+                </p>
+              </span>
+
+              <span>
+                <p className='text-base md:text-lg font-semibold'>Anticipo:</p>
+                <p className='text-sm md:text-base'>
+                  ${reservationInfo.advance}
                 </p>
               </span>
 
               <span>
                 <p className='text-base md:text-lg font-semibold'>
-                  Hora de entrada - Hora de salida
+                  Resto a pagar:
                 </p>
                 <p className='text-sm md:text-base'>
-                  {reservationInfo.checkinTime} - {reservationInfo.checkoutTime}
+                  ${reservationInfo.secondPayment}
                 </p>
               </span>
 
@@ -91,55 +116,10 @@ export const Reservation: FC<{ id: string }> = ({ id }) => {
 
               <span>
                 <p className='text-base md:text-lg font-semibold'>
-                  Nombre del viajero:
+                  Comision de DYGAV:
                 </p>
                 <p className='text-sm md:text-base'>
-                  {reservationInfo.travellerName}
-                </p>
-              </span>
-
-              <span>
-                <p className='text-base md:text-lg font-semibold'>
-                  Correo electronico del viajero:
-                </p>
-                <p className='text-sm md:text-base'>
-                  {reservationInfo.travellerEmail}
-                </p>
-              </span>
-
-              <span>
-                <p className='text-base md:text-lg font-semibold'>
-                  Telefono del viajero:
-                </p>
-                <p className='text-sm md:text-base'>
-                  {reservationInfo.defaultLeaderPhone}
-                </p>
-              </span>
-
-              <span>
-                <p className='text-base md:text-lg font-semibold'>
-                  Primer pago:
-                </p>
-                <p className='text-sm md:text-base'>
-                  ${reservationInfo.advance}
-                </p>
-              </span>
-
-              <span>
-                <p className='text-base md:text-lg font-semibold'>
-                  Pago restante:
-                </p>
-                <p className='text-sm md:text-base'>
-                  ${reservationInfo.secondPayment}
-                </p>
-              </span>
-
-              <span>
-                <p className='text-base md:text-lg font-semibold'>
-                  Total a pagar:
-                </p>
-                <p className='text-sm md:text-base'>
-                  ${reservationInfo.totalAmount}
+                  ${reservationInfo.totalAmount * 0.15}
                 </p>
               </span>
             </div>
