@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const axiosConfig = axios.create({
-  baseURL: 'https://dygav-fronted-webapp.vercel.app',
+  baseURL: 'http://localhost:3000',
 });

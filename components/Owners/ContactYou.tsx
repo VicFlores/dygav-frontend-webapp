@@ -4,12 +4,12 @@ import { BsMailbox } from 'react-icons/bs';
 export const ContactYou = () => {
   return (
     <section className='grid justify-center items-center gap-4 mb-24 '>
-      <p className='text-center text-[34px] text-black700 border-b-4 border-b-p600 pb-2'>
+      <p className='text-center text-2xl px-14 md:text-3xl  text-black700'>
         Nos Ponemos en Contacto Contigo
       </p>
 
-      <div className='w-[450px] self-center justify-self-center pt-5 text-black900'>
-        <form className='grid gap-8 px-6 py-6 pt-4 border-2 border-gray300'>
+      <div className='w-[350px] md:w-[450px] lg:w-full md:px-4 self-center justify-self-center pt-5 md:text-sm text-black900 border-t-4 border-t-p600'>
+        <form className='grid gap-8 px-6 lg:px-10 py-6 pt-4 border-2 border-gray300'>
           <p className='text-xl text-center'>Completa tu información</p>
 
           <label className='relative'>
@@ -48,8 +48,8 @@ export const ContactYou = () => {
             />
           </label>
 
-          <div className='relative'>
-            <BsMailbox className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-6 md:right-5 lg:right-7' />
+          <div className='relative justify-self-center'>
+            <BsMailbox className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-4 md:right-3 lg:right-4' />
             <button
               id='toggle'
               className='bg-p600 hover:bg-p800 text-center text-xs md:text-sm lg:text-base py-2 px-4 w-[220px] md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
@@ -60,9 +60,9 @@ export const ContactYou = () => {
         </form>
       </div>
 
-      <div className='grid grid-cols-2 mt-10'>
-        <div className='relative'>
-          <BiPhoneCall className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-6 md:right-5 lg:right-7' />
+      <div className='grid grid-cols-1 gap-y-6 md:grid-cols-2 mt-10'>
+        <div className='relative self-center justify-self-center'>
+          <BiPhoneCall className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-10 md:right-8 lg:right-12' />
           <button
             id='toggle'
             className='bg-p600 hover:bg-p800 text-center text-xs md:text-sm lg:text-base py-2 px-4 w-[220px] md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
@@ -71,8 +71,8 @@ export const ContactYou = () => {
           </button>
         </div>
 
-        <div className='relative'>
-          <BiPhoneCall className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-6 md:right-5 lg:right-7' />
+        <div className='relative self-center justify-self-center'>
+          <BiPhoneCall className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-10 md:right-8 lg:right-12' />
           <button
             id='toggle'
             className='bg-p600 hover:bg-p800 text-center text-xs md:text-sm lg:text-base py-2 px-4 w-[220px] md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
