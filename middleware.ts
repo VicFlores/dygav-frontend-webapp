@@ -15,7 +15,7 @@ export default withAuth(
       return NextResponse.rewrite(new URL('/denied', req.url));
     }
 
-    if (pathname.startsWith('/private/dashboard') && role !== 'tourist') {
+    if (pathname.startsWith('/private/tourist') && role !== 'tourist') {
       return NextResponse.rewrite(new URL('/denied', req.url));
     }
   },

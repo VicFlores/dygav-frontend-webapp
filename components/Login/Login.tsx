@@ -36,7 +36,7 @@ export const Login: FC<TSession> = ({ session }) => {
     if (res?.error) return setError(res.error);
 
     if (res?.ok && session?.user?.role === 'tourist') {
-      return router.push('/private/dashboard');
+      return router.push('/private/tourist/dashboard');
     } else if (res?.ok && session?.user?.role === 'owner') {
       return router.push('/private/owner/dashboard');
     } else if (res?.ok && session?.user?.role === 'admin') {
