@@ -34,7 +34,7 @@ export const TouristDashboard = () => {
   return (
     <div className='px-8 space-y-12 mb-24'>
       <p className=' text-black900/[.7] border-b-[1px] mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl'>
-        Mis Reservaciones
+        Alojamientos disponibles
       </p>
 
       {reservation.length > 0 ? (
@@ -63,11 +63,11 @@ export const TouristDashboard = () => {
               <div className='flex justify-center items-center relative'>
                 <AiOutlineCheckCircle className='w-5 md:h-5 text-p600 absolute top-1/2 -translate-y-1/2 right-5 md:right-12 lg:right-10' />
                 <Link
-                  href='/private/reservation'
+                  href='/private/tourist/dashboard'
                   passHref
                   className='text-center text-p600 hover:bg-gray300 border-[1px] border-p600 rounded-md text-[13px] md:text-sm lg:text-base py-2 px-4 w-full'
                 >
-                  Ver reservación
+                  Ver alojamiento
                 </Link>
               </div>
             </div>
