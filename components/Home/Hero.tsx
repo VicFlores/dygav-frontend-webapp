@@ -3,12 +3,12 @@ import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 export const Hero = () => {
   return (
-    <section className='w-full  text-white px-[66px] py-[70px]'>
+    <section className='w-full text-white px-[66px] py-[70px]'>
       <div>
-        <p className='lg:text-[45px] md:text-[38px] text-[26px]'>
+        <p className='text-3xl lg:text-[45px] md:text-[40px] pb-5'>
           Bienvenidos a DYGAV
         </p>
-        <p className='lg:text-[27px] md:text-[20px] text-[18px]'>
+        <p className='text-xl lg:text-[27px] md:text-[22px]'>
           Estás a unos clics de tu nuevo lugar favorito
         </p>
       </div>

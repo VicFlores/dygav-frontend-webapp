@@ -3,7 +3,7 @@ import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 export const HeroSearcher = () => {
   return (
-    <section className='w-full text-white px-[66px] py-[70px]'>
+    <section className='w-full text-white px-[66px] py-[70px] pb-32 pt-20'>
       <p className='lg:text-[45px] text-center md:text-start text-[30px] md:text-[38px] font-semibold'>
         ¿A Donde Te Apetece Ir?
       </p>
