@@ -1,143 +1,16 @@
-import { TImageProps } from '@/types';
+import { searcherCard } from '@/utils';
 import Image from 'next/legacy/image';
-
-type TSearcherCard = TImageProps & {
-  imgSubtitle: string;
-  title: string;
-  subtitle: string;
-  bedroom: number;
-  bathroom: number;
-  size: string;
-};
-
-const searcherCard: TSearcherCard[] = [
-  {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691367769/Dygav/5_mhpa2f.png',
-    alt: 'Search Image Card',
-    width: 347,
-    height: 227,
-    imgSubtitle: 'Torrevieja-100€  noche',
-    title: 'Piso céntrico en Torrevieja: Ubicación ideal para tu escapada',
-    subtitle:
-      'Disfruta de una estancia cómoda en nuestro acogedor piso en el centro de Torrevieja. Habitación elegante y comodidades modernas. ¡Reserva ahora y descubre la encantadora ciudad costera!',
-    bedroom: 1,
-    bathroom: 1,
-    size: '90m²',
-  },
-  {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691367752/Dygav/11_uhpghg.png',
-    alt: 'Search Image Card',
-    width: 347,
-    height: 227,
-    imgSubtitle: 'Torrevieja-100€  noche',
-    title: 'Piso céntrico en Torrevieja: Ubicación ideal para tu escapada',
-    subtitle:
-      'Disfruta de una estancia cómoda en nuestro acogedor piso en el centro de Torrevieja. Habitación elegante y comodidades modernas. ¡Reserva ahora y descubre la encantadora ciudad costera!',
-    bedroom: 1,
-    bathroom: 1,
-    size: '90m²',
-  },
-  {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691367753/Dygav/1_j8qeqo.png',
-    alt: 'Search Image Card',
-    width: 347,
-    height: 227,
-    imgSubtitle: 'Torrevieja-100€  noche',
-    title: 'Piso céntrico en Torrevieja: Ubicación ideal para tu escapada',
-    subtitle:
-      'Disfruta de una estancia cómoda en nuestro acogedor piso en el centro de Torrevieja. Habitación elegante y comodidades modernas. ¡Reserva ahora y descubre la encantadora ciudad costera!',
-    bedroom: 1,
-    bathroom: 1,
-    size: '90m²',
-  },
-  {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691367769/Dygav/5_mhpa2f.png',
-    alt: 'Search Image Card',
-    width: 347,
-    height: 227,
-    imgSubtitle: 'Torrevieja-100€  noche',
-    title: 'Piso céntrico en Torrevieja: Ubicación ideal para tu escapada',
-    subtitle:
-      'Disfruta de una estancia cómoda en nuestro acogedor piso en el centro de Torrevieja. Habitación elegante y comodidades modernas. ¡Reserva ahora y descubre la encantadora ciudad costera!',
-    bedroom: 1,
-    bathroom: 1,
-    size: '90m²',
-  },
-  {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691367752/Dygav/11_uhpghg.png',
-    alt: 'Search Image Card',
-    width: 347,
-    height: 227,
-    imgSubtitle: 'Torrevieja-100€  noche',
-    title: 'Piso céntrico en Torrevieja: Ubicación ideal para tu escapada',
-    subtitle:
-      'Disfruta de una estancia cómoda en nuestro acogedor piso en el centro de Torrevieja. Habitación elegante y comodidades modernas. ¡Reserva ahora y descubre la encantadora ciudad costera!',
-    bedroom: 1,
-    bathroom: 1,
-    size: '90m²',
-  },
-  {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691367753/Dygav/1_j8qeqo.png',
-    alt: 'Search Image Card',
-    width: 347,
-    height: 227,
-    imgSubtitle: 'Torrevieja-100€  noche',
-    title: 'Piso céntrico en Torrevieja: Ubicación ideal para tu escapada',
-    subtitle:
-      'Disfruta de una estancia cómoda en nuestro acogedor piso en el centro de Torrevieja. Habitación elegante y comodidades modernas. ¡Reserva ahora y descubre la encantadora ciudad costera!',
-    bedroom: 1,
-    bathroom: 1,
-    size: '90m²',
-  },
-  {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691367769/Dygav/5_mhpa2f.png',
-    alt: 'Search Image Card',
-    width: 347,
-    height: 227,
-    imgSubtitle: 'Torrevieja-100€  noche',
-    title: 'Piso céntrico en Torrevieja: Ubicación ideal para tu escapada',
-    subtitle:
-      'Disfruta de una estancia cómoda en nuestro acogedor piso en el centro de Torrevieja. Habitación elegante y comodidades modernas. ¡Reserva ahora y descubre la encantadora ciudad costera!',
-    bedroom: 1,
-    bathroom: 1,
-    size: '90m²',
-  },
-  {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691367752/Dygav/11_uhpghg.png',
-    alt: 'Search Image Card',
-    width: 347,
-    height: 227,
-    imgSubtitle: 'Torrevieja-100€  noche',
-    title: 'Piso céntrico en Torrevieja: Ubicación ideal para tu escapada',
-    subtitle:
-      'Disfruta de una estancia cómoda en nuestro acogedor piso en el centro de Torrevieja. Habitación elegante y comodidades modernas. ¡Reserva ahora y descubre la encantadora ciudad costera!',
-    bedroom: 1,
-    bathroom: 1,
-    size: '90m²',
-  },
-  {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691367753/Dygav/1_j8qeqo.png',
-    alt: 'Search Image Card',
-    width: 347,
-    height: 227,
-    imgSubtitle: 'Torrevieja-100€  noche',
-    title: 'Piso céntrico en Torrevieja: Ubicación ideal para tu escapada',
-    subtitle:
-      'Disfruta de una estancia cómoda en nuestro acogedor piso en el centro de Torrevieja. Habitación elegante y comodidades modernas. ¡Reserva ahora y descubre la encantadora ciudad costera!',
-    bedroom: 1,
-    bathroom: 1,
-    size: '90m²',
-  },
-];
+import Link from 'next/link';
+import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 export const SearcherCards = () => {
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  mt-32 mb-56 gap-y-20'>
-      {searcherCard.map((item, index) => (
+      {searcherCard.map((item) => (
         <div
           id='CardContainer'
-          key={index}
-          className='w-[300px] md:w-[320px] lg:w-[347px] h-auto self-center justify-self-center'
+          key={item.id}
+          className='w-[300px] md:w-[320px] lg:w-[347px] self-center justify-self-center'
         >
           <div id='CardHeader' className='space-y-4 '>
             <Image
@@ -181,6 +54,17 @@ export const SearcherCards = () => {
               </p>
               <p className='text-[10px] lg:text-[12px]'>Tamaño</p>
             </div>
+          </div>
+
+          <div className='flex justify-center items-center relative mt-4 '>
+            <AiOutlineCheckCircle className='w-5 md:h-5 text-p600 absolute top-1/2 -translate-y-1/2 right-5 md:right-12 lg:right-10' />
+            <Link
+              href={`/aparmentDetails/${item.id}`}
+              passHref
+              className='text-center text-p600 hover:bg-gray300 border-[1px] border-p600 rounded-md text-[13px] md:text-sm lg:text-base py-2 px-4 w-full'
+            >
+              Ver Detalles
+            </Link>
           </div>
         </div>
       ))}
