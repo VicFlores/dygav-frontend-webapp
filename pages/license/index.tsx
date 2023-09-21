@@ -1,7 +1,7 @@
 import {
   BurgerMenu,
   Contact,
-  ContactYou,
+  ContactYouLicense,
   Footer,
   GetLicense,
   HeroLicense,
@@ -21,7 +21,7 @@ export default function License() {
 
       <GetLicense />
 
-      <ContactYou />
+      <ContactYouLicense />
 
       <LicenseTourist />
 

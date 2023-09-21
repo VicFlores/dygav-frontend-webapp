@@ -3,12 +3,12 @@ import { LicenseTouristCardInfo } from '@/utils';
 
 export const LicenseTourist = () => {
   return (
-    <section className='grid gap-4 mt-24 mb-16 px-32'>
-      <p className='text-center text-[34px] text-black700'>
+    <section className='mt-24 mb-16 px-10 md:px-12 lg:px-32'>
+      <p className='text-center text-2xl px-14 md:text-3xl  text-black700'>
         ¿Qué es lo que Haríamos por ti?
       </p>
 
-      <div className='w-auto border-t-4 border-t-p600 pt-5 space-y-4 text-black900 px-3 text-lg'>
+      <div className='w-auto border-t-4 border-t-p600 pt-5 space-y-4 text-black900 px-3 text-xs md:text-sm lg:text-lg'>
         <p>
           Si ya has llegado hasta aquí y todavía quieres saber más sobre
           nuestros servicios para la obtención de licencias turísticas… ¡sigue
@@ -28,7 +28,10 @@ export const LicenseTourist = () => {
         </p>
       </div>
 
-      <div id='CardContainer' className='grid grid-cols-3 gap-x-4 mt-10'>
+      <div
+        id='CardContainer'
+        className='grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-x-4 mt-10'
+      >
         {LicenseTouristCardInfo.map((item, index) => (
           <div
             id='Card'
@@ -44,8 +47,10 @@ export const LicenseTourist = () => {
             />
 
             <div className='space-y-5 mt-4 px-4'>
-              <p>{item.title}</p>
-              <p className='text-left text-sm text-black900'>{item.subtitle}</p>
+              <p className='text-sm md:text-lg lg:text-xl'>{item.title}</p>
+              <p className='text-left text-xs md:text-sm lg:text-lg text-black900'>
+                {item.subtitle}
+              </p>
             </div>
           </div>
         ))}

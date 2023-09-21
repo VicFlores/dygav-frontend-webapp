@@ -2,12 +2,12 @@ import React from 'react';
 
 export const GetLicense = () => {
   return (
-    <section className='grid gap-4 mt-24 mb-16 px-32'>
-      <p className='text-center text-[34px] text-black700'>
+    <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32'>
+      <p className='text-center text-2xl px-14 md:text-3xl text-black700'>
         ¿Cómo obtener licencia turística?
       </p>
 
-      <div className='w-auto border-t-4 border-t-p600 pt-5 space-y-4 text-black900 pr-3 pl-3 text-lg'>
+      <div className='w-auto border-t-4 border-t-p600 pt-5 space-y-4 text-black900 pr-3 pl-3 text-xs md:text-sm lg:text-lg'>
         <p>
           En DYGAV, estamos a tu lado en cada paso del camino hacia la obtención
           de la licencia turística para tu piso. Nos convertimos en tu aliado y
