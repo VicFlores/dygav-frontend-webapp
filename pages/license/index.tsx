@@ -6,21 +6,18 @@ import {
   GetLicense,
   HeroLicense,
   LicenseTourist,
+  MainHero,
   NavBar,
 } from '@/components';
 
 export default function License() {
   return (
     <section>
-      <div
-        className={
-          'w-full h-screen bg-heroContent bg-center bg-cover bg-no-repeat '
-        }
-      >
+      <MainHero>
         <NavBar />
         <BurgerMenu />
         <HeroLicense />
-      </div>
+      </MainHero>
 
       <GetLicense />
 

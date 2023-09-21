@@ -7,21 +7,18 @@ import {
   NavBar,
   Footer,
   BurgerMenu,
+  MainHero,
 } from '@/components';
 
 const OwnersPage = () => {
   return (
     <section>
-      <div
-        className={
-          'w-full h-screen bg-heroContent bg-center bg-cover bg-no-repeat '
-        }
-      >
+      <MainHero>
         <NavBar />
         <BurgerMenu />
 
         <HeroOwners />
-      </div>
+      </MainHero>
 
       <PeachOwners />
 

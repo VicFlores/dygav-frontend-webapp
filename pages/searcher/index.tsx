@@ -2,6 +2,7 @@ import {
   BurgerMenu,
   Footer,
   HeroSearcher,
+  MainHero,
   NavBar,
   SearcherCards,
 } from '@/components';
@@ -9,15 +10,11 @@ import {
 export default function SearcherPage() {
   return (
     <section>
-      <div
-        className={
-          'w-full h-auto lg:pb-36 bg-heroContent bg-center bg-cover bg-no-repeat '
-        }
-      >
+      <MainHero>
         <NavBar />
         <BurgerMenu />
         <HeroSearcher />
-      </div>
+      </MainHero>
 
       <SearcherCards />
 
