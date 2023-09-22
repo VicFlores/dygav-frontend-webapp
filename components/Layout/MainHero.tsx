@@ -23,7 +23,7 @@ export const MainHero: FC<Props> = ({ children }) => {
       } else {
         setIndexImage(indexImage + 1);
       }
-    }, 5000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [indexImage]);
