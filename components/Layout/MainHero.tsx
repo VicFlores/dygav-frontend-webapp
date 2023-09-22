@@ -32,7 +32,7 @@ export const MainHero: FC<Props> = ({ children }) => {
     <div
       className={'w-full bg-center bg-cover bg-no-repeat'}
       style={{
-        backgroundImage: `url(${imagenes[indexImage]})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(${imagenes[indexImage]})`,
       }}
     >
       <>{children}</>
