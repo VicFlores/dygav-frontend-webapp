@@ -2,8 +2,34 @@ import Link from 'next/link';
 import { BiExtension } from 'react-icons/bi';
 import { BsWhatsapp } from 'react-icons/bs';
 import { GrInstagram, GrFacebook } from 'react-icons/gr';
+import {useForm, SubmitHandler} from 'react-hook-form'
+import axios from 'axios'
+import { useState } from 'react';
+
+type Inputs = {
+  email: string,
+}
 
 export const Footer = () => {
+
+  const {register, handleSubmit, formState: {errors}} = useForm<Inputs>();
+  const [message , setMessage] = useState<string>('')
+
+
+  const onSubmit: SubmitHandler<Inputs> = async(data) => {
+    try {
+      
+      const response = await axios.post('https://dygav-suite-default-rtdb.firebaseio.com/email.json', data)
+      await response.data
+      setMessage('Email enviado correctamente')
+
+
+    } catch (error) {
+      setMessage('Error al enviar el email')
+    }
+  }
+
+
   return (
     <footer className='bg-p600 space-y-10 pt-8 pb-8 lg:pt-0 lg:pb-0 lg:space-y-0 h-auto lg:h-80 lg:flex lg:justify-around lg:items-center text-white text-center'>
       <div className='flex flex-col space-y-4'>
@@ -17,14 +43,23 @@ export const Footer = () => {
       <div>
         <p className='text-xl mb-8'>Boletin informativo</p>
 
-        <label className='relative'>
-          <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
-          <input
-            type='text'
-            placeholder='Suscríbete con tu correo electrónico'
-            className='pl-10  lg:h-11 md:w-96 w-auto bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
-          />
-        </label>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <label className='relative'>
+            <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <input
+              type='text'
+              {...register('email', {required:"Email es requerido", pattern: {value: /^\S+@\S+$/i, message: "El formato del email es incorrecto"} })}
+              placeholder='Escribe tu email y presiona enter'
+              className='pl-10  lg:h-11 md:w-96 w-auto bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
+            />
+          </label>
+          
+        </form>
+        {errors.email && <span className='text-red-500'>{errors.email.message}</span>}
+        {message && <span className='text-green-500'>{message}</span>}
+      
+      
+
       </div>
 
       <div className='flex flex-col space-y-6'>
