@@ -12,7 +12,7 @@ type Inputs = {
 
 export const Footer = () => {
 
-  const {register, handleSubmit, formState: {errors}} = useForm<Inputs>();
+  const {register, handleSubmit, formState: {errors}, reset} = useForm<Inputs>();
   const [message , setMessage] = useState<string>('')
 
 
@@ -22,6 +22,7 @@ export const Footer = () => {
       const response = await axios.post('https://dygav-suite-default-rtdb.firebaseio.com/email.json', data)
       await response.data
       setMessage('Email enviado correctamente')
+      reset()
 
 
     } catch (error) {
