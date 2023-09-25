@@ -39,7 +39,7 @@ export const LicenseTourist = () => {
             className='bg-gray300/20 border-[1px] border-p600 text-center py-6 '
           >
             <Image
-              src={item.src}
+              src={item.src as string}
               alt={item.alt}
               width={267}
               height={176}
