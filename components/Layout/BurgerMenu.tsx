@@ -9,7 +9,7 @@ import { signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
 const imageUrl =
-  'https://res.cloudinary.com/vicflores11/image/upload/v1691366906/Dygav/DYGAV_lce25q.svg';
+  'https://res.cloudinary.com/vicflores11/image/upload/v1695653645/Dygav/DYGAV_WHITE_izc04w.svg';
 
 export const BurgerMenu: FC<TSession> = ({ session }) => {
   const { sideMenu, isToogleBurgerMenu } = useContext(UIContext);

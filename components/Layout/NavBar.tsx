@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import React, { FC } from 'react';
 
 const imageUrl =
-  'https://res.cloudinary.com/vicflores11/image/upload/v1691366906/Dygav/DYGAV_lce25q.svg';
+  'https://res.cloudinary.com/vicflores11/image/upload/v1695653645/Dygav/DYGAV_WHITE_izc04w.svg';
 
 export const NavBar: FC<TSession> = ({ session }) => {
   const router = useRouter();
