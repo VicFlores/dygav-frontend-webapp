@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { FC, useEffect, useState } from 'react';
-import { Session } from 'next-auth';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/legacy/image';
 import { AiOutlineCheckCircle } from 'react-icons/ai';

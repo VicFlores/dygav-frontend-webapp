@@ -42,7 +42,12 @@ export const Information = () => {
               key={index}
               className=' w-80 md:w-[540px] lg:w-[600px] border-[1px] border-p600 text-center bg-gray300/20 py-5'
             >
-              <Image src={item.src} alt={item.alt} width={267} height={176} />
+              <Image
+                src={item.src as string}
+                alt={item.alt}
+                width={267}
+                height={176}
+              />
 
               <div className='space-y-4 px-4 mt-4'>
                 <p className=' text-black700 text-sm md:text-lg lg:text-xl font-semibold'>
