@@ -17,11 +17,11 @@ export const searcherCard: TSearcherCard[] = [
   {
     id: 1,
     src: [
+      'https://res.cloudinary.com/vicflores11/image/upload/v1695587993/Dygav/Fotos%20Casas%20Fake/Casa%201/360215556_572928818383799_9174447404790276966_n_aj8dgu.jpg',
       'https://res.cloudinary.com/vicflores11/image/upload/v1695587992/Dygav/Fotos%20Casas%20Fake/Casa%201/360213387_631811875585944_1621400824524654042_n_fzfaul.jpg',
       'https://res.cloudinary.com/vicflores11/image/upload/v1695587994/Dygav/Fotos%20Casas%20Fake/Casa%201/359979326_1695642180885306_7405698003508188202_n_bgcpec.jpg',
       'https://res.cloudinary.com/vicflores11/image/upload/v1695587994/Dygav/Fotos%20Casas%20Fake/Casa%201/361072121_1031754531109228_8629428951624734545_n_wgwc3k.jpg',
       'https://res.cloudinary.com/vicflores11/image/upload/v1695587993/Dygav/Fotos%20Casas%20Fake/Casa%201/360037819_655139799534528_7287969851533330153_n_klwwfh.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695587993/Dygav/Fotos%20Casas%20Fake/Casa%201/360215556_572928818383799_9174447404790276966_n_aj8dgu.jpg',
       'https://res.cloudinary.com/vicflores11/image/upload/v1695587993/Dygav/Fotos%20Casas%20Fake/Casa%201/361138271_610899047891950_367908744151509995_n_pxryef.jpg',
       'https://res.cloudinary.com/vicflores11/image/upload/v1695587992/Dygav/Fotos%20Casas%20Fake/Casa%201/361066128_636970398403554_561876738283885733_n_c0rnhr.jpg',
       'https://res.cloudinary.com/vicflores11/image/upload/v1695587992/Dygav/Fotos%20Casas%20Fake/Casa%201/360400552_180333235032979_5699075598242530690_n_spigdw.jpg',
@@ -29,9 +29,9 @@ export const searcherCard: TSearcherCard[] = [
       'https://res.cloudinary.com/vicflores11/image/upload/v1695587991/Dygav/Fotos%20Casas%20Fake/Casa%201/360008202_801549578036726_6169730961137764044_n_ww1vhe.jpg',
     ],
     alt: 'Ático en el Puerto Deportivo en Marina Internacional con Vistas Panorámicas al Mar',
-    width: 347,
-    height: 227,
-    imgSubtitle: 'Torrevieja 100€ noche',
+    width: 340,
+    height: 245,
+    imgSubtitle: '',
     title:
       'Ático en el Puerto Deportivo en Marina Internacional con Vistas Panorámicas al Mar',
     description: `Al ingresar al apartamento, serás recibido por una atmósfera acogedora y luminosa. El salón, elegantemente decorado, te brindará un espacio perfecto para descansar y disfrutar de momentos inolvidables. Podrás relajarte en el cómodo sofá mientras disfrutas de las vistas espectaculares a través de los amplios ventanales. La cocina muy amplia y totalmente equipada te permitirá preparar tus comidas favoritas con facilidad, y el comedor contiguo te brindará un ambiente acogedor para disfrutar de tus creaciones culinarias.`,
@@ -84,9 +84,9 @@ export const searcherCard: TSearcherCard[] = [
       'https://res.cloudinary.com/vicflores11/image/upload/v1695587779/Dygav/Fotos%20Casas%20Fake/Casa%202/357658828_957185835612281_3393154098048999728_n_wwgufj.jpg',
     ],
     alt: 'Bungaló junto al Mar: Tu Refugio de Tranquilidad en la Dehesa de Campoamor',
-    width: 347,
-    height: 227,
-    imgSubtitle: 'Torrevieja 100€ noche',
+    width: 340,
+    height: 245,
+    imgSubtitle: '',
     title:
       'Bungaló junto al Mar: Tu Refugio de Tranquilidad en la Dehesa de Campoamor',
     description: `El bungalow cuenta con una acogedora habitación, decorada con muchos cuadros modernos que le dan una atmósfera exclusiva y única. Despierta cada mañana y disfruta de las vistas al jardín desde la comodidad de tu cama. La tranquilidad y privacidad están garantizadas en este oasis. El jardín es simplemente espectacular, con amplios espacios verdes donde podrás relajarte, leer un libro o simplemente deleitarte con la naturaleza.
@@ -141,9 +141,9 @@ export const searcherCard: TSearcherCard[] = [
       'https://res.cloudinary.com/vicflores11/image/upload/v1695587913/Dygav/Fotos%20Casas%20Fake/Casa%203/355996735_785918643080668_4699798086633163591_n_amnyrx.jpg',
     ],
     alt: 'Centro de Torrevieja',
-    width: 347,
-    height: 227,
-    imgSubtitle: 'Torrevieja 100€ noche',
+    width: 340,
+    height: 245,
+    imgSubtitle: '',
     title: 'Piso céntrico en Torrevieja: Ubicación ideal para tu escapada',
     description: `Nuestro acogedor apartamento de una habitación es el lugar perfecto para disfrutar de unas vacaciones soleadas en la hermosa ciudad de Torrevieja. Ubicado en el corazón del centro, te ofrece fácil acceso a una gran variedad de atracciones, tiendas, restaurantes y playas de arena blanca. 
       
@@ -184,21 +184,19 @@ export const searcherCard: TSearcherCard[] = [
   {
     id: 5,
     src: [
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695587924/Dygav/Fotos%20Casas%20Fake/Casa%203/356261652_3037507509877302_5325402422896813490_n_wojl6k.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695587989/Dygav/Fotos%20Casas%20Fake/Casa%203/356416317_285953863844639_5168474264959699144_n_tw2mu1.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695587956/Dygav/Fotos%20Casas%20Fake/Casa%203/356265936_6548793485158648_2760430652149921419_n_mzlcba.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695587914/Dygav/Fotos%20Casas%20Fake/Casa%203/355905321_601649915400501_4627385904143650431_n_ackmrf.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695587914/Dygav/Fotos%20Casas%20Fake/Casa%203/356069544_283612164120370_5210225710094288699_n_s6cbcv.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695587914/Dygav/Fotos%20Casas%20Fake/Casa%203/355905321_236016995957818_2402960585356146924_n_vnier4.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695587913/Dygav/Fotos%20Casas%20Fake/Casa%203/355846265_1906296246435913_294380608627486919_n_rnxipk.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695587913/Dygav/Fotos%20Casas%20Fake/Casa%203/355866350_793826018941406_3115561986811254420_n_rniugr.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695587913/Dygav/Fotos%20Casas%20Fake/Casa%203/356230509_139699245763451_61727248857118520_n_jrg7cr.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695587913/Dygav/Fotos%20Casas%20Fake/Casa%203/355996735_785918643080668_4699798086633163591_n_amnyrx.jpg',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1695587733/Dygav/Fotos%20Casas%20Fake/Casa%205/355871521_2352028871646012_1364603506285862344_n_fahq4k.jpg',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1695587736/Dygav/Fotos%20Casas%20Fake/Casa%205/355840222_1617075832109631_5705936545059326589_n_irljxj.jpg',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1695587733/Dygav/Fotos%20Casas%20Fake/Casa%205/354803929_586623450171544_74377877471137664_n_caklv6.jpg',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1695587733/Dygav/Fotos%20Casas%20Fake/Casa%205/355425254_181386181319334_2203436108574430518_n_wfqjji.jpg',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1695587733/Dygav/Fotos%20Casas%20Fake/Casa%205/355708051_982390276129476_889252614238741693_n_hdvlf4.jpg',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1695587733/Dygav/Fotos%20Casas%20Fake/Casa%205/355868822_3089409318020829_7900497983944573914_n_mt2pwp.jpg',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1695587733/Dygav/Fotos%20Casas%20Fake/Casa%205/355981843_975091560194225_5909095246241865015_n_zp8tm4.jpg',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1695587733/Dygav/Fotos%20Casas%20Fake/Casa%205/355654279_595844349198704_5284302476182459048_n_lpynw2.jpg',
     ],
     alt: 'Apartamento Plaza del Ayuntamiento Torrevieja',
-    width: 347,
-    height: 227,
-    imgSubtitle: 'Torrevieja 100€ noche',
+    width: 340,
+    height: 245,
+    imgSubtitle: '',
     title: 'Apartamento Plaza del Ayuntamiento Torrevieja',
     description: `Este magnífico piso, ubicado a solo 200 metros del mar, te brinda la oportunidad de disfrutar de una estancia excepcional en uno de los lugares más privilegiados de la ciudad. Con su diseño moderno y elegante, te sumergirás en un ambiente de lujo y confort.
 
@@ -249,9 +247,9 @@ export const searcherCard: TSearcherCard[] = [
       'https://res.cloudinary.com/vicflores11/image/upload/v1695587746/Dygav/Fotos%20Casas%20Fake/Casa%206/355427240_1456381365177152_357350901128856131_n_zohqyo.jpg',
     ],
     alt: 'Casa Unifamiliar en Formigal',
-    width: 347,
-    height: 227,
-    imgSubtitle: 'Torrevieja 100€ noche',
+    width: 340,
+    height: 245,
+    imgSubtitle: '',
     title: 'Casa Unifamiliar en Formigal',
     description: `La casa ha sido cuidadosamente decorada y renovada para ofrecerte un ambiente acogedor y moderno. Cuenta con dos amplias habitaciones, cada una de ellas equipada con cómodas camas para garantizar un descanso reparador después de un día lleno de emociones en la montaña. Además, encontrarás armarios espaciosos para almacenar tus pertenencias y mantener todo ordenado durante tu estancia.
     
@@ -307,9 +305,9 @@ export const searcherCard: TSearcherCard[] = [
       'https://res.cloudinary.com/vicflores11/image/upload/v1695587996/Dygav/Fotos%20Casas%20Fake/Casa%208/355464099_3473824216239260_1851089902207079710_n_ujf5bh.jpg',
     ],
     alt: 'Un paraíso privado en Torrevieja: Casa unifamiliar con piscina, jacuzzi y sauna',
-    width: 347,
-    height: 227,
-    imgSubtitle: 'Torrevieja 100€ noche',
+    width: 340,
+    height: 245,
+    imgSubtitle: '',
     title:
       'Un paraíso privado en Torrevieja: Casa unifamiliar con piscina, jacuzzi y sauna',
     description: `El diseño moderno y elegante de la casa crea un ambiente acogedor y sofisticado. La cocina totalmente equipada te permite preparar tus comidas favoritas, mientras que el amplio salón es perfecto para pasar tiempo de calidad con tus seres queridos.

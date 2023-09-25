@@ -24,7 +24,7 @@ export const Carousel: FC<{ accomodation: TSearcherCard[] }> = ({
 
   return (
     <div className='block md:flex justify-evenly items-center'>
-      <div className='max-w-[550px] h-[650px] w-full py-16 px-4 relative group m-auto md:m-0'>
+      <div className='max-w-[550px] h-[500px] md:h-[600px] lg:h-[650px] w-full py-16 px-2 md:px-4 relative group m-auto md:m-0'>
         <div
           style={{
             backgroundImage: `url(${accomodation[0]?.src[currentIndex]})`,
