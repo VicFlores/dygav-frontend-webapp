@@ -1,5 +1,5 @@
 export type TImageProps = {
-  src: string;
+  src: string | string[];
   alt: string;
   height?: number;
   width?: number;

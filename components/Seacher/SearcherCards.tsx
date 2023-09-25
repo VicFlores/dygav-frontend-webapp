@@ -14,7 +14,7 @@ export const SearcherCards = () => {
         >
           <div id='CardHeader' className='space-y-4 '>
             <Image
-              src={item.src}
+              src={item.src[0]}
               alt={item.alt}
               width={item.width}
               height={item.height}

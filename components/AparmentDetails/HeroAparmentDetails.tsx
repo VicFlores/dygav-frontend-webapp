@@ -6,7 +6,7 @@ export const HeroAparmentDetails = () => {
       <p className='lg:text-[45px] text-center md:text-start text-[30px] md:text-[38px] font-semibold'>
         Detalles de tu alojamiento
       </p>
-      <p className='text-xl lg:text-[27px] md:text-[22px]'>
+      <p className='text-xl lg:text-[27px] md:text-[22px] text-center md:text-start'>
         Conoce los detalles de tu alojamiento, para que puedas hacer una mejor
         eleccion segun tus necesidades.
       </p>
