@@ -8,40 +8,41 @@ export const TouristDashboard = () => {
     {
       id: 1,
       imgUrl:
-        'https://res.cloudinary.com/vicflores11/image/upload/v1691367762/Dygav/13_qih5tu.png',
-      title: 'Card title',
+        'https://res.cloudinary.com/vicflores11/image/upload/v1695587998/Dygav/Fotos%20Casas%20Fake/Casa%208/354640296_828229741626967_1904076646856246503_n_ftvkax.jpg',
+      title: 'Apartamento Plaza del Ayuntamiento Torrevieja',
       information:
-        'Lorem ipsum dolor sit amet consectetur. Aliquam quisque tortor sit ac. Ante dolor ultrices dapibus ullamcorper condimentum.',
+        'Sumérgete en el lujo y el arte contemporáneo a solo 200 metros del mar. Descubre nuestro exclusivo piso en la Plaza del Ayuntamiento de Torrevieja, donde cada rincón es una obra maestra en sí misma.',
     },
     {
       id: 2,
       imgUrl:
-        'https://res.cloudinary.com/vicflores11/image/upload/v1691367762/Dygav/13_qih5tu.png',
-      title: 'Card title',
+        'https://res.cloudinary.com/vicflores11/image/upload/v1695587779/Dygav/Fotos%20Casas%20Fake/Casa%206/355583468_1452975642128909_5630854050548497334_n_rlavfw.jpg',
+      title: 'Casa Unifamiliar en Formigal',
       information:
-        'Lorem ipsum dolor sit amet consectetur. Aliquam quisque tortor sit ac. Ante dolor ultrices dapibus ullamcorper condimentum.',
+        'Esta hermosa casa es el lugar perfecto para disfrutar de unas vacaciones inolvidables en la impresionante estación de esquí de Formigal. Con su diseño espacioso y su ubicación privilegiada, te brinda todo el confort y la comodidad que necesitas.',
     },
     {
       id: 3,
       imgUrl:
-        'https://res.cloudinary.com/vicflores11/image/upload/v1691367762/Dygav/13_qih5tu.png',
-      title: 'Card title',
+        'https://res.cloudinary.com/vicflores11/image/upload/v1695587733/Dygav/Fotos%20Casas%20Fake/Casa%205/355425254_181386181319334_2203436108574430518_n_wfqjji.jpg',
+      title:
+        'Un paraíso privado en Torrevieja: Casa unifamiliar con piscina, jacuzzi y sauna',
       information:
-        'Lorem ipsum dolor sit amet consectetur. Aliquam quisque tortor sit ac. Ante dolor ultrices dapibus ullamcorper condimentum.',
+        'Con dos amplias habitaciones y dos baños, tendrás todo el espacio que necesitas para relajarte y disfrutar. Sumérgete en la piscina privada y refrescante, o relájate en el jacuzzi y sauna, brindándote momentos de pura relajación y bienestar.',
     },
   ];
 
   return (
     <div className='px-8 space-y-12 mb-24'>
       <p className=' text-black900/[.7] border-b-[1px] mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl'>
-        Alojamientos disponibles
+        Mis alojamientos favoritos
       </p>
 
       {reservation.length > 0 ? (
         <div className='grid gap-y-10 md:grid-cols-2 md:gap-y-8 lg:grid-cols-3 '>
           {reservation.map((item) => (
             <div
-              className='rounded-xl space-y-4 justify-self-center border-[1px] border-p600 px-5 py-5 bg-gray300/[.14] w-[300px] md:w-[310px]'
+              className='h-fit rounded-xl space-y-4 justify-self-center border-[1px] border-p600 px-5 py-5 bg-gray300/[.14] w-[300px] md:w-[310px]'
               key={item.id}
             >
               <figure className='text-center'>
