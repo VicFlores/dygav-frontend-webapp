@@ -5,6 +5,7 @@ import {
   Footer,
   GetLicense,
   HeroLicense,
+  Layout,
   LicenseTourist,
   MainHero,
   NavBar,
@@ -14,9 +15,9 @@ export default function License() {
   return (
     <section>
       <MainHero>
-        <NavBar />
-        <BurgerMenu />
-        <HeroLicense />
+        <Layout title='Dygav Licenses'>
+          <HeroLicense />
+        </Layout>
       </MainHero>
 
       <GetLicense />

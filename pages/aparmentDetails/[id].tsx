@@ -1,10 +1,9 @@
 import {
   AparmentDetails,
-  BurgerMenu,
   Footer,
   HeroAparmentDetails,
+  Layout,
   MainHero,
-  NavBar,
 } from '@/components';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -15,9 +14,9 @@ const AparmentDetailsPage = () => {
   return (
     <>
       <MainHero>
-        <NavBar />
-        <BurgerMenu />
-        <HeroAparmentDetails />
+        <Layout title='Aparment Details'>
+          <HeroAparmentDetails />
+        </Layout>
       </MainHero>
 
       <AparmentDetails id={router.query.id as string} />

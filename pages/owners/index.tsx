@@ -8,16 +8,16 @@ import {
   Footer,
   BurgerMenu,
   MainHero,
+  Layout,
 } from '@/components';
 
 const OwnersPage = () => {
   return (
     <section>
       <MainHero>
-        <NavBar />
-        <BurgerMenu />
-
-        <HeroOwners />
+        <Layout title='Dygav Owners'>
+          <HeroOwners />
+        </Layout>
       </MainHero>
 
       <PeachOwners />

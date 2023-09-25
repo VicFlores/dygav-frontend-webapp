@@ -25,8 +25,6 @@ export const Layout: FC<Props> = ({
       <BurgerMenu session={session} />
 
       <>{children}</>
-
-      <Footer />
     </div>
   );
 };

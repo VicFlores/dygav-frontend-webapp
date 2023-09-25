@@ -2,6 +2,7 @@ import {
   BurgerMenu,
   Footer,
   HeroSearcher,
+  Layout,
   MainHero,
   NavBar,
   SearcherCards,
@@ -11,9 +12,9 @@ export default function SearcherPage() {
   return (
     <section>
       <MainHero>
-        <NavBar />
-        <BurgerMenu />
-        <HeroSearcher />
+        <Layout title='Dygav Seacher'>
+          <HeroSearcher />
+        </Layout>
       </MainHero>
 
       <SearcherCards />

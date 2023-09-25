@@ -1,4 +1,4 @@
-import { BurgerMenu, NavBar, Register } from '@/components';
+import { BurgerMenu, Layout, NavBar, Register } from '@/components';
 
 export default function RegisterPage() {
   return (
@@ -8,10 +8,9 @@ export default function RegisterPage() {
           'w-full bg-brandContent bg-center bg-cover bg-no-repeat h-[calc(100vh+320px)] md:h-auto'
         }
       >
-        <NavBar />
-        <BurgerMenu />
-
-        <Register />
+        <Layout title='Dygav Register'>
+          <Register />
+        </Layout>
       </div>
     </section>
   );

@@ -8,15 +8,16 @@ import {
   Footer,
   BurgerMenu,
   MainHero,
+  Layout,
 } from '@/components';
 
 export default function HomePage() {
   return (
     <section>
       <MainHero>
-        <NavBar />
-        <BurgerMenu />
-        <Hero />
+        <Layout title='Dygav Home'>
+          <Hero />
+        </Layout>
       </MainHero>
 
       <Carousel />
