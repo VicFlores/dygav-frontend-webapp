@@ -3,6 +3,7 @@ import { TSearcherCard, searcherCard } from '@/utils';
 import React, { FC, useEffect, useState } from 'react';
 import { BsCheckCircle } from 'react-icons/bs';
 import { Carousel } from './Carousel';
+import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -54,25 +55,33 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
         Nuestras tarifas y calendario
       </p>
 
-      <div className='flex flex-col items-center space-y-12'>
-        <table className='table-auto text-center'>
-          <thead className='bg-p600 text-white'>
-            <tr>
-              <th className='px-4 py-2'>Desde</th>
-              <th className='px-4 py-2'>Hasta</th>
-              <th className='px-4 py-2'>Precio/Dia</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className='border px-6 py-4'>septiembre 1, 2023</td>
-              <td className='border px-6 py-4'>septiembre 30, 2023</td>
-              <td className='border px-6 py-4'>${accomodation[0]?.price}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div className='flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:justify-evenly items-center lg:space-x-8'>
+        <div>
+          <table className='table-auto text-center'>
+            <thead className='bg-p600 text-white'>
+              <tr>
+                <th className='px-4 py-2'>Desde</th>
+                <th className='px-4 py-2'>Hasta</th>
+                <th className='px-4 py-2'>Precio/Dia</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className='border px-6 py-4'>septiembre 1, 2023</td>
+                <td className='border px-6 py-4'>septiembre 30, 2023</td>
+                <td className='border px-6 py-4'>${accomodation[0]?.price}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div className='relative flex justify-center items-center mt-10'>
+            <AiOutlineCheckCircle className='w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-28 md:right-40 lg:right-[150px]' />
+            <button className='bg-p600 hover:bg-p800 text-[13px] md:text-sm lg:text-base p-2 w-[220px] md:w-[240px] lg:w-[260px] text-white'>
+              Pagar alojamiento
+            </button>
+          </div>
+        </div>
 
-        <div className='bg-white rounded-lg shadow-lg py-8 px-12'>
+        <div className='bg-white rounded-lg shadow-lg p-10 md:py-8 md:px-12'>
           <div className='flex justify-between items-center mb-4'>
             <button
               className='bg-gray-200 hover:bg-gray-300 rounded-lg px-2 py-1'
@@ -106,7 +115,7 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
               Next
             </button>
           </div>
-          <div className='grid grid-cols-7 gap-y-4 gap-x-8'>
+          <div className='grid grid-cols-7 gap-y-6 gap-x-4'>
             {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
               <div key={day} className='text-center font-bold text-gray-600'>
                 {day}
