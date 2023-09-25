@@ -6,16 +6,53 @@ import { Carousel } from './Carousel';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
+  const [selectedStartDate, setSelectedStartDate] = useState<Date | null>(null);
+  const [selectedEndDate, setSelectedEndDate] = useState<Date | null>(null);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [accomodation, setAccomodation] = useState<TSearcherCard[]>([]);
+  const [price, setPrice] = useState(0);
   const infoAparment = searcherCard.filter((item) => item.id === Number(id));
 
   useEffect(() => {
     setAccomodation(infoAparment);
   }, [id]);
 
-  const daysInMonth = (month: any, year: any) => {
-    return new Date(year, month, 0).getDate();
+  useEffect(() => {
+    const dailyRate = accomodation[0]?.price;
+
+    const startDate = selectedStartDate || new Date();
+    const endDate = selectedEndDate || new Date();
+
+    const timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
+    const numDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+    const totalPrice = numDays * dailyRate;
+
+    setPrice(totalPrice);
+  }, [selectedEndDate]);
+
+  const handleDateClick = (date: Date) => {
+    if (!selectedStartDate) {
+      setSelectedStartDate(date);
+      setSelectedEndDate(null);
+    } else if (!selectedEndDate) {
+      if (date >= selectedStartDate) {
+        setSelectedEndDate(date);
+      } else {
+        setSelectedStartDate(date);
+        setSelectedEndDate(selectedStartDate);
+      }
+    } else {
+      setSelectedStartDate(date);
+      setSelectedEndDate(null);
+    }
+  };
+
+  const isDateInRange = (date: Date) => {
+    if (!selectedStartDate || !selectedEndDate) {
+      return false;
+    }
+    return date >= selectedStartDate && date <= selectedEndDate;
   };
 
   const monthNames = [
@@ -33,15 +70,12 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
     'December',
   ];
 
-  const days = [];
-
-  const daysCount = daysInMonth(
+  const daysInMonth = new Date(
+    selectedDate.getFullYear(),
     selectedDate.getMonth() + 1,
-    selectedDate.getFullYear()
-  );
-  for (let i = 1; i <= daysCount; i++) {
-    days.push(i);
-  }
+    0
+  ).getDate();
+  const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
 
   return (
     <div className='px-8 space-y-12 mb-24'>
@@ -62,14 +96,14 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
               <tr>
                 <th className='px-4 py-2'>Desde</th>
                 <th className='px-4 py-2'>Hasta</th>
-                <th className='px-4 py-2'>Precio/Dia</th>
+                <th className='px-4 py-2'>Precio total</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td className='border px-6 py-4'>septiembre 1, 2023</td>
                 <td className='border px-6 py-4'>septiembre 30, 2023</td>
-                <td className='border px-6 py-4'>${accomodation[0]?.price}</td>
+                <td className='border px-6 py-4'>${price}</td>
               </tr>
             </tbody>
           </table>
@@ -131,18 +165,40 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
                   -
                 </div>
               ))}
-            {days.map((day) => (
-              <div
-                key={day}
-                className={`text-center font-bold ${
-                  day === selectedDate.getDate()
-                    ? 'bg-blue-500 text-p800 rounded-full'
-                    : 'text-gray-600'
-                }`}
-              >
-                {day}
-              </div>
-            ))}
+            {days.map((day) => {
+              const date = new Date(
+                selectedDate.getFullYear(),
+                selectedDate.getMonth(),
+                day
+              );
+              const isInRange = isDateInRange(date);
+              const isSelectedStart =
+                selectedStartDate &&
+                date.getTime() === selectedStartDate.getTime();
+              const isSelectedEnd =
+                selectedEndDate && date.getTime() === selectedEndDate.getTime();
+              const isSelectable = !selectedEndDate || date <= selectedEndDate;
+              const className = `text-center font-bold ${
+                isInRange
+                  ? 'bg-blue-500 text-p800'
+                  : isSelectedStart || isSelectedEnd
+                  ? 'bg-blue-300 text-p800'
+                  : 'text-gray-600'
+              } ${
+                isSelectable
+                  ? 'cursor-pointer hover:bg-blue-100'
+                  : 'text-gray-400'
+              }`;
+              return (
+                <div
+                  key={day}
+                  className={className}
+                  onClick={() => isSelectable && handleDateClick(date)}
+                >
+                  {day}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

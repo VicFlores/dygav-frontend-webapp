@@ -12,7 +12,7 @@ const AparmentDetailsPage = () => {
   const router = useRouter();
 
   return (
-    <>
+    <section>
       <MainHero>
         <Layout title='Aparment Details'>
           <HeroAparmentDetails />
@@ -22,7 +22,7 @@ const AparmentDetailsPage = () => {
       <AparmentDetails id={router.query.id as string} />
 
       <Footer />
-    </>
+    </section>
   );
 };
 

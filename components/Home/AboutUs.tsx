@@ -1,5 +1,6 @@
 import React from 'react';
 import { AboutUsCard } from '../';
+import Link from 'next/link';
 
 export const AboutUs = () => {
   return (
@@ -16,12 +17,12 @@ export const AboutUs = () => {
       <AboutUsCard />
 
       <div className='grid items-center justify-center pb-10 pt-10 gap-8'>
-        <button
-          id='toggle'
-          className='bg-p600 text-white w-[380px] md:w-[402px] h-10 self-center justify-self-center'
+        <Link
+          href='/owners'
+          className='bg-p600 text-center text-white py-2 px-24 self-center justify-self-center'
         >
           QUIERO SABER MÁS
-        </button>
+        </Link>
 
         <p className='text-xs md:text-base text-center text-black900 pt-1'>
           &quot;Nuestro objetivo es optimizar tus ingresos y proteger tu

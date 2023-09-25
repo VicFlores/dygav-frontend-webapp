@@ -1,10 +1,8 @@
 import React from 'react';
 import { CarouselCards } from './CarouselCards';
+import Link from 'next/link';
 
 const cardContent = [
-  { bg: 'bg-costaBlanca', title: 'Costa Blanca' },
-  { bg: 'bg-pirineos', title: 'Pirineos' },
-  { bg: 'bg-madrid', title: 'Madrid' },
   { bg: 'bg-costaBlanca', title: 'Costa Blanca' },
   { bg: 'bg-pirineos', title: 'Pirineos' },
   { bg: 'bg-madrid', title: 'Madrid' },
@@ -28,7 +26,9 @@ export const Carousel = () => {
 
       <div className='w-auto h-auto items-center mt-6 p-6 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden'>
         {cardContent.map((item, index) => (
-          <CarouselCards key={index} bg={item.bg} title={item.title} />
+          <Link href='/searcher' key={index}>
+            <CarouselCards bg={item.bg} title={item.title} />
+          </Link>
         ))}
       </div>
     </div>

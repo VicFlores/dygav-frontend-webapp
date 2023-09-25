@@ -15,7 +15,7 @@ export const HeroSearcher = () => {
               <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
               <input
                 type='text'
-                placeholder='Tipo de propiedad'
+                placeholder='Ubicacion'
                 className='pl-10 bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 w-full py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
               />
             </label>
@@ -26,29 +26,7 @@ export const HeroSearcher = () => {
               <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
               <input
                 type='text'
-                placeholder='Servicios'
-                className='pl-10 pr-4 bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 w-full py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
-              />
-            </label>
-          </div>
-
-          <div className='grid items-center justify-center relative'>
-            <label className='relative'>
-              <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
-              <input
-                type='text'
-                placeholder='Prestaciones'
-                className='pl-10 pr-4 bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 w-full py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
-              />
-            </label>
-          </div>
-
-          <div className='grid items-center md:justify-center lg:justify-normal relative lg:col-start-1 lg:col-end-3'>
-            <label className='relative'>
-              <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
-              <input
-                type='text'
-                placeholder='Servicios basicos'
+                placeholder='Fecha'
                 className='pl-10 pr-4 bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 w-full py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
               />
             </label>
@@ -64,6 +42,28 @@ export const HeroSearcher = () => {
               />
             </label>
           </div>
+
+          {/*   <div className='grid items-center md:justify-center lg:justify-normal relative lg:col-start-1 lg:col-end-3'>
+            <label className='relative'>
+              <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+              <input
+                type='text'
+                placeholder='Servicios basicos'
+                className='pl-10 pr-4 bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 w-full py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
+              />
+            </label>
+          </div> */}
+
+          {/*  <div className='grid items-center justify-center relative'>
+            <label className='relative'>
+              <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+              <input
+                type='text'
+                placeholder='Huespedes'
+                className='pl-10 pr-4 bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 w-full py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
+              />
+            </label>
+          </div> */}
         </div>
 
         <div className='flex justify-center items-center relative'>

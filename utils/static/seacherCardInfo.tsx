@@ -32,7 +32,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Ático en el Puerto Deportivo en Marina Internacional con Vistas Panorámicas al Mar',
     width: 340,
     height: 245,
-    imgSubtitle: '',
+    imgSubtitle: 'Marina Internacional - $145 ',
     title:
       'Ático en el Puerto Deportivo en Marina Internacional con Vistas Panorámicas al Mar',
     description: `Al ingresar al apartamento, serás recibido por una atmósfera acogedora y luminosa. El salón, elegantemente decorado, te brindará un espacio perfecto para descansar y disfrutar de momentos inolvidables. Podrás relajarte en el cómodo sofá mientras disfrutas de las vistas espectaculares a través de los amplios ventanales. La cocina muy amplia y totalmente equipada te permitirá preparar tus comidas favoritas con facilidad, y el comedor contiguo te brindará un ambiente acogedor para disfrutar de tus creaciones culinarias.`,
@@ -88,7 +88,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Bungaló junto al Mar: Tu Refugio de Tranquilidad en la Dehesa de Campoamor',
     width: 340,
     height: 245,
-    imgSubtitle: '',
+    imgSubtitle: 'Dehesa de Campoamor - $165',
     title:
       'Bungaló junto al Mar: Tu Refugio de Tranquilidad en la Dehesa de Campoamor',
     description: `El bungalow cuenta con una acogedora habitación, decorada con muchos cuadros modernos que le dan una atmósfera exclusiva y única. Despierta cada mañana y disfruta de las vistas al jardín desde la comodidad de tu cama. La tranquilidad y privacidad están garantizadas en este oasis. El jardín es simplemente espectacular, con amplios espacios verdes donde podrás relajarte, leer un libro o simplemente deleitarte con la naturaleza.
@@ -146,7 +146,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Centro de Torrevieja',
     width: 340,
     height: 245,
-    imgSubtitle: '',
+    imgSubtitle: 'Centro de Torrevieja - $110',
     title: 'Piso céntrico en Torrevieja: Ubicación ideal para tu escapada',
     description: `Nuestro acogedor apartamento de una habitación es el lugar perfecto para disfrutar de unas vacaciones soleadas en la hermosa ciudad de Torrevieja. Ubicado en el corazón del centro, te ofrece fácil acceso a una gran variedad de atracciones, tiendas, restaurantes y playas de arena blanca. 
       
@@ -200,7 +200,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Apartamento Plaza del Ayuntamiento Torrevieja',
     width: 340,
     height: 245,
-    imgSubtitle: '',
+    imgSubtitle: 'Torrevieja - $130',
     title: 'Apartamento Plaza del Ayuntamiento Torrevieja',
     description: `Este magnífico piso, ubicado a solo 200 metros del mar, te brinda la oportunidad de disfrutar de una estancia excepcional en uno de los lugares más privilegiados de la ciudad. Con su diseño moderno y elegante, te sumergirás en un ambiente de lujo y confort.
 
@@ -254,7 +254,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Casa Unifamiliar en Formigal',
     width: 340,
     height: 245,
-    imgSubtitle: '',
+    imgSubtitle: 'Formigal - $115',
     title: 'Casa Unifamiliar en Formigal',
     description: `La casa ha sido cuidadosamente decorada y renovada para ofrecerte un ambiente acogedor y moderno. Cuenta con dos amplias habitaciones, cada una de ellas equipada con cómodas camas para garantizar un descanso reparador después de un día lleno de emociones en la montaña. Además, encontrarás armarios espaciosos para almacenar tus pertenencias y mantener todo ordenado durante tu estancia.
     
@@ -313,7 +313,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Un paraíso privado en Torrevieja: Casa unifamiliar con piscina, jacuzzi y sauna',
     width: 340,
     height: 245,
-    imgSubtitle: '',
+    imgSubtitle: 'Torrevieja - $165',
     title:
       'Un paraíso privado en Torrevieja: Casa unifamiliar con piscina, jacuzzi y sauna',
     description: `El diseño moderno y elegante de la casa crea un ambiente acogedor y sofisticado. La cocina totalmente equipada te permite preparar tus comidas favoritas, mientras que el amplio salón es perfecto para pasar tiempo de calidad con tus seres queridos.

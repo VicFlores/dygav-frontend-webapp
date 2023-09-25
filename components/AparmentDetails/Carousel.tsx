@@ -63,8 +63,11 @@ export const Carousel: FC<{ accomodation: TSearcherCard[] }> = ({
             className='w-[300px] md:w-[320px] lg:w-[400px] self-center justify-self-center m-auto md:m-0'
           >
             <div id='CardBody' className='space-y-4 mt-6 mb-6'>
-              <p className='text-[18px] md:text-[20px] lg:text-[25px] text-center md:text-start'>
+              <p className='text-[18px] md:text-[20px] lg:text-[25px] text-center'>
                 {item.title}
+              </p>
+              <p className='text-center text-[13px] md:text-[14px] lg:text-base text-black900'>
+                {item.imgSubtitle} / noche
               </p>
               <p className='text-[13px] md:text-[14px] lg:text-base whitespace-pre-line'>
                 {item.description}

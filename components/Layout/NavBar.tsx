@@ -112,7 +112,7 @@ export const NavBar: FC<TSession> = ({ session }) => {
 
           <div className='space-x-6'>
             <Link
-              href='register'
+              href='/register'
               passHref
               id='toggle'
               className='bg-white text-p600 px-5 py-2'
@@ -121,7 +121,7 @@ export const NavBar: FC<TSession> = ({ session }) => {
             </Link>
 
             <Link
-              href='login'
+              href='/login'
               passHref
               id='toggle'
               className='bg-p600 text-white px-5 py-2'
