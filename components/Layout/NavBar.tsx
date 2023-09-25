@@ -1,5 +1,9 @@
 import { TSession } from '@/types';
-import { accountMenuItem, publicMenuItem } from '@/utils';
+import {
+  accounOwnertMenuItem,
+  accounTouristMenuItem,
+  publicMenuItem,
+} from '@/utils';
 import { signOut } from 'next-auth/react';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
@@ -27,15 +31,27 @@ export const NavBar: FC<TSession> = ({ session }) => {
           </div>
 
           <div className='flex justify-evenly items-center grow'>
-            {accountMenuItem.map((item, index) => (
-              <Link
-                key={index}
-                className=' text-[20px] text-white'
-                href={item.path}
-              >
-                {item.title}
-              </Link>
-            ))}
+            {session?.user?.role === 'tourist'
+              ? accounTouristMenuItem.map((item, index) => (
+                  <Link
+                    key={index}
+                    className=' text-[20px] text-white'
+                    href={item.path}
+                  >
+                    {item.title}
+                  </Link>
+                ))
+              : session?.user?.role === 'owner'
+              ? accounOwnertMenuItem.map((item, index) => (
+                  <Link
+                    key={index}
+                    className=' text-[20px] text-white'
+                    href={item.path}
+                  >
+                    {item.title}
+                  </Link>
+                ))
+              : null}
 
             <div className='h-14 w-14 relative'>
               {session?.user.image ? (

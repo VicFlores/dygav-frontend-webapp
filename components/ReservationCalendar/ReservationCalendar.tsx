@@ -36,11 +36,19 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   }, [id]);
 
   const reservations = accomodationByReservation.map((item) => {
-    return {
-      start: item.occupiedPeriod.startDate,
-      end: item.occupiedPeriod.endDate,
-      title: item.accommodationName,
-    };
+    if (item.status === 'CONFIRMED') {
+      return {
+        start: item.occupiedPeriod.startDate,
+        end: item.occupiedPeriod.endDate,
+        title: item.accommodationName,
+      };
+    } else {
+      return {
+        start: new Date().getDate(),
+        end: new Date().getDate(),
+        title: '',
+      };
+    }
   });
 
   const handleEventClick = (e: any) => {
