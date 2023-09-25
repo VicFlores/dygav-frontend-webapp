@@ -52,7 +52,7 @@ export const BrandContent = () => {
         {imageProps.map((item, index) => (
           <div className={'text-center'} key={index}>
             <Image
-              src={item.src}
+              src={item.src as string}
               alt={item.alt}
               width={item.width}
               height={item.height}
