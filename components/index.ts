@@ -32,3 +32,9 @@ export * from './OwnerAccomodationReservationDetails/OwnerAccomodationReservatio
 export * from './ReservationCalendar/ReservationCalendar';
 export * from './AparmentDetails/AparmentDetails';
 export * from './AparmentDetails/HeroAparmentDetails';
+export * from './Policies/PrivacyPolicy';
+export * from './Policies/PrivacyPolicyDetails';
+export * from './Policies/CookiesPolicy';
+export * from './Policies/CookiesPolicyDetails';
+export * from './Policies/FormsPolicy';
+export * from './Policies/FormsPolicyDetails';
