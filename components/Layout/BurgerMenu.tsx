@@ -4,7 +4,11 @@ import { TSession } from '@/types';
 import { UIContext } from '@/context';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import Image from 'next/legacy/image';
-import { accountMenuItem, publicMenuItem } from '@/utils';
+import {
+  accounOwnertMenuItem,
+  accounTouristMenuItem,
+  publicMenuItem,
+} from '@/utils';
 import { signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
@@ -42,15 +46,27 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
           {sideMenu ? (
             <div className='grid gap-y-8 bg-p400 h-auto pt-6 pb-6 mt-6'>
               <div className='grid justify-center items-center text-center'>
-                {accountMenuItem.map((item, index) => (
-                  <Link
-                    key={index}
-                    className=' text-[20px] text-white'
-                    href={item.path}
-                  >
-                    {item.title}
-                  </Link>
-                ))}
+                {session?.user?.role === 'tourist'
+                  ? accounTouristMenuItem.map((item, index) => (
+                      <Link
+                        key={index}
+                        className=' text-[20px] text-white'
+                        href={item.path}
+                      >
+                        {item.title}
+                      </Link>
+                    ))
+                  : session?.user?.role === 'owner'
+                  ? accounOwnertMenuItem.map((item, index) => (
+                      <Link
+                        key={index}
+                        className=' text-[20px] text-white'
+                        href={item.path}
+                      >
+                        {item.title}
+                      </Link>
+                    ))
+                  : null}
               </div>
               <div className='grid justify-center items-center gap-y-4'>
                 <button
