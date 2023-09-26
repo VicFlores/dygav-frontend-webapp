@@ -18,7 +18,7 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
   }, [id]);
 
   useEffect(() => {
-    const dailyRate = accomodation[0]?.price;
+    const dailyRate = accomodation[0]?.price || 0;
 
     const startDate = selectedStartDate || new Date();
     const endDate = selectedEndDate || new Date();
@@ -108,7 +108,7 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
             </tbody>
           </table>
           <div className='relative flex justify-center items-center mt-10'>
-            <AiOutlineCheckCircle className='w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-28 md:right-40 lg:right-[150px]' />
+            <AiOutlineCheckCircle className='w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-24 md:right-40 lg:right-[150px]' />
             <button className='bg-p600 hover:bg-p800 text-[13px] md:text-sm lg:text-base p-2 w-[220px] md:w-[240px] lg:w-[260px] text-white'>
               Pagar alojamiento
             </button>
