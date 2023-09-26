@@ -4,37 +4,37 @@ import React from 'react';
 
 const imageProps: TImageProps[] = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691868897/Dygav/Booking-Logo_osnjdx.png',
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691868897/Dygav/Booking-Logo_osnjdx.WebP',
     alt: 'Booking.com',
     height: 70,
     width: 125,
   },
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691868899/Dygav/ABNB_ugauy3.png',
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691868899/Dygav/ABNB_ugauy3.WebP',
     alt: 'AirBnb',
     height: 100,
     width: 125,
   },
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691882177/Dygav/0x0_j8hysr.png',
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691882177/Dygav/0x0_j8hysr.WebP',
     alt: 'Rentalia',
     height: 40,
     width: 125,
   },
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691882182/Dygav/Comment-contacter-Vrbo_jkhslp.png',
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691882182/Dygav/Comment-contacter-Vrbo_jkhslp.WebP',
     alt: 'Vrbo',
     height: 100,
     width: 125,
   },
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691882171/Dygav/Google_2015_logo.svg_sojqzx.png',
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691882171/Dygav/Google_2015_logo.svg_sojqzx.WebP',
     alt: 'Google',
     height: 45,
     width: 125,
   },
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691882174/Dygav/EXPEDIA-LOGO-1_ko2beq.png',
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691882174/Dygav/EXPEDIA-LOGO-1_ko2beq.WebP',
     alt: 'Xpedia',
     height: 100,
     width: 140,

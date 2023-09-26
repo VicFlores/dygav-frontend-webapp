@@ -12,9 +12,9 @@ export const MainHero: FC<Props> = ({ children }) => {
 
   useEffect(() => {
     const images = [
-      'https://res.cloudinary.com/vicflores11/image/upload/v1691367769/Dygav/4_wq4pgw.png',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1691367769/Dygav/5_mhpa2f.png',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1691367762/Dygav/13_qih5tu.png',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1691367769/Dygav/4_wq4pgw.WebP',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1691367769/Dygav/5_mhpa2f.WebP',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1691367762/Dygav/13_qih5tu.WebP',
     ];
 
     const randomIndex = Math.floor(Math.random() * images.length);

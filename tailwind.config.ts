@@ -26,21 +26,21 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         heroContent:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367753/Dygav/12_yxhpq1.png')",
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367753/Dygav/12_yxhpq1.WebP')",
         costaBlanca:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367753/Dygav/1_j8qeqo.png')",
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367753/Dygav/1_j8qeqo.WebP')",
         pirineos:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367752/Dygav/11_uhpghg.png')",
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367752/Dygav/11_uhpghg.WebP')",
         madrid:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367758/Dygav/15_kfihjl.png')",
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367758/Dygav/15_kfihjl.WebP')",
         welcomeWorld:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691789897/Dygav/undraw_World_re_768g_afxop1.png')",
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691789897/Dygav/undraw_World_re_768g_afxop1.WebP')",
         digitalAparment:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691789289/Dygav/undraw_Best_place_re_lne9_sn3p88.png')",
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691789289/Dygav/undraw_Best_place_re_lne9_sn3p88.WebP')",
         aboutUsAviable:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691768615/Dygav/icon-image_gtwgyc.png')",
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691768615/Dygav/icon-image_gtwgyc.WebP')",
         brandContent:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367775/Dygav/19_skargh.png')",
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367775/Dygav/19_skargh.WebP')",
       },
     },
   },
