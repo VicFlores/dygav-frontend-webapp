@@ -46,7 +46,7 @@ export const Footer = () => {
         <Link href='/license'>License</Link>
       </div>
 
-      <div>
+      {/* <div>
         <p className='text-xl mb-8'>Boletin informativo</p>
 
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -70,7 +70,7 @@ export const Footer = () => {
           <span className='text-red-500'>{errors.email.message}</span>
         )}
         {message && <span className='text-green-500'>{message}</span>}
-      </div>
+      </div> */}
 
       <div className='flex flex-col space-y-6'>
         <p className='text-xl'>Contacto</p>

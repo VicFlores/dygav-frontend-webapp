@@ -64,7 +64,7 @@ export const NavBar: FC<TSession> = ({ session }) => {
               ) : (
                 <Image
                   src={
-                    'https://res.cloudinary.com/vicflores11/image/upload/v1695077734/Dygav/undraw_Pic_profile_re_7g2h_o0irqa.png'
+                    'https://res.cloudinary.com/vicflores11/image/upload/v1695077734/Dygav/undraw_Pic_profile_re_7g2h_o0irqa.WebP'
                   }
                   alt={'Profile picture'}
                   layout='fill'
