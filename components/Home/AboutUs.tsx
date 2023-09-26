@@ -19,7 +19,7 @@ export const AboutUs = () => {
       <div className='grid items-center justify-center pb-10 pt-10 gap-8'>
         <Link
           href='/owners'
-          className='bg-p600 text-center text-white py-2 px-28 md:px-24 self-center justify-self-center'
+          className='bg-p600 text-sm md:text-lg  text-center text-white py-2 px-24 self-center justify-self-center'
         >
           QUIERO SABER MÁS
         </Link>
