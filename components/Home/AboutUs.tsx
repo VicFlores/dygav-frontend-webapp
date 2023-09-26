@@ -19,15 +19,14 @@ export const AboutUs = () => {
       <div className='grid items-center justify-center pb-10 pt-10 gap-8'>
         <Link
           href='/owners'
-          className='bg-p600 text-sm md:text-lg  text-center text-white py-2 px-24 self-center justify-self-center'
+          className='text-center bg-p600 text-white hover:bg-p800 border-[1px] border-p600 rounded-md text-[13px] md:text-sm lg:text-base py-2 px-10 self-center justify-self-center'
         >
           QUIERO SABER MÁS
         </Link>
 
-        <p className='text-xs md:text-base text-center text-black900 pt-1'>
-          &quot;Nuestro objetivo es optimizar tus ingresos y proteger tu
-          inversión, <br /> mientras te brindamos tranquilidad y satisfacción en
-          cada paso <br /> del camino&quot;
+        <p className='text-xs md:text-base text-center text-black900 pt-1 whitespace-pre-line'>
+          {`"Nuestro objetivo es optimizar tus ingresos y proteger tu inversión, 
+          mientras te brindamos tranquilidad y satisfacción en cada paso del camino"`}
         </p>
       </div>
     </section>
