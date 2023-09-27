@@ -31,7 +31,7 @@ export const Information = () => {
             ¡Llámanos!
           </p>
 
-          <div className='flex flex-col md:flex-row justify-evenly items-center'>
+          <div className='flex flex-col space-y-4 md:flex-row md:justify-evenly items-center'>
             <div className='relative'>
               <BiPhoneCall className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-10 md:right-8 lg:right-12' />
               <button
