@@ -39,7 +39,7 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
             </div>
 
             <div onClick={handlerToogleMenu}>
-              <GiHamburgerMenu className='text-white text-4xl md:text-5xl' />
+              <GiHamburgerMenu className='text-white text-4xl md:text-5xl hover:cursor-pointer' />
             </div>
           </div>
 
@@ -88,17 +88,19 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
         <nav className='w-full h-auto lg:hidden p-4 static'>
           <div className='flex justify-between items-center'>
             <div className='h-auto w-auto'>
-              <Image
-                src={imageUrl}
-                alt='DyGav Log'
-                width={70}
-                height={70}
-                priority
-              />
+              <Link href='/'>
+                <Image
+                  src={imageUrl}
+                  alt='DyGav Log'
+                  width={70}
+                  height={70}
+                  priority
+                />
+              </Link>
             </div>
 
             <div onClick={handlerToogleMenu}>
-              <GiHamburgerMenu className='text-white text-4xl md:text-5xl' />
+              <GiHamburgerMenu className='text-white text-4xl md:text-5xl hover:cursor-pointer' />
             </div>
           </div>
 
