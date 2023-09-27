@@ -56,12 +56,12 @@ export const Information = () => {
 
         <div
           id='CardPlayGround'
-          className='grid justify-center items-center gap-y-12'
+          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-y-12 gap-x-4'
         >
           {informationCard.map((item, index) => (
             <div
               key={index}
-              className=' w-80 md:w-[540px] lg:w-[600px] border-[1px] border-p600 text-center bg-gray300/20 py-5'
+              className=' w-fit border-[1px] border-p600 text-center bg-gray300/20 py-5'
             >
               <Image
                 src={item.src as string}
@@ -83,13 +83,30 @@ export const Information = () => {
         </div>
       </div>
 
-      <p className='mt-8 text-sm md:text-lg px-2 md:px-0'>
-        Es importante destacar que no hay costes adicionales ocultos. Además,
-        los gastos de limpieza son asumidos directamente por los huéspedes, lo
-        que significa que no tendrás que preocuparte por ningún otro cargo
-        adicional. Nos esforzamos por brindarte una gestión clara y sin
-        sorpresas, permitiéndote maximizar tus ingresos y disfrutar de una
-        experiencia libre de preocupaciones.
+      <h1 className='text-center text-2xl md:text-3xl border-b-4 border-b-p600 mt-12 pb-2'>
+        Nuestras Tarifas
+      </h1>
+
+      <p className='mt-8 text-sm md:text-lg px-2 md:px-0 text-center md:text-start '>
+        Con nuestra tarifa altamente competitiva, obtendrás todos los beneficios
+        de nuestros servicios de gestión integral. Al contrario que otras
+        empresas que ocultan sus tarifas escondiendo sus comisiones en DYGAV,
+        mantenemos una política de transparencia total en nuestras tarifas
+        porque creemos en una relación donde nuestros ingresos estén
+        directamente vinculados al éxito de nuestros clientes y por eso cobramos
+        una comisión del 15%+IVA sobre la facturación de las casas que
+        gestionamos, lo cual incluye todos nuestros servicios profesionales de
+        gestión. Es importante destacar que no hay costes adicionales ocultos.
+        Además, los gastos de limpieza son asumidos directamente por los
+        huéspedes, lo que significa que no tendrás que preocuparte por ningún
+        otro cargo adicional. Nos esforzamos por brindarte una gestión clara y
+        sin sorpresas, permitiéndote maximizar tus ingresos y disfrutar de una
+        experiencia libre de preocupaciones. Es importante destacar que no hay
+        costes adicionales ocultos. Además, los gastos de limpieza son asumidos
+        directamente por los huéspedes, lo que significa que no tendrás que
+        preocuparte por ningún otro cargo adicional. Nos esforzamos por
+        brindarte una gestión clara y sin sorpresas, permitiéndote maximizar tus
+        ingresos y disfrutar de una experiencia libre de preocupaciones.
       </p>
     </section>
   );
