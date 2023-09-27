@@ -3,22 +3,22 @@ import React from 'react';
 
 const userInfo = [
   {
-    headerTitle: 'nadine fernandez',
-    headerSubtitle: 'Comentario desde Google',
+    headerTitle: 'Nadine fernandez',
+    headerSubtitle: 'Comentario en Google',
     comment:
       'Desde el minuto uno fueron increíbles, gran cercanía y profesionalidad. Sabía que mi vivienda estaría en buenas manos con ellos, ahora no me tengo que preocupar de nada a la hora de alquilar mi vivienda, Dygav se encarga de todo. Lo recomiendo al 100%.',
     path: 'https://lh3.googleusercontent.com/a-/ALV-UjXxn0pYb5y9EG0uiIJfaI-Ao85QA6Bjn4H1WsGyPmtoNCE=w75-h75-p-rp-mo-br100',
   },
   {
-    headerTitle: 'ramon cervera',
-    headerSubtitle: 'Comentario desde Google',
+    headerTitle: 'Ramon cervera',
+    headerSubtitle: 'Comentario en Google',
     comment:
       'Espectacular todo, lo recomiendo 100%',
     path: 'https://lh3.googleusercontent.com/a/ACg8ocLCMzHcgxL3MS8ZlQHK9YtGrGd7RBjzExTAosceiiih=w75-h75-p-rp-mo-ba2-br100',
   },
   {
-    headerTitle: 'carmen murciano',
-    headerSubtitle: 'Comentario desde Google',
+    headerTitle: 'Carmen murciano',
+    headerSubtitle: 'Comentario en Google',
     comment:
       'Estuvimos en el apartamento de Bernabeu y la verdad que la ubicación perfecta, todo muy limpio y las vistas una maravilla 😍',
     path: 'https://lh3.googleusercontent.com/a/ACg8ocJGBMVxINp7JqM52Oz4fNli-i6dE7d8omk4l-qhHtgj=w75-h75-p-rp-mo-br100',
