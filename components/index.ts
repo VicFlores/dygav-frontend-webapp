@@ -38,3 +38,5 @@ export * from './Policies/CookiesPolicy';
 export * from './Policies/CookiesPolicyDetails';
 export * from './Policies/FormsPolicy';
 export * from './Policies/FormsPolicyDetails';
+export * from './Policies/LegalNotice';
+export * from './Policies/LegalNoticeDetails';

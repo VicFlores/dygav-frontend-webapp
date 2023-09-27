@@ -37,10 +37,6 @@ export const Footer = () => {
     <footer className='bg-p600 space-y-10 pt-8 pb-8 lg:pt-0 lg:pb-0 lg:space-y-0 h-auto lg:h-80 lg:flex lg:justify-around lg:items-center text-white text-center'>
       <div className='flex flex-col space-y-2'>
         <p className='text-xl'>Enlaces útiles</p>
-        <Link href='/'>Viaja</Link>
-        <Link href='/license'>License</Link>
-        <Link href='/searcher'>Apartamentos</Link>
-        <Link href='/owners'>Propietarios</Link>
         <Link href='/login'>Iniciar Sesion</Link>
         <Link href='/register'>Registrarse</Link>
       </div>
@@ -50,6 +46,7 @@ export const Footer = () => {
         <Link href='/policies/privacyPolicy'>Política de Privacidad</Link>
         <Link href='/policies/cookiesPolicy'>Política de Cookies</Link>
         <Link href='/policies/formsPolicy'>Política de Formularios</Link>
+        <Link href='/policies/legalNotice'>Aviso Legal</Link>
       </div>
 
       {/* <div>
