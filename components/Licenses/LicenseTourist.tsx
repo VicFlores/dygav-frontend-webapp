@@ -10,14 +10,16 @@ export const LicenseTourist = () => {
 
       <div className='w-auto border-t-4 border-t-p600 pt-5 space-y-4 text-black900 px-3 text-xs md:text-sm lg:text-lg'>
         <p>
-          Si ya has llegado hasta aquí y todavía quieres saber más sobre
-          nuestros servicios para la obtención de licencias turísticas… ¡sigue
-          leyendo y te contamos!
+          En DYGAV, comprendemos la importancia de obtener la licencia turística de manera rápida y 
+          eficiente y nos comprometemos a brindarte el apoyo necesario en cada etapa del proceso.
         </p>
 
         <p>
-          Si lo que quieres es sacar una Licencia Vacacional en Torrevieja, haz
-          click aquí y te contamos al detalle todo lo que necesitas saber.
+        Nuestro equipo de expertos en licencias turísticas se mantiene actualizado con las regulaciones y requisitos específicos de tu área, garantizando que tu solicitud cumpla con todos los estándares legales y normativas vigentes.
+        Ya sea por teléfono, correo electrónico, WhatsApp o a través del formulario de contacto nuestro equipo estará encantado de atenderte y responder a todas tus consultas.
+        <br />
+        Nos encargamos de proporcionarte una orientación precisa y completa en los siguientes aspectos clave:
+
         </p>
 
         <p>
