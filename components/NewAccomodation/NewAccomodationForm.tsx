@@ -179,16 +179,12 @@ const NewAccomodationForm = () => {
         }
       );
 
-      console.log(avaibookRes.data.id);
-
       infoAccomodation.accomodationId = avaibookRes.data.id;
 
       const res = await axios.post(
         '/api/accomodations/route',
         infoAccomodation
       );
-
-      console.log(res.data);
 
       return router.push('/private/admin/dashboard');
     } catch (error) {
