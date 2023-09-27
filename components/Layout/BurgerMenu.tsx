@@ -117,7 +117,7 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
               </div>
               <div className='grid justify-center items-center gap-y-4'>
                 <Link
-                  href='register'
+                  href='/register'
                   passHref
                   id='toggle'
                   className='text-sm md:text-base bg-white text-p600 px-5 py-2'
@@ -126,7 +126,7 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
                 </Link>
 
                 <Link
-                  href='login'
+                  href='/login'
                   passHref
                   id='toggle'
                   className='text-sm md:text-base bg-p600 text-white px-5 py-2'
