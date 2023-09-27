@@ -23,10 +23,10 @@ export default function License() {
       <GetLicense />
 
       <LicenseTourist />
-      <ContactYouLicense />
-
 
       <Contact />
+
+      <ContactYouLicense />
 
       <Footer />
     </section>

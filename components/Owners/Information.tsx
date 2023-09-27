@@ -1,5 +1,6 @@
 import Image from 'next/legacy/image';
 import { informationCard } from '@/utils';
+import { BiPhoneCall } from 'react-icons/bi';
 
 export const Information = () => {
   return (
@@ -14,23 +15,43 @@ export const Information = () => {
       >
         <div
           id='ParagraphPlayGround'
-          className='px-4 md:px-6 space-y-4 w-auto text-sm lg:text-lg'
+          className='px-4 md:px-6 space-y-12 w-auto text-sm lg:text-lg'
         >
-          <p>
-            En DYGAV, nos especializamos en maximizar la rentabilidad de tus
-            apartamentos mediante estrategias efectivas de marketing digital,
-            atención al cliente excepcional y un enfoque detallado en la
-            limpieza y el mantenimiento. Con nuestra gestión de ingresos basada
-            en tarifas dinámicas y competitivas, te ayudaremos a alcanzar el
-            máximo potencial de tus propiedades. Confía en nosotros para
-            brindarte informes detallados y asesoramiento personalizado para
-            mejorar tus resultados y aprovechar oportunidades de crecimiento.
+          <p className='text-sm md:text-lg whitespace-pre-line'>
+            {`Nos encargamos de todos los aspectos necesarios para maximizar tus ingresos y garantizar una experiencia inigualable tanto para los propietarios como para los huéspedes.
+              
+              Nuestro equipo altamente capacitado se encargará de la gestión integral de tus apartamentos, desde la promoción y comercialización en todas las plataformas líderes de gestión de reservas para apartamentos vacacionales (Airbnb,  Booking, Rentalia, Vrbo, Google, Expedia, etc...), Checki-In & Check-Out además de la limpieza y el mantenimiento de las propiedades.
+              
+              Nos aseguraremos de que tus apartamentos estén siempre  listos, así, tus huéspedes podrán disfrutar de una estancia sin contratiempos y tú podrás obtener las mejores calificaciones y comentarios positivos.
+              
+              ¡Descubre una forma más efectiva de gestionar tus apartamentos vacacionales con nosotros!`}
           </p>
 
-          <p>
-            ¡Descubre una forma más efectiva de gestionar tus apartamentos
-            turísticos con nosotros!
+          <p className='text-center text-2xl px-14 md:text-3xl text-black700'>
+            ¡Llámanos!
           </p>
+
+          <div className='flex flex-col md:flex-row justify-evenly items-center'>
+            <div className='relative'>
+              <BiPhoneCall className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-10 md:right-8 lg:right-12' />
+              <button
+                id='toggle'
+                className='bg-p600 hover:bg-p800 text-center text-xs md:text-sm lg:text-base py-2 px-4 w-[220px] md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
+              >
+                +34 614 165 736
+              </button>
+            </div>
+
+            <div className='relative'>
+              <BiPhoneCall className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-10 md:right-8 lg:right-12' />
+              <button
+                id='toggle'
+                className='bg-p600 hover:bg-p800 text-center text-xs md:text-sm lg:text-base py-2 px-4 w-[220px] md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
+              >
+                +34 614 214 250
+              </button>
+            </div>
+          </div>
         </div>
 
         <div

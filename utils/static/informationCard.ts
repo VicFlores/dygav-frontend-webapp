@@ -2,6 +2,13 @@ import { TCardProps } from '@/types';
 
 export const informationCard: TCardProps[] = [
   {
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1695830820/Dygav/undraw_statistic_chart_re_w0pk_b9zaza.svg',
+    alt: 'Nuestras Tarifas',
+    title: 'Nuestras Tarifas',
+    subtitle:
+      'Con nuestra tarifa altamente competitiva, obtendrás todos los beneficios de nuestros servicios de gestión integral. Al contrario que otras empresas que ocultan sus tarifas escondiendo sus comisiones en DYGAV, mantenemos una política de transparencia total en nuestras tarifas porque creemos en una relación donde nuestros ingresos estén directamente vinculados al éxito de nuestros clientes y por eso cobramos una comisión del 15%+IVA sobre la facturación de las casas que gestionamos, lo cual incluye todos nuestros servicios profesionales de gestión. Es importante destacar que no hay costes adicionales ocultos. Además, los gastos de limpieza son asumidos directamente por los huéspedes, lo que significa que no tendrás que preocuparte por ningún otro cargo adicional. Nos esforzamos por brindarte una gestión clara y sin sorpresas, permitiéndote maximizar tus ingresos y disfrutar de una experiencia libre de preocupaciones.',
+  },
+  {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1692135591/Dygav/undraw_Business_plan_re_0v81_pwrgvq.WebP',
     alt: 'Inversiones y Mejoras',
     title: 'Inversiones y Mejoras',
@@ -63,12 +70,5 @@ export const informationCard: TCardProps[] = [
     title: 'Gestión de Reseñas',
     subtitle:
       'En DYGAV nos esforzamos por brindar un servicio excepcional y garantizar que tus huéspedes tengan una experiencia memorable. Además, implementamos estrategias para fomentar y solicitar reseñas positivas de tus huéspedes satisfechos. Estas reseñas positivas no solo impulsarán la confianza de futuros huéspedes, sino que también ampliarán aún más la visibilidad de tus apartamentos en las plataformas de alquiler vacacional. Nuestro objetivo es ayudarte a obtener la mayor cantidad posible de reseñas positivas para que tu propiedad destaque y atraiga a más potenciales huéspedes.',
-  },
-  {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1692201606/Dygav/undraw_data_reports_706v_hirslj.WebP',
-    alt: 'Nuestras Tarifas',
-    title: 'Nuestras Tarifas',
-    subtitle:
-      'Con nuestra tarifa altamente competitiva, obtendrás todos los beneficios de nuestros servicios de gestión integral: marketing y promoción efectiva, atención al cliente excepcional, limpieza y mantenimiento impecables, y una estrategia de gestión de precios dinámicos inteligente. Al contrario que otras empresas que ocultan sus tarifas escondiendo sus comisiones en DYGAV, mantenemos una política de transparencia total en nuestras tarifas porque creemos en una relación donde nuestros ingresos estén directamente vinculados al éxito de nuestros clientes y por eso cobramos una comisión del 15% sobre la facturación de las casas que gestionamos, lo cual incluye todos nuestros servicios profesionales de gestión.',
   },
 ];

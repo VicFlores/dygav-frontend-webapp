@@ -22,11 +22,11 @@ const OwnersPage = () => {
 
       <PeachOwners />
 
-      <ContactYou />
-
       <Information />
 
       <Contact />
+
+      <ContactYou />
 
       <Footer />
     </section>
