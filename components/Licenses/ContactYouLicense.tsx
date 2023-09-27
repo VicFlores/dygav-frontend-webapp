@@ -40,9 +40,8 @@ export const ContactYouLicense = () => {
           </label>
 
           <label className='relative'>
-            <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
-            <input
-              type='text'
+            <BiExtension className='w-5 h-5 absolute top-1/3 -translate-y-1/2 left-3 text-black900' />
+            <textarea
               placeholder='Cuentanos un poco mas'
               className='py-3 pl-10 pr-4 bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
             />
