@@ -89,13 +89,15 @@ export const NavBar: FC<TSession> = ({ session }) => {
       ) : (
         <nav className='w-full h-32 hidden lg:flex p-4 justify-between items-center static'>
           <div className='h-auto w-auto relative'>
-            <Image
-              src={imageUrl}
-              alt='DyGav Log'
-              width={100}
-              height={100}
-              priority
-            />
+            <Link href='/'>
+              <Image
+                src={imageUrl}
+                alt='DyGav Log'
+                width={100}
+                height={100}
+                priority
+              />
+            </Link>
           </div>
 
           <div className='space-x-8'>

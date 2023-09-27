@@ -8,15 +8,15 @@ export default withAuth(
     const { role } = req.nextauth.token?.user as TUserToken;
 
     if (pathname.startsWith('/private/admin') && role !== 'admin') {
-      return NextResponse.rewrite(new URL('/denied', req.url));
+      return NextResponse.rewrite(new URL('/login', req.url));
     }
 
     if (pathname.startsWith('/private/owner') && role !== 'owner') {
-      return NextResponse.rewrite(new URL('/denied', req.url));
+      return NextResponse.rewrite(new URL('/login', req.url));
     }
 
     if (pathname.startsWith('/private/tourist') && role !== 'tourist') {
-      return NextResponse.rewrite(new URL('/denied', req.url));
+      return NextResponse.rewrite(new URL('/login', req.url));
     }
   },
   {

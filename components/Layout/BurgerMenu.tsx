@@ -39,7 +39,7 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
             </div>
 
             <div onClick={handlerToogleMenu}>
-              <GiHamburgerMenu className='text-white text-4xl md:text-5xl' />
+              <GiHamburgerMenu className='text-white text-4xl md:text-5xl hover:cursor-pointer' />
             </div>
           </div>
 
@@ -88,17 +88,19 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
         <nav className='w-full h-auto lg:hidden p-4 static'>
           <div className='flex justify-between items-center'>
             <div className='h-auto w-auto'>
-              <Image
-                src={imageUrl}
-                alt='DyGav Log'
-                width={70}
-                height={70}
-                priority
-              />
+              <Link href='/'>
+                <Image
+                  src={imageUrl}
+                  alt='DyGav Log'
+                  width={70}
+                  height={70}
+                  priority
+                />
+              </Link>
             </div>
 
             <div onClick={handlerToogleMenu}>
-              <GiHamburgerMenu className='text-white text-4xl md:text-5xl' />
+              <GiHamburgerMenu className='text-white text-4xl md:text-5xl hover:cursor-pointer' />
             </div>
           </div>
 
@@ -117,7 +119,7 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
               </div>
               <div className='grid justify-center items-center gap-y-4'>
                 <Link
-                  href='register'
+                  href='/register'
                   passHref
                   id='toggle'
                   className='text-sm md:text-base bg-white text-p600 px-5 py-2'
@@ -126,7 +128,7 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
                 </Link>
 
                 <Link
-                  href='login'
+                  href='/login'
                   passHref
                   id='toggle'
                   className='text-sm md:text-base bg-p600 text-white px-5 py-2'

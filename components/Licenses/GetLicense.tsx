@@ -27,7 +27,7 @@ export const GetLicense = () => {
       </div>
 
       <p className='text-center text-2xl px-14 md:text-3xl text-black700'>
-        ¡Te Llamamos!
+        ¡Llámanos!
       </p>
 
       <div className='grid grid-cols-1 gap-y-6 md:grid-cols-2 mt-10'>
