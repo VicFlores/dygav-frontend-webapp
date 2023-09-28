@@ -56,12 +56,12 @@ export const Information = () => {
 
         <div
           id='CardPlayGround'
-          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-y-12 gap-x-4'
+          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-4'
         >
           {informationCard.map((item, index) => (
             <div
               key={index}
-              className=' w-fit border-[1px] border-p600 text-center bg-gray300/20 py-5'
+              className=' w-fit  border-[1px] border-p600 text-center bg-gray300/20 py-5 rounded-lg'
             >
               <Image
                 src={item.src as string}

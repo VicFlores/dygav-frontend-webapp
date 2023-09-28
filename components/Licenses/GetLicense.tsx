@@ -9,24 +9,28 @@ export const GetLicense = () => {
         ¡Tú Licencia Turística Más Cerca de lo que Crees!
       </p>
 
-      <div className='w-auto border-t-4 border-t-p600 pt-5 space-y-4 text-black900 pr-3 pl-3 text-xs md:text-sm lg:text-lg'>
-        <p>
-          En DYGAV, estamos a tu lado en cada paso del camino hacia la obtención de la licencia turística para tu piso. 
-          Nos convertimos en tu aliado y guía, asegurándonos de que el proceso sea fluido y exitoso.
+      <div className='w-auto border-t-4 border-t-p600 pt-5  text-black900 pr-3 pl-3 text-xs md:text-sm lg:text-lg'>
+        <p className='mb-4'>
+          En DYGAV, estamos a tu lado en cada paso del camino hacia la obtención
+          de la licencia turística para tu piso. Nos convertimos en tu aliado y
+          guía, asegurándonos de que el proceso sea fluido y exitoso.
         </p>
 
-        <p>
-          Desde el asesoramiento inicial hasta la presentación de la documentación necesaria,
-          nos encargamos de todo el papeleo y daremos seguimiento constante a todos los trámites 
-          para que tú puedas concentrarte en lo más importante:
+        <p className='mb-4'>
+          Desde el asesoramiento inicial hasta la presentación de la
+          documentación necesaria, nos encargamos de todo el papeleo y daremos
+          seguimiento constante a todos los trámites para que tú puedas
+          concentrarte en lo más importante:
         </p>
 
-        <Link href='/owners'>
-          <span className='text-p600'>Preparar tu piso para recibir a huéspedes.</span>
+        <Link href='/owners' passHref>
+          <span className='text-p600 pt-4'>
+            Preparar tu piso para recibir a huéspedes.
+          </span>
         </Link>
       </div>
 
-      <p className='text-center text-2xl px-14 md:text-3xl text-black700'>
+      <p className='text-center text-2xl px-14 md:text-3xl text-black700 mt-10'>
         ¡Llámanos!
       </p>
 

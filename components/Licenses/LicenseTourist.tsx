@@ -4,22 +4,24 @@ import { LicenseTouristCardInfo } from '@/utils';
 export const LicenseTourist = () => {
   return (
     <section className='mt-24 mb-16 px-10 md:px-12 lg:px-32'>
-      <p className='text-center text-2xl px-14 md:text-3xl  text-black700'>
+      <p className='text-center text-2xl px-14 md:text-3xl  text-black700 pb-4'>
         ¿Qué es lo que Haríamos por ti?
       </p>
 
       <div className='w-auto border-t-4 border-t-p600 pt-5 space-y-4 text-black900 px-3 text-xs md:text-sm lg:text-lg'>
         <p>
-          En DYGAV, comprendemos la importancia de obtener la licencia turística de manera rápida y 
-          eficiente y nos comprometemos a brindarte el apoyo necesario en cada etapa del proceso.
+          En DYGAV, comprendemos la importancia de obtener la licencia turística
+          de manera rápida y eficiente y nos comprometemos a brindarte el apoyo
+          necesario en cada etapa del proceso.
         </p>
 
         <p>
-        Nuestro equipo de expertos en licencias turísticas se mantiene actualizado con las regulaciones y requisitos específicos de tu área, garantizando que tu solicitud cumpla con todos los estándares legales y normativas vigentes.
-        Ya sea por teléfono, correo electrónico, WhatsApp o a través del formulario de contacto nuestro equipo estará encantado de atenderte y responder a todas tus consultas.
-        <br />
-        Nos encargamos de proporcionarte una orientación precisa y completa en los siguientes aspectos clave:
-
+          Nuestro equipo de expertos en licencias turísticas se mantiene
+          actualizado con las regulaciones y requisitos específicos de tu área,
+          garantizando que tu solicitud cumpla con todos los estándares legales
+          y normativas vigentes. Ya sea por teléfono, correo electrónico,
+          WhatsApp o a través del formulario de contacto nuestro equipo estará
+          encantado de atenderte y responder a todas tus consultas.
         </p>
 
         <p>
