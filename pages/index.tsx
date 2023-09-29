@@ -4,18 +4,18 @@ import {
   AboutUs,
   OurComments,
   BrandContent,
-  NavBar,
   Footer,
-  BurgerMenu,
   MainHero,
   Layout,
 } from '@/components';
+import { useSession } from 'next-auth/react';
 
 export default function HomePage() {
+  const { data: session } = useSession();
   return (
     <section>
       <MainHero>
-        <Layout title='Dygav Home'>
+        <Layout title='Dygav Home' session={session}>
           <Hero />
         </Layout>
       </MainHero>

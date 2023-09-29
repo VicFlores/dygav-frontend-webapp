@@ -5,13 +5,16 @@ import {
   Layout,
   MainHero,
 } from '@/components';
+import { useSession } from 'next-auth/react';
 import React from 'react';
 
-const formsPolicy = () => {
+const FormsPolicyPage = () => {
+  const { data: session } = useSession();
+
   return (
     <section>
       <MainHero>
-        <Layout title='Dygav Cookies Policy'>
+        <Layout title='Dygav Cookies Policy' session={session}>
           <FormsPolicy />
         </Layout>
       </MainHero>
@@ -23,4 +26,4 @@ const formsPolicy = () => {
   );
 };
 
-export default formsPolicy;
+export default FormsPolicyPage;

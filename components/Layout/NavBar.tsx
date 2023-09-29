@@ -7,19 +7,30 @@ import {
 import { signOut } from 'next-auth/react';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter as useRouterNav } from 'next/navigation';
+import { useRouter as useRouter } from 'next/router';
 import React, { FC } from 'react';
 
 const imageUrl =
   'https://res.cloudinary.com/vicflores11/image/upload/v1695653645/Dygav/DYGAV_WHITE_izc04w.svg';
 
 export const NavBar: FC<TSession> = ({ session }) => {
+  const routerNav = useRouterNav();
   const router = useRouter();
+  const currentUrl = router.asPath;
+
+  const bkCurrentUrl =
+    currentUrl.startsWith('/private/tourist') ||
+    currentUrl.startsWith('/private/owner')
+      ? 'bg-p600'
+      : 'bg-transparent';
 
   return (
     <>
       {session?.user ? (
-        <nav className='w-full h-28 hidden lg:flex p-4 justify-between items-center static bg-p600'>
+        <nav
+          className={`w-full h-28 hidden lg:flex p-4 justify-between items-center static ${bkCurrentUrl}`}
+        >
           <div className='h-auto w-auto relative'>
             <Image
               src={imageUrl}
@@ -31,7 +42,8 @@ export const NavBar: FC<TSession> = ({ session }) => {
           </div>
 
           <div className='flex justify-evenly items-center grow'>
-            {session?.user?.role === 'tourist'
+            {session?.user?.role === 'tourist' &&
+            currentUrl.startsWith('/private/tourist')
               ? accounTouristMenuItem.map((item, index) => (
                   <Link
                     key={index}
@@ -41,7 +53,22 @@ export const NavBar: FC<TSession> = ({ session }) => {
                     {item.title}
                   </Link>
                 ))
-              : session?.user?.role === 'owner'
+              : (session?.user?.role === 'tourist' &&
+                  currentUrl.startsWith('/')) ||
+                currentUrl.startsWith('/searcher') ||
+                currentUrl.startsWith('/owners') ||
+                currentUrl.startsWith('/license')
+              ? publicMenuItem.map((item, index) => (
+                  <Link
+                    key={index}
+                    className=' text-[20px] text-white'
+                    href={item.path}
+                  >
+                    {item.title}
+                  </Link>
+                ))
+              : session?.user?.role === 'owner' &&
+                currentUrl.startsWith('/private/owner')
               ? accounOwnertMenuItem.map((item, index) => (
                   <Link
                     key={index}
@@ -52,6 +79,10 @@ export const NavBar: FC<TSession> = ({ session }) => {
                   </Link>
                 ))
               : null}
+
+            <h4 className='text-[20px] text-white'>
+              Bienvenido: {session.user.name}
+            </h4>
 
             <div className='h-14 w-14 relative'>
               {session?.user.image ? (
@@ -79,7 +110,7 @@ export const NavBar: FC<TSession> = ({ session }) => {
               className='bg-white text-p600 px-5 py-2'
               onClick={async () => {
                 await signOut();
-                router.push('/login');
+                routerNav.push('/login');
               }}
             >
               Cerrar Sesion

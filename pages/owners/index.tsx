@@ -10,12 +10,15 @@ import {
   MainHero,
   Layout,
 } from '@/components';
+import { useSession } from 'next-auth/react';
 
 const OwnersPage = () => {
+  const { data: session } = useSession();
+
   return (
     <section>
       <MainHero>
-        <Layout title='Dygav Owners'>
+        <Layout title='Dygav Owners' session={session}>
           <HeroOwners />
         </Layout>
       </MainHero>

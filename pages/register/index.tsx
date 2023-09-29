@@ -1,6 +1,9 @@
-import { BurgerMenu, Layout, NavBar, Register } from '@/components';
+import { Layout, Register } from '@/components';
+import { useSession } from 'next-auth/react';
 
 export default function RegisterPage() {
+  const { data: session } = useSession();
+
   return (
     <section>
       <div
@@ -8,7 +11,7 @@ export default function RegisterPage() {
           'w-full bg-brandContent bg-center bg-cover bg-no-repeat h-[calc(100vh+320px)] md:h-auto'
         }
       >
-        <Layout title='Dygav Register'>
+        <Layout title='Dygav Register' session={session}>
           <Register />
         </Layout>
       </div>

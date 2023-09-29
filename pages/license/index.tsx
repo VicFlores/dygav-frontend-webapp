@@ -1,5 +1,4 @@
 import {
-  BurgerMenu,
   Contact,
   ContactYouLicense,
   Footer,
@@ -8,14 +7,16 @@ import {
   Layout,
   LicenseTourist,
   MainHero,
-  NavBar,
 } from '@/components';
+import { useSession } from 'next-auth/react';
 
 export default function License() {
+  const { data: session } = useSession();
+
   return (
     <section>
       <MainHero>
-        <Layout title='Dygav Licenses'>
+        <Layout title='Dygav Licenses' session={session}>
           <HeroLicense />
         </Layout>
       </MainHero>

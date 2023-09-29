@@ -1,18 +1,19 @@
 import {
-  BurgerMenu,
   Footer,
   HeroSearcher,
   Layout,
   MainHero,
-  NavBar,
   SearcherCards,
 } from '@/components';
+import { useSession } from 'next-auth/react';
 
 export default function SearcherPage() {
+  const { data: session } = useSession();
+
   return (
     <section>
       <MainHero>
-        <Layout title='Dygav Seacher'>
+        <Layout title='Dygav Seacher' session={session}>
           <HeroSearcher />
         </Layout>
       </MainHero>

@@ -5,16 +5,18 @@ import {
   Layout,
   MainHero,
 } from '@/components';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
 const AparmentDetailsPage = () => {
   const router = useRouter();
+  const { data: session } = useSession();
 
   return (
     <section>
       <MainHero>
-        <Layout title='Aparment Details'>
+        <Layout title='Aparment Details' session={session}>
           <HeroAparmentDetails />
         </Layout>
       </MainHero>

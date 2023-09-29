@@ -5,13 +5,16 @@ import {
   PrivacyPolicy,
   PrivacyPolicyDetails,
 } from '@/components';
+import { useSession } from 'next-auth/react';
 import React from 'react';
 
-const privacyPolicy = () => {
+const PrivacyPolicyPage = () => {
+  const { data: session } = useSession();
+
   return (
     <section>
       <MainHero>
-        <Layout title='Dygav Privacy Policy'>
+        <Layout title='Dygav Privacy Policy' session={session}>
           <PrivacyPolicy />
         </Layout>
       </MainHero>
@@ -23,4 +26,4 @@ const privacyPolicy = () => {
   );
 };
 
-export default privacyPolicy;
+export default PrivacyPolicyPage;

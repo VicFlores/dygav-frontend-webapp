@@ -6,12 +6,15 @@ import {
 } from '@/components';
 import React from 'react';
 import { Footer } from '../../components/Layout/Footer';
+import { useSession } from 'next-auth/react';
 
-const cookiesPolicy = () => {
+const CookiesPolicyPage = () => {
+  const { data: session } = useSession();
+
   return (
     <section>
       <MainHero>
-        <Layout title='Dygav Cookies Policy'>
+        <Layout title='Dygav Cookies Policy' session={session}>
           <CookiesPolicy />
         </Layout>
       </MainHero>
@@ -23,4 +26,4 @@ const cookiesPolicy = () => {
   );
 };
 
-export default cookiesPolicy;
+export default CookiesPolicyPage;

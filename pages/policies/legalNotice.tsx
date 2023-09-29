@@ -5,12 +5,15 @@ import {
   LegalNotice,
   LegalNoticeDetails,
 } from '@/components';
+import { useSession } from 'next-auth/react';
 
-const legalNotice = () => {
+const LegalNoticePage = () => {
+  const { data: session } = useSession();
+
   return (
     <section>
       <MainHero>
-        <Layout title='Dygav Legal Notice'>
+        <Layout title='Dygav Legal Notice' session={session}>
           <LegalNotice />
         </Layout>
       </MainHero>
@@ -22,4 +25,4 @@ const legalNotice = () => {
   );
 };
 
-export default legalNotice;
+export default LegalNoticePage;
