@@ -5,7 +5,7 @@ import { BiPhoneCall } from 'react-icons/bi';
 export const GetLicense = () => {
   return (
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32'>
-      <p className='text-center text-2xl px-14 md:text-3xl text-black700'>
+      <p className='text-center text-2xl px-14 md:text-3xl text-black700 pb-4'>
         ¡Tú Licencia Turística Más Cerca de lo que Crees!
       </p>
 
@@ -30,7 +30,7 @@ export const GetLicense = () => {
         </Link>
       </div>
 
-      <p className='text-center text-2xl px-14 md:text-3xl text-black700 mt-10'>
+      <p className='text-center text-2xl px-14 md:text-3xl text-black700 mt-20'>
         ¡Llámanos!
       </p>
 
