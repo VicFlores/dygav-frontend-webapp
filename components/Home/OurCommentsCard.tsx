@@ -12,8 +12,7 @@ const userInfo = [
   {
     headerTitle: 'Ramon cervera',
     headerSubtitle: 'Comentario en Google',
-    comment:
-      'Espectacular todo, lo recomiendo 100%',
+    comment: 'Espectacular todo, lo recomiendo 100%',
     path: 'https://lh3.googleusercontent.com/a/ACg8ocLCMzHcgxL3MS8ZlQHK9YtGrGd7RBjzExTAosceiiih=w75-h75-p-rp-mo-ba2-br100',
   },
   {
@@ -28,7 +27,7 @@ const userInfo = [
 export const OurCommentsCard = () => {
   return (
     <div className='flex lg:items-center mt-2 lg:justify-center pb-6 overscroll-x-contain overflow-y-hidden'>
-      <div className='flex space-x-6 mx-4 px-5 lg:px-0 lg:mx-0 border-t-4 border-t-p600 pt-10 md:pt-14'>
+      <div className='flex space-x-6 mx-4 px-5 lg:px-0 lg:mx-0 pt-10 md:pt-14'>
         {userInfo.map((item, index) => (
           <div
             className='w-[350px] h-auto border-[1px] border-l-[3px] border-p600 overflow-hidden'

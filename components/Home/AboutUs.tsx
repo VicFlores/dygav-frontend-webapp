@@ -5,8 +5,8 @@ import Link from 'next/link';
 export const AboutUs = () => {
   return (
     <section className='w-full h-auto grid mt-[90px]'>
-      <div className='self-center justify-self-center'>
-        <p className='text-[20px] lg:text-[34px] md:text-[28px] text-center  text-black700'>
+      <div className='px-10 divide-y-4 divide-p600'>
+        <p className='text-[20px] lg:text-[34px] md:text-[28px] text-center text-black700'>
           DESCUBRE QUIENES SOMOS
         </p>
         <p className='text-[18px] lg:text-[31px] md:text-[26px] text-center text-black900 pt-1'>

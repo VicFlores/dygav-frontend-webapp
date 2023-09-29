@@ -4,7 +4,7 @@ import { OurCommentsCard } from '..';
 export const OurComments = () => {
   return (
     <section className='w-full h-auto grid mt-[40px] mb-[40px]'>
-      <div className='self-center justify-self-center'>
+      <div className='px-10 divide-y-2 md:divide-y-4 divide-p600'>
         <p className='text-[20px] lg:text-[34px] md:text-[28px] text-center  text-black700'>
           LO QUE DICEN DE NOSOTROS
         </p>

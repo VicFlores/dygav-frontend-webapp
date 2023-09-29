@@ -3,7 +3,7 @@ import React from 'react';
 export const AboutUsCard = () => {
   return (
     <div className='flex items-center justify-center mt-2'>
-      <div className=' grid lg:grid-cols-3 md:grid-cols-1 gap-10 lg:gap-5 md:gap-8 border-t-4 border-y-p600 pt-10 pb-10'>
+      <div className=' grid lg:grid-cols-3 md:grid-cols-1 gap-10 lg:gap-5 md:gap-8 pt-10 pb-10'>
         <div className='w-[340px] md:w-[320px] h-auto shadow-md rounded-lg bg-gray border-[1px] border-p600'>
           <div className='px-12 lg:px-7 md:px-10 pt-7'>
             <div className='w-full h-[180px] bg-center bg-cover bg-welcomeWorld ' />

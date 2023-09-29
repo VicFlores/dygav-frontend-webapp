@@ -14,7 +14,7 @@ export const Carousel = () => {
       className='w-full h-auto grid md:grid-cols-2 mt-10 md:mt-0 px-6 md:px-2 lg:px-0'
       id='recomendadas'
     >
-      <div className='md:self-center md:justify-self-center border-b-4 border-b-p600'>
+      <div className='md:self-center md:justify-self-center divide-y-4 divide-p600'>
         <p className='text-center md:text-start text-2xl  md:text-3xl text-black700'>
           ENCUENTRA TU <br /> ALOJAMIENTO IDEAL
         </p>
