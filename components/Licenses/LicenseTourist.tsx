@@ -40,7 +40,7 @@ export const LicenseTourist = () => {
           <div
             id='Card'
             key={index}
-            className='bg-gray300/20 border-[1px] border-p600 text-center py-6 '
+            className='bg-gray300/20 border-[1px] rounded-xl  border-p600 text-center py-6 '
           >
             <Image
               src={item.src as string}

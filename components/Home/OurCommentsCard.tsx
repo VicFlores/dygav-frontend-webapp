@@ -3,20 +3,20 @@ import React from 'react';
 
 const userInfo = [
   {
-    headerTitle: 'Nadine fernandez',
+    headerTitle: 'Nadine Fernandez',
     headerSubtitle: 'Comentario en Google',
     comment:
       'Desde el minuto uno fueron increíbles, gran cercanía y profesionalidad. Sabía que mi vivienda estaría en buenas manos con ellos, ahora no me tengo que preocupar de nada a la hora de alquilar mi vivienda, Dygav se encarga de todo. Lo recomiendo al 100%.',
     path: 'https://lh3.googleusercontent.com/a-/ALV-UjXxn0pYb5y9EG0uiIJfaI-Ao85QA6Bjn4H1WsGyPmtoNCE=w75-h75-p-rp-mo-br100',
   },
   {
-    headerTitle: 'Ramon cervera',
+    headerTitle: 'Ramon Cervera',
     headerSubtitle: 'Comentario en Google',
     comment: 'Espectacular todo, lo recomiendo 100%',
     path: 'https://lh3.googleusercontent.com/a/ACg8ocLCMzHcgxL3MS8ZlQHK9YtGrGd7RBjzExTAosceiiih=w75-h75-p-rp-mo-ba2-br100',
   },
   {
-    headerTitle: 'Carmen murciano',
+    headerTitle: 'Carmen Murciano',
     headerSubtitle: 'Comentario en Google',
     comment:
       'Estuvimos en el apartamento de Bernabeu y la verdad que la ubicación perfecta, todo muy limpio y las vistas una maravilla 😍',
@@ -30,7 +30,7 @@ export const OurCommentsCard = () => {
       <div className='flex space-x-6 mx-4 px-5 lg:px-0 lg:mx-0 pt-10 md:pt-14'>
         {userInfo.map((item, index) => (
           <div
-            className='w-[350px] h-auto border-[1px] border-l-[3px] border-p600 overflow-hidden'
+            className='w-[350px] h-auto border-[1px] border-l-[3px] border-p600 overflow-hidden rounded-xl'
             id='CardContainer'
             key={index}
           >
