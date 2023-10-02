@@ -83,31 +83,49 @@ export const Information = () => {
         </div>
       </div>
 
-      <h1 className='text-center text-2xl md:text-3xl border-b-4 border-b-p600 mt-12 pb-2'>
-        Nuestras Tarifas
-      </h1>
+      <div>
+        <h1 className='text-center text-2xl md:text-3xl border-b-4 border-b-p600 mt-12 pb-2'>
+          Nuestras Tarifas
+        </h1>
 
-      <p className='mt-8 text-sm md:text-lg px-2 md:px-0 text-center md:text-start '>
-        Con nuestra tarifa altamente competitiva, obtendrás todos los beneficios
-        de nuestros servicios de gestión integral. Al contrario que otras
-        empresas que ocultan sus tarifas escondiendo sus comisiones en DYGAV,
-        mantenemos una política de transparencia total en nuestras tarifas
-        porque creemos en una relación donde nuestros ingresos estén
-        directamente vinculados al éxito de nuestros clientes y por eso cobramos
-        una comisión del 15%+IVA sobre la facturación de las casas que
-        gestionamos, lo cual incluye todos nuestros servicios profesionales de
-        gestión. Es importante destacar que no hay costes adicionales ocultos.
-        Además, los gastos de limpieza son asumidos directamente por los
-        huéspedes, lo que significa que no tendrás que preocuparte por ningún
-        otro cargo adicional. Nos esforzamos por brindarte una gestión clara y
-        sin sorpresas, permitiéndote maximizar tus ingresos y disfrutar de una
-        experiencia libre de preocupaciones. Es importante destacar que no hay
-        costes adicionales ocultos. Además, los gastos de limpieza son asumidos
-        directamente por los huéspedes, lo que significa que no tendrás que
-        preocuparte por ningún otro cargo adicional. Nos esforzamos por
-        brindarte una gestión clara y sin sorpresas, permitiéndote maximizar tus
-        ingresos y disfrutar de una experiencia libre de preocupaciones.
-      </p>
+        <p className='mt-8 text-sm md:text-lg px-2 md:px-0 text-center md:text-start '>
+          Con nuestra tarifa altamente competitiva, obtendrás todos los
+          beneficios de nuestros servicios de gestión integral. Al contrario que
+          otras empresas que ocultan sus tarifas escondiendo sus comisiones en
+          DYGAV, mantenemos una política de transparencia total en nuestras
+          tarifas porque creemos en una relación donde nuestros ingresos estén
+          directamente vinculados al éxito de nuestros clientes y por eso
+          cobramos una comisión del 15%+IVA sobre la facturación de las casas
+          que gestionamos, lo cual incluye todos nuestros servicios
+          profesionales de gestión.
+        </p>
+
+        <div className='flex justify-center items-center my-8'>
+          <figure className='relative w-32 h-40 md:w-52 lg:w-60 md:h-72 lg:h-80'>
+            <Image
+              src='https://res.cloudinary.com/vicflores11/image/upload/v1696266405/Dygav/Blue_Modern_Bold_Minimalist_Mineral_Water_Logo_awcm4u.svg'
+              alt='15% comission image'
+              layout='fill'
+              objectFit='contain'
+            />
+          </figure>
+        </div>
+
+        <p className='mt-8 text-sm md:text-lg px-2 md:px-0 text-center md:text-start '>
+          Es importante destacar que no hay costes adicionales ocultos. Además,
+          los gastos de limpieza son asumidos directamente por los huéspedes, lo
+          que significa que no tendrás que preocuparte por ningún otro cargo
+          adicional. Nos esforzamos por brindarte una gestión clara y sin
+          sorpresas, permitiéndote maximizar tus ingresos y disfrutar de una
+          experiencia libre de preocupaciones. Es importante destacar que no hay
+          costes adicionales ocultos. Además, los gastos de limpieza son
+          asumidos directamente por los huéspedes, lo que significa que no
+          tendrás que preocuparte por ningún otro cargo adicional. Nos
+          esforzamos por brindarte una gestión clara y sin sorpresas,
+          permitiéndote maximizar tus ingresos y disfrutar de una experiencia
+          libre de preocupaciones.
+        </p>
+      </div>
     </section>
   );
 };
