@@ -2,9 +2,9 @@ import { TMenuItem } from '@/types';
 
 export const publicMenuItem: TMenuItem[] = [
   { title: 'Viaja', path: '/' },
-  { title: 'Apartamentos', path: '/searcher' },
-  { title: 'Propietarios', path: '/owners' },
-  { title: 'Licencias VUT', path: '/license' },
+  { title: 'Apartamentos', path: '/apartamentos' },
+  { title: 'Propietarios', path: '/propietarios' },
+  { title: 'Licencias VUT', path: '/licencias' },
 ];
 
 export const accounOwnertMenuItem: TMenuItem[] = [

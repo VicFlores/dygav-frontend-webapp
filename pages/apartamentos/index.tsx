@@ -13,7 +13,7 @@ export default function SearcherPage() {
   return (
     <section>
       <MainHero>
-        <Layout title='Dygav Seacher' session={session}>
+        <Layout title='Dygav Apartamentos' session={session}>
           <HeroSearcher />
         </Layout>
       </MainHero>
