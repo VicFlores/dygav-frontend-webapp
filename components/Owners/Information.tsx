@@ -117,13 +117,7 @@ export const Information = () => {
           que significa que no tendrás que preocuparte por ningún otro cargo
           adicional. Nos esforzamos por brindarte una gestión clara y sin
           sorpresas, permitiéndote maximizar tus ingresos y disfrutar de una
-          experiencia libre de preocupaciones. Es importante destacar que no hay
-          costes adicionales ocultos. Además, los gastos de limpieza son
-          asumidos directamente por los huéspedes, lo que significa que no
-          tendrás que preocuparte por ningún otro cargo adicional. Nos
-          esforzamos por brindarte una gestión clara y sin sorpresas,
-          permitiéndote maximizar tus ingresos y disfrutar de una experiencia
-          libre de preocupaciones.
+          experiencia libre de preocupaciones.
         </p>
       </div>
     </section>
