@@ -6,7 +6,7 @@ export const HeroLicense = () => {
       <p className='lg:text-[45px] text-center md:text-start text-[30px] md:text-[38px] font-semibold'>
         Licencias Turísticas
       </p>
-      <p className='text-xl lg:text-[27px] md:text-[22px]'>
+      <p className='text-xl lg:text-[27px] md:text-[22px] font-semibold'>
         Tú Licencia Turística Más Cerca de lo que Crees
       </p>
     </section>
