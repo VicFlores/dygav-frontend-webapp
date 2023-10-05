@@ -31,6 +31,7 @@ export * from './NewAccomodation/NewAccomodation';
 export * from './OwnerDashboard/OwnerDashboard';
 export * from './OwnerAccomodationReservationDetails/OwnerAccomodationReservationDetails';
 export * from './ReservationCalendar/ReservationCalendar';
+export * from './BlockCalendarDaysForm/BlockCalendarDaysForm';
 export * from './AparmentDetails/AparmentDetails';
 export * from './AparmentDetails/HeroAparmentDetails';
 export * from './Policies/PrivacyPolicy';

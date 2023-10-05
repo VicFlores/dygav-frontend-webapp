@@ -5,13 +5,25 @@ import { FC, useEffect, useState } from 'react';
 import { ReservationAvaibook } from '@/types';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import { AiOutlineCheckCircle } from 'react-icons/ai';
+import BlockCalendarDaysForm from '../BlockCalendarDaysForm/BlockCalendarDaysForm';
 
 const localizer = momentLocalizer(moment);
 
+type Reservation = {
+  start: Date | number;
+  end: Date | number;
+  title: string;
+};
+
 export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
+  const [showForm, setShowForm] = useState(false);
   const [accomodationByReservation, setAccomodationByReservation] = useState<
     ReservationAvaibook[]
   >([]);
+
+  const [reservations, setReservations] = useState<Reservation[]>([]);
+
   const router = useRouter();
 
   useEffect(() => {
@@ -32,24 +44,25 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
       );
     };
 
-    accomodationByUnitId();
-  }, [id]);
+    const reservations = accomodationByReservation.map((item) => {
+      if (item.status === 'CONFIRMED') {
+        return {
+          start: item.occupiedPeriod.startDate,
+          end: item.occupiedPeriod.endDate,
+          title: item.accommodationName,
+        };
+      } else {
+        return {
+          start: new Date().getDate(),
+          end: new Date().getDate(),
+          title: '',
+        };
+      }
+    });
 
-  const reservations = accomodationByReservation.map((item) => {
-    if (item.status === 'CONFIRMED') {
-      return {
-        start: item.occupiedPeriod.startDate,
-        end: item.occupiedPeriod.endDate,
-        title: item.accommodationName,
-      };
-    } else {
-      return {
-        start: new Date().getDate(),
-        end: new Date().getDate(),
-        title: '',
-      };
-    }
-  });
+    accomodationByUnitId();
+    setReservations(reservations);
+  }, [id, accomodationByReservation]);
 
   const handleEventClick = (e: any) => {
     const reservation = accomodationByReservation.filter(
@@ -67,15 +80,54 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
     });
   };
 
+  const disabledRange = {
+    start: new Date(2023, 9, 10),
+    end: new Date(2023, 9, 15),
+  };
+
+  const disabledStyle = {
+    backgroundColor: 'gray',
+    color: 'white',
+    opacity: 0.5,
+  };
+
+  const dayPropGetter = (date: Date) => {
+    const formattedDate = date.toLocaleDateString();
+    const isDisabled =
+      formattedDate >= disabledRange.start.toLocaleDateString() &&
+      formattedDate <= disabledRange.end.toLocaleDateString();
+    return isDisabled ? { style: disabledStyle } : {};
+  };
+
+  const toggleForm = () => {
+    setShowForm(!showForm);
+  };
+
   return (
-    <div className='px-8 space-y-12 mb-24'>
-      <div className='flex flex-col md:flex-row justify-center items-center md:justify-between md:items-end border-b-[1px]'>
-        <p className=' text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl'>
+    <div className='px-8 mb-24'>
+      {showForm && <BlockCalendarDaysForm />}
+
+      <div className='flex justify-between items-end border-b-[1px] mt-20'>
+        <p className=' text-black900/[.7] text-2xl text-center md:text-left md:text-3xl lg:text-4xl'>
           Reservaciones en mi alojamiento
         </p>
+
+        <div className='relative mb-2'>
+          <AiOutlineCheckCircle className='w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-5 md:right-5 lg:right-7' />
+          <button
+            onClick={toggleForm}
+            className='bg-p600 hover:bg-p800 text-center text-[13px] md:text-sm lg:text-base py-2 px-16 w-auto text-white'
+          >
+            {showForm ? 'Ocultar Bloquear Dia' : 'Ver Bloquear Dia'}
+          </button>
+        </div>
       </div>
 
       <Calendar
+        dayPropGetter={dayPropGetter}
+        titleAccessor={({ start, end }) =>
+          `${start.toLocaleString()} - ${end.toLocaleString()}`
+        }
         localizer={localizer}
         events={reservations}
         startAccessor='start'
