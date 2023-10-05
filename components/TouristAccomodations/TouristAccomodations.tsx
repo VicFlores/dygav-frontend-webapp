@@ -27,7 +27,7 @@ type Reservation = {
 export const TouristAccomodations: FC<Reservation> = (reservation) => {
   return (
     <>
-      <div className='flex flex-col items-center lg:flex-row lg:justify-between lg:items-end px-8 mb-24 border-b-[1px]'>
+      <div className='flex flex-col items-center lg:flex-row lg:justify-between lg:items-end mx-8 mb-24 border-b-[1px]'>
         <p className=' text-black900/[.7] mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl'>
           Mis reservas actuales
         </p>
@@ -35,7 +35,7 @@ export const TouristAccomodations: FC<Reservation> = (reservation) => {
         <div className='relative my-6 lg:mb-3'>
           <AiOutlineCheckCircle className='w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-5 md:right-5 lg:right-7' />
           <Link
-            href={''}
+            href={`/private/tourist/reservationHistorial/${reservation.id}`}
             className='bg-p600 hover:bg-p800 text-center text-[13px] md:text-sm lg:text-base py-2 px-16 w-auto text-white'
           >
             Historial de reservas
