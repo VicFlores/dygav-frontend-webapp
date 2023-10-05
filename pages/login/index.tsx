@@ -11,7 +11,7 @@ export default function LoginPage() {
           'w-full bg-brandContent bg-center bg-cover bg-no-repeat h-[calc(100vh+280px)] md:h-screen'
         }
       >
-        <Layout title='Dygav Login' session={session}>
+        <Layout title='Dygav Login'>
           <Login session={session} />
         </Layout>
       </div>

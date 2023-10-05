@@ -11,7 +11,7 @@ export default function RegisterPage() {
           'w-full bg-brandContent bg-center bg-cover bg-no-repeat h-[calc(100vh+320px)] md:h-auto'
         }
       >
-        <Layout title='Dygav Register' session={session}>
+        <Layout title='Dygav Register'>
           <Register />
         </Layout>
       </div>

@@ -3,3 +3,4 @@ export * from './static/licenseTouristCardInfo';
 export * from './static/navigation';
 export * from './config/axiosConfig';
 export * from './static/seacherCardInfo';
+export * from './static/reservationInfo';
