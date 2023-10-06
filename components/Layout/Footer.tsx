@@ -83,9 +83,15 @@ export const Footer = () => {
         </p>
 
         <div className='flex justify-center space-x-6 lg:space-x-0 lg:justify-around items-center'>
-          <GrInstagram className='w-8 h-8  text-black900' />
-          <GrFacebook className='w-8 h-8  text-black900' />
-          <BsWhatsapp className='w-8 h-8  text-black900' />
+          <Link href={''}>
+            <GrInstagram className='w-8 h-8 text-black900' />
+          </Link>
+          <Link href={''}>
+            <GrFacebook className='w-8 h-8 text-black900' />
+          </Link>
+          <Link href={''}>
+            <BsWhatsapp className='w-8 h-8 text-black900' />
+          </Link>
         </div>
       </div>
     </footer>
