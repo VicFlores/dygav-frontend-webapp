@@ -10,59 +10,54 @@ import BlockCalendarDaysForm from '../BlockCalendarDaysForm/BlockCalendarDaysFor
 
 const localizer = momentLocalizer(moment);
 
-type Reservation = {
-  start: Date | number;
-  end: Date | number;
-  title: string;
-};
-
 export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   const [showForm, setShowForm] = useState(false);
+  const [accomodationDayBlock, setAccomodationDayBlock] = useState([]);
+  const [listenBlockDate, setlistenBlockDate] = useState(null);
   const [accomodationByReservation, setAccomodationByReservation] = useState<
     ReservationAvaibook[]
   >([]);
 
-  const [reservations, setReservations] = useState<Reservation[]>([]);
-
   const router = useRouter();
 
   useEffect(() => {
-    const accomodationByUnitId = async () => {
+    const filterByAccomodationId = async () => {
       const res = await axios.get(
-        'https://api.avaibook.biz/api/owner/bookings/',
+        `https://api.avaibook.biz/api/owner/bookings/`,
         {
           headers: {
             'Content-Type': 'application/json',
-            'X-AUTH-TOKEN':
-              '7fd52cc3b7e215ac8e5173cd1a0d176eabe0ced50fdf1dd346676fd36d051920',
+            'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
           },
         }
       );
 
-      setAccomodationByReservation(
-        res.data.filter((item: any) => item.accommodationId === Number(id))
+      const accomodationById = res.data.filter(
+        (item: any) => item.accommodationId === Number(id)
       );
+
+      setAccomodationByReservation(accomodationById);
     };
 
-    const reservations = accomodationByReservation.map((item) => {
-      if (item.status === 'CONFIRMED') {
-        return {
-          start: item.occupiedPeriod.startDate,
-          end: item.occupiedPeriod.endDate,
-          title: item.accommodationName,
-        };
-      } else {
-        return {
-          start: new Date().getDate(),
-          end: new Date().getDate(),
-          title: '',
-        };
-      }
-    });
+    const accomodationBlockDay = async (id: string) => {
+      if (id) {
+        const res = await axios.get(
+          `https://api.avaibook.biz/api/owner/accommodations/${id}/calendar/`,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+            },
+          }
+        );
 
-    accomodationByUnitId();
-    setReservations(reservations);
-  }, [id, accomodationByReservation]);
+        setAccomodationDayBlock(res.data);
+      }
+    };
+
+    filterByAccomodationId();
+    accomodationBlockDay(id);
+  }, [id, listenBlockDate]);
 
   const handleEventClick = (e: any) => {
     const reservation = accomodationByReservation.filter(
@@ -80,9 +75,35 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
     });
   };
 
-  const disabledRange = {
-    start: new Date(2023, 9, 10),
-    end: new Date(2023, 9, 15),
+  const reservations = accomodationByReservation.map((item) => {
+    if (item.status === 'CONFIRMED') {
+      return {
+        start: item.occupiedPeriod.startDate,
+        end: item.occupiedPeriod.endDate,
+        title: item.accommodationName,
+      };
+    } else {
+      return {
+        start: new Date().getDate(),
+        end: new Date().getDate(),
+        title: '',
+      };
+    }
+  });
+
+  const dayPropGetter = (date: Date) => {
+    const isBlocked = accomodationDayBlock.some((block: any) =>
+      moment(date).isBetween(block.startDate, block.endDate, undefined, '[]')
+    );
+
+    if (isBlocked) {
+      return {
+        style: disabledStyle,
+        onClick: (e: any) => e.preventDefault(),
+      };
+    }
+
+    return {};
   };
 
   const disabledStyle = {
@@ -91,23 +112,17 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
     opacity: 0.5,
   };
 
-  const dayPropGetter = (date: Date) => {
-    const formattedDate = date.toLocaleDateString();
-    const isDisabled =
-      formattedDate >= disabledRange.start.toLocaleDateString() &&
-      formattedDate <= disabledRange.end.toLocaleDateString();
-    return isDisabled ? { style: disabledStyle } : {};
-  };
-
   const toggleForm = () => {
     setShowForm(!showForm);
   };
 
   return (
     <div className='px-8 mb-24'>
-      {showForm && <BlockCalendarDaysForm />}
+      {showForm && (
+        <BlockCalendarDaysForm setlistenBlockDate={setlistenBlockDate} />
+      )}
 
-      <div className='flex justify-between items-end border-b-[1px] mt-20'>
+      <div className='flex justify-between items-end border-b-[1px] mt-20 mb-14'>
         <p className=' text-black900/[.7] text-2xl text-center md:text-left md:text-3xl lg:text-4xl'>
           Reservaciones en mi alojamiento
         </p>
