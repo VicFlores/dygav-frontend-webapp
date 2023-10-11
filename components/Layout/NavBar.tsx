@@ -7,15 +7,13 @@ import {
 import { signOut } from 'next-auth/react';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
-import { useRouter as useRouterNav } from 'next/navigation';
-import { useRouter as useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import React, { FC } from 'react';
 
 const imageUrl =
   'https://res.cloudinary.com/vicflores11/image/upload/v1695653645/Dygav/DYGAV_WHITE_izc04w.svg';
 
 export const NavBar: FC<TSession> = ({ session }) => {
-  const routerNav = useRouterNav();
   const router = useRouter();
   const currentUrl = router.asPath;
 
@@ -25,11 +23,33 @@ export const NavBar: FC<TSession> = ({ session }) => {
       ? 'bg-p600'
       : 'bg-transparent';
 
+  const menuItems =
+    session?.user?.role === 'tourist'
+      ? currentUrl.startsWith('/private/tourist')
+        ? accounTouristMenuItem
+        : publicMenuItem
+      : session?.user?.role === 'owner'
+      ? currentUrl.startsWith('/private/owner')
+        ? accounOwnertMenuItem
+        : publicMenuItem
+      : publicMenuItem;
+
+  const hoverMenuItems =
+    session?.user?.role === 'tourist'
+      ? !currentUrl.startsWith('/private/tourist')
+        ? accounTouristMenuItem
+        : publicMenuItem
+      : session?.user?.role === 'owner'
+      ? !currentUrl.startsWith('/private/owner')
+        ? accounOwnertMenuItem
+        : publicMenuItem
+      : publicMenuItem;
+
   return (
     <>
       {session?.user ? (
         <nav
-          className={`w-full h-28 hidden lg:grid lg:grid-cols-4 p-4 justify-between items-center static ${bkCurrentUrl}`}
+          className={`w-full h-28 hidden lg:grid lg:grid-cols-4 justify-between items-center static ${bkCurrentUrl}`}
         >
           <div className='h-auto w-auto relative'>
             <Image
@@ -42,92 +62,54 @@ export const NavBar: FC<TSession> = ({ session }) => {
           </div>
 
           <div className='lg:col-start-2 lg:col-end-4'>
-            <ul className='flex justify-between items-center space-x-4'>
-              {session?.user?.role === 'tourist' &&
-              currentUrl.startsWith('/private/tourist')
-                ? accounTouristMenuItem.map((item, index) => (
-                    <Link
-                      key={index}
-                      className='text-[20px] text-white'
-                      href={item.path}
-                    >
-                      {item.title}
-                    </Link>
-                  ))
-                : (session?.user?.role === 'tourist' &&
-                    currentUrl.startsWith('/')) ||
-                  currentUrl.startsWith('/searcher') ||
-                  currentUrl.startsWith('/owners') ||
-                  currentUrl.startsWith('/license')
-                ? publicMenuItem.map((item, index) => (
-                    <Link
-                      key={index}
-                      className=' text-[20px] text-white'
-                      href={item.path}
-                    >
-                      {item.title}
-                    </Link>
-                  ))
-                : session?.user?.role === 'owner' &&
-                  currentUrl.startsWith('/private/owner')
-                ? accounOwnertMenuItem.map((item, index) => (
-                    <Link
-                      key={index}
-                      className=' text-[20px] text-white'
-                      href={item.path}
-                    >
-                      {item.title}
-                    </Link>
-                  ))
-                : (session?.user?.role === 'owner' &&
-                    currentUrl.startsWith('/')) ||
-                  currentUrl.startsWith('/searcher') ||
-                  currentUrl.startsWith('/owners') ||
-                  currentUrl.startsWith('/license')
-                ? publicMenuItem.map((item, index) => (
-                    <Link
-                      key={index}
-                      className=' text-[20px] text-white'
-                      href={item.path}
-                    >
-                      {item.title}
-                    </Link>
-                  ))
-                : null}
+            <ul className='flex justify-evenly items-center space-x-4'>
+              {menuItems.map((item, index) => (
+                <Link
+                  key={index}
+                  className='text-[20px] text-white'
+                  href={item.path}
+                >
+                  {item.title}
+                </Link>
+              ))}
             </ul>
           </div>
 
           <div className='group relative flex flex-col items-center'>
             <figure className='h-14 w-14 relative '>
-              {session?.user.image ? (
-                <Image
-                  src={session.user.image}
-                  alt={'Profile picture'}
-                  layout='fill'
-                  className='rounded-full'
-                />
-              ) : (
-                <Image
-                  src={
-                    'https://res.cloudinary.com/vicflores11/image/upload/v1695077734/Dygav/undraw_Pic_profile_re_7g2h_o0irqa.WebP'
-                  }
-                  alt={'Profile picture'}
-                  layout='fill'
-                  className='rounded-full'
-                />
-              )}
+              <Image
+                src={
+                  session?.user.image ||
+                  'https://res.cloudinary.com/vicflores11/image/upload/v1695077734/Dygav/undraw_Pic_profile_re_7g2h_o0irqa.WebP'
+                }
+                alt={'Profile picture'}
+                layout='fill'
+                className='rounded-full'
+              />
             </figure>
 
-            <div className='absolute hidden group-hover:block bg-p400/75 p-4 space-y-4 rounded-lg shadow-lg text-center mt-[66px]'>
+            <div className='z-10 absolute hidden group-hover:block bg-p400/80 p-4 space-y-4 rounded-lg shadow-lg text-center mt-[58px]'>
               <h4 className='text-[20px] text-white'>
                 Bienvenido: {session.user.name || session.user.fullname}
               </h4>
+
+              <ul className='flex flex-col items-center justify-center'>
+                {hoverMenuItems.map((item, index) => (
+                  <Link
+                    key={index}
+                    className='text-[20px] text-white'
+                    href={item.path}
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+              </ul>
 
               <button
                 className='bg-white text-p600 px-5 py-2'
                 onClick={async () => {
                   await signOut();
-                  routerNav.push('/login');
+                  router.push('/login');
                 }}
               >
                 Cerrar Sesion

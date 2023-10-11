@@ -10,7 +10,7 @@ import {
   publicMenuItem,
 } from '@/utils';
 import { signOut } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 const imageUrl =
   'https://res.cloudinary.com/vicflores11/image/upload/v1695653645/Dygav/DYGAV_WHITE_izc04w.svg';
@@ -18,15 +18,44 @@ const imageUrl =
 export const BurgerMenu: FC<TSession> = ({ session }) => {
   const { sideMenu, isToogleBurgerMenu } = useContext(UIContext);
   const router = useRouter();
+  const currentUrl = router.asPath;
 
   const handlerToogleMenu = () => {
     isToogleBurgerMenu(!sideMenu);
   };
 
+  const bkCurrentUrl =
+    currentUrl.startsWith('/private/tourist') ||
+    currentUrl.startsWith('/private/owner')
+      ? 'bg-p600'
+      : 'bg-transparent';
+
+  const menuItems =
+    session?.user?.role === 'tourist'
+      ? currentUrl.startsWith('/private/tourist')
+        ? accounTouristMenuItem
+        : publicMenuItem
+      : session?.user?.role === 'owner'
+      ? currentUrl.startsWith('/private/owner')
+        ? accounOwnertMenuItem
+        : publicMenuItem
+      : publicMenuItem;
+
+  const hoverMenuItems =
+    session?.user?.role === 'tourist'
+      ? !currentUrl.startsWith('/private/tourist')
+        ? accounTouristMenuItem
+        : publicMenuItem
+      : session?.user?.role === 'owner'
+      ? !currentUrl.startsWith('/private/owner')
+        ? accounOwnertMenuItem
+        : publicMenuItem
+      : publicMenuItem;
+
   return (
     <>
       {session?.user ? (
-        <nav className='w-full h-auto lg:hidden p-4 static bg-p600'>
+        <nav className={`w-full h-auto lg:hidden p-4 static ${bkCurrentUrl}`}>
           <div className='flex justify-between items-center'>
             <div className='h-auto w-auto'>
               <Image
@@ -44,30 +73,28 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
           </div>
 
           {sideMenu ? (
-            <div className='grid gap-y-8 bg-p400 h-auto pt-6 pb-6 mt-6'>
-              <div className='grid justify-center items-center text-center'>
-                {session?.user?.role === 'tourist'
-                  ? accounTouristMenuItem.map((item, index) => (
-                      <Link
-                        key={index}
-                        className=' text-[20px] text-white'
-                        href={item.path}
-                      >
-                        {item.title}
-                      </Link>
-                    ))
-                  : session?.user?.role === 'owner'
-                  ? accounOwnertMenuItem.map((item, index) => (
-                      <Link
-                        key={index}
-                        className=' text-[20px] text-white'
-                        href={item.path}
-                      >
-                        {item.title}
-                      </Link>
-                    ))
-                  : null}
-              </div>
+            <div className='grid gap-y-8 bg-p400/70 h-auto pt-6 pb-6 mt-6'>
+              <ul className='grid justify-center items-center text-center'>
+                {menuItems.map((item, index) => (
+                  <Link
+                    key={index}
+                    className='text-[20px] text-white'
+                    href={item.path}
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+                {hoverMenuItems.map((item, index) => (
+                  <Link
+                    key={index}
+                    className='text-[20px] text-white'
+                    href={item.path}
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+              </ul>
+
               <div className='grid justify-center items-center gap-y-4'>
                 <button
                   className='bg-white text-p600 px-5 py-2'
