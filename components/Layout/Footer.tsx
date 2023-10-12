@@ -89,7 +89,7 @@ export const Footer = () => {
           <Link href={''}>
             <GrFacebook className='w-8 h-8 text-black900' />
           </Link>
-          <Link href={'https://wa.me/+34614165736'} target='_blanck'>
+          <Link href={'https://wa.me/+34614214250'} target='_blanck'>
             <BsWhatsapp className='w-8 h-8 text-black900' />
           </Link>
         </div>
