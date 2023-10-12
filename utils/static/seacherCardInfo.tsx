@@ -11,6 +11,7 @@ export type TSearcherCard = TImageProps & {
   size: string;
   maxHuesped: number;
   price: number;
+  cleanup: number;
   services: string[];
 };
 
@@ -43,6 +44,7 @@ export const searcherCard: TSearcherCard[] = [
     size: '110m²',
     maxHuesped: 6,
     price: 145,
+    cleanup: 30,
     services: [
       'Cocina Equipada',
       'Conexión WiFi de alta velocidad',
@@ -101,6 +103,7 @@ export const searcherCard: TSearcherCard[] = [
     size: '90m²',
     maxHuesped: 4,
     price: 165,
+    cleanup: 25,
     services: [
       'Cocina Equipada',
       'Conexión WiFi de alta velocidad',
@@ -158,6 +161,7 @@ export const searcherCard: TSearcherCard[] = [
     size: '90m²',
     maxHuesped: 4,
     price: 110,
+    cleanup: 35,
     services: [
       'Cocina Equipada',
       'Conexión WiFi de alta velocidad',
@@ -212,6 +216,7 @@ export const searcherCard: TSearcherCard[] = [
     size: '110m²',
     maxHuesped: 6,
     price: 130,
+    cleanup: 15,
     services: [
       'Cocina Equipada',
       'Conexión WiFi de alta velocidad',
@@ -266,6 +271,7 @@ export const searcherCard: TSearcherCard[] = [
     size: '110m²',
     maxHuesped: 6,
     price: 115,
+    cleanup: 30,
     services: [
       'Cocina Equipada',
       'Conexión WiFi de alta velocidad',
@@ -326,6 +332,7 @@ export const searcherCard: TSearcherCard[] = [
     size: '120m²',
     maxHuesped: 6,
     price: 165,
+    cleanup: 25,
     services: [
       'Cocina Equipada',
       'Conexión WiFi de alta velocidad',

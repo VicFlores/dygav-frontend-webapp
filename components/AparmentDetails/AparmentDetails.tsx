@@ -96,6 +96,7 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
               <tr>
                 <th className='px-4 py-2'>Desde</th>
                 <th className='px-4 py-2'>Hasta</th>
+                <th className='px-4 py-2'>Precio limpieza</th>
                 <th className='px-4 py-2'>Precio total</th>
               </tr>
             </thead>
@@ -103,7 +104,17 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
               <tr>
                 <td className='border px-6 py-4'>septiembre 1, 2023</td>
                 <td className='border px-6 py-4'>septiembre 30, 2023</td>
-                <td className='border px-6 py-4'>${price}</td>
+                {accomodation?.map((item) => (
+                  <>
+                    <td key={item.id} className='border px-6 py-4'>
+                      ${item.cleanup}
+                    </td>
+
+                    <td key={item.id} className='border px-6 py-4'>
+                      ${price !== 0 ? price + item.cleanup : 0}
+                    </td>
+                  </>
+                ))}
               </tr>
             </tbody>
           </table>
