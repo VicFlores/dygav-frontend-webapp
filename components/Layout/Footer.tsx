@@ -83,13 +83,13 @@ export const Footer = () => {
         </p>
 
         <div className='flex justify-center space-x-6 lg:space-x-0 lg:justify-around items-center'>
-          <Link href={''}>
+          <Link href={'https://www.instagram.com/dygav_/'} target='_blanck'>
             <GrInstagram className='w-8 h-8 text-black900' />
           </Link>
           <Link href={''}>
             <GrFacebook className='w-8 h-8 text-black900' />
           </Link>
-          <Link href={''}>
+          <Link href={'https://wa.me/+34614165736'} target='_blanck'>
             <BsWhatsapp className='w-8 h-8 text-black900' />
           </Link>
         </div>
