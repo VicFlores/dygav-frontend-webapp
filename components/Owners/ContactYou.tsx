@@ -140,22 +140,26 @@ export const ContactYou = () => {
       <div className='grid grid-cols-1 gap-y-6 md:grid-cols-2 mt-10'>
         <div className='relative self-center justify-self-center'>
           <BiPhoneCall className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-10 md:right-8 lg:right-12' />
-          <button
-            id='toggle'
-            className='bg-p600 hover:bg-p800 text-center text-xs md:text-sm lg:text-base py-2 px-4 w-[220px] md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
-          >
-            +34 614 165 736
-          </button>
+          <a href='tel:+34614165736'>
+            <button
+              id='toggle'
+              className='bg-p600 hover:bg-p800 text-center text-xs md:text-sm lg:text-base py-2 px-4 w-[220px] md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
+            >
+              +34 614 165 736
+            </button>
+          </a>
         </div>
 
         <div className='relative self-center justify-self-center'>
           <BiPhoneCall className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-10 md:right-8 lg:right-12' />
-          <button
-            id='toggle'
-            className='bg-p600 hover:bg-p800 text-center text-xs md:text-sm lg:text-base py-2 px-4 w-[220px] md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
-          >
-            +34 614 214 250
-          </button>
+          <a href='tel:+34614214250'>
+            <button
+              id='toggle'
+              className='bg-p600 hover:bg-p800 text-center text-xs md:text-sm lg:text-base py-2 px-4 w-[220px] md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
+            >
+              +34 614 214 250
+            </button>
+          </a>
         </div>
       </div>
     </section>
