@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { BiExtension } from 'react-icons/bi';
-import { BsWhatsapp } from 'react-icons/bs';
+import { BsWhatsapp, BsLinkedin } from 'react-icons/bs';
 import { GrInstagram, GrFacebook } from 'react-icons/gr';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import axios from 'axios';
@@ -86,8 +85,11 @@ export const Footer = () => {
           <Link href={'https://www.instagram.com/dygav_/'} target='_blanck'>
             <GrInstagram className='w-8 h-8 text-black900' />
           </Link>
-          <Link href={''}>
-            <GrFacebook className='w-8 h-8 text-black900' />
+          <Link
+            href={'https://www.linkedin.com/company/dygav/'}
+            target='_blanck'
+          >
+            <BsLinkedin className='w-8 h-8 text-black900' />
           </Link>
           <Link href={'https://wa.me/+34614214250'} target='_blanck'>
             <BsWhatsapp className='w-8 h-8 text-black900' />
