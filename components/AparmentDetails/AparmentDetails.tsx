@@ -92,7 +92,7 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
       <div className='flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:justify-evenly lg:items-center lg:space-x-8'>
         <div>
           <div className='overflow-x-auto pb-6'>
-            <table className='table-auto text-center'>
+            <table className='table-auto text-center text-[9.8px]'>
               <thead className='bg-p600 text-white'>
                 <tr>
                   <th className='px-4 py-2'>Desde</th>
