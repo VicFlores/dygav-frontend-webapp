@@ -23,6 +23,7 @@ export * from './Licenses/HeroLicense';
 export * from './Licenses/GetLicense';
 export * from './Licenses/LicenseTourist';
 export * from './Licenses/ContactYouLicense';
+export * from './Licenses/CityLicenseInfo';
 export * from './TouristDashboard/TouristDashboard';
 export * from './TouristAccomodations/TouristAccomodations';
 export * from './TouristReservationsHistorial/TouristReservationsHistorial';
