@@ -7,8 +7,8 @@ import {
   Layout,
   LicenseTourist,
   MainHero,
-} from '@/components';
-import { useSession } from 'next-auth/react';
+} from "@/components";
+import { useSession } from "next-auth/react";
 
 export default function License() {
   const { data: session } = useSession();
@@ -16,8 +16,11 @@ export default function License() {
   return (
     <section>
       <MainHero>
-        <Layout title='Dygav Licenses' session={session}>
-          <HeroLicense />
+        <Layout title="Dygav Licenses" session={session}>
+          <HeroLicense
+            title="Licencias Turísticas"
+            subtitle="Tú Licencia Turística Más Cerca de lo que Crees"
+          />
         </Layout>
       </MainHero>
 
