@@ -1,6 +1,8 @@
 import Image from "next/legacy/image";
 import Link from "next/link";
-import { BiExtension } from "react-icons/bi";
+import { GrContactInfo } from "react-icons/gr";
+import { HiOutlineMail, HiOutlineLocationMarker } from "react-icons/hi";
+import { MdOutlineAddIcCall } from "react-icons/md";
 
 export const CityLicenseInfo = () => {
   return (
@@ -24,28 +26,28 @@ export const CityLicenseInfo = () => {
       </h2>
 
       <ul className='text-sm md:text-lg text-p600 border-t-4 border-t-p600 pl-10 pt-4 list-disc'>
-        <Link href={""}>
+        <Link href={"#alquiler-turistico"}>
           <li>¿Qué es el alquiler turístico?</li>
         </Link>
-        <Link href={""}>
+        <Link href={"#obtener-licencia"}>
           <li>Requisitos para obtener una licencia turística en Torrevieja</li>
         </Link>
-        <Link href={""}>
+        <Link href={"#solicitar-licencia"}>
           <li>¿Quién puede solicitar una licencia turística?</li>
         </Link>
-        <Link href={""}>
+        <Link href={"#organismos-licencias"}>
           <li>Organismos que regulan las licencias turísticas en Torrevieja</li>
         </Link>
-        <Link href={""}>
+        <Link href={"#documentacion-licencias"}>
           <li>
             Documentación necesaria para obtener una licencia turística en
             Torrevieja
           </li>
         </Link>
-        <Link href={""}>
+        <Link href={"#donde-solicitar-licencia"}>
           <li>¿Dónde solicitar la licencia turística?</li>
         </Link>
-        <Link href={""}>
+        <Link href={"#plazos-obtener-licencia"}>
           <li>Plazos para conseguir tu licencia turística</li>
         </Link>
       </ul>
@@ -62,16 +64,19 @@ export const CityLicenseInfo = () => {
           />
         </figure>
 
-        <div className='space-y-4 md:space-y-2 text-sm md:text-lg font-semibold text-center md:text-start'>
+        <div className='space-y-4 text-sm md:text-lg font-semibold text-center md:text-start'>
           <h3 className='text-p600 uppercase'>Nos encargamos nosotros</h3>
           <h3>Gestionamos integralmente tu alquiler vacacional</h3>
           <button className='py-2 px-3 text-white bg-p600 uppercase font-normal'>
-            ¿Te ayudamos?
+            <Link href={"/licencias"}>Más información</Link>
           </button>
         </div>
       </div>
 
-      <h2 className='text-center text-2xl px-5 md:px-14 md:text-3xl text-black700 pb-4 mt-16'>
+      <h2
+        id='alquiler-turistico'
+        className='text-center text-2xl px-5 md:px-14 md:text-3xl text-black700 pb-4 mt-16'
+      >
         ¿Qué es el alquiler turístico?
       </h2>
 
@@ -88,7 +93,10 @@ export const CityLicenseInfo = () => {
         </strong>
       </p>
 
-      <h2 className='text-center text-2xl px-2 md:px-14 md:text-3xl text-black700 pb-4 mt-16'>
+      <h2
+        id='obtener-licencia'
+        className='text-center text-2xl px-2 md:px-14 md:text-3xl text-black700 pb-4 mt-16'
+      >
         ¿Qué requisitos debe cumplir una vivienda para alquiler vacacional en
         Torrevieja?
       </h2>
@@ -122,7 +130,10 @@ export const CityLicenseInfo = () => {
         </li>
       </ul>
 
-      <h2 className='text-center text-2xl px-0 md:px-14 md:text-3xl text-black700 pb-4 mt-16'>
+      <h2
+        id='solicitar-licencia'
+        className='text-center text-2xl px-0 md:px-14 md:text-3xl text-black700 pb-4 mt-16'
+      >
         ¿Quién puede solicitar una licencia turística en Torrevieja?
       </h2>
 
@@ -136,7 +147,10 @@ export const CityLicenseInfo = () => {
         carácter lucrativo y habitual.
       </p>
 
-      <h2 className='text-center text-2xl px-0 md:px-14 md:text-3xl text-black700 pb-4 mt-16'>
+      <h2
+        id='organismos-licencias'
+        className='text-center text-2xl px-0 md:px-14 md:text-3xl text-black700 pb-4 mt-16'
+      >
         ¿Quién regula las concesiones de licencias turísticas para alquileres
         vacacionales en Torrevieja?
       </h2>
@@ -149,7 +163,10 @@ export const CityLicenseInfo = () => {
         Comunidad Valenciana para operar correctamente.
       </p>
 
-      <h2 className='text-center text-2xl px-6 md:px-14 md:text-3xl text-black700 pb-4 mt-16'>
+      <h2
+        id='documentacion-licencias'
+        className='text-center text-2xl px-6 md:px-14 md:text-3xl text-black700 pb-4 mt-16'
+      >
         ¿Qué documentación es obligatoria presentar para obtener una licencia
         turística en Torrevieja?
       </h2>
@@ -204,12 +221,15 @@ export const CityLicenseInfo = () => {
             Gestionamos la licencia turistica <br /> para tu alquiler vacacional
           </h3>
           <button className='py-2 px-3 text-white bg-p600 uppercase'>
-            ¿Te ayudamos?
+            <Link href={"#formulario"}>¿Te ayudamos?</Link>
           </button>
         </div>
       </div>
 
-      <h2 className='text-center text-2xl px-2 md:px-14 md:text-3xl text-black700 pb-4 mt-16'>
+      <h2
+        id='donde-solicitar-licencia'
+        className='text-center text-2xl px-2 md:px-14 md:text-3xl text-black700 pb-4 mt-16'
+      >
         ¿Dónde y cuándo puedo solicitar la licencia turística?
       </h2>
 
@@ -222,7 +242,10 @@ export const CityLicenseInfo = () => {
         telemáticos deTurismo de la Comunidad Valenciana.
       </p>
 
-      <h2 className='text-center text-2xl px-2 md:px-14 md:text-3xl text-black700 pb-4 mt-16'>
+      <h2
+        id='plazos-obtener-licencia'
+        className='text-center text-2xl px-2 md:px-14 md:text-3xl text-black700 pb-4 mt-16'
+      >
         ¿Cuánto tarda la licencia turística en Torrevieja?
       </h2>
 
@@ -239,10 +262,8 @@ export const CityLicenseInfo = () => {
         En DYGAV, nos enorgullece ser{" "}
         <strong>especialistas en el mundo de las licencias turísticas</strong> y
         la{" "}
-        <span className='text-[#0056D7]'>
-          gestión de apartamentos vacacionales
-        </span>
-        . Sabemos que el proceso puede ser abrumador y, por eso, te invitamos a
+        <span className='text-p600'>gestión de apartamentos vacacionales</span>.
+        Sabemos que el proceso puede ser abrumador y, por eso, te invitamos a
         dejar todo en nuestras manos. Permítenos encargarnos de todos los
         detalles,{" "}
         <strong>
@@ -279,11 +300,14 @@ export const CityLicenseInfo = () => {
           </figure>
         </div>
 
-        <form className='grid gap-8 px-6 lg:px-10 py-6 pt-4 border-2 border-gray300'>
+        <form
+          id='formulario'
+          className='grid gap-8 px-6 lg:px-10 py-6 pt-4 border-2 border-gray300'
+        >
           <p className='text-xl text-center'>Completa tu información</p>
 
           <label className='relative'>
-            <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <GrContactInfo className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
             <input
               type='text'
               placeholder='Escribe tu nombre completo'
@@ -292,7 +316,7 @@ export const CityLicenseInfo = () => {
           </label>
 
           <label className='relative'>
-            <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <HiOutlineMail className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
             <input
               type='email'
               placeholder='Escribe tu correo electronico'
@@ -301,7 +325,7 @@ export const CityLicenseInfo = () => {
           </label>
 
           <label className='relative'>
-            <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <MdOutlineAddIcCall className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
             <input
               type='number'
               placeholder='Escribe tu telefono'
@@ -310,10 +334,9 @@ export const CityLicenseInfo = () => {
           </label>
 
           <label className='relative'>
-            <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
-            <input
-              type='text'
-              placeholder='Escribe tu localidad'
+            <HiOutlineLocationMarker className='w-5 h-5 absolute top-1/3 -translate-y-1/2 left-3 text-black900' />
+            <textarea
+              placeholder='Localidad'
               className='py-3 pl-10 pr-4 bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
             />
           </label>
