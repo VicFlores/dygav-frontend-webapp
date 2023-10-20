@@ -7,9 +7,9 @@ import { MdOutlineAddIcCall } from "react-icons/md";
 export const CityLicenseInfo = () => {
   return (
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32'>
-      <h1 className='text-center text-2xl px-14 md:text-3xl text-black700 pb-4'>
+      <h2 className='text-center text-2xl px-14 md:text-3xl text-black700 pb-4'>
         Conseguir la Licencia Turística en Torrevieja
-      </h1>
+      </h2>
 
       <p className='text-justify text-sm md:text-lg border-t-4 border-t-p600 px-3 pt-4'>
         En Torrevieja, el alquiler vacacional se ha consolidado como una opción
