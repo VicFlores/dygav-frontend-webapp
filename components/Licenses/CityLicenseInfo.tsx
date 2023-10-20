@@ -7,9 +7,9 @@ import { MdOutlineAddIcCall } from "react-icons/md";
 export const CityLicenseInfo = () => {
   return (
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32'>
-      <h2 className='text-center text-2xl px-14 md:text-3xl text-black700 pb-4'>
+      <h1 className='text-center text-2xl px-14 md:text-3xl text-black700 pb-4'>
         Conseguir la Licencia Turística en Torrevieja
-      </h2>
+      </h1>
 
       <p className='text-justify text-sm md:text-lg border-t-4 border-t-p600 px-3 pt-4'>
         En Torrevieja, el alquiler vacacional se ha consolidado como una opción
@@ -24,33 +24,6 @@ export const CityLicenseInfo = () => {
       <h2 className='text-center text-2xl px-5 md:px-14 md:text-3xl text-black700 pb-4 mt-16'>
         En este artículo abordamos los siguientes temas:
       </h2>
-
-      <ul className='text-sm md:text-lg text-p600 border-t-4 border-t-p600 pl-10 pt-4 list-disc'>
-        <Link href={"#alquiler-turistico"}>
-          <li>¿Qué es el alquiler turístico?</li>
-        </Link>
-        <Link href={"#obtener-licencia"}>
-          <li>Requisitos para obtener una licencia turística en Torrevieja</li>
-        </Link>
-        <Link href={"#solicitar-licencia"}>
-          <li>¿Quién puede solicitar una licencia turística?</li>
-        </Link>
-        <Link href={"#organismos-licencias"}>
-          <li>Organismos que regulan las licencias turísticas en Torrevieja</li>
-        </Link>
-        <Link href={"#documentacion-licencias"}>
-          <li>
-            Documentación necesaria para obtener una licencia turística en
-            Torrevieja
-          </li>
-        </Link>
-        <Link href={"#donde-solicitar-licencia"}>
-          <li>¿Dónde solicitar la licencia turística?</li>
-        </Link>
-        <Link href={"#plazos-obtener-licencia"}>
-          <li>Plazos para conseguir tu licencia turística</li>
-        </Link>
-      </ul>
 
       <div className='flex flex-col md:flex-row justify-center items-center mt-16'>
         <figure className='h-44 w-44 md:h-60 md:w-60 lg:h-72 lg:w-72 relative m-0'>
