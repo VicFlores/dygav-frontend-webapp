@@ -3,6 +3,7 @@ export * from './Layout/NavBar';
 export * from './Layout/BurgerMenu';
 export * from './Layout/Footer';
 export * from './Layout/MainHero';
+export * from './Layout/Head';
 export * from './Home/Hero';
 export * from './Home/Carousel';
 export * from './Home/AboutUs';

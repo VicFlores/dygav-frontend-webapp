@@ -3,18 +3,21 @@ import {
   CookiesPolicyDetails,
   Layout,
   MainHero,
-} from '@/components';
-import React from 'react';
-import { Footer } from '../../components/Layout/Footer';
-import { useSession } from 'next-auth/react';
+  UtilHead,
+} from "@/components";
+import React from "react";
+import { Footer } from "../../components/Layout/Footer";
+import { useSession } from "next-auth/react";
 
 const CookiesPolicyPage = () => {
   const { data: session } = useSession();
 
   return (
     <section>
+      <UtilHead title='Dygav Cookies Policy' content='' />
+
       <MainHero>
-        <Layout title='Dygav Cookies Policy' session={session}>
+        <Layout session={session}>
           <CookiesPolicy />
         </Layout>
       </MainHero>

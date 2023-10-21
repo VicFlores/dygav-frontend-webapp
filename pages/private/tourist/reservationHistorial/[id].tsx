@@ -1,8 +1,9 @@
-import { Layout, TouristReservationsHistorial } from '@/components';
-import { reservations } from '@/utils';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import { Layout, TouristReservationsHistorial } from "@/components";
+import { reservations } from "@/utils";
+import { useSession } from "next-auth/react";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
 type Reservation = {
   id: number;
@@ -31,9 +32,9 @@ const ReservationHistorialPage = () => {
   const [reservation, setReservation] = useState<Reservation>({
     id: 0,
     src: [],
-    imgUrl: '',
-    title: '',
-    information: '',
+    imgUrl: "",
+    title: "",
+    information: "",
     currentsReservations: [],
     reservationHistorial: [],
   });
@@ -53,7 +54,11 @@ const ReservationHistorialPage = () => {
 
   return (
     <section>
-      <Layout session={session} title='Dygav Accomodations'>
+      <Head>
+        <title>Dygav Accomodations</title>
+      </Head>
+
+      <Layout session={session}>
         <TouristReservationsHistorial {...reservation} />
       </Layout>
     </section>
