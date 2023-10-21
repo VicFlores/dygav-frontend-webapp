@@ -41,6 +41,8 @@ const config: Config = {
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1691768615/Dygav/icon-image_gtwgyc.WebP')",
         brandContent:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367775/Dygav/19_skargh.WebP')",
+        torrevieja:
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/2_jvslgl.png')",
       },
     },
   },
