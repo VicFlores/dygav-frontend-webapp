@@ -7,7 +7,13 @@ import {
   UtilHead,
 } from "@/components";
 import { useSession } from "next-auth/react";
-import React from "react";
+
+const images = [
+  "https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/2_jvslgl.WebP",
+  "https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/1_zifm3q.WebP",
+  "https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/4_j1srba.WebP",
+  "https://res.cloudinary.com/vicflores11/image/upload/v1697903684/Dygav/torrevieja/3_pdtmep.WebP",
+];
 
 const TorreviejaPage = () => {
   const { data: session } = useSession();
@@ -19,7 +25,7 @@ const TorreviejaPage = () => {
         content='Descubre todo lo necesario para adquirir tu licencia turística en Torrevieja de forma sencilla y rápida.'
       />
 
-      <MainHero>
+      <MainHero images={images}>
         <Layout session={session}>
           <HeroLicense
             title='Licencias Turísticas Torrevieja'
