@@ -5,6 +5,7 @@ import {
   GetLicense,
   HeroLicense,
   Layout,
+  LicenseAditionalInfo,
   LicenseTourist,
   MainHero,
   UtilHead,
@@ -26,6 +27,8 @@ export default function License() {
           />
         </Layout>
       </MainHero>
+
+      <LicenseAditionalInfo />
 
       <GetLicense />
 

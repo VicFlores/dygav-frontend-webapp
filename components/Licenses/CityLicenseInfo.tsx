@@ -21,10 +21,6 @@ export const CityLicenseInfo = () => {
         locales y puedas aprovecharla al máximo.
       </p>
 
-      <h2 className='text-center text-2xl px-5 md:px-14 md:text-3xl text-black700 pb-4 mt-16'>
-        En este artículo abordamos los siguientes temas:
-      </h2>
-
       <div className='flex flex-col md:flex-row justify-center items-center mt-16'>
         <figure className='h-44 w-44 md:h-60 md:w-60 lg:h-72 lg:w-72 relative m-0'>
           <Image
