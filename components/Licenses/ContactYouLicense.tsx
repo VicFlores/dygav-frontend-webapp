@@ -4,7 +4,7 @@ import { BsMailbox } from 'react-icons/bs';
 export const ContactYouLicense = () => {
   return (
     <section className='grid justify-center items-center gap-4 mb-24 '>
-      <p className='text-center text-2xl px-14 md:text-3xl  text-black700'>
+      <p className='text-center text-2xl px-14 md:text-3xl  text-black700 font-semibold'>
         Nos Ponemos en Contacto Contigo
       </p>
 
