@@ -1,12 +1,17 @@
-import { getSession, useSession } from 'next-auth/react';
-import { Layout, OwnerDashboard } from '@/components';
+import { getSession, useSession } from "next-auth/react";
+import { Layout, OwnerDashboard } from "@/components";
+import Head from "next/head";
 
 export default function OwnerDashboardPage() {
   const { data: session } = useSession();
 
   return (
     <section>
-      <Layout session={session} title='Dygav Dash'>
+      <Head>
+        <title>Dygav Dash</title>
+      </Head>
+
+      <Layout session={session}>
         {session ? (
           <OwnerDashboard session={session} />
         ) : (

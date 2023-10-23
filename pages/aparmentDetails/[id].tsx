@@ -4,10 +4,11 @@ import {
   HeroAparmentDetails,
   Layout,
   MainHero,
-} from '@/components';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
-import React from 'react';
+  UtilHead,
+} from "@/components";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import React from "react";
 
 const AparmentDetailsPage = () => {
   const router = useRouter();
@@ -15,8 +16,10 @@ const AparmentDetailsPage = () => {
 
   return (
     <section>
+      <UtilHead title='Detalles de apartamento' content='' />
+
       <MainHero>
-        <Layout title='Aparment Details' session={session}>
+        <Layout session={session}>
           <HeroAparmentDetails />
         </Layout>
       </MainHero>

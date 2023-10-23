@@ -1,8 +1,9 @@
-import { Layout, TouristAccomodations } from '@/components';
-import { useSession } from 'next-auth/react';
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import { reservations } from '@/utils';
+import { Layout, TouristAccomodations } from "@/components";
+import { useSession } from "next-auth/react";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { reservations } from "@/utils";
+import Head from "next/head";
 
 type Reservation = {
   id: number;
@@ -31,9 +32,9 @@ export default function TouristAccomodationPage() {
   const [reservation, setReservation] = useState<Reservation>({
     id: 0,
     src: [],
-    imgUrl: '',
-    title: '',
-    information: '',
+    imgUrl: "",
+    title: "",
+    information: "",
     currentsReservations: [],
     reservationHistorial: [],
   });
@@ -53,7 +54,11 @@ export default function TouristAccomodationPage() {
 
   return (
     <section>
-      <Layout session={session} title='Dygav Accomodations'>
+      <Head>
+        <title>Dygav Accomodations</title>
+      </Head>
+
+      <Layout session={session}>
         <TouristAccomodations {...reservation} />
       </Layout>
     </section>

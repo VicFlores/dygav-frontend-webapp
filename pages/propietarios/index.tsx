@@ -9,16 +9,19 @@ import {
   BurgerMenu,
   MainHero,
   Layout,
-} from '@/components';
-import { useSession } from 'next-auth/react';
+  UtilHead,
+} from "@/components";
+import { useSession } from "next-auth/react";
 
 const OwnersPage = () => {
   const { data: session } = useSession();
 
   return (
     <section>
+      <UtilHead title='Dygav Owners' content='' />
+
       <MainHero>
-        <Layout title='Dygav Owners' session={session}>
+        <Layout session={session}>
           <HeroOwners />
         </Layout>
       </MainHero>

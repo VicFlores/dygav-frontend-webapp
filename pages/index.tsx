@@ -7,15 +7,18 @@ import {
   Footer,
   MainHero,
   Layout,
-} from '@/components';
-import { useSession } from 'next-auth/react';
+  UtilHead,
+} from "@/components";
+import { useSession } from "next-auth/react";
 
 export default function HomePage() {
   const { data: session } = useSession();
   return (
     <section>
+      <UtilHead title='Dygav Home' content='' />
+
       <MainHero>
-        <Layout title='Dygav Home' session={session}>
+        <Layout session={session}>
           <Hero />
         </Layout>
       </MainHero>

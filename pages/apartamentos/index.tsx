@@ -4,17 +4,25 @@ import {
   Layout,
   MainHero,
   SearcherCards,
+<<<<<<< HEAD
 } from '@/components';
 import { searcherCard } from '@/utils';
 import { useSession } from 'next-auth/react';
+=======
+  UtilHead,
+} from "@/components";
+import { useSession } from "next-auth/react";
+>>>>>>> 04d8d6494513646c732058eabfbacb97145e8b3a
 
 export default function SearcherPage() {
   const { data: session } = useSession();
 
   return (
     <section>
+      <UtilHead title='Dygav Apartamentos' content='' />
+
       <MainHero>
-        <Layout title='Dygav Apartamentos' session={session}>
+        <Layout session={session}>
           <HeroSearcher />
         </Layout>
       </MainHero>

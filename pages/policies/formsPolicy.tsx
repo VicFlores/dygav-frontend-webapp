@@ -4,17 +4,20 @@ import {
   FormsPolicyDetails,
   Layout,
   MainHero,
-} from '@/components';
-import { useSession } from 'next-auth/react';
-import React from 'react';
+  UtilHead,
+} from "@/components";
+import { useSession } from "next-auth/react";
+import React from "react";
 
 const FormsPolicyPage = () => {
   const { data: session } = useSession();
 
   return (
     <section>
+      <UtilHead title='Dygav Cookies Policy' content='' />
+
       <MainHero>
-        <Layout title='Dygav Cookies Policy' session={session}>
+        <Layout session={session}>
           <FormsPolicy />
         </Layout>
       </MainHero>
