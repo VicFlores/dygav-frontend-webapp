@@ -3,7 +3,7 @@ import { AiOutlineCheckCircle } from 'react-icons/ai';
 export const Contact = () => {
   return (
     <section className='grid px-8 md:px-28 mb-28 gap-2 '>
-      <p className='text-center text-2xl md:text-3xl '>
+      <p className='text-center text-2xl md:text-3xl font-semibold'>
         Prepárate para el Éxito
       </p>
 

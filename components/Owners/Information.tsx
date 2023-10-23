@@ -5,7 +5,7 @@ import { BiPhoneCall } from 'react-icons/bi';
 export const Information = () => {
   return (
     <section className='px-8 md:px-28 gap-y-4 mb-20'>
-      <p className='text-center px-4 md:px-0 text-2xl md:text-3xl text-black700 pb-4'>
+      <p className='text-center px-4 md:px-0 text-2xl md:text-3xl text-black700 pb-4 font-semibold'>
         ¿Qué es lo que Haríamos por ti?
       </p>
 
@@ -88,20 +88,30 @@ export const Information = () => {
       </div>
 
       <div>
-        <h1 className='text-center text-2xl md:text-3xl border-b-4 border-b-p600 mt-12 pb-2'>
+        <h1 className='text-center text-2xl md:text-3xl border-b-4 border-b-p600 mt-12 pb-2 font-semibold'>
           Nuestras Tarifas
         </h1>
 
         <p className='mt-8 text-sm md:text-lg px-2 md:px-0 text-center md:text-start '>
           Con nuestra tarifa altamente competitiva, obtendrás todos los
-          beneficios de nuestros servicios de gestión integral. Al contrario que
-          otras empresas que ocultan sus tarifas escondiendo sus comisiones en
-          DYGAV, mantenemos una política de transparencia total en nuestras
-          tarifas porque creemos en una relación donde nuestros ingresos estén
-          directamente vinculados al éxito de nuestros clientes y por eso
-          cobramos una comisión del 15%+IVA sobre la facturación de las casas
-          que gestionamos, lo cual incluye todos nuestros servicios
-          profesionales de gestión.
+          beneficios de nuestros servicios de gestión integral.
+        </p>
+
+        <p className='mt-8 text-sm md:text-lg px-2 md:px-0 text-center md:text-start '>
+          Al contrario que otras empresas que ocultan sus tarifas escondiendo
+          sus comisiones en <strong className='text-p800'>DYGAV</strong>,
+          mantenemos una política de <strong>transparencia total</strong> en
+          nuestras tarifas porque creemos en una relación donde{' '}
+          <strong>
+            nuestros ingresos estén directamente vinculados al éxito de nuestros
+            clientes
+          </strong>{' '}
+          y por eso cobramos una comisión del{' '}
+          <strong>15%+IVA sobre la facturación</strong> de las casas que
+          gestionamos, lo cual{' '}
+          <strong>
+            incluye todos nuestros servicios profesionales de gestión.
+          </strong>
         </p>
 
         <div className='flex justify-center items-center my-8'>
@@ -116,12 +126,16 @@ export const Information = () => {
         </div>
 
         <p className='mt-8 text-sm md:text-lg px-2 md:px-0 text-center md:text-start '>
-          Es importante destacar que no hay costes adicionales ocultos. Además,
-          los gastos de limpieza son asumidos directamente por los huéspedes, lo
-          que significa que no tendrás que preocuparte por ningún otro cargo
-          adicional. Nos esforzamos por brindarte una gestión clara y sin
-          sorpresas, permitiéndote maximizar tus ingresos y disfrutar de una
-          experiencia libre de preocupaciones.
+          Es importante destacar que{' '}
+          <strong>no hay costes adicionales ocultos</strong>. Además, los gastos
+          de limpieza son asumidos directamente por los huéspedes, lo que
+          significa que{' '}
+          <strong>
+            no tendrás que preocuparte por ningún otro cargo adicional
+          </strong>
+          . Nos esforzamos por brindarte una gestión clara y sin sorpresas,
+          permitiéndote maximizar tus ingresos y disfrutar de{' '}
+          <strong>una experiencia libre de preocupaciones</strong>.
         </p>
       </div>
     </section>
