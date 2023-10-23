@@ -1,6 +1,6 @@
-import { useSession } from "next-auth/react";
-import { TouristDashboard, Layout } from "@/components";
-import Head from "next/head";
+import { useSession } from 'next-auth/react';
+import { TouristDashboard, Layout } from '@/components';
+import Head from 'next/head';
 
 export default function DashboardPage() {
   const { data: session } = useSession();
