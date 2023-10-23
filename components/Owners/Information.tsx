@@ -26,6 +26,12 @@ export const Information = () => {
               
               ¡Descubre una forma más efectiva de gestionar tus apartamentos vacacionales con nosotros!`}
           </p>
+        </div>
+
+        <div className='space-y-6'>
+          <p className='text-center px-4 md:px-0 text-2xl md:text-3xl text-black700 pb-4 font-semibold border-b-4 border-b-p600'>
+            Conviértete en un propietario DYGAV
+          </p>
 
           <p className='text-center text-2xl px-14 md:text-3xl text-black700'>
             ¡Llámanos!
