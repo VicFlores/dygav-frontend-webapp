@@ -13,6 +13,7 @@ export const accounOwnertMenuItem: TMenuItem[] = [
 ];
 
 export const accounTouristMenuItem: TMenuItem[] = [
-  { title: 'Alojamiento', path: '/private/tourist/dashboard' },
+  { title: 'Reservas', path: '/private/tourist/dashboard' },
+  { title: 'Favoritos', path: '/private/tourist/favoriteAccomodations' },
   { title: 'Mi perfil', path: '/' },
 ];
