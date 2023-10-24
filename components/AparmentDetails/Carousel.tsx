@@ -8,6 +8,8 @@ export const Carousel: FC<{ accomodation: TSearcherCard[] }> = ({
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const [expanded, setExpanded] = useState(false);
+
   const prevSlide = () => {
     setCurrentIndex((prev) =>
       prev === 0 ? accomodation[0].src.length - 1 : prev - 1
@@ -70,8 +72,16 @@ export const Carousel: FC<{ accomodation: TSearcherCard[] }> = ({
                 {item.imgSubtitle} / noche
               </p>
               <p className='text-[13px] md:text-[14px] lg:text-base whitespace-pre-line'>
-                {item.description}
+                {expanded
+                  ? item.description
+                  : `${item.description.slice(0, 400)}...`}
               </p>
+              <button
+                onClick={() => setExpanded(!expanded)}
+                className='font-serif font-semibold'
+              >
+                {expanded ? 'Mostrar Menos' : 'Mostrar Más'}
+              </button>
             </div>
 
             <div id='CardFooter' className='flex h-[48px] space-x-1 text-white'>
