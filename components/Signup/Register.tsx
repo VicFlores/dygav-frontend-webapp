@@ -15,6 +15,8 @@ export const Register = () => {
     email: '',
     password: '',
     role: 'default',
+    marketingPermissions: 'default',
+    acceptancePrivacyPolicies: 'default',
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -36,7 +38,14 @@ export const Register = () => {
   };
 
   const handleRegister = async () => {
-    const { fullname, email, password, role } = infoState;
+    const {
+      fullname,
+      email,
+      password,
+      role,
+      marketingPermissions,
+      acceptancePrivacyPolicies,
+    } = infoState;
 
     try {
       const signupResponse = await axios.post('/api/auth/signup/route', {
@@ -44,6 +53,8 @@ export const Register = () => {
         email,
         password,
         role,
+        marketingPermissions,
+        acceptancePrivacyPolicies,
       });
 
       const res = await signIn('credentials', {
@@ -124,6 +135,38 @@ export const Register = () => {
               </option>
               <option value='owner'>Propietario</option>
               <option value='tourist'>Turista</option>
+            </select>
+          </label>
+
+          <label className='relative'>
+            <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <select
+              name='marketingPermissions'
+              value={infoState.marketingPermissions}
+              onChange={handleSelectChange}
+              className='py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
+            >
+              <option value='default' disabled>
+                ¿Quieres recibir información de DYGAV?
+              </option>
+              <option value='true'>Si, acepto</option>
+              <option value='false'>No, acepto</option>
+            </select>
+          </label>
+
+          <label className='relative'>
+            <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <select
+              name='acceptancePrivacyPolicies'
+              value={infoState.acceptancePrivacyPolicies}
+              onChange={handleSelectChange}
+              className='py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
+            >
+              <option value='default' disabled>
+                ¿Aceptas nuestras políticas de privacidad?
+              </option>
+              <option value='true'>Si, acepto</option>
+              <option value='false'>No, acepto</option>
             </select>
           </label>
         </form>
