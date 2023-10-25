@@ -33,7 +33,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Ático en el Puerto Deportivo en Marina Internacional con Vistas Panorámicas al Mar',
     width: 340,
     height: 245,
-    imgSubtitle: 'Marina Internacional - $145 ',
+    imgSubtitle: 'Marina Internacional - €145 ',
     title:
       'Ático en el Puerto Deportivo en Marina Internacional con Vistas Panorámicas al Mar',
     description: `¡Descubre el paraíso frente al mar en nuestro increíble apartamento en Marina Internacional, Torrevieja! Con 2 habitaciones y 2 baños, este ático en el piso 7 te ofrece vistas panorámicas impresionantes desde su balcón. Disfruta de la brisa marina y las espectaculares vistas al puerto deportivo. Además, estarás cerca del centro, ¡todo a tu alcance para una experiencia inolvidable!`,
@@ -90,7 +90,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Bungaló junto al Mar: Tu Refugio de Tranquilidad en la Dehesa de Campoamor',
     width: 340,
     height: 245,
-    imgSubtitle: 'Dehesa de Campoamor - $165',
+    imgSubtitle: 'Dehesa de Campoamor - €165',
     title:
       'Bungaló junto al Mar: Tu Refugio de Tranquilidad en la Dehesa de Campoamor',
     description: `¿Buscas escapar del bullicio de la ciudad y disfrutar de una experiencia relajante? Tenemos el lugar perfecto para ti. Nuestro bungalow con piscina te ofrece una escapada idílica en medio de la belleza natural de la Dehesa de Campoamor, a solo unos minutos de la vibrante ciudad de Torrevieja.
@@ -156,7 +156,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Centro de Torrevieja',
     width: 340,
     height: 245,
-    imgSubtitle: 'Centro de Torrevieja - $110',
+    imgSubtitle: 'Centro de Torrevieja - €110',
     title: 'Piso céntrico en Torrevieja: Ubicación ideal para tu escapada',
     description: `Disfruta de unas vacaciones soleadas en nuestra acogedora joya de un dormitorio en el corazón de Torrevieja. Aquí encontrarás fácil acceso a atracciones, tiendas, restaurantes y playas de ensueño de arena blanca.
 
@@ -224,7 +224,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Centro de Torrevieja',
     width: 340,
     height: 245,
-    imgSubtitle: 'Centro de Torrevieja - $110',
+    imgSubtitle: 'Centro de Torrevieja - €110',
     title: 'Apartamento en Playa Mata, Torrevieja',
     description: `Desayuna mirando al mar y duérmete escuchando las olas.
     
@@ -291,7 +291,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Apartamento Plaza del Ayuntamiento Torrevieja',
     width: 340,
     height: 245,
-    imgSubtitle: 'Torrevieja - $130',
+    imgSubtitle: 'Torrevieja - €130',
     title: 'Apartamento Plaza del Ayuntamiento Torrevieja',
     description: `¡Bienvenido a nuestro exclusivo piso en la Plaza del Ayuntamiento en Torrevieja!
     
@@ -357,13 +357,20 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Casa Unifamiliar en Formigal',
     width: 340,
     height: 245,
-    imgSubtitle: 'Formigal - $115',
+    imgSubtitle: 'Formigal - €115',
     title: 'Casa Unifamiliar en Formigal',
-    description: `La casa ha sido cuidadosamente decorada y renovada para ofrecerte un ambiente acogedor y moderno. Cuenta con dos amplias habitaciones, cada una de ellas equipada con cómodas camas para garantizar un descanso reparador después de un día lleno de emociones en la montaña. Además, encontrarás armarios espaciosos para almacenar tus pertenencias y mantener todo ordenado durante tu estancia.
+    description: `¡Bienvenido a nuestra encantadora casa unifamiliar de dos habitaciones en Formigal!
+    Esta hermosa casa es el lugar perfecto para disfrutar de unas vacaciones inolvidables en la impresionante estación de esquí de Formigal. Con su diseño espacioso y su ubicación privilegiada, te brinda todo el confort y la comodidad que necesitas para relajarte y disfrutar al máximo de tu estancia.
     
-    El luminoso salón es el lugar ideal para reunirse con amigos y familiares. Con cómodos sofás y una chimenea acogedora, podrás relajarte y disfrutar de agradables momentos juntos mientras contemplas las vistas panorámicas de las montañas. La cocina está totalmente equipada con todo lo necesario para preparar tus comidas favoritas, desde platos casuales hasta cenas más elaboradas.`,
+    La casa ha sido cuidadosamente decorada y renovada para ofrecerte un ambiente acogedor y moderno. Cuenta con dos amplias habitaciones, cada una de ellas equipada con cómodas camas para garantizar un descanso reparador después de un día lleno de emociones en la montaña. Además, encontrarás armarios espaciosos para almacenar tus pertenencias y mantener todo ordenado durante tu estancia.
+    
+    El luminoso salón es el lugar ideal para reunirse con amigos y familiares. Con cómodos sofás y una chimenea acogedora, podrás relajarte y disfrutar de agradables momentos juntos mientras contemplas las vistas panorámicas de las montañas. La cocina está totalmente equipada con todo lo necesario para preparar tus comidas favoritas, desde platos casuales hasta cenas más elaboradas.
+    
+    La ubicación de la casa es simplemente inmejorable. Está convenientemente situada cerca de las pistas de esquí, lo que te permite acceder fácilmente a una gran variedad de actividades al aire libre, como esquí, snowboard, senderismo y mucho más. Además, encontrarás tiendas, restaurantes y servicios a poca distancia a pie, lo que hace que tu estancia sea aún más cómoda y conveniente.
+    
+    ¡Te invitamos a disfrutar de una experiencia única en nuestra casa unifamiliar de dos habitaciones en Formigal! Ya sea que estés buscando aventuras en la nieve o una escapada tranquila en medio de la naturaleza, este es el lugar perfecto para crear recuerdos inolvidables junto a tus seres queridos.`,
     subtitle:
-      'Esta hermosa casa es el lugar perfecto para disfrutar de unas vacaciones inolvidables en la impresionante estación de esquí de Formigal. Con su diseño espacioso y su ubicación privilegiada, te brinda todo el confort y la comodidad que necesitas.',
+      'Esta hermosa casa es el lugar perfecto para disfrutar de unas vacaciones inolvidables en la impresionante estación de esquí de Formigal. Con su diseño espacioso y su ubicación privilegiada, te brinda todo el confort y la comodidad que necesitas para relajarte y disfrutar al máximo de tu estancia.',
     bedroom: 2,
     bathroom: 1,
     size: '110m²',
