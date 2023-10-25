@@ -25,6 +25,16 @@ const userSchema = new Schema({
     required: true,
     select: false,
   },
+
+  marketingPermissions: {
+    type: Boolean,
+    default: false,
+  },
+
+  acceptancePrivacyPolicies: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const User = models.User || model('User', userSchema);
