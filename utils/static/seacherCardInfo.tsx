@@ -424,7 +424,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Casa Unifamiliar en Formigal',
     width: 340,
     height: 245,
-    imgSubtitle: 'Formigal - €115',
+    imgSubtitle: 'Dehesa de Campoamor - €115',
     title: 'Chalet en Dehesa de Campoamor',
     description: `Este impresionante alojamiento de dos habitaciones y dos baños es el lugar perfecto para unas vacaciones inolvidables en la Costa Blanca. Con 180 m2 de espacio, disfrutarás de lujo, comodidad y diversión en un solo lugar.
 
