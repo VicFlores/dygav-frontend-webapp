@@ -8,8 +8,8 @@ type TSignup = {
   email: string;
   password: string;
   role: string;
-  marketingPermissions: boolean;
-  acceptancePrivacyPolicies: boolean;
+  marketingPermissions: string;
+  acceptancePrivacyPolicies: string;
 };
 
 export default async function handler(
@@ -46,8 +46,8 @@ export default async function handler(
         email,
         password: hashedPassword,
         role,
-        marketingPermissions,
-        acceptancePrivacyPolicies,
+        marketingPermissions: Boolean(marketingPermissions),
+        acceptancePrivacyPolicies: Boolean(acceptancePrivacyPolicies),
       });
 
       const savedUser = await user.save();
