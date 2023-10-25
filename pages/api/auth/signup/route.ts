@@ -8,6 +8,8 @@ type TSignup = {
   email: string;
   password: string;
   role: string;
+  marketingPermissions: boolean;
+  acceptancePrivacyPolicies: boolean;
 };
 
 export default async function handler(
@@ -15,7 +17,14 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === 'POST') {
-    const { fullname, email, password, role }: TSignup = req.body;
+    const {
+      fullname,
+      email,
+      password,
+      role,
+      marketingPermissions,
+      acceptancePrivacyPolicies,
+    }: TSignup = req.body;
 
     if (!password || password.length < 6)
       return res
@@ -37,6 +46,8 @@ export default async function handler(
         email,
         password: hashedPassword,
         role,
+        marketingPermissions,
+        acceptancePrivacyPolicies,
       });
 
       const savedUser = await user.save();
