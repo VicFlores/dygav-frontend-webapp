@@ -417,16 +417,25 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Casa Unifamiliar en Formigal',
     width: 340,
     height: 245,
-    imgSubtitle: 'Formigal - $115',
+    imgSubtitle: 'Formigal - €115',
     title: 'Chalet en Dehesa de Campoamor',
-    description: `La casa ha sido cuidadosamente decorada y renovada para ofrecerte un ambiente acogedor y moderno. Cuenta con dos amplias habitaciones, cada una de ellas equipada con cómodas camas para garantizar un descanso reparador después de un día lleno de emociones en la montaña. Además, encontrarás armarios espaciosos para almacenar tus pertenencias y mantener todo ordenado durante tu estancia.
-    
-    El luminoso salón es el lugar ideal para reunirse con amigos y familiares. Con cómodos sofás y una chimenea acogedora, podrás relajarte y disfrutar de agradables momentos juntos mientras contemplas las vistas panorámicas de las montañas. La cocina está totalmente equipada con todo lo necesario para preparar tus comidas favoritas, desde platos casuales hasta cenas más elaboradas.`,
+    description: `Este impresionante alojamiento de dos habitaciones y dos baños es el lugar perfecto para unas vacaciones inolvidables en la Costa Blanca. Con 180 m2 de espacio, disfrutarás de lujo, comodidad y diversión en un solo lugar.
+
+    Cada detalle de nuestro chalet ha sido cuidadosamente diseñado para ofrecerte una experiencia excepcional. Las amplias habitaciones cuentan con camas cómodas y armarios empotrados, brindándote un espacio acogedor para descansar y relajarte. Los elegantes baños están equipados con duchas amplias y acabados de alta calidad.
+
+    La cocina totalmente equipada te permite preparar tus comidas favoritas con facilidad, mientras que el espacioso salón te invita a relajarte en sus cómodos sofás y disfrutar de momentos de entretenimiento. Además, la conexión a internet de alta velocidad te mantiene conectado en todo momento.
+
+    Pero eso no es todo. Nuestro chalet también cuenta con un magnífico jardín privado con una refrescante piscina, donde podrás tomar el sol y darte un chapuzón siempre que lo desees. Además, la barbacoa te permite organizar deliciosas comidas al aire libre y disfrutar de agradables veladas con tus seres queridos.
+
+    Ubicado en Dehesa de Campoamor, estarás rodeado de hermosos paisajes y a poca distancia de las playas de arena dorada de la costa. Además, encontrarás una amplia selección de restaurantes, tiendas y actividades para complementar tu estancia.
+
+    ¡No pierdas la oportunidad de vivir unas vacaciones inolvidables en nuestro chalet en Dehesa de Campoamor! Reserva ahora y descubre el equilibrio perfecto entre lujo, comodidad y diversión en la Costa Blanca.
+    `,
     subtitle:
-      'Esta hermosa casa es el lugar perfecto para disfrutar de unas vacaciones inolvidables en la impresionante estación de esquí de Formigal. Con su diseño espacioso y su ubicación privilegiada, te brinda todo el confort y la comodidad que necesitas.',
+      'Este impresionante alojamiento de dos habitaciones y dos baños es el lugar perfecto para unas vacaciones inolvidables en la Costa Blanca. Con 180 m2 de espacio, disfrutarás de lujo, comodidad y diversión en un solo lugar.',
     bedroom: 2,
     bathroom: 1,
-    size: '110m²',
+    size: '180m²',
     maxHuesped: 6,
     price: 115,
     cleanup: 75,
@@ -477,14 +486,21 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Un paraíso privado en Torrevieja: Casa unifamiliar con piscina, jacuzzi y sauna',
     width: 340,
     height: 245,
-    imgSubtitle: 'Torrevieja - $165',
+    imgSubtitle: 'Torrevieja - €165',
     title:
       'Un paraíso privado en Torrevieja: Casa unifamiliar con piscina, jacuzzi y sauna',
-    description: `El diseño moderno y elegante de la casa crea un ambiente acogedor y sofisticado. La cocina totalmente equipada te permite preparar tus comidas favoritas, mientras que el amplio salón es perfecto para pasar tiempo de calidad con tus seres queridos.
+    description: `¡Descubre el lujo y la tranquilidad en nuestra casa unifamiliar en Torrevieja! Esta impresionante residencia te ofrece una experiencia única de confort y relajación. Con 2 habitaciones, 2 baños y una piscina privada, encontrarás todo lo que necesitas para unas vacaciones inolvidables.
+    
+    Sumérgete en la serenidad de nuestro jardín exuberante y disfruta de momentos de paz en la piscina. Además, podrás mimarte en nuestro baño con sauna y jacuzzi, donde podrás relajarte y liberar tensiones. 
+    
+    El interior de la casa está cuidadosamente diseñado para brindarte el máximo confort. Las habitaciones son espaciosas y acogedoras, y los baños están equipados con modernas comodidades. La cocina totalmente equipada te permitirá preparar deliciosas comidas y el salón te invita a relajarte en un ambiente acogedor. 
 
-    Ubicada cerca de La Zenia en Torrevieja, estarás rodeado de hermosas playas, restaurantes y una gran variedad de actividades para todos los gustos. `,
+    La ubicación de la casa es ideal, a solo unos minutos de distancia de las hermosas playas de La Zenia. Disfruta de paseos por la orilla del mar, actividades acuáticas y la belleza del paisaje costero.
+
+    ¡No pierdas la oportunidad de vivir una experiencia de lujo en nuestra casa unifamiliar en Torrevieja! Reserva ahora y déjate envolver por la tranquilidad y el confort que este increíble lugar tiene para ofrecer.
+    `,
     subtitle:
-      'Con dos amplias habitaciones y dos baños, tendrás todo el espacio que necesitas para relajarte y disfrutar. Sumérgete en la piscina privada y refrescante, o relájate en el jacuzzi y sauna, brindándote momentos de pura relajación y bienestar.',
+      '¡Descubre el lujo y la tranquilidad en nuestra casa unifamiliar en Torrevieja! Esta impresionante residencia te ofrece una experiencia única de confort y relajación. Con 2 habitaciones, 2 baños y una piscina privada',
     bedroom: 2,
     bathroom: 2,
     size: '120m²',
@@ -536,13 +552,20 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Un paraíso privado en Torrevieja: Casa unifamiliar con piscina, jacuzzi y sauna',
     width: 340,
     height: 245,
-    imgSubtitle: 'Formigal - $165',
-    title: 'Apartamento en Valle de Tena',
-    description: `El diseño moderno y elegante de la casa crea un ambiente acogedor y sofisticado. La cocina totalmente equipada te permite preparar tus comidas favoritas, mientras que el amplio salón es perfecto para pasar tiempo de calidad con tus seres queridos.
+    imgSubtitle: 'Formigal - €150',
+    title: 'Apartamento en Formigal',
+    description: `Este acogedor refugio de una habitación y un baño es el lugar perfecto para tus vacaciones en la impresionante estación de esquí. Situado en un entorno tranquilo y rodeado de paisajes montañosos, te brindará un espacio relajante y acogedor después de un día lleno de aventuras en la nieve.
 
-    Ubicada cerca de La Zenia en Torrevieja, estarás rodeado de hermosas playas, restaurantes y una gran variedad de actividades para todos los gustos. `,
+    Hemos renovado recientemente el apartamento, creando una atmósfera moderna y elegante que se fusiona con el encanto rústico de la montaña. En la sala de estar, podrás disfrutar de la calidez de la chimenea, relajarte junto al fuego y deleitarte con una taza de chocolate caliente.
+
+    La cocina está completamente equipada para que puedas preparar tus comidas favoritas, desde desayunos reconfortantes hasta cenas deliciosas. La habitación principal cuenta con una cómoda cama que te asegurará un descanso tranquilo y revitalizante antes de tu próxima aventura en las montañas. El baño también ha sido renovado, ofreciendo comodidades modernas.
+
+    Además, la ubicación del apartamento es privilegiada. A pocos pasos encontrarás tiendas, restaurantes y bares, así como un fácil acceso a las pistas de esquí y rutas de senderismo. Durante el verano, podrás disfrutar de emocionantes actividades al aire libre, como senderismo, ciclismo de montaña y paseos panorámicos.
+
+    ¡Ven y disfruta de una estancia inolvidable en nuestro acogedor apartamento en Formigal! Ya sea que desees unas vacaciones llenas de deportes de invierno o una escapada de verano rodeado de naturaleza, este es el lugar perfecto para relajarte y disfrutar de todo lo que Formigal tiene para ofrecer.
+    `,
     subtitle:
-      'Con dos amplias habitaciones y dos baños, tendrás todo el espacio que necesitas para relajarte y disfrutar. Sumérgete en la piscina privada y refrescante, o relájate en el jacuzzi y sauna, brindándote momentos de pura relajación y bienestar.',
+      'Este acogedor refugio de una habitación y un baño es el lugar perfecto para tus vacaciones en la impresionante estación de esquí. Situado en un entorno tranquilo y rodeado de paisajes montañosos, te brindará un espacio relajante y acogedor después de un día lleno de aventuras en la nieve.',
     bedroom: 2,
     bathroom: 2,
     size: '120m²',
@@ -596,13 +619,24 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Un paraíso privado en Torrevieja: Casa unifamiliar con piscina, jacuzzi y sauna',
     width: 340,
     height: 245,
-    imgSubtitle: 'Madrid - $165',
+    imgSubtitle: 'Madrid - €180',
     title: 'Apartamento  cerca del Santiago Bernabéu',
-    description: `El diseño moderno y elegante de la casa crea un ambiente acogedor y sofisticado. La cocina totalmente equipada te permite preparar tus comidas favoritas, mientras que el amplio salón es perfecto para pasar tiempo de calidad con tus seres queridos.
+    description: `¡Descubre nuestro moderno apartamento cerca del Santiago Bernabéu! Este encantador piso te brinda una estancia excepcional en el corazón de Madrid.
+    
+    Con una ubicación privilegiada, estarás a pocos pasos del famoso estadio y rodeado de una amplia oferta de tiendas, restaurantes y lugares de entretenimiento. 
 
-    Ubicada cerca de La Zenia en Torrevieja, estarás rodeado de hermosas playas, restaurantes y una gran variedad de actividades para todos los gustos. `,
+    El apartamento cuenta con 80 metros cuadrados de espacio para tu comodidad. Disfruta de un dormitorio con cama de matrimonio y baño en suite, asegurando una experiencia de descanso tranquila y placentera.
+
+    El acogedor salón te invita a relajarte en el sofá cama doble mientras disfrutas de la TV de pantalla plana. Además, la cocina americana completamente equipada te permite preparar deliciosas comidas a tu gusto.
+
+    Relájate en la pequeña y agradable terraza, perfecta para disfrutar del aire fresco y tomar una taza de café. Además, el apartamento está equipado con lavadora, calefacción, aire acondicionado y Wifi gratuito, para garantizar una estancia confortable.
+
+    Con múltiples opciones de aparcamiento cercanas, olvídate de los inconvenientes del estacionamiento y aprovecha al máximo tu tiempo en la ciudad.
+
+    No pierdas la oportunidad de disfrutar de este moderno apartamento en una ubicación privilegiada. ¡Reserva ahora y vive una experiencia inolvidable en Madrid!
+    `,
     subtitle:
-      'Con dos amplias habitaciones y dos baños, tendrás todo el espacio que necesitas para relajarte y disfrutar. Sumérgete en la piscina privada y refrescante, o relájate en el jacuzzi y sauna, brindándote momentos de pura relajación y bienestar.',
+      '¡Descubre nuestro moderno apartamento cerca del Santiago Bernabéu! Este encantador piso te brinda una estancia excepcional en el corazón de Madrid.',
     bedroom: 2,
     bathroom: 2,
     size: '120m²',
@@ -656,13 +690,24 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Un paraíso privado en Torrevieja: Casa unifamiliar con piscina, jacuzzi y sauna',
     width: 340,
     height: 245,
-    imgSubtitle: 'Campoamor - $165',
+    imgSubtitle: 'Campoamor - €125',
     title: 'Casa en Campoamor',
-    description: `El diseño moderno y elegante de la casa crea un ambiente acogedor y sofisticado. La cocina totalmente equipada te permite preparar tus comidas favoritas, mientras que el amplio salón es perfecto para pasar tiempo de calidad con tus seres queridos.
+    description: `¡Descubre una experiencia de lujo y privacidad en nuestra increíble villa en Campoamor!
 
-    Ubicada cerca de La Zenia en Torrevieja, estarás rodeado de hermosas playas, restaurantes y una gran variedad de actividades para todos los gustos. `,
+    Esta impresionante residencia te brinda el escape perfecto junto al mar Mediterráneo.
+
+    Sumérgete en la elegancia y el confort de esta amplia villa, donde cada detalle ha sido cuidadosamente diseñado para tu comodidad y satisfacción.
+
+    Disfruta de momentos inolvidables en sus espacios generosos y encantadores, con una mezcla de estilo moderno y detalles tradicionales.
+
+    Y lo mejor de todo, a solo pasos de las hermosas playas de Campoamor.
+
+    ¡No pierdas la oportunidad de vivir una experiencia única en nuestra villa de ensueño!
+
+    Reserva ahora y déjate llevar por la serenidad y el lujo que esta magnífica propiedad tiene para ofrecer.
+    `,
     subtitle:
-      'Con dos amplias habitaciones y dos baños, tendrás todo el espacio que necesitas para relajarte y disfrutar. Sumérgete en la piscina privada y refrescante, o relájate en el jacuzzi y sauna, brindándote momentos de pura relajación y bienestar.',
+      '¡Descubre una experiencia de lujo y privacidad en nuestra increíble villa en Campoamor! Esta impresionante residencia te brinda el escape perfecto junto al mar Mediterráneo.',
     bedroom: 2,
     bathroom: 2,
     size: '120m²',
@@ -713,13 +758,20 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Un paraíso privado en Torrevieja: Casa unifamiliar con piscina, jacuzzi y sauna',
     width: 340,
     height: 245,
-    imgSubtitle: 'Formigal - $165',
+    imgSubtitle: 'Formigal - €165',
     title: 'Apartamento en Formigal',
-    description: `El diseño moderno y elegante de la casa crea un ambiente acogedor y sofisticado. La cocina totalmente equipada te permite preparar tus comidas favoritas, mientras que el amplio salón es perfecto para pasar tiempo de calidad con tus seres queridos.
+    description: `¡Bienvenido a nuestro acogedor apartamento en Formigal!
+    
+    Nuestro encantador apartamento de una habitación y un baño es el lugar perfecto para tu escapada a la impresionante estación de esquí de Formigal. Recientemente reformado, ofrece un ambiente moderno y acogedor que te hará sentir como en casa. 
 
-    Ubicada cerca de La Zenia en Torrevieja, estarás rodeado de hermosas playas, restaurantes y una gran variedad de actividades para todos los gustos. `,
+    La sala de estar es amplia y luminosa, ideal para relajarte junto a la cálida chimenea después de un emocionante día en las pistas. La cocina está totalmente equipada, ¡prepara tus comidas favoritas! La habitación principal está elegantemente decorada y la cama es súper cómoda para un descanso pleno.
+
+    La ubicación del apartamento es inmejorable, cerca de tiendas, restaurantes y bares. Además, estarás a pocos pasos de las pistas de esquí. Durante el verano, disfruta de actividades al aire libre como senderismo y paseos en bicicleta. ¡Vive una experiencia inolvidable en los Pirineos!
+
+    ¡Reserva ahora y prepárate para vivir momentos inolvidables en este entorno espectacular! ¡Te esperamos en nuestro refugio de montaña en Formigal! 
+    `,
     subtitle:
-      'Con dos amplias habitaciones y dos baños, tendrás todo el espacio que necesitas para relajarte y disfrutar. Sumérgete en la piscina privada y refrescante, o relájate en el jacuzzi y sauna, brindándote momentos de pura relajación y bienestar.',
+      '¡Bienvenido a nuestro acogedor apartamento en Formigal! Nuestro encantador apartamento de una habitación y un baño es el lugar perfecto para tu escapada a la impresionante estación de esquí de Formigal. Recientemente reformado, ofrece un ambiente moderno y acogedor que te hará sentir como en casa. ',
     bedroom: 2,
     bathroom: 2,
     size: '120m²',
