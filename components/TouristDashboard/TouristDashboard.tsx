@@ -21,7 +21,7 @@ export const TouristDashboard = () => {
     <div className='px-8 space-y-12 mb-24'>
       <div className='flex flex-col space-y-6 md:space-y-0 md:flex-row md:items-end md:justify-between border-b-[1px]'>
         <p className=' text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl'>
-          Mis reservaciones
+          Mis reservas
         </p>
 
         <ul className='flex flex-row justify-center items-center space-x-12  lg:text-lg'>
