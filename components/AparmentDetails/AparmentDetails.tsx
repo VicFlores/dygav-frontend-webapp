@@ -90,41 +90,49 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
       </p>
 
       <div className='flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:justify-evenly lg:items-center lg:space-x-8'>
-        <div>
-          <div className='overflow-x-auto pb-6'>
-            <table className='table-auto text-center text-[9.8px]'>
-              <thead className='bg-p600 text-white'>
-                <tr>
-                  <th className='px-4 py-2'>Desde</th>
-                  <th className='px-4 py-2'>Hasta</th>
-                  <th className='px-4 py-2'>Precio limpieza</th>
-                  <th className='px-4 py-2'>Precio total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className='border px-6 py-4'>septiembre 1, 2023</td>
-                  <td className='border px-6 py-4'>septiembre 30, 2023</td>
-                  {accomodation?.map((item) => (
-                    <td key={item.id} className='border px-6 py-4'>
-                      ${item.cleanup}
-                    </td>
-                  ))}
+        <div className='items-center justify-center overflow-x-auto pb-6'>
+          <table className='table-auto text-center text-[9.8px] md:text-base'>
+            <thead className='bg-p600 text-white'>
+              <tr>
+                <th className='px-4 py-2'>Desde</th>
+                <th className='px-4 py-2'>Hasta</th>
+                <th className='px-4 py-2'>Precio limpieza</th>
+                <th className='px-4 py-2'>Precio total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className='border px-6 py-4'>
+                  {selectedStartDate
+                    ? selectedStartDate.toISOString().substring(0, 10)
+                    : 'septiembre 30, 2023'}
+                </td>
+                <td className='border px-6 py-4'>
+                  {selectedEndDate
+                    ? selectedEndDate.toISOString().substring(0, 10)
+                    : 'septiembre 30, 2023'}
+                </td>
+                {accomodation?.map((item) => (
+                  <td key={item.id} className='border px-6 py-4'>
+                    ${item.cleanup}
+                  </td>
+                ))}
 
-                  {accomodation?.map((item) => (
-                    <td key={item.id} className='border px-6 py-4'>
-                      ${price !== 0 ? price + item.cleanup : 0}
-                    </td>
-                  ))}
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                {accomodation?.map((item) => (
+                  <td key={item.id} className='border px-6 py-4'>
+                    ${price !== 0 ? price + item.cleanup : 0}
+                  </td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
 
-          <div className='relative flex justify-center items-center mt-10'>
-            <AiOutlineCheckCircle className='w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-24 md:right-40 lg:right-[150px]' />
-            <button className='bg-p600 hover:bg-p800 text-[13px] md:text-sm lg:text-base p-2 w-[220px] md:w-[240px] lg:w-[260px] text-white'>
-              Pagar alojamiento
+          <div className='flex justify-center items-center mt-10'>
+            <button className='bg-p600 hover:bg-p800 text-[13px] md:text-sm lg:text-base p-2 w-[220px] md:w-[240px] lg:w-[260px] text-white mt-10'>
+              <span className='flex justify-center items-center space-x-4'>
+                <span>Pagar alojamiento</span>
+                <AiOutlineCheckCircle className='w-4 h-4 md:h-5 md:w-5 text-white' />
+              </span>
             </button>
           </div>
         </div>
