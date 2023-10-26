@@ -77,6 +77,17 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
   ).getDate();
   const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
 
+  const startDate = new Date(
+    selectedDate.getFullYear(),
+    selectedDate.getMonth(),
+    1
+  );
+  const endDate = new Date(
+    selectedDate.getFullYear(),
+    selectedDate.getMonth() + 1,
+    0
+  );
+
   return (
     <div className='px-8 space-y-12 mb-24'>
       <p className=' text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl border-b-[1px]'>
@@ -92,7 +103,7 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
       <div className='flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:justify-evenly lg:items-center lg:space-x-8'>
         <div>
           <div className='overflow-x-auto pb-6'>
-            <table className='table-auto text-center text-[9.8px]'>
+            <table className='table-auto text-center text-[9.8px] md:text-base'>
               <thead className='bg-p600 text-white'>
                 <tr>
                   <th className='px-4 py-2'>Desde</th>
@@ -103,8 +114,12 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
               </thead>
               <tbody>
                 <tr>
-                  <td className='border px-6 py-4'>septiembre 1, 2023</td>
-                  <td className='border px-6 py-4'>septiembre 30, 2023</td>
+                  <td className='border px-6 py-4'>{`${
+                    monthNames[startDate.getMonth()]
+                  } ${startDate.getDate()}, ${startDate.getFullYear()}`}</td>
+                  <td className='border px-6 py-4'>{`${
+                    monthNames[endDate.getMonth()]
+                  } ${endDate.getDate()}, ${endDate.getFullYear()}`}</td>
                   {accomodation?.map((item) => (
                     <td key={item.id} className='border px-6 py-4'>
                       ${item.cleanup}
@@ -122,7 +137,7 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
           </div>
 
           <div className='relative flex justify-center items-center mt-10'>
-            <AiOutlineCheckCircle className='w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-24 md:right-40 lg:right-[150px]' />
+            <AiOutlineCheckCircle className='w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-24 md:right-40 lg:right-1/3' />
             <button className='bg-p600 hover:bg-p800 text-[13px] md:text-sm lg:text-base p-2 w-[220px] md:w-[240px] lg:w-[260px] text-white'>
               Pagar alojamiento
             </button>
@@ -169,7 +184,7 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
                 {day}
               </div>
             ))}
-            {Array(selectedDate.getDay())
+            {Array(startDate.getDay())
               .fill(null)
               .map((_, index) => (
                 <div
