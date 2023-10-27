@@ -75,7 +75,7 @@ export const Register = () => {
 
   return (
     <div className='flex items-center justify-center mt-4 md:mt-8 lg:mt-0 pb-4'>
-      <div className='bg-white px-6 py-4 md:py-6 lg:py-4 space-y-5 w-[350px] md:w-[450px]'>
+      <div className='bg-white px-6 py-4 md:py-6 lg:py-4 space-y-5 w-[350px] md:w-[480px]'>
         <div className='space-y-3'>
           <p className='font-semibold text-lg md:text-xl lg:text-3xl'>
             ¡Bienvenido!
@@ -138,37 +138,46 @@ export const Register = () => {
             </select>
           </label>
 
-          <label className='relative'>
-            <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
-            <select
-              name='marketingPermissions'
-              value={infoState.marketingPermissions}
-              onChange={handleSelectChange}
-              className='py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
-            >
-              <option value='default' disabled>
-                ¿Quieres recibir información de DYGAV?
-              </option>
-              <option value='true'>Si, acepto</option>
-              <option value='false'>No, acepto</option>
-            </select>
-          </label>
+          <div className='text-center'>
+            <p className='mb-2'>Proteccion de datos</p>
+            <label>
+              <input
+                type='checkbox'
+                name='acceptancePrivacyPolicies'
+                value='true'
+                checked={infoState.acceptancePrivacyPolicies === 'true'}
+                onChange={handleChange}
+                className='mr-2'
+              />
+              He leido y acepto la politica de privacidad
+            </label>
+          </div>
 
-          <label className='relative'>
-            <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
-            <select
-              name='acceptancePrivacyPolicies'
-              value={infoState.acceptancePrivacyPolicies}
-              onChange={handleSelectChange}
-              className='py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
-            >
-              <option value='default' disabled>
-                ¿Aceptas nuestras políticas de privacidad?
-              </option>
-              <option value='true'>Si, acepto</option>
-              <option value='false'>No, acepto</option>
-            </select>
-          </label>
+          <div className='text-center'>
+            <p className='mb-2'>Acepto recibir comunicaciones de marketing</p>
+            <label className='mr-4'>
+              <input
+                type='checkbox'
+                name='marketingPermissions'
+                value='true'
+                checked={infoState.marketingPermissions === 'true'}
+                onChange={handleChange}
+                className='mr-2'
+              />
+              Si, acepto
+            </label>
+            <label>
+              <input
+                type='checkbox'
+                name='marketingPermissions'
+                value='false'
+                checked={infoState.marketingPermissions === 'false'}
+                onChange={handleChange}
+                className='mr-2'
+              />
+              No, acepto
+            </label>
+          </div>
         </form>
 
         <div className='grid gap-y-4 justify-center items-center pt-4 md:pt-6'>

@@ -46,8 +46,8 @@ export default async function handler(
         email,
         password: hashedPassword,
         role,
-        marketingPermissions: Boolean(marketingPermissions),
-        acceptancePrivacyPolicies: Boolean(acceptancePrivacyPolicies),
+        marketingPermissions,
+        acceptancePrivacyPolicies,
       });
 
       const savedUser = await user.save();
