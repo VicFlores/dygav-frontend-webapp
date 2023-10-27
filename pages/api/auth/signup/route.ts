@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import User from '@/models/user';
 import bcrypt from 'bcrypt';
 import { connectDB } from '@/utils/db/database';
+import sendEmail from '@/utils/emails/sendEmail';
 
 type TSignup = {
   fullname: string;
@@ -51,6 +52,9 @@ export default async function handler(
       });
 
       const savedUser = await user.save();
+
+      //Send email
+      sendEmail(email)
 
       return res.status(200).json({
         _id: savedUser._id,
