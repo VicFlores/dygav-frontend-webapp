@@ -5,7 +5,7 @@ const nextConfig = {
     domains: ['res.cloudinary.com', 'lh3.googleusercontent.com']
   },
   env: {
-    AVAIBOOK_API_TOKEN: '7fd52cc3b7e215ac8e5173cd1a0d176eabe0ced50fdf1dd346676fd36d051920'
+    AVAIBOOK_API_TOKEN: 'e8f0d39c83dff242a8e47744d1d0fc5f76e4e2363752f6fe117f7d7e2924144d'
   }
 }
 

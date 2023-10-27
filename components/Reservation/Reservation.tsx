@@ -12,8 +12,7 @@ export const Reservation: FC<{ id: string }> = ({ id }) => {
         {
           headers: {
             'Content-Type': 'application/json',
-            'X-AUTH-TOKEN':
-              '7fd52cc3b7e215ac8e5173cd1a0d176eabe0ced50fdf1dd346676fd36d051920',
+            'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
           },
         }
       );
