@@ -56,18 +56,18 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
   };
 
   const monthNames = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
+    'Enero',
+    'Febrero',
+    'Marzo',
+    'Abril',
+    'Mayo',
+    'Junio',
+    'Julio',
+    'Agosto',
+    'Septiembre',
+    'Octubre',
+    'Noviembre',
+    'Dicembre',
   ];
 
   const daysInMonth = new Date(
@@ -75,6 +75,7 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
     selectedDate.getMonth() + 1,
     0
   ).getDate();
+
   const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
 
   return (
@@ -105,22 +106,22 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
                 <td className='border px-6 py-4'>
                   {selectedStartDate
                     ? selectedStartDate.toISOString().substring(0, 10)
-                    : 'septiembre 30, 2023'}
+                    : 'Esperando fecha'}
                 </td>
                 <td className='border px-6 py-4'>
                   {selectedEndDate
                     ? selectedEndDate.toISOString().substring(0, 10)
-                    : 'septiembre 30, 2023'}
+                    : 'Esperando fecha'}
                 </td>
                 {accomodation?.map((item) => (
                   <td key={item.id} className='border px-6 py-4'>
-                    ${item.cleanup}
+                    €{item.cleanup}
                   </td>
                 ))}
 
                 {accomodation?.map((item) => (
                   <td key={item.id} className='border px-6 py-4'>
-                    ${price !== 0 ? price + item.cleanup : 0}
+                    €{price !== 0 ? price + item.cleanup : 0}
                   </td>
                 ))}
               </tr>
@@ -151,7 +152,7 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
                 )
               }
             >
-              Prev
+              Ant
             </button>
             <h2 className='text-lg font-bold'>
               {monthNames[selectedDate.getMonth()]} {selectedDate.getFullYear()}
@@ -168,15 +169,17 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
                 )
               }
             >
-              Next
+              Sig
             </button>
           </div>
           <div className='grid grid-cols-7 gap-y-6 gap-x-4'>
-            {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-              <div key={day} className='text-center font-bold text-gray-600'>
-                {day}
-              </div>
-            ))}
+            {['Dom', 'Lun', 'Mar', 'Miérc', 'Juev', 'Vier', 'Sáb'].map(
+              (day) => (
+                <div key={day} className='text-center font-bold text-gray-600'>
+                  {day}
+                </div>
+              )
+            )}
             {Array(selectedDate.getDay())
               .fill(null)
               .map((_, index) => (
