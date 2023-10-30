@@ -23,7 +23,7 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   useEffect(() => {
     const filterByAccomodationId = async () => {
       const res = await axios.get(
-        `https://api.avaibook.biz/api/owner/bookings/`,
+        `https://api.avaibook.com/api/owner/bookings/`,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
     const accomodationBlockDay = async (id: string) => {
       if (id) {
         const res = await axios.get(
-          `https://api.avaibook.biz/api/owner/accommodations/${id}/calendar/`,
+          `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/`,
           {
             headers: {
               'Content-Type': 'application/json',

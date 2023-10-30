@@ -8,7 +8,7 @@ export const Reservation: FC<{ id: string }> = ({ id }) => {
   useEffect(() => {
     const accomodationByUnitId = async () => {
       const res = await axios.get(
-        `https://api.avaibook.biz/api/owner/bookings/${id}/`,
+        `https://api.avaibook.com/api/owner/bookings/${id}/`,
         {
           headers: {
             'Content-Type': 'application/json',

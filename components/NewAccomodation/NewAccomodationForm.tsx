@@ -168,7 +168,7 @@ const NewAccomodationForm = () => {
 
     try {
       const avaibookRes = await axios.post(
-        'https://api.avaibook.biz/api/owner/accommodations/',
+        'https://api.avaibook.com/api/owner/accommodations/',
         infoAvaibookAccomodation,
         {
           headers: {

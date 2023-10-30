@@ -11,12 +11,10 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
     ReservationAvaibook[]
   >([]);
 
-  console.log('key', process.env.AVAIBOOK_API_TOKEN);
-
   useEffect(() => {
     const accomodationByUnitId = async () => {
       const res = await axios.get(
-        'https://api.avaibook.biz/api/owner/bookings/',
+        'https://api.avaibook.com/api/owner/bookings/',
         {
           headers: {
             'Content-Type': 'application/json',
