@@ -17,3 +17,9 @@ export const accounTouristMenuItem: TMenuItem[] = [
   { title: 'Favoritos', path: '/private/tourist/favoriteAccomodations' },
   { title: 'Mi perfil', path: '/' },
 ];
+
+export const accountAdminMenuItem: TMenuItem[] = [
+  { title: 'Reservas admin', path: '/private/admin/dashboard' },
+  { title: 'Favoritos', path: '/private/admin/dashboard' },
+  { title: 'Mi perfil', path: '/private/admin/dashboard' },
+];

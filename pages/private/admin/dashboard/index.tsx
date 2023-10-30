@@ -1,5 +1,5 @@
-import { useSession } from "next-auth/react";
-import { Layout, AdminDashboard } from "@/components";
+import { useSession } from 'next-auth/react';
+import { Layout, AdminDashboard } from '@/components';
 
 export default function AdminDashboardPage() {
   const { data: session } = useSession();
