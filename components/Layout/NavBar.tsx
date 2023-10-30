@@ -2,6 +2,7 @@ import { TSession } from '@/types';
 import {
   accounOwnertMenuItem,
   accounTouristMenuItem,
+  accountAdminMenuItem,
   publicMenuItem,
 } from '@/utils';
 import { signOut } from 'next-auth/react';
@@ -19,7 +20,8 @@ export const NavBar: FC<TSession> = ({ session }) => {
 
   const bkCurrentUrl =
     currentUrl.startsWith('/private/tourist') ||
-    currentUrl.startsWith('/private/owner')
+    currentUrl.startsWith('/private/owner') ||
+    currentUrl.startsWith('/private/admin')
       ? 'bg-p600'
       : 'bg-transparent';
 
@@ -31,6 +33,10 @@ export const NavBar: FC<TSession> = ({ session }) => {
       : session?.user?.role === 'owner'
       ? currentUrl.startsWith('/private/owner')
         ? accounOwnertMenuItem
+        : publicMenuItem
+      : session?.user?.role === 'admin'
+      ? currentUrl.startsWith('/private/admin')
+        ? accountAdminMenuItem
         : publicMenuItem
       : publicMenuItem;
 
