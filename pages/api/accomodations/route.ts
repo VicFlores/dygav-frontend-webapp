@@ -20,5 +20,16 @@ export default async function handler(
       if (error instanceof Error)
         return res.status(400).json({ message: error.message });
     }
+  } else if (req.method === 'GET') {
+    try {
+      await connectDB();
+
+      const findAllAccomodations = await Accomodation.find();
+
+      return res.status(200).json(findAllAccomodations);
+    } catch (error) {
+      if (error instanceof Error)
+        return res.status(400).json({ message: error.message });
+    }
   } else return res.status(201).json('Cant access');
 }
