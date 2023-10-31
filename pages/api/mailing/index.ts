@@ -10,7 +10,7 @@ export default async function handler(
  
     if (req.method === 'POST') {
         try {
-        const { name, email, phone, location } = req.body;
+        const { name, email, phone, description } = req.body;
     
         const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -43,7 +43,7 @@ export default async function handler(
             <p>Nombre: ${name}</p>
             <p>Email: ${email}</p>
             <p>Telefono: ${phone}</p>
-            <p>Caso: ${location}</p>
+            <p>Caso: ${description}</p>
             `
         }
 

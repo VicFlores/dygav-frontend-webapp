@@ -55,6 +55,7 @@ export default async function handler(
     
     const savedUser = await user.save();
     
+    sendEmail(email, fullname, role)
     
     return res.status(200).json({
       _id: savedUser._id,
@@ -62,7 +63,6 @@ export default async function handler(
       email: savedUser.email,
     });
     
-    sendEmail(email, fullname, role)
     
   } catch (error) {
     if (error instanceof Error)

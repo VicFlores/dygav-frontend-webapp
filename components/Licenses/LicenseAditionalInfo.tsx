@@ -11,7 +11,7 @@ type Inputs = {
   name: string,
   email: string,
   phone: number,
-  location: string
+  description: string
 }
 
 export const LicenseAditionalInfo = () => {
@@ -219,10 +219,10 @@ export const LicenseAditionalInfo = () => {
             <HiOutlineLocationMarker className='w-5 h-5 absolute top-1/3 -translate-y-1/2 left-3 text-black900' />
             <textarea
               placeholder='Localidad'
-              {...register('location', {required: true})}
+              {...register('description', {required: true})}
               className='py-3 pl-10 pr-4 bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
             />
-            {errors.location && <span className='text-red-500'>Este campo es obligatorio</span>}
+            {errors.description && <span className='text-red-500'>Este campo es obligatorio</span>}
           </label>
 
           <button
