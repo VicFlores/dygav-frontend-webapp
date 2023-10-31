@@ -300,7 +300,7 @@ export default function contactTemplate(fullname:string){
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
                       <tr>
                           <td class="logo" style="text-align: center;">
-                            <h1><a href="#">Bienvenido a Dygav</a></h1>
+                            <h1><a href="#">Bienvenido a DYGAV</a></h1>
                           </td>
                       </tr>
                   </table>
@@ -350,9 +350,8 @@ export default function contactTemplate(fullname:string){
                       <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                         <tr>
                           <td style="text-align: left; padding-right: 10px;">
-                              <h3 class="heading">Sobre nosotros</h3>
-                              <p>En DYGAV nos especializamos en brindar soluciones
-                                integrales para la gestión de apartamentos turísticos.</p>
+                              <h3 class="heading">DYGAV</h3>
+                              <p>hogares que son destinos y viajes que se sienten como en casa.</p>
                           </td>
                         </tr>
                       </table>
@@ -362,10 +361,11 @@ export default function contactTemplate(fullname:string){
                         <tr>
                           <td style="text-align: left; padding-left: 5px; padding-right: 5px;">
                               <h3 class="heading">Contacto</h3>
-                              <ul>
-                                        <li><span class="text"> C/ Orihuela 6, Torrevieja, Alicante 03181</span></li>
-                                        <li><span class="text">+34 614 165 736</span></a></li>
-                                      </ul>
+                                <ul>
+                                    <li><span class="text"> C/ Orihuela 6, Torrevieja, Alicante 03181</span></li>
+                                    <li><span class="text">+34 614 214 250</span></a></li>
+                                    <li><span class="text">info@dygav.es</span></a></li>
+                                </ul>
                           </td>
                         </tr>
                       </table>
