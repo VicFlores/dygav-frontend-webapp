@@ -34,7 +34,6 @@ export default async function handler(
 
     try {
 
-      sendEmail(email, fullname, role)
       
       await connectDB();
       
@@ -62,11 +61,12 @@ export default async function handler(
       fullname: savedUser.fullname,
       email: savedUser.email,
     });
-   
-
-    } catch (error) {
-      if (error instanceof Error)
-        return res.status(400).json({ message: error.message });
+    
+    sendEmail(email, fullname, role)
+    
+  } catch (error) {
+    if (error instanceof Error)
+    return res.status(400).json({ message: error.message });
     }
   } else return res.status(201).json('Cant access');
 }
