@@ -6,11 +6,61 @@ import { Carousel } from './Carousel';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import axios from 'axios';
 
+interface IRealAparmentDetails {
+  depositAmount: number;
+  id: string;
+  name: string;
+  location: {
+    city: string;
+  };
+  description: {
+    es: string;
+  };
+  images: {
+    ORIGINAL: string;
+  }[];
+  features: {
+    n_hab: number;
+    n_banos: number;
+    superficie: number;
+  };
+  units: {
+    capacity: number;
+    additionalCapacity: number;
+  }[];
+}
+
 export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
   const [selectedStartDate, setSelectedStartDate] = useState<Date | null>(null);
   const [selectedEndDate, setSelectedEndDate] = useState<Date | null>(null);
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [accomodation, setAccomodation] = useState<any[]>([]);
+  const [accomodation, setAccomodation] = useState<IRealAparmentDetails>({
+    depositAmount: 0,
+    id: '',
+    name: '',
+    location: {
+      city: '',
+    },
+    description: {
+      es: '',
+    },
+    images: [
+      {
+        ORIGINAL: '',
+      },
+    ],
+    features: {
+      n_hab: 0,
+      n_banos: 0,
+      superficie: 0,
+    },
+    units: [
+      {
+        capacity: 0,
+        additionalCapacity: 0,
+      },
+    ],
+  });
   const [price, setPrice] = useState(0);
 
   useEffect(() => {
@@ -33,7 +83,7 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
   }, [id]);
 
   useEffect(() => {
-    const dailyRate = accomodation[0]?.price || 0;
+    const dailyRate = accomodation.depositAmount;
 
     const startDate = selectedStartDate || new Date();
     const endDate = selectedEndDate || new Date();
@@ -93,13 +143,22 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
 
   const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
 
+  const cleanUp =
+    Number(accomodation.features.n_hab) === 1
+      ? 65
+      : Number(accomodation.features.n_hab) === 2
+      ? 75
+      : Number(accomodation.features.n_hab) === 3
+      ? 90
+      : 0;
+
   return (
     <div className='px-8 space-y-12 mb-24'>
       <p className=' text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl border-b-[1px]'>
         Conoce a mas detalle tu futuro alojamiento
       </p>
 
-      {/* <Carousel accomodation={accomodation} /> */}
+      <Carousel accomodation={accomodation} />
 
       <p className=' text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl border-b-[1px]'>
         Nuestras tarifas y calendario
@@ -128,17 +187,12 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
                     ? selectedEndDate.toISOString().substring(0, 10)
                     : 'Esperando fecha'}
                 </td>
-                {/* {accomodation?.map((item) => (
-                  <td key={item.id} className='border px-6 py-4'>
-                    €{item.cleanup}
-                  </td>
-                ))} */}
 
-                {/* {accomodation?.map((item) => (
-                  <td key={item.id} className='border px-6 py-4'>
-                    €{price !== 0 ? price + item.cleanup : 0}
-                  </td>
-                ))} */}
+                <td className='border px-6 py-4'>€{cleanUp}</td>
+
+                <td className='border px-6 py-4'>
+                  €{price !== 0 ? price + cleanUp : 0}
+                </td>
               </tr>
             </tbody>
           </table>
@@ -247,14 +301,64 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
         ¿Que encontraras en tu alojamiento?
       </p>
 
-      {/* <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-center'>
-        {accomodation[0]?.services.map((item, index) => (
-          <div key={index} className='relative'>
-            <BsCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-2 md:left-3 text-p600' />
-            <h3 className='pl-10 md:pl-12'>{item}</h3>
-          </div>
-        ))}
-      </div> */}
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-center'>
+        <div className='relative'>
+          <BsCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-2 md:left-3 text-p600' />
+          <h3 className='pl-10 md:pl-12'>balcon</h3>
+        </div>
+        <div className='relative'>
+          <BsCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-2 md:left-3 text-p600' />
+          <h3 className='pl-10 md:pl-12'>cafetera</h3>
+        </div>
+        <div className='relative'>
+          <BsCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-2 md:left-3 text-p600' />
+          <h3 className='pl-10 md:pl-12'>congelador</h3>
+        </div>
+        <div className='relative'>
+          <BsCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-2 md:left-3 text-p600' />
+          <h3 className='pl-10 md:pl-12'>cocina</h3>
+        </div>
+        <div className='relative'>
+          <BsCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-2 md:left-3 text-p600' />
+          <h3 className='pl-10 md:pl-12'>frigorifico</h3>
+        </div>
+        <div className='relative'>
+          <BsCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-2 md:left-3 text-p600' />
+          <h3 className='pl-10 md:pl-12'>microondas</h3>
+        </div>
+        <div className='relative'>
+          <BsCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-2 md:left-3 text-p600' />
+          <h3 className='pl-10 md:pl-12'>tostadora</h3>
+        </div>
+        <div className='relative'>
+          <BsCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-2 md:left-3 text-p600' />
+          <h3 className='pl-10 md:pl-12'>comedor</h3>
+        </div>
+        <div className='relative'>
+          <BsCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-2 md:left-3 text-p600' />
+          <h3 className='pl-10 md:pl-12'>armario</h3>
+        </div>
+        <div className='relative'>
+          <BsCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-2 md:left-3 text-p600' />
+          <h3 className='pl-10 md:pl-12'>internet</h3>
+        </div>
+        <div className='relative'>
+          <BsCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-2 md:left-3 text-p600' />
+          <h3 className='pl-10 md:pl-12'>plancha</h3>
+        </div>
+        <div className='relative'>
+          <BsCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-2 md:left-3 text-p600' />
+          <h3 className='pl-10 md:pl-12'>sofa</h3>
+        </div>
+        <div className='relative'>
+          <BsCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-2 md:left-3 text-p600' />
+          <h3 className='pl-10 md:pl-12'>Tv pantalla plana</h3>
+        </div>
+        <div className='relative'>
+          <BsCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-2 md:left-3 text-p600' />
+          <h3 className='pl-10 md:pl-12'>hervidor</h3>
+        </div>
+      </div>
     </div>
   );
 };

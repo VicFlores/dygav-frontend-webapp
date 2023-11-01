@@ -3,42 +3,69 @@ import React, { FC, useEffect, useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 
-export const Carousel: FC<{ accomodation: any }> = ({ accomodation }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+interface ICarousel {
+  id: string;
+  depositAmount: number;
+  name: string;
+  location: {
+    city: string;
+  };
+  description: {
+    es: string;
+  };
+  images: {
+    ORIGINAL: string;
+  }[];
+  features: {
+    n_hab: number;
+    n_banos: number;
+    superficie: number;
+  };
+  units: {
+    capacity: number;
+    additionalCapacity: number;
+  }[];
+}
 
+export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [expanded, setExpanded] = useState(false);
 
-  const prevSlide = () => {
+  const changeSlide = (direction: 'prev' | 'next') => {
     setCurrentIndex((prev) =>
-      prev === 0 ? accomodation.images.length - 1 : prev - 1
+      direction === 'prev'
+        ? prev === 0
+          ? accomodation.images.length - 1
+          : prev - 1
+        : prev === accomodation.images.length - 1
+        ? 0
+        : prev + 1
     );
   };
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === accomodation.images.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  const slide = accomodation.images as string[];
+  const slide = accomodation.images;
 
   return (
     <div className='block md:flex justify-evenly items-center'>
       <div className='max-w-[550px] h-[500px] md:h-[600px] lg:h-[650px] w-full py-16 px-2 md:px-4 relative group m-auto md:m-0'>
-        {/* <div
+        <div
           style={{
             backgroundImage: `url(${accomodation.images[currentIndex].ORIGINAL})`,
           }}
           className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
-        /> */}
+        />
 
-        <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 -translate-y-[50%] left-5 text-2xl rounded-full p-2 bg-black700/20 text-white cursor-pointer'>
-          <BsChevronCompactLeft onClick={prevSlide} size={30} />
-        </div>
+        <BsChevronCompactLeft
+          onClick={() => changeSlide('prev')}
+          className='hidden group-hover:block absolute top-[50%] -translate-x-0 -translate-y-[50%] left-5 text-2xl rounded-full p-2 bg-black700/20 text-white cursor-pointer'
+          size={30}
+        />
 
-        <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 -translate-y-[50%] right-5 text-2xl rounded-full p-2 bg-black700/20 text-white cursor-pointer'>
-          <BsChevronCompactRight onClick={nextSlide} size={30} />
-        </div>
+        <BsChevronCompactRight
+          onClick={() => changeSlide('next')}
+          className='hidden group-hover:block absolute top-[50%] -translate-x-0 -translate-y-[50%] right-5 text-2xl rounded-full p-2 bg-black700/20 text-white cursor-pointer'
+          size={30}
+        />
 
         <div className='flex top-4 justify-center py-2'>
           {slide?.map((_, index) => (
@@ -65,10 +92,10 @@ export const Carousel: FC<{ accomodation: any }> = ({ accomodation }) => {
             <p className='text-[18px] md:text-[20px] lg:text-[25px] text-center'>
               {accomodation.name}
             </p>
-            {/* <p className='text-center text-[13px] md:text-[14px] lg:text-base text-black900'>
-                {accomodation.imgSubtitle} / noche
-              </p> */}
-            <p className='text-[13px] md:text-[14px] lg:text-base whitespace-pre-line'>
+            <p className='text-center text-[13px] md:text-[14px] lg:text-base text-black900'>
+              {accomodation.location.city} / €{accomodation.depositAmount} noche
+            </p>
+            <p className='text-[13px] md:text-[14px] lg:text-base'>
               {expanded
                 ? accomodation.description.es
                 : `${accomodation.description.es.slice(0, 400)}...`}
@@ -98,15 +125,15 @@ export const Carousel: FC<{ accomodation: any }> = ({ accomodation }) => {
 
             <div className='bg-p600 pt-1 pb-1 w-[119px] h-full text-center '>
               <p className='font-semibold text-[13px] md:text-[14px] lg:text-[16px]'>
-                {accomodation.features.superficie}
+                {accomodation.features.superficie}m²
               </p>
               <p className='text-[10px] lg:text-[12px]'>Tamaño</p>
             </div>
 
             <div className='bg-p600 pt-1 pb-1 w-[119px] h-full text-center '>
               <p className='font-semibold text-[13px] md:text-[14px] lg:text-[16px]'>
-                {accomodation.units[5].capacity +
-                  accomodation.units[6].additionalCapacity}
+                {accomodation.units[0].capacity +
+                  accomodation.units[0].additionalCapacity}
               </p>
               <p className='text-[10px] lg:text-[12px]'>Huespedes</p>
             </div>
