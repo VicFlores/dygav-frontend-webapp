@@ -15,6 +15,7 @@ export * from './Login/Login';
 export * from './Signup/Register';
 export * from './Seacher/HeroSearcher';
 export * from './Seacher/SearcherCards';
+export * from './Seacher/SearcherRealCards';
 export * from './Owners/HeroOwners';
 export * from './Owners/PeachOwners';
 export * from './Owners/ContactYou';
@@ -39,6 +40,7 @@ export * from './OwnerAccomodationReservationDetails/OwnerAccomodationReservatio
 export * from './ReservationCalendar/ReservationCalendar';
 export * from './BlockCalendarDaysForm/BlockCalendarDaysForm';
 export * from './AparmentDetails/AparmentDetails';
+export * from './RealAparmentDetails/RealAparmentDetails';
 export * from './AparmentDetails/HeroAparmentDetails';
 export * from './Policies/PrivacyPolicy';
 export * from './Policies/PrivacyPolicyDetails';
