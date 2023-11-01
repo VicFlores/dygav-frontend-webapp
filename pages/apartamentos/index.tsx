@@ -50,8 +50,6 @@ export default function SearcherPage() {
     getAllAccomodations();
   }, []);
 
-  console.log(data);
-
   return (
     <section>
       <UtilHead title='Dygav Apartamentos' content='' />
