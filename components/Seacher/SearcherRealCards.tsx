@@ -7,6 +7,8 @@ import { AiOutlineCheckCircle } from 'react-icons/ai';
 export const SearcherRealCards: FC<{ item: any }> = ({ item }) => {
   const [expanded, setExpanded] = useState(false);
 
+  console.log(item);
+
   return (
     <div
       id='CardContainer'
@@ -18,7 +20,7 @@ export const SearcherRealCards: FC<{ item: any }> = ({ item }) => {
           <Image src={item.images[0].ORIGINAL} alt={item.alt} layout='fill' />
         </figure>
         <p className='text-center text-black900 text-xs md:text-sm lg:text-base'>
-          {item.imgSubtitle}
+          {item.location.city} - €{item.depositAmount}
         </p>
       </div>
 
