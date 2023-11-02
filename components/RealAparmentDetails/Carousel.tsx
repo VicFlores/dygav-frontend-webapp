@@ -7,6 +7,7 @@ interface ICarousel {
   id: string;
   depositAmount: number;
   name: string;
+
   location: {
     city: string;
   };
@@ -22,6 +23,8 @@ interface ICarousel {
     superficie: number;
   };
   units: {
+    weekPrice: number;
+    weekendPrice: number;
     capacity: number;
     additionalCapacity: number;
   }[];
@@ -92,8 +95,11 @@ export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
             <p className='text-[18px] md:text-[20px] lg:text-[25px] text-center'>
               {accomodation.name}
             </p>
-            <p className='text-center text-[13px] md:text-[14px] lg:text-base text-black900'>
-              {accomodation.location.city} / €{accomodation.depositAmount} noche
+
+            <p className='text-center text-[13px] md:text-[14px] lg:text-base text-black900 whitespace-pre-line'>
+              {`${accomodation.location.city}
+              Semana: € ${accomodation.units[0].weekPrice} noche
+              Fin de Semana: € ${accomodation.units[0].weekendPrice} noche`}
             </p>
             <p className='text-[13px] md:text-[14px] lg:text-base'>
               {expanded
