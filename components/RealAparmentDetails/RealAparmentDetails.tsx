@@ -5,7 +5,6 @@ import { BsCheckCircle } from 'react-icons/bs';
 import { Carousel } from './Carousel';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import axios from 'axios';
-import { Calendar, momentLocalizer } from 'react-big-calendar';
 
 interface IRealAparmentDetails {
   depositAmount: number;
@@ -40,8 +39,6 @@ export interface TAccomodation {
   type: string;
   booking: string;
 }
-
-const localizer = momentLocalizer(moment);
 
 export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
   const [selectedStartDate, setSelectedStartDate] = useState<Date | null>(null);
@@ -141,6 +138,10 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
 
     const totalPrice = numDays * dailyRate;
 
+    setSelectedDate(
+      new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1)
+    );
+
     setPrice(totalPrice);
     accomodationBlockDay(id);
   }, [selectedEndDate, accomodation.depositAmount]);
@@ -160,13 +161,6 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
       setSelectedStartDate(date);
       setSelectedEndDate(null);
     }
-  };
-
-  const isDateInRange = (date: Date) => {
-    if (!selectedStartDate || !selectedEndDate) {
-      return false;
-    }
-    return date >= selectedStartDate && date <= selectedEndDate;
   };
 
   const monthNames = [
