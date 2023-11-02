@@ -8,6 +8,7 @@ export type ReservationAvaibook = {
   accommodationName: string;
   paymentUrl: string;
   info: string;
+  travellerName: string;
 };
 
 export type OccupiedPeriod = {

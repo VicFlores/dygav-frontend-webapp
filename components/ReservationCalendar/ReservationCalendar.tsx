@@ -60,32 +60,40 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   }, [id, listenBlockDate]);
 
   const handleEventClick = (e: any) => {
-    const reservation = accomodationByReservation.filter(
-      (item: any) =>
-        item.occupiedPeriod.startDate === e.start &&
-        item.occupiedPeriod.endDate === e.end
-    );
+    const reservation = accomodationByReservation.filter((item) => {
+      if (
+        item.occupiedPeriod?.startDate !== undefined &&
+        item.occupiedPeriod?.endDate !== undefined
+      ) {
+        return (
+          item.occupiedPeriod.startDate === e.start &&
+          item.occupiedPeriod.endDate === e.end
+        );
+      }
+    });
 
-    reservation.map((item) => {
+    /*  reservation.map((item) => {
       item.status === 'CONFIRMED'
         ? router.push(`/private/owner/reservation/${item.id}`)
         : item.status === 'PENDING_PAYMENT'
         ? router.push(`/private/owner/accomodation/${item.accommodationId}`)
         : null;
-    });
+    }); */
   };
 
   const reservations = accomodationByReservation.map((item) => {
     if (item.status === 'CONFIRMED') {
       return {
-        start: item.occupiedPeriod.startDate,
-        end: item.occupiedPeriod.endDate,
-        title: item.accommodationName,
+        start: moment(item.occupiedPeriod.startDate).format('YYYY-MM-DD'),
+        end: moment(item.occupiedPeriod.endDate)
+          .add(1, 'days')
+          .format('YYYY-MM-DD'),
+        title: `${item.travellerName} - ${item.status}`,
       };
     } else {
       return {
-        start: new Date().getDate(),
-        end: new Date().getDate(),
+        start: '',
+        end: '',
         title: '',
       };
     }
@@ -107,7 +115,7 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   };
 
   const disabledStyle = {
-    backgroundColor: 'gray',
+    backgroundColor: 'red',
     color: 'white',
     opacity: 0.5,
   };
@@ -139,10 +147,6 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
       </div>
 
       <Calendar
-        dayPropGetter={dayPropGetter}
-        titleAccessor={({ start, end }) =>
-          `${start.toLocaleString()} - ${end.toLocaleString()}`
-        }
         localizer={localizer}
         events={reservations}
         startAccessor='start'

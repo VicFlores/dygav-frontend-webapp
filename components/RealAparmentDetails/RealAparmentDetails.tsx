@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { TSearcherCard, searcherCard } from '@/utils';
+import moment from 'moment';
 import React, { FC, useEffect, useState } from 'react';
 import { BsCheckCircle } from 'react-icons/bs';
 import { Carousel } from './Carousel';
@@ -25,15 +25,37 @@ interface IRealAparmentDetails {
     superficie: number;
   };
   units: {
+    weekPrice: number;
+    weekendPrice: number;
     capacity: number;
     additionalCapacity: number;
   }[];
+}
+
+export interface TAccomodation {
+  unit: string;
+  startDate: Date;
+  endDate: Date;
+  type: string;
+  booking: string;
 }
 
 export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
   const [selectedStartDate, setSelectedStartDate] = useState<Date | null>(null);
   const [selectedEndDate, setSelectedEndDate] = useState<Date | null>(null);
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [accomodationDayBlock, setAccomodationDayBlock] = useState<
+    TAccomodation[]
+  >([
+    {
+      unit: '',
+      startDate: new Date(),
+      endDate: new Date(),
+      type: '',
+      booking: '',
+    },
+  ]);
+
   const [accomodation, setAccomodation] = useState<IRealAparmentDetails>({
     depositAmount: 0,
     id: '',
@@ -56,6 +78,8 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
     },
     units: [
       {
+        weekPrice: 0,
+        weekendPrice: 0,
         capacity: 0,
         additionalCapacity: 0,
       },
@@ -83,18 +107,44 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
   }, [id]);
 
   useEffect(() => {
-    const dailyRate = accomodation.depositAmount;
+    const accomodationBlockDay = async (id: string) => {
+      if (id) {
+        const res = await axios.get(
+          `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/`,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+            },
+          }
+        );
+
+        setAccomodationDayBlock(res.data);
+      }
+    };
 
     const startDate = selectedStartDate || new Date();
     const endDate = selectedEndDate || new Date();
+
+    const dailyRate =
+      isWeekdayOrWeekend(startDate, endDate) === 'Weekday'
+        ? accomodation.units[0].weekPrice
+        : isWeekdayOrWeekend(startDate, endDate) === 'Weekend'
+        ? accomodation.units[0].weekendPrice
+        : 0;
 
     const timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
     const numDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
     const totalPrice = numDays * dailyRate;
 
+    setSelectedDate(
+      new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1)
+    );
+
     setPrice(totalPrice);
-  }, [selectedEndDate]);
+    accomodationBlockDay(id);
+  }, [selectedEndDate, accomodation.depositAmount]);
 
   const handleDateClick = (date: Date) => {
     if (!selectedStartDate) {
@@ -111,13 +161,6 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
       setSelectedStartDate(date);
       setSelectedEndDate(null);
     }
-  };
-
-  const isDateInRange = (date: Date) => {
-    if (!selectedStartDate || !selectedEndDate) {
-      return false;
-    }
-    return date >= selectedStartDate && date <= selectedEndDate;
   };
 
   const monthNames = [
@@ -151,6 +194,34 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
       : Number(accomodation.features.n_hab) === 3
       ? 90
       : 0;
+
+  function isWeekdayOrWeekend(startDate: Date | null, endDate: Date | null) {
+    let start = moment(startDate);
+    let end = moment(endDate);
+    let isWeekday = true;
+    let isWeekend = true;
+
+    for (
+      let m = moment(start);
+      m.isBefore(end) || m.isSame(end);
+      m.add(1, 'days')
+    ) {
+      if (m.isoWeekday() >= 6) {
+        // 6 = Saturday, 7 = Sunday
+        isWeekday = false;
+      } else {
+        isWeekend = false;
+      }
+    }
+
+    if (isWeekday) {
+      return 'Weekday';
+    } else if (isWeekend) {
+      return 'Weekend';
+    } else {
+      return 'Mixed';
+    }
+  }
 
   return (
     <div className='px-8 space-y-12 mb-24'>
@@ -265,18 +336,28 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
                 selectedDate.getMonth(),
                 day
               );
-              const isInRange = isDateInRange(date);
+
+              const isInRange = accomodationDayBlock.some((range) => {
+                const startDate = new Date(range.startDate);
+                const endDate = new Date(range.endDate);
+                endDate.setDate(endDate.getDate() + 1); // Add 1 day to the end date
+
+                return date >= startDate && date < endDate; // Use less than for endDate since we added 1 day
+              });
+
               const isSelectedStart =
                 selectedStartDate &&
                 date.getTime() === selectedStartDate.getTime();
+
               const isSelectedEnd =
                 selectedEndDate && date.getTime() === selectedEndDate.getTime();
+
               const isSelectable = !selectedEndDate || date <= selectedEndDate;
               const className = `text-center font-bold ${
                 isInRange
-                  ? 'bg-blue-500 text-p800'
+                  ? 'bg-p600 text-gray300'
                   : isSelectedStart || isSelectedEnd
-                  ? 'bg-blue-300 text-p800'
+                  ? 'text-p800'
                   : 'text-gray-600'
               } ${
                 isSelectable
