@@ -250,12 +250,20 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
               <tr>
                 <td className='border px-6 py-4'>
                   {selectedStartDate
-                    ? selectedStartDate.toISOString().substring(0, 10)
+                    ? selectedStartDate.toLocaleDateString('en-GB', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: 'numeric',
+                      })
                     : 'Esperando fecha'}
                 </td>
                 <td className='border px-6 py-4'>
                   {selectedEndDate
-                    ? selectedEndDate.toISOString().substring(0, 10)
+                    ? selectedEndDate.toLocaleDateString('en-GB', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: 'numeric',
+                      })
                     : 'Esperando fecha'}
                 </td>
 
@@ -313,14 +321,14 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
             </button>
           </div>
           <div className='grid grid-cols-7 gap-y-6 gap-x-4'>
-            {['Dom', 'Lun', 'Mar', 'Miérc', 'Juev', 'Vier', 'Sáb'].map(
+            {['Lun', 'Mar', 'Miérc', 'Juev', 'Vier', 'Sáb', 'Dom'].map(
               (day) => (
                 <div key={day} className='text-center font-bold text-gray-600'>
                   {day}
                 </div>
               )
             )}
-            {Array(selectedDate.getDay())
+            {Array((selectedDate.getDay() + 6) % 7)
               .fill(null)
               .map((_, index) => (
                 <div
@@ -340,7 +348,6 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
               const isInRange = accomodationDayBlock.some((range) => {
                 const startDate = new Date(range.startDate);
                 const endDate = new Date(range.endDate);
-                endDate.setDate(endDate.getDate() + 1); // Add 1 day to the end date
 
                 return date >= startDate && date < endDate; // Use less than for endDate since we added 1 day
               });

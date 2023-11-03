@@ -10,13 +10,28 @@ import BlockCalendarDaysForm from '../BlockCalendarDaysForm/BlockCalendarDaysFor
 
 const localizer = momentLocalizer(moment);
 
+interface ReservationCalendarProps {
+  start: string;
+  end: string;
+}
+
 export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   const [showForm, setShowForm] = useState(false);
-  const [accomodationDayBlock, setAccomodationDayBlock] = useState([]);
+  const [accomodationDayBlock, setAccomodationDayBlock] = useState<
+    ReservationCalendarProps[]
+  >([
+    {
+      start: '',
+      end: '',
+    },
+  ]);
   const [listenBlockDate, setlistenBlockDate] = useState(null);
   const [accomodationByReservation, setAccomodationByReservation] = useState<
     ReservationAvaibook[]
   >([]);
+  const [bookingById, setbookingById] = useState({
+    id: '',
+  });
 
   const router = useRouter();
 
@@ -52,6 +67,20 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
         );
 
         setAccomodationDayBlock(res.data);
+
+        res.data.map(async (item: any) => {
+          const resBooking = await axios.get(
+            `https://api.avaibook.com/api/owner/bookings/${item.booking}/`,
+            {
+              headers: {
+                'Content-Type': 'application/json',
+                'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+              },
+            }
+          );
+
+          setbookingById(resBooking.data);
+        });
       }
     };
 
@@ -81,22 +110,13 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
     }); */
   };
 
-  const reservations = accomodationByReservation.map((item) => {
-    if (item.status === 'CONFIRMED') {
-      return {
-        start: moment(item.occupiedPeriod.startDate).format('YYYY-MM-DD'),
-        end: moment(item.occupiedPeriod.endDate)
-          .add(1, 'days')
-          .format('YYYY-MM-DD'),
-        title: `${item.travellerName} - ${item.status}`,
-      };
-    } else {
-      return {
-        start: '',
-        end: '',
-        title: '',
-      };
-    }
+  console.log(bookingById);
+
+  const reservations = accomodationDayBlock.map((block: any) => {
+    return {
+      start: moment(block.startDate).format('YYYY-MM-DD'),
+      end: moment(block.endDate).add(1, 'days').format('YYYY-MM-DD'),
+    };
   });
 
   const dayPropGetter = (date: Date) => {

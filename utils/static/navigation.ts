@@ -3,7 +3,7 @@ import { TMenuItem } from '@/types';
 export const publicMenuItem: TMenuItem[] = [
   { title: 'Viaja', path: '/' },
   { title: 'Alojamientos', path: '/apartamentos' },
-  { title: 'Propietarios', path: '/propietarios' },
+  { title: 'Propietarios', path: '/gestion-integral-apartamentos-turisticos' },
   { title: 'Licencias VUT', path: '/licencias-turisticas' },
 ];
 

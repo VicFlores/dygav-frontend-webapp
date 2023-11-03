@@ -70,7 +70,7 @@ export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
           size={30}
         />
 
-        <div className='flex top-4 justify-center py-2'>
+        <div className='flex top-4 justify-center py-2 overflow-x-scroll pb-6 md:overflow-x-hidden md:pb-0'>
           {slide?.map((_, index) => (
             <div
               key={index}
