@@ -142,23 +142,46 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
     const startDate = selectedStartDate || new Date();
     const endDate = selectedEndDate || new Date();
 
-    const dailyRate =
-      isWeekdayOrWeekend(startDate, endDate) === 'Weekday'
-        ? accomodation.units[0].weekPrice
-        : isWeekdayOrWeekend(startDate, endDate) === 'Weekend'
-        ? accomodation.units[0].weekendPrice
-        : 0;
+    const currentDate = new Date();
+    const currentDateString = currentDate.toISOString().split('T')[0];
 
-    const timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
-    const numDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    const currentUnitSeason = accomodation.units[0].unitSeasons.find(
+      (unitSeason: any) => {
+        const dateIniString = new Date(unitSeason.dateIni)
+          .toISOString()
+          .split('T')[0];
+        const dateEndString = new Date(unitSeason.dateEnd)
+          .toISOString()
+          .split('T')[0];
 
-    const totalPrice = numDays * dailyRate;
+        return (
+          currentDateString >= dateIniString &&
+          currentDateString <= dateEndString
+        );
+      }
+    );
+
+    let priceInfo = 'No units available';
+
+    if (currentUnitSeason) {
+      const dailyRate =
+        isWeekdayOrWeekend(startDate, endDate) === 'Weekday'
+          ? currentUnitSeason.weekPrice
+          : isWeekdayOrWeekend(startDate, endDate) === 'Weekend'
+          ? currentUnitSeason.weekendPrice
+          : 0;
+
+      const timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
+      const numDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+      const totalPrice = numDays * dailyRate;
+
+      setPrice(totalPrice);
+    }
 
     setSelectedDate(
       new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1)
     );
 
-    setPrice(totalPrice);
     accomodationBlockDay(id);
   }, [selectedEndDate, accomodation.depositAmount]);
 
@@ -286,7 +309,7 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
                 <td className='border px-6 py-4'>€{cleanUp}</td>
 
                 <td className='border px-6 py-4'>
-                  €{price !== 0 ? price + cleanUp : 0}
+                  {price !== 0 ? `€${price + cleanUp}` : 'Rango no permitido'}
                 </td>
               </tr>
             </tbody>
@@ -380,7 +403,7 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
                 isInRange
                   ? 'bg-p600 text-gray300'
                   : isSelectedStart || isSelectedEnd
-                  ? 'text-p800'
+                  ? 'text-black bg-p200'
                   : 'text-gray-600'
               } ${
                 isSelectable
