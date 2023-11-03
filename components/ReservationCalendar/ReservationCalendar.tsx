@@ -214,6 +214,7 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
         startAccessor='start'
         endAccessor='end'
         style={{ height: 500 }}
+        views={['month', 'agenda']}
         messages={{
           agenda: 'Reservaciones',
           month: 'Mes',
