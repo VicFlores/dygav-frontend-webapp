@@ -31,7 +31,6 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
     accomodationByUnitId();
   }, [id]);
 
-  console.log(accomodationByReservation);
   return (
     <div className='px-8 space-y-12 mb-24'>
       <div className='flex flex-col md:flex-row justify-center items-center md:justify-between md:items-end border-b-[1px]'>

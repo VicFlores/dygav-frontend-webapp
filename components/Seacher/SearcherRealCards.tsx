@@ -7,6 +7,32 @@ import { AiOutlineCheckCircle } from 'react-icons/ai';
 export const SearcherRealCards: FC<{ item: any }> = ({ item }) => {
   const [expanded, setExpanded] = useState(false);
 
+  const currentDate = new Date();
+  const currentDateString = currentDate.toISOString().split('T')[0];
+
+  const currentUnitSeason = item.units[0].unitSeasons.find(
+    (unitSeason: any) => {
+      const dateIniString = new Date(unitSeason.dateIni)
+        .toISOString()
+        .split('T')[0];
+      const dateEndString = new Date(unitSeason.dateEnd)
+        .toISOString()
+        .split('T')[0];
+
+      return (
+        currentDateString >= dateIniString && currentDateString <= dateEndString
+      );
+    }
+  );
+
+  let priceInfo = 'No units available';
+
+  if (currentUnitSeason) {
+    priceInfo = `${item.location.city}
+      Semana: € ${currentUnitSeason.weekPrice} noche
+      Fin de Semana: € ${currentUnitSeason.weekendPrice} noche`;
+  }
+
   return (
     <div
       id='CardContainer'
@@ -15,12 +41,15 @@ export const SearcherRealCards: FC<{ item: any }> = ({ item }) => {
     >
       <div id='CardHeader' className='space-y-4 '>
         <figure className='w-[340px] h-[245px] relative'>
-          <Image src={item.images[0].ORIGINAL} alt={item.alt} layout='fill' />
+          <Image
+            src={item.images[0].ORIGINAL}
+            alt={item.alt}
+            layout='fill'
+            priority
+          />
         </figure>
         <p className='text-center text-black900 text-xs md:text-sm lg:text-base whitespace-pre-line'>
-          {`${item.location.city}
-              Semana: € ${item.units[0].weekPrice} noche
-              Fin de Semana: € ${item.units[0].weekendPrice} noche`}
+          {priceInfo}
         </p>
       </div>
 

@@ -15,6 +15,15 @@ interface ReservationCalendarProps {
   end: string;
 }
 
+type Booking = {
+  id: string;
+  travellerName: string;
+  occupiedPeriod: {
+    start: string;
+    end: string;
+  };
+};
+
 export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   const [showForm, setShowForm] = useState(false);
   const [accomodationDayBlock, setAccomodationDayBlock] = useState<
@@ -29,9 +38,16 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   const [accomodationByReservation, setAccomodationByReservation] = useState<
     ReservationAvaibook[]
   >([]);
-  const [bookingById, setbookingById] = useState({
-    id: '',
-  });
+  const [bookingById, setBookingById] = useState([
+    {
+      id: '',
+      travellerName: '',
+      occupiedPeriod: {
+        startDate: '',
+        endDate: '',
+      },
+    },
+  ]);
 
   const router = useRouter();
 
@@ -67,10 +83,19 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
         );
 
         setAccomodationDayBlock(res.data);
+      }
+    };
 
-        res.data.map(async (item: any) => {
+    filterByAccomodationId();
+    accomodationBlockDay(id);
+  }, [id, listenBlockDate]);
+
+  useEffect(() => {
+    const getBookingById = async (id: string) => {
+      try {
+        if (id) {
           const resBooking = await axios.get(
-            `https://api.avaibook.com/api/owner/bookings/${item.booking}/`,
+            `https://api.avaibook.com/api/owner/bookings/${id}/`,
             {
               headers: {
                 'Content-Type': 'application/json',
@@ -79,14 +104,30 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
             }
           );
 
-          setbookingById(resBooking.data);
-        });
+          setBookingById((prevState) => {
+            const bookingExists = prevState.some(
+              (booking) => booking.id === resBooking.data.id
+            );
+            if (!bookingExists) {
+              return [...prevState, resBooking.data];
+            } else {
+              return prevState;
+            }
+          });
+        }
+      } catch (error) {
+        console.error(`Error fetching booking with ID ${id}:`, error);
       }
     };
 
-    filterByAccomodationId();
-    accomodationBlockDay(id);
-  }, [id, listenBlockDate]);
+    const findBookingById = accomodationDayBlock.map((block: any) => {
+      return block.booking;
+    });
+
+    findBookingById.forEach((id) => {
+      getBookingById(id);
+    });
+  }, [accomodationDayBlock]);
 
   const handleEventClick = (e: any) => {
     const reservation = accomodationByReservation.filter((item) => {
@@ -110,12 +151,13 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
     }); */
   };
 
-  console.log(bookingById);
-
-  const reservations = accomodationDayBlock.map((block: any) => {
+  const reservations = bookingById.map((booking: any) => {
     return {
-      start: moment(block.startDate).format('YYYY-MM-DD'),
-      end: moment(block.endDate).add(1, 'days').format('YYYY-MM-DD'),
+      start: moment(booking.occupiedPeriod.startDate).format('YYYY-MM-DD'),
+      end: moment(booking.occupiedPeriod.endDate)
+        .add(1, 'days')
+        .format('YYYY-MM-DD'),
+      title: booking.travellerName,
     };
   });
 
@@ -189,6 +231,23 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
           showMore: (total) => `+ Ver mas (${total})`,
         }}
         onSelectEvent={(e) => handleEventClick(e)}
+        eventPropGetter={(event, start, end, isSelected) => {
+          let newStyle = {
+            backgroundColor: 'lightblue', // Change this to the color you want
+            color: 'white',
+            borderRadius: '0px',
+            border: 'none',
+          };
+
+          if (event.start && event.end) {
+            newStyle.backgroundColor = '#F4511E';
+          }
+
+          return {
+            className: '',
+            style: newStyle,
+          };
+        }}
       />
     </div>
   );

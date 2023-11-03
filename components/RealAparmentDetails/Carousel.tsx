@@ -3,6 +3,19 @@ import React, { FC, useEffect, useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 
+type Unit = {
+  weekPrice: number;
+  weekendPrice: number;
+  capacity: number;
+  unitSeasons: {
+    dateIni: string;
+    dateEnd: string;
+    weekPrice: number;
+    weekendPrice: number;
+  }[];
+  additionalCapacity: number;
+};
+
 interface ICarousel {
   id: string;
   depositAmount: number;
@@ -22,17 +35,38 @@ interface ICarousel {
     n_banos: number;
     superficie: number;
   };
-  units: {
-    weekPrice: number;
-    weekendPrice: number;
-    capacity: number;
-    additionalCapacity: number;
-  }[];
+  units: Unit[];
 }
 
 export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [expanded, setExpanded] = useState(false);
+
+  const currentDate = new Date();
+  const currentDateString = currentDate.toISOString().split('T')[0];
+
+  const currentUnitSeason = accomodation.units[0].unitSeasons.find(
+    (unitSeason: any) => {
+      const dateIniString = new Date(unitSeason.dateIni)
+        .toISOString()
+        .split('T')[0];
+      const dateEndString = new Date(unitSeason.dateEnd)
+        .toISOString()
+        .split('T')[0];
+
+      return (
+        currentDateString >= dateIniString && currentDateString <= dateEndString
+      );
+    }
+  );
+
+  let priceInfo = 'No units available';
+
+  if (currentUnitSeason) {
+    priceInfo = `${accomodation.location.city}
+      Semana: € ${currentUnitSeason.weekPrice} noche
+      Fin de Semana: € ${currentUnitSeason.weekendPrice} noche`;
+  }
 
   const changeSlide = (direction: 'prev' | 'next') => {
     setCurrentIndex((prev) =>
@@ -97,9 +131,7 @@ export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
             </p>
 
             <p className='text-center text-[13px] md:text-[14px] lg:text-base text-black900 whitespace-pre-line'>
-              {`${accomodation.location.city}
-              Semana: € ${accomodation.units[0].weekPrice} noche
-              Fin de Semana: € ${accomodation.units[0].weekendPrice} noche`}
+              {priceInfo}
             </p>
             <p className='text-[13px] md:text-[14px] lg:text-base'>
               {expanded

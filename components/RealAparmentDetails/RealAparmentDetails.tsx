@@ -24,13 +24,21 @@ interface IRealAparmentDetails {
     n_banos: number;
     superficie: number;
   };
-  units: {
+  units: Unit[];
+}
+
+type Unit = {
+  weekPrice: number;
+  weekendPrice: number;
+  capacity: number;
+  unitSeasons: {
+    dateIni: string;
+    dateEnd: string;
     weekPrice: number;
     weekendPrice: number;
-    capacity: number;
-    additionalCapacity: number;
   }[];
-}
+  additionalCapacity: number;
+};
 
 export interface TAccomodation {
   unit: string;
@@ -82,6 +90,14 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
         weekendPrice: 0,
         capacity: 0,
         additionalCapacity: 0,
+        unitSeasons: [
+          {
+            dateIni: new Date().toISOString(),
+            dateEnd: new Date().toISOString(),
+            weekPrice: 0,
+            weekendPrice: 0,
+          },
+        ],
       },
     ],
   });
