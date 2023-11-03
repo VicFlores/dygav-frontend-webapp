@@ -40,7 +40,7 @@ export const SearcherRealCards: FC<{ item: any }> = ({ item }) => {
       className='w-[300px] md:w-[320px] lg:w-[347px] self-center justify-self-center h-fit'
     >
       <div id='CardHeader' className='space-y-4 '>
-        <figure className='w-[340px] h-[245px] relative'>
+        <figure className='w-auto h-[245px]  relative'>
           <Image
             src={item.images[0].ORIGINAL}
             alt={item.alt}
