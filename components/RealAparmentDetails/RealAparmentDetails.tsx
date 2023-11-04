@@ -142,41 +142,28 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
     const startDate = selectedStartDate || new Date();
     const endDate = selectedEndDate || new Date();
 
-    const currentDate = new Date();
-    const currentDateString = currentDate.toISOString().split('T')[0];
+    const relevantSeasons = accomodation.units[0].unitSeasons.filter(
+      (season) => {
+        const seasonStartDate = new Date(season.dateIni);
+        const seasonEndDate = new Date(season.dateEnd);
 
-    const currentUnitSeason = accomodation.units[0].unitSeasons.find(
-      (unitSeason: any) => {
-        const dateIniString = new Date(unitSeason.dateIni)
-          .toISOString()
-          .split('T')[0];
-        const dateEndString = new Date(unitSeason.dateEnd)
-          .toISOString()
-          .split('T')[0];
-
-        return (
-          currentDateString >= dateIniString &&
-          currentDateString <= dateEndString
-        );
+        return seasonStartDate >= startDate && seasonEndDate <= endDate;
       }
     );
 
-    let priceInfo = 'No units available';
+    const totalWeekPrice = relevantSeasons.reduce(
+      (sum, season) => {
+        return {
+          dateIni: season.dateIni,
+          dateEnd: season.dateEnd,
+          weekPrice: sum.weekPrice + season.weekPrice,
+          weekendPrice: sum.weekendPrice + season.weekendPrice,
+        };
+      },
+      { dateIni: '', dateEnd: '', weekPrice: 0, weekendPrice: 0 }
+    );
 
-    if (currentUnitSeason) {
-      const dailyRate =
-        isWeekdayOrWeekend(startDate, endDate) === 'Weekday'
-          ? currentUnitSeason.weekPrice
-          : isWeekdayOrWeekend(startDate, endDate) === 'Weekend'
-          ? currentUnitSeason.weekendPrice
-          : 0;
-
-      const timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
-      const numDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-      const totalPrice = numDays * dailyRate;
-
-      setPrice(totalPrice);
-    }
+    console.log(totalWeekPrice);
 
     setSelectedDate(
       new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1)
@@ -233,34 +220,6 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
       : Number(accomodation.features.n_hab) === 3
       ? 90
       : 0;
-
-  function isWeekdayOrWeekend(startDate: Date | null, endDate: Date | null) {
-    let start = moment(startDate);
-    let end = moment(endDate);
-    let isWeekday = true;
-    let isWeekend = true;
-
-    for (
-      let m = moment(start);
-      m.isBefore(end) || m.isSame(end);
-      m.add(1, 'days')
-    ) {
-      if (m.isoWeekday() >= 6) {
-        // 6 = Saturday, 7 = Sunday
-        isWeekday = false;
-      } else {
-        isWeekend = false;
-      }
-    }
-
-    if (isWeekday) {
-      return 'Weekday';
-    } else if (isWeekend) {
-      return 'Weekend';
-    } else {
-      return 'Mixed';
-    }
-  }
 
   return (
     <div className='px-8 space-y-12 mb-24'>
