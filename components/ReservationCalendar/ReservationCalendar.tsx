@@ -206,7 +206,7 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
         startAccessor='start'
         endAccessor='end'
         style={{ height: 500 }}
-        views={['month', 'agenda']}
+        views={['month']}
         messages={{
           agenda: 'Reservaciones',
           month: 'Mes',
@@ -223,21 +223,21 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
         }}
         onSelectEvent={(e) => handleEventClick(e)}
         eventPropGetter={(event, start, end, isSelected) => {
-          let newStyle = {
-            background: 'linear-gradient(to right, lightblue 70%, #F4511E 30%)', // 70% lightblue, 30% #F4511E
+          let newStyle: React.CSSProperties = {
+            background: 'linear-gradient(to right, lightblue 70%, #F4511E 30%)',
             color: 'white',
-            borderRadius: '0px',
-            border: 'none',
-            paddingLeft: '0px',
+            fontSize: '14px',
+            paddingRight: '0px',
             width: '0px',
-            textCenter: 'center',
+            textAlign: 'center',
           };
 
           if (event.start && event.end) {
-            newStyle.paddingLeft = '60px';
+            newStyle.paddingRight = '20px';
             newStyle.width = '80%';
-            newStyle.textCenter = 'center';
-            newStyle.background = '#F4511E';
+            newStyle.textAlign = 'right';
+            newStyle.background =
+              'linear-gradient(to right, rgba(255,0,0,0) 20%, #F4511E 5%, #F4511E 20%, #F4511E 55%)';
           }
 
           return {
