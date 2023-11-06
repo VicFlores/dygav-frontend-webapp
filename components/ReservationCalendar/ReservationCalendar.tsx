@@ -155,25 +155,17 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
     return {
       start: moment(booking.occupiedPeriod.startDate).format('YYYY-MM-DD'),
       end: moment(booking.occupiedPeriod.endDate)
-        .add(1, 'days')
+        .add(2, 'days')
         .format('YYYY-MM-DD'),
       title: booking.travellerName,
     };
   });
 
   const dayPropGetter = (date: Date) => {
-    const isBlocked = accomodationDayBlock.some((block: any) =>
-      moment(date).isBetween(block.startDate, block.endDate, undefined, '[]')
-    );
-
-    if (isBlocked) {
-      return {
-        style: disabledStyle,
-        onClick: (e: any) => e.preventDefault(),
-      };
-    }
-
-    return {};
+    return {
+      style: disabledStyle,
+      onClick: (e: any) => e.preventDefault(),
+    };
   };
 
   const disabledStyle = {
@@ -194,7 +186,7 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
 
       <div className='flex justify-between items-end border-b-[1px] mt-20 mb-14'>
         <p className=' text-black900/[.7] text-2xl text-center md:text-left md:text-3xl lg:text-4xl'>
-          Reservaciones en mi alojamiento
+          Reservas en mi alojamiento
         </p>
 
         <div className='relative mb-2'>
@@ -236,11 +228,16 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
             color: 'white',
             borderRadius: '0px',
             border: 'none',
+            paddingLeft: '0px',
+            width: '0px',
+            textCenter: 'center',
           };
 
           if (event.start && event.end) {
-            newStyle.background =
-              'linear-gradient(to right, #F4511E 90%, rgba(255,0,0,0) 10%)'; // 70% #F4511E, 30% transparent
+            newStyle.paddingLeft = '60px';
+            newStyle.width = '80%';
+            newStyle.textCenter = 'center';
+            newStyle.background = '#F4511E';
           }
 
           return {

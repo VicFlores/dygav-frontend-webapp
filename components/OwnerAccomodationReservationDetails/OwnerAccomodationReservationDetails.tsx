@@ -4,12 +4,48 @@ import { ReservationAvaibook } from '@/types';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import Link from 'next/link';
 
+interface ReservationCalendarProps {
+  start: string;
+  end: string;
+}
+
+interface IBookingId {
+  id: string;
+  travellerName: string;
+  accommodationName: string;
+  status: string;
+  occupiedPeriod: {
+    startDate: string;
+    endDate: string;
+  };
+}
+
 export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
   id,
 }) => {
   const [accomodationByReservation, setAccomodationByReservation] = useState<
     ReservationAvaibook[]
   >([]);
+  const [bookingById, setBookingById] = useState<IBookingId[]>([
+    {
+      id: '',
+      travellerName: '',
+      accommodationName: '',
+      status: '',
+      occupiedPeriod: {
+        startDate: '',
+        endDate: '',
+      },
+    },
+  ]);
+  const [accomodationDayBlock, setAccomodationDayBlock] = useState<
+    ReservationCalendarProps[]
+  >([
+    {
+      start: '',
+      end: '',
+    },
+  ]);
 
   useEffect(() => {
     const accomodationByUnitId = async () => {
@@ -28,20 +64,78 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
       );
     };
 
+    const accomodationBlockDay = async (id: string) => {
+      if (id) {
+        const res = await axios.get(
+          `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/`,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+            },
+          }
+        );
+
+        setAccomodationDayBlock(res.data);
+      }
+    };
+
     accomodationByUnitId();
+    accomodationBlockDay(id);
   }, [id]);
+
+  useEffect(() => {
+    const getBookingById = async (id: string) => {
+      try {
+        if (id) {
+          const resBooking = await axios.get(
+            `https://api.avaibook.com/api/owner/bookings/${id}/`,
+            {
+              headers: {
+                'Content-Type': 'application/json',
+                'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+              },
+            }
+          );
+
+          setBookingById((prevState) => {
+            const bookingExists = prevState.some(
+              (booking) => booking.id === resBooking.data.id
+            );
+            if (!bookingExists) {
+              return [...prevState, resBooking.data];
+            } else {
+              return prevState;
+            }
+          });
+        }
+      } catch (error) {
+        console.error(`Error fetching booking with ID ${id}:`, error);
+      }
+    };
+
+    const findBookingById = accomodationDayBlock.map((block: any) => {
+      return block.booking;
+    });
+
+    findBookingById.forEach((id) => {
+      getBookingById(id);
+    });
+  }, [accomodationDayBlock]);
+
+  const bookingByIdSlice = bookingById.slice(1);
 
   return (
     <div className='px-8 space-y-12 mb-24'>
       <div className='flex flex-col md:flex-row justify-center items-center md:justify-between md:items-end border-b-[1px]'>
         <p className=' text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl'>
-          Reservaciones en mi alojamiento
+          Reservas en mi alojamiento
         </p>
       </div>
 
-      {accomodationByReservation.length > 0 ? (
+      {bookingByIdSlice.length > 0 ? (
         <div className='grid gap-y-10 md:grid-cols-2 md:gap-y-8 lg:grid-cols-3'>
-          {accomodationByReservation.map((item) => (
+          {bookingByIdSlice.map((item) => (
             <div
               key={item.id}
               className='text-center h-fit rounded-xl space-y-4 justify-self-center border-[1px] border-p600 px-5 py-5 bg-gray300/[.14] w-[280px] md:w-[300px]'
