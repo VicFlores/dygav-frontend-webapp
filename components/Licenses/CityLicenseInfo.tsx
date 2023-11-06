@@ -1,8 +1,8 @@
-import Image from "next/legacy/image";
-import Link from "next/link";
-import { GrContactInfo } from "react-icons/gr";
-import { HiOutlineMail, HiOutlineLocationMarker } from "react-icons/hi";
-import { MdOutlineAddIcCall } from "react-icons/md";
+import Image from 'next/legacy/image';
+import Link from 'next/link';
+import { GrContactInfo } from 'react-icons/gr';
+import { HiOutlineMail, HiOutlineLocationMarker } from 'react-icons/hi';
+import { MdOutlineAddIcCall } from 'react-icons/md';
 
 export const CityLicenseInfo = () => {
   return (
@@ -25,9 +25,9 @@ export const CityLicenseInfo = () => {
         <figure className='h-44 w-44 md:h-60 md:w-60 lg:h-72 lg:w-72 relative m-0'>
           <Image
             src={
-              "https://res.cloudinary.com/vicflores11/image/upload/v1697733791/Dygav/s9cmodybn3ahynipcggt.svg"
+              'https://res.cloudinary.com/vicflores11/image/upload/v1697733791/Dygav/s9cmodybn3ahynipcggt.svg'
             }
-            alt={"Map Logo"}
+            alt={'Map Logo'}
             layout='fill'
             className='rounded-full'
           />
@@ -37,7 +37,7 @@ export const CityLicenseInfo = () => {
           <h3 className='text-p600 uppercase'>Nos encargamos nosotros</h3>
           <h3>Gestionamos integralmente tu alquiler vacacional</h3>
           <button className='py-2 px-3 text-white bg-p600 uppercase font-normal'>
-            <Link href={"/licencias"}>Más información</Link>
+            <Link href={'/licencias-turisticas'}>Más información</Link>
           </button>
         </div>
       </div>
@@ -55,7 +55,7 @@ export const CityLicenseInfo = () => {
         un hotel. Por lo general, este tipo de alquiler dura menos de dos meses
         y abarca la vivienda en su totalidad. Mientras que un apartamento
         turístico está destinado exclusivamente para fines de alojamiento y
-        cuenta con servicios comunes,{" "}
+        cuenta con servicios comunes,{' '}
         <strong>
           una vivienda de uso turístico es un hogar particular alquilado
           temporalmente sin esos servicios adicionales.
@@ -107,7 +107,7 @@ export const CityLicenseInfo = () => {
       </h2>
 
       <p className='text-justify text-sm md:text-lg border-t-4 border-t-p600 px-3 pt-4'>
-        Tanto{" "}
+        Tanto{' '}
         <strong>
           personas físicas como jurídicas pueden solicitar licencias turísticas
         </strong>
@@ -126,7 +126,7 @@ export const CityLicenseInfo = () => {
 
       <p className='text-justify text-sm md:text-lg border-t-4 border-t-p600 px-3 pt-4'>
         En España, cada comunidad autónoma dicta sus propias regulaciones y
-        dentro de esta{" "}
+        dentro de esta{' '}
         <strong>son los ayuntamientos los que toman la decisión final</strong> .
         Es crucial cumplir con las regulaciones específicas de Torrevieja y la
         Comunidad Valenciana para operar correctamente.
@@ -154,7 +154,7 @@ export const CityLicenseInfo = () => {
 
       <p className='text-justify text-sm md:text-lg px-3 mt-6'>
         Dada la complejidad de este proceso, es recomendable contar con la
-        asistencia de una{" "}
+        asistencia de una{' '}
         <strong>
           empresa especializada en gestión de licencias turísticas
         </strong>
@@ -163,8 +163,8 @@ export const CityLicenseInfo = () => {
         también obligatorio adquirir una placa que cumpla con los estándares de
         la Comunidad Valenciana para identificar el inmueble. .El precio de una
         placa distintiva oscila entre 40 € y 80 €, variando según los
-        materiales. La puedes comprar pulsando{" "}
-        <Link className='underline' href={""} target='_blank'>
+        materiales. La puedes comprar pulsando{' '}
+        <Link className='underline' href={''} target='_blank'>
           aquí
         </Link>
         .
@@ -174,9 +174,9 @@ export const CityLicenseInfo = () => {
         <figure className='h-40 w-40 md:h-44 md:w-44 lg:h-60 lg:w-60 relative m-0'>
           <Image
             src={
-              "https://res.cloudinary.com/vicflores11/image/upload/v1697736235/Dygav/undraw_certification_re_ifll_a0xzch.svg"
+              'https://res.cloudinary.com/vicflores11/image/upload/v1697736235/Dygav/undraw_certification_re_ifll_a0xzch.svg'
             }
-            alt={"Map Logo"}
+            alt={'Map Logo'}
             layout='fill'
             className='rounded-full'
           />
@@ -190,7 +190,7 @@ export const CityLicenseInfo = () => {
             Gestionamos la licencia turistica <br /> para tu alquiler vacacional
           </h3>
           <button className='py-2 px-3 text-white bg-p600 uppercase'>
-            <Link href={"#formulario"}>¿Te ayudamos?</Link>
+            <Link href={'#formulario'}>¿Te ayudamos?</Link>
           </button>
         </div>
       </div>
@@ -221,20 +221,20 @@ export const CityLicenseInfo = () => {
       <p className='text-justify text-sm md:text-lg border-t-4 border-t-p600 px-3 pt-4'>
         Normalmente, la compatibilidad urbanística que depende del Ayuntamiento
         de Torrevieja tarda 3 meses, y una vez tenemos eso, pedimos la licencia
-        a turismo de la Comunidad Valenciana que tarda 1 o 2 meses. Por lo que{" "}
-        {""}
+        a turismo de la Comunidad Valenciana que tarda 1 o 2 meses. Por lo que{' '}
+        {''}
         <strong>
           la totalidad del proceso suele tardar alrededor de 4 o 5 meses en
           total.
         </strong>
         <br /> <br />
-        En DYGAV, nos enorgullece ser{" "}
+        En DYGAV, nos enorgullece ser{' '}
         <strong>especialistas en el mundo de las licencias turísticas</strong> y
-        la{" "}
+        la{' '}
         <span className='text-p600'>gestión de apartamentos vacacionales</span>.
         Sabemos que el proceso puede ser abrumador y, por eso, te invitamos a
         dejar todo en nuestras manos. Permítenos encargarnos de todos los
-        detalles,{" "}
+        detalles,{' '}
         <strong>
           desde la obtención de la licencia hasta la administración integral de
           tu propiedad
@@ -260,9 +260,9 @@ export const CityLicenseInfo = () => {
           <figure className='h-60 w-60 md:h-64 md:w-64 relative m-0'>
             <Image
               src={
-                "https://res.cloudinary.com/vicflores11/image/upload/v1697737435/Dygav/undraw_contact_us_re_4qqt_jvl1zy.svg"
+                'https://res.cloudinary.com/vicflores11/image/upload/v1697737435/Dygav/undraw_contact_us_re_4qqt_jvl1zy.svg'
               }
-              alt={"Map Logo"}
+              alt={'Map Logo'}
               layout='fill'
               className='rounded-full'
             />

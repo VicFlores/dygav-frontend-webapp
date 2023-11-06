@@ -26,7 +26,7 @@ export const Carousel = () => {
 
       <div className='w-auto h-auto items-center mt-6 p-6 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden'>
         {cardContent.map((item, index) => (
-          <Link href='/searcher' key={index}>
+          <Link href='/apartamentos' key={index}>
             <CarouselCards bg={item.bg} title={item.title} />
           </Link>
         ))}
