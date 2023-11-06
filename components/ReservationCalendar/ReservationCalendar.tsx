@@ -218,11 +218,9 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
         messages={{
           agenda: 'Reservaciones',
           month: 'Mes',
-          day: 'Dia',
           today: 'Hoy',
           previous: 'Anterior',
           next: 'Siguiente',
-          week: 'Semana',
           work_week: 'Semana laboral',
           allDay: 'Todo el dia',
           date: 'Fecha',
@@ -234,14 +232,15 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
         onSelectEvent={(e) => handleEventClick(e)}
         eventPropGetter={(event, start, end, isSelected) => {
           let newStyle = {
-            backgroundColor: 'lightblue', // Change this to the color you want
+            background: 'linear-gradient(to right, lightblue 70%, #F4511E 30%)', // 70% lightblue, 30% #F4511E
             color: 'white',
             borderRadius: '0px',
             border: 'none',
           };
 
           if (event.start && event.end) {
-            newStyle.backgroundColor = '#F4511E';
+            newStyle.background =
+              'linear-gradient(to right, #F4511E 90%, rgba(255,0,0,0) 10%)'; // 70% #F4511E, 30% transparent
           }
 
           return {
