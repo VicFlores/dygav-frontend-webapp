@@ -51,6 +51,7 @@ export interface TAccomodation {
 export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
   const [selectedStartDate, setSelectedStartDate] = useState<Date | null>(null);
   const [selectedEndDate, setSelectedEndDate] = useState<Date | null>(null);
+
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [accomodationDayBlock, setAccomodationDayBlock] = useState<
     TAccomodation[]
@@ -139,31 +140,27 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
       }
     };
 
-    const startDate = selectedStartDate || new Date();
-    const endDate = selectedEndDate || new Date();
+    let startDatePrice = selectedStartDate
+      ? new Date(selectedStartDate)
+      : new Date();
+    let endDatePrice = selectedEndDate ? new Date(selectedEndDate) : new Date();
 
-    const relevantSeasons = accomodation.units[0].unitSeasons.filter(
-      (season) => {
-        const seasonStartDate = new Date(season.dateIni);
-        const seasonEndDate = new Date(season.dateEnd);
+    startDatePrice.setDate(startDatePrice.getDate() - 1);
+    endDatePrice.setDate(endDatePrice.getDate() - 1);
 
-        return seasonStartDate >= startDate && seasonEndDate <= endDate;
+    let totalPrice = 0;
+
+    const smartSeason = accomodation.units[0].unitSeasons.filter((season) => {
+      const startDate = new Date(season.dateIni);
+      const endDate = new Date(season.dateEnd);
+
+      if (startDate >= startDatePrice && endDate <= endDatePrice) {
+        totalPrice += season.weekPrice;
+        return season;
       }
-    );
+    });
 
-    const totalWeekPrice = relevantSeasons.reduce(
-      (sum, season) => {
-        return {
-          dateIni: season.dateIni,
-          dateEnd: season.dateEnd,
-          weekPrice: sum.weekPrice + season.weekPrice,
-          weekendPrice: sum.weekendPrice + season.weekendPrice,
-        };
-      },
-      { dateIni: '', dateEnd: '', weekPrice: 0, weekendPrice: 0 }
-    );
-
-    console.log(totalWeekPrice);
+    setPrice(totalPrice);
 
     setSelectedDate(
       new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1)
@@ -229,13 +226,13 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
 
       <Carousel accomodation={accomodation} />
 
-      <p className=' text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl border-b-[1px]'>
+      <p className=' text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:pt-16 lg:text-4xl border-b-[1px]'>
         Nuestras tarifas y calendario
       </p>
 
       <div className='flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:justify-evenly lg:items-center lg:space-x-8'>
         <div className='items-center justify-center overflow-x-auto pb-6'>
-          <table className='table-auto text-center text-[9.8px] md:text-base'>
+          <table className='table-auto text-center text-xs md:text-base'>
             <thead className='bg-p600 text-white'>
               <tr>
                 <th className='px-4 py-2'>Desde</th>

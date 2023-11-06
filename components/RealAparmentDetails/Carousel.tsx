@@ -84,12 +84,12 @@ export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
 
   return (
     <div className='block md:flex justify-evenly items-center'>
-      <div className='max-w-[550px] h-[500px] md:h-[600px] lg:h-[650px] w-full py-16 px-2 md:px-4 relative group m-auto md:m-0'>
+      <div className='max-w-[550px] h-[500px] md:h-[600px] lg:h-[650px] w-full px-2 md:px-4 relative group m-auto md:m-0'>
         <div
           style={{
             backgroundImage: `url(${accomodation.images[currentIndex].ORIGINAL})`,
           }}
-          className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
+          className='w-full h-4/5 rounded-2xl bg-center bg-cover duration-500 pt-10 pb-16 md:pt-0 md:pb-0'
         />
 
         <BsChevronCompactLeft
@@ -104,7 +104,7 @@ export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
           size={30}
         />
 
-        <div className='flex top-4 justify-center py-2 overflow-x-scroll pb-6 md:overflow-x-hidden md:pb-0'>
+        <div className='flex top-4 justify-center py-2 overflow-x-scroll pb-6 md:overflow-x-hidden md:pb-0 pt-8 md:pt-8'>
           {slide?.map((_, index) => (
             <div
               key={index}
@@ -119,7 +119,7 @@ export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
         </div>
       </div>
 
-      <div className=''>
+      <div className='mt-24 md:mt-0'>
         <div
           id='CardContainer'
           key={accomodation.id}
