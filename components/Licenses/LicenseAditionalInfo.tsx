@@ -50,11 +50,11 @@ export const LicenseAditionalInfo = () => {
         </p>
       </div>
 
-      <div className='flex flex-col md:flex-row justify-center items-center mt-16 space-x-8 space-y-10 md:space-y-0'>
-        <figure className='h-40 w-40 md:h-44 md:w-44 lg:h-60 lg:w-60 relative m-0'>
+      <div className='flex flex-col md:flex-row justify-center items-center mt-16'>
+        <figure className='h-44 w-44 md:h-60 md:w-60 lg:h-72 lg:w-72 relative m-0'>
           <Image
             src={
-              'https://res.cloudinary.com/vicflores11/image/upload/v1697736235/Dygav/undraw_certification_re_ifll_a0xzch.svg'
+              'https://res.cloudinary.com/vicflores11/image/upload/v1697733791/Dygav/s9cmodybn3ahynipcggt.svg'
             }
             alt={'Map Logo'}
             layout='fill'
@@ -62,15 +62,13 @@ export const LicenseAditionalInfo = () => {
           />
         </figure>
 
-        <div className='space-y-4 md:space-y-2 text-center md:text-start'>
-          <h3 className='text-p600 uppercase text-sm md:text-lg font-semibold'>
-            Ahorra tiempo
-          </h3>
-          <h3 className='text-sm md:text-lg font-semibold'>
-            Gestionamos la licencia turistica <br /> para tu alquiler vacacional
-          </h3>
-          <button className='py-2 px-3 text-white bg-p600 uppercase'>
-            <Link href={'#formulario'}>¿Te ayudamos?</Link>
+        <div className='space-y-4 text-sm md:text-lg font-semibold text-center md:text-start'>
+          <h3 className='text-p600 uppercase'>Nos encargamos nosotros</h3>
+          <h3>Gestionamos integralmente tu alquiler vacacional</h3>
+          <button className='py-2 px-3 text-white bg-p600 uppercase font-normal'>
+            <Link href={'/gestion-integral-apartamentos-turisticos'}>
+              Más información
+            </Link>
           </button>
         </div>
       </div>
@@ -99,7 +97,7 @@ export const LicenseAditionalInfo = () => {
       </div>
 
       <h2 className='text-center text-2xl px-5 md:px-14 md:text-3xl text-black700 pb-4 mt-16 font-semibold'>
-        Licencias turísticas en la Comunitat Valenciana
+        Licencias turísticas en la comunidad Valenciana
       </h2>
 
       <div className='text-justify text-sm md:text-lg border-t-4 border-t-p600 pt-4 space-y-4'>
