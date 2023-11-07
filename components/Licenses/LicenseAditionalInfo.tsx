@@ -4,13 +4,6 @@ import Link from 'next/link';
 export const LicenseAditionalInfo = () => {
   return (
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32'>
-      <h1
-        id='alquiler-turistico'
-        className='text-center text-2xl px-5 md:px-14 md:text-3xl text-black700 pb-4 mt-16 font-semibold'
-      >
-        ¿Cómo obtener la licencia turística en Torrevieja?
-      </h1>
-
       <h2
         id='alquiler-turistico'
         className='text-center text-2xl px-5 md:px-14 md:text-3xl text-black700 pb-4 mt-16 font-semibold'
@@ -105,35 +98,6 @@ export const LicenseAditionalInfo = () => {
         </p>
       </div>
 
-      <div
-        className='w-full h-auto grid md:grid-cols-2 mt-10 md:mt-0 px-6 md:px-2 lg:px-0 gap-x-4'
-        id='recomendadas'
-      >
-        <div className='md:self-center md:justify-self-center divide-y-4 divide-p600'>
-          <h2 className='text-center text-2xl  md:text-3xl font-semibold'>
-            ¿Cómo obtener una licencia turística en mi ciudad?
-          </h2>
-
-          <h3 className='text-center text-[18px] lg:text-[31px] md:text-[26px] pt-3'>
-            GUÍAS ACTUALIZADAS POR MUNICIPIOS
-          </h3>
-        </div>
-
-        <div className='w-auto h-auto items-center mt-6 p-6 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden'>
-          <Link href={'/licencias-turisticas-torrevieja'}>
-            <div className=' w-80 h-96 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
-              <div
-                className={`w-full h-full bg-cover flex items-end bg-torrevieja`}
-              >
-                <h4 className='text-white pl-4 pb-4 text-sm md:text-lg'>
-                  Licencia turística en <br /> Torrevieja
-                </h4>
-              </div>
-            </div>
-          </Link>
-        </div>
-      </div>
-
       <h2 className='text-center text-2xl px-5 md:px-14 md:text-3xl text-black700 pb-4 mt-16 font-semibold'>
         Licencias turísticas en la Comunitat Valenciana
       </h2>
@@ -181,6 +145,61 @@ export const LicenseAditionalInfo = () => {
             Ver normativa
           </Link>
         </p>
+      </div>
+
+      <h2 className='text-center text-2xl px-5 md:px-14 md:text-3xl text-black700 pb-4 mt-16 font-semibold'>
+        Licencia turística en Santa Pola
+      </h2>
+
+      <div className='text-justify text-sm md:text-lg border-t-4 border-t-p600 pt-4 space-y-4'>
+        <p>
+          En DYGAV, estamos a tu lado en cada paso del camino hacia la obtención
+          de la licencia turística para tu piso. Nos convertimos en tu aliado y
+          guía, asegurándonos de que el proceso sea fluido y exitoso.
+        </p>
+        <p>
+          Desde el asesoramiento inicial hasta la presentación de la
+          documentación necesaria, nos encargamos de todo el papeleo y daremos
+          seguimiento constante a todos los trámites para que tú puedas
+          concentrarte en lo más importante:
+        </p>
+
+        <p>
+          <Link href='/gestion-integral-apartamentos-turisticos' passHref>
+            <span className='text-p600 pt-4'>
+              Preparar tu alojamiento para recibir a tus huéspedes.
+            </span>
+          </Link>
+        </p>
+      </div>
+
+      <div
+        className='w-full h-auto grid md:grid-cols-2 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4'
+        id='recomendadas'
+      >
+        <div className='md:self-center md:justify-self-center divide-y-4 divide-p600'>
+          <h2 className='text-center text-2xl  md:text-3xl font-semibold'>
+            ¿Cómo obtener una licencia turística en mi ciudad?
+          </h2>
+
+          <h3 className='text-center text-[18px] lg:text-[31px] md:text-[26px] pt-3'>
+            GUÍAS ACTUALIZADAS POR MUNICIPIOS
+          </h3>
+        </div>
+
+        <div className='w-auto h-auto items-center mt-6 p-6 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden'>
+          <Link href={'/licencias-turisticas-torrevieja'}>
+            <div className=' w-80 h-96 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
+              <div
+                className={`w-full h-full bg-cover flex items-end bg-torrevieja`}
+              >
+                <h4 className='text-white pl-4 pb-4 text-sm md:text-lg'>
+                  Licencia turística en <br /> Torrevieja
+                </h4>
+              </div>
+            </div>
+          </Link>
+        </div>
       </div>
     </section>
   );
