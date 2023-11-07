@@ -25,7 +25,7 @@ export default function License() {
       <MainHero>
         <Layout session={session}>
           <HeroLicense
-            title='Licencias Turísticas'
+            title='¿Cómo obtener tu Licencia Turística?'
             subtitle='Tú Licencia Turística Más Cerca de lo que Crees'
           />
         </Layout>

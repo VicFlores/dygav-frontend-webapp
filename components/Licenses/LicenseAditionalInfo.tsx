@@ -147,32 +147,6 @@ export const LicenseAditionalInfo = () => {
         </p>
       </div>
 
-      <h2 className='text-center text-2xl px-5 md:px-14 md:text-3xl text-black700 pb-4 mt-16 font-semibold'>
-        Licencia turística en Santa Pola
-      </h2>
-
-      <div className='text-justify text-sm md:text-lg border-t-4 border-t-p600 pt-4 space-y-4'>
-        <p>
-          En DYGAV, estamos a tu lado en cada paso del camino hacia la obtención
-          de la licencia turística para tu piso. Nos convertimos en tu aliado y
-          guía, asegurándonos de que el proceso sea fluido y exitoso.
-        </p>
-        <p>
-          Desde el asesoramiento inicial hasta la presentación de la
-          documentación necesaria, nos encargamos de todo el papeleo y daremos
-          seguimiento constante a todos los trámites para que tú puedas
-          concentrarte en lo más importante:
-        </p>
-
-        <p>
-          <Link href='/gestion-integral-apartamentos-turisticos' passHref>
-            <span className='text-p600 pt-4'>
-              Preparar tu alojamiento para recibir a tus huéspedes.
-            </span>
-          </Link>
-        </p>
-      </div>
-
       <div
         className='w-full h-auto grid md:grid-cols-2 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4'
         id='recomendadas'
