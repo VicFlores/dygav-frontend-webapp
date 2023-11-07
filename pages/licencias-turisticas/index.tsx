@@ -1,16 +1,16 @@
 import {
   Contact,
-  ContactYouLicense,
   Footer,
   GetLicense,
+  HelpYouForm,
   HeroLicense,
   Layout,
   LicenseAditionalInfo,
   LicenseTourist,
   MainHero,
   UtilHead,
-} from "@/components";
-import { useSession } from "next-auth/react";
+} from '@/components';
+import { useSession } from 'next-auth/react';
 
 export default function License() {
   const { data: session } = useSession();
@@ -36,7 +36,7 @@ export default function License() {
 
       <Contact />
 
-      <ContactYouLicense />
+      <HelpYouForm />
 
       <Footer />
     </section>
