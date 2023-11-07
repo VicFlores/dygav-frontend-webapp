@@ -24,7 +24,7 @@ export * from './Owners/Contact';
 export * from './Licenses/HeroLicense';
 export * from './Licenses/GetLicense';
 export * from './Licenses/LicenseTourist';
-export * from './Licenses/CityLicenseInfo';
+export * from './Licenses/TorreviejaInfo';
 export * from './Licenses/LicenseAditionalInfo';
 export * from './TouristDashboard/TouristDashboard';
 export * from './TouristTripsStatus/ActiveTrips';

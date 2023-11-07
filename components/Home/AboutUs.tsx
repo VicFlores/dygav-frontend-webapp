@@ -33,7 +33,9 @@ export const AboutUs = () => {
           <h3 className='text-p600 uppercase'>Nos encargamos nosotros</h3>
           <h3>Gestionamos integralmente tu alquiler vacacional</h3>
           <button className='py-2 px-3 text-white bg-p600 uppercase font-normal'>
-            <Link href={'/licencias-turisticas'}>Más información</Link>
+            <Link href={'/gestion-integral-apartamentos-turisticos'}>
+              Más información
+            </Link>
           </button>
         </div>
       </div>

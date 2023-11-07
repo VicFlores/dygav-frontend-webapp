@@ -2,17 +2,17 @@ import {
   MainHero,
   Layout,
   HeroLicense,
-  CityLicenseInfo,
+  TorreviejaInfo,
   Footer,
   UtilHead,
-} from "@/components";
-import { useSession } from "next-auth/react";
+} from '@/components';
+import { useSession } from 'next-auth/react';
 
 const images = [
-  "https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/2_jvslgl.WebP",
-  "https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/1_zifm3q.WebP",
-  "https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/4_j1srba.WebP",
-  "https://res.cloudinary.com/vicflores11/image/upload/v1697903684/Dygav/torrevieja/3_pdtmep.WebP",
+  'https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/2_jvslgl.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/1_zifm3q.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/4_j1srba.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1697903684/Dygav/torrevieja/3_pdtmep.WebP',
 ];
 
 const TorreviejaPage = () => {
@@ -34,7 +34,7 @@ const TorreviejaPage = () => {
         </Layout>
       </MainHero>
 
-      <CityLicenseInfo />
+      <TorreviejaInfo />
 
       <Footer />
     </section>
