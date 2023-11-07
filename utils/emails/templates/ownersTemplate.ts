@@ -1,6 +1,6 @@
 // Typescript function to render the email template for the owners and return the html
 export default function ownersTemplate(fullname: string) {
-    return `
+  return `
     <!DOCTYPE html>
     <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
     <head>
@@ -324,9 +324,9 @@ export default function ownersTemplate(fullname: string) {
     
     
                               <div class="text-author">
-                                Es un placer darte la bienvenida a <span class="text-highlight"><a href="https://www.dygav.es/" target="_blank">DYGAV</a></span>, la plataforma de gestión de alquileres vacacionales que te brindará una experiencia sin igual en el mundo del alquiler vacacional. <br>
+                                Es un placer darte la bienvenida a <span class="text-highlight"><a href="https://dygav.es/" target="_blank">DYGAV</a></span>, la plataforma de gestión de alquileres vacacionales que te brindará una experiencia sin igual en el mundo del alquiler vacacional. <br>
                                 Queremos que te sientas como en casa desde el primer momento y que no te pierdas nada de todo lo que tenemos preparado para ti para que puedas aprovechar al máximo nuestra plataforma. <br>
-                                Con tu nueva cuenta en <span class="text-highlight"><a href="https://www.dygav.es/" target="_blank">DYGAV</a></span>, tendrás acceso a un conjunto de herramientas diseñadas para facilitar la gestión de tus propiedades de alquiler vacacional. <br>
+                                Con tu nueva cuenta en <span class="text-highlight"><a href="https://dygav.es/" target="_blank">DYGAV</a></span>, tendrás acceso a un conjunto de herramientas diseñadas para facilitar la gestión de tus propiedades de alquiler vacacional. <br>
     
                                 Desde la comodidad de tu panel de control personalizado, podrás visualizar los <span class="text-bold">calendarios con la disponibilidad de tus propiedades y reservar tu casa en cualquier momento</span> para tus vacaciones sin complicaciones.
                                 
@@ -335,8 +335,8 @@ export default function ownersTemplate(fullname: string) {
                                                             
                                   <h3 class="name">Puedes acceder a tu panel</h3>
                               
-                                   <p><a href="https://www.dygav.es/private/owner/dashboard" class="btn btn-primary">Acceder al panel de control</a></p>
-                                   <p><a href="https://www.dygav.es/" class="btn-custom">Ir a la pagina inicial</a></p>
+                                   <p><a href="https://dygav.es/private/owner/dashboard" class="btn btn-primary">Acceder al panel de control</a></p>
+                                   <p><a href="https://dygav.es/" class="btn-custom">Ir a la pagina inicial</a></p>
                                </div>
                           </td>
                         </tr>
@@ -380,10 +380,10 @@ export default function ownersTemplate(fullname: string) {
                           <td style="text-align: left; padding-left: 10px;">
                               <h3 class="heading">Enlaces</h3>
                               <ul>
-                                <li><a href="https://www.dygav.es/">Inicio</a></li>
-                                <li><a href="https://www.dygav.es/private/tourist/dashboard">Panel de control</a></li>
-                                <li><a href="https://www.dygav.es/licencias-turisticas">Licencias</a></li>
-                                <li><a href="https://www.dygav.es/apartamentos">Alojamientos</a></li>
+                                <li><a href="https://dygav.es/">Inicio</a></li>
+                                <li><a href="https://dygav.es/private/tourist/dashboard">Panel de control</a></li>
+                                <li><a href="https://dygav.es/licencias-turisticas">Licencias</a></li>
+                                <li><a href="https://dygav.es/apartamentos">Alojamientos</a></li>
                             </ul>
                           </td>
                         </tr>
@@ -400,5 +400,5 @@ export default function ownersTemplate(fullname: string) {
       </center>
     </body>
     </html>
-    `
-   }
+    `;
+}

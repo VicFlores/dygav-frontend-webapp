@@ -1,6 +1,6 @@
 // Typescript function to render the email template for the tourist and return the html
 export default function touristTemplate(fullname: string) {
- return `
+  return `
  <!DOCTYPE html>
  <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
  <head>
@@ -324,7 +324,7 @@ export default function touristTemplate(fullname: string) {
  
  
 						   <div class="text-author">
-							 Es un placer darte la bienvenida a <span class="text-highlight"><a href="https://www.dygav.es/" target="_blank">DYGAV</a></span>, la plataforma que te brindará acceso a un mundo de emocionantes aventuras y a una gran variedad de alojamientos vacacionales en Madrid y la Costa Blanca. 
+							 Es un placer darte la bienvenida a <span class="text-highlight"><a href="https://dygav.es/" target="_blank">DYGAV</a></span>, la plataforma que te brindará acceso a un mundo de emocionantes aventuras y a una gran variedad de alojamientos vacacionales en Madrid y la Costa Blanca. 
  
 							 Queremos que te sientas como en casa desde el primer momento y que descubras todo lo que tenemos preparado para ti.
  
@@ -338,8 +338,8 @@ export default function touristTemplate(fullname: string) {
 														 
 							   <h3 class="name">Puedes acceder a tu panel</h3>
 						   
-								<p><a href="https://www.dygav.es/private/tourist/dashboard" class="btn btn-primary">Acceder al panel de control</a></p>
-								<p><a href="https://www.dygav.es/" class="btn-custom">Ir a la pagina inicial</a></p>
+								<p><a href="https://dygav.es/private/tourist/dashboard" class="btn btn-primary">Acceder al panel de control</a></p>
+								<p><a href="https://dygav.es/" class="btn-custom">Ir a la pagina inicial</a></p>
 							</div>
 					   </td>
 					 </tr>
@@ -383,10 +383,10 @@ export default function touristTemplate(fullname: string) {
 					   <td style="text-align: left; padding-left: 10px;">
 						   <h3 class="heading">Enlaces</h3>
 						   <ul>
-							 <li><a href="https://www.dygav.es/">Inicio</a></li>
-							 <li><a href="https://www.dygav.es/private/tourist/dashboard">Panel de control</a></li>
-							 <li><a href="https://www.dygav.es/licencias-turisticas">Licencias</a></li>
-							 <li><a href="https://www.dygav.es/apartamentos">Alojamientos</a></li>
+							 <li><a href="https://dygav.es/">Inicio</a></li>
+							 <li><a href="https://dygav.es/private/tourist/dashboard">Panel de control</a></li>
+							 <li><a href="https://dygav.es/licencias-turisticas">Licencias</a></li>
+							 <li><a href="https://dygav.es/apartamentos">Alojamientos</a></li>
 						 </ul>
 					   </td>
 					 </tr>
@@ -403,5 +403,5 @@ export default function touristTemplate(fullname: string) {
    </center>
  </body>
  </html>
-	`
+	`;
 }

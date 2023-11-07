@@ -1,5 +1,5 @@
-export default function contactTemplate(fullname:string){
-    return `
+export default function contactTemplate(fullname: string) {
+  return `
     <!DOCTYPE html>
     <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
     <head>
@@ -332,7 +332,7 @@ export default function contactTemplate(fullname:string){
                                                             
                                   <h3 class="name">¡Gracias por contactar con DYGAV!</h3>
                               
-                                   <p><a href="https://www.dygav.es" class="btn btn-primary">Pagina principal</a></p>
+                                   <p><a href="https://dygav.es" class="btn btn-primary">Pagina principal</a></p>
                                </div>
                           </td>
                         </tr>
@@ -376,10 +376,10 @@ export default function contactTemplate(fullname:string){
                           <td style="text-align: left; padding-left: 10px;">
                               <h3 class="heading">Enlaces</h3>
                               <ul>
-                                <li><a href="https://www.dygav.es/">Inicio</a></li>
-                                <li><a href="https://www.dygav.es/register">Crear cuenta</a></li>
-                                <li><a href="https://www.dygav.es/licencias-turisticas">Licencias</a></li>
-                                <li><a href="https://www.dygav.es/apartamentos">Alojamientos</a></li>
+                                <li><a href="https://dygav.es/">Inicio</a></li>
+                                <li><a href="https://dygav.es/register">Crear cuenta</a></li>
+                                <li><a href="https://dygav.es/licencias-turisticas">Licencias</a></li>
+                                <li><a href="https://dygav.es/apartamentos">Alojamientos</a></li>
                             </ul>
                           </td>
                         </tr>
@@ -397,5 +397,5 @@ export default function contactTemplate(fullname:string){
     </body>
     </html>
     
-    `
+    `;
 }
