@@ -17,7 +17,10 @@ export default function License() {
 
   return (
     <section>
-      <UtilHead title='Dygav Licenses' content='' />
+      <UtilHead
+        title='DYGAV: Descubre Cómo Obtener Tu Licencia Turística'
+        content='Descubre con DYGAV todo lo necesario para adquirir tu licencia turística de forma sencilla y rápida'
+      />
 
       <MainHero>
         <Layout session={session}>

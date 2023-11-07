@@ -8,8 +8,15 @@ export const LicenseAditionalInfo = () => {
         id='alquiler-turistico'
         className='text-center text-2xl px-5 md:px-14 md:text-3xl text-black700 pb-4 mt-16 font-semibold'
       >
-        ¿Cómo obtener licencia turística?
+        ¿Cómo obtener la licencia turística en Torrevieja?
       </h1>
+
+      <h2
+        id='alquiler-turistico'
+        className='text-center text-2xl px-5 md:px-14 md:text-3xl text-black700 pb-4 mt-16 font-semibold'
+      >
+        ¿Qué son las licencias turísticas?
+      </h2>
 
       <div className='text-justify text-sm md:text-lg border-t-4 border-t-p600 pt-4 space-y-4'>
         <p>
@@ -18,15 +25,19 @@ export const LicenseAditionalInfo = () => {
           regulada.
         </p>
         <p>
-          Se consideran viviendas turísticas los inmuebles, cualquiera que sea
-          su tipología, cuyo uso se ceda mediante precio, con habitualidad, en
-          condiciones de inmediata disponibilidad, y con fines turísticos,
-          vacacionales o de ocio.
+          Se consideran <strong>viviendas turísticas</strong> los inmuebles,
+          cualquiera que sea su tipología, cuyo uso se ceda mediante precio, con
+          habitualidad, en condiciones de inmediata disponibilidad, y con fines
+          turísticos, vacacionales o de ocio.
         </p>
         <p>
-          La obtención de una licencia turística es obligatoria en la mayoría de
-          ciudades para poder poner una vivienda en alquiler vacacional, y su
-          incumplimiento puede acarrear multas y sanciones para el propietario.
+          La obtención de una licencia turística{' '}
+          <strong>
+            es obligatoria en la mayoría de ciudades para poder poner una
+            vivienda en alquiler vacacional
+          </strong>
+          , y su incumplimiento puede acarrear multas y sanciones para el
+          propietario.
         </p>
         <p>
           Además, es necesario disponer de la licencia turística cuando se
@@ -36,10 +47,13 @@ export const LicenseAditionalInfo = () => {
         <p>
           La publicidad, que se efectúe de las viviendas turísticas inscritas,
           deberá incluir, obligatoriamente, los números de registro de las
-          citadas viviendas y sus categorías. Es decir, sin la licencia
-          turística no podrá anunciar el alquiler de la vivienda en plataformas
-          como AiRBnB, Booking, etc. por no disponer del código de licencia, que
-          ha de incluir este anuncio.
+          citadas viviendas y sus categorías. Es decir,{' '}
+          <strong>
+            sin la licencia turística no podrá anunciar el alquiler de la
+            vivienda en plataformas como
+          </strong>{' '}
+          AiRBnB, Booking, etc. por no disponer del código de licencia, que ha
+          de incluir este anuncio.
         </p>
       </div>
 
@@ -97,7 +111,7 @@ export const LicenseAditionalInfo = () => {
       >
         <div className='md:self-center md:justify-self-center divide-y-4 divide-p600'>
           <h2 className='text-center text-2xl  md:text-3xl font-semibold'>
-            ¿Cómo conseguir una licencia turistica en mi ciudad
+            ¿Cómo obtener una licencia turística en mi ciudad?
           </h2>
 
           <h3 className='text-center text-[18px] lg:text-[31px] md:text-[26px] pt-3'>
@@ -118,6 +132,55 @@ export const LicenseAditionalInfo = () => {
             </div>
           </Link>
         </div>
+      </div>
+
+      <h2 className='text-center text-2xl px-5 md:px-14 md:text-3xl text-black700 pb-4 mt-16 font-semibold'>
+        Licencias turísticas en la Comunitat Valenciana
+      </h2>
+
+      <div className='text-justify text-sm md:text-lg border-t-4 border-t-p600 pt-4 space-y-4'>
+        <p>
+          Hace unos años, disponer de una licencia turística y promocionar una
+          vivienda en Airbnb, era una gestión muy sencilla.Sin embargo, desde el
+          año 2018, la normativa se ha endurecido, se han incluido muchas
+          restricciones y{' '}
+          <strong>ahora es más complicado obtener una licencia</strong>.
+        </p>
+        <p>
+          Las viviendas deben cumplir con una serie de requisitos, como tener
+          una superficie mínima, contar con un número mínimo de habitaciones o
+          plazas de alojamiento, cumplir con las normas de seguridad y
+          accesibilidad, contar con un seguro de responsabilidad civil, y
+          cumplir con las normas de calidad.
+        </p>
+        <p>
+          Especialmente, las grandes ciudades son muy restrictivas. Por ejemplo,
+          en Alicante casi todas{' '}
+          <strong>
+            las licencias para alquiler turístico son de locales, bajos,
+            entreplantas y primeros
+          </strong>
+          . En raras ocasiones, se admiten pisos en altura.
+        </p>
+        <p>
+          En conclusión, si quieres conseguir tu licencia de alquiler vacacional
+          o vas a comprar una vivienda para alquilarla de manera vacacional en
+          la Comunitat Valencia ten especial cuidado y{' '}
+          <strong>
+            no compres sin informarte adecuadamente o consultar a un profesional
+          </strong>
+          .
+        </p>
+
+        <p>
+          <Link
+            className='underline text-p600'
+            target='_blank'
+            href={'https://dogv.gva.es/datos/2021/02/08/pdf/2021_999.pdf'}
+          >
+            Ver normativa
+          </Link>
+        </p>
       </div>
     </section>
   );
