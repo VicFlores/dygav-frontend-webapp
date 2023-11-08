@@ -5,12 +5,12 @@ import { BiPhoneCall } from 'react-icons/bi';
 
 export const GetLicense = () => {
   return (
-    <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32'>
-      <p className='text-center text-2xl px-14 md:text-3xl text-black700 pb-4 font-semibold'>
+    <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32 flex flex-col items-center'>
+      <h2 className='text-center text-2xl md:text-3xl mt-16 pb-4 font-semibold border-b-4 border-b-p600 md:w-3/4 lg:w-4/5'>
         ¡Tú Licencia Turística Más Cerca de lo que Crees!
-      </p>
+      </h2>
 
-      <div className='w-auto border-t-4 border-t-p600 pt-5  text-black900 pr-3 pl-3 text-xs md:text-sm lg:text-lg mb-14'>
+      <div className='w-auto pt-5  text-black900 pr-3 pl-3 text-xs md:text-sm lg:text-lg mb-14'>
         <p className='mb-4'>
           En DYGAV, estamos a tu lado en cada paso del camino hacia la obtención
           de la licencia turística para tu piso. Nos convertimos en tu aliado y

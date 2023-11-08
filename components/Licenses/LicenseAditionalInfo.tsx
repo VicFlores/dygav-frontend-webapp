@@ -3,15 +3,15 @@ import Link from 'next/link';
 
 export const LicenseAditionalInfo = () => {
   return (
-    <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32'>
+    <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32 flex flex-col items-center'>
       <h2
         id='alquiler-turistico'
-        className='text-center text-2xl px-5 md:px-14 md:text-3xl text-black700 pb-4 mt-16 font-semibold'
+        className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 md:w-3/4 lg:w-2/3'
       >
         ¿Qué son las licencias turísticas?
       </h2>
 
-      <div className='text-justify text-sm md:text-lg border-t-4 border-t-p600 pt-4 space-y-4'>
+      <div className='text-justify text-sm md:text-lg pt-4 space-y-4'>
         <p>
           Una licencia turística es un documento legal que permite a los
           propietarios de viviendas para alquiler turístico de manera legal y
@@ -50,37 +50,39 @@ export const LicenseAditionalInfo = () => {
         </p>
       </div>
 
-      <div className='flex flex-col md:flex-row justify-center items-center mt-16'>
-        <figure className='h-44 w-44 md:h-60 md:w-60 lg:h-72 lg:w-72 relative m-0'>
-          <Image
-            src={
-              'https://res.cloudinary.com/vicflores11/image/upload/v1697733791/Dygav/s9cmodybn3ahynipcggt.svg'
-            }
-            alt={'Map Logo'}
-            layout='fill'
-            className='rounded-full'
-          />
-        </figure>
+      <div className='flex justify-center items-center mt-16 '>
+        <div className='flex flex-col md:flex-row justify-center items-center w-4/5 bg-gray300/40 border border-p600 rounded-xl'>
+          <figure className='h-44 w-44 md:h-60 md:w-60 lg:h-72 lg:w-72 relative m-0'>
+            <Image
+              src={
+                'https://res.cloudinary.com/vicflores11/image/upload/v1697733791/Dygav/s9cmodybn3ahynipcggt.svg'
+              }
+              alt={'Map Logo'}
+              layout='fill'
+              className='rounded-full'
+            />
+          </figure>
 
-        <div className='space-y-4 text-sm md:text-lg font-semibold text-center md:text-start'>
-          <h3 className='text-p600 uppercase'>Nos encargamos nosotros</h3>
-          <h3>Gestionamos integralmente tu alquiler vacacional</h3>
-          <button className='py-2 px-3 text-white bg-p600 uppercase font-normal'>
-            <Link href={'/gestion-integral-apartamentos-turisticos'}>
-              Más información
-            </Link>
-          </button>
+          <div className='space-y-4 text-sm md:text-lg font-semibold text-center md:text-start '>
+            <h3 className='text-p600 uppercase'>Nos encargamos nosotros</h3>
+            <h3>Gestionamos integralmente tu alquiler vacacional</h3>
+            <button className='py-2 px-3 text-white bg-p600 uppercase font-normal'>
+              <Link href={'/gestion-integral-apartamentos-turisticos'}>
+                Más información
+              </Link>
+            </button>
+          </div>
         </div>
       </div>
 
       <h2
         id='alquiler-turistico'
-        className='text-center text-2xl px-5 md:px-14 md:text-3xl text-black700 pb-4 mt-16 font-semibold'
+        className='text-center text-2xl md:text-3xl mt-16 pb-4 font-semibold border-b-4 border-b-p600 md:w-3/4 lg:w-4/5'
       >
         Licencias turísticas en las principales comunidades autónomas
       </h2>
 
-      <div className='text-justify text-sm md:text-lg border-t-4 border-t-p600 pt-4 space-y-4 mb-14'>
+      <div className='text-justify text-sm md:text-lg pt-4 space-y-4 mb-14'>
         <p>
           Cada comunidad autónoma tiene competencias propias para establecer los
           requisitos que debe cumplir una vivienda para obtener una licencia
@@ -96,11 +98,11 @@ export const LicenseAditionalInfo = () => {
         </p>
       </div>
 
-      <h2 className='text-center text-2xl px-5 md:px-14 md:text-3xl text-black700 pb-4 mt-16 font-semibold'>
+      <h2 className='text-center text-2xl md:text-3xl mt-16 pb-4 font-semibold border-b-4 border-b-p600 md:w-3/4 lg:w-4/5'>
         Licencias turísticas en la Comunidad Valenciana
       </h2>
 
-      <div className='text-justify text-sm md:text-lg border-t-4 border-t-p600 pt-4 space-y-4'>
+      <div className='text-justify text-sm md:text-lg pt-4 space-y-4'>
         <p>
           Hace unos años, disponer de una licencia turística y promocionar una
           vivienda en Airbnb, era una gestión muy sencilla.Sin embargo, desde el
@@ -167,6 +169,17 @@ export const LicenseAditionalInfo = () => {
               >
                 <h4 className='text-white pl-4 pb-4 text-sm md:text-lg'>
                   Licencia turística en <br /> Torrevieja
+                </h4>
+              </div>
+            </div>
+          </Link>
+          <Link href={'/licencias-turisticas-alicante'}>
+            <div className=' w-80 h-96 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
+              <div
+                className={`w-full h-full bg-cover flex items-end bg-torrevieja`}
+              >
+                <h4 className='text-white pl-4 pb-4 text-sm md:text-lg'>
+                  Licencia turística en <br /> Alicante
                 </h4>
               </div>
             </div>

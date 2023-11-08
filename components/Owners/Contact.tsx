@@ -2,12 +2,12 @@ import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 export const Contact = () => {
   return (
-    <section className='grid px-8 md:px-28 mb-28 gap-2 '>
-      <p className='text-center text-2xl md:text-3xl font-semibold'>
+    <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32 flex flex-col items-center'>
+      <h2 className='text-center text-2xl md:text-3xl mt-16 pb-4 font-semibold border-b-4 border-b-p600 md:w-3/4 lg:w-2/4'>
         Prepárate para el Éxito
-      </p>
+      </h2>
 
-      <div className='border-t-4 border-t-p600 pt-8 px-4 md:px-8 space-y-4 text-xs md:text-sm lg:text-lg text-black900'>
+      <div className='pt-8 px-4 md:px-8 space-y-4 text-xs md:text-sm lg:text-lg text-black900'>
         <p>
           En DYGAV trabajamos para que que tu propiedad cumpla con los criterios
           de habitabilidad, seguridad y servicios exigidos.

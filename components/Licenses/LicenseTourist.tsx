@@ -3,12 +3,12 @@ import { LicenseTouristCardInfo } from '@/utils';
 
 export const LicenseTourist = () => {
   return (
-    <section className='mt-24 mb-16 px-10 md:px-12 lg:px-32'>
-      <p className='text-center text-2xl px-14 md:text-3xl  text-black700 pb-4 font-semibold'>
+    <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32 flex flex-col items-center'>
+      <h2 className='text-center text-2xl md:text-3xl mt-16 pb-4 font-semibold border-b-4 border-b-p600 md:w-3/4 lg:w-2/4'>
         ¿Qué es lo que Haríamos por ti?
-      </p>
+      </h2>
 
-      <div className='w-auto border-t-4 border-t-p600 pt-5 space-y-4 text-black900 px-3 text-xs md:text-sm lg:text-lg'>
+      <div className='w-auto pt-5 space-y-4 text-black900 px-3 text-xs md:text-sm lg:text-lg'>
         <p>
           En DYGAV, comprendemos la importancia de obtener la licencia turística
           de manera rápida y eficiente y nos comprometemos a brindarte el apoyo
