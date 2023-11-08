@@ -6,7 +6,7 @@ export const LicenseAditionalInfo = () => {
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32 flex flex-col items-center'>
       <h2
         id='alquiler-turistico'
-        className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 md:w-3/4 lg:w-2/3'
+        className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-3/4  lg:w-2/3'
       >
         ¿Qué son las licencias turísticas?
       </h2>
@@ -77,7 +77,7 @@ export const LicenseAditionalInfo = () => {
 
       <h2
         id='alquiler-turistico'
-        className='text-center text-2xl md:text-3xl mt-16 pb-4 font-semibold border-b-4 border-b-p600 md:w-3/4 lg:w-4/5'
+        className='text-center text-2xl md:text-3xl mt-16 pb-4 font-semibold border-b-4 border-b-p600 w-[90%] md:w-3/4 lg:w-4/5'
       >
         Licencias turísticas en las principales comunidades autónomas
       </h2>
@@ -98,7 +98,7 @@ export const LicenseAditionalInfo = () => {
         </p>
       </div>
 
-      <h2 className='text-center text-2xl md:text-3xl mt-16 pb-4 font-semibold border-b-4 border-b-p600 md:w-3/4 lg:w-4/5'>
+      <h2 className='text-center text-2xl md:text-3xl mt-16 pb-4 font-semibold border-b-4 border-b-p600 w-[90%] md:w-3/4 lg:w-4/5'>
         Licencias turísticas en la Comunidad Valenciana
       </h2>
 

@@ -4,7 +4,7 @@ import { LicenseTouristCardInfo } from '@/utils';
 export const LicenseTourist = () => {
   return (
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32 flex flex-col items-center'>
-      <h2 className='text-center text-2xl md:text-3xl mt-16 pb-4 font-semibold border-b-4 border-b-p600 md:w-3/4 lg:w-2/4'>
+      <h2 className='text-center text-2xl md:text-3xl mt-16 pb-4 font-semibold border-b-4 border-b-p600 w-3/4 lg:w-2/4'>
         ¿Qué es lo que Haríamos por ti?
       </h2>
 
