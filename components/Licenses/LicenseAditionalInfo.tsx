@@ -51,7 +51,7 @@ export const LicenseAditionalInfo = () => {
       </div>
 
       <div className='flex justify-center items-center mt-16 '>
-        <div className='flex flex-col md:flex-row justify-center items-center w-4/5 bg-gray300/40 border border-p600 rounded-xl'>
+        <div className='flex flex-col md:flex-row justify-center items-center w-4/5 bg-gray300/40 border border-p600 rounded-xl p-10 md:p-0'>
           <figure className='h-44 w-44 md:h-60 md:w-60 lg:h-72 lg:w-72 relative m-0'>
             <Image
               src={
