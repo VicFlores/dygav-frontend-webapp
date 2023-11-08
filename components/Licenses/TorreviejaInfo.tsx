@@ -111,7 +111,7 @@ export const TorreviejaInfo = () => {
         Guía para obtener una licencia turística en Torrevieja
       </h2>
 
-      <p className='text-justify text-sm md:text-lg px-20'>
+      <p className='text-center text-sm md:text-lg px-20'>
         En esta guía queremos explicarte los pasos necesarios para la{' '}
         <strong>obtención de la licencia turística en Torrevieja</strong> además
         de resolver las dudas más habituales.
@@ -252,14 +252,15 @@ export const TorreviejaInfo = () => {
         </span>
       </p>
 
-      <div className='flex flex-col md:flex-row justify-evenly items-center mt-14 mb-14 space-y-8 md:space-x-8'>
-        <figure className='relative w-80 h-80 md:w-[460px] md:h-[370px]'>
+      <div className='flex flex-col md:flex-row justify-evenly items-center mt-14 mb-14 space-y-8 md:space-y-0 md:space-x-8'>
+        <figure className='relative w-80 h-80 md:w-[460px] md:h-[370px] '>
           <Image
             src={
               'https://res.cloudinary.com/vicflores11/image/upload/v1699399186/Dygav/torrevieja/Torrevieja_Plaza_de_la_Constituci%C3%B3n_y0ewgo.png'
             }
             alt=''
             layout='fill'
+            className='rounded-2xl'
           />
         </figure>
         <figure className='relative w-80 h-80 md:w-[460px] md:h-[370px]'>
@@ -269,6 +270,7 @@ export const TorreviejaInfo = () => {
             }
             alt=''
             layout='fill'
+            className='rounded-2xl'
           />
         </figure>
       </div>
