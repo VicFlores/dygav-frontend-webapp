@@ -15,7 +15,7 @@ const images = [
   'https://res.cloudinary.com/vicflores11/image/upload/v1697903684/Dygav/torrevieja/3_pdtmep.WebP',
 ];
 
-const TorreviejaPage = () => {
+const AlicantePage = () => {
   const { data: session } = useSession();
 
   return (
@@ -41,4 +41,4 @@ const TorreviejaPage = () => {
   );
 };
 
-export default TorreviejaPage;
+export default AlicantePage;
