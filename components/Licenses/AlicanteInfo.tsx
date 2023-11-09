@@ -521,7 +521,7 @@ export const AlicanteInfo = () => {
         </ul>
       </div>
 
-      <div className='flex flex-col md:flex-row justify-evenly items-center mt-14 mb-14 space-y-8 md:space-y-0 md:space-x-8'>
+      <div className='flex flex-col lg:flex-row justify-evenly items-center mt-14 mb-14 space-y-8 lg:space-y-0 lg:space-x-8'>
         <figure className='relative w-80 h-80 md:w-[460px] md:h-[370px] '>
           <Image
             src={
@@ -657,7 +657,7 @@ export const AlicanteInfo = () => {
         </p>
       </div>
 
-      <div className='flex flex-col lg:flex-row lg:justify-evenly justify-center items-center my-24  lg:space-x-8 bg-gray300/30 py-10 md:p-14 rounded-xl border border-p600'>
+      <div className='flex flex-col lg:flex-row lg:justify-evenly justify-center items-center my-24 px-4  lg:space-x-8 bg-gray300/30 py-10 md:p-14 rounded-xl border border-p600'>
         <div className='space-y-2 text-lg md:text-xl text-center'>
           <h3 className='text-p600 font-semibold uppercase'>
             ¿Necesitas ayuda?
@@ -684,9 +684,9 @@ export const AlicanteInfo = () => {
         <form
           id='formulario'
           onSubmit={handleSubmit(onSubmit)}
-          className='grid gap-8 px-6 lg:px-10 py-6 pt-4 border-2 border-gray300 bg-white'
+          className='grid gap-8 px-2 lg:px-10 py-6 pt-4 border-0 md:border-2 border-gray300'
         >
-          <p className='text-xl text-center'>Completa tu información</p>
+          <p className='text-xl text-center'>Te llamamos nosotros</p>
 
           <label className='relative'>
             <GrContactInfo className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
@@ -694,7 +694,7 @@ export const AlicanteInfo = () => {
               type='text'
               placeholder='Escribe tu nombre completo'
               {...register('name', { required: true })}
-              className='py-3 pl-10 pr-4 bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
+              className='bg-white py-3 pl-10 pr-4 bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
             />
             {errors.name && (
               <span className='text-red-500'>Este campo es obligatorio</span>
@@ -707,7 +707,7 @@ export const AlicanteInfo = () => {
               type='email'
               placeholder='Escribe tu correo electronico'
               {...register('email', { required: true })}
-              className='py-3 pl-10 pr-4 bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
+              className='bg-white py-3 pl-10 pr-4 bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
             />
             {errors.email && (
               <span className='text-red-500'>Este campo es obligatorio</span>
@@ -720,7 +720,7 @@ export const AlicanteInfo = () => {
               type='number'
               placeholder='Escribe tu telefono'
               {...register('phone', { required: true })}
-              className='py-3 pl-10 pr-4 bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
+              className='bg-white py-3 pl-10 pr-4 bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
             />
             {errors.phone && (
               <span className='text-red-500'>Este campo es obligatorio</span>
@@ -732,7 +732,7 @@ export const AlicanteInfo = () => {
             <textarea
               placeholder='Ayúdanos a prepararnos: Cuéntanos tu caso para que podamos atenderte mejor cuando te contactemos.'
               {...register('description', { required: true })}
-              className='py-3 pl-10 pr-4 bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
+              className='bg-white py-3 pl-10 pr-4 bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
             />
             {errors.description && (
               <span className='text-red-500'>Este campo es obligatorio</span>
