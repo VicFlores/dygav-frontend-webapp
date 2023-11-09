@@ -42,9 +42,11 @@ const config: Config = {
         brandContent:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367775/Dygav/19_skargh.WebP')",
         torrevieja:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/2_jvslgl.png')",
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/2_jvslgl.WebP')",
         alicante:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1699488275/Dygav/Alicante/4_qzdyhb.png')",
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1699488275/Dygav/Alicante/4_qzdyhb.WebP')",
+        benidorm:
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1699567156/Dygav/Benidorm/Copia_de_2_doz1la.WebP')",
       },
     },
   },
