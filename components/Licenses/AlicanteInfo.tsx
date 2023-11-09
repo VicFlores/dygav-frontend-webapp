@@ -35,7 +35,7 @@ export const AlicanteInfo = () => {
 
   return (
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32 flex flex-col items-center'>
-      <h1 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-2/3  lg:w-2/3'>
+      <h1 className='text-center text-2xl md:text-3xl pb-4 mb-6 font-semibold border-b-4 border-b-p600 w-auto md:px-10'>
         Licencias turísticas en Alicante
       </h1>
 
@@ -149,7 +149,7 @@ export const AlicanteInfo = () => {
         </div>
       </div>
 
-      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-3/4  lg:w-2/3 mt-16'>
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto md:px-10 mt-16'>
         ¿Qué es el alquiler turístico?
       </h2>
 
@@ -170,7 +170,7 @@ export const AlicanteInfo = () => {
         </p>
       </div>
 
-      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-[90%] lg:w-[90%] mt-16'>
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-48 md:px-10 mt-16'>
         ¿Qué requisitos tiene que cumplir la vivienda para alquiler vacacional?
       </h2>
 
@@ -258,7 +258,7 @@ export const AlicanteInfo = () => {
         </p>
       </div>
 
-      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-4/5  lg:w-[85%] mt-16'>
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto md:px-10 mt-16'>
         ¿Quién puede solicitar una licencia turística ?
       </h2>
 
@@ -334,7 +334,7 @@ export const AlicanteInfo = () => {
         </ol>
       </div>
 
-      <div className='flex justify-center items-center pt-10 '>
+      <div className='flex justify-center items-center pt-10 mb-10'>
         <div className='flex flex-col md:flex-row justify-center items-center bg-gray300/40 border border-p600 rounded-xl p-10 lg:px-32 md:py-5'>
           <figure className='h-40 w-40 md:h-44 md:w-44 lg:h-60 lg:w-60 relative m-0'>
             <Image
@@ -362,7 +362,7 @@ export const AlicanteInfo = () => {
         </div>
       </div>
 
-      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-[90%] lg:w-full mt-16'>
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto md:px-10 lg:mx-48 mt-16'>
         ¿Quién regula las concesiones de licencias turísticas para alquileres
         vacacionales?
       </h2>
@@ -397,7 +397,7 @@ export const AlicanteInfo = () => {
         </p>
       </div>
 
-      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-[90%] lg:w-full mt-16'>
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto md:px-10 lg:mx-48 mt-16'>
         ¿Qué documentación es obligatorio presentar para obtener una licencia
         turística?
       </h2>
@@ -544,7 +544,7 @@ export const AlicanteInfo = () => {
         </figure>
       </div>
 
-      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-[90%] lg:w-[90%] mt-10 md:mt-16'>
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto md:px-10 lg:mx-48 mt-10 md:mt-16'>
         ¿Cómo realizar la presentación de la solicitud de la licencia en
         Alicante?
       </h2>
@@ -603,7 +603,7 @@ export const AlicanteInfo = () => {
         </p>
       </div>
 
-      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-[80%] lg:w-3/4 mt-16'>
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto md:px-10 mt-16'>
         ¿Cuál es la tasa de la licencia turística en Alicante?
       </h2>
 
