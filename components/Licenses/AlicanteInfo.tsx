@@ -335,7 +335,7 @@ export const AlicanteInfo = () => {
       </div>
 
       <div className='flex justify-center items-center pt-10 '>
-        <div className='flex flex-col md:flex-row justify-center items-center bg-gray300/40 border border-p600 rounded-xl p-10 lg:p-32 md:py-5'>
+        <div className='flex flex-col md:flex-row justify-center items-center bg-gray300/40 border border-p600 rounded-xl p-10 lg:px-32 md:py-5'>
           <figure className='h-40 w-40 md:h-44 md:w-44 lg:h-60 lg:w-60 relative m-0'>
             <Image
               src={
