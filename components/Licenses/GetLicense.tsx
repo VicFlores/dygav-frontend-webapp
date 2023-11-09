@@ -32,7 +32,7 @@ export const GetLicense = () => {
         </Link>
       </div>
 
-      <Llamanos />
+      <Llamanos paddingX='px-36' />
     </section>
   );
 };
