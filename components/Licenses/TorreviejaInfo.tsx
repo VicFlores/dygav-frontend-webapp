@@ -1,40 +1,9 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
-import { GrContactInfo } from 'react-icons/gr';
-import { HiOutlineMail, HiOutlineLocationMarker } from 'react-icons/hi';
-import { MdOutlineAddIcCall } from 'react-icons/md';
-import { useForm } from 'react-hook-form';
-import { useState } from 'react';
 import { HelpYouForm } from '../HelpYouForm/HelpYouForm';
 import { AlquilerVacacional, LicenciasTuristicas } from '..';
 
-type Inputs = {
-  name: string;
-  email: string;
-  phone: number;
-  description: string;
-};
-
 export const TorreviejaInfo = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>();
-
-  const [message, setMessage] = useState<string>();
-
-  const onSubmit = (data: Inputs) => {
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    };
-    fetch('/api/mailing', requestOptions).then((response) => response.json());
-
-    setMessage('Mensaje enviado correctamente');
-  };
-
   return (
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32 flex flex-col items-center'>
       <h1 className='text-center text-2xl md:text-3xl pb-4 mb-6 font-semibold border-b-4 border-b-p600 w-auto md:px-10'>
