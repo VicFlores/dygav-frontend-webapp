@@ -150,6 +150,7 @@ export const LicenseAditionalInfo = () => {
               </div>
             </div>
           </Link>
+
           <Link href={'/licencias-turisticas-alicante'}>
             <div className=' w-80 h-96 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
               <div
@@ -161,10 +162,11 @@ export const LicenseAditionalInfo = () => {
               </div>
             </div>
           </Link>
+
           <Link href={'/licencias-turisticas-benidorm'}>
             <div className=' w-80 h-96 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
               <div
-                className={`w-full h-full bg-cover flex items-end bg-alicante`}
+                className={`w-full h-full bg-cover flex items-end bg-benidorm`}
               >
                 <h4 className='text-white pl-4 pb-4 text-sm md:text-lg'>
                   Licencia turística en <br /> Benidorm
