@@ -9,10 +9,11 @@ import {
 import { useSession } from 'next-auth/react';
 
 const images = [
-  'https://res.cloudinary.com/vicflores11/image/upload/v1699488551/Dygav/Alicante/1_b1a7da.WebP',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1699488551/Dygav/Alicante/1_b1a7da.WebP',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1699488547/Dygav/Alicante/3_knlkzn.WebP',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1699488275/Dygav/Alicante/4_qzdyhb.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699567179/Dygav/Benidorm/1_c6h3oz.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699567176/Dygav/Benidorm/2_wqwtkc.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699567164/Dygav/Benidorm/3_ns0pgn.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699567160/Dygav/Benidorm/4_eyxrcy.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699567156/Dygav/Benidorm/Copia_de_2_doz1la.WebP',
 ];
 
 const BenidormPage = () => {
