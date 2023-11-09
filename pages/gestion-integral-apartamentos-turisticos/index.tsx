@@ -1,17 +1,14 @@
 import {
   HeroOwners,
   PeachOwners,
-  ContactYou,
   Information,
   Contact,
-  NavBar,
   Footer,
-  BurgerMenu,
   MainHero,
   Layout,
   UtilHead,
-} from "@/components";
-import { useSession } from "next-auth/react";
+} from '@/components';
+import { useSession } from 'next-auth/react';
 
 const OwnersPage = () => {
   const { data: session } = useSession();
@@ -31,8 +28,6 @@ const OwnersPage = () => {
       <Information />
 
       <Contact />
-
-      <ContactYou />
 
       <Footer />
     </section>

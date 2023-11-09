@@ -18,7 +18,6 @@ export * from './Seacher/SearcherCards';
 export * from './Seacher/SearcherRealCards';
 export * from './Owners/HeroOwners';
 export * from './Owners/PeachOwners';
-export * from './Owners/ContactYou';
 export * from './Owners/Information';
 export * from './Owners/Contact';
 export * from './Licenses/HeroLicense';
