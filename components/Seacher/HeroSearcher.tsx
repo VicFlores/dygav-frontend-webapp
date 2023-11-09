@@ -1,4 +1,5 @@
-import { BiExtension } from 'react-icons/bi';
+import { FaLocationDot } from 'react-icons/fa6';
+import { BsCalendar2DateFill, BsPeopleFill } from 'react-icons/bs';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 export const HeroSearcher = () => {
@@ -12,7 +13,7 @@ export const HeroSearcher = () => {
         <div className='grid lg:grid-cols-3 gap-10 lg:gap-5 md:gap-8'>
           <div className='grid items-center justify-center relative'>
             <label className='relative'>
-              <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+              <FaLocationDot className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
               <input
                 type='text'
                 placeholder='Ubicacion'
@@ -23,7 +24,7 @@ export const HeroSearcher = () => {
 
           <div className='grid items-center justify-center relative'>
             <label className='relative'>
-              <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+              <BsCalendar2DateFill className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
               <input
                 type='text'
                 placeholder='Fecha'
@@ -34,7 +35,7 @@ export const HeroSearcher = () => {
 
           <div className='grid items-center justify-center relative'>
             <label className='relative'>
-              <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+              <BsPeopleFill className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
               <input
                 type='text'
                 placeholder='Huespedes'

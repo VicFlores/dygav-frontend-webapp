@@ -1,4 +1,5 @@
-import { BiExtension } from 'react-icons/bi';
+import { FaLocationDot } from 'react-icons/fa6';
+import { BsCalendar2DateFill, BsPeopleFill } from 'react-icons/bs';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 export const Hero = () => {
@@ -16,7 +17,7 @@ export const Hero = () => {
       <form className='grid lg:grid-cols-4 lg:gap-4 md:gap-8 gap-10 p-[30px] mt-16 bg-p600/50'>
         <div className='self-center justify-self-center'>
           <label className='relative'>
-            <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <FaLocationDot className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
             <input
               type='text'
               placeholder='Ubicacion'
@@ -27,7 +28,7 @@ export const Hero = () => {
 
         <div className='self-center justify-self-center'>
           <label className='relative'>
-            <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <BsCalendar2DateFill className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
             <input
               type='text'
               placeholder='Fecha'
@@ -39,7 +40,7 @@ export const Hero = () => {
 
         <div className='self-center justify-self-center'>
           <label className='relative'>
-            <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <BsPeopleFill className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
             <input
               type='number'
               placeholder='Huespedes'
