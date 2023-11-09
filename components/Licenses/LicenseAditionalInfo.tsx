@@ -148,20 +148,19 @@ export const LicenseAditionalInfo = () => {
       </div>
 
       <div
-        className='w-full h-auto grid md:grid-cols-2 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4'
+        className='w-full h-auto grid md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4'
         id='recomendadas'
       >
-        <div className='md:self-center md:justify-self-center divide-y-4 divide-p600'>
-          <h2 className='text-center text-2xl  md:text-3xl font-semibold'>
-            ¿Cómo obtener una licencia turística en mi ciudad?
-          </h2>
-
-          <h3 className='text-center text-[18px] lg:text-[31px] md:text-[26px] pt-3'>
+        <div className='md:self-center md:justify-self-center divide-y-4 divide-p600 text-center md:text-start'>
+          <h2 className='text-[18px] lg:text-[31px] md:text-[26px]'>
             GUÍAS ACTUALIZADAS POR MUNICIPIOS
+          </h2>
+          <h3 className='text-2xl  md:text-3xl font-semibold pt-3'>
+            ¿Cómo obtener una licencia turística en mi ciudad?
           </h3>
         </div>
 
-        <div className='w-auto h-auto items-center mt-6 p-6 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden'>
+        <div className='w-auto h-auto items-center mt-6 p-6 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden lg:col-start-2 lg:col-end-4'>
           <Link href={'/licencias-turisticas-torrevieja'}>
             <div className=' w-80 h-96 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
               <div
