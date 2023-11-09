@@ -51,3 +51,6 @@ export * from './Policies/FormsPolicyDetails';
 export * from './Policies/LegalNotice';
 export * from './Policies/LegalNoticeDetails';
 export * from './HelpYouForm/HelpYouForm';
+export * from './CTA/AlquilerVacacional';
+export * from './CTA/LicenciasTuristicas';
+export * from './CTA/Llamanos';

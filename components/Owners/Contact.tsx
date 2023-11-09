@@ -1,4 +1,5 @@
 import { AiOutlineCheckCircle } from 'react-icons/ai';
+import { HelpYouForm } from '..';
 
 export const Contact = () => {
   return (
@@ -22,6 +23,8 @@ export const Contact = () => {
           alquileres vacacionales.
         </p>
       </div>
+
+      <HelpYouForm />
     </section>
   );
 };

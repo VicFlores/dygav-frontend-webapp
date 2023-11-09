@@ -5,6 +5,8 @@ import { HiOutlineMail, HiOutlineLocationMarker } from 'react-icons/hi';
 import { MdOutlineAddIcCall } from 'react-icons/md';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import { HelpYouForm } from '../HelpYouForm/HelpYouForm';
+import { AlquilerVacacional, LicenciasTuristicas } from '..';
 
 type Inputs = {
   name: string;
@@ -35,7 +37,7 @@ export const TorreviejaInfo = () => {
 
   return (
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32 flex flex-col items-center'>
-      <h1 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-2/3  lg:w-2/3'>
+      <h1 className='text-center text-2xl md:text-3xl pb-4 mb-6 font-semibold border-b-4 border-b-p600 w-auto md:px-10'>
         Licencias turísticas en Torrevieja
       </h1>
 
@@ -81,33 +83,9 @@ export const TorreviejaInfo = () => {
         </p>
       </div>
 
-      <div className='flex flex-col md:flex-row justify-center items-center mt-16'>
-        <figure className='h-44 w-44 md:h-60 md:w-60 lg:h-72 lg:w-72 relative m-0'>
-          <Image
-            src={
-              'https://res.cloudinary.com/vicflores11/image/upload/v1697733791/Dygav/s9cmodybn3ahynipcggt.svg'
-            }
-            alt={'Map Logo'}
-            layout='fill'
-            className='rounded-full'
-          />
-        </figure>
+      <AlquilerVacacional />
 
-        <div className='space-y-4 text-sm md:text-lg font-semibold text-center md:text-start'>
-          <h3 className='text-p600 uppercase'>Nos encargamos nosotros</h3>
-          <h3>Gestionamos integralmente tu alquiler vacacional</h3>
-          <button className='py-2 px-3 text-white bg-p600 uppercase font-normal'>
-            <Link href={'/gestion-integral-apartamentos-turisticos'}>
-              Más información
-            </Link>
-          </button>
-        </div>
-      </div>
-
-      <h2
-        id='alquiler-turistico'
-        className='text-center text-2xl px-5 md:px-14 md:text-3xl text-black700 pb-4 mt-16 font-semibold'
-      >
+      <h2 className='text-center text-2xl px-5 md:px-14 md:text-3xl text-black700 pb-4 mt-16 font-semibold'>
         Guía para obtener una licencia turística en Torrevieja
       </h2>
 
@@ -117,10 +95,7 @@ export const TorreviejaInfo = () => {
         de resolver las dudas más habituales.
       </p>
 
-      <h2
-        id='alquiler-turistico'
-        className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-2/3  lg:w-2/3 mt-16'
-      >
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto md:px-10 mt-16'>
         ¿Qué es el alquiler turístico?
       </h2>
 
@@ -134,10 +109,7 @@ export const TorreviejaInfo = () => {
         particular alquilado temporalmente sin esos servicios adicionales.
       </p>
 
-      <h2
-        id='solicitar-licencia'
-        className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-2/3  lg:w-4/5 mt-16'
-      >
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-10 md:px-4 mt-16'>
         ¿Quién puede solicitar una licencia turística en Torrevieja?
       </h2>
 
@@ -150,10 +122,7 @@ export const TorreviejaInfo = () => {
         de viviendas de uso turístico
       </p>
 
-      <h2
-        id='organismos-licencias'
-        className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-2/3  lg:w-4/5 mt-16'
-      >
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-48 md:px-10 mt-16'>
         ¿Quién regula las concesiones de licencias turísticas para alquileres
         vacacionales en Torrevieja?
       </h2>
@@ -165,35 +134,9 @@ export const TorreviejaInfo = () => {
         y Torrevieja para operar correctamente una casa de alquiler vacacional.
       </p>
 
-      <div className='flex flex-col md:flex-row justify-center items-center mt-16 space-x-8 space-y-10 md:space-y-0'>
-        <figure className='h-40 w-40 md:h-44 md:w-44 lg:h-60 lg:w-60 relative m-0'>
-          <Image
-            src={
-              'https://res.cloudinary.com/vicflores11/image/upload/v1697736235/Dygav/undraw_certification_re_ifll_a0xzch.svg'
-            }
-            alt={'Map Logo'}
-            layout='fill'
-            className='rounded-full'
-          />
-        </figure>
+      <LicenciasTuristicas />
 
-        <div className='space-y-4 md:space-y-2 text-center md:text-start'>
-          <h3 className='text-p600 uppercase text-sm md:text-lg font-semibold'>
-            Ahorra tiempo
-          </h3>
-          <h3 className='text-sm md:text-lg font-semibold'>
-            Gestionamos la licencia turistica <br /> para tu alquiler vacacional
-          </h3>
-          <button className='py-2 px-3 text-white bg-p600 uppercase'>
-            <Link href={'#formulario'}>¿Te ayudamos?</Link>
-          </button>
-        </div>
-      </div>
-
-      <h2
-        id='obtener-licencia'
-        className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-2/3  lg:w-4/5 mt-16'
-      >
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-10 md:px-4 mt-16'>
         ¿Cómo hay que tributar por una vivienda con fines turísticos?
       </h2>
 
@@ -207,10 +150,7 @@ export const TorreviejaInfo = () => {
         propietario.
       </p>
 
-      <h2
-        id='documentacion-licencias'
-        className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-2/3  lg:w-4/5 mt-16'
-      >
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 lg:mx-48 md:px-16 mt-16'>
         ¿Qué documentación es obligatoria presentar para obtener una licencia
         turística en Torrevieja?
       </h2>
@@ -252,7 +192,7 @@ export const TorreviejaInfo = () => {
         </span>
       </p>
 
-      <div className='flex flex-col md:flex-row justify-evenly items-center mt-14 mb-14 space-y-8 md:space-y-0 md:space-x-8'>
+      <div className='flex flex-col lg:flex-row justify-evenly items-center mt-14 mb-14 space-y-8 lg:space-y-0 lg:space-x-8'>
         <figure className='relative w-80 h-80 md:w-[460px] md:h-[370px] '>
           <Image
             src={
@@ -341,10 +281,7 @@ export const TorreviejaInfo = () => {
         </p>
       </div>
 
-      <h2
-        id='obtener-licencia'
-        className='font-semibold text-center text-2xl px-2 md:px-14 md:text-3xl text-black700 pb-4 mt-16'
-      >
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-10 md:px-4 mt-16'>
         ¿Dónde y cuándo puedo solicitar la licencia turística?
       </h2>
 
@@ -362,10 +299,7 @@ export const TorreviejaInfo = () => {
         </strong>
       </p>
 
-      <h2
-        id='donde-solicitar-licencia'
-        className='font-semibold text-center text-2xl px-2 md:px-14 md:text-3xl text-black700 pb-4 mt-16'
-      >
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-10 md:px-4 mt-16'>
         ¿Cuánto tarda la licencia turística en Torrevieja?
       </h2>
 
@@ -402,98 +336,7 @@ export const TorreviejaInfo = () => {
         </p>
       </div>
 
-      <div className='flex flex-col lg:flex-row lg:justify-evenly justify-center items-center my-24  lg:space-x-8'>
-        <div className='space-y-2 text-lg md:text-xl text-center'>
-          <h3 className='text-p600 font-semibold uppercase'>
-            ¿Necesitas ayuda?
-          </h3>
-          <p className='font-semibold capitalize'>
-            Llámanos, escríbenos o <br /> acercate a nuestras <br /> oficinas
-          </p>
-          <p className='capitalize'>
-            Resolvemos todos tus dudas sin <br /> compromiso.
-          </p>
-
-          <figure className='h-60 w-60 md:h-64 md:w-64 relative m-0'>
-            <Image
-              src={
-                'https://res.cloudinary.com/vicflores11/image/upload/v1697737435/Dygav/undraw_contact_us_re_4qqt_jvl1zy.svg'
-              }
-              alt={'Map Logo'}
-              layout='fill'
-              className='rounded-full'
-            />
-          </figure>
-        </div>
-
-        <form
-          id='formulario'
-          onSubmit={handleSubmit(onSubmit)}
-          className='grid gap-8 px-6 lg:px-10 py-6 pt-4 border-2 border-gray300'
-        >
-          <p className='text-xl text-center'>Completa tu información</p>
-
-          <label className='relative'>
-            <GrContactInfo className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
-            <input
-              type='text'
-              placeholder='Escribe tu nombre completo'
-              {...register('name', { required: true })}
-              className='py-3 pl-10 pr-4 bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
-            />
-            {errors.name && (
-              <span className='text-red-500'>Este campo es obligatorio</span>
-            )}
-          </label>
-
-          <label className='relative'>
-            <HiOutlineMail className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
-            <input
-              type='email'
-              placeholder='Escribe tu correo electronico'
-              {...register('email', { required: true })}
-              className='py-3 pl-10 pr-4 bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
-            />
-            {errors.email && (
-              <span className='text-red-500'>Este campo es obligatorio</span>
-            )}
-          </label>
-
-          <label className='relative'>
-            <MdOutlineAddIcCall className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
-            <input
-              type='number'
-              placeholder='Escribe tu telefono'
-              {...register('phone', { required: true })}
-              className='py-3 pl-10 pr-4 bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
-            />
-            {errors.phone && (
-              <span className='text-red-500'>Este campo es obligatorio</span>
-            )}
-          </label>
-
-          <label className='relative'>
-            <HiOutlineLocationMarker className='w-5 h-5 absolute top-1/3 -translate-y-1/2 left-3 text-black900' />
-            <textarea
-              placeholder='Ayúdanos a prepararnos: Cuéntanos tu caso para que podamos atenderte mejor cuando te contactemos.'
-              {...register('description', { required: true })}
-              className='py-3 pl-10 pr-4 bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
-            />
-            {errors.description && (
-              <span className='text-red-500'>Este campo es obligatorio</span>
-            )}
-          </label>
-
-          <button
-            id='toggle'
-            type='submit'
-            className='bg-p600 hover:bg-p800 text-center text-sm md:text-base py-2 px-4 w-[220px] md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
-          >
-            Solicitar informacion
-          </button>
-          {message && <p className='text-center text-green-500'>{message}</p>}
-        </form>
-      </div>
+      <HelpYouForm />
     </section>
   );
 };

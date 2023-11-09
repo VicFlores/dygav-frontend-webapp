@@ -2,6 +2,7 @@ import Image from 'next/legacy/image';
 import Link from 'next/link';
 import React from 'react';
 import { BiPhoneCall } from 'react-icons/bi';
+import { Llamanos } from '..';
 
 export const GetLicense = () => {
   return (
@@ -31,49 +32,7 @@ export const GetLicense = () => {
         </Link>
       </div>
 
-      <div className='flex justify-center items-center'>
-        <div className='flex flex-col md:flex-row justify-center items-center  bg-gray300/40 border border-p600 rounded-xl p-10 '>
-          <figure className='relative w-52 h-52 md:w-64 md:h-64'>
-            <Image
-              src={
-                'https://res.cloudinary.com/vicflores11/image/upload/v1698162186/Dygav/undraw_personal_email_re_4lx7_c7oydo.svg'
-              }
-              alt='Contact Us Image'
-              layout='fill'
-            />
-          </figure>
-
-          <div className='flex-col space-y-4 justify-center md:justify-evenly items-center'>
-            <p className='text-center text-2xl px-14 md:text-3xl text-black700'>
-              ¡Llámanos!
-            </p>
-
-            <div className='relative'>
-              <BiPhoneCall className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-14 md:right-16 lg:right-12' />
-              <a href='tel:+34614165736'>
-                <button
-                  id='toggle'
-                  className='bg-p600 hover:bg-p800 text-center text-xs md:text-sm lg:text-base py-2 px-4 w-full md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
-                >
-                  +34 614 165 736
-                </button>
-              </a>
-            </div>
-
-            <div className='relative'>
-              <BiPhoneCall className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-14 md:right-16 lg:right-12' />
-              <a href='tel:+34614214250'>
-                <button
-                  id='toggle'
-                  className='bg-p600 hover:bg-p800 text-center text-xs md:text-sm lg:text-base py-2 px-4 w-full md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
-                >
-                  +34 614 214 250
-                </button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Llamanos />
     </section>
   );
 };

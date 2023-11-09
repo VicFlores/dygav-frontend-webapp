@@ -2,7 +2,6 @@ import {
   Contact,
   Footer,
   GetLicense,
-  HelpYouForm,
   HeroLicense,
   Layout,
   LicenseAditionalInfo,
@@ -38,8 +37,6 @@ export default function License() {
       <LicenseTourist />
 
       <Contact />
-
-      <HelpYouForm />
 
       <Footer />
     </section>
