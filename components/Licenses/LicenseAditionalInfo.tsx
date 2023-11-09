@@ -86,7 +86,7 @@ export const LicenseAditionalInfo = () => {
         <p>
           Cada comunidad autónoma tiene competencias propias para establecer los
           requisitos que debe cumplir una vivienda para obtener una licencia
-          turística para alquiler vacacional. 
+          turística para alquiler vacacional.
         </p>
         <p>
           Además, los tipos de licencias, tasas, zonas permitidas, etc,  pueden
@@ -176,7 +176,7 @@ export const LicenseAditionalInfo = () => {
           <Link href={'/licencias-turisticas-alicante'}>
             <div className=' w-80 h-96 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
               <div
-                className={`w-full h-full bg-cover flex items-end bg-torrevieja`}
+                className={`w-full h-full bg-cover flex items-end bg-alicante`}
               >
                 <h4 className='text-white pl-4 pb-4 text-sm md:text-lg'>
                   Licencia turística en <br /> Alicante

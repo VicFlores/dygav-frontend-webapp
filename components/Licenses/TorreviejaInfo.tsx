@@ -34,12 +34,12 @@ export const TorreviejaInfo = () => {
   };
 
   return (
-    <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32'>
-      <h1 className='text-center text-2xl px-14 md:text-3xl text-black700 pb-4 font-semibold'>
+    <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32 flex flex-col items-center'>
+      <h1 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-2/3  lg:w-2/3'>
         Licencias turísticas en Torrevieja
       </h1>
 
-      <div className='text-justify text-sm md:text-lg border-t-4 border-t-p600 pt-4 space-y-4 mb-14'>
+      <div className='text-justify text-sm md:text-lg pt-4 space-y-4 mb-14'>
         <p>
           En Torrevieja, el alquiler vacacional se ha consolidado como una
           opción rentable para muchos propietarios. Sin embargo, el proceso para
@@ -119,12 +119,12 @@ export const TorreviejaInfo = () => {
 
       <h2
         id='alquiler-turistico'
-        className='font-semibold text-center text-2xl px-5 md:px-14 md:text-3xl text-black700 pb-4 mt-16'
+        className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-2/3  lg:w-2/3 mt-16'
       >
         ¿Qué es el alquiler turístico?
       </h2>
 
-      <p className='text-justify text-sm md:text-lg border-t-4 border-t-p600 px-3 pt-4'>
+      <p className='text-justify text-sm md:text-lg px-3 pt-4'>
         El alquiler turístico es una modalidad de alojamiento que permite a los
         turistas disfrutar de una estancia temporal en una vivienda en lugar de
         un hotel. Por lo general, este tipo de alquiler dura menos de dos meses
@@ -136,12 +136,12 @@ export const TorreviejaInfo = () => {
 
       <h2
         id='solicitar-licencia'
-        className='font-semibold text-center text-2xl px-0 md:px-14 md:text-3xl text-black700 pb-4 mt-16'
+        className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-2/3  lg:w-4/5 mt-16'
       >
         ¿Quién puede solicitar una licencia turística en Torrevieja?
       </h2>
 
-      <p className='text-justify text-sm md:text-lg border-t-4 border-t-p600 px-3 pt-4'>
+      <p className='text-justify text-sm md:text-lg px-3 pt-4'>
         Tanto personas físicas como jurídicas pueden solicitar licencias
         turísticas, independientemente de si son propietarios de la vivienda. Lo
         esencial es que la vivienda se ceda con fines turísticos y con carácter
@@ -152,13 +152,13 @@ export const TorreviejaInfo = () => {
 
       <h2
         id='organismos-licencias'
-        className='font-semibold text-center text-2xl px-0 md:px-14 md:text-3xl text-black700 pb-4 mt-16'
+        className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-2/3  lg:w-4/5 mt-16'
       >
         ¿Quién regula las concesiones de licencias turísticas para alquileres
         vacacionales en Torrevieja?
       </h2>
 
-      <p className='text-justify text-sm md:text-lg border-t-4 border-t-p600 px-3 pt-4'>
+      <p className='text-justify text-sm md:text-lg px-3 pt-4'>
         En España, cada comunidad autónoma dicta sus propias regulaciones y
         dentro de esta son los ayuntamientos los que toman la decisión final. Es
         crucial cumplir con las regulaciones específicas de Comunidad Valenciana
@@ -192,12 +192,12 @@ export const TorreviejaInfo = () => {
 
       <h2
         id='obtener-licencia'
-        className='font-semibold text-center text-2xl px-2 md:px-14 md:text-3xl text-black700 pb-4 mt-16'
+        className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-2/3  lg:w-4/5 mt-16'
       >
         ¿Cómo hay que tributar por una vivienda con fines turísticos?
       </h2>
 
-      <p className='text-justify text-sm md:text-lg border-t-4 border-t-p600 px-3 pt-4'>
+      <p className='text-justify text-sm md:text-lg px-3 pt-4'>
         La actividad de alquiler turístico es un servicio de alojamiento, no un
         establecimiento y se tributa como un arrendamiento urbano, es decir,
         incluyendo los ingresos obtenidos por el desarrollo de la actividad como
@@ -209,13 +209,13 @@ export const TorreviejaInfo = () => {
 
       <h2
         id='documentacion-licencias'
-        className='font-semibold text-center text-2xl px-6 md:px-14 md:text-3xl text-black700 pb-4 mt-16'
+        className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-2/3  lg:w-4/5 mt-16'
       >
         ¿Qué documentación es obligatoria presentar para obtener una licencia
         turística en Torrevieja?
       </h2>
 
-      <p className='text-justify text-sm md:text-lg border-t-4 border-t-p600 px-3 pt-4'>
+      <p className='text-justify text-sm md:text-lg px-3 pt-4'>
         El primer paso es{' '}
         <strong>
           conseguir el certificado de compatibilidad urbanística para vivienda
@@ -231,7 +231,7 @@ export const TorreviejaInfo = () => {
         documentación:
       </p>
 
-      <ol className='text-sm md:text-lg px-3 pt-4 list-disc pl-16'>
+      <ol className='self-start text-sm md:text-lg px-3 pt-4 list-disc pl-16'>
         <li>Justificante del pago de la tasa de 54, 10 euros.</li>
         <li>Fotografía de la fachada.</li>
         <li>Plano de situación de la actividad proyectada.</li>
@@ -239,7 +239,7 @@ export const TorreviejaInfo = () => {
         <li>Declaración responsable de primera o segunda ocupación.</li>
       </ol>
 
-      <p className='text-justify text-sm md:text-lg px-3 mt-6'>
+      <p className='self-start text-justify text-sm md:text-lg px-3 mt-6'>
         <span>
           Puede ver todos los trámite necesarios en este{' '}
           <Link
@@ -348,7 +348,7 @@ export const TorreviejaInfo = () => {
         ¿Dónde y cuándo puedo solicitar la licencia turística?
       </h2>
 
-      <p className='text-justify text-sm md:text-lg border-t-4 border-t-p600 px-3 pt-4'>
+      <p className='text-justify text-sm md:text-lg px-3 pt-4'>
         Es posible solicitar la licencia turística en cualquier momento del año,
         pero se debe hacer antes de comenzar con la actividad de alquiler.{' '}
         <strong>
@@ -369,7 +369,7 @@ export const TorreviejaInfo = () => {
         ¿Cuánto tarda la licencia turística en Torrevieja?
       </h2>
 
-      <div className='text-justify text-sm md:text-lg pt-4 border-t-4 border-t-p600 space-y-4 mb-14'>
+      <div className='text-justify text-sm md:text-lg pt-4 space-y-4 mb-14'>
         <p>
           Normalmente, la compatibilidad urbanística que depende del
           Ayuntamiento de Torrevieja tarda 3 meses, y una vez tenemos eso,

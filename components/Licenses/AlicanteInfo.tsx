@@ -63,40 +63,42 @@ export const AlicanteInfo = () => {
 
         <ol className='text-sm md:text-lg px-3 pt-4 list-decimal pl-2 md:pl-12 lg:pl-16 space-y-6'>
           <li>
-            Verificar que la vivienda cumple con los requisitos: Antes de
-            solicitar la licencia turística, es importante verificar que la
-            vivienda cumple con los requisitos de calidad y seguridad exigidos
-            por la ley. Esto incluye contar con instalaciones adecuadas para la
-            climatización, la electricidad y el agua, y cumplir con las normas
-            de seguridad en cuanto a la construcción y el mobiliario.
+            <strong>
+              Verificar que la vivienda cumple con los requisitos:
+            </strong>{' '}
+            Antes de solicitar la licencia turística, es importante verificar
+            que la vivienda cumple con los requisitos de calidad y seguridad
+            exigidos por la ley. Esto incluye contar con instalaciones adecuadas
+            para la climatización, la electricidad y el agua, y cumplir con las
+            normas de seguridad en cuanto a la construcción y el mobiliario.
           </li>
           <li>
-            Obtener el Certificado de Aptitud de la vivienda: Para obtener este
-            certificado, es necesario contratar a un técnico especializado que
-            realice una inspección de la vivienda y verifique que cumple con los
-            requisitos exigidos por la ley. Este certificado es esencial para el
-            proceso de obtención de la licencia turística.
+            <strong>Obtener el Certificado de Aptitud de la vivienda:</strong>{' '}
+            Para obtener este certificado, es necesario contratar a un técnico
+            especializado que realice una inspección de la vivienda y verifique
+            que cumple con los requisitos exigidos por la ley. Este certificado
+            es esencial para el proceso de obtención de la licencia turística.
           </li>
           <li>
-            Presentar la solicitud de licencia turística: Una vez se cuenta con
-            el Certificado de Aptitud, se puede proceder a presentar la
-            solicitud de licencia turística en el Ayuntamiento de Alicante. Es
-            importante contar con toda la documentación necesaria, incluyendo el
-            Certificado de Aptitud, el registro de la propiedad y el comprobante
-            del pago de las tasas correspondientes.
+            <strong>Presentar la solicitud de licencia turística:</strong> Una
+            vez se cuenta con el Certificado de Aptitud, se puede proceder a
+            presentar la solicitud de licencia turística en el Ayuntamiento de
+            Alicante. Es importante contar con toda la documentación necesaria,
+            incluyendo el Certificado de Aptitud, el registro de la propiedad y
+            el comprobante del pago de las tasas correspondientes.
           </li>
           <li>
-            Inspección de la vivienda: Una vez se ha presentado la solicitud, se
-            llevará a cabo una inspección de la vivienda por parte de los
-            inspectores del Ayuntamiento de Alicante. En esta inspección, se
-            verificará que la vivienda cumple con todos los requisitos exigidos
-            por la ley.
+            <strong>Inspección de la vivienda:</strong> Una vez se ha presentado
+            la solicitud, se llevará a cabo una inspección de la vivienda por
+            parte de los inspectores del Ayuntamiento de Alicante. En esta
+            inspección, se verificará que la vivienda cumple con todos los
+            requisitos exigidos por la ley.
           </li>
           <li>
-            Obtención de la licencia turística: Si la vivienda cumple con todos
-            los requisitos exigidos, se otorgará la licencia turística, que
-            permitirá al propietario alquilar la vivienda a turistas de manera
-            legal y regulada.
+            <strong>Obtención de la licencia turística:</strong> Si la vivienda
+            cumple con todos los requisitos exigidos, se otorgará la licencia
+            turística, que permitirá al propietario alquilar la vivienda a
+            turistas de manera legal y regulada.
           </li>
         </ol>
 
@@ -333,7 +335,7 @@ export const AlicanteInfo = () => {
       </div>
 
       <div className='flex justify-center items-center pt-10 '>
-        <div className='flex flex-col md:flex-row justify-center items-center bg-gray300/40 border border-p600 rounded-xl p-10 md:py-5'>
+        <div className='flex flex-col md:flex-row justify-center items-center bg-gray300/40 border border-p600 rounded-xl p-32 md:py-5'>
           <figure className='h-40 w-40 md:h-44 md:w-44 lg:h-60 lg:w-60 relative m-0'>
             <Image
               src={
@@ -519,6 +521,29 @@ export const AlicanteInfo = () => {
         </ul>
       </div>
 
+      <div className='flex flex-col md:flex-row justify-evenly items-center mt-14 mb-14 space-y-8 md:space-y-0 md:space-x-8'>
+        <figure className='relative w-80 h-80 md:w-[460px] md:h-[370px] '>
+          <Image
+            src={
+              'https://res.cloudinary.com/vicflores11/image/upload/v1699488277/Dygav/Alicante/Licencias_Tur%C3%ADsticas__Ayuntamiento_de_Alicante_nn3dun.png'
+            }
+            alt='Licencias turísticas: Ayuntamiento de Alicante'
+            layout='fill'
+            className='rounded-2xl'
+          />
+        </figure>
+        <figure className='relative w-80 h-80 md:w-[460px] md:h-[370px]'>
+          <Image
+            src={
+              'https://res.cloudinary.com/vicflores11/image/upload/v1699488275/Dygav/Alicante/4_qzdyhb.png'
+            }
+            alt='Licencias turísticas: Alicante Ciudad '
+            layout='fill'
+            className='rounded-2xl'
+          />
+        </figure>
+      </div>
+
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-[90%] lg:w-[90%] mt-10 md:mt-16'>
         ¿Cómo realizar la presentación de la solicitud de la licencia en
         Alicante?
@@ -632,7 +657,7 @@ export const AlicanteInfo = () => {
         </p>
       </div>
 
-      <div className='flex flex-col lg:flex-row lg:justify-evenly justify-center items-center my-24  lg:space-x-8'>
+      <div className='flex flex-col lg:flex-row lg:justify-evenly justify-center items-center my-24  lg:space-x-8 bg-gray300/30 py-10 md:p-14'>
         <div className='space-y-2 text-lg md:text-xl text-center'>
           <h3 className='text-p600 font-semibold uppercase'>
             ¿Necesitas ayuda?

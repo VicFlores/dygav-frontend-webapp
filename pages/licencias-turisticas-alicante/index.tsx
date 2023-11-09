@@ -9,10 +9,11 @@ import {
 import { useSession } from 'next-auth/react';
 
 const images = [
-  'https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/2_jvslgl.WebP',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/1_zifm3q.WebP',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/4_j1srba.WebP',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1697903684/Dygav/torrevieja/3_pdtmep.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699488551/Dygav/Alicante/1_b1a7da.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699488551/Dygav/Alicante/1_b1a7da.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699488547/Dygav/Alicante/3_knlkzn.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699488277/Dygav/Alicante/Licencias_Tur%C3%ADsticas__Ayuntamiento_de_Alicante_nn3dun.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699488275/Dygav/Alicante/4_qzdyhb.WebP',
 ];
 
 const AlicantePage = () => {
