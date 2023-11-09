@@ -59,7 +59,7 @@ export const HelpYouForm = () => {
       <form
         id='formulario'
         onSubmit={handleSubmit(onSubmit)}
-        className='grid gap-8 px-2 lg:px-10 py-6 pt-4 border-0 md:border-2 border-gray300'
+        className='grid gap-8 px-2 lg:px-10 py-6 pt-4 border-0 md:border border-p600 rounded-xl'
       >
         <p className='text-xl text-center'>Te llamamos nosotros</p>
 
