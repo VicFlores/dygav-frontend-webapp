@@ -335,7 +335,7 @@ export const AlicanteInfo = () => {
       </div>
 
       <div className='flex justify-center items-center pt-10 '>
-        <div className='flex flex-col md:flex-row justify-center items-center bg-gray300/40 border border-p600 rounded-xl p-32 md:py-5'>
+        <div className='flex flex-col md:flex-row justify-center items-center bg-gray300/40 border border-p600 rounded-xl p-10 lg:p-32 md:py-5'>
           <figure className='h-40 w-40 md:h-44 md:w-44 lg:h-60 lg:w-60 relative m-0'>
             <Image
               src={
@@ -657,7 +657,7 @@ export const AlicanteInfo = () => {
         </p>
       </div>
 
-      <div className='flex flex-col lg:flex-row lg:justify-evenly justify-center items-center my-24  lg:space-x-8 bg-gray300/30 py-10 md:p-14'>
+      <div className='flex flex-col lg:flex-row lg:justify-evenly justify-center items-center my-24  lg:space-x-8 bg-gray300/30 py-10 md:p-14 rounded-xl border border-p600'>
         <div className='space-y-2 text-lg md:text-xl text-center'>
           <h3 className='text-p600 font-semibold uppercase'>
             ¿Necesitas ayuda?
@@ -684,7 +684,7 @@ export const AlicanteInfo = () => {
         <form
           id='formulario'
           onSubmit={handleSubmit(onSubmit)}
-          className='grid gap-8 px-6 lg:px-10 py-6 pt-4 border-2 border-gray300'
+          className='grid gap-8 px-6 lg:px-10 py-6 pt-4 border-2 border-gray300 bg-white'
         >
           <p className='text-xl text-center'>Completa tu información</p>
 
