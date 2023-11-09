@@ -1,6 +1,18 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { AlquilerVacacional, HelpYouForm, LicenciasTuristicas } from '..';
+import { CityImages } from './CityImages';
+
+const images = [
+  {
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1699488277/Dygav/Alicante/Licencias_Tur%C3%ADsticas__Ayuntamiento_de_Alicante_nn3dun.webp',
+    alt: 'Licencias turísticas: Ayuntamiento de Alicante',
+  },
+  {
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1699488555/Dygav/Alicante/4_zlt2r6.webp',
+    alt: 'Licencias turísticas: Alicante Ciudad',
+  },
+];
 
 export const AlicanteInfo = () => {
   return (
@@ -442,28 +454,7 @@ export const AlicanteInfo = () => {
         </ul>
       </div>
 
-      <div className='flex flex-col lg:flex-row justify-evenly items-center mt-14 mb-14 space-y-8 lg:space-y-0 lg:space-x-8'>
-        <figure className='relative w-80 h-80 md:w-[460px] md:h-[370px] '>
-          <Image
-            src={
-              'https://res.cloudinary.com/vicflores11/image/upload/v1699488277/Dygav/Alicante/Licencias_Tur%C3%ADsticas__Ayuntamiento_de_Alicante_nn3dun.png'
-            }
-            alt='Licencias turísticas: Ayuntamiento de Alicante'
-            layout='fill'
-            className='rounded-2xl'
-          />
-        </figure>
-        <figure className='relative w-80 h-80 md:w-[460px] md:h-[370px]'>
-          <Image
-            src={
-              'https://res.cloudinary.com/vicflores11/image/upload/v1699488275/Dygav/Alicante/4_qzdyhb.png'
-            }
-            alt='Licencias turísticas: Alicante Ciudad '
-            layout='fill'
-            className='rounded-2xl'
-          />
-        </figure>
-      </div>
+      <CityImages images={images} />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto md:px-10 lg:mx-48 mt-10 md:mt-16'>
         ¿Cómo realizar la presentación de la solicitud de la licencia en

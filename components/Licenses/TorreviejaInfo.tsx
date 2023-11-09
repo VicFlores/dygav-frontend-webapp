@@ -2,6 +2,18 @@ import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { HelpYouForm } from '../HelpYouForm/HelpYouForm';
 import { AlquilerVacacional, LicenciasTuristicas } from '..';
+import { CityImages } from './CityImages';
+
+const images = [
+  {
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1699399186/Dygav/torrevieja/Torrevieja_Plaza_de_la_Constituci%C3%B3n_y0ewgo.png',
+    alt: 'Plaza de la Constitución Torrevieja ',
+  },
+  {
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1699399171/Dygav/torrevieja/No_usada_todavia_usar_1_lxm0gv.png',
+    alt: 'Ayuntamiento de Torrevieja',
+  },
+];
 
 export const TorreviejaInfo = () => {
   return (
@@ -161,28 +173,7 @@ export const TorreviejaInfo = () => {
         </span>
       </p>
 
-      <div className='flex flex-col lg:flex-row justify-evenly items-center mt-14 mb-14 space-y-8 lg:space-y-0 lg:space-x-8'>
-        <figure className='relative w-80 h-80 md:w-[460px] md:h-[370px] '>
-          <Image
-            src={
-              'https://res.cloudinary.com/vicflores11/image/upload/v1699399186/Dygav/torrevieja/Torrevieja_Plaza_de_la_Constituci%C3%B3n_y0ewgo.png'
-            }
-            alt=''
-            layout='fill'
-            className='rounded-2xl'
-          />
-        </figure>
-        <figure className='relative w-80 h-80 md:w-[460px] md:h-[370px]'>
-          <Image
-            src={
-              'https://res.cloudinary.com/vicflores11/image/upload/v1699399171/Dygav/torrevieja/No_usada_todavia_usar_1_lxm0gv.png'
-            }
-            alt=''
-            layout='fill'
-            className='rounded-2xl'
-          />
-        </figure>
-      </div>
+      <CityImages images={images} />
 
       <div className='text-justify text-sm md:text-lg pt-4 space-y-4 mb-14'>
         <p>
