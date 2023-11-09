@@ -62,18 +62,22 @@ export const Reservation: FC<{ id: string }> = ({ id }) => {
               </span>
 
               <span>
-                <p className='text-base md:text-lg font-semibold'>
-                  Checkin - Checkout
-                </p>
+                <p className='text-base md:text-lg font-semibold'>Huespedes:</p>
                 <p className='text-sm md:text-base'>
-                  {reservationInfo.checkinTime} - {reservationInfo.checkoutTime}
+                  {reservationInfo.numberOfguests} personas
                 </p>
               </span>
 
               <span>
-                <p className='text-base md:text-lg font-semibold'>Huespedes:</p>
-                <p className='text-sm md:text-base'>
-                  {reservationInfo.numberOfguests} personas
+                <p className='text-base md:text-lg font-semibold'>Checkin</p>
+                <p className='text-sm md:text-base font-semibold'>
+                  {reservationInfo.checkinTime}
+                </p>
+              </span>
+              <span>
+                <p className='text-base md:text-lg font-semibold'>Checkout</p>
+                <p className='text-sm md:text-base font-semibold'>
+                  {reservationInfo.checkoutTime}
                 </p>
               </span>
 
