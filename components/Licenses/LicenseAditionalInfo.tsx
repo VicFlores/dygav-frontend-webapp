@@ -14,9 +14,10 @@ export const LicenseAditionalInfo = () => {
 
       <div className='text-justify text-sm md:text-lg pt-4 space-y-4'>
         <p>
-          Una licencia turística es un documento legal que permite a los
-          propietarios de viviendas para alquiler turístico de manera legal y
-          regulada.
+          Una{' '}
+          <strong>licencia turística es un documento legal que permite</strong>{' '}
+          a los propietarios de viviendas para alquiler turístico{' '}
+          <strong>operar de manera legal y regulada</strong>
         </p>
         <p>
           Se consideran <strong>viviendas turísticas</strong> los inmuebles,
