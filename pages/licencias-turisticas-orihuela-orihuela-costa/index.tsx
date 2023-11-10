@@ -1,4 +1,11 @@
-import { MainHero, Layout, HeroLicense, Footer, UtilHead } from '@/components';
+import {
+  MainHero,
+  Layout,
+  HeroLicense,
+  Footer,
+  UtilHead,
+  OrihuelaOrihuelaCostaInfo,
+} from '@/components';
 import { useSession } from 'next-auth/react';
 
 const images = [
@@ -27,7 +34,7 @@ const OrihuelaOrihuelaCostaPage = () => {
         </Layout>
       </MainHero>
 
-      <OrihuelaOrihuelaCostaPage />
+      <OrihuelaOrihuelaCostaInfo />
 
       <Footer />
     </section>
