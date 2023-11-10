@@ -1,6 +1,29 @@
-import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { AlquilerVacacional } from '..';
+import { CityCards } from './CityCards';
+
+const images = [
+  {
+    href: '/licencias-turisticas-torrevieja',
+    cityName: 'Torrevieja',
+    bgCity: 'bg-torrevieja',
+  },
+  {
+    href: '/licencias-turisticas-alicante',
+    cityName: 'Alicante',
+    bgCity: 'bg-alicante',
+  },
+  {
+    href: '/licencias-turisticas-benidorm',
+    cityName: 'Benidorm',
+    bgCity: 'bg-benidorm',
+  },
+  {
+    href: '/licencias-turisticas-orihuela-orihuela-costa',
+    cityName: 'Orihuela y Orihuela Costa',
+    bgCity: 'bg-orihuela',
+  },
+];
 
 export const LicenseAditionalInfo = () => {
   return (
@@ -139,55 +162,7 @@ export const LicenseAditionalInfo = () => {
           </h3>
         </div>
 
-        <div className='w-auto h-auto items-center mt-6 p-6 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden lg:col-start-2 lg:col-end-4'>
-          <Link href={'/licencias-turisticas-torrevieja'}>
-            <div className=' w-80 h-96 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
-              <div
-                className={`w-full h-full bg-cover flex items-end bg-torrevieja`}
-              >
-                <h4 className='text-white pl-4 pb-4 text-sm md:text-lg'>
-                  Licencia turística en <br /> Torrevieja
-                </h4>
-              </div>
-            </div>
-          </Link>
-
-          <Link href={'/licencias-turisticas-alicante'}>
-            <div className=' w-80 h-96 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
-              <div
-                className={`w-full h-full bg-cover flex items-end bg-alicante`}
-              >
-                <h4 className='text-white pl-4 pb-4 text-sm md:text-lg'>
-                  Licencia turística en <br /> Alicante
-                </h4>
-              </div>
-            </div>
-          </Link>
-
-          <Link href={'/licencias-turisticas-benidorm'}>
-            <div className=' w-80 h-96 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
-              <div
-                className={`w-full h-full bg-cover flex items-end bg-benidorm`}
-              >
-                <h4 className='text-white pl-4 pb-4 text-sm md:text-lg'>
-                  Licencia turística en <br /> Benidorm
-                </h4>
-              </div>
-            </div>
-          </Link>
-
-          <Link href={'/licencias-turisticas-benidorm'}>
-            <div className=' w-80 h-96 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
-              <div
-                className={`w-full h-full bg-cover flex items-end bg-benidorm`}
-              >
-                <h4 className='text-white pl-4 pb-4 text-sm md:text-lg'>
-                  Licencia turística en <br /> Orihuela y Orihuela Costa
-                </h4>
-              </div>
-            </div>
-          </Link>
-        </div>
+        <CityCards images={images} />
       </div>
     </section>
   );
