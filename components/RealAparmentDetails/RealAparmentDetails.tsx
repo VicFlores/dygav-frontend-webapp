@@ -215,7 +215,7 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
       : Number(accomodation.features.n_hab) === 2
       ? 75
       : Number(accomodation.features.n_hab) === 3
-      ? 90
+      ? 120
       : 0;
 
   return (
