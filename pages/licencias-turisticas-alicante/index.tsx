@@ -5,6 +5,7 @@ import {
   AlicanteInfo,
   Footer,
   UtilHead,
+  HelpFixedButton,
 } from '@/components';
 import { useSession } from 'next-auth/react';
 
@@ -33,6 +34,8 @@ const AlicantePage = () => {
           />
         </Layout>
       </MainHero>
+
+      <HelpFixedButton />
 
       <AlicanteInfo />
 

@@ -5,6 +5,7 @@ import {
   Footer,
   UtilHead,
   OrihuelaOrihuelaCostaInfo,
+  HelpFixedButton,
 } from '@/components';
 import { useSession } from 'next-auth/react';
 
@@ -34,6 +35,8 @@ const OrihuelaOrihuelaCostaPage = () => {
           />
         </Layout>
       </MainHero>
+
+      <HelpFixedButton />
 
       <OrihuelaOrihuelaCostaInfo />
 

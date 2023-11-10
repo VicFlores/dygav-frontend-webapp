@@ -1,5 +1,6 @@
 import {
   Footer,
+  HelpFixedButton,
   HeroAparmentDetails,
   Layout,
   MainHero,
@@ -23,6 +24,8 @@ const RealAparmentDetailsPage = () => {
           <HeroAparmentDetails />
         </Layout>
       </MainHero>
+
+      <HelpFixedButton />
 
       <RealAparmentDetails id={router.query.id as string} />
 

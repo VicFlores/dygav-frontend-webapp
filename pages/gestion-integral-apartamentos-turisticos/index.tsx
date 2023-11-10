@@ -7,6 +7,7 @@ import {
   MainHero,
   Layout,
   UtilHead,
+  HelpFixedButton,
 } from '@/components';
 import { useSession } from 'next-auth/react';
 
@@ -22,6 +23,8 @@ const OwnersPage = () => {
           <HeroOwners />
         </Layout>
       </MainHero>
+
+      <HelpFixedButton />
 
       <PeachOwners />
 

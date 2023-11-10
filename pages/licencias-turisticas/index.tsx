@@ -2,6 +2,7 @@ import {
   Contact,
   Footer,
   GetLicense,
+  HelpFixedButton,
   HeroLicense,
   Layout,
   LicenseAditionalInfo,
@@ -29,6 +30,8 @@ export default function License() {
           />
         </Layout>
       </MainHero>
+
+      <HelpFixedButton />
 
       <LicenseAditionalInfo />
 
