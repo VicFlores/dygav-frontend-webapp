@@ -1,5 +1,6 @@
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
+import 'moment/locale/es';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { FC, useEffect, useState } from 'react';
 import { ReservationAvaibook } from '@/types';
@@ -219,6 +220,7 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
           time: 'Hora',
           event: 'Evento',
           noEventsInRange: 'No hay reservaciones en este rango',
+
           showMore: (total) => `+ Ver mas (${total})`,
         }}
         onSelectEvent={(e) => handleEventClick(e)}

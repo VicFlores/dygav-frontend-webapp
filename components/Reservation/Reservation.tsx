@@ -86,14 +86,14 @@ export const Reservation: FC<{ id: string }> = ({ id }) => {
                   Total estancia:
                 </p>
                 <p className='text-sm md:text-base'>
-                  ${reservationInfo.totalAmount}
+                  €{reservationInfo.totalAmount}
                 </p>
               </span>
 
               <span>
                 <p className='text-base md:text-lg font-semibold'>Anticipo:</p>
                 <p className='text-sm md:text-base'>
-                  ${reservationInfo.advance}
+                  €{reservationInfo.advance}
                 </p>
               </span>
 
@@ -102,7 +102,7 @@ export const Reservation: FC<{ id: string }> = ({ id }) => {
                   Resto a pagar:
                 </p>
                 <p className='text-sm md:text-base'>
-                  ${reservationInfo.secondPayment}
+                  €{reservationInfo.secondPayment}
                 </p>
               </span>
 
@@ -111,7 +111,7 @@ export const Reservation: FC<{ id: string }> = ({ id }) => {
                   Comision de plataforma vacacional:
                 </p>
                 <p className='text-sm md:text-base'>
-                  ${reservationInfo.partnerFee}
+                  €{reservationInfo.partnerFee}
                 </p>
               </span>
 
@@ -120,7 +120,7 @@ export const Reservation: FC<{ id: string }> = ({ id }) => {
                   Comision de DYGAV:
                 </p>
                 <p className='text-sm md:text-base'>
-                  ${reservationInfo.totalAmount * 0.15}
+                  €{reservationInfo.totalAmount * 0.15}
                 </p>
               </span>
             </div>
