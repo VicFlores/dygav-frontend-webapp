@@ -6,7 +6,7 @@ export const Llamanos: FC<{ paddingX?: string }> = ({ paddingX = 'px-16' }) => {
   return (
     <div className='flex justify-center items-center'>
       <div
-        className={`flex flex-col md:flex-row justify-center items-center  bg-gray300/40 border border-p600 rounded-xl ${paddingX} py-10 md:py-5`}
+        className={`flex flex-col md:flex-row justify-center items-center  bg-gray300/40 border border-p600 rounded-xl px-9 md:px-10 ${paddingX} py-10 md:py-5`}
       >
         <figure className='relative w-52 h-52 md:w-64 md:h-64'>
           <Image
