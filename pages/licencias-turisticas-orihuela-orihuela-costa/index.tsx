@@ -9,10 +9,11 @@ import {
 import { useSession } from 'next-auth/react';
 
 const images = [
-  'https://res.cloudinary.com/vicflores11/image/upload/v1699488551/Dygav/Alicante/1_b1a7da.WebP',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1699488551/Dygav/Alicante/1_b1a7da.WebP',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1699488547/Dygav/Alicante/3_knlkzn.WebP',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1699488275/Dygav/Alicante/4_qzdyhb.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699647186/Dygav/Orihuela/9_v4hbbl.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699647185/Dygav/Orihuela/Copia_de_8_fuequq.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699647184/Dygav/Orihuela/6_azqjjg.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699647182/Dygav/Orihuela/5_fqgfli.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699647181/Dygav/Orihuela/10_p5fxqw.WebP',
 ];
 
 const OrihuelaOrihuelaCostaPage = () => {

@@ -47,6 +47,8 @@ const config: Config = {
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1699488275/Dygav/Alicante/4_qzdyhb.WebP')",
         benidorm:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1699567156/Dygav/Benidorm/Copia_de_2_doz1la.WebP')",
+          orihuela:
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1699646545/Dygav/Orihuela/Copia_de_7_xhahz0.png')",
       },
     },
   },
