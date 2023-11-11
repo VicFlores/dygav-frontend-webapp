@@ -33,7 +33,7 @@ export const Information = () => {
           Conviértete en un propietario DYGAV
         </p>
 
-        <Llamanos />
+        <Llamanos paddingX='lg:px-28' />
 
         <div>
           <p className='text-center px-4 md:px-0 text-2xl md:text-3xl text-black700 pb-4 font-semibold border-b-4 border-b-p600'>

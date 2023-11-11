@@ -1,7 +1,6 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import React from 'react';
-import { BiPhoneCall } from 'react-icons/bi';
 import { Llamanos } from '..';
 
 export const GetLicense = () => {
@@ -32,7 +31,7 @@ export const GetLicense = () => {
         </Link>
       </div>
 
-      <Llamanos paddingX='px-36' />
+      <Llamanos paddingX='lg:px-36' />
     </section>
   );
 };
