@@ -6,7 +6,7 @@ import { Llamanos } from '..';
 export const GetLicense = () => {
   return (
     <section className='mt-16 md:mb-16 px-6 md:px-12 lg:px-32 flex flex-col items-center'>
-      <h2 className='text-center text-2xl md:text-3xl mt-16 pb-4 font-semibold border-b-4 border-b-p600 w-[85%] md:w-3/4 lg:w-4/5'>
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-96 lg:px-10 mt-16'>
         ¡Tú Licencia Turística Más Cerca de lo que Crees!
       </h2>
 
