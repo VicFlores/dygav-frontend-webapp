@@ -326,12 +326,6 @@ export const TorreviejaInfo = () => {
       </div>
 
       <HelpYouForm />
-
-      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-10 md:px-4 mt-12'>
-        ¿Deseas obtener informacion sobre mas licencias turisticas?
-      </h2>
-
-      <CityCardsFooter images={imagesLicenses} />
     </section>
   );
 };
