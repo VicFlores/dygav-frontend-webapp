@@ -21,12 +21,12 @@ const images = [
   {
     href: '/licencias-turisticas-orihuela-orihuela-costa',
     cityName: 'Orihuela',
-    bgCity: 'bg-orihuela',
+    bgCity: 'bg-orihuelaCosta',
   },
   {
     href: '/licencias-turisticas-orihuela-orihuela-costa',
     cityName: 'Orihuela Costa',
-    bgCity: 'bg-orihuelaCosta',
+    bgCity: 'bg-orihuela',
   },
 ];
 
@@ -156,7 +156,7 @@ export const LicenseAditionalInfo = () => {
           <h2 className='text-[18px] lg:text-[31px] md:text-[26px]'>
             GUÍAS ACTUALIZADAS POR MUNICIPIOS
           </h2>
-          <h3 className='text-center text-2xl  md:text-3xl font-semibold pt-3'>
+          <h3 className='text-center md:text-start text-2xl  md:text-3xl font-semibold pt-3'>
             ¿Cómo obtener una licencia turística en mi ciudad?
           </h3>
         </div>
