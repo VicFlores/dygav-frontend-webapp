@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { AlquilerVacacional, LicenciasTuristicas } from '..';
+import { AlquilerVacacional, HelpYouForm, LicenciasTuristicas } from '..';
 import { CityImages } from './CityImages';
 
 const images = [
@@ -299,6 +299,8 @@ export const OrihuelaOrihuelaCostaInfo = () => {
         asistencia y asegurar que el proceso se realice de manera correcta y en
         los plazos establecidos.
       </p>
+
+      <HelpYouForm />
     </section>
   );
 };
