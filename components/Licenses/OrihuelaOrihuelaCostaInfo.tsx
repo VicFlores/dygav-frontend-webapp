@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { AlquilerVacacional } from '..';
+import { AlquilerVacacional, LicenciasTuristicas } from '..';
 import { CityImages } from './CityImages';
 
 const images = [
@@ -130,6 +130,8 @@ export const OrihuelaOrihuelaCostaInfo = () => {
         de la Comunidad Valenciana y de los municipios como Orihuela para operar
         legalmente una vivienda vacacional.
       </p>
+
+      <LicenciasTuristicas />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-56 lg:px-4 mt-16'>
         ¿Qué requisitos debe cumplir una vivienda de alquiler vacacional en
