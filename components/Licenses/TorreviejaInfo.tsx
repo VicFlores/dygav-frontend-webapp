@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { HelpYouForm } from '../HelpYouForm/HelpYouForm';
 import { AlquilerVacacional, LicenciasTuristicas } from '..';
 import { CityImages } from './CityImages';
+import { CityCardsFooter } from './CityCardsFooter';
 
 const images = [
   {
@@ -12,6 +13,34 @@ const images = [
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1699399171/Dygav/torrevieja/No_usada_todavia_usar_1_lxm0gv.png',
     alt: 'Ayuntamiento de Torrevieja',
+  },
+];
+
+const imagesLicenses = [
+  {
+    href: '/licencias-turisticas-torrevieja',
+    cityName: 'Torrevieja',
+    bgCity: 'bg-torrevieja',
+  },
+  {
+    href: '/licencias-turisticas-alicante',
+    cityName: 'Alicante',
+    bgCity: 'bg-alicante',
+  },
+  {
+    href: '/licencias-turisticas-benidorm',
+    cityName: 'Benidorm',
+    bgCity: 'bg-benidorm',
+  },
+  {
+    href: '/licencias-turisticas-orihuela-orihuela-costa',
+    cityName: 'Orihuela',
+    bgCity: 'bg-orihuelaCosta',
+  },
+  {
+    href: '/licencias-turisticas-orihuela-orihuela-costa',
+    cityName: 'Orihuela Costa',
+    bgCity: 'bg-orihuela',
   },
 ];
 
@@ -297,6 +326,12 @@ export const TorreviejaInfo = () => {
       </div>
 
       <HelpYouForm />
+
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-10 md:px-4 mt-12'>
+        ¿Deseas obtener informacion sobre mas licencias turisticas?
+      </h2>
+
+      <CityCardsFooter images={imagesLicenses} />
     </section>
   );
 };

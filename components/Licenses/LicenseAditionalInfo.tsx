@@ -149,12 +149,12 @@ export const LicenseAditionalInfo = () => {
       </div>
 
       <div
-        className='w-full h-auto grid md:grid-cols-2 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4'
+        className='w-full h-auto grid md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4'
         id='recomendadas'
       >
         <div className='md:self-center md:justify-self-center divide-y-4 divide-p600 text-center md:text-start'>
-          <h2 className='text-[18px] lg:text-[31px] md:text-[26px]'>
-            GUÍAS ACTUALIZADAS POR MUNICIPIOS
+          <h2 className='text-2xl lg:text-[31px] md:text-[26px]'>
+            GUÍAS ACTUALIZADAS <br /> POR MUNICIPIOS
           </h2>
           <h3 className='text-center md:text-start text-2xl  md:text-3xl font-semibold pt-3'>
             ¿Cómo obtener una licencia turística en mi ciudad?
