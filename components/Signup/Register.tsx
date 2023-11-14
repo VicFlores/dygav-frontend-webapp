@@ -1,10 +1,15 @@
-import { ChangeEvent, ChangeEventHandler, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import axios, { AxiosError } from 'axios';
 import { BiExtension } from 'react-icons/bi';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
+import {
+  MdOutlineDriveFileRenameOutline,
+  MdOutlineMail,
+  MdOutlinePassword,
+} from 'react-icons/md';
 import Link from 'next/link';
 
 export const Register = () => {
@@ -70,13 +75,14 @@ export const Register = () => {
             ¡Bienvenido!
           </p>
           <p className='text-base md:text-lg lg:text-xl'>
-            Crear una cuenta en DYGAV
+            Crear tu cuenta en{' '}
+            <span className='font-semibold text-p600'>DYGAV</span>
           </p>
         </div>
 
         <form className='grid items-center justify-center gap-8 pt-4'>
           <label className='relative'>
-            <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <MdOutlineDriveFileRenameOutline className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
             <input
               type='text'
               name='fullname'
@@ -88,7 +94,7 @@ export const Register = () => {
           </label>
 
           <label className='relative'>
-            <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <MdOutlineMail className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
             <input
               type='email'
               name='email'
@@ -100,7 +106,7 @@ export const Register = () => {
           </label>
 
           <label className='relative'>
-            <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+            <MdOutlinePassword className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
             <input
               type='password'
               name='password'
@@ -111,7 +117,7 @@ export const Register = () => {
             />
           </label>
 
-          <div className='text-center'>
+          <div className=''>
             <label>
               <input
                 type='checkbox'
@@ -121,19 +127,20 @@ export const Register = () => {
                 onChange={handleChange}
                 className='mr-2'
               />
+              He leído y acepto la {''}
               <span>
                 <Link
                   href={'/policies/privacyPolicy'}
-                  className='underline'
+                  className='underline  text-p600'
                   target='_blanck'
                 >
-                  Aceptó la política de privacidad
+                  política de privacidad
                 </Link>
               </span>
             </label>
           </div>
 
-          <div className='text-center'>
+          <div className=''>
             <label className='mr-4'>
               <input
                 type='checkbox'
@@ -144,8 +151,7 @@ export const Register = () => {
                 className='mr-2'
               />
               Me gustaría recibir ofertas especiales y notificaciones sobre
-              alquileres vacacionales y promociones relacionadas. Entiendo que
-              puedo darme de baja en cualquier momento
+              alquileres vacacionales y promociones relacionadas.
             </label>
           </div>
         </form>
