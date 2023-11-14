@@ -57,43 +57,49 @@ export const CityCardsFooter = () => {
   images = images.filter((image) => image.href !== router.pathname);
 
   return (
-    <div className='grid lg:grid-cols-12'>
-      <button
-        onClick={scrollLeft}
-        className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 ml-3 -bottom-36 justify-self-center self-center'
-      >
-        <AiOutlineArrowLeft />
-      </button>
+    <>
+      <h2 className='px-6 text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-10 md:px-4 mt-16'>
+        Licencias Turísticas en otros municipios
+      </h2>
 
-      <div
-        ref={scrollContainer}
-        className='w-auto h-auto items-center mt-6 p-6 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden scrollbar lg:col-start-2 lg:col-end-12'
-      >
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className='w-60 h-80 md:w-70 md:h-80 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'
-          >
+      <div className='grid lg:grid-cols-12'>
+        <button
+          onClick={scrollLeft}
+          className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 ml-3 -bottom-36 justify-self-center self-center'
+        >
+          <AiOutlineArrowLeft />
+        </button>
+
+        <div
+          ref={scrollContainer}
+          className='w-auto h-auto items-center mt-6 p-6 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden scrollbar lg:col-start-2 lg:col-end-12'
+        >
+          {images.map((image, index) => (
             <div
-              className={`w-full h-full bg-cover bg-center flex items-end ${image.bgCity}`}
+              key={index}
+              className='w-60 h-80 md:w-70 md:h-80 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'
             >
-              <Link
-                href={`${image.href}`}
-                className='text-white pl-4 pb-4 text-sm md:text-lg underline'
+              <div
+                className={`w-full h-full bg-cover bg-center flex items-end ${image.bgCity}`}
               >
-                Licencia turística en <br /> {image.cityName}
-              </Link>
+                <Link
+                  href={`${image.href}`}
+                  className='text-white pl-4 pb-4 text-sm md:text-lg underline'
+                >
+                  Licencia turística en <br /> {image.cityName}
+                </Link>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      <button
-        onClick={scrollRight}
-        className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 ml-3 -bottom-36 justify-self-center self-center'
-      >
-        <AiOutlineArrowRight />
-      </button>
-    </div>
+        <button
+          onClick={scrollRight}
+          className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 ml-3 -bottom-36 justify-self-center self-center'
+        >
+          <AiOutlineArrowRight />
+        </button>
+      </div>
+    </>
   );
 };
