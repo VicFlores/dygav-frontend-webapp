@@ -1,4 +1,4 @@
-import { Layout, Register, UtilHead } from '@/components';
+import { Footer, Layout, Register, UtilHead } from '@/components';
 import { useSession } from 'next-auth/react';
 
 export default function RegisterPage() {
@@ -17,6 +17,8 @@ export default function RegisterPage() {
           <Register />
         </Layout>
       </div>
+
+      <Footer />
     </section>
   );
 }

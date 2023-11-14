@@ -1,5 +1,5 @@
-import { Layout, Login, UtilHead } from "@/components";
-import { useSession } from "next-auth/react";
+import { Footer, Layout, Login, UtilHead } from '@/components';
+import { useSession } from 'next-auth/react';
 
 export default function LoginPage() {
   const { data: session } = useSession();
@@ -10,13 +10,15 @@ export default function LoginPage() {
 
       <div
         className={
-          "w-full bg-brandContent bg-center bg-cover bg-no-repeat h-[calc(100vh+280px)] md:h-screen"
+          'w-full bg-brandContent bg-center bg-cover bg-no-repeat h-[calc(100vh+280px)] md:h-screen'
         }
       >
         <Layout>
           <Login session={session} />
         </Layout>
       </div>
+
+      <Footer />
     </section>
   );
 }
