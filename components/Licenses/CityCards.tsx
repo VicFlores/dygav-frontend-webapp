@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from 'react';
+import React, { CSSProperties, FC, useRef, useState } from 'react';
 import Link from 'next/link';
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
 
@@ -38,7 +38,7 @@ export const CityCards: FC<Props> = ({ images }) => {
 
       <div
         ref={scrollContainer}
-        className='w-auto h-auto items-center mt-6 p-6 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden scrollbar scrollbar-thumb-rounded-2xl scrollbar-h-[9px] scrollbar-thumb-p600/90 scrollbar-track-gray300'
+        className='w-auto h-auto items-center mt-6 p-6 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden scrollbar'
       >
         {images.map((image, index) => (
           <Link href={`${image.href}`} key={index}>
