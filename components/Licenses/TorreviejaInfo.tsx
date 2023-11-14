@@ -299,10 +299,6 @@ export const TorreviejaInfo = () => {
 
       <HelpYouForm />
 
-      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-10 md:px-4 mt-16'>
-        Licencias Turísticas en otros municipios
-      </h2>
-
       <CityCardsFooter />
     </section>
   );
