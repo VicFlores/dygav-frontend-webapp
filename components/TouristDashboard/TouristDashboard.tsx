@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ActiveTrips, CanceledTrips, PastTrips } from '@/components';
+import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 export const TouristDashboard = () => {
   const [activeTab, setActiveTab] = useState('active');
@@ -24,7 +25,7 @@ export const TouristDashboard = () => {
           Mis reservas
         </p>
 
-        <ul className='flex flex-row justify-center items-center space-x-12  lg:text-lg'>
+        {/*   <ul className='flex flex-row justify-center items-center space-x-12  lg:text-lg'>
           <li
             className={`cursor-pointer ${
               activeTab === 'active' ? 'text-p600' : ''
@@ -49,10 +50,18 @@ export const TouristDashboard = () => {
           >
             Canceladas
           </li>
-        </ul>
+        </ul> */}
       </div>
 
-      {renderTabContent()}
+      {/* {renderTabContent()} */}
+
+      <div className='flex justify-center items-center'>
+        <div className='flex flex-col justify-center items-center space-y-8 border-[1px] border-dashed h-[266px] w-[717px]'>
+          <p className=' text-black900/[.7] lg:text-3xl'>
+            ¡Aún no tienes reservas!
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
