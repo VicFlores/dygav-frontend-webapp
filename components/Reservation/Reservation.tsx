@@ -27,7 +27,7 @@ export const Reservation: FC<{ id: string }> = ({ id }) => {
     <div className='px-8 space-y-12 mb-24'>
       <div className='flex flex-col md:flex-row justify-center items-center md:justify-between md:items-end border-b-[1px]'>
         <p className=' text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl'>
-          Detalles de reserva
+          Detalles de la reserva
         </p>
       </div>
 
@@ -40,7 +40,8 @@ export const Reservation: FC<{ id: string }> = ({ id }) => {
 
             <p className='text-base md:text-lg font-semibold'>Fechas:</p>
             <p className='text-sm md:text-base'>
-              Checkin: {reservationInfo.checkInDate.toString()} - Checkout :
+              Check-In: {reservationInfo.checkInDate.toString()} - Check-Out:{' '}
+              {''}
               {reservationInfo.checkOutDate.toString()}
             </p>
 
@@ -69,13 +70,13 @@ export const Reservation: FC<{ id: string }> = ({ id }) => {
               </span>
 
               <span>
-                <p className='text-base md:text-lg font-semibold'>Checkin</p>
+                <p className='text-base md:text-lg font-semibold'>Check-In</p>
                 <p className='text-sm md:text-base font-semibold'>
                   {reservationInfo.checkinTime}
                 </p>
               </span>
               <span>
-                <p className='text-base md:text-lg font-semibold'>Checkout</p>
+                <p className='text-base md:text-lg font-semibold'>Check-Out</p>
                 <p className='text-sm md:text-base font-semibold'>
                   {reservationInfo.checkoutTime}
                 </p>
