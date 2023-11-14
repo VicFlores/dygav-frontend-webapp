@@ -5,6 +5,7 @@ import axios, { AxiosError } from 'axios';
 import { BiExtension } from 'react-icons/bi';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
+import Link from 'next/link';
 
 export const Register = () => {
   const [error, setError] = useState('');
@@ -14,7 +15,6 @@ export const Register = () => {
     fullname: '',
     email: '',
     password: '',
-    role: 'default',
     marketingPermissions: 'default',
     acceptancePrivacyPolicies: 'default',
   });
@@ -28,21 +28,11 @@ export const Register = () => {
     });
   };
 
-  const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const values = e.target.value;
-
-    setInfoState({
-      ...infoState,
-      [e.target.name]: values,
-    });
-  };
-
   const handleRegister = async () => {
     const {
       fullname,
       email,
       password,
-      role,
       marketingPermissions,
       acceptancePrivacyPolicies,
     } = infoState;
@@ -52,7 +42,6 @@ export const Register = () => {
         fullname,
         email,
         password,
-        role,
         marketingPermissions,
         acceptancePrivacyPolicies,
       });
@@ -75,8 +64,8 @@ export const Register = () => {
 
   return (
     <div className='flex items-center justify-center mt-4 md:mt-8 lg:mt-0 pb-4'>
-      <div className='bg-white px-6 py-4 md:py-6 lg:py-4 space-y-5 w-[350px] md:w-[480px]'>
-        <div className='space-y-3'>
+      <div className='bg-white px-6 py-4 md:py-6 lg:py-4 lg:px-10  space-y-5 w-[350px] md:w-[480px] lg:w-[600px]'>
+        <div className='space-y-3 lg:mt-6'>
           <p className='font-semibold text-lg md:text-xl lg:text-3xl'>
             ¡Bienvenido!
           </p>
@@ -122,24 +111,7 @@ export const Register = () => {
             />
           </label>
 
-          <label className='relative'>
-            <BiExtension className='w-4 h-4 md:w-5 md:h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
-            <select
-              name='role'
-              value={infoState.role}
-              onChange={handleSelectChange}
-              className='py-3 pl-10 pr-4 text-xs md:text-sm lg:text-base bg-transparent shadow appearance-none border-r-2 border-r-black900 placeholder:text-black900 w-full text-black900 leading-tight focus:outline-none focus:shadow-outline'
-            >
-              <option value='default' disabled>
-                Selecciona tu tipo de cuenta
-              </option>
-              <option value='owner'>Propietario</option>
-              <option value='tourist'>Turista</option>
-            </select>
-          </label>
-
           <div className='text-center'>
-            <p className='mb-2'>Proteccion de datos</p>
             <label>
               <input
                 type='checkbox'
@@ -149,12 +121,19 @@ export const Register = () => {
                 onChange={handleChange}
                 className='mr-2'
               />
-              He leido y acepto la politica de privacidad
+              <span>
+                <Link
+                  href={'/policies/privacyPolicy'}
+                  className='underline'
+                  target='_blanck'
+                >
+                  Aceptó la política de privacidad
+                </Link>
+              </span>
             </label>
           </div>
 
           <div className='text-center'>
-            <p className='mb-2'>Acepto recibir comunicaciones de marketing</p>
             <label className='mr-4'>
               <input
                 type='checkbox'
@@ -164,18 +143,9 @@ export const Register = () => {
                 onChange={handleChange}
                 className='mr-2'
               />
-              Si, acepto
-            </label>
-            <label>
-              <input
-                type='checkbox'
-                name='marketingPermissions'
-                value='false'
-                checked={infoState.marketingPermissions === 'false'}
-                onChange={handleChange}
-                className='mr-2'
-              />
-              No, acepto
+              Me gustaría recibir ofertas especiales y notificaciones sobre
+              alquileres vacacionales y promociones relacionadas. Entiendo que
+              puedo darme de baja en cualquier momento
             </label>
           </div>
         </form>
