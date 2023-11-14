@@ -33,7 +33,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Ático en el Puerto Deportivo en Marina Internacional con Vistas Panorámicas al Mar',
     width: 340,
     height: 245,
-    imgSubtitle: 'Marina Internacional - €145 ',
+    imgSubtitle: 'Marina Internacional ',
     title:
       'Ático en el Puerto Deportivo en Marina Internacional con Vistas Panorámicas al Mar',
     description: `¡Descubre el paraíso frente al mar en nuestro increíble apartamento en Marina Internacional, Torrevieja! Con 2 habitaciones y 2 baños, este ático en el piso 7 te ofrece vistas panorámicas impresionantes desde su balcón. Disfruta de la brisa marina y las espectaculares vistas al puerto deportivo. Además, estarás cerca del centro, ¡todo a tu alcance para una experiencia inolvidable!`,
@@ -90,7 +90,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Bungaló junto al Mar: Tu Refugio de Tranquilidad en la Dehesa de Campoamor',
     width: 340,
     height: 245,
-    imgSubtitle: 'Dehesa de Campoamor - €165',
+    imgSubtitle: 'Dehesa de Campoamor',
     title:
       'Bungaló junto al Mar: Tu Refugio de Tranquilidad en la Dehesa de Campoamor',
     description: `¿Buscas escapar del bullicio de la ciudad y disfrutar de una experiencia relajante? Tenemos el lugar perfecto para ti. Nuestro bungalow con piscina te ofrece una escapada idílica en medio de la belleza natural de la Dehesa de Campoamor, a solo unos minutos de la vibrante ciudad de Torrevieja.
@@ -156,7 +156,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Centro de Torrevieja',
     width: 340,
     height: 245,
-    imgSubtitle: 'Centro de Torrevieja - €110',
+    imgSubtitle: 'Centro de Torrevieja',
     title: 'Piso céntrico en Torrevieja: Ubicación ideal para tu escapada',
     description: `Disfruta de unas vacaciones soleadas en nuestra acogedora joya de un dormitorio en el corazón de Torrevieja. Aquí encontrarás fácil acceso a atracciones, tiendas, restaurantes y playas de ensueño de arena blanca.
 
@@ -224,7 +224,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Centro de Torrevieja',
     width: 340,
     height: 245,
-    imgSubtitle: 'Centro de Torrevieja - €110',
+    imgSubtitle: 'Centro de Torrevieja',
     title: 'Apartamento en Playa Mata, Torrevieja',
     description: `Desayuna mirando al mar y duérmete escuchando las olas.
     
@@ -291,7 +291,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Apartamento Plaza del Ayuntamiento Torrevieja',
     width: 340,
     height: 245,
-    imgSubtitle: 'Torrevieja - €130',
+    imgSubtitle: 'Torrevieja',
     title: 'Apartamento Plaza del Ayuntamiento Torrevieja',
     description: `¡Bienvenido a nuestro exclusivo piso en la Plaza del Ayuntamiento en Torrevieja!
     
@@ -357,7 +357,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Casa Unifamiliar en Formigal',
     width: 340,
     height: 245,
-    imgSubtitle: 'Formigal - €115',
+    imgSubtitle: 'Formigal',
     title: 'Casa Unifamiliar en Formigal',
     description: `¡Bienvenido a nuestra encantadora casa unifamiliar de dos habitaciones en Formigal!
     Esta hermosa casa es el lugar perfecto para disfrutar de unas vacaciones inolvidables en la impresionante estación de esquí de Formigal. Con su diseño espacioso y su ubicación privilegiada, te brinda todo el confort y la comodidad que necesitas para relajarte y disfrutar al máximo de tu estancia.
@@ -424,7 +424,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Casa Unifamiliar en Formigal',
     width: 340,
     height: 245,
-    imgSubtitle: 'Dehesa de Campoamor - €115',
+    imgSubtitle: 'Dehesa de Campoamor',
     title: 'Chalet en Dehesa de Campoamor',
     description: `Este impresionante alojamiento de dos habitaciones y dos baños es el lugar perfecto para unas vacaciones inolvidables en la Costa Blanca. Con 180 m2 de espacio, disfrutarás de lujo, comodidad y diversión en un solo lugar.
 
@@ -493,7 +493,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Un paraíso privado en Torrevieja: Casa unifamiliar con piscina, jacuzzi y sauna',
     width: 340,
     height: 245,
-    imgSubtitle: 'Torrevieja - €165',
+    imgSubtitle: 'Torrevieja',
     title:
       'Un paraíso privado en Torrevieja: Casa unifamiliar con piscina, jacuzzi y sauna',
     description: `¡Descubre el lujo y la tranquilidad en nuestra casa unifamiliar en Torrevieja! Esta impresionante residencia te ofrece una experiencia única de confort y relajación. Con 2 habitaciones, 2 baños y una piscina privada, encontrarás todo lo que necesitas para unas vacaciones inolvidables.
@@ -559,7 +559,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Un paraíso privado en Torrevieja: Casa unifamiliar con piscina, jacuzzi y sauna',
     width: 340,
     height: 245,
-    imgSubtitle: 'Formigal - €150',
+    imgSubtitle: 'Formigal',
     title: 'Apartamento en Formigal',
     description: `Este acogedor refugio de una habitación y un baño es el lugar perfecto para tus vacaciones en la impresionante estación de esquí. Situado en un entorno tranquilo y rodeado de paisajes montañosos, te brindará un espacio relajante y acogedor después de un día lleno de aventuras en la nieve.
 
@@ -573,77 +573,6 @@ export const searcherCard: TSearcherCard[] = [
     `,
     subtitle:
       'Este acogedor refugio de una habitación y un baño es el lugar perfecto para tus vacaciones en la impresionante estación de esquí. Situado en un entorno tranquilo y rodeado de paisajes montañosos, te brindará un espacio relajante y acogedor después de un día lleno de aventuras en la nieve.',
-    bedroom: 2,
-    bathroom: 2,
-    size: '120m²',
-    maxHuesped: 6,
-    price: 165,
-    cleanup: 75,
-    services: [
-      'Cocina Equipada',
-      'Conexión WiFi de alta velocidad',
-      'Aire Acondicionado',
-      'Calefacción',
-      'Lavaplatos',
-      'Chimenea',
-      'Hervidor de Agua',
-      'Microondas',
-      'Lavadora',
-      'Nevera con congelador',
-      'TV Pantalla Plana',
-      'Tostadora',
-      'Horno',
-      'Nevera',
-      'Gimnasio',
-      'Cafetera',
-      'Vajilla, cubiertos y cristalería',
-      'Utensilios de Cocina',
-      'Tazas, vasos y copas',
-      'Secador de pelo',
-      'Ascensor',
-      'Batidora/Licuadora',
-      'Cuna',
-      'Piscina',
-      'Parking Cerca',
-      'Jardín',
-      'Garaje',
-    ],
-  },
-  {
-    id: 10,
-    src: [
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695588002/Dygav/Fotos%20Casas%20Fake/Casa%2010/354873065_1907111796335693_5682792205636463255_n_aq1b9l.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695588001/Dygav/Fotos%20Casas%20Fake/Casa%2010/355450964_1006865127412022_3046431139611968949_n_lb4u7u.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695588001/Dygav/Fotos%20Casas%20Fake/Casa%2010/355396430_216838697927775_78197156178064436_n_ueaona.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695588001/Dygav/Fotos%20Casas%20Fake/Casa%2010/356234983_167690729625886_2685318154843082677_n_daawog.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695588001/Dygav/Fotos%20Casas%20Fake/Casa%2010/355420406_221787877399047_9003709655104406576_n_ruuqsa.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695588000/Dygav/Fotos%20Casas%20Fake/Casa%2010/355646216_814456146709813_4523780863126674964_n_fg1en4.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695588000/Dygav/Fotos%20Casas%20Fake/Casa%2010/355603832_674518647847098_373669548360467256_n_azzkji.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695588000/Dygav/Fotos%20Casas%20Fake/Casa%2010/355616789_148674348225291_5561563982820571108_n_ktl4pp.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695587999/Dygav/Fotos%20Casas%20Fake/Casa%2010/356028936_652181643080723_1747815807599885547_n_iumcwk.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695587999/Dygav/Fotos%20Casas%20Fake/Casa%2010/355696527_750851576837772_770526196868984694_n_fzdoip.jpg',
-    ],
-    alt: 'Un paraíso privado en Torrevieja: Casa unifamiliar con piscina, jacuzzi y sauna',
-    width: 340,
-    height: 245,
-    imgSubtitle: 'Madrid - €180',
-    title: 'Apartamento  cerca del Santiago Bernabéu',
-    description: `¡Descubre nuestro moderno apartamento cerca del Santiago Bernabéu! Este encantador piso te brinda una estancia excepcional en el corazón de Madrid.
-    
-    Con una ubicación privilegiada, estarás a pocos pasos del famoso estadio y rodeado de una amplia oferta de tiendas, restaurantes y lugares de entretenimiento. 
-
-    El apartamento cuenta con 80 metros cuadrados de espacio para tu comodidad. Disfruta de un dormitorio con cama de matrimonio y baño en suite, asegurando una experiencia de descanso tranquila y placentera.
-
-    El acogedor salón te invita a relajarte en el sofá cama doble mientras disfrutas de la TV de pantalla plana. Además, la cocina americana completamente equipada te permite preparar deliciosas comidas a tu gusto.
-
-    Relájate en la pequeña y agradable terraza, perfecta para disfrutar del aire fresco y tomar una taza de café. Además, el apartamento está equipado con lavadora, calefacción, aire acondicionado y Wifi gratuito, para garantizar una estancia confortable.
-
-    Con múltiples opciones de aparcamiento cercanas, olvídate de los inconvenientes del estacionamiento y aprovecha al máximo tu tiempo en la ciudad.
-
-    No pierdas la oportunidad de disfrutar de este moderno apartamento en una ubicación privilegiada. ¡Reserva ahora y vive una experiencia inolvidable en Madrid!
-    `,
-    subtitle:
-      '¡Descubre nuestro moderno apartamento cerca del Santiago Bernabéu! Este encantador piso te brinda una estancia excepcional en el corazón de Madrid.',
     bedroom: 2,
     bathroom: 2,
     size: '120m²',
@@ -697,7 +626,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Un paraíso privado en Torrevieja: Casa unifamiliar con piscina, jacuzzi y sauna',
     width: 340,
     height: 245,
-    imgSubtitle: 'Campoamor - €125',
+    imgSubtitle: 'Campoamor',
     title: 'Casa en Campoamor',
     description: `¡Descubre una experiencia de lujo y privacidad en nuestra increíble villa en Campoamor!
 
@@ -765,7 +694,7 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Un paraíso privado en Torrevieja: Casa unifamiliar con piscina, jacuzzi y sauna',
     width: 340,
     height: 245,
-    imgSubtitle: 'Formigal - €165',
+    imgSubtitle: 'Formigal',
     title: 'Apartamento en Formigal',
     description: `¡Bienvenido a nuestro acogedor apartamento en Formigal!
     

@@ -28,10 +28,11 @@ export const SearcherRealCards: FC<{ item: any }> = ({ item }) => {
   let priceInfo = 'No units available';
 
   if (currentUnitSeason) {
-    priceInfo = `${item.location.city}
-      Semana: € ${currentUnitSeason.weekPrice} noche
-      Fin de Semana: € ${currentUnitSeason.weekendPrice} noche`;
+    priceInfo = `${item.location.city}`;
   }
+
+  /* Semana: € ${currentUnitSeason.weekPrice} noche
+      Fin de Semana: € ${currentUnitSeason.weekendPrice} noche */
 
   return (
     <div

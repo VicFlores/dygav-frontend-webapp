@@ -63,10 +63,11 @@ export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
   let priceInfo = 'No units available';
 
   if (currentUnitSeason) {
-    priceInfo = `${accomodation.location.city}
-      Semana: € ${currentUnitSeason.weekPrice} noche
-      Fin de Semana: € ${currentUnitSeason.weekendPrice} noche`;
+    priceInfo = `${accomodation.location.city}`;
   }
+
+  /* Semana: € ${currentUnitSeason.weekPrice} noche
+      Fin de Semana: € ${currentUnitSeason.weekendPrice} noche */
 
   const changeSlide = (direction: 'prev' | 'next') => {
     setCurrentIndex((prev) =>

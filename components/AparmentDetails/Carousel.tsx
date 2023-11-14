@@ -69,7 +69,7 @@ export const Carousel: FC<{ accomodation: TSearcherCard[] }> = ({
                 {item.title}
               </p>
               <p className='text-center text-[13px] md:text-[14px] lg:text-base text-black900'>
-                {item.imgSubtitle} / noche
+                {item.imgSubtitle}
               </p>
               <p className='text-[13px] md:text-[14px] lg:text-base whitespace-pre-line'>
                 {expanded
