@@ -1,5 +1,7 @@
-import React, { FC } from 'react';
+import React, { useRef } from 'react';
 import Link from 'next/link';
+import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
+import { useRouter } from 'next/router';
 
 interface ImageProps {
   href: string;
@@ -7,26 +9,91 @@ interface ImageProps {
   bgCity: string;
 }
 
-interface Props {
-  images: ImageProps[];
-}
+export const CityCardsFooter = () => {
+  const router = useRouter();
 
-export const CityCardsFooter: FC<Props> = ({ images }) => {
+  const scrollContainer = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (scrollContainer.current) {
+      scrollContainer.current.scrollLeft -= 300;
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainer.current) {
+      scrollContainer.current.scrollLeft += 300;
+    }
+  };
+
+  let images: ImageProps[] = [
+    {
+      href: '/licencias-turisticas-torrevieja',
+      cityName: 'Torrevieja',
+      bgCity: 'bg-torrevieja',
+    },
+    {
+      href: '/licencias-turisticas-alicante',
+      cityName: 'Alicante',
+      bgCity: 'bg-alicante',
+    },
+    {
+      href: '/licencias-turisticas-benidorm',
+      cityName: 'Benidorm',
+      bgCity: 'bg-benidorm',
+    },
+    {
+      href: '/licencias-turisticas-orihuela-orihuela-costa',
+      cityName: 'Orihuela',
+      bgCity: 'bg-orihuelaCosta',
+    },
+    {
+      href: '/licencias-turisticas-orihuela-orihuela-costa',
+      cityName: 'Orihuela Costa',
+      bgCity: 'bg-orihuela',
+    },
+  ];
+
+  images = images.filter((image) => image.href !== router.pathname);
+
   return (
-    <div className='w-auto h-auto items-center mt-6 p-6 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden lg:col-start-2 lg:col-end-4 scrollbar-none lg:scrollbar lg:scrollbar-thumb-rounded-2xl lg:scrollbar-h-[9px] lg:scrollbar-thumb-p600/90 lg:scrollbar-track-gray300'>
-      {images.map((image, index) => (
-        <Link href={`${image.href}`} key={index}>
-          <div className='w-60 h-80 md:w-70 md:h-80 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
+    <div className='grid lg:grid-cols-12'>
+      <button
+        onClick={scrollLeft}
+        className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 ml-3 -bottom-36 justify-self-center self-center'
+      >
+        <AiOutlineArrowLeft />
+      </button>
+
+      <div
+        ref={scrollContainer}
+        className='w-auto h-auto items-center mt-6 p-6 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden scrollbar lg:col-start-2 lg:col-end-12'
+      >
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className='w-60 h-80 md:w-70 md:h-80 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'
+          >
             <div
               className={`w-full h-full bg-cover bg-center flex items-end ${image.bgCity}`}
             >
-              <p className='text-white pl-4 pb-4 text-sm md:text-lg underline'>
+              <Link
+                href={`${image.href}`}
+                className='text-white pl-4 pb-4 text-sm md:text-lg underline'
+              >
                 Licencia turística en <br /> {image.cityName}
-              </p>
+              </Link>
             </div>
           </div>
-        </Link>
-      ))}
+        ))}
+      </div>
+
+      <button
+        onClick={scrollRight}
+        className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 ml-3 -bottom-36 justify-self-center self-center'
+      >
+        <AiOutlineArrowRight />
+      </button>
     </div>
   );
 };
