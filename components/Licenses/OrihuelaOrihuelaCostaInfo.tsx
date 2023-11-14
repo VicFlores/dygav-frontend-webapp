@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import { AlquilerVacacional, HelpYouForm, LicenciasTuristicas } from '..';
 import { CityImages } from './CityImages';
+import { CityCardsFooter } from './CityCardsFooter';
 
 const images = [
   {
@@ -301,6 +302,8 @@ export const OrihuelaOrihuelaCostaInfo = () => {
       </p>
 
       <HelpYouForm />
+
+      <CityCardsFooter />
     </section>
   );
 };

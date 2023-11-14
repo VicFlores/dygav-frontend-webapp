@@ -16,34 +16,6 @@ const images = [
   },
 ];
 
-const imagesLicenses = [
-  {
-    href: '/licencias-turisticas-torrevieja',
-    cityName: 'Torrevieja',
-    bgCity: 'bg-torrevieja',
-  },
-  {
-    href: '/licencias-turisticas-alicante',
-    cityName: 'Alicante',
-    bgCity: 'bg-alicante',
-  },
-  {
-    href: '/licencias-turisticas-benidorm',
-    cityName: 'Benidorm',
-    bgCity: 'bg-benidorm',
-  },
-  {
-    href: '/licencias-turisticas-orihuela-orihuela-costa',
-    cityName: 'Orihuela',
-    bgCity: 'bg-orihuelaCosta',
-  },
-  {
-    href: '/licencias-turisticas-orihuela-orihuela-costa',
-    cityName: 'Orihuela Costa',
-    bgCity: 'bg-orihuela',
-  },
-];
-
 export const TorreviejaInfo = () => {
   return (
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32 flex flex-col items-center'>
@@ -326,6 +298,12 @@ export const TorreviejaInfo = () => {
       </div>
 
       <HelpYouForm />
+
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-10 md:px-4 mt-16'>
+        Licencias Turísticas en otros municipios
+      </h2>
+
+      <CityCardsFooter />
     </section>
   );
 };

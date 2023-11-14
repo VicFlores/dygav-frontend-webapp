@@ -2,6 +2,7 @@ import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { AlquilerVacacional, HelpYouForm, LicenciasTuristicas } from '..';
 import { CityImages } from './CityImages';
+import { CityCardsFooter } from './CityCardsFooter';
 
 const images = [
   {
@@ -570,6 +571,8 @@ export const AlicanteInfo = () => {
       </div>
 
       <HelpYouForm />
+
+      <CityCardsFooter />
     </section>
   );
 };
