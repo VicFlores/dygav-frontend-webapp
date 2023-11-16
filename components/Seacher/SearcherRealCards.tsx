@@ -1,4 +1,3 @@
-import { TSearcherCard, searcherCard } from '@/utils';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { FC, useState } from 'react';
@@ -38,55 +37,57 @@ export const SearcherRealCards: FC<{ item: any }> = ({ item }) => {
     <div
       id='CardContainer'
       key={item.id}
-      className='w-[300px] md:w-[320px] lg:w-[347px] self-center justify-self-center h-fit'
+      className='w-[360px] md:w-[350px] lg:w-[374px] self-center justify-self-center h-fit'
     >
-      <div id='CardHeader' className='space-y-4 '>
-        <figure className='w-auto h-[245px]  relative'>
-          <Image
-            src={item.images[0].ORIGINAL}
-            alt={item.alt}
-            layout='fill'
-            priority
-          />
-        </figure>
-        <p className='text-center text-black900 text-xs md:text-sm lg:text-base whitespace-pre-line'>
+      <figure className='w-auto h-[270px] relative'>
+        <Image
+          src={item.images[0].ORIGINAL}
+          alt={item.alt}
+          layout='fill'
+          priority
+          className='rounded-t-xl'
+        />
+      </figure>
+
+      <div className='space-y-4 border-x-2 border-x-p600'>
+        <p className='text-center text-black900 text-xs md:text-sm lg:text-base pt-4'>
           {priceInfo}
         </p>
-      </div>
 
-      <div id='CardBody' className='space-y-4 mt-6 mb-6'>
-        <p className='text-[18px] md:text-[20px] lg:text-[25px] text-center md:text-start'>
+        <p className='text-[18px] md:text-[20px] lg:text-2xl text-center md:text-start px-4'>
           {item.name}
         </p>
-        <p className='text-[13px] md:text-[14px] lg:text-base'>
+
+        <p className='text-[13px] md:text-[14px]  lg:text-sm px-4'>
           {expanded
             ? item.introduction.es
-            : `${item.introduction.es.slice(0, 100)}...`}
+            : `${item.introduction.es.slice(0, 200)}...`}
         </p>
+
         <button
           onClick={() => setExpanded(!expanded)}
-          className='font-serif font-semibold'
+          className='font-serif font-semibold px-4 pb-6'
         >
           {expanded ? 'Mostrar Menos' : 'Mostrar Más'}
         </button>
       </div>
 
-      <div id='CardFooter' className='flex h-[48px] space-x-1 text-white'>
-        <div className='bg-p600 pt-1 pb-1 w-[119px] h-full text-center'>
+      <div className='flex justify-center items-center h-[48px] space-x-1 text-white '>
+        <div className='bg-p600 pt-1 pb-1 w-[122px] h-full text-center rounded-bl-xl'>
           <p className='font-semibold text-[13px] md:text-[14px] lg:text-[16px]'>
             {item.features.n_hab}
           </p>
           <p className='text-[10px] lg:text-[12px]'>Dormitorios</p>
         </div>
 
-        <div className='bg-p600 pt-1 pb-1 w-[119px] h-full text-center '>
+        <div className='bg-p600 pt-1 pb-1 w-[122px] h-full text-center'>
           <p className='font-semibold text-[13px] md:text-[14px] lg:text-[16px]'>
             {item.features.n_banos}
           </p>
           <p className='text-[10px] lg:text-[12px]'>Baños</p>
         </div>
 
-        <div className='bg-p600 pt-1 pb-1 w-[119px] h-full text-center '>
+        <div className='bg-p600 pt-1 pb-1 w-[122px] h-full text-center rounded-br-lg'>
           <p className='font-semibold text-[13px] md:text-[14px] lg:text-[16px]'>
             {item.features.superficie}m²
           </p>
