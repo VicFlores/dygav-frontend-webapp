@@ -232,7 +232,7 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
 
       <div className='flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:justify-evenly lg:items-center lg:space-x-8'>
         <div className='items-center justify-center overflow-x-auto pb-6'>
-          <table className='table-auto text-center text-xs md:text-base'>
+          <table className='table-auto text-center text-[9.2px] md:text-base'>
             <thead className='bg-p600 text-white'>
               <tr>
                 <th className='px-4 py-2'>Desde</th>
@@ -318,7 +318,10 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
           <div className='grid grid-cols-7 gap-y-6 gap-x-4'>
             {['Lun', 'Mar', 'Miérc', 'Juev', 'Vier', 'Sáb', 'Dom'].map(
               (day) => (
-                <div key={day} className='text-center font-bold text-gray-600'>
+                <div
+                  key={day}
+                  className='text-center text-xs md:text-base font-bold text-gray-600'
+                >
                   {day}
                 </div>
               )

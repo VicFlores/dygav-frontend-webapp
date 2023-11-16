@@ -111,7 +111,7 @@ export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`${
-                currentIndex === index ? 'bg-black900/60' : 'bg-black900/20'
+                currentIndex === index ? 'bg-p600/20' : 'bg-p600/40'
               } w-4 h-4 rounded-full mx-2 cursor-pointer`}
             >
               <RxDotFilled />
@@ -120,7 +120,7 @@ export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
         </div>
       </div>
 
-      <div className='mt-24 md:mt-0'>
+      <div className='mt-10 md:mt-0'>
         <div
           id='CardContainer'
           key={accomodation.id}
