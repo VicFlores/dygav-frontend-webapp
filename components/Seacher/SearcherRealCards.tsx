@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
@@ -46,6 +46,21 @@ interface ICarousel {
 export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
   const [expanded, setExpanded] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [startX, setStartX] = useState(0);
+  const [endX, setEndX] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const currentDate = new Date();
   const currentDateString = currentDate.toISOString().split('T')[0];
@@ -86,35 +101,86 @@ export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
     );
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setEndX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (startX - endX > 100) {
+      // swipe left, next slide
+      changeSlide('next');
+    } else if (startX - endX < -100) {
+      // swipe right, previous slide
+      changeSlide('prev');
+    }
+  };
+
   return (
     <div
       id='CardContainer'
       key={item.id}
       className='w-[360px] md:w-[350px] lg:w-[374px] self-center justify-self-center h-fit'
     >
-      <div className='relative'>
-        <figure className='h-[300px] relative'>
-          <Image
-            src={item.images[currentIndex].ORIGINAL}
-            alt={item.name}
-            layout='fill'
-            priority
-            className='rounded-t-xl'
+      {isMobile ? (
+        // Mobile component goes here
+        <div
+          className='relative'
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <figure className='h-[300px] relative'>
+            <Image
+              src={item.images[currentIndex].ORIGINAL}
+              alt={item.name}
+              layout='fill'
+              priority
+              className='rounded-t-xl'
+            />
+          </figure>
+
+          <BsChevronCompactLeft
+            onClick={() => changeSlide('prev')}
+            className='absolute top-[50%] -translate-x-0 -translate-y-[50%] left-2 text-2xl rounded-full p-2 bg-black700/40 text-white cursor-pointer'
+            size={30}
           />
-        </figure>
 
-        <BsChevronCompactLeft
-          onClick={() => changeSlide('prev')}
-          className='absolute top-[50%] -translate-x-0 -translate-y-[50%] left-2 text-2xl rounded-full p-2 bg-black700/40 text-white cursor-pointer'
-          size={30}
-        />
+          <BsChevronCompactRight
+            onClick={() => changeSlide('next')}
+            className='absolute top-[50%] -translate-x-0 -translate-y-[50%] right-2 text-2xl rounded-full p-2 bg-black700/40 text-white cursor-pointer'
+            size={30}
+          />
+        </div>
+      ) : (
+        // Desktop component goes here
+        <div className='relative'>
+          <figure className='h-[300px] relative'>
+            <Image
+              src={item.images[currentIndex].ORIGINAL}
+              alt={item.name}
+              layout='fill'
+              priority
+              className='rounded-t-xl'
+            />
+          </figure>
 
-        <BsChevronCompactRight
-          onClick={() => changeSlide('next')}
-          className='absolute top-[50%] -translate-x-0 -translate-y-[50%] right-2 text-2xl rounded-full p-2 bg-black700/40 text-white cursor-pointer'
-          size={30}
-        />
-      </div>
+          <BsChevronCompactLeft
+            onClick={() => changeSlide('prev')}
+            className='absolute top-[50%] -translate-x-0 -translate-y-[50%] left-2 text-2xl rounded-full p-2 bg-black700/40 text-white cursor-pointer'
+            size={30}
+          />
+
+          <BsChevronCompactRight
+            onClick={() => changeSlide('next')}
+            className='absolute top-[50%] -translate-x-0 -translate-y-[50%] right-2 text-2xl rounded-full p-2 bg-black700/40 text-white cursor-pointer'
+            size={30}
+          />
+        </div>
+      )}
 
       <div className='space-y-4 border-x-2 border-x-p600'>
         <p className='text-center text-black900 text-xs md:text-sm lg:text-base pt-4'>
