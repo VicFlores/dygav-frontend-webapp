@@ -56,3 +56,4 @@ export * from './CTA/AlquilerVacacional';
 export * from './CTA/LicenciasTuristicas';
 export * from './CTA/Llamanos';
 export * from './CTA/HelpFixedButton';
+export * from './CTA/PagarAlojamiento';

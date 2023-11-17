@@ -1,10 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import moment from 'moment';
 import React, { FC, useEffect, useState } from 'react';
 import { BsCheckCircle } from 'react-icons/bs';
 import { Carousel } from './Carousel';
-import { AiOutlineCheckCircle } from 'react-icons/ai';
 import axios from 'axios';
+import { PagarAlojamiento } from '..';
 
 interface IRealAparmentDetails {
   depositAmount: number;
@@ -226,7 +225,7 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
 
       <Carousel accomodation={accomodation} />
 
-      <p className=' text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:pt-16 lg:text-4xl border-b-[1px]'>
+      <p className=' text-black900/[.7] mt-10 text-2xl text-center md:text-left md:text-3xl lg:pt-16 lg:text-4xl border-b-[1px]'>
         Nuestras tarifas y calendario
       </p>
 
@@ -271,14 +270,7 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
             </tbody>
           </table>
 
-          <div className='flex justify-center items-center mt-10'>
-            <button className='bg-p600 hover:bg-p800 text-[13px] md:text-sm lg:text-base p-2 w-[220px] md:w-[240px] lg:w-[260px] text-white mt-10'>
-              <span className='flex justify-center items-center space-x-4'>
-                <span>Pagar alojamiento</span>
-                <AiOutlineCheckCircle className='w-4 h-4 md:h-5 md:w-5 text-white' />
-              </span>
-            </button>
-          </div>
+          <PagarAlojamiento />
         </div>
 
         <div className='bg-white rounded-lg shadow-lg p-10 md:py-8 md:px-12'>

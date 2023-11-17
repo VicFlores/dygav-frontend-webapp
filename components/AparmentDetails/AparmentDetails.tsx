@@ -4,6 +4,7 @@ import React, { FC, useEffect, useState } from 'react';
 import { BsCheckCircle } from 'react-icons/bs';
 import { Carousel } from './Carousel';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
+import { PagarAlojamiento } from '..';
 
 export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
   const [selectedStartDate, setSelectedStartDate] = useState<Date | null>(null);
@@ -128,14 +129,7 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
             </tbody>
           </table>
 
-          <div className='flex justify-center items-center mt-10'>
-            <button className='bg-p600 hover:bg-p800 text-[13px] md:text-sm lg:text-base p-2 w-[220px] md:w-[240px] lg:w-[260px] text-white mt-10'>
-              <span className='flex justify-center items-center space-x-4'>
-                <span>Pagar alojamiento</span>
-                <AiOutlineCheckCircle className='w-4 h-4 md:h-5 md:w-5 text-white' />
-              </span>
-            </button>
-          </div>
+          <PagarAlojamiento />
         </div>
 
         <div className='bg-white rounded-lg shadow-lg p-10 md:py-8 md:px-12'>
