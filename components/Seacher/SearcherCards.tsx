@@ -3,9 +3,23 @@ import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { FC, useState } from 'react';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
+import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 
 export const SearcherCards: FC<{ item: TSearcherCard }> = ({ item }) => {
   const [expanded, setExpanded] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const changeSlide = (direction: 'prev' | 'next') => {
+    setCurrentIndex((prev) =>
+      direction === 'prev'
+        ? prev === 0
+          ? item.src.length - 1
+          : prev - 1
+        : prev === item.src.length - 1
+        ? 0
+        : prev + 1
+    );
+  };
 
   return (
     <div
@@ -13,15 +27,29 @@ export const SearcherCards: FC<{ item: TSearcherCard }> = ({ item }) => {
       key={item.id}
       className='w-[360px] md:w-[350px] lg:w-[374px] self-center justify-self-center h-fit'
     >
-      <figure className='w-auto h-[270px] relative'>
-        <Image
-          src={item.src[0]}
-          alt={item.alt}
-          layout='fill'
-          priority
-          className='rounded-t-xl'
+      <div className='relative'>
+        <figure className='h-[300px] relative'>
+          <Image
+            src={item.src[currentIndex]}
+            alt={item.alt}
+            layout='fill'
+            priority
+            className='rounded-t-xl'
+          />
+        </figure>
+
+        <BsChevronCompactLeft
+          onClick={() => changeSlide('prev')}
+          className='absolute top-[50%] -translate-x-0 -translate-y-[50%] left-2 text-2xl rounded-full p-2 bg-black700/40 text-white cursor-pointer'
+          size={30}
         />
-      </figure>
+
+        <BsChevronCompactRight
+          onClick={() => changeSlide('next')}
+          className='absolute top-[50%] -translate-x-0 -translate-y-[50%] right-2 text-2xl rounded-full p-2 bg-black700/40 text-white cursor-pointer'
+          size={30}
+        />
+      </div>
 
       <div id='CardBody' className='space-y-4 border-x-2 border-x-p600'>
         <p className='text-center text-black900 text-xs md:text-sm lg:text-base pt-4'>

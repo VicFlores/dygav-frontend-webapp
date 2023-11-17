@@ -1,10 +1,51 @@
-import Image from 'next/legacy/image';
-import Link from 'next/link';
 import { FC, useState } from 'react';
+import Link from 'next/link';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
+import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
+import Image from 'next/legacy/image';
 
-export const SearcherRealCards: FC<{ item: any }> = ({ item }) => {
+type Unit = {
+  weekPrice: number;
+  weekendPrice: number;
+  capacity: number;
+  unitSeasons: {
+    dateIni: string;
+    dateEnd: string;
+    weekPrice: number;
+    weekendPrice: number;
+  }[];
+  additionalCapacity: number;
+};
+
+interface ICarousel {
+  id: string;
+  depositAmount: number;
+  name: string;
+
+  introduction: {
+    es: string;
+  };
+
+  location: {
+    city: string;
+  };
+  description: {
+    es: string;
+  };
+  images: {
+    ORIGINAL: string;
+  }[];
+  features: {
+    n_hab: number;
+    n_banos: number;
+    superficie: number;
+  };
+  units: Unit[];
+}
+
+export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
   const [expanded, setExpanded] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const currentDate = new Date();
   const currentDateString = currentDate.toISOString().split('T')[0];
@@ -33,21 +74,47 @@ export const SearcherRealCards: FC<{ item: any }> = ({ item }) => {
   /* Semana: € ${currentUnitSeason.weekPrice} noche
       Fin de Semana: € ${currentUnitSeason.weekendPrice} noche */
 
+  const changeSlide = (direction: 'prev' | 'next') => {
+    setCurrentIndex((prev) =>
+      direction === 'prev'
+        ? prev === 0
+          ? item.images.length - 1
+          : prev - 1
+        : prev === item.images.length - 1
+        ? 0
+        : prev + 1
+    );
+  };
+
   return (
     <div
       id='CardContainer'
       key={item.id}
       className='w-[360px] md:w-[350px] lg:w-[374px] self-center justify-self-center h-fit'
     >
-      <figure className='w-auto h-[270px] relative'>
-        <Image
-          src={item.images[0].ORIGINAL}
-          alt={item.alt}
-          layout='fill'
-          priority
-          className='rounded-t-xl'
+      <div className='relative'>
+        <figure className='h-[300px] relative'>
+          <Image
+            src={item.images[currentIndex].ORIGINAL}
+            alt={item.name}
+            layout='fill'
+            priority
+            className='rounded-t-xl'
+          />
+        </figure>
+
+        <BsChevronCompactLeft
+          onClick={() => changeSlide('prev')}
+          className='absolute top-[50%] -translate-x-0 -translate-y-[50%] left-2 text-2xl rounded-full p-2 bg-black700/40 text-white cursor-pointer'
+          size={30}
         />
-      </figure>
+
+        <BsChevronCompactRight
+          onClick={() => changeSlide('next')}
+          className='absolute top-[50%] -translate-x-0 -translate-y-[50%] right-2 text-2xl rounded-full p-2 bg-black700/40 text-white cursor-pointer'
+          size={30}
+        />
+      </div>
 
       <div className='space-y-4 border-x-2 border-x-p600'>
         <p className='text-center text-black900 text-xs md:text-sm lg:text-base pt-4'>
