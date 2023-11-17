@@ -83,7 +83,7 @@ export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
   const slide = accomodation.images;
 
   return (
-    <div className='flex flex-col lg:flex-row justify-evenly items-center'>
+    <div className='flex flex-col lg:flex-row lg:justify-evenly justify-center '>
       <div className='max-w-[550px] w-full px-2 md:px-4 relative group m-auto md:m-0'>
         <div
           style={{
@@ -113,7 +113,7 @@ export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
                 currentIndex === index ? 'bg-p600/20' : 'bg-p600/40'
               } w-4 h-4 rounded-full mx-2 cursor-pointer`}
             >
-              <RxDotFilled />
+              <RxDotFilled color='#BF350C' />
             </div>
           ))}
         </div>
@@ -123,10 +123,10 @@ export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
         <div
           id='CardContainer'
           key={accomodation.id}
-          className='w-[300px] md:w-[320px] lg:w-[400px] self-center justify-self-center m-auto md:m-0'
+          className='w-[340px] md:w-[320px] lg:w-[400px] self-center justify-self-center m-auto md:m-0'
         >
           <div id='CardBody' className='space-y-4 mt-6 mb-6'>
-            <p className='text-[18px] md:text-[20px] lg:text-[25px] text-center'>
+            <p className='text-xl md:text-[20px] lg:text-[25px] text-center'>
               {accomodation.name}
             </p>
 
@@ -173,7 +173,7 @@ export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
                 {accomodation.units[0].capacity +
                   accomodation.units[0].additionalCapacity}
               </p>
-              <p className='text-[10px] lg:text-[12px]'>Huespedes</p>
+              <p className='text-[10px] lg:text-[12px]'>Huéspedes</p>
             </div>
           </div>
         </div>

@@ -110,7 +110,7 @@ export const Carousel: FC<{ accomodation: TSearcherCard[] }> = ({
                 <p className='font-semibold text-[13px] md:text-[14px] lg:text-[16px]'>
                   {item.maxHuesped}
                 </p>
-                <p className='text-[10px] lg:text-[12px]'>Huespedes</p>
+                <p className='text-[10px] lg:text-[12px]'>Huéspedes</p>
               </div>
             </div>
           </div>

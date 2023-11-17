@@ -82,13 +82,13 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
   return (
     <div className='px-8 space-y-12 mb-24'>
       <p className=' text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl border-b-[1px]'>
-        Conoce a mas detalle tu futuro alojamiento
+        Conoce los detalles de tu futuro alojamiento
       </p>
 
       <Carousel accomodation={accomodation} />
 
       <p className=' text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl border-b-[1px]'>
-        Nuestras tarifas y calendario
+        Nuestras tarifas y disponibilidad
       </p>
 
       <div className='flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:justify-evenly lg:items-center lg:space-x-8'>
@@ -223,7 +223,7 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
       </div>
 
       <p className=' text-black900/[.7] pt-12 text-2xl text-center md:text-left md:text-3xl lg:text-4xl border-b-[1px]'>
-        ¿Que encontraras en tu alojamiento?
+        ¿Qué encontrarás en tu alojamiento?
       </p>
 
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-center'>

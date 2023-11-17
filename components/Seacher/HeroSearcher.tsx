@@ -38,7 +38,7 @@ export const HeroSearcher = () => {
               <BsPeopleFill className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
               <input
                 type='text'
-                placeholder='Huespedes'
+                placeholder='Huéspedes'
                 className='pl-10 pr-4 bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 w-full py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
               />
             </label>
@@ -60,7 +60,7 @@ export const HeroSearcher = () => {
               <BiExtension className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
               <input
                 type='text'
-                placeholder='Huespedes'
+                placeholder='Huéspedes'
                 className='pl-10 pr-4 bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 w-full py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
               />
             </label>

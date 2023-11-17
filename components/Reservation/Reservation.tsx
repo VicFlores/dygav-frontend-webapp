@@ -63,7 +63,7 @@ export const Reservation: FC<{ id: string }> = ({ id }) => {
               </span>
 
               <span>
-                <p className='text-base md:text-lg font-semibold'>Huespedes:</p>
+                <p className='text-base md:text-lg font-semibold'>Huéspedes:</p>
                 <p className='text-sm md:text-base'>
                   {reservationInfo.numberOfguests} personas
                 </p>
