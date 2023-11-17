@@ -1,5 +1,4 @@
-import { TSearcherCard } from '@/utils';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 
