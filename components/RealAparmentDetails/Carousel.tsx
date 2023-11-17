@@ -83,13 +83,13 @@ export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
   const slide = accomodation.images;
 
   return (
-    <div className='block md:flex justify-evenly items-center'>
-      <div className='max-w-[550px] h-[500px] md:h-[600px] lg:h-[650px] w-full px-2 md:px-4 relative group m-auto md:m-0'>
+    <div className='flex flex-col lg:flex-row justify-evenly items-center'>
+      <div className='max-w-[550px] w-full px-2 md:px-4 relative group m-auto md:m-0'>
         <div
           style={{
             backgroundImage: `url(${accomodation.images[currentIndex].ORIGINAL})`,
           }}
-          className='w-full h-4/5 rounded-2xl bg-center bg-cover duration-500 pt-10 pb-16 md:pt-0 md:pb-0'
+          className='w-full h-[500px] md:h-[600px] lg:h-[550px] rounded-2xl bg-center bg-cover duration-500 pt-10 pb-16 md:pt-0 md:pb-0'
         />
 
         <BsChevronCompactLeft
