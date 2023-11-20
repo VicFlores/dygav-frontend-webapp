@@ -132,15 +132,17 @@ export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          <figure className='h-[300px] relative'>
-            <Image
-              src={item.images[currentIndex].ORIGINAL}
-              alt={item.name}
-              layout='fill'
-              priority
-              className='rounded-t-xl'
-            />
-          </figure>
+          <Link href={`/realAparmentDetails/${item.id}`}>
+            <figure className='h-[300px] relative'>
+              <Image
+                src={item.images[currentIndex].ORIGINAL}
+                alt={item.name}
+                layout='fill'
+                priority
+                className='rounded-t-xl'
+              />
+            </figure>
+          </Link>
 
           <BsChevronCompactLeft
             onClick={() => changeSlide('prev')}
@@ -157,15 +159,17 @@ export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
       ) : (
         // Desktop component goes here
         <div className='relative'>
-          <figure className='h-[300px] relative'>
-            <Image
-              src={item.images[currentIndex].ORIGINAL}
-              alt={item.name}
-              layout='fill'
-              priority
-              className='rounded-t-xl'
-            />
-          </figure>
+          <Link href={`/realAparmentDetails/${item.id}`}>
+            <figure className='h-[300px] relative'>
+              <Image
+                src={item.images[currentIndex].ORIGINAL}
+                alt={item.name}
+                layout='fill'
+                priority
+                className='rounded-t-xl'
+              />
+            </figure>
+          </Link>
 
           <BsChevronCompactLeft
             onClick={() => changeSlide('prev')}
@@ -190,7 +194,7 @@ export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
           <Link href={`/realAparmentDetails/${item.id}`}>{item.name}</Link>
         </p>
 
-        <p className='text-[13px] md:text-[14px]  lg:text-sm px-4'>
+        <p className='text-[13px] md:text-[14px] lg:text-sm px-4'>
           <Link href={`/realAparmentDetails/${item.id}`}>
             {expanded
               ? item.introduction.es
