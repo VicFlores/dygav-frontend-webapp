@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { FC, useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { BsCheckCircle } from 'react-icons/bs';
-import { Carousel } from './Carousel';
 import axios from 'axios';
 import { PagarAlojamiento } from '..';
 
@@ -46,6 +46,8 @@ export interface TAccomodation {
   type: string;
   booking: string;
 }
+
+const Carousel = dynamic(() => import('./Carousel'), { ssr: false });
 
 export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
   const [selectedStartDate, setSelectedStartDate] = useState<Date | null>(null);

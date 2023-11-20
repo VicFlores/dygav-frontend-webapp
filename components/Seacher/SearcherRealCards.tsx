@@ -1,6 +1,5 @@
 import { FC, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import Image from 'next/legacy/image';
 
@@ -184,17 +183,19 @@ export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
 
       <div className='space-y-4 border-x-2 border-x-p600'>
         <p className='text-center text-black900 text-xs md:text-sm lg:text-base pt-4'>
-          {priceInfo}
+          <Link href={`/realAparmentDetails/${item.id}`}>{priceInfo}</Link>
         </p>
 
         <p className='text-[18px] md:text-[20px] lg:text-2xl text-center md:text-start px-4'>
-          {item.name}
+          <Link href={`/realAparmentDetails/${item.id}`}>{item.name}</Link>
         </p>
 
         <p className='text-[13px] md:text-[14px]  lg:text-sm px-4'>
-          {expanded
-            ? item.introduction.es
-            : `${item.introduction.es.slice(0, 200)}...`}
+          <Link href={`/realAparmentDetails/${item.id}`}>
+            {expanded
+              ? item.introduction.es
+              : `${item.introduction.es.slice(0, 200)}...`}
+          </Link>
         </p>
 
         <button
@@ -205,39 +206,30 @@ export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
         </button>
       </div>
 
-      <div className='flex justify-center items-center h-[48px] space-x-1 text-white '>
-        <div className='bg-p600 pt-1 pb-1 w-[122px] h-full text-center rounded-bl-xl'>
-          <p className='font-semibold text-[13px] md:text-[14px] lg:text-[16px]'>
-            {item.features.n_hab}
-          </p>
-          <p className='text-[10px] lg:text-[12px]'>Dormitorios</p>
-        </div>
+      <Link href={`/realAparmentDetails/${item.id}`}>
+        <div className='flex justify-center items-center h-[48px] space-x-1 text-white '>
+          <div className='bg-p600 pt-1 pb-1 w-[122px] h-full text-center rounded-bl-xl'>
+            <p className='font-semibold text-[13px] md:text-[14px] lg:text-[16px]'>
+              {item.features.n_hab}
+            </p>
+            <p className='text-[10px] lg:text-[12px]'>Dormitorios</p>
+          </div>
 
-        <div className='bg-p600 pt-1 pb-1 w-[122px] h-full text-center'>
-          <p className='font-semibold text-[13px] md:text-[14px] lg:text-[16px]'>
-            {item.features.n_banos}
-          </p>
-          <p className='text-[10px] lg:text-[12px]'>Baños</p>
-        </div>
+          <div className='bg-p600 pt-1 pb-1 w-[122px] h-full text-center'>
+            <p className='font-semibold text-[13px] md:text-[14px] lg:text-[16px]'>
+              {item.features.n_banos}
+            </p>
+            <p className='text-[10px] lg:text-[12px]'>Baños</p>
+          </div>
 
-        <div className='bg-p600 pt-1 pb-1 w-[122px] h-full text-center rounded-br-lg'>
-          <p className='font-semibold text-[13px] md:text-[14px] lg:text-[16px]'>
-            {item.features.superficie}m²
-          </p>
-          <p className='text-[10px] lg:text-[12px]'>Tamaño</p>
+          <div className='bg-p600 pt-1 pb-1 w-[122px] h-full text-center rounded-br-lg'>
+            <p className='font-semibold text-[13px] md:text-[14px] lg:text-[16px]'>
+              {item.features.superficie}m²
+            </p>
+            <p className='text-[10px] lg:text-[12px]'>Tamaño</p>
+          </div>
         </div>
-      </div>
-
-      <div className='flex justify-center items-center relative mt-4 '>
-        <AiOutlineCheckCircle className='w-5 md:h-5 text-p600 absolute top-1/2 -translate-y-1/2 right-5 md:right-12 lg:right-10' />
-        <Link
-          href={`/realAparmentDetails/${item.id}`}
-          passHref
-          className='text-center text-p600 hover:bg-gray300 border-[1px] border-p600 rounded-md text-[13px] md:text-sm lg:text-base py-2 px-4 w-full'
-        >
-          Ver Detalles
-        </Link>
-      </div>
+      </Link>
     </div>
   );
 };

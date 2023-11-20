@@ -38,12 +38,10 @@ interface ICarousel {
   units: Unit[];
 }
 
-export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
+const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [expanded, setExpanded] = useState(false);
-  const [isMobile, setIsMobile] = useState(
-    typeof window !== 'undefined' ? window.innerWidth <= 768 : false
-  );
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [startX, setStartX] = useState(0);
   const [endX, setEndX] = useState(0);
 
@@ -129,15 +127,19 @@ export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <figure className='h-[400px] md:h-[500px] relative'>
-              <Image
-                src={accomodation.images[currentIndex].ORIGINAL}
-                alt={accomodation.name}
-                layout='fill'
-                priority
-                className='rounded-t-xl'
-              />
-            </figure>
+            {accomodation.images[0].ORIGINAL !== '' ? (
+              <figure className='h-[400px] md:h-[500px] relative'>
+                <Image
+                  src={accomodation.images[currentIndex].ORIGINAL}
+                  alt={accomodation.name}
+                  layout='fill'
+                  priority
+                  className='rounded-t-xl'
+                />
+              </figure>
+            ) : (
+              <div className='h-[500px] bg-gray-200 rounded-t-xl' />
+            )}
 
             <BsChevronCompactLeft
               onClick={() => changeSlide('prev')}
@@ -154,15 +156,19 @@ export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
         ) : (
           // Desktop component goes here
           <div className='relative'>
-            <figure className='lg:h-[500px] relative'>
-              <Image
-                src={accomodation.images[currentIndex].ORIGINAL}
-                alt={accomodation.name}
-                layout='fill'
-                priority
-                className='rounded-t-xl'
-              />
-            </figure>
+            {accomodation.images[0].ORIGINAL !== '' ? (
+              <figure className='lg:h-[500px] relative'>
+                <Image
+                  src={accomodation.images[currentIndex].ORIGINAL}
+                  alt={accomodation.name}
+                  layout='fill'
+                  priority
+                  className='rounded-t-xl'
+                />
+              </figure>
+            ) : (
+              <div className='h-[500px] bg-gray-200 rounded-t-xl' />
+            )}
 
             <BsChevronCompactLeft
               onClick={() => changeSlide('prev')}
@@ -255,3 +261,5 @@ export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
     </div>
   );
 };
+
+export default Carousel;
