@@ -1,4 +1,5 @@
-import React, { FC, useState } from 'react';
+import Image from 'next/legacy/image';
+import React, { FC, useEffect, useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 
@@ -40,6 +41,21 @@ interface ICarousel {
 export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [expanded, setExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [startX, setStartX] = useState(0);
+  const [endX, setEndX] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const currentDate = new Date();
   const currentDateString = currentDate.toISOString().split('T')[0];
@@ -82,27 +98,83 @@ export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
 
   const slide = accomodation.images;
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setEndX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (startX - endX > 100) {
+      // swipe left, next slide
+      changeSlide('next');
+    } else if (startX - endX < -100) {
+      // swipe right, previous slide
+      changeSlide('prev');
+    }
+  };
+
   return (
-    <div className='flex flex-col lg:flex-row lg:justify-evenly justify-center '>
+    <div className='flex flex-col lg:flex-row lg:justify-evenly justify-center items-center'>
       <div className='max-w-[550px] w-full px-2 md:px-4 relative group m-auto md:m-0'>
-        <div
-          style={{
-            backgroundImage: `url(${accomodation.images[currentIndex].ORIGINAL})`,
-          }}
-          className='w-full h-[500px] md:h-[600px] lg:h-[550px] rounded-2xl bg-center bg-cover duration-500 pt-10 pb-16 md:pt-0 md:pb-0'
-        />
+        {isMobile ? (
+          // Mobile component goes here
+          <div
+            className='relative'
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <figure className='h-[400px] md:h-[500px] relative'>
+              <Image
+                src={accomodation.images[currentIndex].ORIGINAL}
+                alt={accomodation.name}
+                layout='fill'
+                priority
+                className='rounded-t-xl'
+              />
+            </figure>
 
-        <BsChevronCompactLeft
-          onClick={() => changeSlide('prev')}
-          className='hidden group-hover:block absolute top-[50%] -translate-x-0 -translate-y-[50%] left-5 text-2xl rounded-full p-2 bg-black700/20 text-white cursor-pointer'
-          size={30}
-        />
+            <BsChevronCompactLeft
+              onClick={() => changeSlide('prev')}
+              className='absolute top-[50%] -translate-x-0 -translate-y-[50%] left-2 text-2xl rounded-full p-2 bg-black700/40 text-white cursor-pointer'
+              size={30}
+            />
 
-        <BsChevronCompactRight
-          onClick={() => changeSlide('next')}
-          className='hidden group-hover:block absolute top-[50%] -translate-x-0 -translate-y-[50%] right-5 text-2xl rounded-full p-2 bg-black700/20 text-white cursor-pointer'
-          size={30}
-        />
+            <BsChevronCompactRight
+              onClick={() => changeSlide('next')}
+              className='absolute top-[50%] -translate-x-0 -translate-y-[50%] right-2 text-2xl rounded-full p-2 bg-black700/40 text-white cursor-pointer'
+              size={30}
+            />
+          </div>
+        ) : (
+          // Desktop component goes here
+          <div className='relative'>
+            <figure className='lg:h-[500px] relative'>
+              <Image
+                src={accomodation.images[currentIndex].ORIGINAL}
+                alt={accomodation.name}
+                layout='fill'
+                priority
+                className='rounded-t-xl'
+              />
+            </figure>
+
+            <BsChevronCompactLeft
+              onClick={() => changeSlide('prev')}
+              className='absolute top-[50%] -translate-x-0 -translate-y-[50%] left-2 text-2xl rounded-full p-2 bg-black700/40 text-white cursor-pointer'
+              size={30}
+            />
+
+            <BsChevronCompactRight
+              onClick={() => changeSlide('next')}
+              className='absolute top-[50%] -translate-x-0 -translate-y-[50%] right-2 text-2xl rounded-full p-2 bg-black700/40 text-white cursor-pointer'
+              size={30}
+            />
+          </div>
+        )}
 
         <div className='flex top-4 justify-center py-2 overflow-x-scroll pb-6 md:overflow-x-hidden md:pb-0 pt-8 md:pt-8'>
           {slide?.map((_, index) => (
