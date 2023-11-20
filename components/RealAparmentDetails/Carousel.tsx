@@ -41,7 +41,9 @@ interface ICarousel {
 export const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [expanded, setExpanded] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? window.innerWidth <= 768 : false
+  );
   const [startX, setStartX] = useState(0);
   const [endX, setEndX] = useState(0);
 
