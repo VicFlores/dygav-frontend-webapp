@@ -340,14 +340,8 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
               const currentDate = new Date();
               currentDate.setHours(0, 0, 0, 0);
 
-              const currentYear = currentDate.getFullYear();
-              const currentMonth = currentDate.getMonth();
-
               const isToday = date.getTime() === currentDate.getTime();
-              const isPastMonth =
-                date.getFullYear() < currentYear ||
-                (date.getFullYear() === currentYear &&
-                  date.getMonth() < currentMonth);
+              const isPast = date < currentDate;
 
               const isInRange = accomodationDayBlock.some((range) => {
                 const startDate = new Date(range.startDate);
@@ -371,8 +365,8 @@ export const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
                   ? 'text-black bg-p200'
                   : isToday
                   ? 'border border-p600 text-p600 rounded-full'
-                  : isPastMonth
-                  ? 'text-white bg-p800 bg-gray-500'
+                  : isPast
+                  ? 'text-white bg-p800 text-p600'
                   : 'text-gray-600'
               } ${
                 isSelectable
