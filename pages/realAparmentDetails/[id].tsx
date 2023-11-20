@@ -4,12 +4,17 @@ import {
   HeroAparmentDetails,
   Layout,
   MainHero,
-  RealAparmentDetails,
   UtilHead,
 } from '@/components';
 import { useSession } from 'next-auth/react';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import React from 'react';
+
+const RealAparmentDetails = dynamic(
+  () => import('../../components/RealAparmentDetails/RealAparmentDetails'),
+  { ssr: false }
+);
 
 const RealAparmentDetailsPage = () => {
   const router = useRouter();
