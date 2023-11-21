@@ -228,7 +228,7 @@ export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
 
           <div className='bg-p600 pt-1 pb-1 w-[122px] h-full text-center rounded-br-lg'>
             <p className='font-semibold text-[13px] md:text-[14px] lg:text-[16px]'>
-              {item.features.superficie}m²
+              {Math.floor(item.features.superficie)}m²
             </p>
             <p className='text-[10px] lg:text-[12px]'>Tamaño</p>
           </div>
