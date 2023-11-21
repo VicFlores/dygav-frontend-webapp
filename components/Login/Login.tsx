@@ -1,19 +1,31 @@
 import { useRouter } from 'next/navigation';
-import { signIn, useSession } from 'next-auth/react';
+import { SignInResponse, signIn, useSession } from 'next-auth/react';
 import { BiExtension } from 'react-icons/bi';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
-import { ChangeEvent, FC, useState } from 'react';
+import { ChangeEvent, FC, useEffect, useState } from 'react';
 import { TSession } from '@/types';
 
 export const Login: FC<TSession> = ({ session }) => {
   const [error, setError] = useState('');
   const router = useRouter();
-
+  const [userLogin, setUserLogin] = useState<SignInResponse | undefined>();
   const [infoState, setInfoState] = useState({
     email: '',
     password: '',
   });
+
+  useEffect(() => {
+    if (session !== null && session !== undefined) {
+      if (userLogin && session?.user?.role === 'tourist') {
+        return router.push('/private/tourist/dashboard');
+      } else if (userLogin && session?.user?.role === 'owner') {
+        return router.push('/private/owner/dashboard');
+      } else if (userLogin && session?.user?.role === 'admin') {
+        return router.push('/private/admin/dashboard');
+      }
+    }
+  }, [session]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const values = e.target.value;
@@ -35,13 +47,8 @@ export const Login: FC<TSession> = ({ session }) => {
 
     if (res?.error) return setError(res.error);
 
-    if (res?.ok && session?.user?.role === 'tourist') {
-      return router.push('/private/tourist/dashboard');
-    } else if (res?.ok && session?.user?.role === 'owner') {
-      return router.push('/private/owner/dashboard');
-    } else if (res?.ok && session?.user?.role === 'admin') {
-      return router.push('/private/admin/dashboard');
-    }
+    setUserLogin(res);
+    setError('Cargando...');
   };
 
   return (
