@@ -15,7 +15,7 @@ export default withAuth(
       return NextResponse.rewrite(new URL('/login', req.url));
     }
 
-    if (pathname.startsWith('/private/tourist') && role !== 'tourist') {
+    if (pathname.startsWith('/private/tourist') && role !== 'tourist' && role !== 'owner') {
       return NextResponse.rewrite(new URL('/login', req.url));
     }
   },
