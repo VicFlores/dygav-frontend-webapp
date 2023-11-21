@@ -9,17 +9,19 @@ export const publicMenuItem: TMenuItem[] = [
 
 export const accounOwnertMenuItem: TMenuItem[] = [
   { title: 'Alojamiento', path: '/private/owner/dashboard' },
-  { title: 'Mi perfil', path: '/' },
+  { title: 'Reservas', path: '/private/tourist/dashboard' },
+  { title: 'Favoritos', path: '/private/tourist/favoriteAccomodations' },
+  { title: 'Inicio', path: '/' },
 ];
 
 export const accounTouristMenuItem: TMenuItem[] = [
   { title: 'Reservas', path: '/private/tourist/dashboard' },
   { title: 'Favoritos', path: '/private/tourist/favoriteAccomodations' },
-  { title: 'Mi perfil', path: '/' },
+  { title: 'Inicio', path: '/' },
 ];
 
 export const accountAdminMenuItem: TMenuItem[] = [
   { title: 'Reservas admin', path: '/private/admin/dashboard' },
   { title: 'Favoritos', path: '/private/admin/dashboard' },
-  { title: 'Mi perfil', path: '/private/admin/dashboard' },
+  { title: 'Inicio', path: '/' },
 ];
