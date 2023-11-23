@@ -5,24 +5,22 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { FC, useEffect, useState } from 'react';
 import { ReservationAvaibook } from '@/types';
 import axios from 'axios';
-import { useRouter } from 'next/router';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import BlockCalendarDaysForm from '../BlockCalendarDaysForm/BlockCalendarDaysForm';
 
 const localizer = momentLocalizer(moment);
 
 interface ReservationCalendarProps {
-  start: string;
-  end: string;
+  startDate: string;
+  endDate: string;
 }
 
-type Booking = {
-  id: string;
-  travellerName: string;
-  occupiedPeriod: {
-    start: string;
-    end: string;
-  };
+type BlockDayProps = {
+  unit: string;
+  startDate: string;
+  endDate: string;
+  type: string;
+  booking: string;
 };
 
 export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
@@ -31,11 +29,17 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
     ReservationCalendarProps[]
   >([
     {
-      start: '',
-      end: '',
+      startDate: '',
+      endDate: '',
     },
   ]);
-  const [listenBlockDate, setlistenBlockDate] = useState(null);
+  const [listenBlockDate, setlistenBlockDate] = useState<BlockDayProps>({
+    unit: '',
+    startDate: '',
+    endDate: '',
+    type: '',
+    booking: '',
+  });
   const [accomodationByReservation, setAccomodationByReservation] = useState<
     ReservationAvaibook[]
   >([]);
@@ -49,8 +53,6 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
       },
     },
   ]);
-
-  const router = useRouter();
 
   useEffect(() => {
     const filterByAccomodationId = async () => {
@@ -162,17 +164,26 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
     };
   });
 
-  const dayPropGetter = (date: Date) => {
-    return {
-      style: disabledStyle,
-      onClick: (e: any) => e.preventDefault(),
+  const dayStyleGetter = (date: Date) => {
+    let style = {
+      backgroundColor: 'white', // default color
     };
-  };
 
-  const disabledStyle = {
-    backgroundColor: 'red',
-    color: 'white',
-    opacity: 0.5,
+    accomodationDayBlock.forEach((block) => {
+      const blockStart = moment(block.startDate);
+      const blockEnd = moment(block.endDate);
+      const current = moment(date);
+
+      if (current.isBetween(blockStart, blockEnd, 'day', '[]')) {
+        style = {
+          backgroundColor: '#D4D4D4',
+        };
+      }
+    });
+
+    return {
+      style: style,
+    };
   };
 
   const toggleForm = () => {
@@ -182,7 +193,10 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   return (
     <div className='px-8 mb-24'>
       {showForm && (
-        <BlockCalendarDaysForm setlistenBlockDate={setlistenBlockDate} />
+        <BlockCalendarDaysForm
+          setlistenBlockDate={setlistenBlockDate}
+          id={id}
+        />
       )}
 
       <div className='flex justify-between items-end border-b-[1px] mt-20 mb-14'>
@@ -202,6 +216,7 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
       </div>
 
       <Calendar
+        dayPropGetter={dayStyleGetter}
         localizer={localizer}
         events={reservations}
         startAccessor='start'

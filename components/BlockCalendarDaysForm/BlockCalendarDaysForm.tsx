@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 type FormValues = {
@@ -7,18 +7,29 @@ type FormValues = {
   endDate: string;
 };
 
-type Props = {
-  setlistenBlockDate: React.Dispatch<React.SetStateAction<null>>;
+type BlockDayProps = {
+  unit: string;
+  startDate: string;
+  endDate: string;
+  type: string;
+  booking: string;
 };
 
-const BlockCalendarDaysForm: FC<Props> = ({ setlistenBlockDate }) => {
+type Props = {
+  setlistenBlockDate: React.Dispatch<React.SetStateAction<BlockDayProps>>;
+  id: string;
+};
+
+const BlockCalendarDaysForm: FC<Props> = ({ setlistenBlockDate, id }) => {
+  const [error, setError] = useState('');
   const { register, handleSubmit } = useForm<FormValues>();
+
   const onSubmit: SubmitHandler<FormValues> = async ({
     startDate,
     endDate,
   }) => {
     const res = await axios.post(
-      'https://api.avaibook.com/api/owner/accommodations/130273/calendar/',
+      `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/`,
       {
         startDate,
         endDate,
@@ -32,6 +43,7 @@ const BlockCalendarDaysForm: FC<Props> = ({ setlistenBlockDate }) => {
     );
 
     setlistenBlockDate(res.data);
+    setError('Dias bloqueados con exito');
   };
 
   return (
@@ -74,6 +86,10 @@ const BlockCalendarDaysForm: FC<Props> = ({ setlistenBlockDate }) => {
         >
           Bloquear Fechas
         </button>
+
+        <span className='self-center justify-self-center col-start-1 col-end-3'>
+          {error}
+        </span>
       </form>
     </div>
   );
