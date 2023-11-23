@@ -51,6 +51,8 @@ const config: Config = {
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1699646545/Dygav/Orihuela/Copia_de_7_xhahz0.WebP')",
           orihuelaCosta:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1699647185/Dygav/Orihuela/Copia_de_8_fuequq.WebP')",
+          guardamarSegura:
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1700774784/Dygav/GuardamarDelSegura/4_fnp2ex.WebP')",
       },
     },
   },

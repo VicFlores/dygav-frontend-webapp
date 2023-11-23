@@ -1,4 +1,4 @@
-import React, { CSSProperties, FC, useRef, useState } from 'react';
+import React, { FC, useRef } from 'react';
 import Link from 'next/link';
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
 

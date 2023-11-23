@@ -52,6 +52,11 @@ export const CityCardsFooter = () => {
       cityName: 'Orihuela Costa',
       bgCity: 'bg-orihuela',
     },
+    {
+      href: '/licencias-turisticas-guardamar-segura',
+      cityName: 'Guardamar del Segura',
+      bgCity: 'bg-guardamarSegura',
+    },
   ];
 
   images = images.filter((image) => image.href !== router.pathname);

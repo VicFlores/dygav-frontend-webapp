@@ -27,6 +27,7 @@ export * from './Licenses/TorreviejaInfo';
 export * from './Licenses/AlicanteInfo';
 export * from './Licenses/BenidormInfo';
 export * from './Licenses/OrihuelaOrihuelaCostaInfo';
+export * from './Licenses/GuardamarSeguraInfo';
 export * from './Licenses/LicenseAditionalInfo';
 export * from './TouristDashboard/TouristDashboard';
 export * from './TouristTripsStatus/ActiveTrips';
