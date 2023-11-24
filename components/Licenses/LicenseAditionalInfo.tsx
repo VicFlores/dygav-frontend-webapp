@@ -33,6 +33,11 @@ const images = [
     cityName: 'Guardamar del Segura',
     bgCity: 'bg-guardamarSegura',
   },
+  {
+    href: '/licencias-turisticas-santa-pola',
+    cityName: 'Santa Pola',
+    bgCity: 'bg-santaPola',
+  },
 ];
 
 export const LicenseAditionalInfo = () => {

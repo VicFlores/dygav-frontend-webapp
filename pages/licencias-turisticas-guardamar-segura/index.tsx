@@ -16,7 +16,7 @@ const images = [
   'https://res.cloudinary.com/vicflores11/image/upload/v1700774782/Dygav/GuardamarDelSegura/3_kfk9jn.WebP',
 ];
 
-const OrihuelaOrihuelaCostaPage = () => {
+const GuardamarSeguraPage = () => {
   const { data: session } = useSession();
 
   return (
@@ -44,4 +44,4 @@ const OrihuelaOrihuelaCostaPage = () => {
   );
 };
 
-export default OrihuelaOrihuelaCostaPage;
+export default GuardamarSeguraPage;

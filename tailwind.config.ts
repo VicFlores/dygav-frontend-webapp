@@ -53,6 +53,8 @@ const config: Config = {
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1699647185/Dygav/Orihuela/Copia_de_8_fuequq.WebP')",
           guardamarSegura:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1700774784/Dygav/GuardamarDelSegura/4_fnp2ex.WebP')",
+          santaPola:
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1700839593/Dygav/Santa%20Pola/Copia_de_Puerto_de_Santa_Pola_znyokx.WebP')",
       },
     },
   },
