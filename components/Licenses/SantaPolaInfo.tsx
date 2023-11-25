@@ -87,7 +87,7 @@ export const SantaPolaInfo = () => {
 
       <AlquilerVacacional />
 
-      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-52 lg:px-2 mt-16'>
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-40 mt-16'>
         ¿Quién regula la concesión de licencias turísticas para alquileres
         vacacionales en Santa Pola?
       </h2>
@@ -108,7 +108,7 @@ export const SantaPolaInfo = () => {
         turístico de Santa Pola.
       </p>
 
-      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-56 lg:px-4 mt-16'>
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-44 mt-16'>
         ¿Qué requisitos debe cumplir una vivienda de alquiler vacacional en
         Santa Pola?
       </h2>
@@ -241,7 +241,7 @@ export const SantaPolaInfo = () => {
 
       <LicenciasTuristicas />
 
-      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-72 lg:px-10 mt-16'>
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-40 lg:px-10 mt-16'>
         ¿Cuánto tiempo se tarda en conseguir la licencia turística en Santa
         Pola?
       </h2>
