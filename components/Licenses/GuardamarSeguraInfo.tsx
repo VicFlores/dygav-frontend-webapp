@@ -4,13 +4,24 @@ import { AlquilerVacacional, HelpYouForm, LicenciasTuristicas } from '..';
 import { CityImages } from './CityImages';
 import { CityCardsFooter } from './CityCardsFooter';
 
-const images = [
+const zoneImages = [
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1700775119/Dygav/GuardamarDelSegura/7_ufiq41.webp',
     alt: '',
   },
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1700775118/Dygav/GuardamarDelSegura/6_thb42c.webp',
+    alt: '',
+  },
+];
+
+const townHallImages = [
+  {
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1700775116/Dygav/GuardamarDelSegura/1_kqhglr.webp',
+    alt: '',
+  },
+  {
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1700774784/Dygav/GuardamarDelSegura/2_g8kxjz.webp',
     alt: '',
   },
 ];
@@ -160,7 +171,7 @@ export const GuardamarSeguraInfo = () => {
         o en las oficinas.
       </p>
 
-      <CityImages images={images} />
+      <CityImages images={townHallImages} />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-72 lg:px-10 mt-16'>
         Tramitación de la Licencia Turística
@@ -185,12 +196,14 @@ export const GuardamarSeguraInfo = () => {
           requeridos.
         </p>
 
-        <p>
+        <p className='pb-14'>
           Estas son las zonas donde el actual plan urbanístico de Guardamar
           permite las viviendas de uso turístico.
         </p>
 
-        <p>
+        <CityImages images={zoneImages} />
+
+        <p className='pt-14'>
           El proceso de solicitud para obtener una licencia turística para una
           casa unifamiliar individual sigue los mismos pasos que para otros
           tipos de propiedades en Guardamar. Sin embargo, la probabilidad de
