@@ -248,12 +248,15 @@ export const SantaPolaInfo = () => {
 
       <div className='text-justify text-sm md:text-lg pt-4 space-y-4 mb-4'>
         <p>
-          El tiempo necesario para obtener una licencia turística en Santa Pola
-          generalmente se extiende entre 4 y 5 meses. Este período puede variar
-          según diversos factores, como la eficiencia administrativa del
-          Ayuntamiento de Santa Pola, el volumen de solicitudes en trámite y la
-          exactitud y completitud de la documentación presentada por el
-          solicitante.
+          El tiempo necesario para{' '}
+          <strong>
+            obtener una licencia turística en Santa Pola generalmente se
+            extiende entre 4 y 5 meses
+          </strong>
+          . Este período puede variar según diversos factores, como la
+          eficiencia administrativa del Ayuntamiento de Santa Pola, el volumen
+          de solicitudes en trámite y la exactitud y completitud de la
+          documentación presentada por el solicitante.
         </p>
 
         <p>
