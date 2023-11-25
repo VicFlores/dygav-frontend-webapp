@@ -11,7 +11,6 @@ import { useSession } from 'next-auth/react';
 
 const images = [
   'https://res.cloudinary.com/vicflores11/image/upload/v1700839593/Dygav/Santa%20Pola/Copia_de_Puerto_de_Santa_Pola_znyokx.WebP',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1700839593/Dygav/Santa%20Pola/3_chl4lq.WebP',
   'https://res.cloudinary.com/vicflores11/image/upload/v1700839593/Dygav/Santa%20Pola/2_gipvsk.WebP',
   'https://res.cloudinary.com/vicflores11/image/upload/v1700839591/Dygav/Santa%20Pola/1_cnxjq9.WebP',
 ];
