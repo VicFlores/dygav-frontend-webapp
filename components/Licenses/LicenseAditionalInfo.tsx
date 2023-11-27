@@ -1,44 +1,7 @@
 import Link from 'next/link';
 import { AlquilerVacacional } from '..';
 import { CityCards } from './CityCards';
-
-const images = [
-  {
-    href: '/licencias-turisticas-torrevieja',
-    cityName: 'Torrevieja',
-    bgCity: 'bg-torrevieja',
-  },
-  {
-    href: '/licencias-turisticas-alicante',
-    cityName: 'Alicante',
-    bgCity: 'bg-alicante',
-  },
-  {
-    href: '/licencias-turisticas-benidorm',
-    cityName: 'Benidorm',
-    bgCity: 'bg-benidorm',
-  },
-  {
-    href: '/licencias-turisticas-orihuela-orihuela-costa',
-    cityName: 'Orihuela',
-    bgCity: 'bg-orihuelaCosta',
-  },
-  {
-    href: '/licencias-turisticas-orihuela-orihuela-costa',
-    cityName: 'Orihuela Costa',
-    bgCity: 'bg-orihuela',
-  },
-  {
-    href: '/licencias-turisticas-guardamar-segura',
-    cityName: 'Guardamar del Segura',
-    bgCity: 'bg-guardamarSegura',
-  },
-  {
-    href: '/licencias-turisticas-santa-pola',
-    cityName: 'Santa Pola',
-    bgCity: 'bg-santaPola',
-  },
-];
+import { bgCardsLicenses } from '@/utils';
 
 export const LicenseAditionalInfo = () => {
   return (
@@ -171,7 +134,7 @@ export const LicenseAditionalInfo = () => {
           </h3>
         </div>
 
-        <CityCards images={images} />
+        <CityCards images={bgCardsLicenses} />
       </div>
     </section>
   );
