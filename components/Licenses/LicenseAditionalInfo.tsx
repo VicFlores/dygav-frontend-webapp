@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { AlquilerVacacional } from '..';
 import { CityCards } from './CityCards';
-import { bgCardsLicenses } from '@/utils';
 
 export const LicenseAditionalInfo = () => {
   return (
@@ -134,7 +133,7 @@ export const LicenseAditionalInfo = () => {
           </h3>
         </div>
 
-        <CityCards images={bgCardsLicenses} />
+        <CityCards />
       </div>
     </section>
   );

@@ -8,11 +8,50 @@ interface ImageProps {
   bgCity: string;
 }
 
-interface Props {
-  images: ImageProps[];
-}
+const images: ImageProps[] = [
+  {
+    href: '/licencias-turisticas-torrevieja',
+    cityName: 'Torrevieja',
+    bgCity: 'bg-torrevieja',
+  },
+  {
+    href: '/licencias-turisticas-alicante',
+    cityName: 'Alicante',
+    bgCity: 'bg-alicante',
+  },
+  {
+    href: '/licencias-turisticas-benidorm',
+    cityName: 'Benidorm',
+    bgCity: 'bg-benidorm',
+  },
+  {
+    href: '/licencias-turisticas-orihuela-orihuela-costa',
+    cityName: 'Orihuela',
+    bgCity: 'bg-orihuelaCosta',
+  },
+  {
+    href: '/licencias-turisticas-orihuela-orihuela-costa',
+    cityName: 'Orihuela Costa',
+    bgCity: 'bg-orihuela',
+  },
+  {
+    href: '/licencias-turisticas-guardamar-segura',
+    cityName: 'Guardamar del Segura',
+    bgCity: 'bg-guardamarSegura',
+  },
+  {
+    href: '/licencias-turisticas-santa-pola',
+    cityName: 'Santa Pola',
+    bgCity: 'bg-santaPola',
+  },
+  {
+    href: '/licencias-turisticas-villajoyosa',
+    cityName: 'Villajoyosa',
+    bgCity: 'bg-villajoyosa',
+  },
+];
 
-export const CityCards: FC<Props> = ({ images }) => {
+export const CityCards = () => {
   const scrollContainer = useRef<HTMLDivElement>(null);
 
   const scrollLeft = () => {
