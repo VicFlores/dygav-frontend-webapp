@@ -49,6 +49,11 @@ const images: ImageProps[] = [
     cityName: 'Villajoyosa',
     bgCity: 'bg-villajoyosa',
   },
+  {
+    href: '/licencias-turisticas-finestrat',
+    cityName: 'Finestrat',
+    bgCity: 'bg-finestrat',
+  },
 ];
 
 export const CityCards = () => {
