@@ -72,6 +72,11 @@ export const CityCardsFooter = () => {
       cityName: 'Finestrat',
       bgCity: 'bg-finestrat',
     },
+    {
+      href: '/licencias-turisticas-el-campello',
+      cityName: 'El Campello',
+      bgCity: 'bg-elCampello',
+    },
   ];
 
   images = images.filter((image) => image.href !== router.pathname);

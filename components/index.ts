@@ -31,6 +31,7 @@ export * from './Licenses/GuardamarSeguraInfo';
 export * from './Licenses/SantaPolaInfo';
 export * from './Licenses/VillajoyosaInfo';
 export * from './Licenses/FinestrartInfo';
+export * from './Licenses/ElCampelloInfo';
 export * from './Licenses/LicenseAditionalInfo';
 export * from './TouristDashboard/TouristDashboard';
 export * from './TouristTripsStatus/ActiveTrips';
