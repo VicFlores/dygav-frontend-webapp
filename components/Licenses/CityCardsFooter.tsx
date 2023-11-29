@@ -77,6 +77,11 @@ export const CityCardsFooter = () => {
       cityName: 'El Campello',
       bgCity: 'bg-elCampello',
     },
+    {
+      href: '/licencias-turisticas-calpe',
+      cityName: 'Calpe',
+      bgCity: 'bg-calpe',
+    },
   ];
 
   images = images.filter((image) => image.href !== router.pathname);

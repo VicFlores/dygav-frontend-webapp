@@ -58,9 +58,11 @@ const config: Config = {
           villajoyosa:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1701107278/Dygav/Villajoyosa/11_nqftjd.WebP')",
           finestrat:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1701185602/Dygav/Finestrart/17_gndp97.WebP')",
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1701186487/Dygav/Finestrart/Copia_de_16_buyb8u.WebP')",
           elCampello:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1701207161/Dygav/El%20Campello/4_iahcly.WebP')",
+          calpe:
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1701292956/Dygav/Calpe/29_c3w9ej.WebP')",
       },
     },
   },
