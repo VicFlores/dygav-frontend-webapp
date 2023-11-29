@@ -30,7 +30,7 @@ const OwnersPage = () => {
 
       <Information />
 
-      <Contact />
+      {/* <Contact /> */}
 
       <Footer />
     </section>

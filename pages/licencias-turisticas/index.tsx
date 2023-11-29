@@ -1,5 +1,4 @@
 import {
-  Contact,
   Footer,
   GetLicense,
   HelpFixedButton,
@@ -38,8 +37,6 @@ export default function License() {
       <GetLicense />
 
       <LicenseTourist />
-
-      <Contact />
 
       <Footer />
     </section>

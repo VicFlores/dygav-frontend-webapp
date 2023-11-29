@@ -3,7 +3,7 @@ import { HelpYouForm } from '..';
 
 export const Contact = () => {
   return (
-    <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32 flex flex-col items-center'>
+    <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32 flex flex-col'>
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:px-10 mt-16'>
         Prepárate para el Éxito
       </h2>
