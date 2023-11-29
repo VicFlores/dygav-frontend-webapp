@@ -64,6 +64,11 @@ const images: ImageProps[] = [
     cityName: 'Calpe',
     bgCity: 'bg-calpe',
   },
+  {
+    href: '/licencias-turisticas-pilar-de-la-horadada',
+    cityName: 'Pilar de la Horadada',
+    bgCity: 'bg-pilarHoradada',
+  },
 ];
 
 export const CityCards = () => {

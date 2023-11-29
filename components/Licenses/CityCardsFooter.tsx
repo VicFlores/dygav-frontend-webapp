@@ -82,6 +82,11 @@ export const CityCardsFooter = () => {
       cityName: 'Calpe',
       bgCity: 'bg-calpe',
     },
+    {
+      href: '/licencias-turisticas-pilar-de-la-horadada',
+      cityName: 'Pilar de la Horadada',
+      bgCity: 'bg-pilarHoradada',
+    },
   ];
 
   images = images.filter((image) => image.href !== router.pathname);

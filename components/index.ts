@@ -33,6 +33,7 @@ export * from './Licenses/VillajoyosaInfo';
 export * from './Licenses/FinestrartInfo';
 export * from './Licenses/ElCampelloInfo';
 export * from './Licenses/CalpeInfo';
+export * from './Licenses/PilarHoradadaInfo';
 export * from './Licenses/LicenseAditionalInfo';
 export * from './TouristDashboard/TouristDashboard';
 export * from './TouristTripsStatus/ActiveTrips';
