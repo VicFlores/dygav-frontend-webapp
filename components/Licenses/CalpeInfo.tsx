@@ -188,7 +188,7 @@ export const CalpeInfo = () => {
           El proceso para adquirir una licencia turística en Calpe{' '}
           <strong>generalmente toma entre 4 y 5 meses</strong>. Sin embargo,
           este período puede variar en función de factores como la demanda y la
-          carga de trabajo del Ayuntamiento. Se recomienda a los propietarios
+          carga de trabajo del Ayuntamiento. Se recomienda a los propietarios{' '}
           <strong>
             iniciar el proceso con suficiente antelación y con toda la
             documentación necesaria
@@ -198,7 +198,7 @@ export const CalpeInfo = () => {
 
         <p>
           Enfrentar los retos para conseguir una licencia turística en Calpe
-          ofrece una oportunidad inigualable para propietarios e inversores. En
+          ofrece una oportunidad inigualable para propietarios e inversores. En{' '}
           <span className='text-p600'>DYGAV</span>, nos comprometemos a ayudarte
           en cada etapa del proceso. Para obtener más información y
           asesoramiento personalizado, comunícate con nosotros.

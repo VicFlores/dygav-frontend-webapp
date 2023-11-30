@@ -62,7 +62,7 @@ const config: Config = {
           elCampello:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1701207161/Dygav/El%20Campello/4_iahcly.WebP')",
           calpe:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1701292956/Dygav/Calpe/29_c3w9ej.WebP')",
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1701292652/Dygav/Calpe/27_tfsmto.WebP')",
           pilarHoradada:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1701293984/Dygav/Pilar%20de%20la%20Horadada/21_lwqjnu.WebP')",
       },

@@ -132,8 +132,6 @@ export const OrihuelaOrihuelaCostaInfo = () => {
         legalmente una vivienda vacacional.
       </p>
 
-      <LicenciasTuristicas />
-
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-56 lg:px-4 mt-16'>
         ¿Qué requisitos debe cumplir una vivienda de alquiler vacacional en
         Orihuela y Orihuela Costa?
@@ -237,6 +235,8 @@ export const OrihuelaOrihuelaCostaInfo = () => {
         </Link>
         .
       </p>
+
+      <LicenciasTuristicas />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:px-10 mt-16'>
         ¿Cuándo y dónde Solicitar la Licencia Turística?
