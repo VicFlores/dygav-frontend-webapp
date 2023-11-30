@@ -7,11 +7,11 @@ import { CityCardsFooter } from './CityCardsFooter';
 const images = [
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1701207510/Dygav/El%20Campello/1_tnweqi.webp',
-    alt: '',
+    alt: 'Licencias turísticas: Ayuntamiento de El Campello',
   },
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1701207173/Dygav/El%20Campello/2_fldo0n.webp',
-    alt: '',
+    alt: 'Licencias turísticas: El Campello costa',
   },
 ];
 

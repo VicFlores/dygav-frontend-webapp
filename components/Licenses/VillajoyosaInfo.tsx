@@ -7,11 +7,11 @@ import { CityCardsFooter } from './CityCardsFooter';
 const images = [
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1701107925/Dygav/Villajoyosa/13_uy8c99.webp',
-    alt: '',
+    alt: 'Licencias turísticas: Ayuntamiento de Villajoyosa',
   },
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1701107745/Dygav/Villajoyosa/12_niq9fq.webp',
-    alt: '',
+    alt: 'Licencias turísticas: Villajoyosa casas',
   },
 ];
 

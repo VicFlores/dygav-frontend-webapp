@@ -7,11 +7,11 @@ import { CityCardsFooter } from './CityCardsFooter';
 const images = [
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1701357921/Dygav/Altea/7_dezkye.webp',
-    alt: '',
+    alt: 'Licencias turísticas: Altea ciudad',
   },
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1701357904/Dygav/Altea/11_jlgqfy.webp',
-    alt: '',
+    alt: 'Licencias turísticas: Altea costa',
   },
 ];
 

@@ -7,11 +7,11 @@ import { CityCardsFooter } from './CityCardsFooter';
 const images = [
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1700840375/Dygav/Santa%20Pola/No_usada_todavia_usar_7_yuxl7h.webp',
-    alt: '',
+    alt: 'Licencias turísticas: Ayuntamiento de Santa Pola',
   },
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1700840376/Dygav/Santa%20Pola/Puerto_de_Santa_Pola_z22c85.webp',
-    alt: '',
+    alt: 'Licencias turísticas: Santa Pola muelle',
   },
 ];
 

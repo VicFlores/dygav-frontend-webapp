@@ -7,22 +7,22 @@ import { CityCardsFooter } from './CityCardsFooter';
 const zoneImages = [
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1700775119/Dygav/GuardamarDelSegura/7_ufiq41.webp',
-    alt: '',
+    alt: 'Licencias turísticas: Zonas permitidas para uso turistico',
   },
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1700775118/Dygav/GuardamarDelSegura/6_thb42c.webp',
-    alt: '',
+    alt: 'Licencias turísticas: Zonas permitidas para uso turistico',
   },
 ];
 
 const townHallImages = [
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1700775116/Dygav/GuardamarDelSegura/1_kqhglr.webp',
-    alt: '',
+    alt: 'Licencias turísticas: Ayuntamiento de Guardamar del Segura',
   },
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1700774784/Dygav/GuardamarDelSegura/2_g8kxjz.webp',
-    alt: '',
+    alt: 'Licencias turísticas: Guardamar del Segura costa',
   },
 ];
 

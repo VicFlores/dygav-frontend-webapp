@@ -7,11 +7,11 @@ import { CityCardsFooter } from './CityCardsFooter';
 const images = [
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1701292959/Dygav/Calpe/28_iosuwn.webp',
-    alt: '',
+    alt: 'Licencias turísticas: Ayuntamiento de Calpe',
   },
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1701292956/Dygav/Calpe/29_c3w9ej.webp',
-    alt: '',
+    alt: 'Licencias turísticas: Calpe Ciudad',
   },
 ];
 

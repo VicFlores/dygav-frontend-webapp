@@ -7,11 +7,11 @@ import { CityCardsFooter } from './CityCardsFooter';
 const images = [
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1701186490/Dygav/Finestrart/18_avupj6.webp',
-    alt: '',
+    alt: 'Licencias turísticas: Ayuntamiento de Finestrat',
   },
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1701186487/Dygav/Finestrart/Copia_de_16_buyb8u.webp',
-    alt: '',
+    alt: 'Licencias turísticas: Finestrat costa',
   },
 ];
 

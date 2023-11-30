@@ -7,11 +7,11 @@ import { CityCardsFooter } from './CityCardsFooter';
 const images = [
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1699646545/Dygav/Orihuela/Copia_de_7_xhahz0.webp',
-    alt: '',
+    alt: 'Licencias turísticas: Playa de Orihuela y Orihuela Costa',
   },
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1699646542/Dygav/Orihuela/Copia_de_8_um5yze.webp',
-    alt: '',
+    alt: 'Licencias turísticas: Orihuela y Orihuela Costa casas',
   },
 ];
 
