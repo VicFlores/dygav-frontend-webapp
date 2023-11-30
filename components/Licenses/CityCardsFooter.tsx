@@ -87,6 +87,11 @@ export const CityCardsFooter = () => {
       cityName: 'Pilar de la Horadada',
       bgCity: 'bg-pilarHoradada',
     },
+    {
+      href: '/licencias-turisticas-altea',
+      cityName: 'Altea',
+      bgCity: 'bg-altea',
+    },
   ];
 
   images = images.filter((image) => image.href !== router.pathname);

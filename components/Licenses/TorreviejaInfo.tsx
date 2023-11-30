@@ -278,8 +278,8 @@ export const TorreviejaInfo = () => {
             es recomendable contar con la asistencia de una empresa
             especializada en gestión de licencias turísticas
           </strong>
-          , como <span className='text-p600'>DYGAV</span>, que tiene experiencia
-          en la{' '}
+          , como <strong className='text-p600'>DYGAV</strong>, que tiene
+          experiencia en la{' '}
           <span>
             <Link
               className='underline text-p600'

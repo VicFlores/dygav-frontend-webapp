@@ -65,6 +65,8 @@ const config: Config = {
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1701292652/Dygav/Calpe/27_tfsmto.WebP')",
           pilarHoradada:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1701293984/Dygav/Pilar%20de%20la%20Horadada/21_lwqjnu.WebP')",
+          altea:
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1701357907/Dygav/Altea/10_zdkkww.WebP')",
       },
     },
   },

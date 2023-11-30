@@ -34,7 +34,7 @@ export const BenidormInfo = () => {
           enormemente.
         </p>
         <p>
-          En <span className='text-p600'>DYGAV</span>, nos hemos posicionado
+          En <strong className='text-p600'>DYGAV</strong>, nos hemos posicionado
           como líderes en la{' '}
           <span>
             <Link
@@ -253,8 +253,8 @@ export const BenidormInfo = () => {
         <strong>
           es altamente recomendable contar con el apoyo de expertos
         </strong>{' '}
-        en el ámbito, como <span className='text-p600'>DYGAV</span>, que tiene
-        vasta experiencia en{' '}
+        en el ámbito, como <strong className='text-p600'>DYGAV</strong>, que
+        tiene vasta experiencia en{' '}
         <span>
           <Link href={'/licencias-turisticas'} className='underline text-p600'>
             gestionar licencias turísticas

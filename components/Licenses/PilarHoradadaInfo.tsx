@@ -195,9 +195,9 @@ export const PilarHoradadaInfo = () => {
           A pesar de los retos, adquirir una licencia turística en Pilar de la
           Horadada es una oportunidad valiosa para propietarios e inversores
           interesados en el mercado de alquiler vacacional. En{' '}
-          <span className='text-p600'>DYGAV</span>, te brindamos apoyo en cada
-          fase de este proceso. Contáctanos para asesoramiento personalizado y
-          más información.
+          <strong className='text-p600'>DYGAV</strong>, te brindamos apoyo en
+          cada fase de este proceso. Contáctanos para asesoramiento
+          personalizado y más información.
         </p>
       </div>
 

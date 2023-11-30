@@ -12,9 +12,9 @@ export const Information = () => {
       </h2>
 
       <p className='text-xs md:text-sm lg:text-lg border-t-4 border-t-p600 pt-5 space-y-4 text-black900'>
-        En <span className='text-p600'>DYGAV</span> somos especialistas en la
-        gestión de viviendas vacacionales, nos encargamos de controlar todos los
-        aspectos necesarios para{' '}
+        En <strong className='text-p600'>DYGAV</strong> somos especialistas en
+        la gestión de viviendas vacacionales, nos encargamos de controlar todos
+        los aspectos necesarios para{' '}
         <strong>
           maximizar tus ingresos y garantizar una experiencia inigualable
         </strong>{' '}
@@ -113,8 +113,8 @@ export const Information = () => {
 
       <p className='mt-8 text-sm md:text-lg px-2 md:px-0 text-center md:text-start '>
         Al contrario que otras empresas que ocultan sus tarifas y esconden sus
-        comisiones en <span className='text-p600'>DYGAV</span>, mantenemos una
-        política de <strong>transparencia total</strong> en nuestras tarifas
+        comisiones en <strong className='text-p600'>DYGAV</strong>, mantenemos
+        una política de <strong>transparencia total</strong> en nuestras tarifas
         porque creemos en una relación donde{' '}
         <strong>
           nuestros ingresos están directamente vinculados al éxito de nuestros
@@ -167,9 +167,10 @@ export const Information = () => {
       </h2>
 
       <p className='mt-8 text-sm md:text-lg px-2 md:px-0 text-center md:text-start '>
-        En <span className='text-p600'>DYGAV</span>, entendemos la importancia
-        de tener el control total sobre tu propiedad vacacional, incluso cuando
-        estás en movimiento.. Te ofrecemos la libertad y la flexibilidad de{' '}
+        En <strong className='text-p600'>DYGAV</strong>, entendemos la
+        importancia de tener el control total sobre tu propiedad vacacional,
+        incluso cuando estás en movimiento.. Te ofrecemos la libertad y la
+        flexibilidad de{' '}
         <strong>
           gestionar todos los aspectos de tu vivienda turística directamente
           desde tu smartphone

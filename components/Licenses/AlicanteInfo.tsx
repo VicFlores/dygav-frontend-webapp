@@ -549,9 +549,9 @@ export const AlicanteInfo = () => {
           </span>
         </p>
         <p>
-          En <span className='text-p600'>DYGAV</span>, estamos a tu lado en cada
-          paso del camino hacia la obtención de la licencia turística para tu
-          piso. Nos convertimos en tu aliado y guía, asegurándonos de que el
+          En <strong className='text-p600'>DYGAV</strong>, estamos a tu lado en
+          cada paso del camino hacia la obtención de la licencia turística para
+          tu piso. Nos convertimos en tu aliado y guía, asegurándonos de que el
           proceso sea fluido y exitoso.
         </p>
         <p>

@@ -47,7 +47,7 @@ export const GuardamarSeguraInfo = () => {
         </p>
 
         <p>
-          En <span className='text-p600'>DYGAV</span>, nos especializamos en
+          En <strong className='text-p600'>DYGAV</strong>, nos especializamos en
           ayudar a los propietarios a navegar por este complicado proceso,
           ofreciendo asesoramiento y estrategias adaptadas a las normativas
           locales.{' '}
@@ -234,9 +234,9 @@ export const GuardamarSeguraInfo = () => {
         <p>
           A pesar de los desafíos, obtener una licencia turística en Guardamar
           es una oportunidad valiosa para los propietarios de inmuebles en las
-          zonas permitidas. En <span className='text-p600'>DYGAV</span>, estamos
-          aquí para apoyarte en cada paso de este proceso. Contáctanos para más
-          información y asesoramiento personalizado.
+          zonas permitidas. En <strong className='text-p600'>DYGAV</strong>,
+          estamos aquí para apoyarte en cada paso de este proceso. Contáctanos
+          para más información y asesoramiento personalizado.
         </p>
       </div>
 

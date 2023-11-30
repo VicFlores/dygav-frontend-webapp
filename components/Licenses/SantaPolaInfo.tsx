@@ -233,7 +233,7 @@ export const SantaPolaInfo = () => {
             </Link>
           </span>{' '}
           puede ser de gran ayuda para facilitar este proceso. En{' '}
-          <span className='text-p600'>DYGAV</span>, estamos comprometidos a
+          <strong className='text-p600'>DYGAV</strong>, estamos comprometidos a
           guiarte en cada etapa de este proceso. Contáctanos para obtener más
           detalles y asesoramiento a medida
         </p>

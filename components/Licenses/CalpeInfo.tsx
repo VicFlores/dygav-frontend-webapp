@@ -199,8 +199,8 @@ export const CalpeInfo = () => {
         <p>
           Enfrentar los retos para conseguir una licencia turística en Calpe
           ofrece una oportunidad inigualable para propietarios e inversores. En{' '}
-          <span className='text-p600'>DYGAV</span>, nos comprometemos a ayudarte
-          en cada etapa del proceso. Para obtener más información y
+          <strong className='text-p600'>DYGAV</strong>, nos comprometemos a
+          ayudarte en cada etapa del proceso. Para obtener más información y
           asesoramiento personalizado, comunícate con nosotros.
         </p>
       </div>

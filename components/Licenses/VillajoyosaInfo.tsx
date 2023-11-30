@@ -206,7 +206,7 @@ export const VillajoyosaInfo = () => {
           Si bien puede haber desafíos para obtener una licencia turística en
           Villajoyosa, el mercado del alquiler vacacional representa una valiosa
           oportunidad para los propietarios e inversores que quieran entrar en
-          el. En <span className='text-p600'>DYGAV</span>, nos dedicamos a
+          el. En <strong className='text-p600'>DYGAV</strong>, nos dedicamos a
           asistirte en cada paso. Para más información y asesoramiento a medida,
           contáctanos.
         </p>

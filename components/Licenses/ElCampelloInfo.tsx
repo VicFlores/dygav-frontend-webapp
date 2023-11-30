@@ -183,9 +183,9 @@ export const ElCampelloInfo = () => {
         <p>
           Obtener una licencia turística en Campello, a pesar de sus desafíos,
           es una oportunidad para propietarios e inversores. En{' '}
-          <span className='text-p600'>DYGAV</span>, estamos listos para apoyarte
-          a lo largo de todo este proceso. Para más información y asesoramiento
-          personal, no dudes en contactarnos.
+          <strong className='text-p600'>DYGAV</strong>, estamos listos para
+          apoyarte a lo largo de todo este proceso. Para más información y
+          asesoramiento personal, no dudes en contactarnos.
         </p>
       </div>
 

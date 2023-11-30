@@ -208,9 +208,9 @@ export const FinestratInfo = () => {
         <p>
           Lograr una licencia turística en Finestrat, a pesar de los desafíos,
           es una gran oportunidad para los propietarios. En{' '}
-          <span className='text-p600'>DYGAV</span>, te ofrecemos nuestro soporte
-          y experiencia en cada paso del camino. Ponte en contacto con nosotros
-          para más información y para un asesoramiento personalizado
+          <strong className='text-p600'>DYGAV</strong>, te ofrecemos nuestro
+          soporte y experiencia en cada paso del camino. Ponte en contacto con
+          nosotros para más información y para un asesoramiento personalizado
         </p>
       </div>
 
