@@ -24,8 +24,8 @@ export const informationCard: TCardProps[] = [
   },
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1692136905/Dygav/undraw_Savings_re_eq4w_x3aeo0.WebP',
-    alt: 'PPrecio Dinámico por IA',
-    title: 'PPrecio Dinámico por IA',
+    alt: 'Precio Dinámico por IA',
+    title: 'Precio Dinámico por IA',
     subtitle:
       'Ponemos a tu disposición un potente motor de Inteligencia Artificial que analiza la demanda en tiempo real para ajustar estratégicamente tus tarifas y garantizarte la máxima rentabilidad.',
   },
