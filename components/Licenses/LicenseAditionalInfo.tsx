@@ -71,7 +71,7 @@ export const LicenseAditionalInfo = () => {
         </p>
       </div>
 
-      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-96 lg:px-16 mt-16'>
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-60 lg:px-4 mt-16'>
         Licencias turísticas en la Comunidad Valenciana
       </h2>
 

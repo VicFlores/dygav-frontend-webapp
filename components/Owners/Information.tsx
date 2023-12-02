@@ -2,8 +2,7 @@ import Image from 'next/legacy/image';
 import { informationCard } from '@/utils';
 import { HelpYouForm, Llamanos } from '..';
 import Link from 'next/link';
-import { useState } from 'react';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { BiPhoneCall } from 'react-icons/bi';
 import { FAQSection } from './FAQSection';
 
 export const Information = () => {
@@ -241,11 +240,55 @@ export const Information = () => {
         <strong>gestionar tus apartamentos vacacionales con nosotros!</strong>
       </p>
 
-      <p className='text-xs md:text-sm lg:text-2xl mt-8 space-y-4 text-p600 text-center mb-10 font-semibold'>
-        Te ayudamos a ganar más dinero con tu casa de alquiler vacacional
-      </p>
+      <div className='flex justify-center items-center mt-16'>
+        <div
+          className={`grid lg:grid-cols-2 bg-gray300/40 border border-p600 rounded-xl px-9 md:px-10 lg:px-28 py-10 md:py-5`}
+        >
+          <p className='text-lg lg:text-2xl mt-8 space-y-4 text-p600 text-center mb-10 font-semibold lg:col-start-1 lg:col-end-3'>
+            TE AYUDAMOS A RENTABILIZAR TU ALQUILER TURÍSTICO
+          </p>
 
-      <Llamanos paddingX='lg:px-28' />
+          <figure className='relative w-52 h-52 md:w-64 md:h-64 self-center justify-self-center mb-4 md:mb-0'>
+            <Image
+              src={
+                'https://res.cloudinary.com/vicflores11/image/upload/v1698162186/Dygav/undraw_personal_email_re_4lx7_c7oydo.svg'
+              }
+              alt='Contact Us Image'
+              layout='fill'
+            />
+          </figure>
+
+          <div className='flex-col space-y-4 justify-center md:justify-evenly items-center self-center justify-self-center'>
+            <p className='text-center text-2xl px-14 md:text-3xl text-black700'>
+              ¡Llámanos!
+            </p>
+
+            <div className='relative'>
+              <BiPhoneCall className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-14 md:right-16 lg:right-12' />
+              <a href='tel:+34614165736'>
+                <button
+                  id='toggle'
+                  className='bg-p600 hover:bg-p800 text-center text-xs md:text-sm lg:text-base py-2 px-4 w-full md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
+                >
+                  +34 614 165 736
+                </button>
+              </a>
+            </div>
+
+            <div className='relative'>
+              <BiPhoneCall className='w-4 h-4 md:w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-14 md:right-16 lg:right-12' />
+              <a href='tel:+34614214250'>
+                <button
+                  id='toggle'
+                  className='bg-p600 hover:bg-p800 text-center text-xs md:text-sm lg:text-base py-2 px-4 w-full md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
+                >
+                  +34 614 214 250
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <h2 className='text-center px-4 md:px-0 text-2xl md:text-3xl pb-4 border-b-4 border-b-p600 font-semibold mb-16 mt-28'>
         ¿Cómo te ayudamos a rentabilizar tu casa de alquiler vacacional?
@@ -363,6 +406,16 @@ export const Information = () => {
         </strong>
         .
       </p>
+
+      <figure className='relative w-52 h-52 md:w-80 md:h-80 self-center mt-10'>
+        <Image
+          src={
+            'https://res.cloudinary.com/vicflores11/image/upload/v1701529753/Dygav/undraw_home_settings_re_pkya_bvz343.svg'
+          }
+          alt=''
+          layout='fill'
+        />
+      </figure>
 
       <p className='mt-8 text-sm md:text-lg px-2 md:px-0 text-center md:text-start '>
         Visualiza y gestiona las <strong>reservas en tiempo real</strong>,

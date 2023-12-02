@@ -1,3 +1,4 @@
+import Image from 'next/legacy/image';
 import React from 'react';
 
 export const PeachOwners = () => {
@@ -23,6 +24,16 @@ export const PeachOwners = () => {
           </strong>
         </p>
       </div>
+
+      <figure className='relative w-52 h-52 md:w-96 md:h-96 self-center'>
+        <Image
+          src={
+            'https://res.cloudinary.com/vicflores11/image/upload/v1701529872/Dygav/undraw_sweet_home_dkhr_b0qc3r.svg'
+          }
+          alt=''
+          layout='fill'
+        />
+      </figure>
     </section>
   );
 };

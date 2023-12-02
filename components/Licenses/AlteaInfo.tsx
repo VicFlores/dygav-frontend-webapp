@@ -84,32 +84,32 @@ export const AlteaInfo = () => {
 
       <ul className='text-sm md:text-lg px-3 pt-4 list-disc pl-4 md:pl-32 space-y-4'>
         <li>
-          Certificado de primera o segunda ocupación: Este certificado confirma
-          que la propiedad satisface las normativas de habitabilidad y
-          seguridad.
+          <strong>Certificado de primera o segunda ocupación:</strong> Este
+          certificado confirma que la propiedad satisface las normativas de
+          habitabilidad y seguridad.
         </li>
 
         <li>
-          Certificado de compatibilidad urbanística: Asegura que la vivienda se
-          ajusta a las regulaciones urbanísticas de Altea.
+          <strong>Certificado de compatibilidad urbanística:</strong> Asegura
+          que la vivienda se ajusta a las regulaciones urbanísticas de Altea.
         </li>
 
         <li>
-          Certificado energético: Necesario para operar en el mercado de
-          alquiler vacacional si bien no es necesario para la tramitación de la
-          licencia turística.
+          <strong>Certificado energético:</strong> Necesario para operar en el
+          mercado de alquiler vacacional si bien no es necesario para la
+          tramitación de la licencia turística.
         </li>
 
         <li>
-          Seguro de responsabilidad civil: Fundamental para proteger tanto al
-          propietario como a los huéspedes. Debe cubrir un mínimo de 150.000€ y
-          estar destinado a vivienda de uso turístico.
+          <strong>Seguro de responsabilidad civil:</strong> Fundamental para
+          proteger tanto al propietario como a los huéspedes. Debe cubrir un
+          mínimo de 150.000€ y estar destinado a vivienda de uso turístico.
         </li>
 
         <li>
-          Fotografías actualizadas de la propiedad: Importantes para el proceso
-          de solicitud, mostrando el estado y características actuales de la
-          vivienda.
+          <strong>Fotografías actualizadas de la propiedad:</strong> Importantes
+          para el proceso de solicitud, mostrando el estado y características
+          actuales de la vivienda.
         </li>
       </ul>
 
@@ -132,9 +132,7 @@ export const AlteaInfo = () => {
         formulario de solicitud que está disponible tanto en la{' '}
         <span>
           <Link
-            href={
-              'http://www.pilardelahoradada.org/sites/default/files/solicitudes/1532335616320114016.pdf'
-            }
+            href={'https://altea.es/es/concejalias/urbanismo/'}
             className='underline text-p600'
             target='_blank'
           >
