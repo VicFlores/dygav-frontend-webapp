@@ -12,7 +12,7 @@ type FAQSectionProps = {
 };
 
 export const FAQSection: React.FC<FAQSectionProps> = ({ title, faqs }) => {
-  const [visibleAnswer, setVisibleAnswer] = useState<number | null>(null);
+  const [visibleAnswer, setVisibleAnswer] = useState<number | null>(0);
 
   const toggleVisibility = (index: number) => {
     setVisibleAnswer(visibleAnswer === index ? null : index);
@@ -29,13 +29,17 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ title, faqs }) => {
           <div key={index} className='space-y-4 py-4'>
             <h2
               onClick={() => toggleVisibility(index)}
-              className='bg-gray300/80 hover:cursor-pointer hover:underline px-4 py-4 flex justify-between items-center'
+              className='bg-p600/70 hover:cursor-pointer hover:underline px-4 py-4 flex justify-between items-center rounded-xl text-white'
             >
               {faq.question}
               {visibleAnswer === index ? <FaChevronUp /> : <FaChevronDown />}
             </h2>
 
-            {visibleAnswer === index && <p className='px-4'>{faq.answer}</p>}
+            {visibleAnswer === index && (
+              <p className='px-4 py-4 bg-p600/90 rounded-xl text-white'>
+                {faq.answer}
+              </p>
+            )}
           </div>
         ))}
       </div>
