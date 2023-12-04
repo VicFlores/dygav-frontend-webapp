@@ -14,7 +14,7 @@ export const AboutUsCard = () => {
               Bienvenido a <br /> nuestro mundo
             </p>
 
-            <p className='text-black900 text-xs lg:text-sm md:text-sm px-4'>
+            <p className='text-black900 text-justify lg:text-start text-xs lg:text-sm md:text-sm px-4'>
               Somos una empresa con amplia experiencia en el sector inmobiliario
               y gestión de patrimonio. Entendemos las necesidades y exigencias
               del mercado actual. Nos enorgullecemos de ofrecer soluciones
@@ -35,7 +35,7 @@ export const AboutUsCard = () => {
               Digitaliza tu apartamentos turistico
             </p>
 
-            <p className='text-black900 text-xs lg:text-sm md:text-sm px-4'>
+            <p className='text-black900 text-justify lg:text-start text-xs lg:text-sm md:text-sm px-4'>
               Mediante la digitalización, optimizamos la gestión de propiedades
               para nuestros clientes. Somos líderes en tecnología para
               apartamentos turísticos, ofreciendo una gestión ágil y segura. Nos
@@ -56,7 +56,7 @@ export const AboutUsCard = () => {
               Siempre disponible <br /> para ti
             </p>
 
-            <p className='text-black900 text-xs lg:text-sm md:text-sm px-4'>
+            <p className='text-black900 text-justify lg:text-start text-xs lg:text-sm md:text-sm px-4'>
               Nuestro equipo de profesionales expertos tiene un conocimiento
               profundo del sector inmobiliario y de la gestión de patrimonio.
               Ofrecemos un servicio de alta calidad que supera las expectativas

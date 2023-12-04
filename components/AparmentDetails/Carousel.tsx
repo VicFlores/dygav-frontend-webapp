@@ -71,7 +71,7 @@ export const Carousel: FC<{ accomodation: TSearcherCard[] }> = ({
               <p className='text-center text-[13px] md:text-[14px] lg:text-base text-black900'>
                 {item.imgSubtitle}
               </p>
-              <p className='text-[13px] md:text-[14px] lg:text-base whitespace-pre-line'>
+              <p className='text-justify lg:text-start text-sm md:text-lg whitespace-pre-line'>
                 {expanded
                   ? item.description
                   : `${item.description.slice(0, 400)}...`}

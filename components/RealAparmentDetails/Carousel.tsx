@@ -213,7 +213,7 @@ const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
             <p className='text-center text-[13px] md:text-[14px] lg:text-base text-black900 whitespace-pre-line'>
               {priceInfo}
             </p>
-            <p className='text-[13px] md:text-[14px] lg:text-base'>
+            <p className='text-justify lg:text-start text-sm md:text-lg'>
               {expanded
                 ? accomodation.description.es
                 : `${accomodation.description.es.slice(0, 400)}...`}

@@ -71,7 +71,6 @@ export const SearcherCards: FC<{ item: TSearcherCard }> = ({ item }) => {
       className='w-[360px] md:w-[350px] lg:w-[374px] self-center justify-self-center h-fit'
     >
       {isMobile ? (
-        // Mobile component goes here
         <div
           className='relative'
           onTouchStart={handleTouchStart}
@@ -103,7 +102,6 @@ export const SearcherCards: FC<{ item: TSearcherCard }> = ({ item }) => {
           />
         </div>
       ) : (
-        // Desktop component goes here
         <div className='relative'>
           <Link href={`/aparmentDetails/${item.id}`}>
             <figure className='h-[300px] relative'>
@@ -140,7 +138,7 @@ export const SearcherCards: FC<{ item: TSearcherCard }> = ({ item }) => {
           <Link href={`/aparmentDetails/${item.id}`}>{item.title} </Link>
         </p>
 
-        <p className='text-[13px] md:text-[14px] lg:text-base px-4'>
+        <p className='text-justify lg:text-start text-sm md:text-lg px-4'>
           <Link href={`/aparmentDetails/${item.id}`}>
             {expanded ? item.subtitle : `${item.subtitle.slice(0, 200)}...`}
           </Link>

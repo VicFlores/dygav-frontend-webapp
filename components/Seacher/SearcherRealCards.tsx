@@ -194,7 +194,7 @@ export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
           <Link href={`/realAparmentDetails/${item.id}`}>{item.name}</Link>
         </p>
 
-        <p className='text-[13px] md:text-[14px] lg:text-sm px-4'>
+        <p className='text-justify lg:text-start text-sm md:text-lg px-4'>
           <Link href={`/realAparmentDetails/${item.id}`}>
             {expanded
               ? item.introduction.es

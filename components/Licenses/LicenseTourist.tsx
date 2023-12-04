@@ -9,7 +9,7 @@ export const LicenseTourist = () => {
         ¿Qué es lo que Haríamos por ti?
       </h2>
 
-      <div className='w-auto pt-5 space-y-4 text-black900 px-3 text-xs md:text-sm lg:text-lg'>
+      <div className='w-auto pt-5 space-y-4 text-black900 px-3 text-justify lg:text-start text-sm md:text-lg'>
         <p>
           En DYGAV, comprendemos la importancia de obtener la licencia turística
           de manera rápida y eficiente y nos comprometemos a brindarte el apoyo
@@ -53,7 +53,7 @@ export const LicenseTourist = () => {
 
             <div className='space-y-5 mt-4 px-4'>
               <p className='text-sm md:text-lg lg:text-xl'>{item.title}</p>
-              <p className='text-left text-xs md:text-sm lg:text-lg text-black900'>
+              <p className='text-justify lg:text-start text-sm md:text-lg text-black900'>
                 {item.subtitle}
               </p>
             </div>
@@ -65,7 +65,7 @@ export const LicenseTourist = () => {
         Prepárate para el Éxito
       </h2>
 
-      <div className='pt-8 px-4 md:px-8 space-y-4 text-xs md:text-sm lg:text-lg text-black900'>
+      <div className='pt-8 px-4 md:px-8 space-y-4 text-justify lg:text-start text-sm md:text-lg text-black900'>
         <p>
           En DYGAV trabajamos para que que tu propiedad cumpla con los criterios
           de habitabilidad, seguridad y servicios exigidos.

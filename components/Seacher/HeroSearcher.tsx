@@ -5,9 +5,9 @@ import { AiOutlineCheckCircle } from 'react-icons/ai';
 export const HeroSearcher = () => {
   return (
     <section className='w-full text-white px-[66px] py-[70px] pb-32 pt-20'>
-      <p className='lg:text-[45px] text-center md:text-start text-[30px] md:text-[38px] font-semibold'>
+      <h1 className='lg:text-[45px] text-center md:text-start text-[30px] md:text-[38px] font-semibold'>
         ¿A Donde Te Apetece Ir?
-      </p>
+      </h1>
 
       <form className='lg:flex space-y-12 lg:space-x-8 lg:space-y-0 md:block md:space-y-8 p-[30px] mt-5 bg-p600/70'>
         <div className='grid lg:grid-cols-3 gap-10 lg:gap-5 md:gap-8'>

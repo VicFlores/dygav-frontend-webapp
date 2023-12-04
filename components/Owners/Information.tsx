@@ -10,6 +10,11 @@ export const Information = () => {
     {
       question: '¿Puedo reservar mi apartamento para ir yo cuando quiera?',
       answer:
+        'Sí, puedes reservar tu apartamento para uso personal en cualquier momento, ya sea a través de la función “Bloquear fechas”,  en el calendario de disponibilidad de tu vivienda turística disponible en tu cuenta de nuestra web (link a calendario alojamiento, si no tienen cuenta que se abra el crear cuenta) o llamándonos directamente.',
+    },
+    {
+      question: '¿Puedo reservar mi apartamento para ir yo cuando quiera?',
+      answer:
         'Sí, puedes reservar tu apartamento para uso personal en cualquier momento, ya sea a través de nuestra web o llamándonos directamente.',
     },
     {
@@ -196,7 +201,7 @@ export const Information = () => {
         Descubre una forma más efectiva de gestionar tu vivienda turística
       </h2>
 
-      <p className='text-xs md:text-sm lg:text-lg border-t-4 border-t-p600 pt-5 space-y-4 text-black900'>
+      <p className='text-justify lg:text-start text-sm md:text-lg border-t-4 border-t-p600 pt-5 space-y-4 text-black900'>
         En <strong className='text-p600'>DYGAV</strong> somos especialistas en
         la gestión de viviendas vacacionales, nos encargamos de controlar todos
         los aspectos necesarios para{' '}
@@ -207,7 +212,7 @@ export const Information = () => {
         <strong>huéspedes</strong> de tu casa de alquiler vacacional.
       </p>
 
-      <ul className='text-sm md:text-lg px-3 pt-4 list-disc pl-4 md:pl-16 space-y-4'>
+      <ul className='text-justify lg:text-start text-sm md:text-lg px-3 pt-8 list-disc pl-4 md:pl-16 space-y-4'>
         <li>
           Te ayudamos a{' '}
           <span>
@@ -235,7 +240,7 @@ export const Information = () => {
         </li>
       </ul>
 
-      <p className='text-xs md:text-sm lg:text-lg pt-5 text-black900'>
+      <p className='text-justify lg:text-start text-sm md:text-lg pt-5 text-black900'>
         ¡Descubre una forma más efectiva de{' '}
         <strong>gestionar tus apartamentos vacacionales con nosotros!</strong>
       </p>
@@ -312,7 +317,7 @@ export const Information = () => {
                 <p className=' text-black700 text-sm md:text-lg lg:text-xl font-semibold'>
                   {item.title}
                 </p>
-                <p className='text-black900 text-xs md:text-sm lg:text-lg text-left'>
+                <p className='text-black900 text-justify lg:text-start text-sm md:text-lg px-4 lg:px-0'>
                   {item.subtitle}
                 </p>
               </div>
@@ -325,7 +330,7 @@ export const Information = () => {
         Nuestras Tarifas de Gestión Integral de Viviendas Vacacionales
       </h2>
 
-      <p className='mt-8 text-sm md:text-lg px-2 md:px-0 text-center md:text-start '>
+      <p className='mt-8 text-justify lg:text-start text-sm md:text-lg px-2 md:px-0'>
         Con nuestra tarifa de gestión integral de casas de alquiler vacacional
         altamente competitiva, obtendrás{' '}
         <strong>
@@ -336,11 +341,11 @@ export const Information = () => {
         .
       </p>
 
-      <p className='mt-8 text-sm md:text-lg px-2 md:px-0 text-center md:text-start '>
+      <p className='mt-8 text-justify lg:text-start text-sm md:text-lg px-2 md:px-0'>
         <strong>Tu ganas, nosotros ganamos.</strong>
       </p>
 
-      <p className='mt-8 text-sm md:text-lg px-2 md:px-0 text-center md:text-start '>
+      <p className='mt-8 text-justify lg:text-start text-sm md:text-lg px-2 md:px-0'>
         Al contrario que otras empresas que ocultan sus tarifas y esconden sus
         comisiones en <strong className='text-p600'>DYGAV</strong>, mantenemos
         una política de <strong>transparencia total</strong> en nuestras tarifas
@@ -352,7 +357,7 @@ export const Information = () => {
         .
       </p>
 
-      <p className='mt-8 text-sm md:text-lg px-2 md:px-0 text-center md:text-start '>
+      <p className='mt-8 text-justify lg:text-start text-sm md:text-lg px-2 md:px-0'>
         Por eso solo cobramos una comisión del{' '}
         <strong>15%+IVA sobre la facturación</strong> de las casas que
         gestionamos, que{' '}
@@ -373,7 +378,7 @@ export const Information = () => {
         </figure>
       </div>
 
-      <p className='mt-8 text-sm md:text-lg px-2 md:px-0 text-center md:text-start '>
+      <p className='mt-8 text-justify lg:text-start text-sm md:text-lg px-2 md:px-0'>
         Es importante destacar que{' '}
         <strong>no hay costes adicionales ocultos</strong>. Además, los gastos
         de limpieza son asumidos directamente por los huéspedes, lo que
@@ -384,7 +389,7 @@ export const Information = () => {
         .
       </p>
 
-      <p className='mt-8 text-sm md:text-lg px-2 md:px-0 text-center md:text-start '>
+      <p className='mt-8 text-justify lg:text-start text-sm md:text-lg px-2 md:px-0'>
         Nos esforzamos por brindarte una gestión clara y sin sorpresas,
         permitiéndote maximizar tus ingresos de tu vivienda de alquiler
         vacacional y disfrutar de{' '}
@@ -395,7 +400,7 @@ export const Information = () => {
         Todo el control de tu vivienda turística desde tu Smartphone
       </h2>
 
-      <p className='mt-8 text-sm md:text-lg px-2 md:px-0 text-center md:text-start '>
+      <p className='mt-8 text-justify lg:text-start text-sm md:text-lg px-2 md:px-0'>
         En <strong className='text-p600'>DYGAV</strong>, entendemos la
         importancia de tener el control total sobre tu propiedad vacacional,
         incluso cuando estás en movimiento.. Te ofrecemos la libertad y la
@@ -417,7 +422,7 @@ export const Information = () => {
         />
       </figure>
 
-      <p className='mt-8 text-sm md:text-lg px-2 md:px-0 text-center md:text-start '>
+      <p className='mt-8 text-justify lg:text-start text-sm md:text-lg px-2 md:px-0'>
         Visualiza y gestiona las <strong>reservas en tiempo real</strong>,
         accede al <strong>calendario de disponibilidad</strong> para ajustarlo
         según tus necesidades, y{' '}

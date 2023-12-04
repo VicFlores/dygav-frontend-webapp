@@ -8,7 +8,7 @@ export const PeachOwners = () => {
         Especialistas en Gestión de Viviendas de Alquiler Vacacional
       </h2>
 
-      <div className='w-auto text-xs md:text-sm lg:text-lg border-t-4 border-t-p600 pt-5 space-y-4 text-black900 pr-3 pl-3'>
+      <div className='w-auto text-justify lg:text-start text-sm md:text-lg border-t-4 border-t-p600 pt-5 space-y-4 text-black900 pr-3 pl-3'>
         <p>
           ¿Tienes una casa de vacaciones o un apartamento en una ciudad
           turística que está vacío la mayor parte del año? Ahora puedes obtener

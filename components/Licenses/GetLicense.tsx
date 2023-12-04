@@ -10,7 +10,7 @@ export const GetLicense = () => {
         ¡Tú Licencia Turística Más Cerca de lo que Crees!
       </h2>
 
-      <div className='w-auto pt-5  text-black900 pr-3 pl-3 text-xs md:text-sm lg:text-lg mb-14'>
+      <div className='w-auto pt-5 text-black900 pr-3 pl-3 text-justify lg:text-start text-sm md:text-lg mb-14'>
         <p className='mb-4'>
           En DYGAV, estamos a tu lado en cada paso del camino hacia la obtención
           de la licencia turística para tu piso. Nos convertimos en tu aliado y
@@ -25,7 +25,7 @@ export const GetLicense = () => {
         </p>
 
         <Link href='/gestion-integral-apartamentos-turisticos' passHref>
-          <span className='text-p600 pt-4'>
+          <span className='text-p600 pt-4 text-sm md:text-lg'>
             Preparar tu alojamiento para recibir a tus huéspedes.
           </span>
         </Link>
