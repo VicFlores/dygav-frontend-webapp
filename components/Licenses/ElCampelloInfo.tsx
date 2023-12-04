@@ -22,7 +22,7 @@ export const ElCampelloInfo = () => {
         Licencias turísticas en El Campello
       </h1>
 
-      <div className='text-justify text-sm md:text-lg pt-4 space-y-4 mb-10'>
+      <div className='text-justify lg:text-start text-sm md:text-lg pt-4 space-y-4 mb-10'>
         <p>
           El Campello, un destino turístico atractivo en la Comunidad
           Valenciana, ofrece oportunidades únicas para el alquiler vacacional
@@ -55,7 +55,7 @@ export const ElCampelloInfo = () => {
         vacacionales en El Campello?
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         La concesión de licencias turísticas para alquileres vacacionales en El
         Campello es un proceso regulado por la Comunidad Valenciana y
         administrado por el Ayuntamiento de El Campello. Si bien la comunidad
@@ -70,7 +70,7 @@ export const ElCampelloInfo = () => {
         Campello?
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Para que una propiedad sea apta para el alquiler vacacional en El
         Campello, debe cumplir con ciertos requisitos esenciales:
       </p>
@@ -112,7 +112,7 @@ export const ElCampelloInfo = () => {
         Pasos para obtener una licencia turística en El Campello
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         El primer paso es verificar que la propiedad cumpla con las normativas
         de zonificación y urbanismo específicas de El Campello antes de comenzar
         el trámite.
@@ -122,7 +122,7 @@ export const ElCampelloInfo = () => {
         Solicitud de Compatibilidad Urbanística
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Este trámite se realiza en el Ayuntamiento de El Campello, donde se debe
         presentar la documentación necesaria, que incluye un{' '}
         <span>
@@ -145,7 +145,7 @@ export const ElCampelloInfo = () => {
         Tramitación de la Licencia Turística
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Una vez obtenido el certificado de compatibilidad urbanística, se
         procede a{' '}
         <span>

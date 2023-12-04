@@ -22,7 +22,7 @@ export const AlteaInfo = () => {
         Licencias Turísticas en Altea
       </h1>
 
-      <div className='text-justify text-sm md:text-lg pt-4 space-y-4 mb-10'>
+      <div className='text-justify lg:text-start text-sm md:text-lg pt-4 space-y-4 mb-10'>
         <p>
           Altea, con su encanto único y su ubicación privilegiada en la Costa
           Blanca, se ha establecido como un destino turístico deseado. Para los
@@ -60,7 +60,7 @@ export const AlteaInfo = () => {
         vacacionales en Altea?
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         La regulación y concesión de licencias turísticas en Altea se rige por
         las normativas de la Comunidad Valenciana, con el Ayuntamiento de Altea
         <strong>
@@ -77,7 +77,7 @@ export const AlteaInfo = () => {
         Altea?
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Para que una vivienda en Altea sea elegible para alquiler vacacional,
         debe satisfacer los siguientes requisitos:
       </p>
@@ -117,7 +117,7 @@ export const AlteaInfo = () => {
         Pasos para obtener una licencia turística en Altea
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Antes de iniciar el trámite, es crucial confirmar que la propiedad esté
         ubicada en una zona permitida para el alquiler turístico según el plan
         urbanístico de Altea.
@@ -127,7 +127,7 @@ export const AlteaInfo = () => {
         Solicitud de Compatibilidad Urbanística
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Este trámite se lleva a cabo en el Ayuntamiento de Altea, presentando un
         formulario de solicitud que está disponible tanto en la{' '}
         <span>
@@ -148,7 +148,7 @@ export const AlteaInfo = () => {
         Tramitación de la Licencia Turística
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Con el certificado de compatibilidad urbanística obtenido, el siguiente
         paso es{' '}
         <span>

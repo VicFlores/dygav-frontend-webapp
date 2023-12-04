@@ -22,7 +22,7 @@ export const CalpeInfo = () => {
         Licencias Turísticas en Calpe
       </h1>
 
-      <div className='text-justify text-sm md:text-lg pt-4 space-y-4 mb-10'>
+      <div className='text-justify lg:text-start text-sm md:text-lg pt-4 space-y-4 mb-10'>
         <p>
           Calpe, un pintoresco municipio en la Costa Blanca de la Comunidad
           Valenciana, se ha convertido en un destino privilegiado para el
@@ -68,7 +68,7 @@ export const CalpeInfo = () => {
         vacacionales en Calpe?
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         En Calpe, la concesión de licencias turísticas para propiedades de
         alquiler vacacional es un proceso supervisado tanto por la Comunidad
         Valenciana como por las autoridades locales. Aunque la comunidad
@@ -86,7 +86,7 @@ export const CalpeInfo = () => {
         Calpe?
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Para que una vivienda en Calpe se considere apta para el alquiler
         vacacional, debe satisfacer varios criterios clave:
       </p>
@@ -128,7 +128,7 @@ export const CalpeInfo = () => {
         Pasos para obtener una licencia turística en Calpe
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Antes de iniciar el proceso, es crucial verificar que la vivienda cumpla
         con las normativas de zonificación y urbanismo de Calpe.
       </p>
@@ -137,7 +137,7 @@ export const CalpeInfo = () => {
         Solicitud de Compatibilidad Urbanística
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Este trámite se inicia en el Ayuntamiento de Calpe, donde se presenta el
         formulario de solicitud, disponible tanto{' '}
         <span>
@@ -158,7 +158,7 @@ export const CalpeInfo = () => {
         Tramitación de la Licencia Turística
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Una vez obtenido el certificado de compatibilidad urbanística, el
         siguiente paso es{' '}
         <span>

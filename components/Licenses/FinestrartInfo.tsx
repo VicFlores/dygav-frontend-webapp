@@ -22,7 +22,7 @@ export const FinestratInfo = () => {
         Licencias turísticas en Finestrat
       </h1>
 
-      <div className='text-justify text-sm md:text-lg pt-4 space-y-4 mb-10'>
+      <div className='text-justify lg:text-start text-sm md:text-lg pt-4 space-y-4 mb-10'>
         <p>
           Finestrat, situado en la pintoresca Costa Blanca de la Comunidad
           Valenciana, se destaca por su encanto único y su atractivo turístico.
@@ -69,7 +69,7 @@ export const FinestratInfo = () => {
         vacacionales en Finestrat?
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         En Finestrat, la regulación y concesión de licencias turísticas para
         alquileres vacacionales es supervisada tanto por la Comunidad Valenciana
         como por el Ayuntamiento de Finestrat. Mientras que la normativa
@@ -88,7 +88,7 @@ export const FinestratInfo = () => {
         Finestrat?
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Para calificar para el alquiler vacacional en Finestrat, una propiedad
         debe cumplir con los siguientes requisitos:
       </p>
@@ -130,7 +130,7 @@ export const FinestratInfo = () => {
         Pasos para obtener una licencia turística en Finestrat
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Antes de iniciar cualquier trámite, es importante verificar que la
         propiedad cumpla con las normativas de zonificación y urbanismo de
         Finestrat.
@@ -140,7 +140,7 @@ export const FinestratInfo = () => {
         Solicitud de Compatibilidad Urbanística
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Este trámite se inicia en el Ayuntamiento de Finestrat, donde se
         presenta el{' '}
         <span>
@@ -168,7 +168,7 @@ export const FinestratInfo = () => {
         Tramitación de la Licencia Turística
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Con el certificado de compatibilidad urbanística, el siguiente paso es
         solicitar la licencia turística. Esto se realiza a través de la{' '}
         <span>

@@ -22,7 +22,7 @@ export const PilarHoradadaInfo = () => {
         Licencias Turísticas en Pilar de la Horadada
       </h1>
 
-      <div className='text-justify text-sm md:text-lg pt-4 space-y-4 mb-10'>
+      <div className='text-justify lg:text-start text-sm md:text-lg pt-4 space-y-4 mb-10'>
         <p>
           Pilar de la Horadada, situado en el extremo sur de la Costa Blanca en
           la Comunidad Valenciana, es un destino turístico cada vez más
@@ -65,7 +65,7 @@ export const PilarHoradadaInfo = () => {
         vacacionales en Pilar de la Horadada?
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         La regulación y concesión de licencias turísticas en Pilar de la
         Horadada es administrada por la Comunidad Valenciana, con{' '}
         <strong>
@@ -82,7 +82,7 @@ export const PilarHoradadaInfo = () => {
         Pilar de la Horadada?
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Las viviendas destinadas a alquileres vacacionales en Pilar de la
         Horadada deben cumplir con los siguientes requisitos:
       </p>
@@ -123,7 +123,7 @@ export const PilarHoradadaInfo = () => {
         Pasos para obtener una licencia turística en Pilar de la Horadada
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Antes de solicitar la licencia, es importante asegurarse de que la
         propiedad esté ubicada en una zona que permita el alquiler turístico
         según el plan urbanístico de Pilar de la Horadada.
@@ -133,7 +133,7 @@ export const PilarHoradadaInfo = () => {
         Solicitud de Compatibilidad Urbanística
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Este trámite se realiza en el Ayuntamiento de Pilar de la Horadada. Se
         debe completar y presentar un{' '}
         <span>
@@ -156,7 +156,7 @@ export const PilarHoradadaInfo = () => {
         Tramitación de la Licencia Turística
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Con el certificado de compatibilidad urbanística, el siguiente paso es{' '}
         <span>
           <Link

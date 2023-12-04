@@ -22,7 +22,7 @@ export const VillajoyosaInfo = () => {
         Licencias turísticas en Villajoyosa
       </h1>
 
-      <div className='text-justify text-sm md:text-lg pt-4 space-y-4 mb-10'>
+      <div className='text-justify lg:text-start text-sm md:text-lg pt-4 space-y-4 mb-10'>
         <p>
           En el municipio de Villajoyosa, situado en la idílica Costa Blanca, el
           alquiler vacacional ha ido ganando popularidad, ofreciendo
@@ -72,7 +72,7 @@ export const VillajoyosaInfo = () => {
         vacacionales en Villajoyosa?
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         La concesión de licencias turísticas para alquileres vacacionales en
         Villajoyosa se rige por las normativas establecidas por la Comunidad
         Valenciana y las disposiciones municipales específicas.{' '}
@@ -91,7 +91,7 @@ export const VillajoyosaInfo = () => {
         Villajoyosa?
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Para que una propiedad en Villajoyosa sea apta para el alquiler
         vacacional, debe cumplir con una serie de requisitos fundamentales:
       </p>
@@ -129,7 +129,7 @@ export const VillajoyosaInfo = () => {
         </li>
       </ul>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Antes de solicitar la licencia, es importante verificar que la propiedad
         esté ubicada en una zona que permita el alquiler turístico, de acuerdo
         con el plan urbanístico de Villajoyosa.
@@ -139,7 +139,7 @@ export const VillajoyosaInfo = () => {
         Solicitud de Compatibilidad Urbanística
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         El primer paso es solicitar este certificado en el Ayuntamiento de
         Villajoyosa, utilizando el{' '}
         <span>
@@ -162,7 +162,7 @@ export const VillajoyosaInfo = () => {
         Tramitación de Licencia Turística
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Con el certificado de compatibilidad urbanística en mano, el siguiente
         paso es{' '}
         <span>

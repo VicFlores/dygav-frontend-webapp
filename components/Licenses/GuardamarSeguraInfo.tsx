@@ -33,7 +33,7 @@ export const GuardamarSeguraInfo = () => {
         Licencias turísticas en Guardamar del Segura
       </h1>
 
-      <div className='text-justify text-sm md:text-lg pt-4 space-y-4 mb-14'>
+      <div className='text-justify lg:text-start text-sm md:text-lg pt-4 space-y-4 mb-14'>
         <p>
           Obtener una licencia turística en Guardamar, un municipio con un
           encanto único en la Comunidad Valenciana, presenta desafíos
@@ -84,7 +84,7 @@ export const GuardamarSeguraInfo = () => {
         vacacionales en Guardamar?
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         En España, cada comunidad autónoma establece sus propias normativas, y
         dentro de estas, son{' '}
         <strong>los ayuntamientos quienes deciden en última instancia</strong>.
@@ -101,12 +101,12 @@ export const GuardamarSeguraInfo = () => {
         Guardamar?
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Para que una propiedad en Guardamar califique para el alquiler
         vacacional, debe cumplir con ciertos criterios esenciales:
       </p>
 
-      <ul className='text-sm md:text-lg px-3 pt-4 list-disc pl-4 md:pl-32 space-y-4'>
+      <ul className='text-justify lg:text-start text-sm md:text-lg px-3 pt-4 list-disc pl-4 md:pl-32 space-y-4'>
         <li>
           <strong>Certificado de primera o segunda ocupación:</strong> Un
           documento que confirma que la vivienda satisface las normativas de
@@ -144,7 +144,7 @@ export const GuardamarSeguraInfo = () => {
         Pasos para obtener una licencia turística en Guardamar
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Antes de comenzar, es crucial asegurarse de que la propiedad esté
         ubicada en una de las zonas permitidas para el alquiler turístico según
         el plan urbanístico de Guardamar.
@@ -154,7 +154,7 @@ export const GuardamarSeguraInfo = () => {
         Solicitud de Compatibilidad Urbanística
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Este trámite se inicia en el Ayuntamiento de Guardamar, donde se
         presenta la documentación necesaria, incluyendo el{' '}
         <span>
@@ -177,7 +177,7 @@ export const GuardamarSeguraInfo = () => {
         Tramitación de la Licencia Turística
       </h2>
 
-      <div className='text-justify text-sm md:text-lg pt-4 space-y-4 mb-4'>
+      <div className='text-justify lg:text-start text-sm md:text-lg pt-4 space-y-4 mb-4'>
         <p>
           Con el certificado de compatibilidad urbanística en mano, el siguiente
           paso es solicitar la licencia turística a través de{' '}
@@ -218,7 +218,7 @@ export const GuardamarSeguraInfo = () => {
         ¿Cuanto tiempo tardan en conceder la licencia turistica en Guardamar?
       </h2>
 
-      <div className='text-justify text-sm md:text-lg pt-4 space-y-4 mb-4'>
+      <div className='text-justify lg:text-start text-sm md:text-lg pt-4 space-y-4 mb-4'>
         <p>
           El proceso de obtención de una licencia turística en Guardamar, debido
           a sus específicas restricciones urbanísticas, puede ser más prolongado

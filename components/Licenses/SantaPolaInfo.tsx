@@ -22,7 +22,7 @@ export const SantaPolaInfo = () => {
         Licencias turísticas en Santa Pola
       </h1>
 
-      <div className='text-justify text-sm md:text-lg pt-4 space-y-4 mb-14'>
+      <div className='text-justify lg:text-start text-sm md:text-lg pt-2 space-y-4 mb-14'>
         <p>
           En el municipio de Santa Pola, ubicado en la costa de la Comunidad
           Valenciana, el alquiler vacacional se ha convertido en una opción cada
@@ -92,7 +92,7 @@ export const SantaPolaInfo = () => {
         vacacionales en Santa Pola?
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         En Santa Pola, como en otros municipios de la Comunidad Valenciana, la
         regulación y concesión de licencias turísticas para alquileres
         vacacionales es un proceso que se rige tanto por la normativa autonómica
@@ -113,7 +113,7 @@ export const SantaPolaInfo = () => {
         Santa Pola?
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Para que una vivienda en Santa Pola sea apta para el alquiler
         vacacional, debe cumplir con varios requisitos clave:
       </p>
@@ -155,7 +155,7 @@ export const SantaPolaInfo = () => {
         Pasos para obtener una licencia turística en Santa Pola
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Antes de solicitar la licencia, es esencial verificar que la propiedad
         está ubicada en una zona apta para alquiler turístico según el plan
         urbanístico de Santa Pola.
@@ -165,7 +165,7 @@ export const SantaPolaInfo = () => {
         Solicitud de Compatibilidad Urbanística
       </h2>
 
-      <p className='md:self-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
         Para comenzar el proceso de obtener el Certificado de Compatibilidad
         Urbanística en Santa Pola, se aconseja utilizar el{' '}
         <span>
