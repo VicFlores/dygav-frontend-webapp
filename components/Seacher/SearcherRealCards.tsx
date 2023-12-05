@@ -110,10 +110,8 @@ export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
 
   const handleTouchEnd = () => {
     if (startX - endX > 100) {
-      // swipe left, next slide
       changeSlide('next');
     } else if (startX - endX < -100) {
-      // swipe right, previous slide
       changeSlide('prev');
     }
   };
@@ -198,7 +196,7 @@ export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
           <Link href={`/realAparmentDetails/${item.id}`}>
             {expanded
               ? item.introduction.es
-              : `${item.introduction.es.slice(0, 200)}...`}
+              : `${item.introduction.es.slice(0, 100)}...`}
           </Link>
         </p>
 
