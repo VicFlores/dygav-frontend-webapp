@@ -140,7 +140,7 @@ export const SearcherCards: FC<{ item: TSearcherCard }> = ({ item }) => {
 
         <p className='text-justify lg:text-start text-sm md:text-lg px-4'>
           <Link href={`/aparmentDetails/${item.id}`}>
-            {expanded ? item.subtitle : `${item.subtitle.slice(0, 100)}...`}
+            {expanded ? item.subtitle : `${item.subtitle.slice(0, 60)}...`}
           </Link>
         </p>
 
