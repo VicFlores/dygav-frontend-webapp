@@ -1,40 +1,14 @@
-import {
-  HeroOwners,
-  PeachOwners,
-  Information,
-  Contact,
-  Footer,
-  MainHero,
-  Layout,
-  UtilHead,
-  HelpFixedButton,
-} from '@/components';
-import { useSession } from 'next-auth/react';
+import { GetServerSideProps } from 'next';
 
-const OwnersPage = () => {
-  const { data: session } = useSession();
-
-  return (
-    <section>
-      <UtilHead title='Dygav Owners' content='' />
-
-      <MainHero>
-        <Layout session={session}>
-          <HeroOwners />
-        </Layout>
-      </MainHero>
-
-      <HelpFixedButton />
-
-      <PeachOwners />
-
-      <Information />
-
-      {/* <Contact /> */}
-
-      <Footer />
-    </section>
-  );
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    redirect: {
+      destination: '/gestion-viviendas-turisticas',
+      permanent: false,
+    },
+  };
 };
 
-export default OwnersPage;
+export default function OldOwnersPage() {
+  return <></>;
+}

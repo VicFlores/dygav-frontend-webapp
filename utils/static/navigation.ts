@@ -8,7 +8,7 @@ export const publicMenuItem: TMenuItem[] = [
 ];
 
 export const accounOwnertMenuItem: TMenuItem[] = [
-  { title: 'Alojamiento', path: '/private/owner/dashboard' },
+  { title: 'Mis Alojamientos', path: '/private/owner/dashboard' },
   { title: 'Reservas', path: '/private/tourist/dashboard' },
   { title: 'Favoritos', path: '/private/tourist/favoriteAccomodations' },
   { title: 'Inicio', path: '/' },
