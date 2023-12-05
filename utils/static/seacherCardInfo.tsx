@@ -33,8 +33,8 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Ático en Puerto Deportivo con vistas al Mar - Torrevieja',
     width: 340,
     height: 245,
-    imgSubtitle: 'Marina Internacional ',
-    title: 'Ático en Puerto Deportivo con vistas al Mar - Torrevieja',
+    imgSubtitle: 'Torrevieja',
+    title: 'Ático en Puerto Deportivo con vistas al Mar',
     description: `¡Descubre el paraíso frente al mar en nuestro increíble apartamento en Marina Internacional, Torrevieja! Con 2 habitaciones y 2 baños, este ático en el piso 7 te ofrece vistas panorámicas impresionantes desde su balcón. Disfruta de la brisa marina y las espectaculares vistas al puerto deportivo. Además, estarás cerca del centro, ¡todo a tu alcance para una experiencia inolvidable!`,
     subtitle:
       'Descubre el paraíso frente al mar en nuestro increíble apartamento en Marina Internacional, Torrevieja! Con 2 habitaciones y 2 baños, este ático en el piso 7 te ofrece vistas panorámicas impresionantes desde su balcón.',
@@ -154,8 +154,8 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Centro de Torrevieja',
     width: 340,
     height: 245,
-    imgSubtitle: 'Centro de Torrevieja',
-    title: 'Apartamento en el Centro: Ubicación inmejorable - Torrevieja',
+    imgSubtitle: 'Torrevieja',
+    title: 'Apartamento en el Centro: Ubicación inmejorable',
     description: `Disfruta de unas vacaciones soleadas en nuestra acogedora joya de un dormitorio en el corazón de Torrevieja. Aquí encontrarás fácil acceso a atracciones, tiendas, restaurantes y playas de ensueño de arena blanca.
 
     Relájate en nuestra sala de estar luminosa, decorada con estilo y equipada con todas las comodidades modernas para hacerte sentir como en casa.
