@@ -329,7 +329,7 @@ export const Information = () => {
       </p>
 
       <p className='mt-8 text-justify lg:text-start text-sm md:text-lg px-2 md:px-0'>
-        <strong>Tu ganas, nosotros ganamos.</strong>
+        <strong>Tù ganas, nosotros ganamos.</strong>
       </p>
 
       <p className='mt-8 text-justify lg:text-start text-sm md:text-lg px-2 md:px-0'>
