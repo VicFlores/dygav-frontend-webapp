@@ -34,15 +34,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ title, faqs }) => {
                 visibleAnswer === index ? 'bg-p600' : 'bg-p600/70'
               }`}
             >
-              {faq.question ===
-              '¿En qué plataformas de alquiler vacacional publica' ? (
-                <span>
-                  {faq.question} {''} <span className='text-p600'>DYGAV</span>{' '}
-                  las viviendas turísticas?
-                </span>
-              ) : (
-                faq.question
-              )}
+              {faq.question}
 
               {visibleAnswer === index ? <FaChevronUp /> : <FaChevronDown />}
             </h2>
