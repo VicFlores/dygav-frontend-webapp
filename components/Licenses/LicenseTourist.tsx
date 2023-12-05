@@ -11,24 +11,29 @@ export const LicenseTourist = () => {
 
       <div className='w-auto pt-5 space-y-4 text-black900 px-3 text-justify lg:text-start text-sm md:text-lg'>
         <p>
-          En DYGAV, comprendemos la importancia de obtener la licencia turística
-          de manera rápida y eficiente y nos comprometemos a brindarte el apoyo
-          necesario en cada etapa del proceso.
+          En <strong className='text-p600'>DYGAV</strong>, comprendemos la
+          importancia de obtener la licencia turística de manera rápida y
+          eficiente y nos comprometemos a brindarte el{' '}
+          <strong>apoyo necesario en cada etapa del proceso</strong>.
         </p>
 
         <p>
           Nuestro equipo de expertos en licencias turísticas se mantiene
-          actualizado con las regulaciones y requisitos específicos de tu área,
-          garantizando que tu solicitud cumpla con todos los estándares legales
-          y normativas vigentes. Ya sea por teléfono, correo electrónico,
-          WhatsApp o a través del formulario de contacto nuestro equipo estará
-          encantado de atenderte y responder a todas tus consultas.
+          <strong>
+            actualizado con las regulaciones y requisitos específicos de tu área
+          </strong>
+          , garantizando que tu solicitud cumpla con todos los estándares
+          legales y normativas vigentes. Ya sea por teléfono, correo
+          electrónico, WhatsApp o a través del formulario de contacto nuestro
+          equipo estará encantado de atenderte y responder a todas tus
+          consultas.
         </p>
 
         <p>
-          Nuestro equipo especializado en licencias turísticas está altamente
-          familiarizado con las normativas vigentes en cada comunidad autónoma.
-          Nos encargamos de proporcionarte una orientación precisa y completa en
+          Nuestro <strong>equipo especializado en licencias turísticas</strong>{' '}
+          está altamente familiarizado con las normativas vigentes en cada
+          comunidad autónoma. Nos encargamos de{' '}
+          <strong>proporcionarte una orientación precisa y completa</strong> en
           los siguientes aspectos clave:
         </p>
       </div>
@@ -52,7 +57,9 @@ export const LicenseTourist = () => {
             />
 
             <div className='space-y-5 mt-4 px-4'>
-              <p className='text-sm md:text-lg lg:text-xl'>{item.title}</p>
+              <p className='text-sm md:text-lg lg:text-xl font-semibold text-p600'>
+                {item.title}
+              </p>
               <p className='text-justify lg:text-start text-sm md:text-lg text-black900'>
                 {item.subtitle}
               </p>
@@ -67,17 +74,21 @@ export const LicenseTourist = () => {
 
       <div className='pt-8 px-4 md:px-8 space-y-4 text-justify lg:text-start text-sm md:text-lg text-black900'>
         <p>
-          En DYGAV trabajamos para que que tu propiedad cumpla con los criterios
-          de habitabilidad, seguridad y servicios exigidos.
+          En <strong className='text-p600'>DYGAV</strong> trabajamos para que
+          que tu propiedad cumpla con los criterios de habitabilidad, seguridad
+          y servicios exigidos.
         </p>
         <p>
-          Enfocados en tu éxito, nos encargamos de que cada paso del proceso sea
-          realizado con precisión y meticulosidad.
+          Enfocados en tu éxito, nos encargamos de que{' '}
+          <strong>
+            cada paso del proceso sea realizado con precisión y meticulosidad
+          </strong>
+          .
         </p>
         <p>
           Estaremos contigo durante todo el camino, brindándote el apoyo
-          necesario para que puedas dar el paso hacia el éxito en el mercado de
-          alquileres vacacionales.
+          necesario para que puedas dar el paso hacia el{' '}
+          <strong>éxito en el mercado de alquileres vacacionales</strong>.
         </p>
       </div>
 

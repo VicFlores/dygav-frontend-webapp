@@ -129,9 +129,9 @@ export const Information = () => {
 
   const CleaningMaintenanceFAQS = [
     {
-      question: '¿Cuándo se realiza la limpieza?',
+      question: '¿Cuándo se realiza la limpieza de mi vivienda turística?',
       answer:
-        'La limpieza se realiza después de cada estancia o según sea necesario para mantener los estándares de higiene y presentación.',
+        'La limpieza de tu vivienda turística se realiza después de cada estancia o según sea necesario para mantener los estándares de higiene y presentación.',
     },
     {
       question: '¿Cómo asegura DYGAV una limpieza a detalle?',
