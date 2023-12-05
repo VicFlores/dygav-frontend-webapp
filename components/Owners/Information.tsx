@@ -10,17 +10,12 @@ export const Information = () => {
     {
       question: '¿Puedo reservar mi apartamento para ir yo cuando quiera?',
       answer:
-        'Sí, puedes reservar tu apartamento para uso personal en cualquier momento, ya sea a través de la función “Bloquear fechas”,  en el calendario de disponibilidad de tu vivienda turística disponible en tu cuenta de nuestra web (link a calendario alojamiento, si no tienen cuenta que se abra el crear cuenta) o llamándonos directamente.',
-    },
-    {
-      question: '¿Puedo reservar mi apartamento para ir yo cuando quiera?',
-      answer:
-        'Sí, puedes reservar tu apartamento para uso personal en cualquier momento, ya sea a través de nuestra web o llamándonos directamente.',
+        'Sí, puedes reservar tu apartamento para uso personal en cualquier momento, ya sea a través de la función “Bloquear fechas”,',
     },
     {
       question: '¿Qué puedo hacer desde mi cuenta de propietario en DYGAV web?',
       answer:
-        'Desde tu cuenta, puedes ver reservas en tiempo real, la disponibilidad y el calendario de tu propiedad, y acceder al histórico financiero. También tienes funciones para viajeros, como guardar alojamientos favoritos o revisar tus reservas pasadas y futuras.',
+        'Desde tu cuenta, puedes ver reservas en tiempo real, la disponibilidad y el calendario de tu propiedad, y acceder al histórico financiero. También tienes funciones para viajeros, como guardar alojamientos favoritos o revisar tus reservas pasadas y futuras que hayas hecho en nuestros alojamientos.',
     },
     {
       question: '¿En qué es mejor el alquiler vacacional que el tradicional?',
@@ -32,15 +27,9 @@ export const Information = () => {
   const InvestmentsImprovementsFAQS = [
     {
       question:
-        '¿Qué ítems específicos se revisan durante el inventario de la casa?',
-      answer:
-        'Revisamos todos los ítems, incluyendo menaje, ropa de cama, electrodomésticos y luces, para asegurar que todo esté en perfecto estado.',
-    },
-    {
-      question:
         '¿Qué ítems son esenciales en el inventario para iniciar la actividad?',
       answer:
-        'Los ítems esenciales incluyen mobiliario básico, electrodomésticos funcionales, ropa de cama limpia, menaje de cocina y elementos básicos de seguridad.',
+        'Los ítems esenciales para poner en marcha una vivienda turística incluyen mobiliario básico, electrodomésticos funcionales, ropa de cama limpia, menaje de cocina y elementos básicos de seguridad.',
     },
     {
       question:
@@ -78,10 +67,9 @@ export const Information = () => {
 
   const MarketingPromotionFAQS = [
     {
-      question:
-        '¿En qué plataformas de alquiler vacacional publica DYGAV los apartamentos?',
+      question: '¿En qué plataformas de alquiler vacacional publica',
       answer:
-        'Publicamos tus apartamentos en las principales plataformas de alquiler vacacional, incluyendo AirBnB, Booking, entre otras.',
+        'Publicamos tu vivienda turística en las principales plataformas de alquiler vacacional, incluyendo AirBnB, Booking, Rentalia, Vrbo entre otras.',
     },
     {
       question: '¿A qué idiomas traducís el anuncio de mi vivienda turística?',
@@ -95,9 +83,9 @@ export const Information = () => {
         'Utilizamos técnicas avanzadas de SEO, publicidad en redes sociales, y contenido atractivo para aumentar la visibilidad y atractivo de tu propiedad.',
     },
     {
-      question: '¿Cómo funciona la Optimización Dinámica de Precios por IA?',
+      question: 'Precios Inteligentes con Inteligencia Artificial ',
       answer:
-        'Nuestro programa de precios dinámicos utiliza IA para analizar la demanda y ajustar las tarifas en tiempo real, maximizando tus ingresos.',
+        'Nuestro programa de gestión de precios dinámicos para tu vivienda vacacional utiliza la IA para analizar la demanda y ajustar las tarifas en tiempo real, maximizando tus ingresos.',
     },
     {
       question: '¿Qué factores considera el motor de IA al determinar precios?',
@@ -121,7 +109,7 @@ export const Information = () => {
     {
       question: '¿Por qué la llave electrónica aporta un extra de seguridad?',
       answer:
-        'La llave electrónica mejora la seguridad al permitir el control de accesos y la posibilidad de cambiar los códigos entre huéspedes.',
+        'La llave electrónica mejora la seguridad al permitir el control de accesos,  la posibilidad de cambiar los códigos entre huéspedes y nos da la capacidad de saber si se ha producido algún acceso no deseado en el domicilio, pudiendo reaccionar de manera mucho más ágil.',
     },
   ];
 
@@ -133,10 +121,9 @@ export const Information = () => {
         'Ofrecemos atención al cliente a través de teléfono, email, y mensajería en plataformas de alquiler, asegurando asistencia continua.',
     },
     {
-      question:
-        '¿Qué se incluye en el detalle de bienvenida para estancias largas?',
+      question: '¿Qué se incluye en el detalle de bienvenida?',
       answer:
-        'Para estancias largas, ofrecemos detalles de bienvenida personalizados, como guías locales, obsequios, y elementos esenciales de confort.',
+        'Ofrecemos detalles de bienvenida personalizados, como guías locales, obsequios, y elementos esenciales de confort. También proporcionamos todos los amenities tanto de cocina (bolsas de basura, gel de limpieza para vajilla, detergente para la lavadora…) como de baño (jabón, champú, papel…)',
     },
   ];
 
@@ -172,12 +159,12 @@ export const Information = () => {
     {
       question: '¿Cómo se maneja la retención de fianza a los huéspedes?',
       answer:
-        'Manejamos la fianza según las políticas de las plataformas de alquiler y las normativas locales, reteniendo y liberando fondos según sea necesario.',
+        'Manejamos la fianza según las políticas de las plataformas de alquiler, reteniendo y liberando fondos según sea necesario para asegurarnos de que si algo se rompe en el alojamiento, pueda reemplazarse con esos fondos de manera rápida y sin afectar a la disponibilidad del piso en las plataformas de alquiler vacacional.',
     },
     {
       question: '¿Qué hacer en caso de desperfectos en la propiedad?',
       answer:
-        'En caso de desperfectos, gestionamos la reclamación con el seguro y nos aseguramos de que la propiedad sea reparada rápidamente.',
+        'En caso de desperfectos, gestionamos la reclamación ya sea a través de la fianza o el seguro y nos aseguramos de que la propiedad sea reparada rápidamente.',
     },
   ];
 
@@ -185,7 +172,7 @@ export const Information = () => {
     {
       question: '¿Por qué es importante gestionar y responder a las reseñas?',
       answer:
-        'Una gestión activa de reseñas ayuda a mejorar la reputación de tu propiedad y atraer a más huéspedes.',
+        'Una gestión activa de reseñas ayuda a mejorar la reputación de tu propiedad y atraer a más huéspedes a tu alquiler vacacional.',
     },
     {
       question:

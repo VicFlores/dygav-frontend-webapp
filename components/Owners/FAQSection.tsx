@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
 
@@ -29,15 +30,40 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ title, faqs }) => {
           <div key={index} className='space-y-4 py-4'>
             <h2
               onClick={() => toggleVisibility(index)}
-              className='bg-p600/70 hover:cursor-pointer hover:underline px-4 py-4 flex justify-between items-center rounded-xl text-white'
+              className={`hover:cursor-pointer hover:underline px-4 py-4 flex justify-between items-center rounded-xl text-white ${
+                visibleAnswer === index ? 'bg-p600' : 'bg-p600/70'
+              }`}
             >
-              {faq.question}
+              {faq.question ===
+              '¿En qué plataformas de alquiler vacacional publica' ? (
+                <span>
+                  {faq.question} {''} <span className='text-p600'>DYGAV</span>{' '}
+                  las viviendas turísticas?
+                </span>
+              ) : (
+                faq.question
+              )}
+
               {visibleAnswer === index ? <FaChevronUp /> : <FaChevronDown />}
             </h2>
 
             {visibleAnswer === index && (
-              <p className='px-4 py-4 bg-p600/90 rounded-xl text-white'>
-                {faq.answer}
+              <p className='px-4 py-4 rounded-xl'>
+                {faq.question ===
+                '¿Puedo reservar mi apartamento para ir yo cuando quiera?' ? (
+                  <span>
+                    {`${faq.answer}`}{' '}
+                    <Link
+                      href={'/private/owner/dashboard'}
+                      className='underline text-p600'
+                    >
+                      en el calendario de disponibilidad de tu vivienda
+                      turística disponible en tu cuenta de nuestra web
+                    </Link>
+                  </span>
+                ) : (
+                  faq.answer
+                )}
               </p>
             )}
           </div>
