@@ -1,6 +1,6 @@
-import { TImageProps } from '@/types';
+import { TImagePropsArray } from '@/types';
 
-export type TSearcherCard = TImageProps & {
+export type TSearcherCard = TImagePropsArray & {
   id: number;
   imgSubtitle: string;
   title: string;

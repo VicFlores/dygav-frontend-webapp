@@ -42,8 +42,6 @@ const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [expanded, setExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const [startX, setStartX] = useState(0);
-  const [endX, setEndX] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -97,24 +95,6 @@ const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
   };
 
   const slide = accomodation.images;
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setStartX(e.touches[0].clientX);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    setEndX(e.touches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (startX - endX > 100) {
-      // swipe left, next slide
-      changeSlide('next');
-    } else if (startX - endX < -100) {
-      // swipe right, previous slide
-      changeSlide('prev');
-    }
-  };
 
   return (
     <div className='flex flex-col lg:flex-row lg:justify-evenly justify-center items-center'>

@@ -1,5 +1,6 @@
 import { TSearcherCard } from '@/utils';
-import React, { FC, useEffect, useState } from 'react';
+import Image from 'next/legacy/image';
+import React, { FC, Fragment, useEffect, useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 
@@ -7,8 +8,25 @@ export const Carousel: FC<{ accomodation: TSearcherCard[] }> = ({
   accomodation,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const [expanded, setExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    // Initial check
+    handleResize();
+
+    // Listen for window resize events
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const prevSlide = () => {
     setCurrentIndex((prev) =>
@@ -27,34 +45,66 @@ export const Carousel: FC<{ accomodation: TSearcherCard[] }> = ({
   return (
     <div className='block md:flex justify-evenly items-center'>
       <div className='max-w-[550px] h-[500px] md:h-[600px] lg:h-[650px] w-full py-16 px-2 md:px-4 relative group m-auto md:m-0'>
-        <div
-          style={{
-            backgroundImage: `url(${accomodation[0]?.src[currentIndex]})`,
-          }}
-          className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
-        />
-
-        <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 -translate-y-[50%] left-5 text-2xl rounded-full p-2 bg-black700/20 text-white cursor-pointer'>
-          <BsChevronCompactLeft onClick={prevSlide} size={30} />
-        </div>
-
-        <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 -translate-y-[50%] right-5 text-2xl rounded-full p-2 bg-black700/20 text-white cursor-pointer'>
-          <BsChevronCompactRight onClick={nextSlide} size={30} />
-        </div>
-
-        <div className='flex top-4 justify-center py-2'>
-          {slide?.map((_, index) => (
+        {isMobile ? (
+          <div className='flex items-center overflow-x-auto overscroll-x-contain scrollbar pb-6 space-x-6'>
+            <>
+              {accomodation.map((image, index) => (
+                <Fragment key={index}>
+                  {image.src.map((src, index) => (
+                    <div
+                      key={index}
+                      className='w-[300px] h-96 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:shadow-xl'
+                    >
+                      <figure
+                        key={index}
+                        className='h-[400px] md:h-[500px] relative'
+                      >
+                        <Image
+                          src={src}
+                          alt={image.imgSubtitle}
+                          layout='fill'
+                          priority
+                          className='rounded-t-xl'
+                        />
+                      </figure>
+                    </div>
+                  ))}
+                </Fragment>
+              ))}
+            </>
+          </div>
+        ) : (
+          <>
             <div
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`${
-                currentIndex === index ? 'bg-black900/60' : 'bg-black900/20'
-              } w-4 h-4 rounded-full mx-2 cursor-pointer`}
-            >
-              <RxDotFilled />
+              style={{
+                backgroundImage: `url(${accomodation[0]?.src[currentIndex]})`,
+              }}
+              className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
+            />
+
+            <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 -translate-y-[50%] left-5 text-2xl rounded-full p-2 bg-black700/20 text-white cursor-pointer'>
+              <BsChevronCompactLeft onClick={prevSlide} size={30} />
             </div>
-          ))}
-        </div>
+
+            <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 -translate-y-[50%] right-5 text-2xl rounded-full p-2 bg-black700/20 text-white cursor-pointer'>
+              <BsChevronCompactRight onClick={nextSlide} size={30} />
+            </div>
+
+            <div className='flex top-4 justify-center py-2 overflow-x-scroll pb-6 md:overflow-x-hidden md:pb-0 pt-8 md:pt-8'>
+              {slide?.map((_, index) => (
+                <div
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`${
+                    currentIndex === index ? 'bg-p600/20' : 'bg-p600/40'
+                  } w-4 h-4 rounded-full mx-2 cursor-pointer`}
+                >
+                  <RxDotFilled color='#BF350C' />
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
 
       <div className=''>

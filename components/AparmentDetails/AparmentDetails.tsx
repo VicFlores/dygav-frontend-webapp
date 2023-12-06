@@ -10,7 +10,24 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
   const [selectedStartDate, setSelectedStartDate] = useState<Date | null>(null);
   const [selectedEndDate, setSelectedEndDate] = useState<Date | null>(null);
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [accomodation, setAccomodation] = useState<TSearcherCard[]>([]);
+  const [accomodation, setAccomodation] = useState<TSearcherCard[]>([
+    {
+      id: 0,
+      imgSubtitle: '',
+      title: '',
+      description: '',
+      subtitle: '',
+      bedroom: 0,
+      bathroom: 0,
+      size: '',
+      maxHuesped: 0,
+      price: 0,
+      cleanup: 0,
+      services: [],
+      src: [],
+      alt: '',
+    },
+  ]);
   const [price, setPrice] = useState(0);
   const infoAparment = searcherCard.filter((item) => item.id === Number(id));
 
