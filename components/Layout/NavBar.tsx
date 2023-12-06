@@ -46,16 +46,13 @@ export const NavBar: FC<TSession> = ({ session }) => {
       ? !currentUrl.startsWith('/private/tourist')
         ? accounTouristMenuItem
         : publicMenuItem
-      : session?.user?.role === 'owner'
-      ? !currentUrl.startsWith('/private/tourist')
-        ? accounTouristMenuItem
-        : publicMenuItem
       : session?.user?.role === 'admin'
       ? !currentUrl.startsWith('/private/admin')
         ? accountAdminMenuItem
         : publicMenuItem
       : session?.user?.role === 'owner'
-      ? !currentUrl.startsWith('/private/owner')
+      ? !currentUrl.startsWith('/private/owner') &&
+        !currentUrl.startsWith('/private/tourist')
         ? accounOwnertMenuItem
         : publicMenuItem
       : publicMenuItem;
