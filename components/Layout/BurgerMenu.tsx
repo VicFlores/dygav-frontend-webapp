@@ -54,6 +54,14 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
         ? accounTouristMenuItem
         : publicMenuItem
       : session?.user?.role === 'owner'
+      ? !currentUrl.startsWith('/private/tourist')
+        ? accounTouristMenuItem
+        : publicMenuItem
+      : session?.user?.role === 'admin'
+      ? !currentUrl.startsWith('/private/admin')
+        ? accountAdminMenuItem
+        : publicMenuItem
+      : session?.user?.role === 'owner'
       ? !currentUrl.startsWith('/private/owner')
         ? accounOwnertMenuItem
         : publicMenuItem
@@ -81,7 +89,11 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
 
           {sideMenu ? (
             <div className='grid gap-y-8 bg-p400/70 h-auto pt-6 pb-6 mt-6'>
-              <ul className='grid justify-center items-center text-center'>
+              <ul className='grid justify-center items-center text-center gap-y-2'>
+                <h4 className='text-[20px] text-white font-semibold'>
+                  Bienvenido: {session.user.name || session.user.fullname}
+                </h4>
+
                 {menuItems.map((item, index) => (
                   <Link
                     key={index}
@@ -91,6 +103,9 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
                     {item.title}
                   </Link>
                 ))}
+
+                <div className='border-t border-white border' />
+
                 {hoverMenuItems.map((item, index) => (
                   <Link
                     key={index}
