@@ -222,8 +222,8 @@ export const searcherCard: TSearcherCard[] = [
     alt: 'Centro de Torrevieja',
     width: 340,
     height: 245,
-    imgSubtitle: 'Centro de Torrevieja',
-    title: 'Apartamento en Playa Mata, Torrevieja',
+    imgSubtitle: 'Torrevieja',
+    title: 'Apartamento en Playa Mata',
     description: `Desayuna mirando al mar y duérmete escuchando las olas.
     
     Mientras el resto de humanos se agobia buscando aparcamiento, tú termínate las tostadas y el zumo... que solo necesitas unos pocos pasos para llegar a la playa.

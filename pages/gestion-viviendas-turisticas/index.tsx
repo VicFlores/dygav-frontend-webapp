@@ -15,7 +15,7 @@ const OwnersPage = () => {
 
   return (
     <section>
-      <UtilHead title='Dygav Owners' content='' />
+      <UtilHead title='DYGAV - Gestión de viviendas turísticas' content='' />
 
       <MainHero>
         <Layout session={session}>
