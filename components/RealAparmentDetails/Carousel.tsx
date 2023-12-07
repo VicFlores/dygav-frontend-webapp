@@ -1,7 +1,6 @@
 import Image from 'next/legacy/image';
-import React, { FC, useEffect, useState } from 'react';
-import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
-import { RxDotFilled } from 'react-icons/rx';
+import React, { FC, useEffect, useRef, useState } from 'react';
+import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
 
 type Unit = {
   weekPrice: number;
@@ -42,6 +41,19 @@ const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [expanded, setExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const scrollContainer = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (scrollContainer.current) {
+      scrollContainer.current.scrollLeft -= 300;
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainer.current) {
+      scrollContainer.current.scrollLeft += 300;
+    }
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -125,49 +137,43 @@ const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
             )}
           </div>
         ) : (
-          <>
-            <div className='relative'>
-              {accomodation.images[0].ORIGINAL !== '' ? (
-                <figure className='lg:h-[500px] relative'>
-                  <Image
-                    src={accomodation.images[currentIndex].ORIGINAL}
-                    alt={accomodation.name}
-                    layout='fill'
-                    priority
-                    className='rounded-t-xl'
-                  />
-                </figure>
-              ) : (
-                <div className='h-[500px] bg-gray-200 rounded-t-xl' />
-              )}
+          <div className='flex items-center  overflow-x-auto overscroll-x-contain lg:col-start-2 lg:col-end-4'>
+            <button
+              onClick={scrollLeft}
+              className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 ml-3 -bottom-36'
+            >
+              <AiOutlineArrowLeft />
+            </button>
 
-              <BsChevronCompactLeft
-                onClick={() => changeSlide('prev')}
-                className='absolute top-[50%] -translate-x-0 -translate-y-[50%] left-2 text-2xl rounded-full p-2 bg-black700/40 text-white cursor-pointer'
-                size={30}
-              />
-
-              <BsChevronCompactRight
-                onClick={() => changeSlide('next')}
-                className='absolute top-[50%] -translate-x-0 -translate-y-[50%] right-2 text-2xl rounded-full p-2 bg-black700/40 text-white cursor-pointer'
-                size={30}
-              />
-            </div>
-
-            <div className='flex top-4 justify-center py-2 overflow-x-scroll pb-6 md:overflow-x-hidden md:pb-0 pt-8 md:pt-8'>
-              {slide?.map((_, index) => (
+            <div
+              ref={scrollContainer}
+              className='w-auto h-auto items-center mt-6 p-6 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden scrollbar'
+            >
+              {accomodation.images.map((image, index) => (
                 <div
                   key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`${
-                    currentIndex === index ? 'bg-p600/20' : 'bg-p600/40'
-                  } w-4 h-4 rounded-full mx-2 cursor-pointer`}
+                  className=' shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'
                 >
-                  <RxDotFilled color='#BF350C' />
+                  <figure className='w-[400px] h-[500px] relative'>
+                    <Image
+                      src={image.ORIGINAL}
+                      alt={accomodation.name}
+                      layout='fill'
+                      priority
+                      className='rounded-t-xl object-center'
+                    />
+                  </figure>
                 </div>
               ))}
             </div>
-          </>
+
+            <button
+              onClick={scrollRight}
+              className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 ml-3 -bottom-36'
+            >
+              <AiOutlineArrowRight />
+            </button>
+          </div>
         )}
       </div>
 
