@@ -4,14 +4,14 @@ import { TSession } from '@/types';
 import { UIContext } from '@/context';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import Image from 'next/legacy/image';
+import { signOut } from 'next-auth/react';
+import { useRouter } from 'next/router';
 import {
   accounOwnertMenuItem,
   accounTouristMenuItem,
   accountAdminMenuItem,
   publicMenuItem,
 } from '@/utils';
-import { signOut } from 'next-auth/react';
-import { useRouter } from 'next/router';
 
 const imageUrl =
   'https://res.cloudinary.com/vicflores11/image/upload/v1695653645/Dygav/DYGAV_WHITE_izc04w.svg';
@@ -33,38 +33,29 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
       : 'bg-transparent';
 
   const menuItems =
-    session?.user?.role === 'tourist'
-      ? currentUrl.startsWith('/private/tourist')
-        ? accounTouristMenuItem
-        : publicMenuItem
-      : session?.user?.role === 'owner'
-      ? currentUrl.startsWith('/private/owner') ||
-        currentUrl.startsWith('/private/tourist')
-        ? accounOwnertMenuItem
-        : publicMenuItem
-      : session?.user?.role === 'admin'
-      ? currentUrl.startsWith('/private/admin')
-        ? accountAdminMenuItem
-        : publicMenuItem
+    currentUrl.startsWith('/private/tourist') ||
+    currentUrl.startsWith('/private/owner') ||
+    currentUrl.startsWith('/private/admin')
+      ? publicMenuItem
       : publicMenuItem;
 
   const hoverMenuItems =
-    session?.user?.role === 'tourist'
-      ? !currentUrl.startsWith('/private/tourist')
-        ? accounTouristMenuItem
-        : publicMenuItem
-      : session?.user?.role === 'owner'
-      ? !currentUrl.startsWith('/private/tourist')
-        ? accounTouristMenuItem
-        : publicMenuItem
-      : session?.user?.role === 'admin'
-      ? !currentUrl.startsWith('/private/admin')
-        ? accountAdminMenuItem
-        : publicMenuItem
-      : session?.user?.role === 'owner'
-      ? !currentUrl.startsWith('/private/owner')
+    session?.user?.role === 'owner'
+      ? currentUrl.startsWith('/private/owner')
         ? accounOwnertMenuItem
-        : publicMenuItem
+        : accounOwnertMenuItem
+      : session?.user?.role === 'tourist'
+      ? currentUrl.startsWith('/private/tourist')
+        ? accounTouristMenuItem
+        : accounTouristMenuItem
+      : session?.user?.role === ('owner' as string)
+      ? currentUrl.startsWith('/private/tourist')
+        ? accounTouristMenuItem
+        : accounTouristMenuItem
+      : session?.user?.role === 'admin'
+      ? currentUrl.startsWith('/private/admin')
+        ? accountAdminMenuItem
+        : accountAdminMenuItem
       : publicMenuItem;
 
   return (
@@ -90,9 +81,21 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
           {sideMenu ? (
             <div className='grid gap-y-8 bg-p400/70 h-auto pt-6 pb-6 mt-6'>
               <ul className='grid justify-center items-center text-center gap-y-2'>
-                <h4 className='text-[20px] text-white font-semibold'>
-                  Bienvenido: {session.user.name || session.user.fullname}
-                </h4>
+                <p className='text-[20px] text-white font-semibold'>
+                  ¡Hola {session.user.name || session.user.fullname}!
+                </p>
+
+                <figure className='h-16 w-16 relative justify-self-center self-center mb-4'>
+                  <Image
+                    src={
+                      session?.user.image ||
+                      'https://res.cloudinary.com/vicflores11/image/upload/v1695077734/Dygav/undraw_Pic_profile_re_7g2h_o0irqa.WebP'
+                    }
+                    alt={'Profile picture'}
+                    layout='fill'
+                    className='rounded-full'
+                  />
+                </figure>
 
                 {menuItems.map((item, index) => (
                   <Link
