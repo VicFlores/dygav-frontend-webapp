@@ -45,13 +45,13 @@ const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
 
   const scrollLeft = () => {
     if (scrollContainer.current) {
-      scrollContainer.current.scrollLeft -= 300;
+      scrollContainer.current.scrollLeft -= 70;
     }
   };
 
   const scrollRight = () => {
     if (scrollContainer.current) {
-      scrollContainer.current.scrollLeft += 300;
+      scrollContainer.current.scrollLeft += 70;
     }
   };
 
@@ -94,23 +94,9 @@ const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
   /* Semana: € ${currentUnitSeason.weekPrice} noche
       Fin de Semana: € ${currentUnitSeason.weekendPrice} noche */
 
-  const changeSlide = (direction: 'prev' | 'next') => {
-    setCurrentIndex((prev) =>
-      direction === 'prev'
-        ? prev === 0
-          ? accomodation.images.length - 1
-          : prev - 1
-        : prev === accomodation.images.length - 1
-        ? 0
-        : prev + 1
-    );
-  };
-
-  const slide = accomodation.images;
-
   return (
     <div className='flex flex-col lg:flex-row lg:justify-evenly justify-center items-center'>
-      <div className='max-w-[550px] w-full px-2 md:px-4 relative group m-auto md:m-0'>
+      <div className='max-w-[600px] w-full px-2 md:px-4 relative group m-auto md:m-0'>
         {isMobile ? (
           <div className='flex items-center overflow-x-auto overscroll-x-contain scrollbar pb-6 space-x-6'>
             {accomodation.images[0].ORIGINAL !== '' ? (
@@ -137,7 +123,7 @@ const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
             )}
           </div>
         ) : (
-          <div className='flex items-center  overflow-x-auto overscroll-x-contain lg:col-start-2 lg:col-end-4'>
+          <div className='flex items-center  overflow-x-auto overscroll-x-contain'>
             <button
               onClick={scrollLeft}
               className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 ml-3 -bottom-36'
@@ -154,7 +140,7 @@ const Carousel: FC<{ accomodation: ICarousel }> = ({ accomodation }) => {
                   key={index}
                   className=' shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'
                 >
-                  <figure className='w-[400px] h-[500px] relative'>
+                  <figure className='w-[450px] h-[500px] relative'>
                     <Image
                       src={image.ORIGINAL}
                       alt={accomodation.name}
