@@ -47,13 +47,13 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
         </p>
       </div>
 
-      <div className='grid gap-y-10 md:grid-cols-2 md:gap-y-8 lg:grid-cols-3'>
-        {data !== undefined && data.length > 0 ? (
-          data.map((item, index) => (
-            <div
-              key={index}
-              className='h-fit rounded-xl space-y-4 justify-self-center border-[1px] border-p600 px-5 py-5 bg-gray300/[.14] w-[300px] md:w-[330px]'
-            >
+      {data !== undefined && data.length > 0 ? (
+        data.map((item, index) => (
+          <div
+            key={index}
+            className='grid gap-y-10 md:grid-cols-2 md:gap-y-8 lg:grid-cols-3'
+          >
+            <div className='h-fit rounded-xl space-y-4 justify-self-center border-[1px] border-p600 px-5 py-5 bg-gray300/[.14] w-[300px] md:w-[330px]'>
               <figure className='text-center'>
                 <Image
                   src={`${item.images[0].ORIGINAL}`}
@@ -92,17 +92,17 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
                 </Link>
               </div>
             </div>
-          ))
-        ) : (
-          <div className='flex justify-center items-center'>
-            <div className='flex flex-col justify-center items-center space-y-8 border-[1px] border-dashed h-[266px] w-[717px]'>
-              <p className=' text-black900/[.7] lg:text-3xl'>
-                ¡Aún no tienes alojamientos!
-              </p>
-            </div>
           </div>
-        )}
-      </div>
+        ))
+      ) : (
+        <div className='flex justify-center items-center'>
+          <div className='flex flex-col justify-center items-center space-y-8 border-[1px] border-dashed h-[266px] w-[717px]'>
+            <p className=' text-black900/[.7] lg:text-3xl'>
+              ¡Aún no tienes alojamientos!
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
