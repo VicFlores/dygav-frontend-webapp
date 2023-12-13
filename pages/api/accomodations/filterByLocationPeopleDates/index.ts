@@ -5,7 +5,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if (req.method === 'POST') {
+  if (req.method === 'GET') {
     try {
       const axiosGet = async (url: string) => {
         return await axios.get(url, {
@@ -16,7 +16,10 @@ export default async function handler(
         });
       };
 
-      const { location, people, checkin, checkout } = req.body;
+      const { location, people, checkin, checkout } = req.query;
+
+      if (!location || !people || !checkin || !checkout)
+        return res.status(400).json({ message: 'Missing query params' });
 
       const findAllAccomodations = await axiosGet(
         'https://api.avaibook.com/api/owner/accommodations/'
@@ -38,7 +41,16 @@ export default async function handler(
             units: [{ additionalCapacity }],
           },
         }: any) => {
-          return city === location && additionalCapacity >= people;
+          let locationWords: string[];
+          if (typeof location === 'string') {
+            locationWords = location.split(' ');
+          } else {
+            locationWords = location;
+          }
+          return (
+            locationWords.some((word) => city.includes(word)) &&
+            additionalCapacity >= people
+          );
         }
       );
 

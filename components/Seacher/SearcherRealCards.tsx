@@ -45,7 +45,9 @@ interface ICarousel {
 export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
   const [expanded, setExpanded] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth <= 768 : false
+  );
   const [startX, setStartX] = useState(0);
   const [endX, setEndX] = useState(0);
 
@@ -66,16 +68,24 @@ export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
 
   const currentUnitSeason = item.units[0].unitSeasons.find(
     (unitSeason: any) => {
-      const dateIniString = new Date(unitSeason.dateIni)
-        .toISOString()
-        .split('T')[0];
-      const dateEndString = new Date(unitSeason.dateEnd)
-        .toISOString()
-        .split('T')[0];
+      if (
+        unitSeason.dateIni &&
+        !isNaN(Date.parse(unitSeason.dateIni)) &&
+        unitSeason.dateEnd &&
+        !isNaN(Date.parse(unitSeason.dateEnd))
+      ) {
+        const dateIniString = new Date(unitSeason.dateIni)
+          .toISOString()
+          .split('T')[0];
+        const dateEndString = new Date(unitSeason.dateEnd)
+          .toISOString()
+          .split('T')[0];
 
-      return (
-        currentDateString >= dateIniString && currentDateString <= dateEndString
-      );
+        return (
+          currentDateString >= dateIniString &&
+          currentDateString <= dateEndString
+        );
+      }
     }
   );
 
