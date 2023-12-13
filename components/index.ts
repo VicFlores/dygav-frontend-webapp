@@ -65,3 +65,5 @@ export * from './CTA/LicenciasTuristicas';
 export * from './CTA/Llamanos';
 export * from './CTA/HelpFixedButton';
 export * from './CTA/PagarAlojamiento';
+export * from './Filters/FilterToDatesLocationPeople';
+export * from './ApartamentosTuristicos/ApartamentosTuristicosHero';
