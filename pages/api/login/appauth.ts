@@ -1,7 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import User from '../../../../models/user';
+import User from '@/models/user';
 import bcrypt from 'bcrypt';
-import { connectDB } from '../../../../utils/db/database';
+import { connectDB } from '@/utils/db/database';
+
 
 type TLogin = {
     email: string;
