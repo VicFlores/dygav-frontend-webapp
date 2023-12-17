@@ -5,6 +5,7 @@ export const publicMenuItem: TMenuItem[] = [
   { title: 'Alojamientos', path: '/apartamentos' },
   { title: 'Propietarios', path: '/gestion-integral-apartamentos-turisticos' },
   { title: 'Licencias VUT', path: '/licencias-turisticas' },
+  { title: 'Blog', path: '/blog' },
 ];
 
 export const accounOwnertMenuItem: TMenuItem[] = [
