@@ -170,7 +170,7 @@ const ApartamentosFiltros = () => {
             <div className='flex items-center justify-center space-x-4 mt-6'>
               <FaSpinner className='animate-spin h-5 w-5 text-p400' />
               <span className='text-lg font-medium text-p600'>
-                Buscando tu lugar ideal...
+                Buscando tu alojamiento ideal...
               </span>
             </div>
           </div>
