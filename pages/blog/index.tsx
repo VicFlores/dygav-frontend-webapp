@@ -1,4 +1,5 @@
 import { Hero, HeroLicense, Layout, MainHero, UtilHead } from "@/components";
+import Posts from "@/components/Posts/Posts";
 import { useSession } from "next-auth/react";
 
 
@@ -15,6 +16,8 @@ export default function BlogPage() {
                 />
                 </Layout>
             </MainHero>
+
+            <Posts />
 
 
         </>
