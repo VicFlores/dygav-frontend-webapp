@@ -145,7 +145,8 @@ const ApartamentosFiltros = () => {
               </figure>
 
               <p className='text-p600 text-base md:text-lg lg:text-xl text-center lg:text-start'>
-                No hemos encontrado alojamientos segun tu busqueda
+                ¡Upsss…! Parece que no hemos encontrado ningún alojamiento
+                disponible para tu búsqueda.{' '}
               </p>
             </div>
           </div>
