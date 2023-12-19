@@ -46,10 +46,10 @@ export const FilterToDatesLocationPeople = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className='grid lg:grid-cols-5 lg:gap-0 md:gap-8 gap-10 p-[30px] mt-16 bg-p600/50'
+      className='grid lg:grid-cols-5 lg:gap-0 md:gap-8 gap-6 p-[30px] mt-16 bg-p600/50'
     >
       <div className='text-center self-center justify-self-center'>
-        <p className='pb-2'>Escoge tu ciudad</p>
+        <p className='pb-2 font-semibold'>Escoge tu ciudad</p>
         <label className='relative'>
           <FaLocationDot className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
           <select
@@ -71,40 +71,40 @@ export const FilterToDatesLocationPeople = () => {
       </div>
 
       <div className='text-center self-center justify-self-center'>
-        <p className='pb-2'>Check-In</p>
+        <p className='pb-2 font-semibold'>Check-In</p>
         <label className='relative'>
           <BsCalendar2DateFill className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
           <input
             {...register('checkin', { required: true })}
             type='date'
             placeholder='Check-in'
-            className='rounded-lg pl-10 pr-4 lg:w-full lg:h-11 md:w-96 w-52 bg-transparent shadow appearance-none h-10 bg-white border border-white placeholder:text-black900 py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
+            className='rounded-lg pl-10 pr-4 lg:w-full lg:h-11 md:w-96 w-[215px] bg-transparent shadow appearance-none h-10 bg-white border border-white placeholder:text-black900 py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
           />
         </label>
       </div>
 
       <div className='text-center self-center justify-self-center'>
-        <p className='pb-2'>Check-Out</p>
+        <p className='pb-2 font-semibold'>Check-Out</p>
         <label className='relative'>
           <BsCalendar2DateFill className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
           <input
             {...register('checkout', { required: true })}
             type='date'
             placeholder='Check-out'
-            className='rounded-lg pl-10 pr-4 lg:w-full lg:h-11 md:w-96 w-52 bg-transparent h-10 shadow appearance-none bg-white border border-white placeholder:text-black900 py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
+            className='rounded-lg pl-10 pr-4 lg:w-full lg:h-11 md:w-96 w-[215px] bg-transparent h-10 shadow appearance-none bg-white border border-white placeholder:text-black900 py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
           />
         </label>
       </div>
 
       <div className='text-center self-center justify-self-center'>
-        <p className='pb-2'>Número de Viajeros</p>
+        <p className='pb-2 font-semibold'>Número de Viajeros</p>
         <label className='relative'>
           <BsPeopleFill className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
           <input
             {...register('huespedes', { required: true })}
             type='number'
             placeholder='Huéspedes'
-            className='rounded-lg pl-10 pr-4 lg:w-48 lg:h-11 md:w-96 w-full bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
+            className='rounded-lg pl-10 pr-4 lg:w-48 lg:h-11 md:w-96 w-[215px] bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
           />
         </label>
       </div>
