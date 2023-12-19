@@ -78,7 +78,7 @@ export const FilterToDatesLocationPeople = () => {
             {...register('checkin', { required: true })}
             type='date'
             placeholder='Check-in'
-            className='rounded-lg pl-10 pr-4 lg:w-full lg:h-11 md:w-96 w-[215px] bg-transparent shadow appearance-none h-10 bg-white border border-white placeholder:text-black900 py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
+            className='text-start rounded-lg pl-10 pr-4 lg:w-full lg:h-11 md:w-96 w-[215px] bg-transparent shadow appearance-none h-10 bg-white border border-white placeholder:text-black900 py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
           />
         </label>
       </div>
@@ -91,7 +91,7 @@ export const FilterToDatesLocationPeople = () => {
             {...register('checkout', { required: true })}
             type='date'
             placeholder='Check-out'
-            className='rounded-lg pl-10 pr-4 lg:w-full lg:h-11 md:w-96 w-[215px] bg-transparent h-10 shadow appearance-none bg-white border border-white placeholder:text-black900 py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
+            className='text-start rounded-lg pl-10 pr-4 lg:w-full lg:h-11 md:w-96 w-[215px] bg-transparent h-10 shadow appearance-none bg-white border border-white placeholder:text-black900 py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
           />
         </label>
       </div>
