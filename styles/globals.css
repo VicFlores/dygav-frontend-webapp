@@ -2,21 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .scrollbar {
-    scrollbar-width: 7px;
-    scrollbar-color: rgba(96, 96, 96, 0.9) #d9d9d9;
+  scrollbar-width: 7px;
+  scrollbar-color: rgba(96, 96, 96, 0.9) #d9d9d9;
+}
+
+.scrollbar::-webkit-scrollbar {
+  height: 9px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: #d9d9d9;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #f4511e;
+  border-radius: 1000px;
+}
+
+.post h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 2.25rem;
+  padding: 2rem 0 2rem 0;
+  text-align: center;
+}
+
+.post img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
   }
-  
-  .scrollbar::-webkit-scrollbar {
-    height: 9px;
-  }
-  
-  .scrollbar::-webkit-scrollbar-track {
-    background: #d9d9d9;
-  }
-  
-  .scrollbar::-webkit-scrollbar-thumb {
-    background-color: #F4511E;
-    border-radius: 1000px;
-  }
+}

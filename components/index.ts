@@ -67,3 +67,4 @@ export * from './CTA/HelpFixedButton';
 export * from './CTA/PagarAlojamiento';
 export * from './Filters/FilterToDatesLocationPeople';
 export * from './ApartamentosTuristicos/ApartamentosTuristicosHero';
+export * from './Post/Post';

@@ -6,3 +6,6 @@ export * from './TUserToken';
 export * from './TAccomodations';
 export * from './TReservationAvaibook';
 export * from './TReservation';
+export * from './TblogPost';
+export * from './TBlogCategories';
+export * from './TBlogMedia';
