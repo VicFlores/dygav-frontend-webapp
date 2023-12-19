@@ -38,7 +38,7 @@ export default async function handler(
         ({
           accomodationFull: {
             location: { city },
-            units: [{ additionalCapacity }],
+            units: [{ additionalCapacity, capacity }],
           },
         }: any) => {
           let locationWords: string[];
@@ -49,7 +49,7 @@ export default async function handler(
           }
           return (
             locationWords.some((word) => city.includes(word)) &&
-            additionalCapacity >= people
+            additionalCapacity + capacity >= people
           );
         }
       );
