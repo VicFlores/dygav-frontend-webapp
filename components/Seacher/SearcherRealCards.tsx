@@ -170,7 +170,11 @@ export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
           <Link href={`/realAparmentDetails/${item.id}`}>
             <figure className='h-[300px] relative'>
               <Image
-                src={item.images[currentIndex].ORIGINAL}
+                src={
+                  item.images && item.images[currentIndex]
+                    ? item.images[currentIndex].ORIGINAL
+                    : ''
+                }
                 alt={item.name}
                 layout='fill'
                 priority
@@ -205,8 +209,10 @@ export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
         <p className='text-justify lg:text-start text-sm md:text-lg px-4'>
           <Link href={`/realAparmentDetails/${item.id}`}>
             {expanded
-              ? item.introduction.es
-              : `${item.introduction.es.slice(0, 60)}...`}
+              ? item.introduction && item.introduction.es
+              : item.introduction && item.introduction.es
+              ? `${item.introduction.es.slice(0, 60)}...`
+              : ''}
           </Link>
         </p>
 
