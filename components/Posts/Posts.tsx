@@ -2,11 +2,17 @@ import { PostCards } from './PostCards';
 import { useEffect, useState } from 'react';
 import { BlogPost, Category } from '@/types';
 import axios from 'axios';
-import Link from 'next/link';
+
+const images = [
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699488275/Dygav/Alicante/4_qzdyhb.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699567156/Dygav/Benidorm/Copia_de_2_doz1la.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/2_jvslgl.webp',
+];
 
 const Posts = () => {
   const [data, setData] = useState<BlogPost[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<number>();
 
   useEffect(() => {
     const getAllPost = async () => {
@@ -19,7 +25,7 @@ const Posts = () => {
 
     const getAllCategories = async () => {
       const res = await axios.get(
-        'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/categories'
+        'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/categories?parent=12'
       );
 
       setCategories(res.data);
@@ -45,19 +51,25 @@ const Posts = () => {
       <div className='mt-24 w-full px-10 mb-24'>
         <div className='flex items-center space-x-14 overflow-auto overflow-x-visible scrollbar pb-8'>
           {categories.map((category, index) => (
-            <p
+            <div
               key={index}
-              className='text-xl md:text-3xl border-b-[3px] border-b-p600 whitespace-nowrap'
+              onClick={() => setSelectedCategory(category.id)}
+              className='border-p600 border-2 lg:min-w-[363px] h-[432px] flex items-end rounded-2xl hover:cursor-pointer'
+              style={{
+                backgroundImage: `url(${images[index]})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
             >
-              <Link href={category.link} target='_blanck'>
+              <p className='text-xl md:text-3xl whitespace-nowrap text-white pl-4 pb-4'>
                 {category.name}
-              </Link>
-            </p>
+              </p>
+            </div>
           ))}
         </div>
       </div>
 
-      <PostCards posts={data} />
+      <PostCards posts={data} selectedCategory={selectedCategory} />
     </section>
   );
 };
