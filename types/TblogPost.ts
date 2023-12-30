@@ -63,4 +63,9 @@ export type BlogPost = {
   categories: number[];
   tags: any[];
   _links: Links;
+  yoast_head_json: {
+    og_image: {
+      url: string;
+    }[];
+  };
 };

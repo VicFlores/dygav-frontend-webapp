@@ -36,16 +36,14 @@ export const PostCards: FC<{ posts: BlogPost[] }> = ({ posts }) => {
     getCategories();
   }, [posts]);
 
-  console.log(categories);
-
   return (
-    <div className='grid lg:grid-cols-2 lg:grid-rows-2 gap-y-10 md:gap-x-20'>
+    <div className='grid lg:grid-cols-2 gap-y-10 md:gap-x-20'>
       {posts
         .filter((post) => post.featured_media !== 0)
         .map((post, index) => {
           const mediaItem = media[index];
 
-          const gridStyle =
+          /* const gridStyle =
             index === 0
               ? {
                   gridRowStart: index + 1,
@@ -58,7 +56,7 @@ export const PostCards: FC<{ posts: BlogPost[] }> = ({ posts }) => {
                   gridRowEnd: (index / 3) * 2 + 3,
                   height: 'auto',
                 }
-              : {};
+              : {}; */
 
           const category = categories.find(
             (cat) => cat.id === post.categories[0]
@@ -70,7 +68,7 @@ export const PostCards: FC<{ posts: BlogPost[] }> = ({ posts }) => {
               className={`lg:w-[491px] h-[296px] relative bg-cover bg-center flex flex-col justify-end pl-6 pr-10 pb-2`}
               style={{
                 backgroundImage: `url(${mediaItem?.source_url})`,
-                ...gridStyle,
+                /*  ...gridStyle, */
               }}
             >
               <h2 className='py-1 md:py-[6px] rounded-lg bg-p600 w-[136px] text-center text-white mb-3'>

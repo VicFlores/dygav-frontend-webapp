@@ -9,3 +9,4 @@ export * from './TReservation';
 export * from './TblogPost';
 export * from './TBlogCategories';
 export * from './TBlogMedia';
+export * from './TBlogPostSubCategories';
