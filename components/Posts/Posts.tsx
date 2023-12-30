@@ -19,7 +19,7 @@ const Posts = () => {
 
     const getAllCategories = async () => {
       const res = await axios.get(
-        'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/categories'
+        'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/categories?per_page=50'
       );
 
       setCategories(res.data);
@@ -32,6 +32,8 @@ const Posts = () => {
   const filterByCategories = categories.filter(
     (category) => category.parent === 0
   );
+
+  console.log(filterByCategories);
 
   return (
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-28 flex flex-col items-center'>

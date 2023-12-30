@@ -35,13 +35,15 @@ export default function CitiesPage() {
   useEffect(() => {
     const getCategories = async () => {
       const data = await fetchData(
-        'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/categories'
+        'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/categories?per_page=50'
       );
 
       setcategories(data);
 
       const filterByCities = data.filter((category: Category) => {
-        if (category.name.toLowerCase() === query.cities) {
+        console.log(category.slug, query.cities);
+
+        if (category.slug === query.cities) {
           return category;
         } else {
           return null;

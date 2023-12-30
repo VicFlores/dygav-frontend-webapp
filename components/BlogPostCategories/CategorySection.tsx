@@ -81,12 +81,7 @@ export const CategorySection: FC<CategorySectionProps> = ({
               <div>
                 <div className='flex flex-col justify-center items-center min-w-[300px] min-h-[350px]  md:min-w-[494px] md:h-[296px] border-2 border-p600 rounded-xl text-p600'>
                   <figure className='relative w-52 h-52 md:w-60 md:h-60 m-auto'>
-                    <Image
-                      src={
-                        'https://res.cloudinary.com/vicflores11/image/upload/v1703948850/Dygav/undraw_publish_article_re_3x8h_w41fes.svg'
-                      }
-                      layout='fill'
-                    />
+                    <Image src={defaultImage} layout='fill' priority />
                   </figure>
 
                   <p className='pb-6 text-center px-4'>

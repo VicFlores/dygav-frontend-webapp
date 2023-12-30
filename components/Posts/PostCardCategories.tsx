@@ -36,6 +36,10 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
       'https://res.cloudinary.com/vicflores11/image/upload/v1699488275/Dygav/Alicante/4_qzdyhb.webp',
     benidorm:
       'https://res.cloudinary.com/vicflores11/image/upload/v1699567156/Dygav/Benidorm/Copia_de_2_doz1la.webp',
+    'santa-pola':
+      'https://res.cloudinary.com/vicflores11/image/upload/v1700839593/Dygav/Santa%20Pola/Copia_de_Puerto_de_Santa_Pola_znyokx.webp',
+    torrevieja:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/2_jvslgl.png',
   };
 
   return (
@@ -60,12 +64,12 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
             className='w-auto h-auto items-center pb-8 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden scrollbar'
           >
             {filterByCategories.map((category, index) => {
-              const imageUrl = categoryImages[category.name.toLowerCase()];
+              const imageUrl = categoryImages[category.slug];
 
               return query ? (
-                query.cities !== category.name.toLowerCase() && (
+                query.cities !== category.slug && (
                   <div key={index}>
-                    <Link href={`/blogs/${category.name.toLowerCase()}`}>
+                    <Link href={`/blogs/${category.slug}`}>
                       <div
                         className='border-2 border-p600 min-w-[300px] h-[350px] md:min-w-[363px] md:h-[432px] flex items-end rounded-xl'
                         style={{
@@ -83,7 +87,7 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
                 )
               ) : (
                 <div key={index}>
-                  <Link href={`/blogs/${category.name.toLowerCase()}`}>
+                  <Link href={`/blogs/${category.slug}`}>
                     <div
                       className='border-2 border-p600 min-w-[300px] h-[350px] md:min-w-[363px] md:h-[432px] flex items-end rounded-xl'
                       style={{
