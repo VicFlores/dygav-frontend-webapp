@@ -69,7 +69,7 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
               return query ? (
                 query.cities !== category.slug && (
                   <div key={index}>
-                    <Link href={`/blogs/${category.slug}`}>
+                    <Link href={`/blog/${category.slug}`}>
                       <div
                         className='border-2 border-p600 min-w-[300px] h-[350px] md:min-w-[363px] md:h-[432px] flex items-end rounded-xl'
                         style={{
@@ -87,7 +87,7 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
                 )
               ) : (
                 <div key={index}>
-                  <Link href={`/blogs/${category.slug}`}>
+                  <Link href={`/blog/${category.slug}`}>
                     <div
                       className='border-2 border-p600 min-w-[300px] h-[350px] md:min-w-[363px] md:h-[432px] flex items-end rounded-xl'
                       style={{

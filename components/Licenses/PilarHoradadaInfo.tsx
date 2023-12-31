@@ -202,8 +202,6 @@ export const PilarHoradadaInfo = () => {
       </div>
 
       <HelpYouForm />
-
-      <CityCardsFooter />
     </section>
   );
 };

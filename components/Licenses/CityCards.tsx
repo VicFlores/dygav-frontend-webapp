@@ -3,74 +3,74 @@ import Link from 'next/link';
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
 
 interface ImageProps {
-  href: string;
   cityName: string;
   bgCity: string;
+  slug: string;
 }
 
 const images: ImageProps[] = [
   {
-    href: '/licencias-turisticas-torrevieja',
+    slug: 'torrevieja',
     cityName: 'Torrevieja',
     bgCity: 'bg-torrevieja',
   },
   {
-    href: '/licencias-turisticas-alicante',
+    slug: 'alicante',
     cityName: 'Alicante',
     bgCity: 'bg-alicante',
   },
   {
-    href: '/licencias-turisticas-benidorm',
+    slug: 'benidorm',
     cityName: 'Benidorm',
     bgCity: 'bg-benidorm',
   },
   {
-    href: '/licencias-turisticas-orihuela-orihuela-costa',
+    slug: 'orihuela',
     cityName: 'Orihuela',
     bgCity: 'bg-orihuelaCosta',
   },
   {
-    href: '/licencias-turisticas-orihuela-orihuela-costa',
+    slug: 'orihuela-costa',
     cityName: 'Orihuela Costa',
     bgCity: 'bg-orihuela',
   },
   {
-    href: '/licencias-turisticas-guardamar-segura',
+    slug: 'guardamar-del-segura',
     cityName: 'Guardamar del Segura',
     bgCity: 'bg-guardamarSegura',
   },
   {
-    href: '/licencias-turisticas-santa-pola',
+    slug: 'santa-pola',
     cityName: 'Santa Pola',
     bgCity: 'bg-santaPola',
   },
   {
-    href: '/licencias-turisticas-villajoyosa',
+    slug: 'villajoyosa',
     cityName: 'Villajoyosa',
     bgCity: 'bg-villajoyosa',
   },
   {
-    href: '/licencias-turisticas-finestrat',
+    slug: 'finestrat',
     cityName: 'Finestrat',
     bgCity: 'bg-finestrat',
   },
   {
-    href: '/licencias-turisticas-el-campello',
+    slug: 'el-campello',
     cityName: 'El Campello',
     bgCity: 'bg-elCampello',
   },
   {
-    href: '/licencias-turisticas-calpe',
+    slug: 'calpe',
     cityName: 'Calpe',
     bgCity: 'bg-calpe',
   },
   {
-    href: '/licencias-turisticas-pilar-de-la-horadada',
+    slug: 'pilar-de-la-horadada',
     cityName: 'Pilar de la Horadada',
     bgCity: 'bg-pilarHoradada',
   },
   {
-    href: '/licencias-turisticas-altea',
+    slug: 'altea',
     cityName: 'Altea',
     bgCity: 'bg-altea',
   },
@@ -105,7 +105,7 @@ export const CityCards = () => {
         className='w-auto h-auto items-center mt-6 p-6 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden scrollbar'
       >
         {images.map((image, index) => (
-          <Link href={`${image.href}`} key={index}>
+          <Link href={`/licencias-turisticas/${image.slug}`} key={index}>
             <div className='w-60 h-80 md:w-70 md:h-80 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
               <div
                 className={`w-full h-full bg-cover bg-center flex items-end ${image.bgCity}`}

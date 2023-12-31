@@ -36,6 +36,7 @@ export * from './Licenses/CalpeInfo';
 export * from './Licenses/PilarHoradadaInfo';
 export * from './Licenses/AlteaInfo';
 export * from './Licenses/LicenseAditionalInfo';
+export * from './Licenses/CityLicense';
 export * from './TouristDashboard/TouristDashboard';
 export * from './TouristTripsStatus/ActiveTrips';
 export * from './TouristTripsStatus/PastTrips';

@@ -1,28 +1,14 @@
-import { BlogMedia, BlogPost, Category } from '@/types';
+import { BlogPost, Category } from '@/types';
 import axios from 'axios';
 import Link from 'next/link';
 import React, { FC, useEffect, useState } from 'react';
 
 export const PostCards: FC<{ posts: BlogPost[] }> = ({ posts }) => {
-  const [media, setMedia] = useState<BlogMedia[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
-    const getMedia = async () => {
-      const filteredPosts = posts.filter((post) => post.featured_media !== 0);
-      const mediaPromises = filteredPosts.map((post) =>
-        axios.get(
-          `https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/media/${post.featured_media}`
-        )
-      );
-
-      const mediaResponses = await Promise.all(mediaPromises);
-      setMedia(mediaResponses.map((res) => res.data));
-    };
-
     const getCategories = async () => {
-      const filteredPosts = posts.filter((post) => post.featured_media !== 0);
-      const categoriesPromises = filteredPosts.map((post) =>
+      const categoriesPromises = posts.map((post) =>
         axios.get(
           `https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/categories/${post.categories[0]}`
         )
@@ -32,7 +18,6 @@ export const PostCards: FC<{ posts: BlogPost[] }> = ({ posts }) => {
       setCategories(categoriesResponses.map((res) => res.data));
     };
 
-    getMedia();
     getCategories();
   }, [posts]);
 
@@ -40,9 +25,7 @@ export const PostCards: FC<{ posts: BlogPost[] }> = ({ posts }) => {
     <div className='grid lg:grid-cols-2 gap-y-10 md:gap-x-20'>
       {posts
         .filter((post) => post.featured_media !== 0)
-        .map((post, index) => {
-          const mediaItem = media[index];
-
+        .map((post) => {
           /* const gridStyle =
             index === 0
               ? {
@@ -67,7 +50,7 @@ export const PostCards: FC<{ posts: BlogPost[] }> = ({ posts }) => {
               key={post.id}
               className={`lg:w-[491px] h-[296px] relative bg-cover bg-center flex flex-col justify-end pl-6 pr-10 pb-2`}
               style={{
-                backgroundImage: `url(${mediaItem?.source_url})`,
+                backgroundImage: `url(${post.yoast_head_json.og_image[0].url})`,
                 /*  ...gridStyle, */
               }}
             >
@@ -76,7 +59,7 @@ export const PostCards: FC<{ posts: BlogPost[] }> = ({ posts }) => {
               </h2>
 
               <p className='text-white text-lg lg:text-xl underline'>
-                <Link href={`/blog/${post.id}`}>{post.title.rendered}</Link>
+                <Link href={`/post/${post.id}`}>{post.title.rendered}</Link>
               </p>
             </div>
           );

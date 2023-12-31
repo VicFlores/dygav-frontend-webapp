@@ -571,8 +571,6 @@ export const AlicanteInfo = () => {
       </div>
 
       <HelpYouForm />
-
-      <CityCardsFooter />
     </section>
   );
 };

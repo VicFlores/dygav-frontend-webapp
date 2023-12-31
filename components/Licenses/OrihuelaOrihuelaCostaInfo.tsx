@@ -302,8 +302,6 @@ export const OrihuelaOrihuelaCostaInfo = () => {
       </p>
 
       <HelpYouForm />
-
-      <CityCardsFooter />
     </section>
   );
 };

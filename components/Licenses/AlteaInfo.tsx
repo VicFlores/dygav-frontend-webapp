@@ -198,8 +198,6 @@ export const AlteaInfo = () => {
       </div>
 
       <HelpYouForm />
-
-      <CityCardsFooter />
     </section>
   );
 };

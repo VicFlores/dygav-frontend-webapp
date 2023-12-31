@@ -206,8 +206,6 @@ export const CalpeInfo = () => {
       </div>
 
       <HelpYouForm />
-
-      <CityCardsFooter />
     </section>
   );
 };

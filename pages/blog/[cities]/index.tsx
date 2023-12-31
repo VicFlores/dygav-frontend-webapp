@@ -108,12 +108,28 @@ export default function CitiesPage() {
     (category) => category.parent === 0
   );
 
+  function capitalizeFirstLetterOfEachWord(str: string) {
+    return str
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }
+
+  let formattedCityName = '';
+  if (typeof query?.cities === 'string') {
+    formattedCityName = query.cities.replace(/-/g, ' ');
+  } else if (Array.isArray(query?.cities)) {
+    formattedCityName = query.cities.join(' ').replace(/-/g, ' ');
+  }
+  const capitalizedCityName =
+    capitalizeFirstLetterOfEachWord(formattedCityName);
+
   return (
     <>
       <UtilHead
         title={
           query?.cities
-            ? `Dygav Blog ${capitalizeFirstLetter(query.cities as string)}`
+            ? `Dygav Blog ${capitalizeFirstLetter(capitalizedCityName)}`
             : 'Dygav Blog'
         }
         content='Ahora el descubre el nuevo blog de Dygav'
@@ -121,11 +137,7 @@ export default function CitiesPage() {
       <MainHero>
         <Layout session={session}>
           <HeroLicense
-            title={
-              query?.cities
-                ? `${capitalizeFirstLetter(query.cities as string)}`
-                : 'Dygav Blog'
-            }
+            title={query?.cities ? `${capitalizedCityName}` : 'Dygav Blog'}
             subtitle='Ahora el descubre el nuevo blog de Dygav'
           />
         </Layout>

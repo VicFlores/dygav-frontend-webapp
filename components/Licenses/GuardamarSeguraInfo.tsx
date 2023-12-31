@@ -241,8 +241,6 @@ export const GuardamarSeguraInfo = () => {
       </div>
 
       <HelpYouForm />
-
-      <CityCardsFooter />
     </section>
   );
 };

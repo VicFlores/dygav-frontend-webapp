@@ -213,8 +213,6 @@ export const VillajoyosaInfo = () => {
       </div>
 
       <HelpYouForm />
-
-      <CityCardsFooter />
     </section>
   );
 };

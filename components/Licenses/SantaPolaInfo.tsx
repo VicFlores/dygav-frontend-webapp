@@ -271,8 +271,6 @@ export const SantaPolaInfo = () => {
       </div>
 
       <HelpYouForm />
-
-      <CityCardsFooter />
     </section>
   );
 };

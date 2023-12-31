@@ -298,8 +298,6 @@ export const TorreviejaInfo = () => {
       </div>
 
       <HelpYouForm />
-
-      <CityCardsFooter />
     </section>
   );
 };

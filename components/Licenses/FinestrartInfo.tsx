@@ -215,8 +215,6 @@ export const FinestratInfo = () => {
       </div>
 
       <HelpYouForm />
-
-      <CityCardsFooter />
     </section>
   );
 };

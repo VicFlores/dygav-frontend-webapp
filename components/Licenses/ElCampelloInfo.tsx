@@ -190,8 +190,6 @@ export const ElCampelloInfo = () => {
       </div>
 
       <HelpYouForm />
-
-      <CityCardsFooter />
     </section>
   );
 };

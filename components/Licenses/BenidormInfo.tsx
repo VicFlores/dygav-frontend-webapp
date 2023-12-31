@@ -264,8 +264,6 @@ export const BenidormInfo = () => {
       </p>
 
       <HelpYouForm />
-
-      <CityCardsFooter />
     </section>
   );
 };

@@ -4,9 +4,9 @@ import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
 import { useRouter } from 'next/router';
 
 interface ImageProps {
-  href: string;
   cityName: string;
   bgCity: string;
+  slug: string;
 }
 
 export const CityCardsFooter = () => {
@@ -28,76 +28,76 @@ export const CityCardsFooter = () => {
 
   let images: ImageProps[] = [
     {
-      href: '/licencias-turisticas-torrevieja',
+      slug: 'torrevieja',
       cityName: 'Torrevieja',
       bgCity: 'bg-torrevieja',
     },
     {
-      href: '/licencias-turisticas-alicante',
+      slug: 'alicante',
       cityName: 'Alicante',
       bgCity: 'bg-alicante',
     },
     {
-      href: '/licencias-turisticas-benidorm',
+      slug: 'benidorm',
       cityName: 'Benidorm',
       bgCity: 'bg-benidorm',
     },
     {
-      href: '/licencias-turisticas-orihuela-orihuela-costa',
+      slug: 'orihuela',
       cityName: 'Orihuela',
       bgCity: 'bg-orihuelaCosta',
     },
     {
-      href: '/licencias-turisticas-orihuela-orihuela-costa',
+      slug: 'orihuela-costa',
       cityName: 'Orihuela Costa',
       bgCity: 'bg-orihuela',
     },
     {
-      href: '/licencias-turisticas-guardamar-segura',
+      slug: 'guardamar-del-segura',
       cityName: 'Guardamar del Segura',
       bgCity: 'bg-guardamarSegura',
     },
     {
-      href: '/licencias-turisticas-santa-pola',
+      slug: 'santa-pola',
       cityName: 'Santa Pola',
       bgCity: 'bg-santaPola',
     },
     {
-      href: '/licencias-turisticas-villajoyosa',
+      slug: 'villajoyosa',
       cityName: 'Villajoyosa',
       bgCity: 'bg-villajoyosa',
     },
     {
-      href: '/licencias-turisticas-finestrat',
+      slug: 'finestrat',
       cityName: 'Finestrat',
       bgCity: 'bg-finestrat',
     },
     {
-      href: '/licencias-turisticas-el-campello',
+      slug: 'el-campello',
       cityName: 'El Campello',
       bgCity: 'bg-elCampello',
     },
     {
-      href: '/licencias-turisticas-calpe',
+      slug: 'calpe',
       cityName: 'Calpe',
       bgCity: 'bg-calpe',
     },
     {
-      href: '/licencias-turisticas-pilar-de-la-horadada',
+      slug: 'pilar-de-la-horadada',
       cityName: 'Pilar de la Horadada',
       bgCity: 'bg-pilarHoradada',
     },
     {
-      href: '/licencias-turisticas-altea',
+      slug: 'altea',
       cityName: 'Altea',
       bgCity: 'bg-altea',
     },
   ];
 
-  images = images.filter((image) => image.href !== router.pathname);
+  images = images.filter((image) => image.slug !== router.query.cities);
 
   return (
-    <>
+    <section className='mb-16 md:pb-24 px-6 md:px-12 lg:px-32 flex flex-col items-center'>
       <h2 className='px-6 text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-10 md:px-4 mt-16'>
         Licencias Turísticas en otros municipios
       </h2>
@@ -123,7 +123,7 @@ export const CityCardsFooter = () => {
                 className={`w-full h-full bg-cover bg-center flex items-end ${image.bgCity}`}
               >
                 <Link
-                  href={`${image.href}`}
+                  href={`/licencias-turisticas/${image.slug}`}
                   className='text-white pl-4 pb-4 text-sm md:text-lg underline'
                 >
                   Licencia turística en <br /> {image.cityName}
@@ -140,6 +140,6 @@ export const CityCardsFooter = () => {
           <AiOutlineArrowRight />
         </button>
       </div>
-    </>
+    </section>
   );
 };
