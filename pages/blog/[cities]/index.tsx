@@ -137,8 +137,28 @@ export default function CitiesPage() {
       <MainHero>
         <Layout session={session}>
           <HeroLicense
-            title={query?.cities ? `${capitalizedCityName}` : 'Dygav Blog'}
-            subtitle='Ahora el descubre el nuevo blog de Dygav'
+            title={
+              capitalizedCityName === 'Torrevieja'
+                ? `${capitalizedCityName}: Un Encanto Mediterráneo`
+                : capitalizedCityName === 'Benidorm'
+                ? `${capitalizedCityName}: Innovación y Diversión`
+                : capitalizedCityName === 'Alicante'
+                ? `${capitalizedCityName}: Tradición y Modernidad`
+                : capitalizedCityName === 'Santa Pola'
+                ? `${capitalizedCityName}: Historia y Cultura`
+                : `${capitalizedCityName}`
+            }
+            subtitle={
+              capitalizedCityName === 'Torrevieja'
+                ? `Explora con nosotros Torrevieja, un destino lleno de sol, playas y cultura en la Costa Blanca.`
+                : capitalizedCityName === 'Benidorm'
+                ? `Conoce Benidorm, una ciudad única donde la modernidad se encuentra con el esplendor del Mediterráneo.`
+                : capitalizedCityName === 'Alicante'
+                ? `Descubre Alicante, una ciudad que combina historia, playas y una vibrante vida urbana.`
+                : capitalizedCityName === 'Santa Pola'
+                ? `Ciudad en donde encontrarás un destino lleno de historia, naturaleza y cultura.`
+                : `${capitalizedCityName}`
+            }
           />
         </Layout>
       </MainHero>

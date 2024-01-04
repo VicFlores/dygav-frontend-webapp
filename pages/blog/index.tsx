@@ -8,14 +8,14 @@ export default function BlogsPage() {
   return (
     <>
       <UtilHead
-        title='Dygav Blog'
+        title='Bienvenidos al Blog de DYGAV'
         content='Ahora el descubre el nuevo blog de Dygav'
       />
       <MainHero>
         <Layout session={session}>
           <HeroLicense
-            title='Dygav Blog'
-            subtitle='Ahora el descubre el nuevo blog de Dygav'
+            title='Bienvenidos al Blog de DYGAV'
+            subtitle='Explora con nosotros los destinos más encantadores de España.'
           />
         </Layout>
       </MainHero>

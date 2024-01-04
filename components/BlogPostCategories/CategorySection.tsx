@@ -11,12 +11,14 @@ type BlogPostWithSubCategory = BlogPost & {
 type CategorySectionProps = {
   title: string;
   subtitle: string;
+  information: string;
   posts: BlogPostWithSubCategory[];
 };
 
 export const CategorySection: FC<CategorySectionProps> = ({
   title,
   subtitle,
+  information,
   posts,
 }) => {
   const scrollContainer = useRef<HTMLDivElement>(null);
@@ -42,7 +44,13 @@ export const CategorySection: FC<CategorySectionProps> = ({
         {title}
       </h2>
 
-      <p className='mt-6 text-base md:text-lg text-justify'>{subtitle}</p>
+      <h3 className='mt-6 text-base md:text-lg lg:text-xl text-center text-black900'>
+        {subtitle}
+      </h3>
+
+      <p className='mt-10 text-base md:text-lg text-justify md:px-20'>
+        {information}
+      </p>
 
       <div className='mt-20 w-full md:px-10 mb-16'>
         <div className='flex items-center justify-center md:space-x-14 overflow-auto overflow-x-visible pb-8'>

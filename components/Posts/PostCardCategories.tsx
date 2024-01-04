@@ -48,7 +48,9 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
         {title}
       </h2>
 
-      <p className='mt-6 text-base md:text-lg text-justify'>{subtitle}</p>
+      <p className='mt-4 text-base md:text-lg text-center lg:text-xl'>
+        {subtitle}
+      </p>
 
       <div className='mt-16 w-full md:px-10 mb-24'>
         <div className='flex items-center justify-center md:space-x-14 overflow-auto overflow-x-visible pb-8'>

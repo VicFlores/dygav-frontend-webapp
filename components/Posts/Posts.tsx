@@ -42,7 +42,7 @@ const Posts = () => {
       <PostCardCategories
         filterByCategories={filterByCategories}
         title='Categorias'
-        subtitle='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        subtitle='Descubre nuevos destinos'
       />
 
       <PostCards posts={data} />
