@@ -44,7 +44,7 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
 
   return (
     <>
-      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold w-auto md:px-10'>
+      <h2 className='mt-0 md:mt-10 text-2xl md:text-4xl text-center pb-4 font-semibold border-b-4 border-b-p600 w-auto md:px-10'>
         {title}
       </h2>
 
@@ -91,7 +91,7 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
                 <div key={index}>
                   <Link href={`/blog/${category.slug}`}>
                     <div
-                      className='border-2 border-p600 min-w-[300px] h-[350px] md:min-w-[363px] md:h-[432px] flex items-end rounded-xl'
+                      className='border-2 border-p600 min-w-[300px] h-[350px] md:min-w-[300px] md:h-[400px] flex items-end rounded-xl'
                       style={{
                         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url(${imageUrl})`,
                         backgroundSize: 'cover',

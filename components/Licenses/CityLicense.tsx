@@ -36,7 +36,7 @@ import {
 import { CityCardsFooter } from './CityCardsFooter';
 import axios from 'axios';
 import { BlogPost } from '@/types';
-import { PostCards } from '../Posts/PostCards';
+import { PostsCardsCarrusel } from './PostsCardsCarrusel';
 
 type CityLicenseProps = {
   session: Session | null;
@@ -128,12 +128,11 @@ export const CityLicense: FC<CityLicenseProps> = ({ session, cityName }) => {
       {CityInfoComponent ? <CityInfoComponent /> : <></>}
 
       {posts.length > 0 ? (
-        <section className='mt-24 mb-16 px-6 md:px-12 lg:px-28 flex flex-col items-center'>
-          <h2 className=' text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-40 lg:px-10 my-16'>
-            Nuestros artículos relacionados a {capitalizedCityName}
-          </h2>
-
-          <PostCards posts={posts} />
+        <section className='mt-16 mb-16 px-6 md:px-12 lg:px-28 flex flex-col items-center'>
+          <PostsCardsCarrusel
+            title={`Nuestros artículos relacionados a ${capitalizedCityName}`}
+            posts={posts.slice(0, 4)}
+          />
         </section>
       ) : (
         <></>
