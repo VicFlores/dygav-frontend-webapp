@@ -38,6 +38,7 @@ export const Footer = () => {
         <p className='text-xl'>Enlaces útiles</p>
         <Link href='/login'>Iniciar Sesion</Link>
         <Link href='/register'>Registrarse</Link>
+        <Link href='/blog'>Blog</Link>
       </div>
 
       <div className='flex flex-col space-y-4'>
