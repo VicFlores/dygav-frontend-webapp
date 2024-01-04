@@ -128,14 +128,13 @@ export const CityLicense: FC<CityLicenseProps> = ({ session, cityName }) => {
       {CityInfoComponent ? <CityInfoComponent /> : <></>}
 
       {posts.length > 0 ? (
-        <>
-          <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-40 lg:px-10 mt-16'>
+        <section className='mt-24 mb-16 px-6 md:px-12 lg:px-28 flex flex-col items-center'>
+          <h2 className=' text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-40 lg:px-10 my-16'>
             Nuestros artículos relacionados a {capitalizedCityName}
           </h2>
-          <section className='mt-24 mb-16 px-6 md:px-12 lg:px-28 flex flex-col items-center'>
-            <PostCards posts={posts} />
-          </section>
-        </>
+
+          <PostCards posts={posts} />
+        </section>
       ) : (
         <></>
       )}
