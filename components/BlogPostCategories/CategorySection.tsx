@@ -81,7 +81,7 @@ export const CategorySection: FC<CategorySectionProps> = ({
                 .map((post) => (
                   <div key={post.id}>
                     <div
-                      className='flex flex-col justify-end min-w-[300px] min-h-[350px]  md:min-w-[494px] md:h-[296px] border-2 border-p600 rounded-xl px-6 pb-6 space-y-2 text-white'
+                      className='flex flex-col justify-end min-w-[300px] min-h-[350px]  md:min-w-[494px] md:h-[296px] rounded-xl px-6 pb-6 space-y-2 text-white'
                       style={{
                         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url(${post.yoast_head_json.og_image[0].url})`,
                         backgroundSize: 'cover',
