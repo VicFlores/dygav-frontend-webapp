@@ -53,7 +53,7 @@ export const CategorySection: FC<CategorySectionProps> = ({
         {title}
       </h2>
 
-      <h3 className='mt-6 text-base md:text-lg lg:text-xl text-center text-black900'>
+      <h3 className='mt-6 text-base md:text-lg lg:text-xl text-center text-[#45474B]'>
         {subtitle}
       </h3>
 
