@@ -37,7 +37,7 @@ const Posts = () => {
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-28 flex flex-col items-center'>
       <PostCardCategories
         filterByCategories={filterByCategories}
-        title='Categorias'
+        title='Ciudades'
         subtitle='Descubre nuevos destinos'
       />
 
