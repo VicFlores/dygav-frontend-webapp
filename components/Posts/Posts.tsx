@@ -33,12 +33,8 @@ const Posts = () => {
     (category) => category.parent === 0
   );
 
-  console.log(filterByCategories);
-
   return (
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-28 flex flex-col items-center'>
-      {/* <PostCards posts={data.slice(0, 3)} /> */}
-
       <PostCardCategories
         filterByCategories={filterByCategories}
         title='Categorias'

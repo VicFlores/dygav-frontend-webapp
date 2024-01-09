@@ -41,8 +41,6 @@ export default function CitiesPage() {
       setcategories(data);
 
       const filterByCities = data.filter((category: Category) => {
-        console.log(category.slug, query.cities);
-
         if (category.slug === query.cities) {
           return category;
         } else {
