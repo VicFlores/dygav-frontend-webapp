@@ -32,7 +32,7 @@ export const PostsCardsCarrusel: FC<CategorySectionProps> = ({
 
   return (
     <>
-      <h2 className='mt-0 md:mt-10 text-2xl md:text-4xl text-center pb-4 font-semibold border-b-4 border-b-p600 w-auto md:px-10 text-p600'>
+      <h2 className='text-2xl md:text-3xl text-center pb-4 font-semibold border-b-4 border-b-p600 w-auto md:px-10'>
         {title}
       </h2>
 
