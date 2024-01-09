@@ -73,7 +73,7 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
                   <div key={index}>
                     <Link href={`/blog/${category.slug}`}>
                       <div
-                        className='border-2 border-p600 w-60 h-80 md:w-70 md:h-80 flex items-end rounded-xl'
+                        className='w-60 h-80 md:w-70 md:h-80 flex items-end rounded-xl'
                         style={{
                           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url(${imageUrl})`,
                           backgroundSize: 'cover',
@@ -91,7 +91,7 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
                 <div key={index}>
                   <Link href={`/blog/${category.slug}`}>
                     <div
-                      className='border-2 border-p600 w-60 h-80 md:w-70 md:h-80 flex items-end rounded-xl'
+                      className='w-60 h-80 md:w-70 md:h-80 flex items-end rounded-xl'
                       style={{
                         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url(${imageUrl})`,
                         backgroundSize: 'cover',
