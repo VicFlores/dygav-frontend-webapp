@@ -1,6 +1,7 @@
 import { BlogPost } from '@/types';
 import moment from 'moment';
 import Image from 'next/legacy/image';
+import Link from 'next/link';
 import React, { FC, useRef } from 'react';
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
 
@@ -89,7 +90,11 @@ export const CategorySection: FC<CategorySectionProps> = ({
                         boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.25)',
                       }}
                     >
-                      <p>{post.title.rendered}</p>
+                      <p className='underline'>
+                        <Link href={`/post/${post.id}`}>
+                          {post.title.rendered}
+                        </Link>
+                      </p>
                       <p>{moment(post.date).format('D MMMM, YYYY')}</p>
                     </div>
                   </div>
@@ -108,6 +113,7 @@ export const CategorySection: FC<CategorySectionProps> = ({
               </div>
             )}
           </div>
+
           <button
             onClick={scrollRight}
             className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 ml-3 -bottom-36'
