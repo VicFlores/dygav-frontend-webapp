@@ -60,7 +60,7 @@ export const SallenDeGallegoInfo = () => {
         </p>
       </div>
 
-      <CityImages images={images} width='500' />
+      <CityImages images={images} width='w-[800px]' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:-mx-36 mt-24'>
         Guia para conseguir una licencia turística en Sallent de Gállego

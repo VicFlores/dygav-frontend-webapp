@@ -11,12 +11,12 @@ interface Images {
   width?: string;
 }
 
-export const CityImages: FC<Images> = ({ images, width = '460' }) => {
+export const CityImages: FC<Images> = ({ images, width = 'w-[460px]' }) => {
   return (
     <div className='flex flex-col lg:flex-row justify-evenly items-center mt-14 mb-14 space-y-8 lg:space-y-0 lg:space-x-8'>
       {images.map((image, index) => (
         <figure
-          className={`relative w-80 h-80 md:w-[${width}px] md:h-[370px]`}
+          className={`relative w-80 h-80 md:${width} md:h-[370px]`}
           key={index}
         >
           <Image
