@@ -19,6 +19,7 @@ import {
   PilarHoradadaInfo,
   AlteaInfo,
   FormigalInfo,
+  SallenDeGallegoInfo,
 } from '..';
 import {
   heroAlicanteImages,
@@ -34,6 +35,7 @@ import {
   heroTorreviejaImages,
   heroVillajoyosaImages,
   heroFormigalImages,
+  heroSallenDeGallegoImages,
 } from '@/utils';
 import { CityCardsFooter } from './CityCardsFooter';
 import axios from 'axios';
@@ -60,6 +62,7 @@ const cityInfoComponents: { [key: string]: React.FC } = {
   'pilar-de-la-horadada': PilarHoradadaInfo,
   altea: AlteaInfo,
   formigal: FormigalInfo,
+  'sallent-de-gallego': SallenDeGallegoInfo,
 };
 
 export const CityLicense: FC<CityLicenseProps> = ({ session, cityName }) => {
@@ -109,6 +112,7 @@ export const CityLicense: FC<CityLicenseProps> = ({ session, cityName }) => {
     torrevieja: heroTorreviejaImages,
     villajoyosa: heroVillajoyosaImages,
     formigal: heroFormigalImages,
+    'sallent-de-gallego': heroSallenDeGallegoImages,
   };
 
   const images = cityImages[cityName] || [''];

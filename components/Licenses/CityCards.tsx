@@ -79,6 +79,11 @@ const images: ImageProps[] = [
     cityName: 'Formigal',
     bgCity: 'bg-formigal',
   },
+  {
+    slug: 'sallent-de-gallego',
+    cityName: 'Sallent de Gállego',
+    bgCity: 'bg-sallentDeGallego',
+  },
 ];
 
 export const CityCards = () => {

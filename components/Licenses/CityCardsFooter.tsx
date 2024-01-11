@@ -97,6 +97,11 @@ export const CityCardsFooter = () => {
       cityName: 'Formigal',
       bgCity: 'bg-formigal',
     },
+    {
+      slug: 'sallent-de-gallego',
+      cityName: 'Sallent de Gállego',
+      bgCity: 'bg-sallentDeGallego',
+    },
   ];
 
   images = images.filter((image) => image.slug !== router.query.cities);
