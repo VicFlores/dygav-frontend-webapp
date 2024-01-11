@@ -30,8 +30,6 @@ export const BlogPostCategories: FC<{
     }
   }, [query]);
 
-  console.log(cityName);
-
   return (
     <section className='mt-16 px-6 md:px-12 lg:px-28 flex flex-col items-center'>
       {cityName !== undefined && (

@@ -4,14 +4,16 @@ import {
   HeroLicense,
   Layout,
   MainHero,
-  PostCardCategories,
   UtilHead,
 } from '@/components';
 import { BlogPost, Category, TBlogPostsSubCategories } from '@/types';
+import { cityData } from '@/utils';
 import axios from 'axios';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+
+const API_BASE_URL = 'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2';
 
 async function fetchData(url: string) {
   const res = await axios.get(url);
@@ -80,30 +82,32 @@ export default function CitiesPage() {
     getPosts();
   }, [subCategories]);
 
-  const postsBySubCategoriesAndCategories = posts
-    .filter((post: BlogPost) => {
-      return (
-        subCategories.some((subCategory) =>
+  const postsBySubCategoriesAndCategories = useMemo(() => {
+    return posts
+      .filter(
+        (post: BlogPost) =>
+          subCategories.some((subCategory) =>
+            post.categories.includes(subCategory.id)
+          ) && post.categories.includes(Number(category?.id))
+      )
+      .map((post: BlogPost) => {
+        const subCategory = subCategories.find((subCategory) =>
           post.categories.includes(subCategory.id)
-        ) && post.categories.includes(Number(category?.id))
-      );
-    })
-    .map((post: BlogPost) => {
-      const subCategory = subCategories.find((subCategory) =>
-        post.categories.includes(subCategory.id)
-      );
-      return {
-        ...post,
-        subCategoryName: subCategory ? subCategory.name : null,
-      };
-    });
+        );
+        return {
+          ...post,
+          subCategoryName: subCategory ? subCategory.name : null,
+        };
+      });
+  }, [posts, subCategories, category]);
 
   function capitalizeFirstLetter(string: string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-  const filterByCategories = categories.filter(
-    (category) => category.parent === 0
+  const filterByCategories = useMemo(
+    () => categories.filter((category) => category.parent === 0),
+    [categories]
   );
 
   function capitalizeFirstLetterOfEachWord(str: string) {
@@ -114,11 +118,13 @@ export default function CitiesPage() {
   }
 
   let formattedCityName = '';
+
   if (typeof query?.cities === 'string') {
     formattedCityName = query.cities.replace(/-/g, ' ');
   } else if (Array.isArray(query?.cities)) {
     formattedCityName = query.cities.join(' ').replace(/-/g, ' ');
   }
+
   const capitalizedCityName =
     capitalizeFirstLetterOfEachWord(formattedCityName);
 
@@ -135,27 +141,9 @@ export default function CitiesPage() {
       <MainHero>
         <Layout session={session}>
           <HeroLicense
-            title={
-              capitalizedCityName === 'Torrevieja'
-                ? `${capitalizedCityName}: Un Encanto Mediterráneo`
-                : capitalizedCityName === 'Benidorm'
-                ? `${capitalizedCityName}: Innovación y Diversión`
-                : capitalizedCityName === 'Alicante'
-                ? `${capitalizedCityName}: Tradición y Modernidad`
-                : capitalizedCityName === 'Santa Pola'
-                ? `${capitalizedCityName}: Historia y Cultura`
-                : `${capitalizedCityName}`
-            }
+            title={cityData[capitalizedCityName]?.title || capitalizedCityName}
             subtitle={
-              capitalizedCityName === 'Torrevieja'
-                ? `Explora con nosotros Torrevieja, un destino lleno de sol, playas y cultura en la Costa Blanca.`
-                : capitalizedCityName === 'Benidorm'
-                ? `Conoce Benidorm, una ciudad única donde la modernidad se encuentra con el esplendor del Mediterráneo.`
-                : capitalizedCityName === 'Alicante'
-                ? `Descubre Alicante, una ciudad que combina historia, playas y una vibrante vida urbana.`
-                : capitalizedCityName === 'Santa Pola'
-                ? `Ciudad en donde encontrarás un destino lleno de historia, naturaleza y cultura.`
-                : `${capitalizedCityName}`
+              cityData[capitalizedCityName]?.subtitle || capitalizedCityName
             }
           />
         </Layout>
