@@ -47,26 +47,28 @@ const config: Config = {
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1699488275/Dygav/Alicante/4_qzdyhb.WebP')",
         benidorm:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1699567156/Dygav/Benidorm/Copia_de_2_doz1la.WebP')",
-          orihuela:
+        orihuela:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1699646545/Dygav/Orihuela/Copia_de_7_xhahz0.WebP')",
-          orihuelaCosta:
+        orihuelaCosta:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1699647185/Dygav/Orihuela/Copia_de_8_fuequq.WebP')",
-          guardamarSegura:
+        guardamarSegura:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1700774784/Dygav/GuardamarDelSegura/4_fnp2ex.WebP')",
-          santaPola:
+        santaPola:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1700839593/Dygav/Santa%20Pola/Copia_de_Puerto_de_Santa_Pola_znyokx.WebP')",
-          villajoyosa:
+        villajoyosa:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1701107278/Dygav/Villajoyosa/11_nqftjd.WebP')",
-          finestrat:
+        finestrat:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1701186487/Dygav/Finestrart/Copia_de_16_buyb8u.WebP')",
-          elCampello:
+        elCampello:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1701207161/Dygav/El%20Campello/4_iahcly.WebP')",
-          calpe:
+        calpe:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1701292652/Dygav/Calpe/27_tfsmto.WebP')",
-          pilarHoradada:
+        pilarHoradada:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1701293984/Dygav/Pilar%20de%20la%20Horadada/21_lwqjnu.WebP')",
-          altea:
+        altea:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1701357907/Dygav/Altea/10_zdkkww.WebP')",
+        formigal:
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1704930339/Dygav/Formigal/C_4_wgr9pn.WebP')",
       },
     },
   },

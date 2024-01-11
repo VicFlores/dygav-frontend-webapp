@@ -92,6 +92,11 @@ export const CityCardsFooter = () => {
       cityName: 'Altea',
       bgCity: 'bg-altea',
     },
+    {
+      slug: 'formigal',
+      cityName: 'Formigal',
+      bgCity: 'bg-formigal',
+    },
   ];
 
   images = images.filter((image) => image.slug !== router.query.cities);

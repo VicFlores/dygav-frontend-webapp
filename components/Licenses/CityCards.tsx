@@ -74,6 +74,11 @@ const images: ImageProps[] = [
     cityName: 'Altea',
     bgCity: 'bg-altea',
   },
+  {
+    slug: 'formigal',
+    cityName: 'Formigal',
+    bgCity: 'bg-formigal',
+  },
 ];
 
 export const CityCards = () => {

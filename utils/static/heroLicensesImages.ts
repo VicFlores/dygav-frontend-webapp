@@ -83,3 +83,10 @@ export const heroVillajoyosaImages = [
   'https://res.cloudinary.com/vicflores11/image/upload/v1701107245/Dygav/Villajoyosa/10_xympe5.WebP',
   'https://res.cloudinary.com/vicflores11/image/upload/v1701107241/Dygav/Villajoyosa/9_na4ziy.WebP',
 ];
+
+export const heroFormigalImages = [
+  'https://res.cloudinary.com/vicflores11/image/upload/v1704930339/Dygav/Formigal/C_4_wgr9pn.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1704930306/Dygav/Formigal/C_3_qvufgv.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1704930270/Dygav/Formigal/C_2_vhcsfg.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1704930264/Dygav/Formigal/C_1_eehzfw.WebP',
+];
