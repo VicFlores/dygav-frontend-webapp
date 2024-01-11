@@ -36,11 +36,13 @@ import {
   heroVillajoyosaImages,
   heroFormigalImages,
   heroSallenDeGallegoImages,
+  generalImages,
+  pirineosAragonImages,
 } from '@/utils';
-import { CityCardsFooter } from './CityCardsFooter';
 import axios from 'axios';
 import { BlogPost } from '@/types';
 import { PostsCardsCarrusel } from './PostsCardsCarrusel';
+import { CityCardsFooter } from './CityCardsFooter';
 
 type CityLicenseProps = {
   session: Session | null;
@@ -146,7 +148,13 @@ export const CityLicense: FC<CityLicenseProps> = ({ session, cityName }) => {
         <></>
       )}
 
-      <CityCardsFooter />
+      {generalImages.some((image) => image.slug === cityName) ? (
+        <CityCardsFooter images={generalImages} />
+      ) : pirineosAragonImages.some((image) => image.slug === cityName) ? (
+        <CityCardsFooter images={pirineosAragonImages} />
+      ) : (
+        <></>
+      )}
     </>
   );
 };

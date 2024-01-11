@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { FC, useRef } from 'react';
 import Link from 'next/link';
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
 import { useRouter } from 'next/router';
@@ -9,7 +9,7 @@ interface ImageProps {
   slug: string;
 }
 
-export const CityCardsFooter = () => {
+export const CityCardsFooter: FC<{ images: ImageProps[] }> = ({ images }) => {
   const router = useRouter();
 
   const scrollContainer = useRef<HTMLDivElement>(null);
@@ -25,84 +25,6 @@ export const CityCardsFooter = () => {
       scrollContainer.current.scrollLeft += 300;
     }
   };
-
-  let images: ImageProps[] = [
-    {
-      slug: 'torrevieja',
-      cityName: 'Torrevieja',
-      bgCity: 'bg-torrevieja',
-    },
-    {
-      slug: 'alicante',
-      cityName: 'Alicante',
-      bgCity: 'bg-alicante',
-    },
-    {
-      slug: 'benidorm',
-      cityName: 'Benidorm',
-      bgCity: 'bg-benidorm',
-    },
-    {
-      slug: 'orihuela',
-      cityName: 'Orihuela',
-      bgCity: 'bg-orihuelaCosta',
-    },
-    {
-      slug: 'orihuela-costa',
-      cityName: 'Orihuela Costa',
-      bgCity: 'bg-orihuela',
-    },
-    {
-      slug: 'guardamar-del-segura',
-      cityName: 'Guardamar del Segura',
-      bgCity: 'bg-guardamarSegura',
-    },
-    {
-      slug: 'santa-pola',
-      cityName: 'Santa Pola',
-      bgCity: 'bg-santaPola',
-    },
-    {
-      slug: 'villajoyosa',
-      cityName: 'Villajoyosa',
-      bgCity: 'bg-villajoyosa',
-    },
-    {
-      slug: 'finestrat',
-      cityName: 'Finestrat',
-      bgCity: 'bg-finestrat',
-    },
-    {
-      slug: 'el-campello',
-      cityName: 'El Campello',
-      bgCity: 'bg-elCampello',
-    },
-    {
-      slug: 'calpe',
-      cityName: 'Calpe',
-      bgCity: 'bg-calpe',
-    },
-    {
-      slug: 'pilar-de-la-horadada',
-      cityName: 'Pilar de la Horadada',
-      bgCity: 'bg-pilarHoradada',
-    },
-    {
-      slug: 'altea',
-      cityName: 'Altea',
-      bgCity: 'bg-altea',
-    },
-    {
-      slug: 'formigal',
-      cityName: 'Formigal',
-      bgCity: 'bg-formigal',
-    },
-    {
-      slug: 'sallent-de-gallego',
-      cityName: 'Sallent de Gállego',
-      bgCity: 'bg-sallentDeGallego',
-    },
-  ];
 
   images = images.filter((image) => image.slug !== router.query.cities);
 
