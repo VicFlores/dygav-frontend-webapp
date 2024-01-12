@@ -3,6 +3,7 @@ import React from 'react';
 import { AlquilerVacacional, HelpYouForm, LicenciasTuristicas } from '..';
 import { CityImages } from './CityImages';
 import { CityCardsFooter } from './CityCardsFooter';
+import { LicencesIcons } from './LicencesIcons';
 
 const images = [
   {
@@ -128,6 +129,8 @@ export const FormigalInfo = () => {
         en el Boletín Oficial de Aragón BOA
       </p>
 
+      <LicencesIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705016523/Dygav/undraw_file_searching_re_3evy_brkjza.svg' />
+
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-44 mt-16'>
         Requisitos para una Vivienda de Uso Turístico en Formigal
       </h2>
@@ -177,6 +180,8 @@ export const FormigalInfo = () => {
         evitando la instalación de camas fijas en el salón.
       </p>
 
+      <LicencesIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705017030/Dygav/undraw_house_searching_re_stk8_cjs9qi.svg' />
+
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-44 mt-16'>
         Proceso de Declaración Responsable
       </h2>
@@ -192,6 +197,8 @@ export const FormigalInfo = () => {
         por parte de la comunidad de propietarios o normativas urbanísticas que
         impidan su uso turístico.
       </p>
+
+      <LicencesIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705017302/Dygav/undraw_attached_file_re_0n9b_wyqge2.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-44 mt-16'>
         Inscripción y Registro
@@ -221,6 +228,8 @@ export const FormigalInfo = () => {
         actividades de montaña y esquí.
       </p>
 
+      <LicencesIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705018501/Dygav/undraw_buy_house_re_8xq7_obrxnk.svg' />
+
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-44 mt-16'>
         Cumplimiento y Régimen Sancionador
       </h2>
@@ -230,6 +239,8 @@ export const FormigalInfo = () => {
         <strong>Es vital mantenerse actualizado</strong> sobre las normativas
         locales y regionales para asegurar el cumplimiento total.
       </p>
+
+      <LicencesIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705018617/Dygav/undraw_file_bundle_re_6q1e_z2q9i8.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-44 mt-16'>
         Conclusión y Recursos Adicionales

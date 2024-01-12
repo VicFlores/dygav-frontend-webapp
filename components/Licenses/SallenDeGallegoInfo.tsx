@@ -3,6 +3,7 @@ import React from 'react';
 import { AlquilerVacacional, HelpYouForm, LicenciasTuristicas } from '..';
 import { CityImages } from './CityImages';
 import { CityCardsFooter } from './CityCardsFooter';
+import { LicencesIcons } from './LicencesIcons';
 
 const images = [
   {
@@ -147,6 +148,8 @@ export const SallenDeGallegoInfo = () => {
         .
       </p>
 
+      <LicencesIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705016523/Dygav/undraw_file_searching_re_3evy_brkjza.svg' />
+
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-44 mt-16'>
         Requisitos de la Propiedad en Sallent de Gállego
       </h2>
@@ -197,6 +200,8 @@ export const SallenDeGallegoInfo = () => {
         permitida.
       </p>
 
+      <LicencesIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705017030/Dygav/undraw_house_searching_re_stk8_cjs9qi.svg' />
+
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-44 mt-16'>
         Proceso de Declaración Responsable en Sallent de Gállego
       </h2>
@@ -207,6 +212,8 @@ export const SallenDeGallegoInfo = () => {
         Aragón. Esta declaración debe confirmar que la vivienda cumple con los
         requisitos de habitabilidad y seguridad.
       </p>
+
+      <LicencesIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705017302/Dygav/undraw_attached_file_re_0n9b_wyqge2.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-44 mt-16'>
         Inscripción y Registro
@@ -234,6 +241,8 @@ export const SallenDeGallegoInfo = () => {
         de los turistas que visitan la región.
       </p>
 
+      <LicencesIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705018501/Dygav/undraw_buy_house_re_8xq7_obrxnk.svg' />
+
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-44 mt-16'>
         Cumplimiento y Régimen Sancionador
       </h2>
@@ -243,6 +252,8 @@ export const SallenDeGallegoInfo = () => {
         sanciones. Mantente informado sobre las normativas locales y regionales
         relevantes.
       </p>
+
+      <LicencesIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705018617/Dygav/undraw_file_bundle_re_6q1e_z2q9i8.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-44 mt-16'>
         Conclusión y Recursos Adicionales
