@@ -108,7 +108,7 @@ export const FormigalInfo = () => {
         Entender la Normativa en Formigal
       </h2>
 
-      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg mt-4 '>
         En Formigal, es esencial entender la normativa del{' '}
         <strong>Decreto 1/2023 del Gobierno de Aragón</strong>, que establece
         requisitos claros para las viviendas de uso turístico. Estos incluyen
@@ -135,7 +135,7 @@ export const FormigalInfo = () => {
         Requisitos para una Vivienda de Uso Turístico en Formigal
       </h2>
 
-      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm lg:self-start md:text-lg my-4'>
         Las viviendas en Formigal deben cumplir con estándares específicos:
       </p>
 
@@ -174,7 +174,7 @@ export const FormigalInfo = () => {
         </li>
       </ul>
 
-      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-8'>
+      <p className='text-justify lg:text-start text-sm md:text-lg mt-8'>
         Además, debe haber un botiquín y se debe garantizar que la capacidad
         total de la vivienda no exceda la capacidad máxima alojativa permitida,
         evitando la instalación de camas fijas en el salón.
@@ -186,7 +186,7 @@ export const FormigalInfo = () => {
         Proceso de Declaración Responsable
       </h2>
 
-      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-8'>
+      <p className='text-justify lg:text-start text-sm md:text-lg mt-8'>
         En Formigal, la declaración responsable{' '}
         <strong>
           permite empezar a alquilar la propiedad casi inmediatamente
@@ -204,7 +204,7 @@ export const FormigalInfo = () => {
         Inscripción y Registro
       </h2>
 
-      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-8'>
+      <p className='text-justify lg:text-start text-sm md:text-lg mt-8'>
         <strong>
           Tras presentar la declaración responsable, se puede iniciar la
           actividad turística
@@ -221,7 +221,7 @@ export const FormigalInfo = () => {
         Gestión y Mantenimiento de la Vivienda
       </h2>
 
-      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-8'>
+      <p className='text-justify lg:text-start text-sm md:text-lg mt-8'>
         La gestión en Formigal debe centrarse en la{' '}
         <strong>calidad y satisfacción del huesped</strong>, asegurando que la
         vivienda cumpla con los estándares de comodidad y funcionalidad para
@@ -234,7 +234,7 @@ export const FormigalInfo = () => {
         Cumplimiento y Régimen Sancionador
       </h2>
 
-      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-8'>
+      <p className='text-justify lg:text-start text-sm md:text-lg mt-8'>
         El incumplimiento de las normativas en Formigal conlleva sanciones.{' '}
         <strong>Es vital mantenerse actualizado</strong> sobre las normativas
         locales y regionales para asegurar el cumplimiento total.
@@ -246,7 +246,7 @@ export const FormigalInfo = () => {
         Conclusión y Recursos Adicionales
       </h2>
 
-      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-8'>
+      <p className='text-justify lg:text-start text-sm md:text-lg mt-8'>
         Ofrecer una vivienda de uso turístico en Formigal{' '}
         <strong>
           es una excelente oportunidad para integrarse en el dinámico mercado

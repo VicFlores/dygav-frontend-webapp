@@ -128,7 +128,7 @@ export const SallenDeGallegoInfo = () => {
         Entender la Normativa
       </h2>
 
-      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg mt-4'>
         Para operar una vivienda turística en Sallent de Gállego, es esencial
         comprender el <strong>Decreto 1/2023 del Gobierno de Aragón</strong>.
         Este decreto establece requisitos específicos de habitabilidad,
@@ -154,7 +154,7 @@ export const SallenDeGallegoInfo = () => {
         Requisitos de la Propiedad en Sallent de Gállego
       </h2>
 
-      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-4'>
+      <p className='text-justify lg:text-start text-sm lg:self-start md:text-lg my-4'>
         Las viviendas en Sallent de Gállego deben cumplir con los siguientes
         estándares específicos:
       </p>
@@ -194,7 +194,7 @@ export const SallenDeGallegoInfo = () => {
         </li>
       </ul>
 
-      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-8'>
+      <p className='text-justify lg:text-start text-sm md:text-lg mt-8'>
         Además, es obligatorio incluir un botiquín y asegurarse de que la
         capacidad total de la vivienda no exceda la capacidad máxima alojativa
         permitida.
@@ -206,7 +206,7 @@ export const SallenDeGallegoInfo = () => {
         Proceso de Declaración Responsable en Sallent de Gállego
       </h2>
 
-      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-8'>
+      <p className='text-justify lg:text-start text-sm md:text-lg mt-8'>
         En Sallent de Gállego, la declaración responsable te permite alquilar la
         propiedad de inmediato, sujeta a la confirmación posterior de Turismo de
         Aragón. Esta declaración debe confirmar que la vivienda cumple con los
@@ -219,7 +219,7 @@ export const SallenDeGallegoInfo = () => {
         Inscripción y Registro
       </h2>
 
-      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-8'>
+      <p className='text-justify lg:text-start text-sm md:text-lg mt-8'>
         Tras la declaración responsable, puedes iniciar la actividad turística,
         sujeta a verificación y registro en el Registro de Turismo de Aragón.
         <strong>
@@ -235,7 +235,7 @@ export const SallenDeGallegoInfo = () => {
         Gestión y Mantenimiento de la Vivienda
       </h2>
 
-      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-8'>
+      <p className='text-justify lg:text-start text-sm md:text-lg mt-8'>
         La gestión en Sallent de Gállego debe centrarse en garantizar la calidad
         y satisfacción del cliente, con viviendas adecuadas para las necesidades
         de los turistas que visitan la región.
@@ -247,7 +247,7 @@ export const SallenDeGallegoInfo = () => {
         Cumplimiento y Régimen Sancionador
       </h2>
 
-      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-8'>
+      <p className='text-justify lg:text-start text-sm md:text-lg mt-8'>
         Es crucial cumplir con las normativas en Sallent de Gállego para evitar
         sanciones. Mantente informado sobre las normativas locales y regionales
         relevantes.
@@ -259,7 +259,7 @@ export const SallenDeGallegoInfo = () => {
         Conclusión y Recursos Adicionales
       </h2>
 
-      <p className='text-justify lg:text-start text-sm md:text-lg md:px-20 mt-8'>
+      <p className='text-justify lg:text-start text-sm md:text-lg mt-8'>
         Ofrecer una vivienda de uso turístico en Sallent de Gállego es una
         oportunidad fantástica en un destino turístico muy popular. Para más
         información,contáctanos o{' '}
