@@ -89,7 +89,7 @@ const BlogPage = () => {
       {posts.length > 0 ? (
         <section className='mt-16 mb-16 px-6 md:px-12 lg:px-28 flex flex-col items-center'>
           <PostsCardsCarrusel
-            title={`Nuestros artículos relacionados a ${cityName}`}
+            title={`Más artículos sobre ${cityName}`}
             posts={posts.slice(0, 4)}
           />
         </section>
