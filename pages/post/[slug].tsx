@@ -63,13 +63,7 @@ const BlogPage = () => {
     }
   }, [cityName]);
 
-  const cityNames = [
-    'Santa Pola',
-    'Alicante',
-    'Benidorm',
-    'Torrevieja',
-    'Elche',
-  ];
+  const cityNames = ['Pola', 'Alicante', 'Benidorm', 'Torrevieja', 'Elche'];
 
   const cityInfo = cityName ? cityData[cityName] : cityData['Elche'];
 

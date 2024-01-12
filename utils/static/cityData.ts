@@ -21,7 +21,7 @@ export const cityData: CityData = {
     subtitle:
       'Descubre Alicante, una ciudad que combina historia, playas y una vibrante vida urbana.',
   },
-  'Santa Pola': {
+  Pola: {
     title: 'Santa Pola: Historia y Cultura',
     subtitle:
       'Ciudad en donde encontrarás un destino lleno de historia, naturaleza y cultura.',
