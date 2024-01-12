@@ -22,13 +22,17 @@ const BlogPage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (router.query.id) {
+    if (router.query.slug) {
       const getOnePost = async () => {
         const res = await axios.get(
-          `https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts/${router.query.id}`
+          'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts?per_page=100'
         );
 
-        setData(res.data);
+        const filterPosts = res.data.filter((post: BlogPost) => {
+          return post.slug === router.query.slug;
+        })[0];
+
+        setData(filterPosts);
       };
 
       const nameOfCity = cityNames.find((city) =>
@@ -39,7 +43,7 @@ const BlogPage = () => {
 
       getOnePost();
     }
-  }, [router.query.id, data.title?.rendered]);
+  }, [router.query.slug, data.title?.rendered]);
 
   useEffect(() => {
     if (cityName !== undefined) {
@@ -68,8 +72,6 @@ const BlogPage = () => {
   ];
 
   const cityInfo = cityName ? cityData[cityName] : cityData['Elche'];
-
-  console.log(posts);
 
   return (
     <>

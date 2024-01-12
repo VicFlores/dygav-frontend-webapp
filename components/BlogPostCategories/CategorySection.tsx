@@ -91,7 +91,7 @@ export const CategorySection: FC<CategorySectionProps> = ({
                       }}
                     >
                       <p className='underline'>
-                        <Link href={`/post/${post.id}`}>
+                        <Link href={`/post/${post.slug}`}>
                           {post.title.rendered}
                         </Link>
                       </p>

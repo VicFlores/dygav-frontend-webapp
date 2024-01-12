@@ -43,7 +43,7 @@ export const PostCards: FC<{ posts: BlogPost[] }> = ({ posts }) => {
               </h2>
 
               <p className='text-white text-lg lg:text-xl underline'>
-                <Link href={`/post/${post.id}`}>{post.title.rendered}</Link>
+                <Link href={`/post/${post.slug}`}>{post.title.rendered}</Link>
               </p>
             </div>
           );
