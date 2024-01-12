@@ -71,6 +71,8 @@ const config: Config = {
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1704930339/Dygav/Formigal/C_4_wgr9pn.WebP')",
         sallentDeGallego:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1704984230/Dygav/Sallent%20%20De%20G%C3%A1llego/C_11_q649hd.WebP')",
+        lanuza:
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1705082409/Dygav/Lanuza/C_5_d21fvn.WebP')",
       },
     },
   },

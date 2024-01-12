@@ -83,4 +83,9 @@ export const pirineosAragonImages: ImageProps[] = [
     cityName: 'Sallent de Gállego',
     bgCity: 'bg-sallentDeGallego',
   },
+  {
+    slug: 'lanuza',
+    cityName: 'Lanuza',
+    bgCity: 'bg-lanuza',
+  },
 ];

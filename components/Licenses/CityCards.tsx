@@ -84,6 +84,11 @@ const images: ImageProps[] = [
     cityName: 'Sallent de Gállego',
     bgCity: 'bg-sallentDeGallego',
   },
+  {
+    slug: 'lanuza',
+    cityName: 'Lanuza',
+    bgCity: 'bg-lanuza',
+  },
 ];
 
 export const CityCards = () => {

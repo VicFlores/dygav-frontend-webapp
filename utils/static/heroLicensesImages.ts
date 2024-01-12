@@ -96,3 +96,9 @@ export const heroSallenDeGallegoImages = [
   'https://res.cloudinary.com/vicflores11/image/upload/v1704984189/Dygav/Sallent%20%20De%20G%C3%A1llego/C_9_yy7q0h.WebP',
   'https://res.cloudinary.com/vicflores11/image/upload/v1704984183/Dygav/Sallent%20%20De%20G%C3%A1llego/C_8_zlfnqa.WebP',
 ];
+
+export const heroLanuzaImages = [
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705082424/Dygav/Lanuza/C_7_pucqtv.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705082417/Dygav/Lanuza/C_6_slbe5l.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705082409/Dygav/Lanuza/C_5_d21fvn.WebP',
+];

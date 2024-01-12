@@ -20,6 +20,7 @@ import {
   AlteaInfo,
   FormigalInfo,
   SallenDeGallegoInfo,
+  LanuzaInfo,
 } from '..';
 import {
   heroAlicanteImages,
@@ -36,6 +37,7 @@ import {
   heroVillajoyosaImages,
   heroFormigalImages,
   heroSallenDeGallegoImages,
+  heroLanuzaImages,
   generalImages,
   pirineosAragonImages,
 } from '@/utils';
@@ -65,6 +67,7 @@ const cityInfoComponents: { [key: string]: React.FC } = {
   altea: AlteaInfo,
   formigal: FormigalInfo,
   'sallent-de-gallego': SallenDeGallegoInfo,
+  lanuza: LanuzaInfo,
 };
 
 export const CityLicense: FC<CityLicenseProps> = ({ session, cityName }) => {
@@ -115,6 +118,7 @@ export const CityLicense: FC<CityLicenseProps> = ({ session, cityName }) => {
     villajoyosa: heroVillajoyosaImages,
     formigal: heroFormigalImages,
     'sallent-de-gallego': heroSallenDeGallegoImages,
+    lanuza: heroLanuzaImages,
   };
 
   const images = cityImages[cityName] || [''];

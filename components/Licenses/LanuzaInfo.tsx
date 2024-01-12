@@ -7,104 +7,96 @@ import { LicencesIcons } from './LicencesIcons';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1704984189/Dygav/Sallent%20%20De%20G%C3%A1llego/C_9_yy7q0h.webp',
-    alt: 'Licencias turísticas: Sallent de Gállego',
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1705082424/Dygav/Lanuza/C_7_pucqtv.webp',
+    alt: 'Licencias turísticas: Lanuza',
   },
 ];
 
-export const SallenDeGallegoInfo = () => {
+export const LanuzaInfo = () => {
   return (
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32 flex flex-col items-center'>
       <h1 className='text-center text-2xl md:text-3xl pb-4 mb-6 font-semibold border-b-4 border-b-p600 w-auto md:px-10'>
-        Licencias Turísticas en Sallent de Gállego
+        Licencias Turísticas en Lanuza
       </h1>
 
       <div className='text-justify lg:text-start text-sm md:text-lg pt-4 space-y-4 mb-10'>
         <p>
-          Sallent de Gállego,{' '}
+          Lanuza,{' '}
           <strong>
-            ubicado en el valle de Tena en el corazón del Pirineo Aragonés
+            un encantador pueblo en el Valle de Tena, en el Pirineo Aragonés
           </strong>
-          , es una joya para el turismo rural y de naturaleza. Este pueblo al
-          pie de las montañas es conocido por su impresionante paisaje, sus
-          aguas cristalinas y su rica cultura pirenaica.{' '}
+          , es un tesoro escondido que ha sabido conservar su identidad y
+          patrimonio arquitectónico a pesar del paso del tiempo.{' '}
           <strong>
-            Conseguir una licencia turística en Sallent de Gállego representa
-            una oportunidad única para los propietarios
+            Obtener una licencia turística en Lanuza es una oportunidad
+            excelente
           </strong>{' '}
-          que buscan capitalizar el creciente interés en el turismo de montaña y
-          aventura.
+          para aquellos que buscan ofrecer una experiencia única en un entorno
+          de paz y belleza natural.
         </p>
 
         <p>
-          Sallent de Gállego, con su proximidad a renombradas estaciones de
-          esquí y rutas de senderismo,{' '}
-          <strong>
-            atrae a una gran variedad de visitantes durante todo el año
-          </strong>
-          . En invierno, es un destino predilecto para los amantes del esquí y
-          los deportes de nieve, mientras que en verano, se convierte en un
-          paraíso para los senderistas, escaladores y amantes de la naturaleza.
-          Esta diversidad de actividades{' '}
-          <strong>
-            asegura una demanda constante de alojamiento turístico
-          </strong>
-          .
+          Este pequeño pueblo, con sus casas de piedra y calles estrechas,
+          ofrece una visión auténtica de la vida tradicional en los Pirineos.
+          Lanuza es famoso por su embalse, que refleja las cumbres nevadas y los
+          cielos azules, creando un paisaje de ensueño para los visitantes.
+          Además, el pueblo es sede del conocido Festival Pirineos Sur, lo que
+          lo convierte en un centro de atracción cultural durante el verano.
         </p>
 
         <p>
-          Este municipio no solo es un lugar de paso para los aventureros, sino
-          que también es un centro de cultura y tradiciones locales. Los
-          festivales, la gastronomía y las celebraciones culturales son aspectos
-          fundamentales de la vida en Sallent de Gállego, ofreciendo a los
-          turistas una experiencia auténtica y enriquecedora.
+          Invertir en una vivienda de uso turístico en Lanuza significa no solo
+          ofrecer un techo a los turistas sino también una experiencia inmersiva
+          en un entorno que combina historia, cultura y naturaleza.{' '}
+          <strong>
+            La demanda de alojamiento en Lanuza es alta, especialmente durante
+            los meses de verano y las temporadas de festivales
+          </strong>
+          , lo que hace que la obtención de una licencia turística sea una
+          inversión atractiva.
+        </p>
+
+        <p>
+          <strong>
+            El proceso de obtención de una licencia turística en Lanuza,
+            alineado con el Decreto 1/2023 del Gobierno de Aragón
+          </strong>
+          , implica cumplir con varios requisitos de habitabilidad, seguridad y
+          accesibilidad. Además, es importante que las propiedades mantengan el
+          encanto rústico del pueblo, al mismo tiempo que ofrecen todas las
+          comodidades modernas.
         </p>
       </div>
 
       <CityImages images={images} />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:-mx-36 mt-24'>
-        Guia para conseguir una licencia turística en Sallent de Gállego
+        Guia para conseguir una licencia turística en Lanuza
       </h2>
 
       <div className='text-justify lg:text-start text-sm md:text-lg pt-4 space-y-4 mb-10'>
         <p>
-          Al buscar una licencia turística en Sallent de Gállego, es importante
-          considerar la armonía entre tu propiedad y el entorno natural y
-          cultural.{' '}
-          <strong>
-            Las viviendas de uso turístico en este área deben reflejar el
-            encanto rústico de la región, a la vez que ofrecen todas las
-            comodidades modernas
-          </strong>
-          .
+          El gobierno local de Lanuza apoya el desarrollo del turismo, pero
+          siempre con un enfoque en la sostenibilidad y el respeto por el
+          patrimonio cultural y natural. Como propietario, deberás asegurarte de
+          que tu propiedad contribuya positivamente a la comunidad y al entorno.
         </p>
 
         <p>
-          El gobierno local de Sallent de Gállego facilita el proceso de
-          obtención de licencias turísticas, con el objetivo de promover el
-          turismo sostenible y de calidad. Sin embargo, es{' '}
           <strong>
-            esencial estar al tanto de las normativas específicas del municipio,
-            así como de las directrices generales del Decreto 1/2023 del
-            Gobierno de Aragón.
+            La siguiente guía detalla los pasos necesarios para obtener una
+            licencia turística en Lanuza
           </strong>
-        </p>
-
-        <p>
-          En las siguientes secciones,{' '}
-          <strong>
-            te guiaremos a través de los pasos esenciales para obtener una
-            licencia turística en Sallent de Gállego
-          </strong>
-          , para que puedas asegurarte de que tu propiedad no solo cumpla con
-          todas las regulaciones, sino que también ofrezca una experiencia única
-          a tus huéspedes pero si lo prefieres en{' '}
+          . Asegúrate de que tu vivienda no solo cumpla con las regulaciones
+          locales y regionales, sino que también se destaque como un lugar ideal
+          para los visitantes que buscan una experiencia auténtica, pero si
+          prefieres que te ayudemos nosotros, en{' '}
           <strong>DYGAV somos expertos en</strong>{' '}
           <span>
             <Link
               href={'/gestion-viviendas-turisticas'}
               className='underline text-p600'
+              target='_blanck'
             >
               gestión de viviendas de uso turístico
             </Link>
@@ -114,26 +106,28 @@ export const SallenDeGallegoInfo = () => {
             <Link
               href={'/licencias-turisticas'}
               className='underline text-p600'
+              target='_blanck'
             >
               tramitación de licencias turisticas
             </Link>
-          </span>
-          . ¡Contáctanos y estaremos encantados de ayudarte!.
+          </span>{' '}
+          .
         </p>
       </div>
 
       <AlquilerVacacional />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-72 lg:px-10 mt-16'>
-        Entender la Normativa
+        Entender la Normativa en Lanuza
       </h2>
 
       <p className='text-justify lg:text-start text-sm md:text-lg mt-4'>
-        Para operar una vivienda turística en Sallent de Gállego, es esencial
-        comprender el <strong>Decreto 1/2023 del Gobierno de Aragón</strong>.
-        Este decreto establece requisitos específicos de habitabilidad,
-        seguridad y accesibilidad, enfocándose en la calidad y satisfacción del
-        cliente. Para más detalles sobre este decreto{' '}
+        En Lanuza, es crucial comprender la normativa establecida por el{' '}
+        <strong>Decreto 1/2023 del Gobierno de Aragón</strong> para viviendas de
+        uso turístico. Estas normas abarcan aspectos de{' '}
+        <strong>habitabilidad, seguridad y accesibilidad</strong>, enfocándose
+        especialmente en mejorar la calidad y satisfacción de los huéspedes.
+        Para obtener más información sobre este decreto, puedes acceder al{' '}
         <span>
           <Link
             href={
@@ -142,7 +136,7 @@ export const SallenDeGallegoInfo = () => {
             className='underline text-p600'
             target='_blanck'
           >
-            puedes consultarlo en el Boletín Oficial de Aragón BOA
+            Boletín Oficial de Aragón BOA
           </Link>
         </span>
         .
@@ -151,12 +145,12 @@ export const SallenDeGallegoInfo = () => {
       <LicencesIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705016523/Dygav/undraw_file_searching_re_3evy_brkjza.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-44 mt-16'>
-        Requisitos de la Propiedad en Sallent de Gállego
+        Requisitos para una vivienda de uso turístico en Lanuza
       </h2>
 
       <p className='text-justify lg:text-start text-sm lg:self-start md:text-lg my-4'>
-        Las viviendas en Sallent de Gállego deben cumplir con los siguientes
-        estándares específicos:
+        Las viviendas turísticas en Lanuza deben cumplir con los siguientes
+        requisitos:
       </p>
 
       <ul className='text-sm md:text-lg px-3 pt-4 list-disc pl-4 md:pl-32 space-y-4'>
@@ -195,22 +189,25 @@ export const SallenDeGallegoInfo = () => {
       </ul>
 
       <p className='text-justify lg:text-start text-sm md:text-lg mt-8'>
-        Además, es obligatorio incluir un botiquín y asegurarse de que la
-        capacidad total de la vivienda no exceda la capacidad máxima alojativa
-        permitida.
+        Es necesario incluir un botiquín y no exceder la capacidad máxima
+        alojativa permitida en la vivienda.
       </p>
 
       <LicencesIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705017030/Dygav/undraw_house_searching_re_stk8_cjs9qi.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-44 mt-16'>
-        Proceso de Declaración Responsable en Sallent de Gállego
+        Proceso de Declaración Responsable en Lanuza
       </h2>
 
       <p className='text-justify lg:text-start text-sm md:text-lg mt-8'>
-        En Sallent de Gállego, la declaración responsable te permite alquilar la
-        propiedad de inmediato, sujeta a la confirmación posterior de Turismo de
-        Aragón. Esta declaración debe confirmar que la vivienda cumple con los
-        requisitos de habitabilidad y seguridad.
+        La declaración responsable{' '}
+        <strong>
+          permite iniciar el alquiler de la propiedad en Lanuza casi
+          inmediatamente
+        </strong>
+        , a la espera de la confirmación de Turismo de Aragón. Esta declaración
+        debe asegurar que la vivienda cumple con todos los requisitos de
+        habitabilidad y seguridad.
       </p>
 
       <LicencesIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705017302/Dygav/undraw_attached_file_re_0n9b_wyqge2.svg' />
@@ -220,13 +217,10 @@ export const SallenDeGallegoInfo = () => {
       </h2>
 
       <p className='text-justify lg:text-start text-sm md:text-lg mt-8'>
-        Tras la declaración responsable, puedes iniciar la actividad turística,
-        sujeta a verificación y registro en el Registro de Turismo de Aragón.
-        <strong>
-          Ten preparado un plano acotado de la vivienda y la tasa por la
-          tramitación de esta declaración
-        </strong>
-        .
+        Después de la declaración responsable, se puede comenzar la actividad
+        turística, sujeta a una verificación posterior y al registro en el
+        Registro de Turismo de Aragón. Es importante preparar un plano acotado
+        de la vivienda y estar listo para pagar la tasa de tramitación.
       </p>
 
       <LicenciasTuristicas />
@@ -236,9 +230,10 @@ export const SallenDeGallegoInfo = () => {
       </h2>
 
       <p className='text-justify lg:text-start text-sm md:text-lg mt-8'>
-        La gestión en Sallent de Gállego debe centrarse en garantizar la calidad
-        y satisfacción del cliente, con viviendas adecuadas para las necesidades
-        de los turistas que visitan la región.
+        La gestión de las viviendas turísticas en Lanuza debe enfocarse en
+        proporcionar una alta calidad y satisfacción a los clientes, asegurando
+        que las propiedades cumplan con los estándares adecuados para una
+        experiencia turística óptima.
       </p>
 
       <LicencesIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705018501/Dygav/undraw_buy_house_re_8xq7_obrxnk.svg' />
@@ -248,9 +243,9 @@ export const SallenDeGallegoInfo = () => {
       </h2>
 
       <p className='text-justify lg:text-start text-sm md:text-lg mt-8'>
-        Es crucial cumplir con las normativas en Sallent de Gállego para evitar
-        sanciones. Mantente informado sobre las normativas locales y regionales
-        relevantes.
+        El cumplimiento de las normativas en Lanuza es vital para evitar
+        sanciones. Se recomienda estar al día con las normativas locales y
+        regionales para garantizar el total cumplimiento.
       </p>
 
       <LicencesIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705018617/Dygav/undraw_file_bundle_re_6q1e_z2q9i8.svg' />
@@ -260,9 +255,10 @@ export const SallenDeGallegoInfo = () => {
       </h2>
 
       <p className='text-justify lg:text-start text-sm md:text-lg mt-8'>
-        Ofrecer una vivienda de uso turístico en Sallent de Gállego es una
-        oportunidad fantástica en un destino turístico muy popular. Para más
-        información,contáctanos o{' '}
+        Ofrecer una vivienda de uso turístico en Lanuza representa una excelente
+        oportunidad para participar en el atractivo mercado turístico del
+        Pirineo Aragonés. Para más detalles y asesoramiento, puedes contactarnos
+        o{' '}
         <span>
           <Link
             href={
@@ -271,7 +267,7 @@ export const SallenDeGallegoInfo = () => {
             className='underline text-p600'
             target='_blanck'
           >
-            consulta las fuentes del Gobierno de Aragón
+            consultar las fuentes oficiales del Gobierno de Aragón
           </Link>
         </span>{' '}
         y las autoridades locales de turismo.
