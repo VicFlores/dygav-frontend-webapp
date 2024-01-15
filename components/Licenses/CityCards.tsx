@@ -8,7 +8,93 @@ interface ImageProps {
   slug: string;
 }
 
-export const CityCards: FC<{ images: ImageProps[] }> = ({ images }) => {
+const generalImages: ImageProps[] = [
+  {
+    slug: 'torrevieja',
+    cityName: 'Torrevieja',
+    bgCity: 'bg-torrevieja',
+  },
+  {
+    slug: 'alicante',
+    cityName: 'Alicante',
+    bgCity: 'bg-alicante',
+  },
+  {
+    slug: 'benidorm',
+    cityName: 'Benidorm',
+    bgCity: 'bg-benidorm',
+  },
+  {
+    slug: 'orihuela',
+    cityName: 'Orihuela',
+    bgCity: 'bg-orihuelaCosta',
+  },
+  {
+    slug: 'orihuela-costa',
+    cityName: 'Orihuela Costa',
+    bgCity: 'bg-orihuela',
+  },
+  {
+    slug: 'guardamar-del-segura',
+    cityName: 'Guardamar del Segura',
+    bgCity: 'bg-guardamarSegura',
+  },
+  {
+    slug: 'santa-pola',
+    cityName: 'Santa Pola',
+    bgCity: 'bg-santaPola',
+  },
+  {
+    slug: 'villajoyosa',
+    cityName: 'Villajoyosa',
+    bgCity: 'bg-villajoyosa',
+  },
+  {
+    slug: 'finestrat',
+    cityName: 'Finestrat',
+    bgCity: 'bg-finestrat',
+  },
+  {
+    slug: 'el-campello',
+    cityName: 'El Campello',
+    bgCity: 'bg-elCampello',
+  },
+  {
+    slug: 'calpe',
+    cityName: 'Calpe',
+    bgCity: 'bg-calpe',
+  },
+  {
+    slug: 'pilar-de-la-horadada',
+    cityName: 'Pilar de la Horadada',
+    bgCity: 'bg-pilarHoradada',
+  },
+  {
+    slug: 'altea',
+    cityName: 'Altea',
+    bgCity: 'bg-altea',
+  },
+];
+
+const pirineoAragonesImages: ImageProps[] = [
+  {
+    slug: 'formigal',
+    cityName: 'Formigal',
+    bgCity: 'bg-formigal',
+  },
+  {
+    slug: 'sallent-de-gallego',
+    cityName: 'Sallent de Gállego',
+    bgCity: 'bg-sallentDeGallego',
+  },
+  {
+    slug: 'lanuza',
+    cityName: 'Lanuza',
+    bgCity: 'bg-lanuza',
+  },
+];
+
+export const CityCards: FC<{ community: string }> = ({ community }) => {
   const scrollContainer = useRef<HTMLDivElement>(null);
 
   const scrollLeft = () => {
@@ -36,19 +122,35 @@ export const CityCards: FC<{ images: ImageProps[] }> = ({ images }) => {
         ref={scrollContainer}
         className='w-auto h-auto items-center mt-6 p-6 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden scrollbar'
       >
-        {images.map((image, index) => (
-          <Link href={`/licencias-turisticas/${image.slug}`} key={index}>
-            <div className='w-60 h-80 md:w-70 md:h-80 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
-              <div
-                className={`w-full h-full bg-cover bg-center flex items-end ${image.bgCity}`}
-              >
-                <h4 className='text-white pl-4 pb-4 text-sm md:text-lg'>
-                  Licencia turística en <br /> {image.cityName}
-                </h4>
-              </div>
-            </div>
-          </Link>
-        ))}
+        {community === 'valenciana'
+          ? generalImages.map((image, index) => (
+              <Link href={`/licencias-turisticas/${image.slug}`} key={index}>
+                <div className='w-60 h-80 md:w-70 md:h-80 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
+                  <div
+                    className={`w-full h-full bg-cover bg-center flex items-end ${image.bgCity}`}
+                  >
+                    <h4 className='text-white pl-4 pb-4 text-sm md:text-lg'>
+                      Licencia turística en <br /> {image.cityName}
+                    </h4>
+                  </div>
+                </div>
+              </Link>
+            ))
+          : community === 'pirineo aragones'
+          ? pirineoAragonesImages.map((image, index) => (
+              <Link href={`/licencias-turisticas/${image.slug}`} key={index}>
+                <div className='w-60 h-80 md:w-70 md:h-80 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
+                  <div
+                    className={`w-full h-full bg-cover bg-center flex items-end ${image.bgCity}`}
+                  >
+                    <h4 className='text-white pl-4 pb-4 text-sm md:text-lg'>
+                      Licencia turística en <br /> {image.cityName}
+                    </h4>
+                  </div>
+                </div>
+              </Link>
+            ))
+          : null}
       </div>
 
       <button

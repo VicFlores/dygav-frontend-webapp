@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import { AlquilerVacacional } from '..';
 import { CityCards } from './CityCards';
-import { generalImages, pirineosAragonImages } from '@/utils';
+
+interface ImageProps {
+  cityName: string;
+  bgCity: string;
+  slug: string;
+}
 
 export const LicenseAditionalInfo = () => {
   return (
@@ -135,7 +140,7 @@ export const LicenseAditionalInfo = () => {
           </h3>
         </div>
 
-        <CityCards images={generalImages} />
+        <CityCards community='valenciana' />
       </div>
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-60 lg:px-4 mt-16'>
@@ -194,7 +199,7 @@ export const LicenseAditionalInfo = () => {
       </div>
 
       <div
-        className='w-full h-auto grid md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4'
+        className='w-full h-auto grid md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4 mb-14'
         id='recomendadas'
       >
         <div className='md:self-center md:justify-self-center divide-y-4 divide-p600 text-center md:text-start'>
@@ -207,7 +212,7 @@ export const LicenseAditionalInfo = () => {
           </h3>
         </div>
 
-        <CityCards images={pirineosAragonImages} />
+        <CityCards community='pirineo aragones' />
       </div>
     </section>
   );
