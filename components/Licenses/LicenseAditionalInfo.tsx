@@ -8,6 +8,92 @@ interface ImageProps {
   slug: string;
 }
 
+const generalImages: ImageProps[] = [
+  {
+    slug: 'torrevieja',
+    cityName: 'Torrevieja',
+    bgCity: 'bg-torrevieja',
+  },
+  {
+    slug: 'alicante',
+    cityName: 'Alicante',
+    bgCity: 'bg-alicante',
+  },
+  {
+    slug: 'benidorm',
+    cityName: 'Benidorm',
+    bgCity: 'bg-benidorm',
+  },
+  {
+    slug: 'orihuela',
+    cityName: 'Orihuela',
+    bgCity: 'bg-orihuelaCosta',
+  },
+  {
+    slug: 'orihuela-costa',
+    cityName: 'Orihuela Costa',
+    bgCity: 'bg-orihuela',
+  },
+  {
+    slug: 'guardamar-del-segura',
+    cityName: 'Guardamar del Segura',
+    bgCity: 'bg-guardamarSegura',
+  },
+  {
+    slug: 'santa-pola',
+    cityName: 'Santa Pola',
+    bgCity: 'bg-santaPola',
+  },
+  {
+    slug: 'villajoyosa',
+    cityName: 'Villajoyosa',
+    bgCity: 'bg-villajoyosa',
+  },
+  {
+    slug: 'finestrat',
+    cityName: 'Finestrat',
+    bgCity: 'bg-finestrat',
+  },
+  {
+    slug: 'el-campello',
+    cityName: 'El Campello',
+    bgCity: 'bg-elCampello',
+  },
+  {
+    slug: 'calpe',
+    cityName: 'Calpe',
+    bgCity: 'bg-calpe',
+  },
+  {
+    slug: 'pilar-de-la-horadada',
+    cityName: 'Pilar de la Horadada',
+    bgCity: 'bg-pilarHoradada',
+  },
+  {
+    slug: 'altea',
+    cityName: 'Altea',
+    bgCity: 'bg-altea',
+  },
+];
+
+const pirineosAragonImages: ImageProps[] = [
+  {
+    slug: 'formigal',
+    cityName: 'Formigal',
+    bgCity: 'bg-formigal',
+  },
+  {
+    slug: 'sallent-de-gallego',
+    cityName: 'Sallent de Gállego',
+    bgCity: 'bg-sallentDeGallego',
+  },
+  {
+    slug: 'lanuza',
+    cityName: 'Lanuza',
+    bgCity: 'bg-lanuza',
+  },
+];
+
 export const LicenseAditionalInfo = () => {
   return (
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32 flex flex-col items-center'>
@@ -140,7 +226,7 @@ export const LicenseAditionalInfo = () => {
           </h3>
         </div>
 
-        <CityCards community='valenciana' />
+        <CityCards images={generalImages} />
       </div>
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-60 lg:px-4 mt-16'>
@@ -212,7 +298,7 @@ export const LicenseAditionalInfo = () => {
           </h3>
         </div>
 
-        <CityCards community='pirineo aragones' />
+        <CityCards images={pirineosAragonImages} />
       </div>
     </section>
   );
