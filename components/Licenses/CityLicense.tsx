@@ -1,11 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Session } from 'next-auth';
+import { generalImages, pirineosAragonImages } from '@/utils';
+import axios from 'axios';
+import { BlogPost } from '@/types';
+import { PostsCardsCarrusel } from './PostsCardsCarrusel';
+import { CityCardsFooter } from './CityCardsFooter';
 import {
-  UtilHead,
-  MainHero,
-  Layout,
-  HeroLicense,
-  HelpFixedButton,
   AlicanteInfo,
   TorreviejaInfo,
   BenidormInfo,
@@ -22,32 +21,8 @@ import {
   SallenDeGallegoInfo,
   LanuzaInfo,
 } from '..';
-import {
-  heroAlicanteImages,
-  heroAlteaImages,
-  heroBenidormImages,
-  heroCalpeImages,
-  heroElCampelloImages,
-  heroFinestrartImages,
-  heroGuardamarDelSeguraImages,
-  heroOrihuelaImages,
-  heroPilarDeLaHoradadaImages,
-  heroSantaPolaImages,
-  heroTorreviejaImages,
-  heroVillajoyosaImages,
-  heroFormigalImages,
-  heroSallenDeGallegoImages,
-  heroLanuzaImages,
-  generalImages,
-  pirineosAragonImages,
-} from '@/utils';
-import axios from 'axios';
-import { BlogPost } from '@/types';
-import { PostsCardsCarrusel } from './PostsCardsCarrusel';
-import { CityCardsFooter } from './CityCardsFooter';
 
 type CityLicenseProps = {
-  session: Session | null;
   cityName: string;
 };
 
@@ -70,7 +45,7 @@ const cityInfoComponents: { [key: string]: React.FC } = {
   lanuza: LanuzaInfo,
 };
 
-export const CityLicense: FC<CityLicenseProps> = ({ session, cityName }) => {
+export const CityLicense: FC<CityLicenseProps> = ({ cityName }) => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
@@ -102,43 +77,8 @@ export const CityLicense: FC<CityLicenseProps> = ({ session, cityName }) => {
 
   const CityInfoComponent = cityInfoComponents[cityName];
 
-  const cityImages: { [key: string]: string[] } = {
-    alicante: heroAlicanteImages,
-    altea: heroAlteaImages,
-    benidorm: heroBenidormImages,
-    calpe: heroCalpeImages,
-    'el-campello': heroElCampelloImages,
-    finestrat: heroFinestrartImages,
-    'guardamar-del-segura': heroGuardamarDelSeguraImages,
-    orihuela: heroOrihuelaImages,
-    'orihuela-costa': heroOrihuelaImages,
-    'pilar-de-la-horadada': heroPilarDeLaHoradadaImages,
-    'santa-pola': heroSantaPolaImages,
-    torrevieja: heroTorreviejaImages,
-    villajoyosa: heroVillajoyosaImages,
-    formigal: heroFormigalImages,
-    'sallent-de-gallego': heroSallenDeGallegoImages,
-    lanuza: heroLanuzaImages,
-  };
-
-  const images = cityImages[cityName] || [''];
-
   return (
     <>
-      <UtilHead
-        title={`Cómo Obtener Tu Licencia Turística en ${capitalizedCityName} - Dygav.es`}
-        content={`Descubre todo lo necesario para adquirir tu licencia turística en ${capitalizedCityName} de forma sencilla y rápida.`}
-      />
-      <MainHero key={cityName} images={images}>
-        <Layout session={session}>
-          <HeroLicense
-            title={`Licencias Turísticas ${capitalizedCityName}`}
-            subtitle={`Como conseguir tu licencia turística en ${capitalizedCityName} en 2023`}
-          />
-        </Layout>
-      </MainHero>
-      <HelpFixedButton />
-
       {CityInfoComponent ? <CityInfoComponent /> : <></>}
 
       {posts.length > 0 ? (
