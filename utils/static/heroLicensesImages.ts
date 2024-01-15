@@ -109,3 +109,10 @@ export const heroTramacastillaImages = [
   'https://res.cloudinary.com/vicflores11/image/upload/v1705334936/Dygav/Tramacastilla%20de%20Tena/C_18_zvva4q.Webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705334905/Dygav/Tramacastilla%20de%20Tena/C_17_j3oxnn.Webp',
 ];
+
+export const heroPanticosaImages = [
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705360901/Dygav/Panticosa/C_21_ulbujf.Webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705360895/Dygav/Panticosa/C_22_usfgqr.Webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705360848/Dygav/Panticosa/C_23_oi71uu.Webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705360813/Dygav/Panticosa/C_24_kywydr.Webp',
+];

@@ -75,6 +75,8 @@ const config: Config = {
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1705082409/Dygav/Lanuza/C_5_d21fvn.WebP')",
         tramacastilla:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1705334905/Dygav/Tramacastilla%20de%20Tena/C_17_j3oxnn.WebP')",
+        panticosa:
+          "url('https://res.cloudinary.com/vicflores11/image/upload/v1705360813/Dygav/Panticosa/C_24_kywydr.WebP')",
       },
     },
   },

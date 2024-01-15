@@ -98,6 +98,11 @@ export const LicenseAditionalInfo = () => {
       cityName: 'Tramacastilla de Tena',
       bgCity: 'bg-tramacastilla',
     },
+    {
+      slug: 'panticosa',
+      cityName: 'Panticosa',
+      bgCity: 'bg-panticosa',
+    },
   ];
 
   return (

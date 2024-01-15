@@ -20,6 +20,7 @@ import {
   SallenDeGallegoInfo,
   LanuzaInfo,
   TramacastillaTenaInfo,
+  PanticosaInfo,
 } from '..';
 import {
   generalImages,
@@ -67,6 +68,7 @@ export const CityLicense: FC<CityLicenseProps> = ({ cityName }) => {
     'sallent-de-gallego': SallenDeGallegoInfo,
     lanuza: LanuzaInfo,
     'tramacastilla-de-tena': TramacastillaTenaInfo,
+    panticosa: PanticosaInfo,
   };
 
   function capitalizeFirstLetterOfEachWord(str: string) {

@@ -39,6 +39,7 @@ export * from './Licenses/FormigalInfo';
 export * from './Licenses/SallenDeGallegoInfo';
 export * from './Licenses/LanuzaInfo';
 export * from './Licenses/TramacastillaTenaInfo';
+export * from './Licenses/PanticosaInfo';
 export * from './Licenses/LicenseAditionalInfo';
 export * from './Licenses/CityLicense';
 export * from './TouristDashboard/TouristDashboard';

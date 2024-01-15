@@ -93,4 +93,9 @@ export const pirineosAragonImages: ImageProps[] = [
     cityName: 'Tramacastilla de Tena',
     bgCity: 'bg-tramacastilla',
   },
+  {
+    slug: 'panticosa',
+    cityName: 'Panticosa',
+    bgCity: 'bg-panticosa',
+  },
 ];
