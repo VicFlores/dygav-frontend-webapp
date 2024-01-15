@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { AlquilerVacacional } from '..';
 import { CityCards } from './CityCards';
+import { generalImages, pirineosAragonImages } from '@/utils';
 
 export const LicenseAditionalInfo = () => {
   return (
@@ -121,19 +122,92 @@ export const LicenseAditionalInfo = () => {
       </div>
 
       <div
-        className='w-full h-auto grid md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4'
+        className='w-full h-auto grid md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4 mb-14'
         id='recomendadas'
       >
         <div className='md:self-center md:justify-self-center divide-y-4 divide-p600 text-center md:text-start'>
           <h2 className='text-2xl lg:text-[31px] md:text-[26px]'>
             GUÍAS ACTUALIZADAS <br /> POR MUNICIPIOS
           </h2>
+
           <h3 className='text-center md:text-start text-2xl  md:text-3xl font-semibold pt-3'>
             ¿Cómo obtener una licencia turística en mi ciudad?
           </h3>
         </div>
 
-        <CityCards />
+        <CityCards images={generalImages} />
+      </div>
+
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-60 lg:px-4 mt-16'>
+        Licencias Turísticas en el Pirineo Aragonés
+      </h2>
+
+      <div className='text-justify text-sm md:text-lg pt-4 space-y-4'>
+        <p>
+          <strong>Obtener una licencia turística en el Pirineo Aragonés</strong>
+          , especialmente en el Valle de Tena y Jaca,{' '}
+          <strong>
+            representa una gran oportunidad para propietarios e inversores
+          </strong>{' '}
+          en una de las regiones más bellas y turísticas de España. Para
+          asegurar el éxito en este mercado, es crucial que las viviendas
+          cumplan con ciertos requisitos, incluyendo una superficie y número
+          mínimo de habitaciones, así como estándares de seguridad,
+          accesibilidad y calidad.
+        </p>
+
+        <p>
+          <Link
+            className='underline text-p600'
+            target='_blank'
+            href={
+              'https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1257201622626'
+            }
+          >
+            Ver normativa
+          </Link>
+        </p>
+
+        <p>
+          Para ayudarte en este proceso, hemos desarrollado una serie de{' '}
+          <strong>
+            guías detalladas y específicas para cada localidad del Pirineo
+            Aragonés
+          </strong>
+          . Estas guías te proporcionarán toda la información necesaria sobre
+          cómo cumplir con los requisitos y maximizar el potencial de tu
+          propiedad turísticas, pero si lo prefieres en{' '}
+          <strong className='text-p600'>DYGAV</strong>{' '}
+          <strong>
+            somos expertos en tramitación de licencias turísticas y en la
+          </strong>{' '}
+          <span>
+            <Link
+              href={'/gestion-viviendas-turisticas'}
+              className='underline text-p600'
+            >
+              gestión de viviendas de uso turístico
+            </Link>
+          </span>
+          . ¡Contáctanos y estaremos encantados de ayudarte!
+        </p>
+      </div>
+
+      <div
+        className='w-full h-auto grid md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4 mb-14'
+        id='recomendadas'
+      >
+        <div className='md:self-center md:justify-self-center divide-y-4 divide-p600 text-center md:text-start'>
+          <h2 className='text-2xl lg:text-[31px] md:text-[26px]'>
+            GUÍAS ACTUALIZADAS <br /> POR MUNICIPIOS
+          </h2>
+
+          <h3 className='text-center md:text-start text-2xl  md:text-3xl font-semibold pt-3'>
+            ¿Cómo obtener una licencia turística en el Pirineo Aragonés?
+          </h3>
+        </div>
+
+        <CityCards images={pirineosAragonImages} />
       </div>
     </section>
   );
