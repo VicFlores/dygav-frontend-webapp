@@ -1,5 +1,4 @@
 import React, { FC, useEffect, useState } from 'react';
-import { generalImages, pirineosAragonImages } from '@/utils';
 import axios from 'axios';
 import { BlogPost } from '@/types';
 import { PostsCardsCarrusel } from './PostsCardsCarrusel';
@@ -20,29 +19,15 @@ import {
   FormigalInfo,
   SallenDeGallegoInfo,
   LanuzaInfo,
+  TramacastillaTenaInfo,
 } from '..';
+import {
+  generalImages,
+  pirineosAragonImages,
+} from '@/utils/static/licenseImages';
 
 type CityLicenseProps = {
   cityName: string;
-};
-
-const cityInfoComponents: { [key: string]: React.FC } = {
-  torrevieja: TorreviejaInfo,
-  alicante: AlicanteInfo,
-  benidorm: BenidormInfo,
-  orihuela: OrihuelaOrihuelaCostaInfo,
-  'orihuela-costa': OrihuelaOrihuelaCostaInfo,
-  'guardamar-del-segura': GuardamarSeguraInfo,
-  'santa-pola': SantaPolaInfo,
-  villajoyosa: VillajoyosaInfo,
-  finestrat: FinestratInfo,
-  'el-campello': ElCampelloInfo,
-  calpe: CalpeInfo,
-  'pilar-de-la-horadada': PilarHoradadaInfo,
-  altea: AlteaInfo,
-  formigal: FormigalInfo,
-  'sallent-de-gallego': SallenDeGallegoInfo,
-  lanuza: LanuzaInfo,
 };
 
 export const CityLicense: FC<CityLicenseProps> = ({ cityName }) => {
@@ -63,6 +48,26 @@ export const CityLicense: FC<CityLicenseProps> = ({ cityName }) => {
 
     getPosts();
   }, [cityName]);
+
+  const cityInfoComponents: { [key: string]: React.FC } = {
+    torrevieja: TorreviejaInfo,
+    alicante: AlicanteInfo,
+    benidorm: BenidormInfo,
+    orihuela: OrihuelaOrihuelaCostaInfo,
+    'orihuela-costa': OrihuelaOrihuelaCostaInfo,
+    'guardamar-del-segura': GuardamarSeguraInfo,
+    'santa-pola': SantaPolaInfo,
+    villajoyosa: VillajoyosaInfo,
+    finestrat: FinestratInfo,
+    'el-campello': ElCampelloInfo,
+    calpe: CalpeInfo,
+    'pilar-de-la-horadada': PilarHoradadaInfo,
+    altea: AlteaInfo,
+    formigal: FormigalInfo,
+    'sallent-de-gallego': SallenDeGallegoInfo,
+    lanuza: LanuzaInfo,
+    'tramacastilla-de-tena': TramacastillaTenaInfo,
+  };
 
   function capitalizeFirstLetterOfEachWord(str: string) {
     return str

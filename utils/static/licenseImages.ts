@@ -4,7 +4,7 @@ interface ImageProps {
   slug: string;
 }
 
-export let generalImages: ImageProps[] = [
+export const generalImages: ImageProps[] = [
   {
     slug: 'torrevieja',
     cityName: 'Torrevieja',
@@ -87,5 +87,10 @@ export const pirineosAragonImages: ImageProps[] = [
     slug: 'lanuza',
     cityName: 'Lanuza',
     bgCity: 'bg-lanuza',
+  },
+  {
+    slug: 'tramacastilla-de-tena',
+    cityName: 'Tramacastilla de Tena',
+    bgCity: 'bg-tramacastilla',
   },
 ];

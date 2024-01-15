@@ -12,6 +12,10 @@ interface ImageProps {
 export const CityCardsFooter: FC<{ images: ImageProps[] }> = ({ images }) => {
   const router = useRouter();
 
+  let path = router.pathname;
+  let parts = path.split('/');
+  let cityName = parts[parts.length - 1];
+
   const scrollContainer = useRef<HTMLDivElement>(null);
 
   const scrollLeft = () => {
@@ -26,7 +30,7 @@ export const CityCardsFooter: FC<{ images: ImageProps[] }> = ({ images }) => {
     }
   };
 
-  images = images.filter((image) => image.slug !== router.query.cities);
+  images = images.filter((image) => image.slug !== cityName);
 
   return (
     <section className='mb-16 md:pb-24 px-6 md:px-12 lg:px-32 flex flex-col items-center'>
