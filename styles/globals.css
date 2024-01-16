@@ -26,6 +26,16 @@
   line-height: 2.25rem;
   padding: 2rem 0 2rem 0;
   text-align: center;
+  border-bottom-width: 4px;
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(244 81 30 / var(--tw-border-opacity));
+  padding-bottom: 1rem;
+}
+
+.post p,
+.post h3,
+.post table {
+  align-self: flex-start;
 }
 
 .post img {
