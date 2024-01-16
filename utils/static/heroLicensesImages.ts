@@ -123,3 +123,17 @@ export const heroBiescasImages = [
   'https://res.cloudinary.com/vicflores11/image/upload/v1705360848/Dygav/Panticosa/C_23_oi71uu.Webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705360813/Dygav/Panticosa/C_24_kywydr.Webp',
 ];
+
+export const heroHozDeJacaImages = [
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705360901/Dygav/Panticosa/C_21_ulbujf.Webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705360895/Dygav/Panticosa/C_22_usfgqr.Webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705360848/Dygav/Panticosa/C_23_oi71uu.Webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705360813/Dygav/Panticosa/C_24_kywydr.Webp',
+];
+
+export const heroEscarrillaImages = [
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705427073/Dygav/Escarilla/C_16_kys3o7.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705427067/Dygav/Escarilla/C_15_tdvz5i.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705427061/Dygav/Escarilla/C_14_ojdm9d.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705427053/Dygav/Escarilla/C_13_ecf4rc.webp',
+];

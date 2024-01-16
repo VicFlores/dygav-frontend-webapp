@@ -41,6 +41,8 @@ export * from './Licenses/LanuzaInfo';
 export * from './Licenses/TramacastillaTenaInfo';
 export * from './Licenses/PanticosaInfo';
 export * from './Licenses/BiescasInfo';
+export * from './Licenses/HozDeJacaInfo';
+export * from './Licenses/EscarrillaInfo';
 export * from './Licenses/LicenseAditionalInfo';
 export * from './Licenses/CityLicense';
 export * from './TouristDashboard/TouristDashboard';

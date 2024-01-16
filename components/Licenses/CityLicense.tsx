@@ -22,6 +22,8 @@ import {
   TramacastillaTenaInfo,
   PanticosaInfo,
   BiescasInfo,
+  HozDeJacaInfo,
+  EscarrillaInfo,
 } from '..';
 import {
   generalImages,
@@ -71,6 +73,8 @@ export const CityLicense: FC<CityLicenseProps> = ({ cityName }) => {
     'tramacastilla-de-tena': TramacastillaTenaInfo,
     panticosa: PanticosaInfo,
     biescas: BiescasInfo,
+    'hoz-de-jaca': HozDeJacaInfo,
+    escarrilla: EscarrillaInfo,
   };
 
   function capitalizeFirstLetterOfEachWord(str: string) {

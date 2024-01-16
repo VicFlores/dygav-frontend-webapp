@@ -122,4 +122,16 @@ export const pirineosAragonImages: ImageProps[] = [
     bgCity:
       'https://res.cloudinary.com/vicflores11/image/upload/v1705360813/Dygav/Panticosa/C_24_kywydr.WebP',
   },
+  {
+    slug: 'hoz-de-jaca',
+    cityName: 'Hoz de Jaca',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705360813/Dygav/Panticosa/C_24_kywydr.WebP',
+  },
+  {
+    slug: 'escarrilla',
+    cityName: 'Escarrilla',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705427067/Dygav/Escarilla/C_15_tdvz5i.WebP',
+  },
 ];

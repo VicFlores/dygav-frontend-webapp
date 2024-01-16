@@ -41,42 +41,6 @@ const config: Config = {
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1691768615/Dygav/icon-image_gtwgyc.WebP')",
         brandContent:
           "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367775/Dygav/19_skargh.WebP')",
-        torrevieja:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/2_jvslgl.WebP')",
-        alicante:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1699488275/Dygav/Alicante/4_qzdyhb.WebP')",
-        benidorm:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1699567156/Dygav/Benidorm/Copia_de_2_doz1la.WebP')",
-        orihuela:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1699646545/Dygav/Orihuela/Copia_de_7_xhahz0.WebP')",
-        orihuelaCosta:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1699647185/Dygav/Orihuela/Copia_de_8_fuequq.WebP')",
-        guardamarSegura:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1700774784/Dygav/GuardamarDelSegura/4_fnp2ex.WebP')",
-        santaPola:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1700839593/Dygav/Santa%20Pola/Copia_de_Puerto_de_Santa_Pola_znyokx.WebP')",
-        villajoyosa:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1701107278/Dygav/Villajoyosa/11_nqftjd.WebP')",
-        finestrat:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1701186487/Dygav/Finestrart/Copia_de_16_buyb8u.WebP')",
-        elCampello:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1701207161/Dygav/El%20Campello/4_iahcly.WebP')",
-        calpe:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1701292652/Dygav/Calpe/27_tfsmto.WebP')",
-        pilarHoradada:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1701293984/Dygav/Pilar%20de%20la%20Horadada/21_lwqjnu.WebP')",
-        altea:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1701357907/Dygav/Altea/10_zdkkww.WebP')",
-        formigal:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1704930339/Dygav/Formigal/C_4_wgr9pn.WebP')",
-        sallentDeGallego:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1704984230/Dygav/Sallent%20%20De%20G%C3%A1llego/C_11_q649hd.WebP')",
-        lanuza:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1705082409/Dygav/Lanuza/C_5_d21fvn.WebP')",
-        tramacastilla:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1705334905/Dygav/Tramacastilla%20de%20Tena/C_17_j3oxnn.WebP')",
-        panticosa:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1705360813/Dygav/Panticosa/C_24_kywydr.WebP')",
       },
     },
   },
