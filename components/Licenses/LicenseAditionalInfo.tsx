@@ -2,109 +2,7 @@ import Link from 'next/link';
 import { AlquilerVacacional } from '..';
 import { CityCards } from './CityCards';
 
-interface ImageProps {
-  cityName: string;
-  bgCity: string;
-  slug: string;
-}
-
 export const LicenseAditionalInfo = () => {
-  const generalImages: ImageProps[] = [
-    {
-      slug: 'torrevieja',
-      cityName: 'Torrevieja',
-      bgCity: 'bg-torrevieja',
-    },
-    {
-      slug: 'alicante',
-      cityName: 'Alicante',
-      bgCity: 'bg-alicante',
-    },
-    {
-      slug: 'benidorm',
-      cityName: 'Benidorm',
-      bgCity: 'bg-benidorm',
-    },
-    {
-      slug: 'orihuela',
-      cityName: 'Orihuela',
-      bgCity: 'bg-orihuelaCosta',
-    },
-    {
-      slug: 'orihuela-costa',
-      cityName: 'Orihuela Costa',
-      bgCity: 'bg-orihuela',
-    },
-    {
-      slug: 'guardamar-del-segura',
-      cityName: 'Guardamar del Segura',
-      bgCity: 'bg-guardamarSegura',
-    },
-    {
-      slug: 'santa-pola',
-      cityName: 'Santa Pola',
-      bgCity: 'bg-santaPola',
-    },
-    {
-      slug: 'villajoyosa',
-      cityName: 'Villajoyosa',
-      bgCity: 'bg-villajoyosa',
-    },
-    {
-      slug: 'finestrat',
-      cityName: 'Finestrat',
-      bgCity: 'bg-finestrat',
-    },
-    {
-      slug: 'el-campello',
-      cityName: 'El Campello',
-      bgCity: 'bg-elCampello',
-    },
-    {
-      slug: 'calpe',
-      cityName: 'Calpe',
-      bgCity: 'bg-calpe',
-    },
-    {
-      slug: 'pilar-de-la-horadada',
-      cityName: 'Pilar de la Horadada',
-      bgCity: 'bg-pilarHoradada',
-    },
-    {
-      slug: 'altea',
-      cityName: 'Altea',
-      bgCity: 'bg-altea',
-    },
-  ];
-
-  const pirineosAragonImages: ImageProps[] = [
-    {
-      slug: 'formigal',
-      cityName: 'Formigal',
-      bgCity: 'bg-formigal',
-    },
-    {
-      slug: 'sallent-de-gallego',
-      cityName: 'Sallent de Gállego',
-      bgCity: 'bg-sallentDeGallego',
-    },
-    {
-      slug: 'lanuza',
-      cityName: 'Lanuza',
-      bgCity: 'bg-lanuza',
-    },
-    {
-      slug: 'tramacastilla-de-tena',
-      cityName: 'Tramacastilla de Tena',
-      bgCity: 'bg-tramacastilla',
-    },
-    {
-      slug: 'panticosa',
-      cityName: 'Panticosa',
-      bgCity: 'bg-panticosa',
-    },
-  ];
-
   return (
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32 flex flex-col items-center'>
       <h1 className='text-center text-2xl md:text-3xl pb-4 mb-6 font-semibold border-b-4 border-b-p600 w-auto md:px-10'>
@@ -222,10 +120,7 @@ export const LicenseAditionalInfo = () => {
         </p>
       </div>
 
-      <div
-        className='w-full h-auto grid md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4 mb-14'
-        id='recomendadas'
-      >
+      <div className='w-full h-auto grid md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4 mb-14'>
         <div className='md:self-center md:justify-self-center divide-y-4 divide-p600 text-center md:text-start'>
           <h2 className='text-2xl lg:text-[31px] md:text-[26px]'>
             GUÍAS ACTUALIZADAS <br /> POR MUNICIPIOS
@@ -236,7 +131,7 @@ export const LicenseAditionalInfo = () => {
           </h3>
         </div>
 
-        <CityCards images={generalImages} />
+        <CityCards community='valenciana' />
       </div>
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-60 lg:px-4 mt-16'>
@@ -294,10 +189,7 @@ export const LicenseAditionalInfo = () => {
         </p>
       </div>
 
-      <div
-        className='w-full h-auto grid md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4 mb-14'
-        id='recomendadas'
-      >
+      <div className='w-full h-auto grid md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4 mb-14'>
         <div className='md:self-center md:justify-self-center divide-y-4 divide-p600 text-center md:text-start'>
           <h2 className='text-2xl lg:text-[31px] md:text-[26px]'>
             GUÍAS ACTUALIZADAS <br /> POR MUNICIPIOS
@@ -308,7 +200,7 @@ export const LicenseAditionalInfo = () => {
           </h3>
         </div>
 
-        <CityCards images={pirineosAragonImages} />
+        <CityCards community='pirineo-aragones' />
       </div>
     </section>
   );
