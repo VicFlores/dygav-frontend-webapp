@@ -56,7 +56,12 @@ export const CityCardsFooter: FC<{ images: ImageProps[] }> = ({ images }) => {
               className='w-60 h-80 md:w-70 md:h-80 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'
             >
               <div
-                className={`w-full h-full bg-cover bg-center flex items-end ${image.bgCity}`}
+                className={`bg-cover bg-center flex items-end`}
+                style={{
+                  backgroundImage: `url(${image.bgCity})`,
+                  width: '100%',
+                  height: '100%',
+                }}
               >
                 <Link
                   href={`/licencias-turisticas/${image.slug}`}

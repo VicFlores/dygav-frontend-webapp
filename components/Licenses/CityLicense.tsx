@@ -21,6 +21,7 @@ import {
   LanuzaInfo,
   TramacastillaTenaInfo,
   PanticosaInfo,
+  BiescasInfo,
 } from '..';
 import {
   generalImages,
@@ -69,6 +70,7 @@ export const CityLicense: FC<CityLicenseProps> = ({ cityName }) => {
     lanuza: LanuzaInfo,
     'tramacastilla-de-tena': TramacastillaTenaInfo,
     panticosa: PanticosaInfo,
+    biescas: BiescasInfo,
   };
 
   function capitalizeFirstLetterOfEachWord(str: string) {
