@@ -12,7 +12,7 @@ interface ImageProps {
   slug: string;
 }
 
-export const CityCards: FC<{ community: string }> = ({ community }) => {
+export const CityCards: FC<{ images: ImageProps[] }> = ({ images }) => {
   const scrollContainer = useRef<HTMLDivElement>(null);
 
   const scrollLeft = () => {
@@ -40,43 +40,24 @@ export const CityCards: FC<{ community: string }> = ({ community }) => {
         ref={scrollContainer}
         className='w-auto h-auto items-center mt-6 p-6 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden scrollbar'
       >
-        {community === 'valenciana'
-          ? generalImages.map((image, index) => (
-              <Link href={`/licencias-turisticas/${image.slug}`} key={index}>
-                <div className='w-60 h-80 md:w-70 md:h-80 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
-                  <div
-                    style={{
-                      backgroundImage: `url(${image.bgCity})`,
-                      width: '100%',
-                      height: '100%',
-                    }}
-                    className='bg-cover bg-center flex items-end'
-                  >
-                    <h4 className='text-white pl-4 pb-4 text-sm md:text-lg'>
-                      Licencia turística en <br /> {image.cityName}
-                    </h4>
-                  </div>
-                </div>
-              </Link>
-            ))
-          : pirineosAragonImages.map((image, index) => (
-              <Link href={`/licencias-turisticas/${image.slug}`} key={index}>
-                <div className='w-60 h-80 md:w-70 md:h-80 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
-                  <div
-                    style={{
-                      backgroundImage: `url(${image.bgCity})`,
-                      width: '100%',
-                      height: '100%',
-                    }}
-                    className='bg-cover bg-center flex items-end'
-                  >
-                    <h4 className='text-white pl-4 pb-4 text-sm md:text-lg'>
-                      Licencia turística en <br /> {image.cityName}
-                    </h4>
-                  </div>
-                </div>
-              </Link>
-            ))}
+        {images.map((image, index) => (
+          <Link href={`/licencias-turisticas/${image.slug}`} key={index}>
+            <div className='w-60 h-80 md:w-70 md:h-80 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
+              <div
+                style={{
+                  backgroundImage: `url(${image.bgCity})`,
+                  width: '100%',
+                  height: '100%',
+                }}
+                className='bg-cover bg-center flex items-end'
+              >
+                <h4 className='text-white pl-4 pb-4 text-sm md:text-lg'>
+                  Licencia turística en <br /> {image.cityName}
+                </h4>
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
 
       <button

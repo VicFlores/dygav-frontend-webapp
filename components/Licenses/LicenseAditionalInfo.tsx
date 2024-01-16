@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import { AlquilerVacacional } from '..';
 import { CityCards } from './CityCards';
+import {
+  generalImages,
+  pirineosAragonImages,
+} from '@/utils/static/licenseImages';
 
 export const LicenseAditionalInfo = () => {
   return (
@@ -131,7 +135,7 @@ export const LicenseAditionalInfo = () => {
           </h3>
         </div>
 
-        <CityCards community='valenciana' />
+        <CityCards images={generalImages} />
       </div>
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-60 lg:px-4 mt-16'>
@@ -200,7 +204,7 @@ export const LicenseAditionalInfo = () => {
           </h3>
         </div>
 
-        <CityCards community='pirineo-aragones' />
+        <CityCards images={pirineosAragonImages} />
       </div>
     </section>
   );
