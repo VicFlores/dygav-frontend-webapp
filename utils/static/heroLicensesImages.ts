@@ -139,3 +139,24 @@ export const heroEscarrillaImages = [
   'https://res.cloudinary.com/vicflores11/image/upload/v1705427061/Dygav/Escarilla/C_14_ojdm9d.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705427053/Dygav/Escarilla/C_13_ecf4rc.webp',
 ];
+
+export const heroElPueyoDeJacaImages = [
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705507179/Dygav/El%20Pueyo%20De%20Jaca/C_57_fzihpn.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705507178/Dygav/El%20Pueyo%20De%20Jaca/C_61_pqbnjx.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705507178/Dygav/El%20Pueyo%20De%20Jaca/C_59_dm90l6.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705507172/Dygav/El%20Pueyo%20De%20Jaca/C_60_jva142.webp',
+];
+
+export const heroSandiniesImages = [
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705507577/Dygav/Sandini%C3%A9s/C_31_vcjgjh.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705507577/Dygav/Sandini%C3%A9s/C_30_b7ivss.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705507577/Dygav/Sandini%C3%A9s/C_30_b7ivss.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705507574/Dygav/Sandini%C3%A9s/C_32_dfkyij.webp',
+];
+export const heroSabiñánigoImages = [
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705508229/Dygav/Sabi%C3%B1%C3%A1nigo/C_58_crsnsg.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705508227/Dygav/Sabi%C3%B1%C3%A1nigo/C_59_s5kenc.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705508227/Dygav/Sabi%C3%B1%C3%A1nigo/C_55_dmypbo.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705508225/Dygav/Sabi%C3%B1%C3%A1nigo/C_61_p8bmil.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705508221/Dygav/Sabi%C3%B1%C3%A1nigo/C_60_ndxupo.webp',
+];

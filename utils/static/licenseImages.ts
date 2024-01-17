@@ -134,4 +134,22 @@ export const pirineosAragonImages: ImageProps[] = [
     bgCity:
       'https://res.cloudinary.com/vicflores11/image/upload/v1705427067/Dygav/Escarilla/C_15_tdvz5i.WebP',
   },
+  {
+    slug: 'el-pueyo-de-jaca',
+    cityName: 'El Pueyo de Jaca',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705507179/Dygav/El%20Pueyo%20De%20Jaca/C_57_fzihpn.WebP',
+  },
+  {
+    slug: 'sandinies',
+    cityName: 'Sandiniés',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705507577/Dygav/Sandini%C3%A9s/C_30_b7ivss.WebP',
+  },
+  {
+    slug: 'sabinanigo',
+    cityName: 'Sabiñánigo',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705508225/Dygav/Sabi%C3%B1%C3%A1nigo/C_61_p8bmil.WebP',
+  },
 ];
