@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { AlquilerVacacional, HelpYouForm, LicenciasTuristicas } from '..';
 import { CityImages } from './CityImages';
-import { CityCardsFooter } from './CityCardsFooter';
 
 const images = [
   {

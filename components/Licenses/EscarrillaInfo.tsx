@@ -2,13 +2,12 @@ import Link from 'next/link';
 import React from 'react';
 import { AlquilerVacacional, HelpYouForm, LicenciasTuristicas } from '..';
 import { CityImages } from './CityImages';
-import { CityCardsFooter } from './CityCardsFooter';
 import { LicencesIcons } from './LicencesIcons';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1705427061/Dygav/Escarilla/C_14_ojdm9d.webp',
-    alt: 'Licencias turísticas: Lanuza',
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1705447929/Dygav/Escarilla/C_35_pg320r.webp',
+    alt: 'Licencias turísticas: Escarrilla',
   },
 ];
 

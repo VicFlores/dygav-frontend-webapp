@@ -2,12 +2,11 @@ import Link from 'next/link';
 import React from 'react';
 import { AlquilerVacacional, HelpYouForm, LicenciasTuristicas } from '..';
 import { CityImages } from './CityImages';
-import { CityCardsFooter } from './CityCardsFooter';
 import { LicencesIcons } from './LicencesIcons';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1704984189/Dygav/Sallent%20%20De%20G%C3%A1llego/C_9_yy7q0h.webp',
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1704984196/Dygav/Sallent%20%20De%20G%C3%A1llego/C_10_kkyzcj.webp',
     alt: 'Licencias turísticas: Sallent de Gállego',
   },
 ];

@@ -2,12 +2,11 @@ import Link from 'next/link';
 import React from 'react';
 import { AlquilerVacacional, HelpYouForm, LicenciasTuristicas } from '..';
 import { CityImages } from './CityImages';
-import { CityCardsFooter } from './CityCardsFooter';
 import { LicencesIcons } from './LicencesIcons';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1705082424/Dygav/Lanuza/C_7_pucqtv.webp',
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1705444726/Dygav/Lanuza/C_11_ixhsuy.webp',
     alt: 'Licencias turísticas: Lanuza',
   },
 ];

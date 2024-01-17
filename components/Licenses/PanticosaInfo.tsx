@@ -2,13 +2,12 @@ import Link from 'next/link';
 import React from 'react';
 import { AlquilerVacacional, HelpYouForm, LicenciasTuristicas } from '..';
 import { CityImages } from './CityImages';
-import { CityCardsFooter } from './CityCardsFooter';
 import { LicencesIcons } from './LicencesIcons';
 
 const images = [
   {
     src: 'https://res.cloudinary.com/vicflores11/image/upload/v1705360848/Dygav/Panticosa/C_23_oi71uu.webp',
-    alt: 'Licencias turísticas: Lanuza',
+    alt: 'Licencias turísticas: Panticosa ciudad',
   },
 ];
 

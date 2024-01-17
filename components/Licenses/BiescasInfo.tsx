@@ -2,13 +2,12 @@ import Link from 'next/link';
 import React from 'react';
 import { AlquilerVacacional, HelpYouForm, LicenciasTuristicas } from '..';
 import { CityImages } from './CityImages';
-import { CityCardsFooter } from './CityCardsFooter';
 import { LicencesIcons } from './LicencesIcons';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1705335018/Dygav/Tramacastilla%20de%20Tena/C_20_o7wnqn.webp',
-    alt: 'Licencias turísticas: Lanuza',
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1705445752/Dygav/Biescas/C_44_hehtlu.webp',
+    alt: 'Licencias turísticas: Biescas ciudad',
   },
 ];
 

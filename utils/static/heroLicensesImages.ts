@@ -115,20 +115,22 @@ export const heroPanticosaImages = [
   'https://res.cloudinary.com/vicflores11/image/upload/v1705360895/Dygav/Panticosa/C_22_usfgqr.Webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705360848/Dygav/Panticosa/C_23_oi71uu.Webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705360813/Dygav/Panticosa/C_24_kywydr.Webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705445279/Dygav/Panticosa/C_61_zgfaxj.WebP',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705445273/Dygav/Panticosa/C_59_zqhimb.WebP',
 ];
 
 export const heroBiescasImages = [
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705360901/Dygav/Panticosa/C_21_ulbujf.Webp',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705360895/Dygav/Panticosa/C_22_usfgqr.Webp',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705360848/Dygav/Panticosa/C_23_oi71uu.Webp',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705360813/Dygav/Panticosa/C_24_kywydr.Webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705445747/Dygav/Biescas/C_43_echbh1.Webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705445741/Dygav/Biescas/C_42_pspkxn.Webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705445733/Dygav/Biescas/C_41_cgoedm.Webp',
 ];
 
 export const heroHozDeJacaImages = [
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705360901/Dygav/Panticosa/C_21_ulbujf.Webp',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705360895/Dygav/Panticosa/C_22_usfgqr.Webp',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705360848/Dygav/Panticosa/C_23_oi71uu.Webp',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705360813/Dygav/Panticosa/C_24_kywydr.Webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705447520/Dygav/Hoz%20De%20Jaca/C_46_fnlfrv.Webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705447527/Dygav/Hoz%20De%20Jaca/C_48_tlcwlv.Webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705447520/Dygav/Hoz%20De%20Jaca/C_46_fnlfrv.Webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705447514/Dygav/Hoz%20De%20Jaca/C_47_njruue.Webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705447507/Dygav/Hoz%20De%20Jaca/C_45_qdbqzp.Webp',
 ];
 
 export const heroEscarrillaImages = [

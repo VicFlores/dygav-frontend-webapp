@@ -1,10 +1,6 @@
 import React, { FC, useRef } from 'react';
 import Link from 'next/link';
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
-import {
-  generalImages,
-  pirineosAragonImages,
-} from '@/utils/static/licenseImages';
 
 interface ImageProps {
   cityName: string;

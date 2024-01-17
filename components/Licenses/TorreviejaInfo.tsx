@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { HelpYouForm } from '../HelpYouForm/HelpYouForm';
 import { AlquilerVacacional, LicenciasTuristicas } from '..';
 import { CityImages } from './CityImages';
-import { CityCardsFooter } from './CityCardsFooter';
 
 const images = [
   {

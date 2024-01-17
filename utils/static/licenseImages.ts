@@ -120,13 +120,13 @@ export const pirineosAragonImages: ImageProps[] = [
     slug: 'biescas',
     cityName: 'Biescas',
     bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1705360813/Dygav/Panticosa/C_24_kywydr.WebP',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705445747/Dygav/Biescas/C_43_echbh1.WebP',
   },
   {
     slug: 'hoz-de-jaca',
     cityName: 'Hoz de Jaca',
     bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1705360813/Dygav/Panticosa/C_24_kywydr.WebP',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705447520/Dygav/Hoz%20De%20Jaca/C_46_fnlfrv.webp',
   },
   {
     slug: 'escarrilla',
