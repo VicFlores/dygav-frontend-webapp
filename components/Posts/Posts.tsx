@@ -37,8 +37,8 @@ const Posts = () => {
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-28 flex flex-col items-center'>
       <PostCardCategories
         filterByCategories={filterByCategories}
-        title='Ciudades'
-        subtitle='Descubre nuevos destinos'
+        title='Costa Blanca'
+        subtitle='Descubre todos nuestros artículos más recientes sobre ocio, gastronomía, destinos, tendencias y normativas sobre alquiler vacacional en la Costa Blanca'
       />
 
       <PostCards posts={data} />
