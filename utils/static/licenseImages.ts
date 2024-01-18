@@ -126,7 +126,7 @@ export const pirineosAragonImages: ImageProps[] = [
     slug: 'hoz-de-jaca',
     cityName: 'Hoz de Jaca',
     bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1705447520/Dygav/Hoz%20De%20Jaca/C_46_fnlfrv.webp',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705530855/Dygav/Hoz%20De%20Jaca/C_21_stkxrl.webp',
   },
   {
     slug: 'escarrilla',
@@ -151,5 +151,23 @@ export const pirineosAragonImages: ImageProps[] = [
     cityName: 'Sabiñánigo',
     bgCity:
       'https://res.cloudinary.com/vicflores11/image/upload/v1705508225/Dygav/Sabi%C3%B1%C3%A1nigo/C_61_p8bmil.WebP',
+  },
+  {
+    slug: 'jaca',
+    cityName: 'Jaca',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705447527/Dygav/Jaca/C_48_tlcwlv.WebP',
+  },
+  {
+    slug: 'piedrafita-de-jaca',
+    cityName: 'Piedrafita de Jaca',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705592474/Dygav/Piedrafita%20de%20Jaca/C_27_rcexhe.WebP',
+  },
+  {
+    slug: 'oros',
+    cityName: 'Oros',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705593080/Dygav/Or%C3%B3s/C_53_yturht.WebP',
   },
 ];

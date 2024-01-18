@@ -27,6 +27,9 @@ import {
   ElPueyoDeJacaInfo,
   SandiniesInfo,
   SabiñánigoInfo,
+  JacaInfo,
+  PiedrafitaDeJacaInfo,
+  OrosInfo,
 } from '..';
 import {
   generalImages,
@@ -81,6 +84,9 @@ export const CityLicense: FC<CityLicenseProps> = ({ cityName }) => {
     'el-pueyo-de-jaca': ElPueyoDeJacaInfo,
     sandinies: SandiniesInfo,
     sabinanigo: SabiñánigoInfo,
+    jaca: JacaInfo,
+    'piedrafita-de-jaca': PiedrafitaDeJacaInfo,
+    oros: OrosInfo,
   };
 
   function capitalizeFirstLetterOfEachWord(str: string) {
