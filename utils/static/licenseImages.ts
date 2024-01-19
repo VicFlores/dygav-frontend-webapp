@@ -170,4 +170,22 @@ export const pirineosAragonImages: ImageProps[] = [
     bgCity:
       'https://res.cloudinary.com/vicflores11/image/upload/v1705593080/Dygav/Or%C3%B3s/C_53_yturht.WebP',
   },
+  {
+    slug: 'gavin',
+    cityName: 'Gavin',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705677797/Dygav/Gavin/58_sgcmnm.WebP',
+  },
+  {
+    slug: 'escuer',
+    cityName: 'Escuer',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705678403/Dygav/Escuer/C_56_kmkmor.WebP',
+  },
+  {
+    slug: 'senegue',
+    cityName: 'Senegüe',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705679117/Dygav/Seneg%C3%BCe/C_68_p3ksse.WebP',
+  },
 ];

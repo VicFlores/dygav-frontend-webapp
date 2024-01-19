@@ -180,3 +180,25 @@ export const heroOrosImages = [
   'https://res.cloudinary.com/vicflores11/image/upload/v1705593078/Dygav/Or%C3%B3s/C_57_hhffpa.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705593078/Dygav/Or%C3%B3s/C_57_hhffpa.webp',
 ];
+
+export const heroGavinImages = [
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705677834/Dygav/Gavin/53_dxpa2n.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705677810/Dygav/Gavin/56_ubfpzg.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705677804/Dygav/Gavin/57_qowdrn.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705677797/Dygav/Gavin/58_sgcmnm.webp',
+];
+
+export const heroEscuerImages = [
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705678417/Dygav/Escuer/C_53_chepv8.jpg',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705678410/Dygav/Escuer/C_54_guvbbk.jpg',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705678403/Dygav/Escuer/C_56_kmkmor.jpg',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705678397/Dygav/Escuer/C_57_jbw60z.jpg',
+];
+
+export const heroSenegueImages = [
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705679136/Dygav/Seneg%C3%BCe/C_Copia_de_57_aqb08v.jpg',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705679132/Dygav/Seneg%C3%BCe/C_Copia_de_54_byygtk.jpg',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705679123/Dygav/Seneg%C3%BCe/C_Copia_de_53_gvs2en.jpg',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705679120/Dygav/Seneg%C3%BCe/C_Copia_de_56_klmhao.jpg',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705679117/Dygav/Seneg%C3%BCe/C_68_p3ksse.jpg',
+];

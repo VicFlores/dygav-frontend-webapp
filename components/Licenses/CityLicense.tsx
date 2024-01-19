@@ -30,6 +30,9 @@ import {
   JacaInfo,
   PiedrafitaDeJacaInfo,
   OrosInfo,
+  GavinInfo,
+  EscuerInfo,
+  SenegueInfo,
 } from '..';
 import {
   generalImages,
@@ -87,6 +90,9 @@ export const CityLicense: FC<CityLicenseProps> = ({ cityName }) => {
     jaca: JacaInfo,
     'piedrafita-de-jaca': PiedrafitaDeJacaInfo,
     oros: OrosInfo,
+    gavin: GavinInfo,
+    escuer: EscuerInfo,
+    senegue: SenegueInfo,
   };
 
   function capitalizeFirstLetterOfEachWord(str: string) {
