@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React, { FC, useRef } from 'react';
 import { ParsedUrlQuery } from 'querystring';
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
+import { generalImages } from '@/utils/static/licenseImages';
 
 type TPostCardCategoriesProps = {
   filterByCategories: Category[];
@@ -66,7 +67,10 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
             className='w-auto h-auto items-center pb-8 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden scrollbar'
           >
             {filterByCategories.map((category, index) => {
-              const imageUrl = categoryImages[category.slug];
+              const imageObj = generalImages.find(
+                (img) => img.slug === category.slug
+              );
+              const imageUrl = imageObj ? imageObj.bgCity : '';
 
               return query ? (
                 query.cities !== category.slug && (
@@ -80,7 +84,7 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
                           backgroundPosition: 'center',
                         }}
                       >
-                        <p className='text-xl md:text-3xl whitespace-nowrap text-white pl-6 pb-4'>
+                        <p className='text-xl md:text-2xl text-white pl-6 pb-4 overflow-hidden text-overflow-ellipsis max-w-xs'>
                           {category.name}
                         </p>
                       </div>
@@ -98,7 +102,7 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
                         backgroundPosition: 'center',
                       }}
                     >
-                      <p className='text-xl md:text-3xl whitespace-nowrap text-white pl-6 pb-4'>
+                      <p className='text-xl md:text-2xl text-white pl-6 pb-4 overflow-hidden text-overflow-ellipsis max-w-xs'>
                         {category.name}
                       </p>
                     </div>

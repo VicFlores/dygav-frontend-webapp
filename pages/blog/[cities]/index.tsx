@@ -141,9 +141,13 @@ export default function CitiesPage() {
       <MainHero>
         <Layout session={session}>
           <HeroLicense
-            title={cityData[capitalizedCityName]?.title || capitalizedCityName}
+            title={
+              cityData[capitalizedCityName]?.title ||
+              `Blog en ${capitalizedCityName}`
+            }
             subtitle={
-              cityData[capitalizedCityName]?.subtitle || capitalizedCityName
+              cityData[capitalizedCityName]?.subtitle ||
+              `Disfurta de nuestros articulos en ${capitalizedCityName}`
             }
           />
         </Layout>
