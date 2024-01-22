@@ -6,7 +6,7 @@ import { LicencesIcons } from './LicencesIcons';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1704984196/Dygav/Sallent%20%20De%20G%C3%A1llego/C_10_kkyzcj.webp',
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1705941035/Dygav/Sallent%20%20De%20G%C3%A1llego/c_sallentdegallego_fnllhz.webp',
     alt: 'Licencias turísticas: Sallent de Gállego',
   },
 ];

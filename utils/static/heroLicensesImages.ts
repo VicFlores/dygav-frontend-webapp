@@ -120,7 +120,7 @@ export const heroPanticosaImages = [
 ];
 
 export const heroBiescasImages = [
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705445747/Dygav/Biescas/C_43_echbh1.Webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705940407/Dygav/Biescas/c_biescas_tmxm6t.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705445741/Dygav/Biescas/C_42_pspkxn.Webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705445733/Dygav/Biescas/C_41_cgoedm.Webp',
 ];
@@ -128,7 +128,7 @@ export const heroBiescasImages = [
 export const heroHozDeJacaImages = [
   'https://res.cloudinary.com/vicflores11/image/upload/v1705530855/Dygav/Hoz%20De%20Jaca/C_21_stkxrl.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705530855/Dygav/Hoz%20De%20Jaca/C_61_uuqgip.webp',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705530854/Dygav/Hoz%20De%20Jaca/C_59_hl33kj.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705940692/Dygav/Hoz%20De%20Jaca/c_hozdejaca_zftyvs.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705530849/Dygav/Hoz%20De%20Jaca/C_22_ucmok2.webp',
 ];
 
@@ -140,20 +140,20 @@ export const heroEscarrillaImages = [
 
 export const heroElPueyoDeJacaImages = [
   'https://res.cloudinary.com/vicflores11/image/upload/v1705507179/Dygav/El%20Pueyo%20De%20Jaca/C_57_fzihpn.webp',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705507178/Dygav/El%20Pueyo%20De%20Jaca/C_61_pqbnjx.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705940961/Dygav/El%20Pueyo%20De%20Jaca/c_pueyodejaca_wp3zm4.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705507178/Dygav/El%20Pueyo%20De%20Jaca/C_59_dm90l6.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705507172/Dygav/El%20Pueyo%20De%20Jaca/C_60_jva142.webp',
 ];
 
 export const heroSandiniesImages = [
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705941078/Dygav/Sandini%C3%A9s/c_sandinies_nkjdfs.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705507577/Dygav/Sandini%C3%A9s/C_31_vcjgjh.webp',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705507577/Dygav/Sandini%C3%A9s/C_30_b7ivss.webp',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705507577/Dygav/Sandini%C3%A9s/C_30_b7ivss.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705507575/Dygav/Sandini%C3%A9s/C_33_xucefk.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705507574/Dygav/Sandini%C3%A9s/C_32_dfkyij.webp',
 ];
 
 export const heroSabiñánigoImages = [
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705508229/Dygav/Sabi%C3%B1%C3%A1nigo/C_58_crsnsg.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705941001/Dygav/Sabi%C3%B1%C3%A1nigo/c_sabinanigo_a9zaar.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705508227/Dygav/Sabi%C3%B1%C3%A1nigo/C_59_s5kenc.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705508227/Dygav/Sabi%C3%B1%C3%A1nigo/C_55_dmypbo.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705508225/Dygav/Sabi%C3%B1%C3%A1nigo/C_61_p8bmil.webp',
@@ -161,44 +161,44 @@ export const heroSabiñánigoImages = [
 ];
 
 export const heroJacaImages = [
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705940729/Dygav/Jaca/c_jaca_stbhbd.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705447533/Dygav/Jaca/C_49_jlgfrw.webp',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705447527/Dygav/Jaca/C_48_tlcwlv.webp',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705447520/Dygav/Jaca/C_46_fnlfrv.webp',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705447520/Dygav/Jaca/C_46_fnlfrv.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705447514/Dygav/Jaca/C_47_njruue.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705447507/Dygav/Jaca/C_45_qdbqzp.webp',
 ];
 
 export const heroPiedraficaDeJacaImages = [
   'https://res.cloudinary.com/vicflores11/image/upload/v1705592488/Dygav/Piedrafita%20de%20Jaca/C_25_mqinpn.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705592480/Dygav/Piedrafita%20de%20Jaca/C_26_dsfr6s.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705592474/Dygav/Piedrafita%20de%20Jaca/C_27_rcexhe.webp',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705592467/Dygav/Piedrafita%20de%20Jaca/C_28_ab11fz.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705940916/Dygav/Piedrafita%20de%20Jaca/c_piedrafitadejaca_gzbgra.webp',
 ];
 
 export const heroOrosImages = [
   'https://res.cloudinary.com/vicflores11/image/upload/v1705593080/Dygav/Or%C3%B3s/C_54_oipx2i.webp',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705593080/Dygav/Or%C3%B3s/C_53_yturht.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705940799/Dygav/Or%C3%B3s/c_oros_j1uh9z.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705593078/Dygav/Or%C3%B3s/C_57_hhffpa.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705593078/Dygav/Or%C3%B3s/C_57_hhffpa.webp',
 ];
 
 export const heroGavinImages = [
   'https://res.cloudinary.com/vicflores11/image/upload/v1705677834/Dygav/Gavin/53_dxpa2n.webp',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705677810/Dygav/Gavin/56_ubfpzg.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705940661/Dygav/Gavin/c_gavin_yjs1kd.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705677804/Dygav/Gavin/57_qowdrn.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705677797/Dygav/Gavin/58_sgcmnm.webp',
 ];
 
 export const heroEscuerImages = [
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705678417/Dygav/Escuer/C_53_chepv8.jpg',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705678410/Dygav/Escuer/C_54_guvbbk.jpg',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705678403/Dygav/Escuer/C_56_kmkmor.jpg',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705678397/Dygav/Escuer/C_57_jbw60z.jpg',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705678417/Dygav/Escuer/C_53_chepv8.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705678410/Dygav/Escuer/C_54_guvbbk.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705678403/Dygav/Escuer/C_56_kmkmor.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705678397/Dygav/Escuer/C_57_jbw60z.webp',
 ];
 
 export const heroSenegueImages = [
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705679136/Dygav/Seneg%C3%BCe/C_Copia_de_57_aqb08v.jpg',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705679132/Dygav/Seneg%C3%BCe/C_Copia_de_54_byygtk.jpg',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705679123/Dygav/Seneg%C3%BCe/C_Copia_de_53_gvs2en.jpg',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705679120/Dygav/Seneg%C3%BCe/C_Copia_de_56_klmhao.jpg',
-  'https://res.cloudinary.com/vicflores11/image/upload/v1705679117/Dygav/Seneg%C3%BCe/C_68_p3ksse.jpg',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705679136/Dygav/Seneg%C3%BCe/C_Copia_de_57_aqb08v.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705679132/Dygav/Seneg%C3%BCe/C_Copia_de_54_byygtk.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705679123/Dygav/Seneg%C3%BCe/C_Copia_de_53_gvs2en.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705679120/Dygav/Seneg%C3%BCe/C_Copia_de_56_klmhao.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1705679117/Dygav/Seneg%C3%BCe/C_68_p3ksse.webp',
 ];

@@ -87,105 +87,105 @@ export const generalImages: ImageProps[] = [
 
 export const pirineosAragonImages: ImageProps[] = [
   {
+    slug: 'jaca',
+    cityName: 'Jaca',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705940729/Dygav/Jaca/c_jaca_stbhbd.webp',
+  },
+  {
     slug: 'formigal',
     cityName: 'Formigal',
     bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1704930339/Dygav/Formigal/C_4_wgr9pn.WebP',
-  },
-  {
-    slug: 'sallent-de-gallego',
-    cityName: 'Sallent de Gállego',
-    bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1704984230/Dygav/Sallent%20%20De%20G%C3%A1llego/C_11_q649hd.WebP',
-  },
-  {
-    slug: 'lanuza',
-    cityName: 'Lanuza',
-    bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1705082409/Dygav/Lanuza/C_5_d21fvn.WebP',
-  },
-  {
-    slug: 'tramacastilla-de-tena',
-    cityName: 'Tramacastilla de Tena',
-    bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1705334905/Dygav/Tramacastilla%20de%20Tena/C_17_j3oxnn.WebP',
-  },
-  {
-    slug: 'panticosa',
-    cityName: 'Panticosa',
-    bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1705360813/Dygav/Panticosa/C_24_kywydr.WebP',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705940626/Dygav/Formigal/c_formigal_ukki6z.webp',
   },
   {
     slug: 'biescas',
     cityName: 'Biescas',
     bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1705445747/Dygav/Biescas/C_43_echbh1.WebP',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705940407/Dygav/Biescas/c_biescas_tmxm6t.webp',
   },
   {
-    slug: 'hoz-de-jaca',
-    cityName: 'Hoz de Jaca',
+    slug: 'panticosa',
+    cityName: 'Panticosa',
     bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1705530855/Dygav/Hoz%20De%20Jaca/C_21_stkxrl.webp',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705940878/Dygav/Panticosa/c_panticosa_u1dbwj.webp',
   },
   {
-    slug: 'escarrilla',
-    cityName: 'Escarrilla',
+    slug: 'sallent-de-gallego',
+    cityName: 'Sallent de Gállego',
     bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1705427067/Dygav/Escarilla/C_15_tdvz5i.WebP',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705941035/Dygav/Sallent%20%20De%20G%C3%A1llego/c_sallentdegallego_fnllhz.webp',
   },
   {
     slug: 'el-pueyo-de-jaca',
     cityName: 'El Pueyo de Jaca',
     bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1705507179/Dygav/El%20Pueyo%20De%20Jaca/C_57_fzihpn.WebP',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705940961/Dygav/El%20Pueyo%20De%20Jaca/c_pueyodejaca_wp3zm4.webp',
   },
   {
-    slug: 'sandinies',
-    cityName: 'Sandiniés',
+    slug: 'escarrilla',
+    cityName: 'Escarrilla',
     bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1705507577/Dygav/Sandini%C3%A9s/C_30_b7ivss.WebP',
-  },
-  {
-    slug: 'sabinanigo',
-    cityName: 'Sabiñánigo',
-    bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1705508225/Dygav/Sabi%C3%B1%C3%A1nigo/C_61_p8bmil.WebP',
-  },
-  {
-    slug: 'jaca',
-    cityName: 'Jaca',
-    bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1705447527/Dygav/Jaca/C_48_tlcwlv.WebP',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705942839/Dygav/Escarilla/c_escarrilla_lsbtqx.webp',
   },
   {
     slug: 'piedrafita-de-jaca',
     cityName: 'Piedrafita de Jaca',
     bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1705592474/Dygav/Piedrafita%20de%20Jaca/C_27_rcexhe.WebP',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705940916/Dygav/Piedrafita%20de%20Jaca/c_piedrafitadejaca_gzbgra.webp',
+  },
+  {
+    slug: 'sabinanigo',
+    cityName: 'Sabiñánigo',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705941001/Dygav/Sabi%C3%B1%C3%A1nigo/c_sabinanigo_a9zaar.webp',
+  },
+  {
+    slug: 'lanuza',
+    cityName: 'Lanuza',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705940770/Dygav/Lanuza/c_lanuza_lacelk.webp',
+  },
+  {
+    slug: 'tramacastilla-de-tena',
+    cityName: 'Tramacastilla de Tena',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705941137/Dygav/Tramacastilla%20de%20Tena/c_tramacastilla_fhxw03.webp',
+  },
+  {
+    slug: 'hoz-de-jaca',
+    cityName: 'Hoz de Jaca',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705940692/Dygav/Hoz%20De%20Jaca/c_hozdejaca_zftyvs.webp',
+  },
+  {
+    slug: 'sandinies',
+    cityName: 'Sandiniés',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705941078/Dygav/Sandini%C3%A9s/c_sandinies_nkjdfs.webp',
   },
   {
     slug: 'oros',
     cityName: 'Oros',
     bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1705593080/Dygav/Or%C3%B3s/C_53_yturht.WebP',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705940799/Dygav/Or%C3%B3s/c_oros_j1uh9z.webp',
   },
   {
     slug: 'gavin',
     cityName: 'Gavin',
     bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1705677797/Dygav/Gavin/58_sgcmnm.WebP',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705940661/Dygav/Gavin/c_gavin_yjs1kd.webp',
   },
   {
     slug: 'escuer',
     cityName: 'Escuer',
     bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1705678403/Dygav/Escuer/C_56_kmkmor.WebP',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705940589/Dygav/Escuer/c_escuer_jpg0ji.webp',
   },
   {
     slug: 'senegue',
     cityName: 'Senegüe',
     bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1705679117/Dygav/Seneg%C3%BCe/C_68_p3ksse.WebP',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705941105/Dygav/Seneg%C3%BCe/c_senegue_ycqsev.webp',
   },
 ];
