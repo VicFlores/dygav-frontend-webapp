@@ -37,7 +37,7 @@ export const Post: FC<{ blog: BlogPost }> = ({ blog }) => {
               </h1>
 
               <div
-                className='text-justify space-y-4 post flex flex-col items-center'
+                className='text-justify space-y-4 post'
                 dangerouslySetInnerHTML={{ __html: blog.content?.rendered }}
               />
             </>
