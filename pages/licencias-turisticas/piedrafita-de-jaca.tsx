@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  PiedrafitaDeJacaInfo,
 } from '@/components';
 import { heroPiedraficaDeJacaImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const PiedraficaDeJacaLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <PiedrafitaDeJacaInfo />
 
       <CityLicense cityName={cityName} />
 

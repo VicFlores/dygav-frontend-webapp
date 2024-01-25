@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  GavinInfo,
 } from '@/components';
 import { heroGavinImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const GavinLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <GavinInfo />
 
       <CityLicense cityName={cityName} />
 

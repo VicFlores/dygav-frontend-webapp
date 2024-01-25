@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  PilarHoradadaInfo,
 } from '@/components';
 import { heroPilarDeLaHoradadaImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const PilarDeLaHoradadaLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <PilarHoradadaInfo />
 
       <CityLicense cityName={cityName} />
 

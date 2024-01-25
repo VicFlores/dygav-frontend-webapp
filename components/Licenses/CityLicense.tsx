@@ -4,37 +4,6 @@ import { BlogPost } from '@/types';
 import { PostsCardsCarrusel } from './PostsCardsCarrusel';
 import { CityCardsFooter } from './CityCardsFooter';
 import {
-  AlicanteInfo,
-  TorreviejaInfo,
-  BenidormInfo,
-  ElCampelloInfo,
-  FinestratInfo,
-  SantaPolaInfo,
-  VillajoyosaInfo,
-  OrihuelaOrihuelaCostaInfo,
-  GuardamarSeguraInfo,
-  CalpeInfo,
-  PilarHoradadaInfo,
-  AlteaInfo,
-  FormigalInfo,
-  SallenDeGallegoInfo,
-  LanuzaInfo,
-  TramacastillaTenaInfo,
-  PanticosaInfo,
-  BiescasInfo,
-  HozDeJacaInfo,
-  EscarrillaInfo,
-  ElPueyoDeJacaInfo,
-  SandiniesInfo,
-  SabiñánigoInfo,
-  JacaInfo,
-  PiedrafitaDeJacaInfo,
-  OrosInfo,
-  GavinInfo,
-  EscuerInfo,
-  SenegueInfo,
-} from '..';
-import {
   generalImages,
   pirineosAragonImages,
 } from '@/utils/static/licenseImages';
@@ -62,39 +31,6 @@ export const CityLicense: FC<CityLicenseProps> = ({ cityName }) => {
     getPosts();
   }, [cityName]);
 
-  const cityInfoComponents: { [key: string]: React.FC } = {
-    torrevieja: TorreviejaInfo,
-    alicante: AlicanteInfo,
-    benidorm: BenidormInfo,
-    orihuela: OrihuelaOrihuelaCostaInfo,
-    'orihuela-costa': OrihuelaOrihuelaCostaInfo,
-    'guardamar-del-segura': GuardamarSeguraInfo,
-    'santa-pola': SantaPolaInfo,
-    villajoyosa: VillajoyosaInfo,
-    finestrat: FinestratInfo,
-    'el-campello': ElCampelloInfo,
-    calpe: CalpeInfo,
-    'pilar-de-la-horadada': PilarHoradadaInfo,
-    altea: AlteaInfo,
-    formigal: FormigalInfo,
-    'sallent-de-gallego': SallenDeGallegoInfo,
-    lanuza: LanuzaInfo,
-    'tramacastilla-de-tena': TramacastillaTenaInfo,
-    panticosa: PanticosaInfo,
-    biescas: BiescasInfo,
-    'hoz-de-jaca': HozDeJacaInfo,
-    escarrilla: EscarrillaInfo,
-    'el-pueyo-de-jaca': ElPueyoDeJacaInfo,
-    sandinies: SandiniesInfo,
-    sabinanigo: SabiñánigoInfo,
-    jaca: JacaInfo,
-    'piedrafita-de-jaca': PiedrafitaDeJacaInfo,
-    oros: OrosInfo,
-    gavin: GavinInfo,
-    escuer: EscuerInfo,
-    senegue: SenegueInfo,
-  };
-
   function capitalizeFirstLetterOfEachWord(str: string) {
     return str
       .split(' ')
@@ -106,12 +42,8 @@ export const CityLicense: FC<CityLicenseProps> = ({ cityName }) => {
   const capitalizedCityName =
     capitalizeFirstLetterOfEachWord(formattedCityName);
 
-  const CityInfoComponent = cityInfoComponents[cityName];
-
   return (
     <>
-      {CityInfoComponent ? <CityInfoComponent /> : <></>}
-
       {posts.length > 0 ? (
         <section className='mt-16 mb-16 px-6 md:px-12 lg:px-28 flex flex-col items-center'>
           <PostsCardsCarrusel

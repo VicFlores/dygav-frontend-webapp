@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  AlicanteInfo,
 } from '@/components';
 import { heroAlicanteImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const AlicanteLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <AlicanteInfo />
 
       <CityLicense cityName={cityName} />
 

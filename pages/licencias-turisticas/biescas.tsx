@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  BiescasInfo,
 } from '@/components';
 import { heroBiescasImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const BiescasLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <BiescasInfo />
 
       <CityLicense cityName={cityName} />
 

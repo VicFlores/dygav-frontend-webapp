@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  FinestratInfo,
 } from '@/components';
 import { heroFinestrartImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const FinestratLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <FinestratInfo />
 
       <CityLicense cityName={cityName} />
 

@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  PanticosaInfo,
 } from '@/components';
 import { heroPanticosaImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const PanticosaLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <PanticosaInfo />
 
       <CityLicense cityName={cityName} />
 

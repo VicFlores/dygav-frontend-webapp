@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  TorreviejaInfo,
 } from '@/components';
 import { heroTorreviejaImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const TorreviejaLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <TorreviejaInfo />
 
       <CityLicense cityName={cityName} />
 

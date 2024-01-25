@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  OrihuelaOrihuelaCostaInfo,
 } from '@/components';
 import { heroOrihuelaImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const OrihuelaCostaLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <OrihuelaOrihuelaCostaInfo />
 
       <CityLicense cityName={cityName} />
 

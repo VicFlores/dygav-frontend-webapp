@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  FormigalInfo,
 } from '@/components';
 import { heroFormigalImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const FormigalLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <FormigalInfo />
 
       <CityLicense cityName={cityName} />
 

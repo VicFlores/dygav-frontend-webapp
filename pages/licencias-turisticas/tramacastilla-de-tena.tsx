@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  TramacastillaTenaInfo,
 } from '@/components';
 import { heroTramacastillaImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const TramacastillaDeTenaLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <TramacastillaTenaInfo />
 
       <CityLicense cityName={cityName} />
 

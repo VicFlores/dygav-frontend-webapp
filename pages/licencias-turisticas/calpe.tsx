@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  CalpeInfo,
 } from '@/components';
 import { heroCalpeImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const CalpeLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <CalpeInfo />
 
       <CityLicense cityName={cityName} />
 

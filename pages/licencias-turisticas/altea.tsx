@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  AlteaInfo,
 } from '@/components';
 import { heroAlteaImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const AlteaLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <AlteaInfo />
 
       <CityLicense cityName={cityName} />
 

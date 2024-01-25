@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  EscarrillaInfo,
 } from '@/components';
 import { heroEscarrillaImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const EscarrillaLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <EscarrillaInfo />
 
       <CityLicense cityName={cityName} />
 

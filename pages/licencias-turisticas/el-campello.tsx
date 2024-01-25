@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  ElCampelloInfo,
 } from '@/components';
 import { heroElCampelloImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const ElCampelloLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <ElCampelloInfo />
 
       <CityLicense cityName={cityName} />
 

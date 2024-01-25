@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  SenegueInfo,
 } from '@/components';
 import { heroSenegueImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const SenegueLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <SenegueInfo />
 
       <CityLicense cityName={cityName} />
 

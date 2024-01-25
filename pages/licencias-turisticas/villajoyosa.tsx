@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  VillajoyosaInfo,
 } from '@/components';
 import { heroVillajoyosaImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const VillajoyosaLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <VillajoyosaInfo />
 
       <CityLicense cityName={cityName} />
 

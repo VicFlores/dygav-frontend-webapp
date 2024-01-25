@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  EscuerInfo,
 } from '@/components';
 import { heroEscuerImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const EscuerLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <EscuerInfo />
 
       <CityLicense cityName={cityName} />
 

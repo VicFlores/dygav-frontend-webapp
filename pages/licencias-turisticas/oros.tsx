@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  OrosInfo,
 } from '@/components';
 import { heroOrosImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const OrosLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <OrosInfo />
 
       <CityLicense cityName={cityName} />
 

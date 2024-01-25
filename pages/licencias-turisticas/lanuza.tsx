@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  LanuzaInfo,
 } from '@/components';
 import { heroLanuzaImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const LanuzaLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <LanuzaInfo />
 
       <CityLicense cityName={cityName} />
 

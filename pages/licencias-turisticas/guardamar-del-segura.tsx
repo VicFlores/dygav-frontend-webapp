@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  GuardamarSeguraInfo,
 } from '@/components';
 import { heroGuardamarDelSeguraImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -35,6 +36,8 @@ const GuardamarDelSeguraLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <GuardamarSeguraInfo />
 
       <CityLicense cityName={cityName} />
 

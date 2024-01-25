@@ -6,6 +6,7 @@ import {
   HelpFixedButton,
   CityLicense,
   Footer,
+  SallenDeGallegoInfo,
 } from '@/components';
 import { heroSallenDeGallegoImages } from '@/utils';
 import { useSession } from 'next-auth/react';
@@ -37,6 +38,8 @@ const SallentDeGallegoLicensePage = () => {
         </Layout>
       </MainHero>
       <HelpFixedButton />
+
+      <SallenDeGallegoInfo />
 
       <CityLicense cityName={cityName} />
 
