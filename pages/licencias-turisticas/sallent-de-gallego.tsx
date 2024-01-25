@@ -9,6 +9,7 @@ import {
   SallenDeGallegoInfo,
 } from '@/components';
 import { heroSallenDeGallegoImages } from '@/utils';
+import { pirineosAragonImages } from '@/utils/static/licenseImages';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -41,7 +42,7 @@ const SallentDeGallegoLicensePage = () => {
 
       <SallenDeGallegoInfo />
 
-      <CityLicense cityName={cityName} />
+      <CityLicense cityName={cityName} images={pirineosAragonImages} />
 
       <Footer />
     </section>

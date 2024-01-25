@@ -9,6 +9,7 @@ import {
   GuardamarSeguraInfo,
 } from '@/components';
 import { heroGuardamarDelSeguraImages } from '@/utils';
+import { generalImages } from '@/utils/static/licenseImages';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -39,7 +40,7 @@ const GuardamarDelSeguraLicensePage = () => {
 
       <GuardamarSeguraInfo />
 
-      <CityLicense cityName={cityName} />
+      <CityLicense cityName={cityName} images={generalImages} />
 
       <Footer />
     </section>

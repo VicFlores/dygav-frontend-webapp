@@ -9,6 +9,7 @@ import {
   VillajoyosaInfo,
 } from '@/components';
 import { heroVillajoyosaImages } from '@/utils';
+import { generalImages } from '@/utils/static/licenseImages';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -39,7 +40,7 @@ const VillajoyosaLicensePage = () => {
 
       <VillajoyosaInfo />
 
-      <CityLicense cityName={cityName} />
+      <CityLicense cityName={cityName} images={generalImages} />
 
       <Footer />
     </section>

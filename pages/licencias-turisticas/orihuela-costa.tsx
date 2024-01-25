@@ -9,6 +9,7 @@ import {
   OrihuelaOrihuelaCostaInfo,
 } from '@/components';
 import { heroOrihuelaImages } from '@/utils';
+import { generalImages } from '@/utils/static/licenseImages';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -39,7 +40,7 @@ const OrihuelaCostaLicensePage = () => {
 
       <OrihuelaOrihuelaCostaInfo />
 
-      <CityLicense cityName={cityName} />
+      <CityLicense cityName={cityName} images={generalImages} />
 
       <Footer />
     </section>

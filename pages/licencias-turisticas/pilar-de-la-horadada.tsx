@@ -12,6 +12,7 @@ import { heroPilarDeLaHoradadaImages } from '@/utils';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
+import { generalImages } from '../../utils/static/licenseImages';
 
 const PilarDeLaHoradadaLicensePage = () => {
   const { data: session } = useSession();
@@ -39,7 +40,7 @@ const PilarDeLaHoradadaLicensePage = () => {
 
       <PilarHoradadaInfo />
 
-      <CityLicense cityName={cityName} />
+      <CityLicense cityName={cityName} images={generalImages} />
 
       <Footer />
     </section>

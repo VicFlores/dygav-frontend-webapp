@@ -9,6 +9,7 @@ import {
   FormigalInfo,
 } from '@/components';
 import { heroFormigalImages } from '@/utils';
+import { pirineosAragonImages } from '@/utils/static/licenseImages';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -39,7 +40,7 @@ const FormigalLicensePage = () => {
 
       <FormigalInfo />
 
-      <CityLicense cityName={cityName} />
+      <CityLicense cityName={cityName} images={pirineosAragonImages} />
 
       <Footer />
     </section>

@@ -9,6 +9,7 @@ import {
   BiescasInfo,
 } from '@/components';
 import { heroBiescasImages } from '@/utils';
+import { pirineosAragonImages } from '@/utils/static/licenseImages';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -39,7 +40,7 @@ const BiescasLicensePage = () => {
 
       <BiescasInfo />
 
-      <CityLicense cityName={cityName} />
+      <CityLicense cityName={cityName} images={pirineosAragonImages} />
 
       <Footer />
     </section>
