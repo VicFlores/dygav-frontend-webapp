@@ -32,7 +32,7 @@ export const Post: FC<{ blog: BlogPost }> = ({ blog }) => {
             </div>
           ) : (
             <>
-              <h1 className='text-3xl font-bold text-center mb-6 border-b-4 border-b-p600 pb-4'>
+              <h1 className='text-[1.5rem] lg:text-3xl font-bold text-center mb-6 border-b-4 border-b-p600 pb-4'>
                 {blog.title?.rendered}
               </h1>
 

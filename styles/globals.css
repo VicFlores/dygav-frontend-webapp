@@ -40,10 +40,18 @@
 
 .post h2 {
   font-size: 1.875rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 }
 
 .post h3 {
   font-size: 1.5rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.25rem;
+  }
 }
 
 .post p,
