@@ -9,11 +9,11 @@ import {
   HeroLicense,
   HelpFixedButton,
   Footer,
-  FormigalMgmtInfo,
+  SallentDeGallegoMgmtInfo,
   CityLicense,
 } from '@/components';
 
-const FormigalOwnersPage = () => {
+const SallentDeGallegoOwnersPage = () => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -24,8 +24,8 @@ const FormigalOwnersPage = () => {
   return (
     <section>
       <UtilHead
-        title={`Gestion de Viviendas Turísticas en Formigal - Dygav.es`}
-        content={`Descubre todo lo necesario para gestionar tu vivienda turística en Formigal de forma sencilla y rápida.`}
+        title={`Gestion de Viviendas Turísticas en Sallent De Gallego - Dygav.es`}
+        content={`Descubre todo lo necesario para gestionar tu vivienda turística en Sallent De Gallego de forma sencilla y rápida.`}
       />
       <MainHero>
         <Layout session={session}>
@@ -37,7 +37,7 @@ const FormigalOwnersPage = () => {
       </MainHero>
       <HelpFixedButton />
 
-      <FormigalMgmtInfo />
+      <SallentDeGallegoMgmtInfo />
 
       <CityLicense
         cityName={cityName}
@@ -50,4 +50,4 @@ const FormigalOwnersPage = () => {
   );
 };
 
-export default FormigalOwnersPage;
+export default SallentDeGallegoOwnersPage;

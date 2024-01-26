@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { BiPhoneCall } from 'react-icons/bi';
 import { FAQSection } from './FAQSection';
 import { VacationRentalHome } from './VacationRentalHome';
+import { CityCards } from '../Licenses/CityCards';
+import { managementHomes } from '@/utils/static/licenseImages';
 
 export const Information = () => {
   const generalFAQS = [
@@ -291,6 +293,28 @@ export const Information = () => {
       <HelpYouForm />
 
       <h2 className='text-center text-2xl md:text-3xl border-b-4 border-b-p600 mt-6 pb-2 font-semibold'>
+        Conoce más sobre la gestión de viviendas turísticas en tu ciudad
+      </h2>
+
+      <p className='text-justify lg:text-start text-sm md:text-lg mt-4'>
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. It has survived not only five
+        centuries, but also the leap into electronic typesetting, remaining
+        essentially unchanged. It was popularised in the 1960s with the release
+        of Letraset sheets containing Lorem Ipsum passages, and more recently
+        with desktop publishing software like Aldus PageMaker including versions
+        of Lorem Ipsum.
+      </p>
+
+      <CityCards
+        images={managementHomes}
+        cardTitle='Gestion de viviendas en'
+        link='/gestion-viviendas-turisticas'
+      />
+
+      <h2 className='text-center text-2xl md:text-3xl border-b-4 border-b-p600 mt-24 pb-2 font-semibold'>
         Preguntas Comunes sobre Nuestra Gestión de Viviendas Turísticas
       </h2>
 

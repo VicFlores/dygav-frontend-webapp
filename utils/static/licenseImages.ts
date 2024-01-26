@@ -191,6 +191,12 @@ export const managementHomes: ImageProps[] = [
     slug: 'formigal',
     cityName: 'Formigal',
     bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/2_jvslgl.WebP',
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705940626/Dygav/Formigal/c_formigal_ukki6z.webp',
+  },
+  {
+    slug: 'sallent-de-gallego',
+    cityName: 'Sallent de Gállego',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705941035/Dygav/Sallent%20%20De%20G%C3%A1llego/c_sallentdegallego_fnllhz.webp',
   },
 ];

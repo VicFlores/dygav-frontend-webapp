@@ -8,9 +8,14 @@ import { ImageProps } from '@/types/TImageProps';
 type CityLicenseProps = {
   cityName: string;
   images: ImageProps[];
+  typeOfPage?: string;
 };
 
-export const CityLicense: FC<CityLicenseProps> = ({ cityName, images }) => {
+export const CityLicense: FC<CityLicenseProps> = ({
+  cityName,
+  images,
+  typeOfPage,
+}) => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
@@ -57,7 +62,15 @@ export const CityLicense: FC<CityLicenseProps> = ({ cityName, images }) => {
         <></>
       )}
 
-      <CityCardsFooter images={images} />
+      {typeOfPage ? (
+        <CityCardsFooter
+          images={images}
+          cardTitle='Gestion de viviendas en'
+          link='/gestion-viviendas-turisticas'
+        />
+      ) : (
+        <CityCardsFooter images={images} />
+      )}
     </>
   );
 };

@@ -9,7 +9,11 @@ interface ImageProps {
   slug: string;
 }
 
-export const CityCardsFooter: FC<{ images: ImageProps[] }> = ({ images }) => {
+export const CityCardsFooter: FC<{
+  images: ImageProps[];
+  cardTitle?: string;
+  link?: string;
+}> = ({ images, cardTitle, link }) => {
   const router = useRouter();
 
   let path = router.pathname;
@@ -58,16 +62,21 @@ export const CityCardsFooter: FC<{ images: ImageProps[] }> = ({ images }) => {
               <div
                 className={`bg-cover bg-center flex items-end`}
                 style={{
-                  backgroundImage: `url(${image.bgCity})`,
+                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url(${image.bgCity})`,
                   width: '100%',
                   height: '100%',
                 }}
               >
                 <Link
-                  href={`/licencias-turisticas/${image.slug}`}
+                  href={
+                    link
+                      ? `${link}/${image.slug}`
+                      : `/licencias-turisticas/${image.slug}`
+                  }
                   className='text-white pl-4 pb-4 text-sm md:text-lg underline'
                 >
-                  Licencia turística en <br /> {image.cityName}
+                  {cardTitle ? cardTitle : 'Licencia turística en'} <br />{' '}
+                  {image.cityName}
                 </Link>
               </div>
             </div>

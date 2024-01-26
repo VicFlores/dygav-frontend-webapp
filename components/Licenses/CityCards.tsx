@@ -8,7 +8,11 @@ interface ImageProps {
   slug: string;
 }
 
-export const CityCards: FC<{ images: ImageProps[] }> = ({ images }) => {
+export const CityCards: FC<{
+  images: ImageProps[];
+  cardTitle?: string;
+  link?: string;
+}> = ({ images, cardTitle, link }) => {
   const scrollContainer = useRef<HTMLDivElement>(null);
 
   const scrollLeft = () => {
@@ -37,18 +41,26 @@ export const CityCards: FC<{ images: ImageProps[] }> = ({ images }) => {
         className='w-auto h-auto items-center mt-6 p-6 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden scrollbar'
       >
         {images.map((image, index) => (
-          <Link href={`/licencias-turisticas/${image.slug}`} key={index}>
+          <Link
+            href={
+              link
+                ? `${link}/${image.slug}`
+                : `/licencias-turisticas/${image.slug}`
+            }
+            key={index}
+          >
             <div className='w-60 h-80 md:w-70 md:h-80 shadow-md rounded-lg overflow-hidden flex-none transform transition-all hover:-translate-y-4 hover:shadow-xl'>
               <div
                 style={{
-                  backgroundImage: `url(${image.bgCity})`,
+                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url(${image.bgCity})`,
                   width: '100%',
                   height: '100%',
                 }}
                 className='bg-cover bg-center flex items-end'
               >
                 <h4 className='text-white pl-4 pb-4 text-sm md:text-lg'>
-                  Licencia turística en <br /> {image.cityName}
+                  {cardTitle ? cardTitle : 'Licencia turística en'}{' '}
+                  {image.cityName}
                 </h4>
               </div>
             </div>

@@ -2,6 +2,7 @@ import { CityImages } from '../Licenses/CityImages';
 import { OwnersIcons } from './OwnersIcons';
 import { HelpYouForm, Llamanos } from '..';
 import { VacationRentalHome } from './VacationRentalHome';
+import Link from 'next/link';
 
 const images = [
   {
@@ -123,16 +124,25 @@ export const FormigalMgmtInfo = () => {
 
       <div className='text-justify lg:text-start text-sm md:text-lg pt-4 space-y-4 '>
         <p>
-          Desde la obtención de la licencia turística en Formigal hasta la
-          puesta en marcha del piso para poder alquilarlo mediante la
+          Desde la{' '}
+          <span>
+            <Link
+              href={'/licencias-turisticas/formigal'}
+              className='underline text-p600'
+            >
+              obtención de la licencia turística en Formigal
+            </Link>
+          </span>{' '}
+          hasta la puesta en marcha del piso para poder alquilarlo mediante la
           publicación de su anuncio optimizada en plataformas de alquiler,
           pasando por la gestión de la llegada de huéspedes, la limpieza y el
           mantenimiento… nos encargamos de todo.
         </p>
 
         <p>
-          ¡Descubre una forma más efectiva de gestionar tus apartamentos
-          vacacionales con nosotros en Formigal!
+          ¡Descubre una forma más efectiva de{' '}
+          <strong>gestionar tus apartamentos vacacionales</strong> con nosotros
+          en Formigal!
         </p>
       </div>
 
