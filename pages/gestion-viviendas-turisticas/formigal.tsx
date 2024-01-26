@@ -1,3 +1,7 @@
+import { managementHomes } from '@/utils/static/licenseImages';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
+import React from 'react';
 import {
   UtilHead,
   MainHero,
@@ -8,11 +12,6 @@ import {
   FormigalMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroAlicanteImages } from '@/utils';
-import { managementHomes } from '@/utils/static/licenseImages';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
-import React from 'react';
 
 const AlicanteLicensePage = () => {
   const { data: session } = useSession();
@@ -28,7 +27,7 @@ const AlicanteLicensePage = () => {
         title={`Gestion de Viviendas Turísticas en Formigal - Dygav.es`}
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Formigal de forma sencilla y rápida.`}
       />
-      <MainHero images={heroAlicanteImages}>
+      <MainHero>
         <Layout session={session}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
