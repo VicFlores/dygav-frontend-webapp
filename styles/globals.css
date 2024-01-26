@@ -54,6 +54,10 @@ table {
 .post figure {
   width: 40rem;
   padding: 20px 0;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .post img {
