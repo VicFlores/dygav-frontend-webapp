@@ -1,8 +1,4 @@
-interface ImageProps {
-  cityName: string;
-  bgCity: string;
-  slug: string;
-}
+import { ImageProps } from '@/types/TImageProps';
 
 export const generalImages: ImageProps[] = [
   {
@@ -187,5 +183,14 @@ export const pirineosAragonImages: ImageProps[] = [
     cityName: 'Senegüe',
     bgCity:
       'https://res.cloudinary.com/vicflores11/image/upload/v1705941105/Dygav/Seneg%C3%BCe/c_senegue_ycqsev.webp',
+  },
+];
+
+export const managementHomes: ImageProps[] = [
+  {
+    slug: 'formigal',
+    cityName: 'Formigal',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/2_jvslgl.WebP',
   },
 ];

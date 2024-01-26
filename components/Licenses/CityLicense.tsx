@@ -3,16 +3,14 @@ import axios from 'axios';
 import { BlogPost } from '@/types';
 import { PostsCardsCarrusel } from './PostsCardsCarrusel';
 import { CityCardsFooter } from './CityCardsFooter';
-import {
-  generalImages,
-  pirineosAragonImages,
-} from '@/utils/static/licenseImages';
+import { ImageProps } from '@/types/TImageProps';
 
 type CityLicenseProps = {
   cityName: string;
+  images: ImageProps[];
 };
 
-export const CityLicense: FC<CityLicenseProps> = ({ cityName }) => {
+export const CityLicense: FC<CityLicenseProps> = ({ cityName, images }) => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
@@ -59,13 +57,7 @@ export const CityLicense: FC<CityLicenseProps> = ({ cityName }) => {
         <></>
       )}
 
-      {generalImages.some((image) => image.slug === cityName) ? (
-        <CityCardsFooter images={generalImages} />
-      ) : pirineosAragonImages.some((image) => image.slug === cityName) ? (
-        <CityCardsFooter images={pirineosAragonImages} />
-      ) : (
-        <></>
-      )}
+      <CityCardsFooter images={images} />
     </>
   );
 };

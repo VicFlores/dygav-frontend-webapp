@@ -88,3 +88,4 @@ export * from './ApartamentosTuristicos/ApartamentosTuristicosHero';
 export * from './Post/Post';
 export * from './BlogPostCategories/BlogPostCategories';
 export * from './Posts/PostCardCategories';
+export * from './Owners/FormigalMgmtInfo';
