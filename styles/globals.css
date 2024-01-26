@@ -33,13 +33,13 @@
   line-height: 2.25rem;
   padding: 2rem 0 0.5rem 0;
   text-align: center;
-  border-bottom-width: 4px;
-  --tw-border-opacity: 1;
-  border-bottom-color: rgb(244 81 30 / var(--tw-border-opacity));
 }
 
 .post h2 {
   font-size: 1.875rem;
+  border-bottom-width: 4px;
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(244 81 30 / var(--tw-border-opacity));
 
   @media screen and (max-width: 768px) {
     font-size: 1.5rem;
@@ -48,15 +48,34 @@
 
 .post h3 {
   font-size: 1.5rem;
+  align-self: flex-start;
 
   @media screen and (max-width: 768px) {
     font-size: 1.25rem;
+    align-self: center;
   }
 }
 
 .post p,
 table {
   align-self: flex-start;
+}
+
+.post li {
+  list-style-type: disc;
+  padding-left: 2px;
+  margin-left: 4rem;
+
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
+  }
+}
+.post table {
+  border: 1.5px solid black;
+}
+
+.post td {
+  padding: 1rem;
 }
 
 .post figure {
@@ -79,4 +98,5 @@ table {
 
 .post a {
   text-decoration: underline;
+  color: #f4511e;
 }
