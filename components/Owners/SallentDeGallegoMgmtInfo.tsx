@@ -128,12 +128,20 @@ export const SallentDeGallegoMgmtInfo = () => {
 
       <div className='text-justify lg:text-start text-sm md:text-lg pt-4 space-y-4 '>
         <p>
-          Nos ocupamos de todo, desde los trámites para la obtención de la
-          licencia turística hasta la gestión integral de tu propiedad,
-          incluyendo la promoción en plataformas de alquiler, la atención a los
-          huéspedes, el mantenimiento y limpieza de la vivienda. Descubre con
-          nosotros la manera más eficiente y rentable de gestionar tus
-          propiedades en Sallent de Gállego.
+          Nos ocupamos de todo, desde los trámites para la{' '}
+          <span>
+            <Link
+              href={'/licencias-turisticas/sallent-de-gallego'}
+              className='underline text-p600'
+            >
+              obtención de la licencia turística
+            </Link>
+          </span>{' '}
+          hasta la gestión integral de tu propiedad, incluyendo la promoción en
+          plataformas de alquiler, la atención a los huéspedes, el mantenimiento
+          y limpieza de la vivienda. Descubre con nosotros la manera más
+          eficiente y rentable de gestionar tus propiedades en Sallent de
+          Gállego.
         </p>
       </div>
 
