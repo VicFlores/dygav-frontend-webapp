@@ -92,3 +92,4 @@ export * from './Owners/FormigalMgmtInfo';
 export * from './Owners/SallentDeGallegoMgmtInfo';
 export * from './Owners/LanuzaMgmtInfo';
 export * from './Owners/BiescasMgmtInfo';
+export * from './Owners/TramacastillaDeTenaMgmtInfo';

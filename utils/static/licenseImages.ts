@@ -211,4 +211,10 @@ export const managementHomes: ImageProps[] = [
     bgCity:
       'https://res.cloudinary.com/vicflores11/image/upload/v1705940407/Dygav/Biescas/c_biescas_tmxm6t.webp',
   },
+  {
+    slug: 'tramacastilla-de-tena',
+    cityName: 'Tramacastilla de Tena',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705941137/Dygav/Tramacastilla%20de%20Tena/c_tramacastilla_fhxw03.webp',
+  },
 ];
