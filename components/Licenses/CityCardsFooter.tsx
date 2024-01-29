@@ -75,7 +75,7 @@ export const CityCardsFooter: FC<{
                   }
                   className='text-white pl-4 pb-4 text-sm md:text-lg underline'
                 >
-                  {cardTitle ? cardTitle : 'Licencia turística en'} <br />{' '}
+                  {cardTitle ? cardTitle : 'Licencia turística en'}{' '}
                   {image.cityName}
                 </Link>
               </div>

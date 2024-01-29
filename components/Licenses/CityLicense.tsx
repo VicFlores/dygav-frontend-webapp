@@ -65,7 +65,7 @@ export const CityLicense: FC<CityLicenseProps> = ({
       {typeOfPage ? (
         <CityCardsFooter
           images={images}
-          cardTitle='Gestion de viviendas en'
+          cardTitle='Gestión de Viviendas Turísticas'
           link='/gestion-viviendas-turisticas'
         />
       ) : (
