@@ -12,6 +12,7 @@ import {
   BiescasMgmtInfo,
   CityLicense,
 } from '@/components';
+import { heroBiescasImages } from '@/utils';
 
 const BiescasOwnersPage = () => {
   const { data: session } = useSession();
@@ -27,7 +28,7 @@ const BiescasOwnersPage = () => {
         title={`Gestion de Viviendas Turísticas en Biescas - Dygav.es`}
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Biescas de forma sencilla y rápida.`}
       />
-      <MainHero>
+      <MainHero images={heroBiescasImages}>
         <Layout session={session}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}

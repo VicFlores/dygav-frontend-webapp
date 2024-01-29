@@ -12,6 +12,7 @@ import {
   SallentDeGallegoMgmtInfo,
   CityLicense,
 } from '@/components';
+import { heroSallenDeGallegoImages } from '@/utils';
 
 const SallentDeGallegoOwnersPage = () => {
   const { data: session } = useSession();
@@ -27,7 +28,7 @@ const SallentDeGallegoOwnersPage = () => {
         title={`Gestion de Viviendas Turísticas en Sallent De Gallego - Dygav.es`}
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Sallent De Gallego de forma sencilla y rápida.`}
       />
-      <MainHero>
+      <MainHero images={heroSallenDeGallegoImages}>
         <Layout session={session}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}

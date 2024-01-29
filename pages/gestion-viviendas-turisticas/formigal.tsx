@@ -12,6 +12,7 @@ import {
   FormigalMgmtInfo,
   CityLicense,
 } from '@/components';
+import { heroFormigalImages } from '@/utils';
 
 const FormigalOwnersPage = () => {
   const { data: session } = useSession();
@@ -27,7 +28,7 @@ const FormigalOwnersPage = () => {
         title={`Gestion de Viviendas Turísticas en Formigal - Dygav.es`}
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Formigal de forma sencilla y rápida.`}
       />
-      <MainHero>
+      <MainHero images={heroFormigalImages}>
         <Layout session={session}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}

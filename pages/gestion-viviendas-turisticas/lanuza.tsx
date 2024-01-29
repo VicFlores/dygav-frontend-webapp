@@ -12,6 +12,7 @@ import {
   LanuzaMgmtInfo,
   CityLicense,
 } from '@/components';
+import { heroLanuzaImages } from '@/utils';
 
 const LanuzaOwnersPage = () => {
   const { data: session } = useSession();
@@ -27,7 +28,7 @@ const LanuzaOwnersPage = () => {
         title={`Gestion de Viviendas Turísticas en Lanuza - Dygav.es`}
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Lanuza de forma sencilla y rápida.`}
       />
-      <MainHero>
+      <MainHero images={heroLanuzaImages}>
         <Layout session={session}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}

@@ -12,6 +12,7 @@ import {
   TramacastillaDeTenaMgmtInfo,
   CityLicense,
 } from '@/components';
+import { heroTramacastillaImages } from '@/utils';
 
 const TramacastillaDeTenaOwnersPage = () => {
   const { data: session } = useSession();
@@ -27,7 +28,7 @@ const TramacastillaDeTenaOwnersPage = () => {
         title={`Gestion de Viviendas Turísticas en Tramacastilla De Tena - Dygav.es`}
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Tramacastilla De Tena de forma sencilla y rápida.`}
       />
-      <MainHero>
+      <MainHero images={heroTramacastillaImages}>
         <Layout session={session}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
