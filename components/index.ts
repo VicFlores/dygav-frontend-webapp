@@ -94,3 +94,4 @@ export * from './Owners/LanuzaMgmtInfo';
 export * from './Owners/BiescasMgmtInfo';
 export * from './Owners/TramacastillaDeTenaMgmtInfo';
 export * from './Owners/PanticosaMgmtInfo';
+export * from './Owners/JacaMgmtInfo';
