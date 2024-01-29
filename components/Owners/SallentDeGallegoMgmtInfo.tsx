@@ -122,7 +122,7 @@ export const SallentDeGallegoMgmtInfo = () => {
 
       <VacationRentalHome />
 
-      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-24'>
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-10'>
         Descubre una forma más efectiva de gestionar tu vivienda turística
       </h2>
 

@@ -1,6 +1,7 @@
 import { informationCard } from '@/utils';
 import Image from 'next/legacy/image';
 import React from 'react';
+import { OwnersIcons } from './OwnersIcons';
 
 export const VacationRentalHome = () => {
   return (
@@ -141,6 +142,8 @@ export const VacationRentalHome = () => {
         alquiler vacacional al siguiente nivel:{' '}
         <strong>eficiente, transparente y accesible</strong>.
       </p>
+
+      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706281157/Dygav/ownersicon_tumwiv.svg' />
     </>
   );
 };
