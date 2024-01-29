@@ -205,4 +205,10 @@ export const managementHomes: ImageProps[] = [
     bgCity:
       'https://res.cloudinary.com/vicflores11/image/upload/v1705940770/Dygav/Lanuza/c_lanuza_lacelk.webp',
   },
+  {
+    slug: 'biescas',
+    cityName: 'Biescas',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705940407/Dygav/Biescas/c_biescas_tmxm6t.webp',
+  },
 ];

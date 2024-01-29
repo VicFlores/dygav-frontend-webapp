@@ -91,3 +91,4 @@ export * from './Posts/PostCardCategories';
 export * from './Owners/FormigalMgmtInfo';
 export * from './Owners/SallentDeGallegoMgmtInfo';
 export * from './Owners/LanuzaMgmtInfo';
+export * from './Owners/BiescasMgmtInfo';
