@@ -290,9 +290,7 @@ export const Information = () => {
 
       <VacationRentalHome />
 
-      <HelpYouForm />
-
-      <h2 className='text-center text-2xl md:text-3xl border-b-4 border-b-p600 mt-6 pb-2 font-semibold'>
+      <h2 className='text-center text-2xl md:text-3xl border-b-4 border-b-p600 mt-24 pb-2 font-semibold'>
         ¿Dónde Gestionamos Viviendas Turísticas?
       </h2>
 
@@ -318,7 +316,9 @@ export const Information = () => {
         link='/gestion-viviendas-turisticas'
       />
 
-      <h2 className='text-center text-2xl md:text-3xl border-b-4 border-b-p600 mt-24 pb-2 font-semibold'>
+      <HelpYouForm />
+
+      <h2 className='text-center text-2xl md:text-3xl border-b-4 border-b-p600 mt-16 pb-2 font-semibold'>
         Preguntas Comunes sobre Nuestra Gestión de Viviendas Turísticas
       </h2>
 

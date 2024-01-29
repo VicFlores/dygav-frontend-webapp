@@ -76,7 +76,7 @@ export const LicenseAditionalInfo = () => {
       </div>
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-40 lg:px-4 mt-16'>
-        Licencias turísticas en la Costa Blanca
+        Licencias Turísticas en la Costa Blanca
       </h2>
 
       <div className='text-justify text-sm md:text-lg pt-4 space-y-4'>
