@@ -217,4 +217,10 @@ export const managementHomes: ImageProps[] = [
     bgCity:
       'https://res.cloudinary.com/vicflores11/image/upload/v1705941137/Dygav/Tramacastilla%20de%20Tena/c_tramacastilla_fhxw03.webp',
   },
+  {
+    slug: 'panticosa',
+    cityName: 'Panticosa',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705940878/Dygav/Panticosa/c_panticosa_u1dbwj.webp',
+  },
 ];
