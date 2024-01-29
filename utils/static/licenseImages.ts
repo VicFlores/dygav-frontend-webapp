@@ -199,4 +199,10 @@ export const managementHomes: ImageProps[] = [
     bgCity:
       'https://res.cloudinary.com/vicflores11/image/upload/v1705941035/Dygav/Sallent%20%20De%20G%C3%A1llego/c_sallentdegallego_fnllhz.webp',
   },
+  {
+    slug: 'lanuza',
+    cityName: 'Lanuza',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705940770/Dygav/Lanuza/c_lanuza_lacelk.webp',
+  },
 ];
