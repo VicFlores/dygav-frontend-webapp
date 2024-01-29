@@ -141,7 +141,7 @@ export const LicenseAditionalInfo = () => {
           </h2>
 
           <h3 className='text-center md:text-start text-2xl  md:text-3xl font-semibold pt-3'>
-            ¿Cómo obtener una licencia turística en mi ciudad?
+            ¿Cómo obtener una licencia turística en La Costa Blanca?
           </h3>
         </div>
 
