@@ -293,8 +293,24 @@ export const Information = () => {
       <HelpYouForm />
 
       <h2 className='text-center text-2xl md:text-3xl border-b-4 border-b-p600 mt-6 pb-2 font-semibold'>
-        Conoce más sobre la gestión de viviendas turísticas en tu ciudad
+        ¿Dónde Gestionamos Viviendas Turísticas?
       </h2>
+
+      <p className='text-justify lg:text-start text-sm md:text-lg mt-4'>
+        Actualmente en DYGAV,{' '}
+        <strong>
+          nos enorgullecemos de gestionar una selecta cartera de viviendas
+          turísticas
+        </strong>{' '}
+        en tres diversos destinos de España: <strong>Madrid</strong>, con su
+        agitada vida urbana y cultural; <strong>Costa Blanca</strong>, famosa
+        por sus idílicas playas y clima mediterráneo; y los{' '}
+        <strong>Pirineos</strong>, un épico destino para los amantes de la
+        naturaleza y los deportes de montaña. En cada uno de estos lugares,
+        ofrecemos nuestros servicios integrales de gestión de viviendas
+        turísticas, garantizando experiencias únicas tanto para los propietarios
+        como para los visitantes.
+      </p>
 
       <CityCards
         images={managementHomes}

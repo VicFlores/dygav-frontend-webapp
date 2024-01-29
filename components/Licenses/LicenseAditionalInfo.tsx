@@ -56,7 +56,7 @@ export const LicenseAditionalInfo = () => {
       <AlquilerVacacional />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-72 lg:px-10 mt-16'>
-        Licencias turísticas en las principales comunidades autónomas
+        ¿Dónde podemos ayudarte a conseguir una Licencia Turística?
       </h2>
 
       <div className='text-justify text-sm md:text-lg pt-4 space-y-4 mb-14'>
@@ -75,42 +75,52 @@ export const LicenseAditionalInfo = () => {
         </p>
       </div>
 
-      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-60 lg:px-4 mt-16'>
-        Licencias turísticas en la Comunidad Valenciana
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-40 lg:px-4 mt-16'>
+        Licencias turísticas en la Costa Blanca
       </h2>
 
       <div className='text-justify text-sm md:text-lg pt-4 space-y-4'>
         <p>
-          Hace unos años, disponer de una licencia turística y promocionar una
-          vivienda en Airbnb, era una gestión muy sencilla.Sin embargo, desde el
-          año 2018, la normativa se ha endurecido, se han incluido muchas
-          restricciones y{' '}
-          <strong>ahora es más complicado obtener una licencia</strong>.
+          Hace unos años, disponer de una licencia turística en la Costa Blanca
+          y promocionar una vivienda en plataformas de alquiler, era una gestión
+          muy sencilla. Sin embargo, desde el año 2018, la normativa se ha
+          endurecido, se han incluido muchas restricciones y ahora es más
+          complicado obtener la licencia para viviendas de uso turístico.
         </p>
+
         <p>
-          Las viviendas deben cumplir con una serie de requisitos, como tener
-          una superficie mínima, contar con un número mínimo de habitaciones o
-          plazas de alojamiento, cumplir con las normas de seguridad y
-          accesibilidad, contar con un seguro de responsabilidad civil, y
-          cumplir con las normas de calidad.
+          <strong>
+            Las viviendas en la Costa Blanca deben cumplir con una serie de
+            requisitos
+          </strong>
+          , como tener una superficie mínima, contar con un número mínimo de
+          habitaciones o plazas de alojamiento, cumplir con las normas de
+          seguridad y accesibilidad, contar con un seguro de responsabilidad
+          civil, y cumplir con las normas de calidad.
         </p>
+
         <p>
           Especialmente, las grandes ciudades son muy restrictivas. Por ejemplo,
-          en Alicante casi todas{' '}
-          <strong>
-            las licencias para alquiler turístico son de locales, bajos,
-            entreplantas y primeros
-          </strong>
-          . En raras ocasiones, se admiten pisos en altura.
+          en Alicante casi todas las licencias para alquiler turístico son de
+          locales, bajos, entreplantas y primeros. En raras ocasiones, se
+          admiten pisos en altura.
         </p>
+
+        <p>
+          Además la costa Blanca cuenta con municipios en varias provincias de
+          la Comunidad Valenciana y de la región de Murcia por lo que{' '}
+          <strong>
+            las normativas pueden cambiar mucho entre las distintas zonas
+          </strong>
+          .
+        </p>
+
         <p>
           En conclusión, si quieres conseguir tu licencia de alquiler vacacional
           o vas a comprar una vivienda para alquilarla de manera vacacional en
-          la Comunitat Valencia ten especial cuidado y{' '}
-          <strong>
-            no compres sin informarte adecuadamente o consultar a un profesional
-          </strong>
-          .
+          la Costa Blanca ten especial cuidado e{' '}
+          <strong>infórmate adecuadamente consultando nuestras guías</strong> o
+          llamándonos directamente.
         </p>
 
         <p>
