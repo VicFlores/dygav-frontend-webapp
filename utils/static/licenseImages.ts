@@ -229,4 +229,16 @@ export const managementHomes: ImageProps[] = [
     bgCity:
       'https://res.cloudinary.com/vicflores11/image/upload/v1705940729/Dygav/Jaca/c_jaca_stbhbd.webp',
   },
+  {
+    slug: 'hoz-de-jaca',
+    cityName: 'Hoz de Jaca',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705940692/Dygav/Hoz%20De%20Jaca/c_hozdejaca_zftyvs.webp',
+  },
+  {
+    slug: 'escarrilla',
+    cityName: 'Escarrilla',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705942839/Dygav/Escarilla/c_escarrilla_lsbtqx.webp',
+  },
 ];

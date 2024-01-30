@@ -95,3 +95,5 @@ export * from './Owners/BiescasMgmtInfo';
 export * from './Owners/TramacastillaDeTenaMgmtInfo';
 export * from './Owners/PanticosaMgmtInfo';
 export * from './Owners/JacaMgmtInfo';
+export * from './Owners/EscarrillaMgmtInfo';
+export * from './Owners/HozDeJacaMgmtInfo';
