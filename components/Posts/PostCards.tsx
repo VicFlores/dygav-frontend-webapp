@@ -35,7 +35,7 @@ export const PostCards: FC<{ posts: BlogPost[] }> = ({ posts }) => {
               key={post.id}
               className={`lg:w-[491px] h-[296px] relative bg-cover bg-center flex flex-col justify-end pl-6 pr-10 pb-2`}
               style={{
-                backgroundImage: `url(${post.yoast_head_json.og_image[0].url})`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(${post.yoast_head_json.og_image[0].url})`,
               }}
             >
               <h2 className='py-1 md:py-[6px] rounded-lg bg-p600 w-[136px] text-center text-white mb-3'>

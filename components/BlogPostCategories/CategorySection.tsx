@@ -48,6 +48,8 @@ export const CategorySection: FC<CategorySectionProps> = ({
       ? 'Tendencias sobre alquiler vacacional'
       : title;
 
+  console.log(formatedTtitle);
+
   return (
     <>
       <h2 className='mt-0 md:mt-10 text-2xl md:text-4xl text-center pb-4 font-semibold border-b-4 border-b-p600 w-auto md:px-10'>
@@ -75,10 +77,35 @@ export const CategorySection: FC<CategorySectionProps> = ({
             ref={scrollContainer}
             className='w-auto h-auto items-center pb-8 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden scrollbar'
           >
-            {posts.filter((post) => post.subCategoryName === formatedTtitle)
-              .length > 0 ? (
+            {posts.filter((post) => {
+              if (post.subCategoryName) {
+                let subCategoryName = post.subCategoryName.replace(
+                  /\b\w/g,
+                  (char) => char.toUpperCase()
+                );
+                let formatedTitleCapitalized = formatedTtitle.replace(
+                  /\b\w/g,
+                  (char) => char.toUpperCase()
+                );
+                return subCategoryName === formatedTitleCapitalized;
+              }
+              return false;
+            }).length > 0 ? (
               posts
-                .filter((post) => post.subCategoryName === formatedTtitle)
+                .filter((post) => {
+                  if (post.subCategoryName) {
+                    let subCategoryName = post.subCategoryName.replace(
+                      /\b\w/g,
+                      (char) => char.toUpperCase()
+                    );
+                    let formatedTitleCapitalized = formatedTtitle.replace(
+                      /\b\w/g,
+                      (char) => char.toUpperCase()
+                    );
+                    return subCategoryName === formatedTitleCapitalized;
+                  }
+                  return false;
+                })
                 .map((post) => (
                   <div key={post.id}>
                     <div

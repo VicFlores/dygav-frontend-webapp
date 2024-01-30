@@ -3,8 +3,10 @@ import Link from 'next/link';
 import React, { FC, useRef } from 'react';
 import { ParsedUrlQuery } from 'querystring';
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
-import { generalImages } from '@/utils/static/licenseImages';
-
+import {
+  generalImages,
+  pirineosAragonImages,
+} from '@/utils/static/licenseImages';
 type TPostCardCategoriesProps = {
   filterByCategories: Category[];
   query?: ParsedUrlQuery;
@@ -32,17 +34,6 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
     }
   };
 
-  const categoryImages: { [key: string]: string } = {
-    alicante:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1699488275/Dygav/Alicante/4_qzdyhb.webp',
-    benidorm:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1699567156/Dygav/Benidorm/Copia_de_2_doz1la.webp',
-    'santa-pola':
-      'https://res.cloudinary.com/vicflores11/image/upload/v1700839593/Dygav/Santa%20Pola/Copia_de_Puerto_de_Santa_Pola_znyokx.webp',
-    torrevieja:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/2_jvslgl.png',
-  };
-
   return (
     <>
       <h2 className='mt-0 md:mt-10 text-2xl md:text-4xl text-center pb-4 font-semibold border-b-4 border-b-p600 w-auto md:px-10'>
@@ -67,9 +58,10 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
             className='w-auto h-auto items-center pb-8 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden scrollbar'
           >
             {filterByCategories.map((category, index) => {
-              const imageObj = generalImages.find(
-                (img) => img.slug === category.slug
-              );
+              const imageObj =
+                generalImages.find((img) => img.slug === category.slug) ||
+                pirineosAragonImages.find((img) => img.slug === category.slug);
+
               const imageUrl = imageObj ? imageObj.bgCity : '';
 
               return query ? (
