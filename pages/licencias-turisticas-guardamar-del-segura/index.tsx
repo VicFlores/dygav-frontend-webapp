@@ -4,7 +4,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     redirect: {
       destination: '/licencias-turisticas/guardamar-del-segura',
-      permanent: false,
+      permanent: true,
     },
   };
 };

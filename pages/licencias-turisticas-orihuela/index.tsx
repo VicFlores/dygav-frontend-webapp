@@ -4,7 +4,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     redirect: {
       destination: '/licencias-turisticas/orihuela',
-      permanent: false,
+      permanent: true,
     },
   };
 };

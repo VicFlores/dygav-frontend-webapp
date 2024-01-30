@@ -4,7 +4,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     redirect: {
       destination: '/licencias-turisticas/calpe',
-      permanent: false,
+      permanent: true,
     },
   };
 };

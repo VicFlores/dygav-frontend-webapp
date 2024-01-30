@@ -4,7 +4,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     redirect: {
       destination: '/licencias-turisticas/finestrat',
-      permanent: false,
+      permanent: true,
     },
   };
 };

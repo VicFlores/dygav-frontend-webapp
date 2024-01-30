@@ -4,7 +4,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     redirect: {
       destination: '/licencias-turisticas/villajoyosa',
-      permanent: false,
+      permanent: true,
     },
   };
 };

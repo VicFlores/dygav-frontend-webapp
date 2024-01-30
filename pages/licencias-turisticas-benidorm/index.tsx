@@ -4,7 +4,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     redirect: {
       destination: '/licencias-turisticas/benidorm',
-      permanent: false,
+      permanent: true,
     },
   };
 };
