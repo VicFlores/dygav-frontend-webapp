@@ -50,7 +50,7 @@ export const CityLicense: FC<CityLicenseProps> = ({
       {posts.length > 0 ? (
         <section className='mt-16 mb-16 px-6 md:px-12 lg:px-28 flex flex-col items-center'>
           <PostsCardsCarrusel
-            title={`Más artículos sobre ${
+            title={`Nuestros últimos artículos de ${
               capitalizedCityName === 'Pola'
                 ? 'Santa Pola'
                 : capitalizedCityName

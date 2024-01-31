@@ -19,7 +19,7 @@ const Posts = () => {
 
     const getAllCategories = async () => {
       const res = await axios.get(
-        'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/categories?per_page=50'
+        'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/categories?per_page=100'
       );
 
       setCategories(res.data);

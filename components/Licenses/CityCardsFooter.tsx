@@ -39,7 +39,9 @@ export const CityCardsFooter: FC<{
   return (
     <section className='mb-16 md:pb-24 px-6 md:px-12 lg:px-32 flex flex-col items-center'>
       <h2 className='px-6 text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-10 md:px-4 mt-16'>
-        Licencias Turísticas en otros municipios
+        {parts[parts.length - 2] === 'licencias-turisticas'
+          ? 'Licencias Turísticas en otros municipios'
+          : 'Gestión de Viviendas Turísticas en otros municipios'}
       </h2>
 
       <div className='grid lg:grid-cols-12'>
