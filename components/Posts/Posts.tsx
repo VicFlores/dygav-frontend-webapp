@@ -33,6 +33,32 @@ const Posts = () => {
     (category) => category.parent === 0
   );
 
+  const costaBlancaCityNames = [
+    'Alicante',
+    'Altea',
+    'Benidorm',
+    'Calpe',
+    'El Campello',
+    'Finestrat',
+    'Guardamar del Segura',
+    'Orihuela',
+    'Orihuela Costa',
+    'Pilar de la Horadada',
+    'Santa Pola',
+    'Torrevieja',
+    'Villajoyosa',
+  ];
+
+  const costaBlancaCities = categories.filter((category) =>
+    costaBlancaCityNames.includes(category.name)
+  );
+
+  const pirineosCityNames = ['Jaca'];
+
+  const pirineosCities = categories.filter((category) =>
+    pirineosCityNames.includes(category.name)
+  );
+
   return (
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-28 flex flex-col items-center'>
       <PostCardCategories
@@ -40,6 +66,12 @@ const Posts = () => {
         title='Costa Blanca'
         subtitle='Descubre todos nuestros artículos más recientes sobre ocio, gastronomía, destinos, tendencias y normativas sobre alquiler vacacional en la Costa Blanca'
       />
+
+      {/* <PostCardCategories
+        filterByCategories={pirineosCities}
+        title='Pirineo Aragonés'
+        subtitle=''
+      /> */}
 
       <PostCards posts={data} />
     </section>
