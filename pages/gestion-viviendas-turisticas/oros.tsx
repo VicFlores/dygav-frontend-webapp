@@ -41,7 +41,7 @@ const OrosOwnersPage = () => {
       <OrosMgmtInfo />
 
       <CityLicense
-        cityName={cityName}
+        cityName={'Valle de Tena'}
         images={pirineosAragonImages}
         typeOfPage='owners'
       />

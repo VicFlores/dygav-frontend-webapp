@@ -41,7 +41,7 @@ const SenegueOwnersPage = () => {
       <SenegueMgmtInfo />
 
       <CityLicense
-        cityName={cityName}
+        cityName={'Valle de Tena'}
         images={managementHomes}
         typeOfPage='owners'
       />

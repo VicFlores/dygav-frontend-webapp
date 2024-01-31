@@ -25,7 +25,9 @@ export const CityLicense: FC<CityLicenseProps> = ({
       );
 
       const filterPosts = res.data.filter((post: BlogPost) => {
-        return post.title.rendered.includes(capitalizedCityName);
+        if (cityName === 'Valle de Tena') {
+          return post.title.rendered.includes('Valle de Tena');
+        } else return post.title.rendered.includes(capitalizedCityName);
       });
 
       setPosts(filterPosts);

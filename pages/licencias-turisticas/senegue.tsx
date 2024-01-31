@@ -11,16 +11,10 @@ import {
 import { heroSenegueImages } from '@/utils';
 import { pirineosAragonImages } from '@/utils/static/licenseImages';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
 import React from 'react';
 
 const SenegueLicensePage = () => {
   const { data: session } = useSession();
-  const router = useRouter();
-
-  let path = router.pathname;
-  let parts = path.split('/');
-  let cityName = parts[parts.length - 1];
 
   return (
     <section>
@@ -40,7 +34,7 @@ const SenegueLicensePage = () => {
 
       <SenegueInfo />
 
-      <CityLicense cityName={cityName} images={pirineosAragonImages} />
+      <CityLicense cityName={'Valle de Tena'} images={pirineosAragonImages} />
 
       <Footer />
     </section>
