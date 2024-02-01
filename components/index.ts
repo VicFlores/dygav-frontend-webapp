@@ -104,3 +104,4 @@ export * from './Owners/OrosMgmtInfo';
 export * from './Owners/PiedrafitaDeJacaMgmtInfo';
 export * from './Owners/SabinanigoMgmtInfo';
 export * from './Owners/SandiniesMgmtInfo';
+export * from './Owners/ElPueyoDeJacaMgmtInfo';
