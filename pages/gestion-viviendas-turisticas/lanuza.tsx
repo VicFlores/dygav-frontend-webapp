@@ -1,6 +1,5 @@
 import { pirineosAragonImages } from '@/utils/static/licenseImages';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
 import React from 'react';
 import {
   UtilHead,
@@ -16,11 +15,6 @@ import { heroLanuzaImages } from '@/utils';
 
 const LanuzaOwnersPage = () => {
   const { data: session } = useSession();
-  const router = useRouter();
-
-  let path = router.pathname;
-  let parts = path.split('/');
-  let cityName = parts[parts.length - 1];
 
   return (
     <section>
@@ -41,7 +35,7 @@ const LanuzaOwnersPage = () => {
       <LanuzaMgmtInfo />
 
       <CityLicense
-        cityName={cityName}
+        cityName={'Valle de Tena'}
         images={pirineosAragonImages}
         typeOfPage='owners'
       />
