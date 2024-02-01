@@ -110,3 +110,4 @@ export * from './Owners/TorreviejaMgmtInfo';
 export * from './Owners/BenidormMgmtInfo';
 export * from './Owners/SantaPolaMgmtInfo';
 export * from './Owners/AlicanteMgmtInfo';
+export * from './Owners/FinestratMgmtInfo';

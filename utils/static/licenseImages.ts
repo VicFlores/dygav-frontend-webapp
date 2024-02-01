@@ -212,4 +212,10 @@ export const costaBlancaImages: ImageProps[] = [
     bgCity:
       'https://res.cloudinary.com/vicflores11/image/upload/v1699488275/Dygav/Alicante/4_qzdyhb.WebP',
   },
+  {
+    slug: 'finestrat',
+    cityName: 'Finestrat',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1701186487/Dygav/Finestrart/Copia_de_16_buyb8u.WebP',
+  },
 ];
