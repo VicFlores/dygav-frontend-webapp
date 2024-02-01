@@ -88,6 +88,7 @@ export * from './ApartamentosTuristicos/ApartamentosTuristicosHero';
 export * from './Post/Post';
 export * from './BlogPostCategories/BlogPostCategories';
 export * from './Posts/PostCardCategories';
+export * from './OwnersFinanzas/OwnersFinanzas';
 export * from './Owners/FormigalMgmtInfo';
 export * from './Owners/SallentDeGallegoMgmtInfo';
 export * from './Owners/LanuzaMgmtInfo';
