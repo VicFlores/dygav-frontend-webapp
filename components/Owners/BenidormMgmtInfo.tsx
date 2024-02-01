@@ -19,16 +19,16 @@ export const BenidormMgmtInfo = () => {
       </h1>
 
       <p className='text-justify lg:text-start text-sm md:text-lg mt-4'>
-        Benidorm, conocido como el "Manhattan español" por su impresionante
-        perfil de rascacielos, es un destino turístico icónico en la Costa
-        Blanca. Esta vibrante ciudad atrae visitantes con sus extensas playas de
-        arena como Playa de Levante y Playa de Poniente, su animada vida
-        nocturna y una variedad de atracciones para todas las edades, como el
-        parque temático Terra Mítica y los parques acuáticos Aqualandia y Aqua
-        Natura. El mirador del Castillo de Benidorm ofrece vistas panorámicas
-        del Mediterráneo, mientras que el casco antiguo conserva un encanto más
-        tradicional con sus pintorescas calles y plazas. Definitivamente,
-        Benidorm es una ciudad con{' '}
+        Benidorm, conocido como el &quot;Manhattan español&quot; por su
+        impresionante perfil de rascacielos, es un destino turístico icónico en
+        la Costa Blanca. Esta vibrante ciudad atrae visitantes con sus extensas
+        playas de arena como Playa de Levante y Playa de Poniente, su animada
+        vida nocturna y una variedad de atracciones para todas las edades, como
+        el parque temático Terra Mítica y los parques acuáticos Aqualandia y
+        Aqua Natura. El mirador del Castillo de Benidorm ofrece vistas
+        panorámicas del Mediterráneo, mientras que el casco antiguo conserva un
+        encanto más tradicional con sus pintorescas calles y plazas.
+        Definitivamente, Benidorm es una ciudad con{' '}
         <strong>un gran potencial para propietarios e inversores</strong> que
         deseen entrar en el mercado de las viviendas de uso turístico.
       </p>
