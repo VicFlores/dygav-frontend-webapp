@@ -1,9 +1,11 @@
 import { informationCard } from '@/utils';
 import Image from 'next/legacy/image';
-import React from 'react';
+import React, { FC } from 'react';
 import { OwnersIcons } from './OwnersIcons';
 
-export const VacationRentalHome = () => {
+export const VacationRentalHome: FC<{ typeOfPage?: string }> = ({
+  typeOfPage,
+}) => {
   return (
     <>
       <div className=' py-5 space-y-20 md:text-sm'>
@@ -143,7 +145,13 @@ export const VacationRentalHome = () => {
         <strong>eficiente, transparente y accesible</strong>.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706281157/Dygav/ownersicon_tumwiv.svg' />
+      {typeOfPage === 'owners' ? (
+        <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706804885/Dygav/undraw_smart_home_re_orvn_rd13cl.svg' />
+      ) : (
+        <>
+          <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706281157/Dygav/ownersicon_tumwiv.svg' />
+        </>
+      )}
     </>
   );
 };

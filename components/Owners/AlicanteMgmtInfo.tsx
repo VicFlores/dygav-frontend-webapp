@@ -99,9 +99,9 @@ export const AlicanteMgmtInfo = () => {
         ¿Cómo te ayudamos a rentabilizar tu casa de alquiler vacacional?
       </h2>
 
-      <VacationRentalHome />
+      <VacationRentalHome typeOfPage='owners' />
 
-      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-10'>
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-24'>
         Maximiza el Rendimiento de tu Propiedad Turística en Alicante
       </h2>
 
