@@ -5,7 +5,10 @@ import { BiPhoneCall } from 'react-icons/bi';
 import { FAQSection } from './FAQSection';
 import { VacationRentalHome } from './VacationRentalHome';
 import { CityCards } from '../Licenses/CityCards';
-import { pirineosAragonImages } from '@/utils/static/licenseImages';
+import {
+  pirineosAragonImages,
+  costaBlancaImages,
+} from '@/utils/static/licenseImages';
 
 export const Information = () => {
   const generalFAQS = [
@@ -312,6 +315,12 @@ export const Information = () => {
 
       <CityCards
         images={pirineosAragonImages}
+        cardTitle='Gestión de Viviendas Turísticas'
+        link='/gestion-viviendas-turisticas'
+      />
+
+      <CityCards
+        images={costaBlancaImages}
         cardTitle='Gestión de Viviendas Turísticas'
         link='/gestion-viviendas-turisticas'
       />

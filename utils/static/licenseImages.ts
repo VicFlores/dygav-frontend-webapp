@@ -185,3 +185,31 @@ export const pirineosAragonImages: ImageProps[] = [
       'https://res.cloudinary.com/vicflores11/image/upload/v1705941105/Dygav/Seneg%C3%BCe/c_senegue_ycqsev.webp',
   },
 ];
+
+export const costaBlancaImages: ImageProps[] = [
+  {
+    slug: 'torrevieja',
+    cityName: 'Torrevieja',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/2_jvslgl.WebP',
+  },
+  {
+    slug: 'benidorm',
+    cityName: 'Benidorm',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1699567156/Dygav/Benidorm/Copia_de_2_doz1la.WebP',
+  },
+
+  {
+    slug: 'santa-pola',
+    cityName: 'Santa Pola',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1700839593/Dygav/Santa%20Pola/Copia_de_Puerto_de_Santa_Pola_znyokx.WebP',
+  },
+  {
+    slug: 'alicante',
+    cityName: 'Alicante',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1699488275/Dygav/Alicante/4_qzdyhb.WebP',
+  },
+];

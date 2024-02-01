@@ -105,3 +105,7 @@ export * from './Owners/PiedrafitaDeJacaMgmtInfo';
 export * from './Owners/SabinanigoMgmtInfo';
 export * from './Owners/SandiniesMgmtInfo';
 export * from './Owners/ElPueyoDeJacaMgmtInfo';
+export * from './Owners/TorreviejaMgmtInfo';
+export * from './Owners/BenidormMgmtInfo';
+export * from './Owners/SantaPolaMgmtInfo';
+export * from './Owners/AlicanteMgmtInfo';
