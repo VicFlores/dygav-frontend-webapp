@@ -1,6 +1,5 @@
-import { managementHomes } from '@/utils/static/licenseImages';
+import { pirineosAragonImages } from '@/utils/static/licenseImages';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
 import React from 'react';
 import {
   UtilHead,
@@ -16,11 +15,6 @@ import { heroSenegueImages } from '@/utils';
 
 const SenegueOwnersPage = () => {
   const { data: session } = useSession();
-  const router = useRouter();
-
-  let path = router.pathname;
-  let parts = path.split('/');
-  let cityName = parts[parts.length - 1];
 
   return (
     <section>
@@ -42,7 +36,7 @@ const SenegueOwnersPage = () => {
 
       <CityLicense
         cityName={'Valle de Tena'}
-        images={managementHomes}
+        images={pirineosAragonImages}
         typeOfPage='owners'
       />
 

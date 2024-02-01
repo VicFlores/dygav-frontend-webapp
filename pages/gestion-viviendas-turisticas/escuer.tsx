@@ -1,4 +1,4 @@
-import { managementHomes } from '@/utils/static/licenseImages';
+import { pirineosAragonImages } from '@/utils/static/licenseImages';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -42,7 +42,7 @@ const EscuerOwnersPage = () => {
 
       <CityLicense
         cityName={cityName}
-        images={managementHomes}
+        images={pirineosAragonImages}
         typeOfPage='owners'
       />
 

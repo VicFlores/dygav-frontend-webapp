@@ -5,7 +5,7 @@ import { BiPhoneCall } from 'react-icons/bi';
 import { FAQSection } from './FAQSection';
 import { VacationRentalHome } from './VacationRentalHome';
 import { CityCards } from '../Licenses/CityCards';
-import { managementHomes } from '@/utils/static/licenseImages';
+import { pirineosAragonImages } from '@/utils/static/licenseImages';
 
 export const Information = () => {
   const generalFAQS = [
@@ -311,7 +311,7 @@ export const Information = () => {
       </p>
 
       <CityCards
-        images={managementHomes}
+        images={pirineosAragonImages}
         cardTitle='Gestión de Viviendas Turísticas'
         link='/gestion-viviendas-turisticas'
       />
