@@ -218,4 +218,16 @@ export const costaBlancaImages: ImageProps[] = [
     bgCity:
       'https://res.cloudinary.com/vicflores11/image/upload/v1701186487/Dygav/Finestrart/Copia_de_16_buyb8u.WebP',
   },
+  {
+    slug: 'orihuela',
+    cityName: 'Orihuela',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1699646545/Dygav/Orihuela/Copia_de_7_xhahz0.WebP',
+  },
+  {
+    slug: 'orihuela-costa',
+    cityName: 'Orihuela Costa',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1699647185/Dygav/Orihuela/Copia_de_8_fuequq.WebP',
+  },
 ];

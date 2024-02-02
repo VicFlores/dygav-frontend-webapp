@@ -111,3 +111,5 @@ export * from './Owners/BenidormMgmtInfo';
 export * from './Owners/SantaPolaMgmtInfo';
 export * from './Owners/AlicanteMgmtInfo';
 export * from './Owners/FinestratMgmtInfo';
+export * from './Owners/OrihuelaMgmtInfo';
+export * from './Owners/OrihuelaCostaMgmtInfo';
