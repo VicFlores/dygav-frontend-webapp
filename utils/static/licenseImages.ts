@@ -230,4 +230,16 @@ export const costaBlancaImages: ImageProps[] = [
     bgCity:
       'https://res.cloudinary.com/vicflores11/image/upload/v1699647185/Dygav/Orihuela/Copia_de_8_fuequq.WebP',
   },
+  {
+    slug: 'villajoyosa',
+    cityName: 'Villajoyosa',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1701107278/Dygav/Villajoyosa/11_nqftjd.WebP',
+  },
+  {
+    slug: 'pilar-de-la-horadada',
+    cityName: 'Pilar de la Horadada',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1701293984/Dygav/Pilar%20de%20la%20Horadada/21_lwqjnu.WebP',
+  },
 ];

@@ -113,3 +113,5 @@ export * from './Owners/AlicanteMgmtInfo';
 export * from './Owners/FinestratMgmtInfo';
 export * from './Owners/OrihuelaMgmtInfo';
 export * from './Owners/OrihuelaCostaMgmtInfo';
+export * from './Owners/VillajoyosaMgmtInfo';
+export * from './Owners/PilarDeLaHoradadaMgmtInfo';
