@@ -8,7 +8,7 @@ export const FormsPolicyDetails = () => {
       </h1>
 
       <p className='text-center text-xl md:text-2xl lg:text-lg text-black700'>
-        Fecha Efectiva: 25-Dec-2022 hasta 08-Jun-2023
+        Fecha Efectiva: 25-Dec-2022
       </p>
 
       <div className='w-auto border-t-4 border-t-p600 pt-5 space-y-8 text-black900 pr-3 pl-3'>
@@ -16,14 +16,17 @@ export const FormsPolicyDetails = () => {
           Consentimiento para el tratamiento de datos personales
         </h3>
 
-        <p className='text-sm md:text-lg whitespace-pre-line'>
-          PACITEL 1980 INVERSIONES Y GESTIÓN S.L. es el Responsable del
-          tratamiento de los datos personales del Usuario y le informa de que
-          estos datos se tratarán de conformidad con lo dispuesto en el
-          Reglamento (UE) 2016/679, de 27 de abril (GDPR), y la Ley Orgánica
-          3/2018, de 5 de diciembre (LOPDGDD), por lo que se le facilita la
-          siguiente información del tratamiento:
+        <p className='text-sm md:text-lg'>
+          Digitalizacion y Gestión de Alquileres Vacacionales S.L. (DYGAV)
         </p>
+
+        <p className='text-sm md:text-lg'>CIF: B56416795</p>
+
+        <p className='text-sm md:text-lg'>
+          Avenida Doctor Gregorio Marañón 7, 7-29. Cp: 03181
+        </p>
+
+        <p className='text-sm md:text-lg'>Torrevieja. Alicante</p>
 
         <h4 className='text-sm md:text-base lg:text-xl text-p800'>
           Fines y legitimación del tratamiento:
@@ -66,6 +69,7 @@ export const FormsPolicyDetails = () => {
         <h4 className='text-sm md:text-base lg:text-xl text-p800'>
           Datos de contacto para ejercer sus derechos:
         </h4>
+
         <p className='text-sm md:text-lg whitespace-pre-line'>
           {`Nombre comercial: DYGAV: Digitalización y Gestión de Alquileres Vacacionales
 
@@ -81,10 +85,20 @@ export const FormsPolicyDetails = () => {
 
             Para continuar debe aceptar que ha leído y está conforme con la cláusula anterior.
 
-            Toda persona que acceda a este sitio web se considera usuario y se compromete a cumplir rigurosamente con las disposiciones aquí establecidas, así como con cualquier otra disposición legal que sea aplicable.
-
-            PACITEL 1980 INVERSIONES Y GESTIÓN S.L. se reserva el derecho de modificar cualquier información que pueda aparecer en el sitio web, sin necesidad de previo aviso o notificación a los usuarios. La publicación en el sitio web de PACITEL 1980 INVERSIONES Y GESTIÓN S.L. se considera suficiente`}
+            Toda persona que acceda a este sitio web se considera usuario y se compromete a cumplir rigurosamente con las disposiciones aquí establecidas, así como con cualquier otra disposición legal que sea aplicable.`}
         </p>
+
+        <p className='text-sm md:text-lg'>
+          Digitalizacion y Gestión de Alquileres Vacacionales S.L. (DYGAV)
+        </p>
+
+        <p className='text-sm md:text-lg'>CIF: B56416795</p>
+
+        <p className='text-sm md:text-lg'>
+          Avenida Doctor Gregorio Marañón 7, 7-29. Cp: 03181
+        </p>
+
+        <p className='text-sm md:text-lg'>Torrevieja. Alicante</p>
       </div>
     </section>
   );

@@ -8,7 +8,7 @@ export const LegalNoticeDetails = () => {
       </h1>
 
       <p className='text-center text-xl md:text-2xl lg:text-lg text-black700'>
-        Fecha Efectiva: 25-Dec-2022 hasta 08-Jun-2023
+        Fecha Efectiva: 25-Dec-2022
       </p>
 
       <div className='w-auto border-t-4 border-t-p600 pt-5 space-y-8 text-black900 pr-3 pl-3'>
@@ -16,13 +16,17 @@ export const LegalNoticeDetails = () => {
           1. Información al Usuario
         </h3>
 
-        <p className='text-sm md:text-lg whitespace-pre-line'>
-          {`PACITEL 1980 INVERSIONES Y GESTIÓN S.L. , responsable del sitio web, en adelante RESPONSABLE, pone a disposición de los usuarios el presente documento con el objetivo de cumplir con las obligaciones establecidas en la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSICE), publicada en el BOE N.º 166. Asimismo, se informa a todos los usuarios del sitio web sobre las condiciones de uso.
-
-            Toda persona que acceda a este sitio web se considera usuario y se compromete a cumplir rigurosamente con las disposiciones aquí establecidas, así como con cualquier otra disposición legal que sea aplicable.
-
-            PACITEL 1980 INVERSIONES Y GESTIÓN S.L. se reserva el derecho de modificar cualquier información que pueda aparecer en el sitio web, sin necesidad de previo aviso o notificación a los usuarios. La publicación en el sitio web de PACITEL 1980 INVERSIONES Y GESTIÓN S.L. se considera suficiente`}
+        <p className='text-sm md:text-lg'>
+          Digitalizacion y Gestión de Alquileres Vacacionales S.L. (DYGAV)
         </p>
+
+        <p className='text-sm md:text-lg'>CIF: B56416795</p>
+
+        <p className='text-sm md:text-lg'>
+          Avenida Doctor Gregorio Marañón 7, 7-29. Cp: 03181
+        </p>
+
+        <p className='text-sm md:text-lg'>Torrevieja. Alicante</p>
 
         <h3 className='text-lg md:text-xl lg:text-2xl text-p900 font-semibold'>
           2. Datos Identificativos

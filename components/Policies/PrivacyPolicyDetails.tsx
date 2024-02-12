@@ -8,7 +8,7 @@ export const PrivacyPolicyDetails = () => {
       </h1>
 
       <p className='text-center text-xl md:text-2xl lg:text-lg text-black700'>
-        Fecha Efectiva: 25-Dec-2022 hasta 08-Jun-2023
+        Fecha Efectiva: 25-Dec-2022
       </p>
 
       <div className='w-auto border-t-4 border-t-p600 pt-5 space-y-8 text-black900 pr-3 pl-3'>
@@ -19,13 +19,18 @@ export const PrivacyPolicyDetails = () => {
         <h4 className='text-sm md:text-base lg:text-xl text-p800'>
           ¿Quién es el responsable del tratamiento de tus datos personales?
         </h4>
+
         <p className='text-sm md:text-lg'>
-          PACITEL 1980 INVERSIONES Y GESTIÓN S.L. es el RESPONSABLE del
-          tratamiento de los datos personales del USUARIO y le informa de que
-          estos datos serán tratados de conformidad con lo dispuesto en el
-          Reglamento (UE) 2016/679, de 27 de abril (GDPR), y la Ley Orgánica
-          3/2018, de 5 de diciembre (LOPDGDD).
+          Digitalizacion y Gestión de Alquileres Vacacionales S.L. (DYGAV)
         </p>
+
+        <p className='text-sm md:text-lg'>CIF: B56416795</p>
+
+        <p className='text-sm md:text-lg'>
+          Avenida Doctor Gregorio Marañón 7, 7-29. Cp: 03181
+        </p>
+
+        <p className='text-sm md:text-lg'>Torrevieja. Alicante</p>
 
         <h4 className='text-sm md:text-base lg:text-xl text-p800'>
           ¿Para qué tratamos tus datos personales?

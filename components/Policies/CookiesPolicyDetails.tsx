@@ -9,7 +9,7 @@ export const CookiesPolicyDetails = () => {
       </h1>
 
       <p className='text-center text-xl md:text-2xl lg:text-lg text-black700'>
-        Fecha Efectiva: 22-Dec-2022 hasta 06-Jun-2023
+        Fecha Efectiva: 22-Dec-2022
       </p>
 
       <div className='w-auto border-t-4 border-t-p600 pt-5 space-y-8 text-black900 pr-3 pl-3'>
