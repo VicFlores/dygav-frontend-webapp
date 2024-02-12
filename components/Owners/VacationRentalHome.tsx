@@ -145,13 +145,7 @@ export const VacationRentalHome: FC<{ typeOfPage?: string }> = ({
         <strong>eficiente, transparente y accesible</strong>.
       </p>
 
-      {typeOfPage === 'owners' ? (
-        <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706804885/Dygav/undraw_smart_home_re_orvn_rd13cl.svg' />
-      ) : (
-        <>
-          <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706281157/Dygav/ownersicon_tumwiv.svg' />
-        </>
-      )}
+      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706804885/Dygav/undraw_smart_home_re_orvn_rd13cl.svg' />
     </>
   );
 };

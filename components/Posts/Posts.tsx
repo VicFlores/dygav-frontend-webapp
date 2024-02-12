@@ -52,7 +52,7 @@ const Posts = () => {
       <PostCardCategories
         filterByCategories={pirineosCities}
         title='Pirineo Aragonés'
-        subtitle=''
+        subtitle='Pirineos/ De pico a pico, conoce los Pirineos a través de nuestros artículos: aventuras al aire libre, cultura local y lo último en alquiler vacacional.'
       />
 
       <PostCards posts={data} />

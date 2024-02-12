@@ -202,3 +202,16 @@ export const heroSenegueImages = [
   'https://res.cloudinary.com/vicflores11/image/upload/v1705679120/Dygav/Seneg%C3%BCe/C_Copia_de_56_klmhao.webp',
   'https://res.cloudinary.com/vicflores11/image/upload/v1705679117/Dygav/Seneg%C3%BCe/C_68_p3ksse.webp',
 ];
+
+export const heroLaMataImages = [
+  'https://res.cloudinary.com/vicflores11/image/upload/v1707751460/Dygav/La%20Mata/c_3_u4rnsd.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1707751456/Dygav/La%20Mata/c_2_m0pzih.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1707751453/Dygav/La%20Mata/c_1_ylfwoo.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1697903686/Dygav/torrevieja/2_jvslgl.webp',
+];
+
+export const heroDehesaDeCampoamorImages = [
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699647182/Dygav/Orihuela/5_fqgfli.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699646545/Dygav/Orihuela/Copia_de_7_xhahz0.webp',
+  'https://res.cloudinary.com/vicflores11/image/upload/v1699647184/Dygav/Orihuela/6_azqjjg.webp',
+];

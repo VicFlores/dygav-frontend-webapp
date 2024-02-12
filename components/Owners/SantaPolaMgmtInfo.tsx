@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1699399186/Dygav/torrevieja/Torrevieja_Plaza_de_la_Constituci%C3%B3n_y0ewgo.webp',
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1700839593/Dygav/Santa%20Pola/2_gipvsk.webp',
     alt: 'Gestión de vivendas turísticas en Santa Pola',
   },
 ];
@@ -70,7 +70,7 @@ export const SantaPolaMgmtInfo = () => {
         aire libre.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706804885/Dygav/undraw_smart_home_re_orvn_rd13cl.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705018501/Dygav/undraw_buy_house_re_8xq7_obrxnk.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-24'>
         Servicios de Gestión Integral de Viviendas Vacacionales en Santa Pola
@@ -101,7 +101,7 @@ export const SantaPolaMgmtInfo = () => {
         ¿Cómo te ayudamos a rentabilizar tu casa de alquiler vacacional?
       </h2>
 
-      <VacationRentalHome typeOfPage='owners' />
+      <VacationRentalHome />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-24'>
         Maximiza el Rendimiento de tu Propiedad Turística en Santa Pola

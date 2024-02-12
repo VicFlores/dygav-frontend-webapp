@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1699488277/Dygav/Alicante/Licencias_Tur%C3%ADsticas__Ayuntamiento_de_Alicante_nn3dun.webp',
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1699488555/Dygav/Alicante/4_zlt2r6.webp',
     alt: 'Gestión de vivendas turísticas en Alicante',
   },
 ];
@@ -69,7 +69,7 @@ export const AlicanteMgmtInfo = () => {
         mezcla de encanto tradicional y comodidades modernas.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706804885/Dygav/undraw_smart_home_re_orvn_rd13cl.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705018501/Dygav/undraw_buy_house_re_8xq7_obrxnk.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-24'>
         Servicios de Gestión Integral de Viviendas Vacacionales en Alicante
@@ -99,7 +99,7 @@ export const AlicanteMgmtInfo = () => {
         ¿Cómo te ayudamos a rentabilizar tu casa de alquiler vacacional?
       </h2>
 
-      <VacationRentalHome typeOfPage='owners' />
+      <VacationRentalHome />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-24'>
         Maximiza el Rendimiento de tu Propiedad Turística en Alicante

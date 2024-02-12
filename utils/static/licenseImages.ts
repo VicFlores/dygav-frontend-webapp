@@ -242,4 +242,16 @@ export const costaBlancaImages: ImageProps[] = [
     bgCity:
       'https://res.cloudinary.com/vicflores11/image/upload/v1701293984/Dygav/Pilar%20de%20la%20Horadada/21_lwqjnu.WebP',
   },
+  {
+    slug: 'la-mata',
+    cityName: 'La Mata',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1707751460/Dygav/La%20Mata/c_3_u4rnsd.webp',
+  },
+  {
+    slug: 'dehesa-de-campoamor',
+    cityName: 'Dehesa de Campoamor',
+    bgCity:
+      'https://res.cloudinary.com/vicflores11/image/upload/v1699647182/Dygav/Orihuela/5_fqgfli.webp',
+  },
 ];

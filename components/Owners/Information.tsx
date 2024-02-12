@@ -293,7 +293,7 @@ export const Information = () => {
 
       <VacationRentalHome />
 
-      <h2 className='text-center text-2xl md:text-3xl border-b-4 border-b-p600 mt-10 pb-2 font-semibold'>
+      <h2 className='text-center text-2xl md:text-3xl border-b-4 border-b-p600 mt-24 pb-2 font-semibold'>
         ¿Dónde Gestionamos Viviendas Turísticas?
       </h2>
 
@@ -313,11 +313,19 @@ export const Information = () => {
         como para los visitantes.
       </p>
 
+      <h2 className='text-center text-2xl md:text-3xl border-b-4 border-b-p600 mt-24 pb-2 font-semibold'>
+        Gestión de viviendas turísticas en Pirineo Aragonés
+      </h2>
+
       <CityCards
         images={pirineosAragonImages}
         cardTitle='Gestión de Viviendas Turísticas'
         link='/gestion-viviendas-turisticas'
       />
+
+      <h2 className='text-center text-2xl md:text-3xl border-b-4 border-b-p600 mt-24 pb-2 font-semibold'>
+        Gestión de viviendas turísticas en Costa Blanca
+      </h2>
 
       <CityCards
         images={costaBlancaImages}

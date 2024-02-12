@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1699565955/Dygav/Benidorm/Licencias_Tur%C3%ADsticas_Benidorm__Ayuntamiento_de_Benidorm_aiclgc.webp',
+    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1699567164/Dygav/Benidorm/3_ns0pgn.webp',
     alt: 'Gestión de vivendas turísticas en Benidorm',
   },
 ];
@@ -51,11 +51,11 @@ export const BenidormMgmtInfo = () => {
 
       <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706804882/Dygav/undraw_travelers_re_y25a_zbrkat.svg' />
 
-      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-16'>
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-16 md:mb-0'>
         Oportunidades de Inversión en Viviendas Turísticas en Benidorm
       </h2>
 
-      <p className='text-justify lg:text-start text-sm md:text-lg mt-4'>
+      <p className='text-justify lg:text-start text-sm md:text-lg mt-4 mb-10'>
         Invertir en viviendas turísticas en Benidorm significa apostar por una
         ciudad con un{' '}
         <strong>mercado de alquiler vacacional consolidado</strong>. Las
@@ -66,7 +66,10 @@ export const BenidormMgmtInfo = () => {
         antiguo.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706804885/Dygav/undraw_smart_home_re_orvn_rd13cl.svg' />
+      <OwnersIcons
+        image='https://res.cloudinary.com/vicflores11/image/upload/v1705018501/Dygav/undraw_buy_house_re_8xq7_obrxnk.svg'
+        customWidth='290px'
+      />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-24'>
         Servicios de Gestión Integral de Viviendas Vacacionales en Benidorm
@@ -96,7 +99,7 @@ export const BenidormMgmtInfo = () => {
         ¿Cómo te ayudamos a rentabilizar tu casa de alquiler vacacional?
       </h2>
 
-      <VacationRentalHome typeOfPage='owners' />
+      <VacationRentalHome />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-24'>
         Maximiza el Rendimiento de tu Propiedad Turística en Benidorm
