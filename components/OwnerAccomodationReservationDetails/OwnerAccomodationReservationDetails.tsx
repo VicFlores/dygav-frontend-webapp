@@ -1,8 +1,8 @@
 import React, { FC, useEffect, useState } from 'react';
 import axios from 'axios';
-import { ReservationAvaibook } from '@/types';
-import { AiOutlineCheckCircle } from 'react-icons/ai';
-import Link from 'next/link';
+import { ActiveReservations } from './ActiveReservations';
+import moment from 'moment';
+import { RangeOfDates } from './RangeOfDates';
 
 interface ReservationCalendarProps {
   start: string;
@@ -23,10 +23,19 @@ interface IBookingId {
 export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
   id,
 }) => {
-  const [accomodationByReservation, setAccomodationByReservation] = useState<
-    ReservationAvaibook[]
-  >([]);
   const [bookingById, setBookingById] = useState<IBookingId[]>([
+    {
+      id: '',
+      travellerName: '',
+      accommodationName: '',
+      status: '',
+      occupiedPeriod: {
+        startDate: '',
+        endDate: '',
+      },
+    },
+  ]);
+  const [beforeBooking, setBeforeBooking] = useState<IBookingId[]>([
     {
       id: '',
       travellerName: '',
@@ -46,24 +55,9 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
       end: '',
     },
   ]);
+  const [activeTab, setActiveTab] = useState('active');
 
   useEffect(() => {
-    const accomodationByUnitId = async () => {
-      const res = await axios.get(
-        'https://api.avaibook.com/api/owner/bookings/',
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
-          },
-        }
-      );
-
-      setAccomodationByReservation(
-        res.data.filter((item: any) => item.accommodationId === Number(id))
-      );
-    };
-
     const accomodationBlockDay = async (id: string) => {
       if (id) {
         const res = await axios.get(
@@ -80,7 +74,6 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
       }
     };
 
-    accomodationByUnitId();
     accomodationBlockDay(id);
   }, [id]);
 
@@ -114,6 +107,52 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
       }
     };
 
+    const getBookingdate90DaysAgo = async (id: string) => {
+      let currentDate = moment();
+      let date90DaysAgo = moment().subtract(90, 'days');
+
+      try {
+        if (id) {
+          const res = await axios.get(
+            `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/?startDate=${date90DaysAgo.format(
+              'YYYY-MM-DD'
+            )}&endDate=${currentDate.format('YYYY-MM-DD')}`,
+            {
+              headers: {
+                'Content-Type': 'application/json',
+                'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+              },
+            }
+          );
+
+          res.data.map(async (booking: any) => {
+            const resBooking = await axios.get(
+              `https://api.avaibook.com/api/owner/bookings/${booking.booking}/`,
+              {
+                headers: {
+                  'Content-Type': 'application/json',
+                  'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+                },
+              }
+            );
+
+            setBeforeBooking((prevState) => {
+              const bookingExists = prevState.some(
+                (booking) => booking.id === resBooking.data.id
+              );
+              if (!bookingExists) {
+                return [...prevState, resBooking.data];
+              } else {
+                return prevState;
+              }
+            });
+          });
+        }
+      } catch (error) {
+        console.error('Error fetching bookings:', error);
+      }
+    };
+
     const findBookingById = accomodationDayBlock.map((block: any) => {
       return block.booking;
     });
@@ -121,9 +160,38 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
     findBookingById.forEach((id) => {
       getBookingById(id);
     });
+
+    getBookingdate90DaysAgo(id);
   }, [accomodationDayBlock]);
 
   const bookingByIdSlice = bookingById.slice(1);
+
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case 'active':
+        return (
+          <ActiveReservations bookings={bookingByIdSlice} status='CONFIRMED' />
+        );
+      case 'past':
+        return (
+          <ActiveReservations
+            bookings={beforeBooking.slice(1)}
+            status='CONFIRMED'
+          />
+        );
+      case 'canceled':
+        return (
+          <ActiveReservations
+            bookings={beforeBooking.slice(1)}
+            status='CANCELLED'
+          />
+        );
+      case 'rangeOfDates':
+        return <RangeOfDates id={id} />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className='px-8 space-y-12 mb-24'>
@@ -131,91 +199,47 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
         <p className=' text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl'>
           Reservas en mi alojamiento
         </p>
+
+        <ul className='flex flex-col space-y-3 md:space-y-0 md:flex-row justify-center items-center md:space-x-10 mt-8  lg:text-lg'>
+          <li
+            className={`cursor-pointer ${
+              activeTab === 'active' ? 'text-p600' : ''
+            }`}
+            onClick={() => setActiveTab('active')}
+          >
+            Activas
+          </li>
+
+          <li
+            className={`cursor-pointer ${
+              activeTab === 'past' ? 'text-p600' : ''
+            }`}
+            onClick={() => setActiveTab('past')}
+          >
+            Pasadas
+          </li>
+
+          <li
+            className={`cursor-pointer ${
+              activeTab === 'canceled' ? 'text-p600' : ''
+            }`}
+            onClick={() => setActiveTab('canceled')}
+          >
+            Canceladas
+          </li>
+
+          <li
+            className={`cursor-pointer ${
+              activeTab === 'rangeOfDates' ? 'text-p600' : ''
+            }`}
+            onClick={() => setActiveTab('rangeOfDates')}
+          >
+            Rango de fechas
+          </li>
+        </ul>
       </div>
 
-      {bookingByIdSlice.length > 0 ? (
-        <div className='grid gap-y-10 md:grid-cols-2 md:gap-y-8 lg:grid-cols-3'>
-          {bookingByIdSlice.map((item) => (
-            <div
-              key={item.id}
-              className='text-center h-fit rounded-xl space-y-4 justify-self-center border-[1px] border-p600 px-5 py-5 bg-gray300/[.14] w-[280px] md:w-[300px]'
-            >
-              <div className='space-y-2'>
-                <p className='text-base md:text-lg font-semibold'>
-                  Nombre del alojamiento:
-                </p>
-                <p className='text-sm md:text-base'>{item.accommodationName}</p>
-
-                <p className='text-base md:text-lg font-semibold'>
-                  Periodo de reserva:
-                </p>
-
-                {item.occupiedPeriod && item.occupiedPeriod ? (
-                  <p className='text-sm md:text-base'>
-                    {item.occupiedPeriod.startDate.toString()} /{' '}
-                    {item.occupiedPeriod.endDate.toString()}{' '}
-                  </p>
-                ) : (
-                  <p className='text-sm md:text-base'>
-                    No asignado debido a su cancelacion
-                  </p>
-                )}
-
-                <p className='text-base md:text-lg font-semibold'>Estado:</p>
-                {item.status === 'PENDING_PAYMENT' ? (
-                  <>
-                    <p className='text-sm md:text-base'>Pago pendiente</p>
-                    <p className='text-base md:text-lg font-semibold'>
-                      Mas informacion:
-                    </p>
-                    <p className='text-sm md:text-base'>
-                      Esperando pago, para ver detalles
-                    </p>
-                  </>
-                ) : item.status === 'CONFIRMED' ? (
-                  <>
-                    <p className='text-sm md:text-base'>Confirmado</p>
-                    <p className='text-base md:text-lg font-semibold'>
-                      Mas informacion:
-                    </p>
-                    <div className='flex justify-center items-center relative'>
-                      <AiOutlineCheckCircle className='w-5 md:h-5 text-p600 absolute top-1/2 -translate-y-1/2 right-5 md:right-12 lg:right-12' />
-                      <Link
-                        href={`/private/owner/reservation/${item.id}`}
-                        passHref
-                        className='text-center text-p600 hover:bg-gray300 border-[1px] border-p600 rounded-md text-[13px] md:text-sm lg:text-base py-2 px-4 w-full'
-                      >
-                        Ver detalles
-                      </Link>
-                    </div>
-                  </>
-                ) : item.status === 'CANCELLED' ? (
-                  <>
-                    <p className='text-sm md:text-base'>Cancelado</p>
-                    <p className='text-base md:text-lg font-semibold'>
-                      Mas informacion:
-                    </p>
-                    <p className='text-sm md:text-base'>
-                      Reservacion cancelada, para mayor informacion comuniquese
-                      con su administrador
-                    </p>
-                  </>
-                ) : (
-                  <p className='text-sm md:text-base'>{item.status}</p>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className='flex justify-center items-center'>
-          <div className='flex justify-center items-center px-4 border-[1px] border-dashed h-[266px] w-[717px]'>
-            <p className=' text-black900/[.7] lg:text-3xl text-center'>
-              ¡Aún no tienes reservaciones en tu alojamiento!
-            </p>
-          </div>
-        </div>
-      )}
+      {renderTabContent()}
     </div>
   );
 };

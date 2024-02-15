@@ -48,8 +48,6 @@ export const CategorySection: FC<CategorySectionProps> = ({
       ? 'Tendencias sobre alquiler vacacional'
       : title;
 
-  console.log(formatedTtitle);
-
   return (
     <>
       <h2 className='mt-0 md:mt-10 text-2xl md:text-4xl text-center pb-4 font-semibold border-b-4 border-b-p600 w-auto md:px-10'>
