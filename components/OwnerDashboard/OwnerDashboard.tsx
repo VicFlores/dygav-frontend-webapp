@@ -95,7 +95,7 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
           ))
         ) : (
           <div className='flex justify-center items-center'>
-            <div className='flex flex-col justify-center items-center space-y-8 border-[1px] border-dashed h-[266px] w-[717px]'>
+            <div className='flex flex-col justify-center items-center space-y-8 border-[1px] border-dashed md:h-[266px] md:w-[717px] p-10'>
               <p className=' text-black900/[.7] lg:text-3xl'>
                 ¡Aún no tienes alojamientos!
               </p>

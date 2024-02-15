@@ -96,15 +96,16 @@ export const RangeOfDates: FC<{ id: string }> = ({ id }) => {
       <div className='flex justify-center items-center mt-10 mb-24'>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className='grid md:grid-cols-2 mt-4 bg-gray300/50 rounded-xl px-4 py-8 md:p-10 gap-10'
+          className='grid md:grid-cols-2 mt-4 bg-gray300/50 rounded-xl w-[420px] pl-4 pr-4 md:w-[500px] md:pl-8 md:pr-8 py-8  gap-10'
         >
           <div className='mb-4'>
             <label
-              className='text-gray-700 font-semibold block mb-2 text-center'
+              className='text-gray-700 font-semibold block mb-2 text-center relative'
               htmlFor='name'
             >
               Fecha incio
             </label>
+
             <input
               className='border border-gray-400 p-2 w-full rounded-lg text-center'
               type='date'
