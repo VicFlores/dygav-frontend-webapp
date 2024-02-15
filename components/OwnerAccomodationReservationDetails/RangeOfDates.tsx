@@ -5,6 +5,7 @@ import Link from 'next/link';
 import React, { FC, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
+import { BsCalendar2DateFill } from 'react-icons/bs';
 
 type FormValues = {
   startDateForm: string;
@@ -96,35 +97,36 @@ export const RangeOfDates: FC<{ id: string }> = ({ id }) => {
       <div className='flex justify-center items-center mt-10 mb-24'>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className='grid md:grid-cols-2 mt-4 bg-gray300/50 rounded-xl w-[420px] pl-4 pr-4 md:w-[500px] md:pl-8 md:pr-8 py-8  gap-10'
+          className='flex flex-col justify-center items-center md:grid md:grid-cols-2 mt-4 bg-gray300/50 rounded-xl w-[420px] pl-4 pr-4 md:w-[500px] md:pl-8 md:pr-8 py-8 gap-10'
         >
           <div className='mb-4'>
+            <p className='pb-2 font-semibold text-center'>Fecha de inicio</p>
             <label
               className='text-gray-700 font-semibold block mb-2 text-center relative'
               htmlFor='name'
             >
-              Fecha incio
+              <BsCalendar2DateFill className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+              <input
+                className='text-center rounded-lg pl-10 pr-4 lg:w-full lg:h-11 md:w-96 w-[215px] bg-transparent shadow appearance-none h-10 bg-white border border-white  py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
+                type='date'
+                {...register('startDateForm')}
+              />
             </label>
-
-            <input
-              className='border border-gray-400 p-2 w-full rounded-lg text-center'
-              type='date'
-              {...register('startDateForm')}
-            />
           </div>
 
           <div className='mb-4'>
+            <p className='pb-2 font-semibold text-center'>Fecha final</p>
             <label
-              className='text-gray-700 font-semibold block mb-2 text-center'
+              className='text-gray-700 font-semibold block mb-2 text-center relative'
               htmlFor='name'
             >
-              Fecha fin
+              <BsCalendar2DateFill className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
+              <input
+                className='text-center rounded-lg pl-10 pr-4 lg:w-full lg:h-11 md:w-96 w-[215px] bg-transparent shadow appearance-none h-10 bg-white border border-white placeholder:text-black900 py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
+                type='date'
+                {...register('endDateForm')}
+              />
             </label>
-            <input
-              className='border border-gray-400 p-2 w-full rounded-lg text-center'
-              type='date'
-              {...register('endDateForm')}
-            />
           </div>
 
           <button
@@ -134,7 +136,7 @@ export const RangeOfDates: FC<{ id: string }> = ({ id }) => {
             Buscar Rango
           </button>
 
-          <span className='self-center justify-self-center col-start-1 col-end-3 text-center'>
+          <span className='self-center justify-self-center text-center'>
             {error}
           </span>
         </form>
