@@ -3,6 +3,7 @@ import axios from 'axios';
 import { ActiveReservations } from './ActiveReservations';
 import moment from 'moment';
 import { RangeOfDates } from './RangeOfDates';
+import { CancelledRangeOfDates } from './CancelledRangeOfDates';
 
 interface ReservationCalendarProps {
   start: string;
@@ -180,12 +181,7 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
           />
         );
       case 'canceled':
-        return (
-          <ActiveReservations
-            bookings={beforeBooking.slice(1)}
-            status='CANCELLED'
-          />
-        );
+        return <CancelledRangeOfDates id={id} />;
       case 'rangeOfDates':
         return <RangeOfDates id={id} />;
       default:

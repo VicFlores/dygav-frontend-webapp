@@ -7,6 +7,7 @@ import { ReservationAvaibook } from '@/types';
 import axios from 'axios';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import BlockCalendarDaysForm from '../BlockCalendarDaysForm/BlockCalendarDaysForm';
+import { useRouter } from 'next/router';
 
 const localizer = momentLocalizer(moment);
 
@@ -25,6 +26,7 @@ type BlockDayProps = {
 
 export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   const [showForm, setShowForm] = useState(false);
+  const router = useRouter();
   const [accomodationDayBlock, setAccomodationDayBlock] = useState<
     ReservationCalendarProps[]
   >([
@@ -133,29 +135,20 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   }, [accomodationDayBlock]);
 
   const handleEventClick = (e: any) => {
-    const reservation = accomodationByReservation.filter((item) => {
-      if (
-        item.occupiedPeriod?.startDate !== undefined &&
-        item.occupiedPeriod?.endDate !== undefined
-      ) {
-        return (
-          item.occupiedPeriod.startDate === e.start &&
-          item.occupiedPeriod.endDate === e.end
-        );
-      }
-    });
+    const reservation: any = bookingById.filter((item) => item.id === e.id)[0];
 
-    /*  reservation.map((item) => {
-      item.status === 'CONFIRMED'
-        ? router.push(`/private/owner/reservation/${item.id}`)
-        : item.status === 'PENDING_PAYMENT'
-        ? router.push(`/private/owner/accomodation/${item.accommodationId}`)
-        : null;
-    }); */
+    reservation.status === 'CONFIRMED'
+      ? router.push(`/private/owner/reservation/${reservation.id}`)
+      : reservation.status === 'PENDING_PAYMENT'
+      ? router.push(
+          `/private/owner/accomodation/${reservation.accommodationId}`
+        )
+      : null;
   };
 
   const reservations = bookingById.map((booking: any) => {
     return {
+      id: booking.id,
       start: moment(booking.occupiedPeriod.startDate).format('YYYY-MM-DD'),
       end: moment(booking.occupiedPeriod.endDate)
         .add(2, 'days')

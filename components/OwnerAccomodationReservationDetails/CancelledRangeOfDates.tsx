@@ -1,8 +1,9 @@
 import register from '@/pages/register';
 import axios from 'axios';
+import moment from 'moment';
 import error from 'next/error';
 import Link from 'next/link';
-import React, { FC, useState } from 'react';
+import React, { FC, useMemo, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { BsCalendar2DateFill } from 'react-icons/bs';
@@ -21,9 +22,10 @@ interface IBookingId {
     startDate: string;
     endDate: string;
   };
+  cancelledDate: string;
 }
 
-export const RangeOfDates: FC<{ id: string }> = ({ id }) => {
+export const CancelledRangeOfDates: FC<{ id: string }> = ({ id }) => {
   const { register, handleSubmit } = useForm<FormValues>();
   const [error, setError] = useState('');
   const [bookings, setBookings] = useState<IBookingId[]>([]);
@@ -55,7 +57,7 @@ export const RangeOfDates: FC<{ id: string }> = ({ id }) => {
     }
 
     const res = await axios.get(
-      `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/?startDate=${startDateForm}&endDate=${endDateForm}`,
+      `https://api.avaibook.com/api/owner/bookings/?cancelledStartDate=${startDateForm}&cancelledEndDate=${endDateForm}`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -64,33 +66,24 @@ export const RangeOfDates: FC<{ id: string }> = ({ id }) => {
       }
     );
 
-    setBookings([]);
+    res.data.filter((booking: any) => {
+      if (booking.accommodationId === Number(id)) {
+        setBookings((prev) => {
+          const bookingExists = prev.some(
+            (prevBooking) => prevBooking.id === booking.id
+          );
 
-    res.data.map(async (booking: any) => {
-      const resBooking = await axios.get(
-        `https://api.avaibook.com/api/owner/bookings/${booking.booking}/`,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
-          },
-        }
-      );
+          if (!bookingExists) {
+            return [...prev, booking];
+          }
 
-      setBookings((prevState) => {
-        const bookingExists = prevState.some(
-          (booking) => booking.id === resBooking.data.id
-        );
-        if (!bookingExists) {
-          return [...prevState, resBooking.data];
-        } else {
-          return prevState;
-        }
-      });
+          return prev;
+        });
+      }
     });
   };
 
-  const filterBooking = bookings.filter((booking) => booking.id !== undefined);
+  console.log(bookings);
 
   return (
     <div>
@@ -140,76 +133,33 @@ export const RangeOfDates: FC<{ id: string }> = ({ id }) => {
         </form>
       </div>
 
-      {filterBooking.length > 0 ? (
+      {bookings.length > 0 ? (
         <div className='grid gap-y-10 md:grid-cols-2 md:gap-y-8 lg:grid-cols-3'>
-          {filterBooking.map((item) => (
+          {bookings.map((item) => (
             <div
               key={item.id}
               className='text-center h-fit rounded-xl space-y-4 justify-self-center border-[1px] border-p600 px-5 py-5 bg-gray300/[.14] w-[280px] md:w-[300px]'
             >
-              <div className='space-y-2'>
+              <div className='space-y-3'>
                 <p className='text-base md:text-lg font-semibold'>
                   Nombre del alojamiento:
                 </p>
                 <p className='text-sm md:text-base'>{item.accommodationName}</p>
 
                 <p className='text-base md:text-lg font-semibold'>
-                  Periodo de reserva:
+                  Fecha de Cancelacion
                 </p>
 
-                {item.occupiedPeriod && item.occupiedPeriod ? (
-                  <p className='text-sm md:text-base'>
-                    {item.occupiedPeriod.startDate.toString()} /{' '}
-                    {item.occupiedPeriod.endDate.toString()}{' '}
-                  </p>
-                ) : (
-                  <p className='text-sm md:text-base'>
-                    No asignado debido a su cancelacion
-                  </p>
-                )}
+                <p className='text-sm md:text-base'>
+                  {moment(item.cancelledDate).format('MM-DD-YYYY')}
+                </p>
 
-                <p className='text-base md:text-lg font-semibold'>Estado:</p>
-                {item.status === 'PENDING_PAYMENT' ? (
-                  <>
-                    <p className='text-sm md:text-base'>Pago pendiente</p>
-                    <p className='text-base md:text-lg font-semibold'>
-                      Mas informacion:
-                    </p>
-                    <p className='text-sm md:text-base'>
-                      Esperando pago, para ver detalles
-                    </p>
-                  </>
-                ) : item.status === 'CONFIRMED' ? (
-                  <>
-                    <p className='text-sm md:text-base'>Confirmado</p>
-                    <p className='text-base md:text-lg font-semibold'>
-                      Mas informacion:
-                    </p>
-                    <div className='flex justify-center items-center relative'>
-                      <AiOutlineCheckCircle className='w-5 md:h-5 text-p600 absolute top-1/2 -translate-y-1/2 right-5 md:right-12 lg:right-12' />
-                      <Link
-                        href={`/private/owner/reservation/${item.id}`}
-                        passHref
-                        className='text-center text-p600 hover:bg-gray300 border-[1px] border-p600 rounded-md text-[13px] md:text-sm lg:text-base py-2 px-4 w-full'
-                      >
-                        Ver detalles
-                      </Link>
-                    </div>
-                  </>
-                ) : item.status === 'CANCELLED' ? (
-                  <>
-                    <p className='text-sm md:text-base'>Cancelado</p>
-                    <p className='text-base md:text-lg font-semibold'>
-                      Mas informacion:
-                    </p>
-                    <p className='text-sm md:text-base'>
-                      Reservacion cancelada, para mayor informacion comuniquese
-                      con su administrador
-                    </p>
-                  </>
-                ) : (
-                  <p className='text-sm md:text-base'>{item.status}</p>
-                )}
+                <p className='text-base md:text-lg font-semibold'>
+                  Nombre de viajero
+                </p>
+                <p className='text-sm md:text-base'>
+                  {item.travellerName ? item.travellerName : 'Desconocido'}
+                </p>
               </div>
             </div>
           ))}
@@ -218,7 +168,7 @@ export const RangeOfDates: FC<{ id: string }> = ({ id }) => {
         <div className='flex justify-center items-center'>
           <div className='flex justify-center items-center px-4 border-[1px] border-dashed h-[266px] w-[717px]'>
             <p className=' text-black900/[.7] lg:text-3xl text-center'>
-              ¡Aún no tienes reservaciones en tu alojamiento!
+              ¡Aún no tienes reservaciones canceladas en tu alojamiento!
             </p>
           </div>
         </div>
