@@ -56,6 +56,8 @@ export const CancelledRangeOfDates: FC<{ id: string }> = ({ id }) => {
       return;
     }
 
+    setBookings([]);
+
     const res = await axios.get(
       `https://api.avaibook.com/api/owner/bookings/?cancelledStartDate=${startDateForm}&cancelledEndDate=${endDateForm}`,
       {
