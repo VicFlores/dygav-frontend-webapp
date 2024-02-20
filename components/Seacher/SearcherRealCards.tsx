@@ -1,7 +1,10 @@
-import { FC, useEffect, useState } from 'react';
+import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import Image from 'next/legacy/image';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
+import { axiosConfig } from '@/utils';
 
 type Unit = {
   weekPrice: number;
@@ -42,14 +45,21 @@ interface ICarousel {
   units: Unit[];
 }
 
-export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
+export const SearcherRealCards: FC<{
+  item: ICarousel;
+  setRemovedAccomodation?: Dispatch<SetStateAction<number>>;
+}> = ({ item, setRemovedAccomodation }) => {
   const [expanded, setExpanded] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { data: session } = useSession();
+  const [startX, setStartX] = useState(0);
+  const [endX, setEndX] = useState(0);
+  const router = useRouter();
+  const [favIsChanged, setfavIsChanged] = useState(false);
+  const [favExist, setFavExist] = useState([]);
   const [isMobile, setIsMobile] = useState(() =>
     typeof window !== 'undefined' ? window.innerWidth <= 768 : false
   );
-  const [startX, setStartX] = useState(0);
-  const [endX, setEndX] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -62,6 +72,24 @@ export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    const getAccomodationsByUserId = async () => {
+      try {
+        if (session && session.user) {
+          const res = await axiosConfig.get(
+            `/api/favorites/findFavAccomodationsByUserId?userId=${session.user._id}`
+          );
+
+          setFavExist(res.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getAccomodationsByUserId();
+  }, [favIsChanged]);
 
   const currentDate = new Date();
   const currentDateString = currentDate.toISOString().split('T')[0];
@@ -125,6 +153,62 @@ export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
       changeSlide('prev');
     }
   };
+
+  const handleFavAdd = () => {
+    if (session) {
+      const addFav = async () => {
+        try {
+          if (session.user) {
+            await axiosConfig.post('/api/favorites/favoriteAccomodations', {
+              userId: session.user._id,
+              accomodationId: item.id,
+            });
+
+            setfavIsChanged(!favIsChanged);
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+      addFav();
+    } else {
+      return router.push('/login');
+    }
+  };
+
+  const handleFavRemove = () => {
+    if (session) {
+      const removeFav = async () => {
+        try {
+          if (session.user) {
+            await axiosConfig.delete(`/api/favorites/favoriteAccomodations`, {
+              data: {
+                userId: session.user._id,
+                accomodationId: item.id,
+              },
+            });
+
+            if (setRemovedAccomodation) {
+              setRemovedAccomodation(Number(item.id));
+            }
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+      removeFav();
+
+      setfavIsChanged(!favIsChanged);
+    } else {
+      return router.push('/login');
+    }
+  };
+
+  const disableFav = favExist.some(
+    (fav: any) => Number(fav.accomodationId) === Number(item.id)
+  );
 
   return (
     <div
@@ -218,10 +302,32 @@ export const SearcherRealCards: FC<{ item: ICarousel }> = ({ item }) => {
 
         <button
           onClick={() => setExpanded(!expanded)}
-          className='font-serif font-semibold px-4 pb-6'
+          className='font-serif font-semibold px-4 pb-4'
         >
           {expanded ? 'Mostrar Menos' : 'Mostrar Más'}
         </button>
+
+        <div className='flex flex-col justify-center  items-center pb-6 space-y-4'>
+          <button
+            onClick={handleFavAdd}
+            disabled={disableFav}
+            className={` text-white p-2 rounded-xl ${
+              disableFav ? 'bg-p200' : 'bg-p600'
+            }`}
+          >
+            Agregar a favoritos
+          </button>
+
+          <button
+            onClick={handleFavRemove}
+            disabled={!disableFav}
+            className={` text-white p-2 rounded-xl ${
+              disableFav ? 'bg-p600' : 'bg-p200'
+            }`}
+          >
+            Eliminar de favoritos
+          </button>
+        </div>
       </div>
 
       <Link href={`/realAparmentDetails/${item.id}`}>
