@@ -18,7 +18,14 @@ export const PostCards: FC<{
   favExist: any;
   favIsChanged: boolean;
   setfavIsChanged: Dispatch<SetStateAction<boolean>>;
-}> = ({ post, favExist, favIsChanged, setfavIsChanged }) => {
+  setRemovedBlogPost: Dispatch<SetStateAction<number>>;
+}> = ({
+  post,
+  favExist,
+  favIsChanged,
+  setfavIsChanged,
+  setRemovedBlogPost,
+}) => {
   const [categories, setCategories] = useState<Category>({} as Category);
 
   const { data: session } = useSession();
@@ -70,9 +77,9 @@ export const PostCards: FC<{
               },
             });
 
-            // if (setRemovedAccomodation) {
-            //   setRemovedAccomodation(Number(item.id));
-            // }
+            if (setRemovedBlogPost) {
+              setRemovedBlogPost(Number(post.id));
+            }
           }
         } catch (error) {
           console.log(error);
@@ -107,7 +114,7 @@ export const PostCards: FC<{
         )}
       </div>
 
-      <h2 className="py-1 md:py-[6px] rounded-lg bg-p600 w-[136px] text-center text-white mb-3">
+      <h2 className="py-1 md:py-[6px] rounded-lg bg-p600 w-fit p-4 text-center text-white mb-3 text-sm md:text-base">
         {categories.name}
       </h2>
 
