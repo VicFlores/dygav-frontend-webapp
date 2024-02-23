@@ -261,7 +261,7 @@ export const SearcherRealCards: FC<{
       ) : (
         // Desktop component goes here
         <div className="relative">
-          <div className="absolute top-0 right-0 z-10 p-6 text-[26px]">
+          <div className="absolute top-0 right-0 z-10 p-6 text-[30px]">
             {disableFav ? (
               <FaHeart onClick={handleFavRemove} className="text-p600" />
             ) : (

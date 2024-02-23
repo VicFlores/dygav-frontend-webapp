@@ -6,7 +6,7 @@ type Links = {
   self: Link[];
   collection: Link[];
   about: Link[];
-  'wp:post_type': Link[];
+  "wp:post_type": Link[];
   curies: Array<{
     name: string;
     href: string;
