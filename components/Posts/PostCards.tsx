@@ -18,7 +18,7 @@ export const PostCards: FC<{
   favExist: any;
   favIsChanged: boolean;
   setfavIsChanged: Dispatch<SetStateAction<boolean>>;
-  setRemovedBlogPost: Dispatch<SetStateAction<number>>;
+  setRemovedBlogPost?: Dispatch<SetStateAction<number>>;
 }> = ({
   post,
   favExist,
