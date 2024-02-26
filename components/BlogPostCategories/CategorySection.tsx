@@ -1,9 +1,13 @@
 import { BlogPost } from "@/types";
+import { axiosConfig } from "@/utils";
 import moment from "moment";
+import { useSession } from "next-auth/react";
 import Image from "next/legacy/image";
 import Link from "next/link";
-import React, { FC, useRef } from "react";
+import { useRouter } from "next/router";
+import React, { FC, useEffect, useRef, useState } from "react";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
+import { FaHeart, FaRegHeart } from "react-icons/fa6";
 
 type BlogPostWithSubCategory = BlogPost & {
   subCategoryName: string | null;
@@ -25,7 +29,29 @@ export const CategorySection: FC<CategorySectionProps> = ({
   information,
   posts,
 }) => {
+  const [favExist, setFavExist] = useState([]);
+  const [favIsChanged, setfavIsChanged] = useState(false);
+  const { data: session } = useSession();
+  const router = useRouter();
   const scrollContainer = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const getBlogPostByUserId = async () => {
+      try {
+        if (session && session.user) {
+          const res = await axiosConfig.get(
+            `/api/favorites/findFavBlogPostsByUserId?userId=${session.user._id}`
+          );
+
+          setFavExist(res.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getBlogPostByUserId();
+  }, [favIsChanged, session]);
 
   const scrollLeft = () => {
     if (scrollContainer.current) {
@@ -47,6 +73,58 @@ export const CategorySection: FC<CategorySectionProps> = ({
       : title === "Tendencias y Evolución del Alquiler Vacacional"
       ? "Tendencias sobre alquiler vacacional"
       : title;
+
+  const handleFavAdd = (post: any) => {
+    if (session) {
+      const addFav = async () => {
+        try {
+          if (session.user) {
+            await axiosConfig.post("/api/favorites/favoriteBlogPosts", {
+              userId: session.user._id,
+              blogPostId: post.id,
+            });
+
+            setfavIsChanged(!favIsChanged);
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+      addFav();
+    } else {
+      return router.push("/login");
+    }
+  };
+
+  const handleFavRemove = (post: any) => {
+    if (session) {
+      const removeFav = async () => {
+        try {
+          if (session.user) {
+            await axiosConfig.delete(`/api/favorites/favoriteBlogPosts`, {
+              data: {
+                userId: session.user._id,
+                blogPostId: post.id,
+              },
+            });
+
+            // if (setRemovedBlogPost) {
+            //   setRemovedBlogPost(Number(post.id));
+            // }
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+      removeFav();
+
+      setfavIsChanged(!favIsChanged);
+    } else {
+      return router.push("/login");
+    }
+  };
 
   return (
     <>
@@ -105,10 +183,13 @@ export const CategorySection: FC<CategorySectionProps> = ({
                   return false;
                 })
                 .map((post) => {
+                  const disableFav = favExist.some(
+                    (fav: any) => Number(fav.blogPostId) === Number(post.id)
+                  );
                   return (
                     <div key={post.id}>
                       <div
-                        className="flex flex-col justify-end min-w-[300px] min-h-[350px]  md:min-w-[494px] md:h-[296px] rounded-xl px-6 pb-6 space-y-2 text-white"
+                        className="relative flex flex-col justify-end min-w-[300px] min-h-[350px]  md:min-w-[494px] md:h-[296px] rounded-xl px-6 pb-6 space-y-2 text-white"
                         style={{
                           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url(${post.yoast_head_json.og_image[0].url})`,
                           backgroundSize: "cover",
@@ -116,6 +197,20 @@ export const CategorySection: FC<CategorySectionProps> = ({
                           boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.25)",
                         }}
                       >
+                        <div className="absolute top-0 right-0 z-10 p-6 text-[30px]">
+                          {disableFav ? (
+                            <FaHeart
+                              onClick={() => handleFavRemove(post)}
+                              className="text-p600"
+                            />
+                          ) : (
+                            <FaRegHeart
+                              onClick={() => handleFavAdd(post)}
+                              className="text-white"
+                            />
+                          )}
+                        </div>
+
                         <p className="underline">
                           <Link href={`/post/${post.slug}`}>
                             {post.title.rendered}
