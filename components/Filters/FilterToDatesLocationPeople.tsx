@@ -10,6 +10,7 @@ import { useState } from "react";
 import { addMonths } from "date-fns";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
+import "./calendar.module.css";
 registerLocale("es", es);
 
 interface FormData {
@@ -55,7 +56,7 @@ export const FilterToDatesLocationPeople = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="grid lg:grid-cols-4 lg:gap-0 md:gap-8 gap-6 p-[30px] mt-16 bg-p600/50"
+      className="grid grid-cols-1 lg:grid-cols-4 lg:gap-0 md:gap-8 gap-6 py-6 mt-16 bg-p600/50"
     >
       <div className="text-center self-center justify-self-center">
         <p className="pb-2 font-semibold">Escoge tu ciudad</p>
@@ -79,7 +80,7 @@ export const FilterToDatesLocationPeople = () => {
         </label>
       </div>
 
-      <div className="text-center self-center justify-self-center  ">
+      <div className="text-center self-center justify-self-center">
         <p className="pb-2 font-semibold">Checkin - Checkout</p>
 
         <div className="relative">

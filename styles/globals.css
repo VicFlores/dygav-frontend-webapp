@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+.react-datepicker__month .react-datepicker__day--in-selecting-range,
+.react-datepicker__month .react-datepicker__day--in-range {
+  background-color: #f4511e !important;
+}
+
+.react-datepicker__close-icon::after {
+  background-color: #b80000 !important;
+}
+
 .scrollbar {
   scrollbar-width: 7px;
 }
