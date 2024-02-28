@@ -10,7 +10,6 @@ import { useState } from "react";
 import { addMonths } from "date-fns";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
-import "./calendar.module.css";
 registerLocale("es", es);
 
 interface FormData {
