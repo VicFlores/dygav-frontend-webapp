@@ -1,118 +1,140 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import Link from 'next/link';
-import { axiosConfig } from '@/utils';
+import { axiosConfig } from "@/utils";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { MdAddHomeWork } from "react-icons/md";
+import { RiDeleteBin5Line } from "react-icons/ri";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
-interface PropsAvaibook {
-  id: number;
-  name: string;
+interface User {
+  marketingPermissions: boolean;
+  acceptancePrivacyPolicies: boolean;
+  _id: string;
+  fullname: string;
+  email: string;
+  __v: number;
 }
 
-interface PropsDygav {
-  userId: string;
-  accomodationId: number;
+interface Accommodation {
+  _id: string;
+  userId: User;
+  accomodationId: string;
+  __v: number;
+  avaibookName: string;
 }
 
 export const AdminDashboard = () => {
-  const [accomodations, setAccomodations] = useState<PropsAvaibook[]>([
-    { id: 0, name: '' },
-  ]);
-  const [accomodationsDygav, setAccomodationsDygav] = useState<PropsDygav[]>([
-    {
-      accomodationId: 0,
-      userId: '',
-    },
-  ]);
-  const [error, setError] = useState('');
+  const [findAllAccomodations, setFindAllAccomodations] = useState<
+    Accommodation[]
+  >([]);
 
   useEffect(() => {
-    const getAccomodations = async () => {
-      const { data } = await axios.get(
-        'https://api.avaibook.com/api/owner/accommodations/',
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
-          },
-        }
-      );
+    const getAllAccomodations = async () => {
+      const res = await axiosConfig.get("/api/accomodations/route");
 
-      setAccomodations(data);
+      setFindAllAccomodations(res.data);
     };
 
-    const getAccomodationsDygav = async () => {
-      const { data } = await axiosConfig.get('api/accomodations/route', {
-        headers: {
-          'Content-Type': 'application/json',
-          'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
-        },
-      });
-
-      setAccomodationsDygav(data);
-    };
-
-    getAccomodations();
-    getAccomodationsDygav();
+    getAllAccomodations();
   }, []);
 
-  return (
-    <div className='px-8 space-y-12 mb-24'>
-      <div className='border-b-[1px]'>
-        <p className=' text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl'>
-          Gestion de alojamientos
-        </p>
-      </div>
+  const handleDelete = (id: string) => {
+    confirmAlert({
+      customUI: ({ title, message, onClose }) => {
+        return (
+          <div className="bg-p800 pl-8 pr-28 py-10 text-white rounded-xl">
+            <h1 className="text-xl md:text-2xl font-bold">{title}</h1>
 
-      <div className='flex justify-center items-center'>
-        <table className='w-auto rounded-xl'>
-          <tr className='bg-gray300'>
-            <th className='p-6'>Nombre de alojamiento</th>
-            <th className='p-6'>Asignar usuario</th>
-          </tr>
-          {accomodations.map((accomodation, index) => {
-            const isAssigned = accomodationsDygav.some(
-              (item) => Number(item.accomodationId) === accomodation.id
-            );
+            <p className="text-base md:text-lg mt-2 font-semibold">{message}</p>
 
-            return (
-              <tr
-                key={index}
-                className={`text-center ${
-                  index % 2 === 0 ? 'bg-gray300/70' : 'bg-gray300/80'
-                }`}
-              >
-                <td className='py-4 px-8'>{accomodation?.name}</td>
-                <td className='py-4 px-8'>
-                  <Link
-                    href={`/private/admin/addAccomodation/${accomodation.id}`}
-                  >
-                    {isAssigned ? 'Asignado' : 'No asignado'}
-                  </Link>
-                </td>
-              </tr>
-            );
-          })}
-        </table>
-      </div>
+            <button
+              onClick={async () => {
+                await axiosConfig.delete(`/api/accomodations/route?id=${id}`);
+                setFindAllAccomodations((prevAccommodations) =>
+                  prevAccommodations.filter((item) => item._id !== id)
+                );
+                onClose();
+              }}
+              className="bg-[#1B3C73] py-2 px-6 md:py-2 md:px-8 rounded-xl mt-6 mr-6"
+            >
+              Sí
+            </button>
 
-      {/* <div className='flex justify-center items-center'>
-          <div className='flex flex-col justify-center items-center space-y-8 border-[1px] border-dashed h-[266px] w-[717px]'>
-            <p className=' text-black900/[.7] lg:text-3xl'>
-              ¡Aún no tienes alojamientos!
-            </p>
-
-            <div className='relative'>
-              <AiOutlineCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 right-3 text-white' />
-              <button
-                id='toggle'
-                className='bg-p600 hover:bg-p800 py-2 px-4 w-[250px] text-left text-white justify-self-center self-center'
-              >
-                Crear un alojamiento
-              </button>
-            </div>
+            <button
+              onClick={onClose}
+              className="bg-[#1B3C73] py-2 px-6 md:py-2 md:px-8 rounded-xl mt-6"
+            >
+              No
+            </button>
           </div>
-        </div> */}
+        );
+      },
+      title: "Confirmar para eliminar",
+      message: "¿Estás seguro de hacer esto?",
+    });
+  };
+
+  return (
+    <div className="px-2 lg:px-8 space-y-12 mb-24">
+      <div className="border-b-[1px] flex flex-col items-center lg:flex-row lg:items-end justify-between">
+        <p className=" text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl">
+          Alojamientos asignados
+        </p>
+
+        <Link
+          href={"/private/admin/addAccomodation"}
+          className="bg-p600 text-white p-2 rounded-xl mb-4 mt-4 lg:mt-0 lg:mb-2 flex items-center"
+        >
+          Asignar alojamiento <MdAddHomeWork className="mx-3 text-xl" />
+        </Link>
+      </div>
+
+      {findAllAccomodations.length > 0 ? (
+        <div className="flex justify-center items-center">
+          <div className="rounded-2xl overflow-scroll lg:overflow-hidden">
+            <table className="text-center">
+              <thead className="bg-p800 text-white ">
+                <tr className="rounded-xl">
+                  <th className="py-3">Usuario</th>
+                  <th>Alojamiento</th>
+                  <th className="px-4 lg:px-10">Opcion</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[...findAllAccomodations].reverse().map((item, index) => (
+                  <tr
+                    key={item._id}
+                    className={
+                      index % 2 === 0 ? "bg-[#faa477]" : "bg-[#fcc9ac]"
+                    }
+                  >
+                    <td className="py-4 px-2 lg:py-2 lg:px-10">
+                      {item.userId ? item.userId.fullname : "N/A"}
+                    </td>
+
+                    <td className="py-4 lg:py-2">{item.avaibookName}</td>
+
+                    <td className="flex justify-center items-center py-10 lg:py-4">
+                      <RiDeleteBin5Line
+                        onClick={() => handleDelete(item._id)}
+                        className="cursor-pointer text-black900 text-xl"
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ) : (
+        <div className="flex justify-center items-center">
+          <div className="flex flex-col justify-center items-center space-y-8 border-[1px] border-dashed h-[266px] w-[717px]">
+            <p className=" text-black900/[.7] lg:text-3xl">
+              ¡Aún no tienes alojamientos asignados!
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

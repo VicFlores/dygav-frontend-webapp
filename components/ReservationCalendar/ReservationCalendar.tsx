@@ -1,13 +1,13 @@
-import { Calendar, momentLocalizer } from 'react-big-calendar';
-import moment from 'moment';
-import 'moment/locale/es';
-import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { FC, useEffect, useState } from 'react';
-import { ReservationAvaibook } from '@/types';
-import axios from 'axios';
-import { AiOutlineCheckCircle } from 'react-icons/ai';
-import BlockCalendarDaysForm from '../BlockCalendarDaysForm/BlockCalendarDaysForm';
-import { useRouter } from 'next/router';
+import { Calendar, momentLocalizer } from "react-big-calendar";
+import moment from "moment";
+import "moment/locale/es";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import { FC, useEffect, useState } from "react";
+import { ReservationAvaibook } from "@/types";
+import axios from "axios";
+import { AiOutlineCheckCircle } from "react-icons/ai";
+import BlockCalendarDaysForm from "../BlockCalendarDaysForm/BlockCalendarDaysForm";
+import { useRouter } from "next/router";
 
 const localizer = momentLocalizer(moment);
 
@@ -27,62 +27,42 @@ type BlockDayProps = {
 export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   const [showForm, setShowForm] = useState(false);
   const router = useRouter();
+  const [isEmailChecked, setIsEmailChecked] = useState(false);
   const [accomodationDayBlock, setAccomodationDayBlock] = useState<
     ReservationCalendarProps[]
   >([
     {
-      startDate: '',
-      endDate: '',
+      startDate: "",
+      endDate: "",
     },
   ]);
   const [listenBlockDate, setlistenBlockDate] = useState<BlockDayProps>({
-    unit: '',
-    startDate: '',
-    endDate: '',
-    type: '',
-    booking: '',
+    unit: "",
+    startDate: "",
+    endDate: "",
+    type: "",
+    booking: "",
   });
-  const [accomodationByReservation, setAccomodationByReservation] = useState<
-    ReservationAvaibook[]
-  >([]);
   const [bookingById, setBookingById] = useState([
     {
-      id: '',
-      travellerName: '',
+      id: "",
+      travellerName: "",
       occupiedPeriod: {
-        startDate: '',
-        endDate: '',
+        startDate: "",
+        endDate: "",
       },
     },
   ]);
 
   useEffect(() => {
-    const filterByAccomodationId = async () => {
-      const res = await axios.get(
-        `https://api.avaibook.com/api/owner/bookings/`,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
-          },
-        }
-      );
-
-      const accomodationById = res.data.filter(
-        (item: any) => item.accommodationId === Number(id)
-      );
-
-      setAccomodationByReservation(accomodationById);
-    };
-
     const accomodationBlockDay = async (id: string) => {
       if (id) {
         const res = await axios.get(
           `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/`,
           {
             headers: {
-              'Content-Type': 'application/json',
-              'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+              "Content-Type": "application/json",
+              "X-AUTH-TOKEN": process.env.AVAIBOOK_API_TOKEN,
             },
           }
         );
@@ -91,7 +71,6 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
       }
     };
 
-    filterByAccomodationId();
     accomodationBlockDay(id);
   }, [id, listenBlockDate]);
 
@@ -103,8 +82,8 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
             `https://api.avaibook.com/api/owner/bookings/${id}/`,
             {
               headers: {
-                'Content-Type': 'application/json',
-                'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+                "Content-Type": "application/json",
+                "X-AUTH-TOKEN": process.env.AVAIBOOK_API_TOKEN,
               },
             }
           );
@@ -114,6 +93,14 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
               (booking) => booking.id === resBooking.data.id
             );
             if (!bookingExists) {
+              // New booking detected
+              // if (isEmailChecked) {
+              //   axios
+              //     .post("/send-email", resBooking.data)
+              //     .then(() => console.log("Email sent"))
+              //     .catch((error) => console.error("Error sending email:", error));
+              // }
+
               return [...prevState, resBooking.data];
             } else {
               return prevState;
@@ -137,9 +124,9 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   const handleEventClick = (e: any) => {
     const reservation: any = bookingById.filter((item) => item.id === e.id)[0];
 
-    reservation.status === 'CONFIRMED'
+    reservation.status === "CONFIRMED"
       ? router.push(`/private/owner/reservation/${reservation.id}`)
-      : reservation.status === 'PENDING_PAYMENT'
+      : reservation.status === "PENDING_PAYMENT"
       ? router.push(
           `/private/owner/accomodation/${reservation.accommodationId}`
         )
@@ -149,17 +136,17 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   const reservations = bookingById.map((booking: any) => {
     return {
       id: booking.id,
-      start: moment(booking.occupiedPeriod.startDate).format('YYYY-MM-DD'),
+      start: moment(booking.occupiedPeriod.startDate).format("YYYY-MM-DD"),
       end: moment(booking.occupiedPeriod.endDate)
-        .add(2, 'days')
-        .format('YYYY-MM-DD'),
+        .add(2, "days")
+        .format("YYYY-MM-DD"),
       title: booking.travellerName,
     };
   });
 
   const dayStyleGetter = (date: Date) => {
     let style = {
-      backgroundColor: 'white', // default color
+      backgroundColor: "white", // default color
     };
 
     accomodationDayBlock.forEach((block) => {
@@ -167,9 +154,9 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
       const blockEnd = moment(block.endDate);
       const current = moment(date);
 
-      if (current.isBetween(blockStart, blockEnd, 'day', '[]')) {
+      if (current.isBetween(blockStart, blockEnd, "day", "[]")) {
         style = {
-          backgroundColor: '#D4D4D4',
+          backgroundColor: "#D4D4D4",
         };
       }
     });
@@ -184,7 +171,7 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   };
 
   return (
-    <div className='px-8 mb-24'>
+    <div className="px-8 mb-24">
       {showForm && (
         <BlockCalendarDaysForm
           setlistenBlockDate={setlistenBlockDate}
@@ -192,66 +179,77 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
         />
       )}
 
-      <div className='flex justify-between items-end border-b-[1px] mt-20 mb-14'>
-        <p className=' text-black900/[.7] text-2xl text-center md:text-left md:text-3xl lg:text-4xl'>
+      <div className="flex justify-between items-end border-b-[1px] mt-20 mb-8">
+        <p className=" text-black900/[.7] text-2xl text-center md:text-left md:text-3xl lg:text-4xl">
           Reservas en mi alojamiento
         </p>
 
-        <div className='relative mb-2'>
-          <AiOutlineCheckCircle className='w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-5 md:right-5 lg:right-7' />
+        <div className="relative mb-2">
+          <AiOutlineCheckCircle className="w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-5 md:right-5 lg:right-7" />
           <button
             onClick={toggleForm}
-            className='bg-p600 hover:bg-p800 text-center text-[13px] md:text-sm lg:text-base py-2 px-16 w-auto text-white'
+            className="bg-p600 hover:bg-p800 text-center text-[13px] md:text-sm lg:text-base py-2 px-16 w-auto text-white"
           >
-            {showForm ? 'Ocultar Bloquear Dia' : 'Ver Bloquear Dia'}
+            {showForm ? "Ocultar Bloquear Dia" : "Ver Bloquear Dia"}
           </button>
         </div>
       </div>
+
+      {/* <div className="mb-10">
+        <input
+          type="checkbox"
+          checked={isEmailChecked}
+          onChange={(e) => setIsEmailChecked(e.target.checked)}
+        />
+        <label className="pl-4">
+          Recibir notificaciones por correo electrónico de nuevas reservas
+        </label>
+      </div> */}
 
       <Calendar
         dayPropGetter={dayStyleGetter}
         localizer={localizer}
         events={reservations}
-        startAccessor='start'
-        endAccessor='end'
+        startAccessor="start"
+        endAccessor="end"
         style={{ height: 500 }}
-        views={['month']}
+        views={["month"]}
         messages={{
-          agenda: 'Reservaciones',
-          month: 'Mes',
-          today: 'Hoy',
-          previous: 'Anterior',
-          next: 'Siguiente',
-          work_week: 'Semana laboral',
-          allDay: 'Todo el dia',
-          date: 'Fecha',
-          time: 'Hora',
-          event: 'Evento',
-          noEventsInRange: 'No hay reservaciones en este rango',
+          agenda: "Reservaciones",
+          month: "Mes",
+          today: "Hoy",
+          previous: "Anterior",
+          next: "Siguiente",
+          work_week: "Semana laboral",
+          allDay: "Todo el dia",
+          date: "Fecha",
+          time: "Hora",
+          event: "Evento",
+          noEventsInRange: "No hay reservaciones en este rango",
 
           showMore: (total) => `+ Ver mas (${total})`,
         }}
         onSelectEvent={(e) => handleEventClick(e)}
         eventPropGetter={(event, start, end, isSelected) => {
           let newStyle: React.CSSProperties = {
-            background: 'linear-gradient(to right, lightblue 70%, #F4511E 30%)',
-            color: 'white',
-            fontSize: '14px',
-            paddingRight: '0px',
-            width: '0px',
-            textAlign: 'center',
+            background: "linear-gradient(to right, lightblue 70%, #F4511E 30%)",
+            color: "white",
+            fontSize: "14px",
+            paddingRight: "0px",
+            width: "0px",
+            textAlign: "center",
           };
 
           if (event.start && event.end) {
-            newStyle.paddingRight = '20px';
-            newStyle.width = '80%';
-            newStyle.textAlign = 'right';
+            newStyle.paddingRight = "20px";
+            newStyle.width = "80%";
+            newStyle.textAlign = "right";
             newStyle.background =
-              'linear-gradient(to right, rgba(255,0,0,0) 20%, #F4511E 5%, #F4511E 20%, #F4511E 55%)';
+              "linear-gradient(to right, rgba(255,0,0,0) 20%, #F4511E 5%, #F4511E 20%, #F4511E 55%)";
           }
 
           return {
-            className: '',
+            className: "",
             style: newStyle,
           };
         }}
