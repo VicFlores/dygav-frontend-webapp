@@ -1,9 +1,9 @@
-import React, { FC, useEffect, useState } from 'react';
-import axios from 'axios';
-import { ActiveReservations } from './ActiveReservations';
-import moment from 'moment';
-import { RangeOfDates } from './RangeOfDates';
-import { CancelledRangeOfDates } from './CancelledRangeOfDates';
+import React, { FC, useEffect, useState } from "react";
+import axios from "axios";
+import { ActiveReservations } from "./ActiveReservations";
+import moment from "moment";
+import { RangeOfDates } from "./RangeOfDates";
+import { CancelledRangeOfDates } from "./CancelledRangeOfDates";
 
 interface ReservationCalendarProps {
   start: string;
@@ -26,25 +26,25 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
 }) => {
   const [bookingById, setBookingById] = useState<IBookingId[]>([
     {
-      id: '',
-      travellerName: '',
-      accommodationName: '',
-      status: '',
+      id: "",
+      travellerName: "",
+      accommodationName: "",
+      status: "",
       occupiedPeriod: {
-        startDate: '',
-        endDate: '',
+        startDate: "",
+        endDate: "",
       },
     },
   ]);
   const [beforeBooking, setBeforeBooking] = useState<IBookingId[]>([
     {
-      id: '',
-      travellerName: '',
-      accommodationName: '',
-      status: '',
+      id: "",
+      travellerName: "",
+      accommodationName: "",
+      status: "",
       occupiedPeriod: {
-        startDate: '',
-        endDate: '',
+        startDate: "",
+        endDate: "",
       },
     },
   ]);
@@ -52,11 +52,11 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
     ReservationCalendarProps[]
   >([
     {
-      start: '',
-      end: '',
+      start: "",
+      end: "",
     },
   ]);
-  const [activeTab, setActiveTab] = useState('active');
+  const [activeTab, setActiveTab] = useState("active");
 
   useEffect(() => {
     const accomodationBlockDay = async (id: string) => {
@@ -65,8 +65,8 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
           `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/`,
           {
             headers: {
-              'Content-Type': 'application/json',
-              'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+              "Content-Type": "application/json",
+              "X-AUTH-TOKEN": process.env.AVAIBOOK_API_TOKEN,
             },
           }
         );
@@ -86,8 +86,8 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
             `https://api.avaibook.com/api/owner/bookings/${id}/`,
             {
               headers: {
-                'Content-Type': 'application/json',
-                'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+                "Content-Type": "application/json",
+                "X-AUTH-TOKEN": process.env.AVAIBOOK_API_TOKEN,
               },
             }
           );
@@ -110,18 +110,18 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
 
     const getBookingdate90DaysAgo = async (id: string) => {
       let currentDate = moment();
-      let date90DaysAgo = moment().subtract(90, 'days');
+      let date90DaysAgo = moment().subtract(90, "days");
 
       try {
         if (id) {
           const res = await axios.get(
             `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/?startDate=${date90DaysAgo.format(
-              'YYYY-MM-DD'
-            )}&endDate=${currentDate.format('YYYY-MM-DD')}`,
+              "YYYY-MM-DD"
+            )}&endDate=${currentDate.format("YYYY-MM-DD")}`,
             {
               headers: {
-                'Content-Type': 'application/json',
-                'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+                "Content-Type": "application/json",
+                "X-AUTH-TOKEN": process.env.AVAIBOOK_API_TOKEN,
               },
             }
           );
@@ -131,8 +131,8 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
               `https://api.avaibook.com/api/owner/bookings/${booking.booking}/`,
               {
                 headers: {
-                  'Content-Type': 'application/json',
-                  'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+                  "Content-Type": "application/json",
+                  "X-AUTH-TOKEN": process.env.AVAIBOOK_API_TOKEN,
                 },
               }
             );
@@ -150,7 +150,7 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
           });
         }
       } catch (error) {
-        console.error('Error fetching bookings:', error);
+        console.error("Error fetching bookings:", error);
       }
     };
 
@@ -163,26 +163,19 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
     });
 
     getBookingdate90DaysAgo(id);
-  }, [accomodationDayBlock]);
-
-  const bookingByIdSlice = bookingById.slice(1);
+  }, [accomodationDayBlock, id]);
 
   const renderTabContent = () => {
     switch (activeTab) {
-      case 'active':
+      case "active":
+        return <ActiveReservations bookings={bookingById} status="CONFIRMED" />;
+      case "past":
         return (
-          <ActiveReservations bookings={bookingByIdSlice} status='CONFIRMED' />
+          <ActiveReservations bookings={beforeBooking} status="CONFIRMED" />
         );
-      case 'past':
-        return (
-          <ActiveReservations
-            bookings={beforeBooking.slice(1)}
-            status='CONFIRMED'
-          />
-        );
-      case 'canceled':
+      case "canceled":
         return <CancelledRangeOfDates id={id} />;
-      case 'rangeOfDates':
+      case "rangeOfDates":
         return <RangeOfDates id={id} />;
       default:
         return null;
@@ -190,45 +183,45 @@ export const OwnerAccomodationReservationDetails: FC<{ id: string }> = ({
   };
 
   return (
-    <div className='px-8 space-y-12 mb-24'>
-      <div className='flex flex-col md:flex-row justify-center items-center md:justify-between md:items-end border-b-[1px]'>
-        <p className=' text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl'>
+    <div className="px-8 space-y-12 mb-24">
+      <div className="flex flex-col md:flex-row justify-center items-center md:justify-between md:items-end border-b-[1px]">
+        <p className=" text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl">
           Reservas en mi alojamiento
         </p>
 
-        <ul className='flex flex-col space-y-3 md:space-y-0 md:flex-row justify-center items-center md:space-x-10 mt-8  lg:text-lg'>
+        <ul className="flex flex-col space-y-3 md:space-y-0 md:flex-row justify-center items-center md:space-x-10 mt-8  lg:text-lg">
           <li
             className={`cursor-pointer ${
-              activeTab === 'active' ? 'text-p600' : ''
+              activeTab === "active" ? "text-p600" : ""
             }`}
-            onClick={() => setActiveTab('active')}
+            onClick={() => setActiveTab("active")}
           >
             Activas
           </li>
 
           <li
             className={`cursor-pointer ${
-              activeTab === 'past' ? 'text-p600' : ''
+              activeTab === "past" ? "text-p600" : ""
             }`}
-            onClick={() => setActiveTab('past')}
+            onClick={() => setActiveTab("past")}
           >
             Pasadas
           </li>
 
           <li
             className={`cursor-pointer ${
-              activeTab === 'canceled' ? 'text-p600' : ''
+              activeTab === "canceled" ? "text-p600" : ""
             }`}
-            onClick={() => setActiveTab('canceled')}
+            onClick={() => setActiveTab("canceled")}
           >
             Canceladas
           </li>
 
           <li
             className={`cursor-pointer ${
-              activeTab === 'rangeOfDates' ? 'text-p600' : ''
+              activeTab === "rangeOfDates" ? "text-p600" : ""
             }`}
-            onClick={() => setActiveTab('rangeOfDates')}
+            onClick={() => setActiveTab("rangeOfDates")}
           >
             Rango de fechas
           </li>
