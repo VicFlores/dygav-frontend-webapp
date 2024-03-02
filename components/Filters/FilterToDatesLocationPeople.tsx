@@ -97,6 +97,7 @@ export const FilterToDatesLocationPeople = () => {
             placeholderText="Fechas de reserva"
             isClearable
             locale={es}
+            dateFormat={"dd/MM/yyyy"}
           />
         </div>
       </div>
