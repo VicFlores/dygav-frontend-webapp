@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { MdAddHomeWork } from "react-icons/md";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { confirmAlert } from "react-confirm-alert";
+import { RiUserSearchLine } from "react-icons/ri";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
 interface User {
@@ -27,6 +28,7 @@ export const AdminDashboard = () => {
   const [findAllAccomodations, setFindAllAccomodations] = useState<
     Accommodation[]
   >([]);
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   useEffect(() => {
     const getAllAccomodations = async () => {
@@ -74,6 +76,12 @@ export const AdminDashboard = () => {
     });
   };
 
+  const filteredAccommodations = findAllAccomodations.filter(
+    (item) =>
+      item.userId?.fullname.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.userId?.email.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="px-2 lg:px-8 space-y-12 mb-24">
       <div className="border-b-[1px] flex flex-col items-center lg:flex-row lg:items-end justify-between">
@@ -83,36 +91,54 @@ export const AdminDashboard = () => {
 
         <Link
           href={"/private/admin/addAccomodation"}
-          className="bg-p600 text-white p-2 rounded-xl mb-4 mt-4 lg:mt-0 lg:mb-2 flex items-center"
+          className="bg-p600 text-white p-2 rounded-xl mb-4 mt-4 lg:mt-0 lg:mb-2 flex items-center text-sm md:text-base"
         >
           Asignar alojamiento <MdAddHomeWork className="mx-3 text-xl" />
         </Link>
       </div>
 
-      {findAllAccomodations.length > 0 ? (
+      <div className="flex justify-center items-center">
+        <div className="relative">
+          <RiUserSearchLine className="absolute top-3 left-3" />
+          <input
+            type="text"
+            placeholder="Buscar alojamiento por usuario o email"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-[23rem] pl-9 border-solid py-2 rounded-xl bg-gray300/40 placeholder:text-black900/[.7]"
+          />
+        </div>
+      </div>
+
+      {filteredAccommodations.length > 0 ? (
         <div className="flex justify-center items-center">
           <div className="rounded-2xl overflow-scroll lg:overflow-hidden">
             <table className="text-center">
               <thead className="bg-p800 text-white ">
                 <tr className="rounded-xl">
                   <th className="py-3">Usuario</th>
+                  <th>Email</th>
                   <th>Alojamiento</th>
                   <th className="px-4 lg:px-10">Opcion</th>
                 </tr>
               </thead>
-              <tbody>
-                {[...findAllAccomodations].reverse().map((item, index) => (
+              <tbody className="text-sm md:text-base">
+                {[...filteredAccommodations].reverse().map((item, index) => (
                   <tr
                     key={item._id}
                     className={
                       index % 2 === 0 ? "bg-[#faa477]" : "bg-[#fcc9ac]"
                     }
                   >
-                    <td className="py-4 px-2 lg:py-2 lg:px-10">
+                    <td className="py-4 px-5 lg:py-2 lg:px-10">
                       {item.userId ? item.userId.fullname : "N/A"}
                     </td>
 
-                    <td className="py-4 lg:py-2">{item.avaibookName}</td>
+                    <td className="py-2 px-5 lg:py-2 lg:px-10">
+                      {item.userId ? item.userId.email : "N/A"}
+                    </td>
+
+                    <td className="py-2 px-5 lg:py-2">{item.avaibookName}</td>
 
                     <td className="flex justify-center items-center py-10 lg:py-4">
                       <RiDeleteBin5Line
