@@ -330,7 +330,7 @@ export default function blockDaysTemplate(
                               <div class="text-author" style="font-size: 16px;">
                               
                                 Queriamos informarte que el propietario <strong>${owner}</strong> con el correo <strong>${email}</strong> 
-                                ha bloqueado las fechas desde el <strong>${startDate}</strong> hasta el <strong>${endDate}</strong> 
+                                ha bloqueado las fechas desde: <strong>${startDate}</strong> hasta: <strong>${endDate}</strong>, 
                                 en el alojamiento: <strong>${accomodation}</strong>.
 </div>
                           </td>

@@ -179,12 +179,12 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
         />
       )}
 
-      <div className="flex justify-between items-end border-b-[1px] mt-20 mb-8">
+      <div className="flex flex-col justify-center items-center lg:flex-row lg:justify-between lg:items-end border-b-[1px] mt-20 mb-8">
         <p className=" text-black900/[.7] text-2xl text-center md:text-left md:text-3xl lg:text-4xl">
           Reservas en mi alojamiento
         </p>
 
-        <div className="relative mb-2">
+        <div className="relative my-4 lg:my-0 lg:mb-2 ">
           <AiOutlineCheckCircle className="w-5 md:h-5 text-white absolute top-1/2 -translate-y-1/2 right-5 md:right-5 lg:right-7" />
           <button
             onClick={toggleForm}

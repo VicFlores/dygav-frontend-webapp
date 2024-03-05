@@ -33,8 +33,7 @@ export default async function handler(
       });
 
       const mailOptionClient = {
-        from: "vicflores2211@gmail.com",
-        to: email,
+        to: "vh074701@gmail.com",
         subject: `Bloqueo de fechas en ${accomodation}`,
         html: blockDaysTemplate(
           fullname,
