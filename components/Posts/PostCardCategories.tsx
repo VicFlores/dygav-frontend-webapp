@@ -1,12 +1,12 @@
-import { Category } from '@/types';
-import Link from 'next/link';
-import React, { FC, useRef } from 'react';
-import { ParsedUrlQuery } from 'querystring';
-import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
+import { Category } from "@/types";
+import Link from "next/link";
+import React, { FC, useRef } from "react";
+import { ParsedUrlQuery } from "querystring";
+import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 import {
   generalImages,
   pirineosAragonImages,
-} from '@/utils/static/licenseImages';
+} from "@/utils/static/licenseImages";
 type TPostCardCategoriesProps = {
   filterByCategories: Category[];
   query?: ParsedUrlQuery;
@@ -34,49 +34,63 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
     }
   };
 
+  generalImages.push({
+    slug: "madrid",
+    cityName: "Madrid",
+    bgCity:
+      "https://res.cloudinary.com/vicflores11/image/upload/v1691367758/Dygav/15_kfihjl.webp",
+  });
+
+  pirineosAragonImages.push({
+    slug: "valle-de-tena",
+    cityName: "Valle de Tena",
+    bgCity:
+      "https://res.cloudinary.com/vicflores11/image/upload/v1705445733/Dygav/Biescas/C_41_cgoedm.webp",
+  });
+
   return (
     <>
-      <h2 className='mt-0 md:mt-10 text-2xl md:text-4xl text-center pb-4 font-semibold border-b-4 border-b-p600 w-auto md:px-10'>
+      <h2 className="mt-0 md:mt-10 text-2xl md:text-4xl text-center pb-4 font-semibold border-b-4 border-b-p600 w-auto md:px-10">
         {title}
       </h2>
 
-      <p className='mt-4 text-base md:text-lg text-center lg:text-xl'>
+      <p className="mt-4 text-base md:text-lg text-center lg:text-xl">
         {subtitle}
       </p>
 
-      <div className='mt-16 w-full md:px-10 mb-24'>
-        <div className='flex items-center justify-center md:space-x-14 overflow-auto overflow-x-visible pb-8'>
+      <div className="mt-16 w-full md:px-10 mb-24">
+        <div className="flex items-center justify-center md:space-x-14 overflow-auto overflow-x-visible pb-8">
           <button
             onClick={scrollLeft}
-            className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 ml-3 -bottom-36'
+            className="hidden lg:flex p-2 relative z-10 text-white bg-p600/80 ml-3 -bottom-36"
           >
             <AiOutlineArrowLeft />
           </button>
 
           <div
             ref={scrollContainer}
-            className='w-auto h-auto items-center pb-8 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden scrollbar'
+            className="w-auto h-auto items-center pb-8 overflow-x-auto overscroll-x-contain flex space-x-6 overflow-y-hidden scrollbar"
           >
             {filterByCategories.map((category, index) => {
               const imageObj =
                 generalImages.find((img) => img.slug === category.slug) ||
                 pirineosAragonImages.find((img) => img.slug === category.slug);
 
-              const imageUrl = imageObj ? imageObj.bgCity : '';
+              const imageUrl = imageObj ? imageObj.bgCity : "";
 
               return query ? (
                 query.cities !== category.slug && (
                   <div key={index}>
                     <Link href={`/blog/${category.slug}`}>
                       <div
-                        className='w-60 h-80 md:w-70 md:h-80 flex items-end rounded-xl'
+                        className="w-60 h-80 md:w-70 md:h-80 flex items-end rounded-xl"
                         style={{
                           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url(${imageUrl})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
                         }}
                       >
-                        <p className='text-xl md:text-2xl text-white pl-6 pb-4 overflow-hidden text-overflow-ellipsis max-w-xs'>
+                        <p className="text-xl md:text-2xl text-white pl-6 pb-4 overflow-hidden text-overflow-ellipsis max-w-xs">
                           {category.name}
                         </p>
                       </div>
@@ -87,14 +101,14 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
                 <div key={index}>
                   <Link href={`/blog/${category.slug}`}>
                     <div
-                      className='w-60 h-80 md:w-70 md:h-80 flex items-end rounded-xl'
+                      className="w-60 h-80 md:w-70 md:h-80 flex items-end rounded-xl"
                       style={{
                         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url(${imageUrl})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
                       }}
                     >
-                      <p className='text-xl md:text-2xl text-white pl-6 pb-4 overflow-hidden text-overflow-ellipsis max-w-xs'>
+                      <p className="text-xl md:text-2xl text-white pl-6 pb-4 overflow-hidden text-overflow-ellipsis max-w-xs">
                         {category.name}
                       </p>
                     </div>
@@ -106,7 +120,7 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
 
           <button
             onClick={scrollRight}
-            className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 ml-3 -bottom-36'
+            className="hidden lg:flex p-2 relative z-10 text-white bg-p600/80 ml-3 -bottom-36"
           >
             <AiOutlineArrowRight />
           </button>

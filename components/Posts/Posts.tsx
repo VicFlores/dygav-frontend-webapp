@@ -4,7 +4,7 @@ import { BlogPost, Category } from "@/types";
 import axios from "axios";
 import { PostCardCategories } from "..";
 import {
-  costaBlancaImages,
+  generalImages,
   pirineosAragonImages,
 } from "@/utils/static/licenseImages";
 import { useSession } from "next-auth/react";
@@ -63,21 +63,21 @@ const Posts = () => {
     );
   }
 
-  // costaBlancaImages.push({
-  //   slug: "madrid",
-  //   cityName: "Madrid",
-  //   bgCity:
-  //     "https://res.cloudinary.com/vicflores11/image/upload/v1705940407/Dygav/ValleDeTena/c_valledetena_tmxm6t.webp",
-  // });
+  generalImages.push({
+    slug: "madrid",
+    cityName: "Madrid",
+    bgCity:
+      "https://res.cloudinary.com/vicflores11/image/upload/v1691367758/Dygav/15_kfihjl.png",
+  });
 
-  const costaBlancaCities = filterCities(costaBlancaImages, categories);
+  const costaBlancaCities = filterCities(generalImages, categories);
 
-  // pirineosAragonImages.push({
-  //   slug: "valle-de-tena",
-  //   cityName: "Valle de Tena",
-  //   bgCity:
-  //     "https://res.cloudinary.com/vicflores11/image/upload/v1705940407/Dygav/ValleDeTena/c_valledetena_tmxm6t.webp",
-  // });
+  pirineosAragonImages.push({
+    slug: "valle-de-tena",
+    cityName: "Valle de Tena",
+    bgCity:
+      "https://res.cloudinary.com/vicflores11/image/upload/v1705445733/Dygav/Biescas/C_41_cgoedm.webp",
+  });
 
   const pirineosCities = filterCities(pirineosAragonImages, categories);
 
