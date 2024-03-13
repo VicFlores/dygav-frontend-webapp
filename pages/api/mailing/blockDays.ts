@@ -1,12 +1,12 @@
-import blockDaysTemplate from "@/utils/emails/templates/blockDaysTemplate";
-import type { NextApiRequest, NextApiResponse } from "next";
-import nodemailer from "nodemailer";
+import blockDaysTemplate from '@/utils/emails/templates/blockDaysTemplate';
+import type { NextApiRequest, NextApiResponse } from 'next';
+import nodemailer from 'nodemailer';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if (req.method === "POST") {
+  if (req.method === 'POST') {
     try {
       const { fullname, owner, email, startDate, endDate, accomodation } =
         req.body;
@@ -21,11 +21,11 @@ export default async function handler(
       ) {
         return res
           .status(400)
-          .json({ message: "Por favor, rellene todos los campos" });
+          .json({ message: 'Por favor, rellene todos los campos' });
       }
 
       const transporter = nodemailer.createTransport({
-        service: "gmail",
+        service: 'gmail',
         auth: {
           user: process.env.USER_EMAIL,
           pass: process.env.USER_PASSWORD,
@@ -33,7 +33,7 @@ export default async function handler(
       });
 
       const mailOptionClient = {
-        to: "vh074701@gmail.com",
+        to: 'reservas@dygav.es',
         subject: `Bloqueo de fechas en ${accomodation}`,
         html: blockDaysTemplate(
           fullname,
@@ -49,7 +49,7 @@ export default async function handler(
         if (error) {
           return res.status(400).json({ message: error.message });
         } else {
-          return res.status(200).json({ message: "Correo enviado" });
+          return res.status(200).json({ message: 'Correo enviado' });
         }
       });
     } catch (error) {
