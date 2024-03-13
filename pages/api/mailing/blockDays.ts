@@ -33,7 +33,7 @@ export default async function handler(
       });
 
       const mailOptionClient = {
-        to: 'reservas@dygav.es',
+        to: 'Reservas@dygav.es',
         subject: `Bloqueo de fechas en ${accomodation}`,
         html: blockDaysTemplate(
           fullname,

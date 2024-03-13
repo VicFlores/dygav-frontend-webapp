@@ -69,7 +69,7 @@ const BlockCalendarDaysForm: FC<Props> = ({ setlistenBlockDate, id }) => {
 
     setlistenBlockDate(res.data);
 
-    await axiosConfig.post('/api/mailing/blockDays', {
+    const sendEmail = await axiosConfig.post('/api/mailing/blockDays', {
       fullname: 'Jose Llaneza',
       owner: session?.user?.fullname,
       email: session?.user?.email,
@@ -77,6 +77,8 @@ const BlockCalendarDaysForm: FC<Props> = ({ setlistenBlockDate, id }) => {
       endDate: moment(endDate).format('dddd D [de] MMMM [de] YYYY'),
       accomodation: findAccomodationById.name,
     });
+
+    console.log(sendEmail.data);
 
     setError('Dias bloqueados con exito');
   };

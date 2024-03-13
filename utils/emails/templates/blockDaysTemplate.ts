@@ -361,7 +361,7 @@ export default function blockDaysTemplate(
                           <td style="text-align: left; padding-left: 5px; padding-right: 5px;">
                               <h3 class="heading">Contacto</h3>
                                 <ul>
-                                    <li><span class="text"> C/ Orihuela 6, Torrevieja, Alicante 03181</span></li>
+                                    <li><span class="text"> C/ Orense 18, 28020, Madrid</span></li>
                                     <li><span class="text">+34 614 214 250</span></a></li>
                                     <li><span class="text">info@dygav.es</span></a></li>
                                 </ul>
