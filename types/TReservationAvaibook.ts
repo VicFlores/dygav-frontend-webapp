@@ -30,3 +30,7 @@ export type UnitName = {
   nl: string;
   ru: string;
 };
+
+export type AccomodationCalendarType = ReservationAvaibook & {
+  cancelledDate: string;
+};
