@@ -1,14 +1,14 @@
-import { PostCards } from "./PostCards";
-import { useEffect, useState } from "react";
-import { BlogPost, Category } from "@/types";
-import axios from "axios";
-import { PostCardCategories } from "..";
+import { PostCards } from './PostCards';
+import { useEffect, useState } from 'react';
+import { BlogPost, Category } from '@/types';
+import axios from 'axios';
+import { PostCardCategories } from '..';
 import {
   generalImages,
   pirineosAragonImages,
-} from "@/utils/static/licenseImages";
-import { useSession } from "next-auth/react";
-import { axiosConfig } from "@/utils";
+} from '@/utils/static/licenseImages';
+import { useSession } from 'next-auth/react';
+import { axiosConfig } from '@/utils';
 
 const Posts = () => {
   const [data, setData] = useState<BlogPost[]>([]);
@@ -20,7 +20,7 @@ const Posts = () => {
   useEffect(() => {
     const getAllPost = async () => {
       const res = await axios.get(
-        "https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts?per_page=100"
+        'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts?per_page=100'
       );
 
       setData(res.data);
@@ -28,7 +28,7 @@ const Posts = () => {
 
     const getAllCategories = async () => {
       const res = await axios.get(
-        "https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/categories?per_page=100"
+        'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/categories?per_page=100'
       );
 
       setCategories(res.data);
@@ -43,7 +43,9 @@ const Posts = () => {
       try {
         if (session && session.user) {
           const res = await axiosConfig.get(
-            `/api/favorites/findFavBlogPostsByUserId?userId=${session.user._id}`
+            `/api/favorites/findFavBlogPostsByUserId?userId=${
+              session.user._id || session.user.id
+            }`
           );
 
           setFavExist(res.data);
@@ -64,38 +66,38 @@ const Posts = () => {
   }
 
   generalImages.push({
-    slug: "madrid",
-    cityName: "Madrid",
+    slug: 'madrid',
+    cityName: 'Madrid',
     bgCity:
-      "https://res.cloudinary.com/vicflores11/image/upload/v1691367758/Dygav/15_kfihjl.png",
+      'https://res.cloudinary.com/vicflores11/image/upload/v1691367758/Dygav/15_kfihjl.png',
   });
 
   const costaBlancaCities = filterCities(generalImages, categories);
 
   pirineosAragonImages.push({
-    slug: "valle-de-tena",
-    cityName: "Valle de Tena",
+    slug: 'valle-de-tena',
+    cityName: 'Valle de Tena',
     bgCity:
-      "https://res.cloudinary.com/vicflores11/image/upload/v1705445733/Dygav/Biescas/C_41_cgoedm.webp",
+      'https://res.cloudinary.com/vicflores11/image/upload/v1705445733/Dygav/Biescas/C_41_cgoedm.webp',
   });
 
   const pirineosCities = filterCities(pirineosAragonImages, categories);
 
   return (
-    <section className="mt-24 mb-16 px-6 md:px-12 lg:px-28 flex flex-col items-center">
+    <section className='mt-24 mb-16 px-6 md:px-12 lg:px-28 flex flex-col items-center'>
       <PostCardCategories
         filterByCategories={costaBlancaCities}
-        title="Costa Blanca"
-        subtitle="Descubre todos nuestros artículos más recientes sobre ocio, gastronomía, destinos, tendencias y normativas sobre alquiler vacacional en la Costa Blanca"
+        title='Costa Blanca'
+        subtitle='Descubre todos nuestros artículos más recientes sobre ocio, gastronomía, destinos, tendencias y normativas sobre alquiler vacacional en la Costa Blanca'
       />
 
       <PostCardCategories
         filterByCategories={pirineosCities}
-        title="Pirineo Aragonés"
-        subtitle="Pirineos/ De pico a pico, conoce los Pirineos a través de nuestros artículos: aventuras al aire libre, cultura local y lo último en alquiler vacacional."
+        title='Pirineo Aragonés'
+        subtitle='Pirineos/ De pico a pico, conoce los Pirineos a través de nuestros artículos: aventuras al aire libre, cultura local y lo último en alquiler vacacional.'
       />
 
-      <div className="grid lg:grid-cols-2 gap-y-10 md:gap-x-20">
+      <div className='grid lg:grid-cols-2 gap-y-10 md:gap-x-20'>
         {data
 
           .filter((post) => post.featured_media !== 0)

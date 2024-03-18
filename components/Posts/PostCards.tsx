@@ -1,17 +1,17 @@
-import { BlogPost, Category } from "@/types";
-import { axiosConfig } from "@/utils";
-import axios from "axios";
-import { useSession } from "next-auth/react";
-import Link from "next/link";
-import router from "next/router";
+import { BlogPost, Category } from '@/types';
+import { axiosConfig } from '@/utils';
+import axios from 'axios';
+import { useSession } from 'next-auth/react';
+import Link from 'next/link';
+import router from 'next/router';
 import React, {
   Dispatch,
   FC,
   SetStateAction,
   useEffect,
   useState,
-} from "react";
-import { FaHeart, FaRegHeart } from "react-icons/fa6";
+} from 'react';
+import { FaHeart, FaRegHeart } from 'react-icons/fa6';
 
 export const PostCards: FC<{
   post: BlogPost;
@@ -47,8 +47,8 @@ export const PostCards: FC<{
       const addFav = async () => {
         try {
           if (session.user) {
-            await axiosConfig.post("/api/favorites/favoriteBlogPosts", {
-              userId: session.user._id,
+            await axiosConfig.post('/api/favorites/favoriteBlogPosts', {
+              userId: session.user._id || session.user.id,
               blogPostId: post.id,
             });
 
@@ -61,7 +61,7 @@ export const PostCards: FC<{
 
       addFav();
     } else {
-      return router.push("/login");
+      return router.push('/login');
     }
   };
 
@@ -72,7 +72,7 @@ export const PostCards: FC<{
           if (session.user) {
             await axiosConfig.delete(`/api/favorites/favoriteBlogPosts`, {
               data: {
-                userId: session.user._id,
+                userId: session.user._id || session.user.id,
                 blogPostId: post.id,
               },
             });
@@ -90,7 +90,7 @@ export const PostCards: FC<{
 
       setfavIsChanged(!favIsChanged);
     } else {
-      return router.push("/login");
+      return router.push('/login');
     }
   };
 
@@ -106,19 +106,19 @@ export const PostCards: FC<{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(${post.yoast_head_json.og_image[0].url})`,
       }}
     >
-      <div className="absolute top-0 right-0 z-10 p-6 text-[30px]">
+      <div className='absolute top-0 right-0 z-10 p-6 text-[30px]'>
         {disableFav ? (
-          <FaHeart onClick={handleFavRemove} className="text-p600" />
+          <FaHeart onClick={handleFavRemove} className='text-p600' />
         ) : (
-          <FaRegHeart onClick={handleFavAdd} className="text-white" />
+          <FaRegHeart onClick={handleFavAdd} className='text-white' />
         )}
       </div>
 
-      <h2 className="py-1 md:py-[6px] rounded-lg bg-p600 w-fit p-4 text-center text-white mb-3 text-sm md:text-base">
+      <h2 className='py-1 md:py-[6px] rounded-lg bg-p600 w-fit p-4 text-center text-white mb-3 text-sm md:text-base'>
         {categories.name}
       </h2>
 
-      <p className="text-white text-lg lg:text-xl underline">
+      <p className='text-white text-lg lg:text-xl underline'>
         <Link href={`/post/${post.slug}`}>{post.title.rendered}</Link>
       </p>
     </div>
