@@ -1,6 +1,6 @@
-import { getSession, useSession } from "next-auth/react";
-import { Layout, OwnerDashboard } from "@/components";
-import Head from "next/head";
+import { getSession, useSession } from 'next-auth/react';
+import { Layout, OwnerDashboard } from '@/components';
+import Head from 'next/head';
 
 export default function OwnerDashboardPage() {
   const { data: session } = useSession();
