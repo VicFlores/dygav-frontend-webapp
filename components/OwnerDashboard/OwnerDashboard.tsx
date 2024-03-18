@@ -14,7 +14,9 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
   useEffect(() => {
     const accomodations = async () => {
       const { data } = await axiosConfig.get(
-        `/api/accomodations/findByUserId/${session.user?._id}`
+        `/api/accomodations/findByUserId/${
+          session.user?._id || session.user?.id
+        }`
       );
 
       const dataArray = [];

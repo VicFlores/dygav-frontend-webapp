@@ -1,8 +1,8 @@
-import { axiosConfig } from "@/utils";
-import axios from "axios";
-import { useSession } from "next-auth/react";
-import React, { useEffect, useState } from "react";
-import { PostCards } from "../Posts/PostCards";
+import { axiosConfig } from '@/utils';
+import axios from 'axios';
+import { useSession } from 'next-auth/react';
+import React, { useEffect, useState } from 'react';
+import { PostCards } from '../Posts/PostCards';
 
 export const TourisBlogPostsFav = () => {
   const [favsBlogPosts, setFavsBlogPosts] = useState([]);
@@ -16,7 +16,9 @@ export const TourisBlogPostsFav = () => {
     const findFavBlogPostsById = async () => {
       if (session && session.user) {
         const res = await axiosConfig.get(
-          `/api/favorites/findFavBlogPostsByUserId?userId=${session.user._id}`
+          `/api/favorites/findFavBlogPostsByUserId?userId=${
+            session.user._id || session.user.id
+          }`
         );
 
         res.data.map(async (item: any) => {
@@ -49,7 +51,9 @@ export const TourisBlogPostsFav = () => {
       try {
         if (session && session.user) {
           const res = await axiosConfig.get(
-            `/api/favorites/findFavBlogPostsByUserId?userId=${session.user._id}`
+            `/api/favorites/findFavBlogPostsByUserId?userId=${
+              session.user._id || session.user.id
+            }`
           );
 
           setFavExist(res.data);
@@ -71,9 +75,9 @@ export const TourisBlogPostsFav = () => {
   }, [removedBlogPost]);
 
   return (
-    <div className="px-8 space-y-12 mb-24">
+    <div className='px-8 space-y-12 mb-24'>
       {favsBlogPosts.length > 0 ? (
-        <div className="grid md:grid-cols-2 place-items-center gap-y-10">
+        <div className='grid md:grid-cols-2 place-items-center gap-y-10'>
           {favsBlogPosts.map((post: any) => (
             <PostCards
               key={post.id}
@@ -86,9 +90,9 @@ export const TourisBlogPostsFav = () => {
           ))}
         </div>
       ) : (
-        <div className="flex justify-center items-center">
-          <div className="flex flex-col justify-center items-center space-y-8 border-[1px] border-dashed h-[266px] w-[717px]">
-            <p className=" text-black900/[.7] lg:text-3xl">
+        <div className='flex justify-center items-center'>
+          <div className='flex flex-col justify-center items-center space-y-8 border-[1px] border-dashed h-[266px] w-[717px]'>
+            <p className=' text-black900/[.7] lg:text-3xl'>
               ¡Aún no tienes articulos favoritos!
             </p>
           </div>
