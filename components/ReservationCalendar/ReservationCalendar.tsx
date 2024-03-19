@@ -28,7 +28,9 @@ type BlockDayProps = {
 export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   const [showForm, setShowForm] = useState(false);
   const router = useRouter();
-  const [isEmailChecked, setIsEmailChecked] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 0
+  );
   const [accomodationDayBlock, setAccomodationDayBlock] = useState<
     ReservationCalendarProps[]
   >([
@@ -122,6 +124,14 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
     });
   }, [accomodationDayBlock]);
 
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+
   const handleEventClick = (e: any) => {
     const reservation: any = bookingById.filter((item) => item.id === e.id)[0];
 
@@ -133,6 +143,12 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
         )
       : null;
   };
+
+  const calculateMarginStart = () => (windowWidth > 768 ? '30px' : '0px');
+  const calculateWidthStart = () => (windowWidth > 768 ? '85%' : '100%');
+
+  const calculateMarginEnd = () => (windowWidth > 768 ? '30px' : '0px');
+  const calculateWidthEnd = () => (windowWidth > 768 ? '85%' : '100%');
 
   const reservations = bookingById.map((booking: any) => {
     return {
@@ -243,13 +259,13 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
           };
 
           if (event.start) {
-            newStyle.marginLeft = '30px'; // adjust the value as needed
-            newStyle.width = '85%'; // adjust the width to account for the added margin
+            newStyle.marginLeft = calculateMarginStart();
+            newStyle.width = calculateWidthStart();
           }
 
           if (event.end) {
-            newStyle.marginRight = '30px'; // adjust the value as needed
-            newStyle.width = '85%'; // adjust the width to account for the added margin
+            newStyle.marginRight = calculateMarginEnd();
+            newStyle.width = calculateWidthEnd();
           }
 
           return {
@@ -263,15 +279,24 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
 };
 
 const CustomEvent = ({ event }: any) => (
-  <div className='text-white text-[14px]'>
+  <div className='text-white lg:text-[14px] text-[10px]'>
     <div className='flex justify-center items-center '>
       <div className=''>
         {event.partnerName === 'Booking.com' ? (
-          <TbBrandBooking fontSize={26} color='white' className='mr-2' />
+          <TbBrandBooking
+            color='white'
+            className='mr-0 lg:mr-2 text-[20px] lg:text-[26px]'
+          />
         ) : event.partnerName === 'Airbnb' ? (
-          <TbBrandAirbnb fontSize={26} color='white' className='mr-2' />
+          <TbBrandAirbnb
+            color='white'
+            className='mr-0 lg:mr-2 text-[20px] lg:text-[26px]'
+          />
         ) : (
-          <GrStatusUnknown fontSize={26} color='white' className='mr-2' />
+          <GrStatusUnknown
+            color='white'
+            className='mr-0 lg:mr-2 text-[20px] lg:text-[26px]'
+          />
         )}
       </div>
 
