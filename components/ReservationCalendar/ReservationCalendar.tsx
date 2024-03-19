@@ -3,11 +3,12 @@ import moment from 'moment';
 import 'moment/locale/es';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { FC, useEffect, useState } from 'react';
-import { ReservationAvaibook } from '@/types';
+import { TbBrandAirbnb, TbBrandBooking } from 'react-icons/tb';
 import axios from 'axios';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import BlockCalendarDaysForm from '../BlockCalendarDaysForm/BlockCalendarDaysForm';
 import { useRouter } from 'next/router';
+import { GrStatusUnknown } from 'react-icons/gr';
 
 const localizer = momentLocalizer(moment);
 
@@ -140,7 +141,8 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
       end: moment(booking.occupiedPeriod.endDate)
         .add(2, 'days')
         .format('YYYY-MM-DD'),
-      title: booking.travellerName,
+      title: booking.travellerName.toUpperCase(),
+      partnerName: booking.partnerName,
     };
   });
 
@@ -156,7 +158,7 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
 
       if (current.isBetween(blockStart, blockEnd, 'day', '[]')) {
         style = {
-          backgroundColor: '#D4D4D4',
+          backgroundColor: '',
         };
       }
     });
@@ -210,6 +212,9 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
         dayPropGetter={dayStyleGetter}
         localizer={localizer}
         events={reservations}
+        components={{
+          event: CustomEvent,
+        }}
         startAccessor='start'
         endAccessor='end'
         style={{ height: 500 }}
@@ -232,20 +237,19 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
         onSelectEvent={(e) => handleEventClick(e)}
         eventPropGetter={(event, start, end, isSelected) => {
           let newStyle: React.CSSProperties = {
-            background: 'linear-gradient(to right, lightblue 70%, #F4511E 30%)',
-            color: 'white',
-            fontSize: '14px',
-            paddingRight: '0px',
-            width: '0px',
-            textAlign: 'center',
+            borderRadius: '15px',
+            backgroundColor: '#F4511E',
+            width: '100%',
           };
 
-          if (event.start && event.end) {
-            newStyle.paddingRight = '20px';
-            newStyle.width = '80%';
-            newStyle.textAlign = 'right';
-            newStyle.background =
-              'linear-gradient(to right, rgba(255,0,0,0) 20%, #F4511E 5%, #F4511E 20%, #F4511E 55%)';
+          if (event.start) {
+            newStyle.marginLeft = '30px'; // adjust the value as needed
+            newStyle.width = '85%'; // adjust the width to account for the added margin
+          }
+
+          if (event.end) {
+            newStyle.marginRight = '30px'; // adjust the value as needed
+            newStyle.width = '85%'; // adjust the width to account for the added margin
           }
 
           return {
@@ -257,3 +261,21 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
     </div>
   );
 };
+
+const CustomEvent = ({ event }: any) => (
+  <div className='text-white text-[14px]'>
+    <div className='flex justify-center items-center '>
+      <div className=''>
+        {event.partnerName === 'Booking.com' ? (
+          <TbBrandBooking fontSize={26} color='white' className='mr-2' />
+        ) : event.partnerName === 'Airbnb' ? (
+          <TbBrandAirbnb fontSize={26} color='white' className='mr-2' />
+        ) : (
+          <GrStatusUnknown fontSize={26} color='white' className='mr-2' />
+        )}
+      </div>
+
+      <figure>{event.title}</figure>
+    </div>
+  </div>
+);
