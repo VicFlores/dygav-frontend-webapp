@@ -109,3 +109,22 @@ table {
   text-decoration: underline;
   color: #f4511e;
 }
+
+/* DatePickerStyles.css */
+
+.react-datepicker {
+  width: 275px !important;
+
+  @media screen and (max-width: 768px) {
+    width: 100% !important;
+  }
+}
+
+.react-datepicker__header {
+  width: 100% !important;
+}
+
+.react-datepicker__month-container {
+  width: 100% !important;
+  background-color: white;
+}
