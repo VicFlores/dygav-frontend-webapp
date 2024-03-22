@@ -1,15 +1,15 @@
 import { FaLocationDot } from 'react-icons/fa6';
-import { BsCalendar2DateFill, BsPeopleFill } from 'react-icons/bs';
+import { BsPeopleFill } from 'react-icons/bs';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import DatePicker from 'react-datepicker';
+import { DateRangePicker } from 'rsuite';
 import { registerLocale } from 'react-datepicker';
 import { es } from 'date-fns/locale';
 import { useRouter } from 'next/router';
-import { forwardRef, useState } from 'react';
-import { addMonths } from 'date-fns';
+import { useState } from 'react';
 import moment from 'moment';
-import 'react-datepicker/dist/react-datepicker.css';
+import 'rsuite/DateRangePicker/styles/index.css';
+import { FaRegCalendarAlt } from 'react-icons/fa';
 registerLocale('es', es);
 
 interface FormData {
@@ -24,11 +24,8 @@ interface ExampleCustomInputProps {
 
 export const FilterToDatesLocationPeople = () => {
   const [selectedOption, setSelectedOption] = useState('default');
-  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([
-    null,
-    null,
-  ]);
-  const [startDate, endDate] = dateRange;
+  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [endDate, setEndDate] = useState<Date | null>(null);
   const { register, handleSubmit } = useForm<FormData>();
   const router = useRouter();
 
@@ -56,6 +53,8 @@ export const FilterToDatesLocationPeople = () => {
       },
     });
   };
+
+  const { combine, allowedMaxDays, beforeToday } = DateRangePicker;
 
   return (
     <form
@@ -86,24 +85,25 @@ export const FilterToDatesLocationPeople = () => {
 
       <div className='text-center self-center justify-self-center'>
         <p className='pb-2 font-semibold'>Checkin - Checkout</p>
-
         <div className='relative'>
-          <BsCalendar2DateFill className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900 z-10' />
-          <DatePicker
-            selectsRange={true}
-            startDate={startDate}
-            minDate={new Date()}
-            maxDate={addMonths(new Date(), 12)}
-            endDate={endDate}
-            onChange={(update) => {
-              setDateRange(update);
+          <FaRegCalendarAlt className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900 z-10' />
+
+          <DateRangePicker
+            placeholder='Fechas de reserva'
+            size='md'
+            showOneCalendar
+            caretAs={null}
+            showHeader={false}
+            shouldDisableDate={combine(allowedMaxDays(7), beforeToday())}
+            format='dd-MM-yyyy'
+            ranges={[]}
+            onChange={(dates) => {
+              if (dates) {
+                setStartDate(dates[0]);
+                setEndDate(dates[1]);
+              }
             }}
-            placeholderText='Fechas de reserva'
-            isClearable
-            locale={es}
-            className='rounded-lg pl-10 pr-8 lg:w-[275px] lg:h-11 md:w-96 w-[240px] bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
-            dateFormat={'dd/MM/yyyy'}
-            calendarClassName='lg:w-[275px] lg:h-11 md:w-96 w-[240px]'
+            className='rounded-lg lg:w-[275px] md:w-96 w-[240px] bg-white py-1'
           />
         </div>
       </div>

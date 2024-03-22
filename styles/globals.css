@@ -128,3 +128,35 @@ table {
   width: 100% !important;
   background-color: white;
 }
+
+.rs-picker-popup
+  .rs-calendar
+  .rs-calendar-table-cell-selected
+  .rs-calendar-table-cell-content {
+  background-color: #ff6f43 !important;
+}
+
+.rs-btn-primary {
+  background-color: #f4511e !important;
+}
+
+.rs-input-group {
+  border: none !important;
+}
+
+.rs-input {
+  padding-left: 2.5rem !important;
+}
+
+.rs-input::placeholder {
+  color: #404040 !important;
+  font-size: 15px !important;
+}
+
+span > .rs-icon {
+  position: absolute !important;
+  left: 12px !important;
+  width: 18px !important;
+  height: 18px !important;
+  color: #404040 !important;
+}
