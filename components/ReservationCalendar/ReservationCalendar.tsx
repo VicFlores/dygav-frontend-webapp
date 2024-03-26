@@ -9,6 +9,8 @@ import { AiOutlineCheckCircle } from 'react-icons/ai';
 import BlockCalendarDaysForm from '../BlockCalendarDaysForm/BlockCalendarDaysForm';
 import { useRouter } from 'next/router';
 import { GrStatusUnknown } from 'react-icons/gr';
+import { axiosConfig } from '@/utils';
+import { useSession } from 'next-auth/react';
 
 const localizer = momentLocalizer(moment);
 
@@ -27,6 +29,7 @@ type BlockDayProps = {
 
 export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   const [showForm, setShowForm] = useState(false);
+  const { data: session } = useSession();
   const router = useRouter();
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== 'undefined' ? window.innerWidth : 0
@@ -56,6 +59,7 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
       },
     },
   ]);
+  const [isEmailChecked, setIsEmailChecked] = useState(false);
 
   useEffect(() => {
     const accomodationBlockDay = async (id: string) => {
@@ -126,11 +130,38 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
+
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', handleResize);
       return () => window.removeEventListener('resize', handleResize);
     }
   }, []);
+
+  useEffect(() => {
+    if ((session?.user?._id || session?.user?.id) && id) {
+      const findUserEmail = async () => {
+        try {
+          const res = await axiosConfig.get(
+            `/api/reservations/usersToSendEmail?userId=${
+              session?.user?._id || session?.user?.id
+            }&accomodationId=${id}`
+          );
+
+          if (res.data) {
+            setIsEmailChecked(true);
+          }
+        } catch (error) {
+          console.error('Error fetching user email:', error);
+        }
+      };
+
+      try {
+        findUserEmail();
+      } catch (error) {
+        console.error('Error calling findUserEmail function:', error);
+      }
+    }
+  }, [session?.user?._id, session?.user?.id, id, isEmailChecked]);
 
   const handleEventClick = (e: any) => {
     const reservation: any = bookingById.filter((item) => item.id === e.id)[0];
@@ -188,6 +219,34 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
     setShowForm(!showForm);
   };
 
+  const handleGetNotification = async () => {
+    if (isEmailChecked) {
+      try {
+        await axiosConfig.delete(`/api/reservations/usersToSendEmail`, {
+          data: {
+            userId: session?.user?._id || session?.user?.id,
+            accomodationId: id,
+          },
+        });
+
+        setIsEmailChecked(false);
+      } catch (error) {
+        console.error('Error deleting user email:', error);
+      }
+    } else {
+      try {
+        await axiosConfig.post(`/api/reservations/usersToSendEmail`, {
+          userId: session?.user?._id || session?.user?.id,
+          accomodationId: id,
+        });
+
+        setIsEmailChecked(true);
+      } catch (error) {
+        console.error('Error adding user email:', error);
+      }
+    }
+  };
+
   return (
     <div className='px-8 mb-24'>
       {showForm && (
@@ -213,16 +272,16 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
         </div>
       </div>
 
-      {/* <div className="mb-10">
+      <div className='mb-10 flex justify-center items-center lg:justify-start'>
         <input
-          type="checkbox"
+          type='checkbox'
           checked={isEmailChecked}
-          onChange={(e) => setIsEmailChecked(e.target.checked)}
+          onChange={handleGetNotification}
+          className='w-[15px] h-[15px]  border-gray-300 rounded'
         />
-        <label className="pl-4">
-          Recibir notificaciones por correo electrónico de nuevas reservas
-        </label>
-      </div> */}
+
+        <label className='pl-3'>Activar Notificaciones por Email</label>
+      </div>
 
       <Calendar
         dayPropGetter={dayStyleGetter}
