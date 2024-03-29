@@ -7,7 +7,6 @@ const nextConfig = {
       'lh3.googleusercontent.com',
       'www.avaibook.com',
       'dygav-wordpress.app.bigital.es',
-      'drive.google.com',
     ],
   },
   env: {
