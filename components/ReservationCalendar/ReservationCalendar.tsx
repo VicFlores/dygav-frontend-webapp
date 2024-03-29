@@ -64,8 +64,26 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   useEffect(() => {
     const accomodationBlockDay = async (id: string) => {
       if (id) {
+        // Get current date
+        let currentDate = new Date();
+
+        // Get start date as first day of previous month
+        let startDate = new Date(
+          currentDate.getFullYear(),
+          currentDate.getMonth() - 1,
+          1
+        );
+
+        // Get end date as 90 days from start date
+        let endDate = new Date(startDate);
+        endDate.setDate(startDate.getDate() + 90);
+
+        // Format dates in 'YYYY-MM-DD' format
+        let formattedStartDate = startDate.toISOString().split('T')[0];
+        let formattedEndDate = endDate.toISOString().split('T')[0];
+
         const res = await axios.get(
-          `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/`,
+          `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/?startDate=${formattedStartDate}&endDate=${formattedEndDate}`,
           {
             headers: {
               'Content-Type': 'application/json',
