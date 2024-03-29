@@ -8,11 +8,11 @@ interface Props {
 export const MainHero: FC<Props> = ({
   children,
   images = [
-    'https://res.cloudinary.com/vicflores11/image/upload/v1691367769/Dygav/4_wq4pgw.WebP',
-    'https://res.cloudinary.com/vicflores11/image/upload/v1691367769/Dygav/5_mhpa2f.WebP',
-    'https://res.cloudinary.com/vicflores11/image/upload/v1691367762/Dygav/13_qih5tu.WebP',
-    'https://res.cloudinary.com/vicflores11/image/upload/v1691367754/Dygav/20_zc0zeu.WebP',
-    'https://res.cloudinary.com/vicflores11/image/upload/v1691367753/Dygav/1_j8qeqo.WebP',
+    'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649260/Dygav%20Images/Mix/4_wq4pgw_kzzpp6.png',
+    'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649257/Dygav%20Images/Mix/5_mhpa2f_emcqe5.png',
+    'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649258/Dygav%20Images/Mix/13_qih5tu_weuree.png',
+    'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649263/Dygav%20Images/Mix/20_zc0zeu_jacvck.png',
+    'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649263/Dygav%20Images/Mix/1_j8qeqo_kr6jg8.png',
   ],
 }) => {
   const [backgroundImage, setBackgroundImage] = useState('');

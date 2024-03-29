@@ -4,37 +4,37 @@ import React from 'react';
 
 const imageProps: TImageProps[] = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691868897/Dygav/Booking-Logo_osnjdx.WebP',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649296/Dygav%20Images/Icons/Booking-Logo_osnjdx_ly0dot.webp',
     alt: 'Booking.com',
     height: 70,
     width: 125,
   },
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691868899/Dygav/ABNB_ugauy3.WebP',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649300/Dygav%20Images/Icons/ABNB_ugauy3_kx6upc.webp',
     alt: 'AirBnb',
     height: 100,
     width: 125,
   },
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691882177/Dygav/0x0_j8hysr.WebP',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649354/Dygav%20Images/Icons/0x0_j8hysr_jft13p.webp',
     alt: 'Rentalia',
     height: 40,
     width: 125,
   },
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691882182/Dygav/Comment-contacter-Vrbo_jkhslp.WebP',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649280/Dygav%20Images/Icons/Comment-contacter-Vrbo_jkhslp_l0kw3t.webp',
     alt: 'Vrbo',
     height: 100,
     width: 125,
   },
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691882171/Dygav/Google_2015_logo.svg_sojqzx.WebP',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649293/Dygav%20Images/Icons/Google_2015_logo.svg_sojqzx_uzngo3.webp',
     alt: 'Google',
     height: 45,
     width: 125,
   },
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1691882174/Dygav/EXPEDIA-LOGO-1_ko2beq.WebP',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649269/Dygav%20Images/Icons/EXPEDIA-LOGO-1_ko2beq_sjkq1d.webp',
     alt: 'Xpedia',
     height: 100,
     width: 140,

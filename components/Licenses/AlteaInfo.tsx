@@ -5,11 +5,11 @@ import { CityImages } from './CityImages';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1701357921/Dygav/Altea/7_dezkye.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649811/Dygav%20Images/Altea/7_dezkye_gmxdol.png',
     alt: 'Licencias turísticas: Altea ciudad',
   },
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1701357904/Dygav/Altea/11_jlgqfy.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649813/Dygav%20Images/Altea/11_jlgqfy_k4dolr.webp',
     alt: 'Licencias turísticas: Altea costa',
   },
 ];

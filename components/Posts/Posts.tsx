@@ -69,7 +69,7 @@ const Posts = () => {
     slug: 'madrid',
     cityName: 'Madrid',
     bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1691367758/Dygav/15_kfihjl.png',
+      'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649256/Dygav%20Images/Mix/15_kfihjl_pdaort.png',
   });
 
   const costaBlancaCities = filterCities(generalImages, categories);
@@ -78,7 +78,7 @@ const Posts = () => {
     slug: 'valle-de-tena',
     cityName: 'Valle de Tena',
     bgCity:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1705445733/Dygav/Biescas/C_41_cgoedm.webp',
+      'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649803/Dygav%20Images/Biescas/C_41_cgoedm_smmvpl.jpg',
   });
 
   const pirineosCities = filterCities(pirineosAragonImages, categories);

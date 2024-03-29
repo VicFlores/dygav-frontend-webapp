@@ -5,11 +5,11 @@ import { CityImages } from './CityImages';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1701186490/Dygav/Finestrart/18_avupj6.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649779/Dygav%20Images/Finestrart/18_avupj6_aokjmo.png',
     alt: 'Licencias turísticas: Ayuntamiento de Finestrat',
   },
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1701186487/Dygav/Finestrart/Copia_de_16_buyb8u.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649788/Dygav%20Images/Finestrart/Copia_de_16_buyb8u_gfa4nu.png',
     alt: 'Licencias turísticas: Finestrat costa',
   },
 ];

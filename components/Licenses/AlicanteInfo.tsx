@@ -4,11 +4,11 @@ import { CityImages } from './CityImages';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1699488277/Dygav/Alicante/Licencias_Tur%C3%ADsticas__Ayuntamiento_de_Alicante_nn3dun.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649815/Dygav%20Images/Alicante/Licencias_Tur%C3%ADsticas__Ayuntamiento_de_Alicante_nn3dun_nckcaj.png',
     alt: 'Licencias turísticas: Ayuntamiento de Alicante',
   },
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1699488555/Dygav/Alicante/4_zlt2r6.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649818/Dygav%20Images/Alicante/4_zlt2r6_ytfmy5.webp',
     alt: 'Licencias turísticas: Alicante Ciudad',
   },
 ];

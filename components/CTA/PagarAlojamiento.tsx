@@ -10,7 +10,7 @@ export const PagarAlojamiento = () => {
         <figure className='relative w-40 h-40 md:w-64 md:h-64'>
           <Image
             src={
-              'https://res.cloudinary.com/vicflores11/image/upload/v1700239134/Dygav/undraw_online_payments_re_y8f2_m0jqzm.svg'
+              'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649295/Dygav%20Images/Icons/undraw_online_payments_re_y8f2_m0jqzm_ui72pw.svg'
             }
             alt='Contact Us Image'
             layout='fill'

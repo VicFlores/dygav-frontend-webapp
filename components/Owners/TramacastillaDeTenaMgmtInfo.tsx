@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1705444962/Dygav/Tramacastilla%20de%20Tena/C_36_cx07kv.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649432/Dygav%20Images/TramacastilladeTena/C_36_cx07kv_yl9q2l.webp',
     alt: 'Gestión de vivendas turísticas en Tramacastilla de Tena',
   },
 ];
@@ -65,7 +65,7 @@ export const TramacastillaDeTenaMgmtInfo = () => {
         efectivamente.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706283993/Dygav/navigator_n1cspg.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649293/Dygav%20Images/Icons/navigator_n1cspg_gssjxj.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-16'>
         Invertir en una Vivienda de Uso Turístico en Tramacastilla de Tena
@@ -83,7 +83,7 @@ export const TramacastillaDeTenaMgmtInfo = () => {
         .
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706281157/Dygav/ownersicon_tumwiv.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649278/Dygav%20Images/Icons/ownersicon_tumwiv_ckdpnt.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-8'>
         Gestión Integral de Viviendas Vacacionales

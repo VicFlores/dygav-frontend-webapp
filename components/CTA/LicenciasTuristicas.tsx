@@ -9,7 +9,7 @@ export const LicenciasTuristicas = () => {
         <figure className='h-40 w-40 md:h-44 md:w-44 lg:h-60 lg:w-60 relative m-0'>
           <Image
             src={
-              'https://res.cloudinary.com/vicflores11/image/upload/v1697736235/Dygav/undraw_certification_re_ifll_a0xzch.svg'
+              'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649292/Dygav%20Images/Icons/undraw_certification_re_ifll_a0xzch_rzbevy.svg'
             }
             alt={'Map Logo'}
             layout='fill'

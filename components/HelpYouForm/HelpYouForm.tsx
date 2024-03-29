@@ -47,7 +47,7 @@ export const HelpYouForm = () => {
         <figure className='h-60 w-60 md:h-64 md:w-64 relative m-0'>
           <Image
             src={
-              'https://res.cloudinary.com/vicflores11/image/upload/v1697737435/Dygav/undraw_contact_us_re_4qqt_jvl1zy.svg'
+              'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649277/Dygav%20Images/Icons/undraw_contact_us_re_4qqt_jvl1zy_kvhfvb.svg'
             }
             alt={'Map Logo'}
             layout='fill'

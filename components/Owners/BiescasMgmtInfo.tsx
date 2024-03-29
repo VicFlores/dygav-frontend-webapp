@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1705445752/Dygav/Biescas/C_44_hehtlu.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649805/Dygav%20Images/Biescas/C_44_hehtlu_xzmcub.png',
     alt: 'Gestión de vivendas turísticas en Biescas',
   },
 ];
@@ -60,7 +60,7 @@ export const BiescasMgmtInfo = () => {
         administran de forma adecuada y se comercializan estratégicamente.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706283993/Dygav/navigator_n1cspg.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649293/Dygav%20Images/Icons/navigator_n1cspg_gssjxj.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-16'>
         Invertir en una Vivienda de Uso Turístico en Biescas
@@ -78,7 +78,7 @@ export const BiescasMgmtInfo = () => {
         aficionados a deportes de invierno.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706281157/Dygav/ownersicon_tumwiv.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649278/Dygav%20Images/Icons/ownersicon_tumwiv_ckdpnt.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-8'>
         Gestión integral de Viviendas Vacacionales en Biescas

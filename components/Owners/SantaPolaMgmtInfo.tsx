@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1700839593/Dygav/Santa%20Pola/2_gipvsk.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649443/Dygav%20Images/SantaPola/2_gipvsk_nbdj17.webp',
     alt: 'Gestión de vivendas turísticas en Santa Pola',
   },
 ];
@@ -51,7 +51,7 @@ export const SantaPolaMgmtInfo = () => {
         <strong>potencial para un buen retorno de inversión</strong>.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706804882/Dygav/undraw_travelers_re_y25a_zbrkat.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649266/Dygav%20Images/Icons/undraw_travelers_re_y25a_zbrkat_ihdtj8.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-16'>
         Oportunidades de Inversión en Viviendas Turísticas en Santa Pola
@@ -70,7 +70,7 @@ export const SantaPolaMgmtInfo = () => {
         aire libre.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705018501/Dygav/undraw_buy_house_re_8xq7_obrxnk.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649275/Dygav%20Images/Icons/undraw_buy_house_re_8xq7_obrxnk_so8fsx.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-24'>
         Servicios de Gestión Integral de Viviendas Vacacionales en Santa Pola

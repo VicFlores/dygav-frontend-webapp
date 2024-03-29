@@ -5,11 +5,11 @@ import { CityImages } from './CityImages';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1701292959/Dygav/Calpe/28_iosuwn.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649801/Dygav%20Images/Calpe/28_iosuwn_nuz6mb.png',
     alt: 'Licencias turísticas: Ayuntamiento de Calpe',
   },
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1701292956/Dygav/Calpe/29_c3w9ej.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649800/Dygav%20Images/Calpe/29_c3w9ej_i1iokl.png',
     alt: 'Licencias turísticas: Calpe Ciudad',
   },
 ];

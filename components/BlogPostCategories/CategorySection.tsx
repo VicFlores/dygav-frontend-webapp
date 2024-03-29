@@ -21,7 +21,7 @@ type CategorySectionProps = {
 };
 
 const defaultImage =
-  'https://res.cloudinary.com/vicflores11/image/upload/v1703948850/Dygav/undraw_publish_article_re_3x8h_w41fes.svg';
+  'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649353/Dygav%20Images/Icons/undraw_publish_article_re_3x8h_w41fes_krmogr.svg';
 
 export const CategorySection: FC<CategorySectionProps> = ({
   title,

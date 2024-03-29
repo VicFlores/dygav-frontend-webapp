@@ -26,21 +26,21 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         heroContent:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367753/Dygav/12_yxhpq1.WebP')",
+          "url('https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649254/Dygav%20Images/Mix/12_yxhpq1_znqycz.png')",
         costaBlanca:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367753/Dygav/1_j8qeqo.WebP')",
+          "url('https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649263/Dygav%20Images/Mix/1_j8qeqo_kr6jg8.png')",
         pirineos:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367752/Dygav/11_uhpghg.WebP')",
+          "url('https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649259/Dygav%20Images/Mix/11_uhpghg_jnnxph.webp')",
         madrid:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367758/Dygav/15_kfihjl.WebP')",
+          "url('https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649256/Dygav%20Images/Mix/15_kfihjl_pdaort.png')",
         welcomeWorld:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691789897/Dygav/undraw_World_re_768g_afxop1.WebP')",
+          "url('https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649265/Dygav%20Images/Icons/undraw_World_re_768g_afxop1_b4k3ys.webp')",
         digitalAparment:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691789289/Dygav/undraw_Best_place_re_lne9_sn3p88.WebP')",
+          "url('https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649280/Dygav%20Images/Icons/undraw_Best_place_re_lne9_sn3p88_fty0js.png')",
         aboutUsAviable:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691768615/Dygav/icon-image_gtwgyc.WebP')",
+          "url('https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649285/Dygav%20Images/Icons/icon-image_gtwgyc_tyl0td.webp')",
         brandContent:
-          "url('https://res.cloudinary.com/vicflores11/image/upload/v1691367775/Dygav/19_skargh.WebP')",
+          "url('https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649260/Dygav%20Images/Mix/19_skargh_fgpyuf.png')",
       },
     },
   },

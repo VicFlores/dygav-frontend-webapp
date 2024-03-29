@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1707751456/Dygav/La%20Mata/c_2_m0pzih.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649676/Dygav%20Images/La%20Mata/c_2_m0pzih_ayye8f.png',
     alt: 'Gestión de vivendas turísticas en La Mata',
   },
 ];
@@ -53,7 +53,7 @@ export const LaMataMgmtInfo = () => {
         cercanas al parque natural son altamente demandadas.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706804882/Dygav/undraw_travelers_re_y25a_zbrkat.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649266/Dygav%20Images/Icons/undraw_travelers_re_y25a_zbrkat_ihdtj8.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-16'>
         Oportunidades de Inversión en Viviendas Turísticas en La Mata
@@ -69,7 +69,7 @@ export const LaMataMgmtInfo = () => {
         atractivas para los visitantes.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705018501/Dygav/undraw_buy_house_re_8xq7_obrxnk.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649275/Dygav%20Images/Icons/undraw_buy_house_re_8xq7_obrxnk_so8fsx.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-24'>
         Servicios de Gestión Integral de Viviendas Vacacionales en La Mata

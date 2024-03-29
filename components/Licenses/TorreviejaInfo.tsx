@@ -6,11 +6,11 @@ import { CityImages } from './CityImages';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1699399186/Dygav/torrevieja/Torrevieja_Plaza_de_la_Constituci%C3%B3n_y0ewgo.png',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649436/Dygav%20Images/Torrevieja/Torrevieja_Plaza_de_la_Constituci%C3%B3n_y0ewgo_qixie0.webp',
     alt: 'Plaza de la Constitución Torrevieja ',
   },
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1699399171/Dygav/torrevieja/No_usada_todavia_usar_1_lxm0gv.png',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649437/Dygav%20Images/Torrevieja/No_usada_todavia_usar_1_lxm0gv_pqewwr.png',
     alt: 'Ayuntamiento de Torrevieja',
   },
 ];

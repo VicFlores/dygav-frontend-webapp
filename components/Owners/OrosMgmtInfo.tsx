@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1705593065/Dygav/Or%C3%B3s/C_64_sxdtov.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649650/Dygav%20Images/Oros/C_64_sxdtov_i6t5io.jpg',
     alt: 'Gestión de vivendas turísticas en Orós',
   },
 ];
@@ -44,7 +44,7 @@ export const OrosMgmtInfo = () => {
         asegurando altas tasas de ocupación y rentabilidad.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706283993/Dygav/navigator_n1cspg.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649293/Dygav%20Images/Icons/navigator_n1cspg_gssjxj.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-16'>
         Oportunidades de Inversión en Viviendas Turísticas en Orós
@@ -60,7 +60,7 @@ export const OrosMgmtInfo = () => {
         particularmente atractivo para los turistas.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706281157/Dygav/ownersicon_tumwiv.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649278/Dygav%20Images/Icons/ownersicon_tumwiv_ckdpnt.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-8'>
         Gestión Integral de Viviendas Vacacionales en Orós

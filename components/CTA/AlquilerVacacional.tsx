@@ -9,7 +9,7 @@ export const AlquilerVacacional = () => {
         <figure className='h-44 w-44 md:h-60 md:w-60 lg:h-72 lg:w-72 relative m-0'>
           <Image
             src={
-              'https://res.cloudinary.com/vicflores11/image/upload/v1697733791/Dygav/s9cmodybn3ahynipcggt.svg'
+              'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649282/Dygav%20Images/Icons/s9cmodybn3ahynipcggt_qs1ou7.svg'
             }
             alt={'Map Logo'}
             layout='fill'

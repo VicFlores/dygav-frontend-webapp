@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1705507175/Dygav/El%20Pueyo%20De%20Jaca/C_12_y69nh5.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649794/Dygav%20Images/ElPueyoDeJaca/C_12_y69nh5_jmeowk.png',
     alt: 'Gestión de vivendas turísticas en El Pueyo de Jaca',
   },
 ];
@@ -84,7 +84,7 @@ export const ElPueyoDeJacaMgmtInfo = () => {
         estratégicamente ubicadas.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706283993/Dygav/navigator_n1cspg.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649293/Dygav%20Images/Icons/navigator_n1cspg_gssjxj.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-16'>
         Inversión en Viviendas Turísticas en El Pueyo de Jaca
@@ -98,7 +98,7 @@ export const ElPueyoDeJacaMgmtInfo = () => {
         montaña hasta grupos interesados en deportes de invierno.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706281157/Dygav/ownersicon_tumwiv.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649278/Dygav%20Images/Icons/ownersicon_tumwiv_ckdpnt.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-8'>
         Gestión Integral de Viviendas Vacacionales en El Pueyo de Jaca

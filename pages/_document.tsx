@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <link
           rel='icon'
-          href='https://res.cloudinary.com/vicflores11/image/upload/v1691366906/Dygav/DYGAV_lce25q.svg'
+          href='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649270/Dygav%20Images/Icons/DYGAV_lce25q_qxz9ha.svg'
         />
         <script
           dangerouslySetInnerHTML={{
@@ -19,7 +19,7 @@ export default function Document() {
         />
       </Head>
       <body>
-      <noscript
+        <noscript
           dangerouslySetInnerHTML={{
             __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZXK369"
             height="0" width="0" style="display:none;visibility:hidden"></iframe>`,

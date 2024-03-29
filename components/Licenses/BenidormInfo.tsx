@@ -4,11 +4,11 @@ import { CityImages } from './CityImages';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1699565958/Dygav/Benidorm/Benidorm__Playa_de_Levante_xecgkf.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649806/Dygav%20Images/Benidorm/Benidorm__Playa_de_Levante_xecgkf_jlllhk.png',
     alt: 'Benidorm: Playa de Levante',
   },
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1699565955/Dygav/Benidorm/Licencias_Tur%C3%ADsticas_Benidorm__Ayuntamiento_de_Benidorm_aiclgc.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649808/Dygav%20Images/Benidorm/Licencias_Tur%C3%ADsticas_Benidorm__Ayuntamiento_de_Benidorm_aiclgc_zjb7z5.png',
     alt: 'Licencias Turísticas Benidorm: Ayuntamiento de Benidorm',
   },
 ];

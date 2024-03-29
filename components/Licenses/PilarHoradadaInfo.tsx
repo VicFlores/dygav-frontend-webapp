@@ -6,11 +6,11 @@ import { CityCardsFooter } from './CityCardsFooter';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1701294255/Dygav/Pilar%20de%20la%20Horadada/19_ihezqq.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649503/Dygav%20Images/PilardelaHoradada/19_ihezqq_uynfrf.webp',
     alt: 'Licencias turísticas: Ayuntamiento de Pilar de la Horadada',
   },
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1701294252/Dygav/Pilar%20de%20la%20Horadada/Licencias_Tur%C3%ADsticas__Torre_de_la_Horadada_maxhac.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649458/Dygav%20Images/PilardelaHoradada/Licencias_Tur%C3%ADsticas__Torre_de_la_Horadada_maxhac_vucrkt.png',
     alt: 'Licencias turísticas: Pilar de la Horadadada torre en costa',
   },
 ];

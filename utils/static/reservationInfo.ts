@@ -2,10 +2,10 @@ export const reservations = [
   {
     id: 1,
     src: [
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695587733/Dygav/Fotos%20Casas%20Fake/Casa%205/355871521_2352028871646012_1364603506285862344_n_fahq4k.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695587736/Dygav/Fotos%20Casas%20Fake/Casa%205/355840222_1617075832109631_5705936545059326589_n_irljxj.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695587733/Dygav/Fotos%20Casas%20Fake/Casa%205/354803929_586623450171544_74377877471137664_n_caklv6.jpg',
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695587733/Dygav/Fotos%20Casas%20Fake/Casa%205/355425254_181386181319334_2203436108574430518_n_wfqjji.jpg',
+      'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649736/Dygav%20Images/FotosCasasFake/Casa%205/355871521_2352028871646012_1364603506285862344_n_fahq4k_k7ovoc.jpg',
+      'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649732/Dygav%20Images/FotosCasasFake/Casa%205/355840222_1617075832109631_5705936545059326589_n_irljxj_b1cinr.jpg',
+      'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649737/Dygav%20Images/FotosCasasFake/Casa%205/354803929_586623450171544_74377877471137664_n_caklv6_ogrogh.jpg',
+      'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649734/Dygav%20Images/FotosCasasFake/Casa%205/355425254_181386181319334_2203436108574430518_n_wfqjji_nymnnj.jpg',
     ],
     title: 'Apartamento Plaza del Ayuntamiento Torrevieja',
     information:
@@ -67,7 +67,7 @@ export const reservations = [
   {
     id: 2,
     imgUrl:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695587779/Dygav/Fotos%20Casas%20Fake/Casa%206/355583468_1452975642128909_5630854050548497334_n_rlavfw.jpg',
+      'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649749/Dygav%20Images/FotosCasasFake/Casa%206/355583468_1452975642128909_5630854050548497334_n_rlavfw_z1dzlj.jpg',
     title: 'Casa Unifamiliar en Formigal',
     information:
       'Esta hermosa casa es el lugar perfecto para disfrutar de unas vacaciones inolvidables en la impresionante estación de esquí de Formigal. Con su diseño espacioso y su ubicación privilegiada, te brinda todo el confort y la comodidad que necesitas.',
@@ -143,7 +143,7 @@ export const reservations = [
   {
     id: 3,
     imgUrl:
-      'https://res.cloudinary.com/vicflores11/image/upload/v1695587733/Dygav/Fotos%20Casas%20Fake/Casa%205/355425254_181386181319334_2203436108574430518_n_wfqjji.jpg',
+      'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649734/Dygav%20Images/FotosCasasFake/Casa%205/355425254_181386181319334_2203436108574430518_n_wfqjji_nymnnj.jpg',
     title:
       'Un paraíso privado en Torrevieja: Casa unifamiliar con piscina, jacuzzi y sauna',
     information:

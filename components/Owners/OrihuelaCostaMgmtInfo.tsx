@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1699647185/Dygav/Orihuela/Copia_de_8_fuequq.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649672/Dygav%20Images/Orihuela/Copia_de_8_fuequq_nu25w7.png',
     alt: 'Gestión de vivendas turísticas en Orihuela Costa',
   },
 ];
@@ -46,7 +46,7 @@ export const OrihuelaCostaMgmtInfo = () => {
         muy buscadas.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706804882/Dygav/undraw_travelers_re_y25a_zbrkat.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649266/Dygav%20Images/Icons/undraw_travelers_re_y25a_zbrkat_ihdtj8.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-16'>
         Oportunidades de Inversión en Viviendas Turísticas en Orihuela Costa
@@ -61,7 +61,7 @@ export const OrihuelaCostaMgmtInfo = () => {
         <strong>son particularmente atractivas para los turistas</strong>.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705018501/Dygav/undraw_buy_house_re_8xq7_obrxnk.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649275/Dygav%20Images/Icons/undraw_buy_house_re_8xq7_obrxnk_so8fsx.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-24'>
         Servicios de Gestión Integral de Viviendas Vacacionales en Orihuela

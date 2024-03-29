@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1701293972/Dygav/Pilar%20de%20la%20Horadada/23_gskeis.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649457/Dygav%20Images/PilardelaHoradada/23_gskeis_yaqful.webp',
     alt: 'Gestión de vivendas turísticas en Pilar de la Horadada',
   },
 ];
@@ -54,7 +54,7 @@ export const PilarDeLaHoradadaMgmtInfo = () => {
         privadas, son particularmente populares entre los turistas.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706804882/Dygav/undraw_travelers_re_y25a_zbrkat.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649266/Dygav%20Images/Icons/undraw_travelers_re_y25a_zbrkat_ihdtj8.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-16'>
         Oportunidades de Inversión en Viviendas Turísticas en Pilar de la
@@ -76,7 +76,7 @@ export const PilarDeLaHoradadaMgmtInfo = () => {
         .
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1705018501/Dygav/undraw_buy_house_re_8xq7_obrxnk.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649275/Dygav%20Images/Icons/undraw_buy_house_re_8xq7_obrxnk_so8fsx.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-24'>
         Servicios de Gestión Integral de Viviendas Vacacionales en Pilar de la

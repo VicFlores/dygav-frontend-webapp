@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/vicflores11/image/upload/v1705508212/Dygav/Sabi%C3%B1%C3%A1nigo/C_65_xnbci2.webp',
+    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649454/Dygav%20Images/Sabinanigo/C_65_xnbci2_gftesz.webp',
     alt: 'Gestión de vivendas turísticas en Sabiñánigo',
   },
 ];
@@ -56,7 +56,7 @@ export const SabinanigoMgmtInfo = () => {
         atractivo de sus inversiones.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706283993/Dygav/navigator_n1cspg.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649293/Dygav%20Images/Icons/navigator_n1cspg_gssjxj.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-16'>
         Oportunidades de Inversión en Viviendas Turísticas en Sabiñánigo
@@ -75,7 +75,7 @@ export const SabinanigoMgmtInfo = () => {
         .
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/vicflores11/image/upload/v1706281157/Dygav/ownersicon_tumwiv.svg' />
+      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649278/Dygav%20Images/Icons/ownersicon_tumwiv_ckdpnt.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-8'>
         Gestión Integral de Viviendas Vacacionales en Sabiñánigo
