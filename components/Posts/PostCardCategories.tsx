@@ -34,19 +34,25 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
     }
   };
 
-  generalImages.push({
-    slug: 'madrid',
-    cityName: 'Madrid',
-    bgCity:
-      'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649256/Dygav%20Images/Mix/15_kfihjl_pdaort.png',
-  });
+  const transformedGeneralImages = [
+    ...generalImages,
+    {
+      slug: 'madrid',
+      cityName: 'Madrid',
+      bgCity:
+        'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649256/Dygav%20Images/Mix/15_kfihjl_pdaort.png',
+    },
+  ];
 
-  pirineosAragonImages.push({
-    slug: 'valle-de-tena',
-    cityName: 'Valle de Tena',
-    bgCity:
-      'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649803/Dygav%20Images/Biescas/C_41_cgoedm_smmvpl.jpg',
-  });
+  const transformedPirineosAragonImages = [
+    ...pirineosAragonImages,
+    {
+      slug: 'valle-de-tena',
+      cityName: 'Valle de Tena',
+      bgCity:
+        'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649803/Dygav%20Images/Biescas/C_41_cgoedm_smmvpl.jpg',
+    },
+  ];
 
   return (
     <>
@@ -73,8 +79,12 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
           >
             {filterByCategories.map((category, index) => {
               const imageObj =
-                generalImages.find((img) => img.slug === category.slug) ||
-                pirineosAragonImages.find((img) => img.slug === category.slug);
+                transformedGeneralImages.find(
+                  (img) => img.slug === category.slug
+                ) ||
+                transformedPirineosAragonImages.find(
+                  (img) => img.slug === category.slug
+                );
 
               const imageUrl = imageObj ? imageObj.bgCity : '';
 
