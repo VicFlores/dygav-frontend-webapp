@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649780/Dygav%20Images/Finestrart/15_xpixav_rwoovf.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/15_xpixav.png',
     alt: 'Gestión de vivendas turísticas en Finestrat',
   },
 ];

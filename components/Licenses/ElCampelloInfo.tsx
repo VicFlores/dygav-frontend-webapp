@@ -5,11 +5,11 @@ import { CityImages } from './CityImages';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649797/Dygav%20Images/El%20Campello/1_tnweqi_pexgks.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/1_tnweqi.png',
     alt: 'Licencias turísticas: Ayuntamiento de El Campello',
   },
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649797/Dygav%20Images/El%20Campello/2_fldo0n_vmao7x.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/2_fldo0n.png',
     alt: 'Licencias turísticas: El Campello costa',
   },
 ];

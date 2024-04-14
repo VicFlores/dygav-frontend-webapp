@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649457/Dygav%20Images/PilardelaHoradada/23_gskeis_yaqful.webp',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/23_gskeis.png',
     alt: 'Gestión de vivendas turísticas en Pilar de la Horadada',
   },
 ];

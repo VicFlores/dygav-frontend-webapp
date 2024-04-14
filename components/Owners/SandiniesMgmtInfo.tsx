@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649448/Dygav%20Images/Sandinies/C_34_ergopo_q0nqdr.webp',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/C_34_ergopo-scaled.jpg',
     alt: 'Gestión de vivendas turísticas en Sandiniés',
   },
 ];

@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649443/Dygav%20Images/SantaPola/2_gipvsk_nbdj17.webp',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/2_gipvsk.png',
     alt: 'Gestión de vivendas turísticas en Santa Pola',
   },
 ];

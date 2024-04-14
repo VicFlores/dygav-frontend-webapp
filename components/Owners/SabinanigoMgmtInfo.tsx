@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649454/Dygav%20Images/Sabinanigo/C_65_xnbci2_gftesz.webp',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/C_65_xnbci2-scaled.jpg',
     alt: 'Gestión de vivendas turísticas en Sabiñánigo',
   },
 ];

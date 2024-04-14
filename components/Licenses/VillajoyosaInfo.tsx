@@ -5,11 +5,11 @@ import { CityImages } from './CityImages';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649395/Dygav%20Images/Villajoyosa/13_uy8c99_culsdm.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/13_uy8c99.png',
     alt: 'Licencias turísticas: Ayuntamiento de Villajoyosa',
   },
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649431/Dygav%20Images/Villajoyosa/12_niq9fq_lpcqet.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/12_niq9fq.png',
     alt: 'Licencias turísticas: Villajoyosa casas',
   },
 ];

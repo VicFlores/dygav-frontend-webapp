@@ -50,7 +50,7 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
       slug: 'valle-de-tena',
       cityName: 'Valle de Tena',
       bgCity:
-        'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649803/Dygav%20Images/Biescas/C_41_cgoedm_smmvpl.jpg',
+        'https://multimedia.dygav.es/wp-content/uploads/2024/04/C_41_cgoedm-scaled.jpg',
     },
   ];
 

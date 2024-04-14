@@ -6,7 +6,7 @@ import { LicencesIcons } from './LicencesIcons';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649788/Dygav%20Images/Escarilla/C_35_pg320r_t9yxzq.jpg',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/C_35_pg320r-scaled.jpg',
     alt: 'Licencias turísticas: Escarrilla',
   },
 ];

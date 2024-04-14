@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649679/Dygav%20Images/Jaca/C_49_jlgfrw_xmfikz.jpg',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/C_49_jlgfrw-scaled.jpg',
     alt: 'Gestión de vivendas turísticas en Jaca',
   },
 ];

@@ -6,7 +6,7 @@ import { LicencesIcons } from './LicencesIcons';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649693/Dygav%20Images/Gavin/63_dh3nuj_rmxogj.jpg',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/63_dh3nuj-scaled.jpg',
     alt: 'Licencias turísticas: Gavin ciudad',
   },
 ];

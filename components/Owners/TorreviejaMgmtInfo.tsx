@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649438/Dygav%20Images/Torrevieja/3_pdtmep_ee5b21.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/3_pdtmep.png',
     alt: 'Gestión de vivendas turísticas en Torrevieja',
   },
 ];

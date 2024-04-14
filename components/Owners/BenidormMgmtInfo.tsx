@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649809/Dygav%20Images/Benidorm/3_ns0pgn_wgjo3l.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/3_ns0pgn.png',
     alt: 'Gestión de vivendas turísticas en Benidorm',
   },
 ];

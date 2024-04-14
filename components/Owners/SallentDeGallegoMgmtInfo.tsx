@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649452/Dygav%20Images/SallentdeGallego/c_sallentdegallego_fnllhz_msbjqd.webp',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/c_sallentdegallego_fnllhz.png',
     alt: 'Gestión de vivendas turísticas en Sallent de Gallego',
   },
 ];

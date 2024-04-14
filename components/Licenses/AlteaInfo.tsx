@@ -5,11 +5,11 @@ import { CityImages } from './CityImages';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649811/Dygav%20Images/Altea/7_dezkye_gmxdol.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/7_dezkye.png',
     alt: 'Licencias turísticas: Altea ciudad',
   },
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649813/Dygav%20Images/Altea/11_jlgqfy_k4dolr.webp',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/11_jlgqfy.png',
     alt: 'Licencias turísticas: Altea costa',
   },
 ];

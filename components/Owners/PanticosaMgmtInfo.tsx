@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649563/Dygav%20Images/Panticosa/C_23_oi71uu_x8u9pq.jpg',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/C_23_oi71uu-scaled.jpg',
     alt: 'Gestión de vivendas turísticas en Panticosa',
   },
 ];

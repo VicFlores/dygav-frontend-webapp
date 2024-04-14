@@ -23,16 +23,27 @@ const BlogPage = () => {
 
   useEffect(() => {
     if (router.query.slug) {
-      const getOnePost = async () => {
-        const res = await axios.get(
-          'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts?per_page=100'
-        );
+      const getPosts = async () => {
+        const urls = [
+          'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts?per_page=100&page=1',
+          'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts?per_page=100&page=2',
+        ];
 
-        const filterPosts = res.data.filter((post: BlogPost) => {
-          return post.slug === router.query.slug;
-        })[0];
+        try {
+          const data = await Promise.all(
+            urls.map((url) => axios.get(url).then((response) => response.data))
+          );
 
-        setData(filterPosts);
+          const allPosts = [].concat(...data);
+
+          const filterPosts = allPosts.filter((post: BlogPost) => {
+            return post.slug === router.query.slug;
+          })[0];
+
+          setData(filterPosts);
+        } catch (error) {
+          console.error('Error:', error);
+        }
       };
 
       const nameOfCity = cityNames.find((city) =>
@@ -41,7 +52,7 @@ const BlogPage = () => {
 
       setCityName(nameOfCity);
 
-      getOnePost();
+      getPosts();
     }
   }, [router.query.slug, data.title?.rendered]);
 

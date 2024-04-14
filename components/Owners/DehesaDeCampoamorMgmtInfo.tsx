@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649669/Dygav%20Images/Orihuela/6_azqjjg_yxmtqx.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/6_azqjjg.png',
     alt: 'Gestión de vivendas turísticas en Dehesa de Campoamor',
   },
 ];

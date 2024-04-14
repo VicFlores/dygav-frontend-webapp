@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649671/Dygav%20Images/Orihuela/Copia_de_7_xhahz0_l8u4bv.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/Copia_de_7_xhahz0.png',
     alt: 'Gestión de vivendas turísticas en Orihuela',
   },
 ];

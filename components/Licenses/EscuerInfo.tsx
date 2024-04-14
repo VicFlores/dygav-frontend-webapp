@@ -6,7 +6,7 @@ import { LicencesIcons } from './LicencesIcons';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649785/Dygav%20Images/Escuer/C_66_puqrlj_f9ezch.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/C_66_puqrlj.png',
     alt: 'Licencias turísticas: Escuer ciudad',
   },
 ];

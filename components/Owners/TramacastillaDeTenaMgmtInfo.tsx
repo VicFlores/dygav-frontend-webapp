@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649432/Dygav%20Images/TramacastilladeTena/C_36_cx07kv_yl9q2l.webp',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/C_36_cx07kv.png',
     alt: 'Gestión de vivendas turísticas en Tramacastilla de Tena',
   },
 ];

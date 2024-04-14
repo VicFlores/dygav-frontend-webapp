@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649684/Dygav%20Images/HozDeJaca/C_14_wcdaqe_wlndqp.jpg',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/C_14_wcdaqe-scaled.jpg',
     alt: 'Gestión de vivendas turísticas en Hoz de Jaca',
   },
 ];

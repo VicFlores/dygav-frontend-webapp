@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649430/Dygav%20Images/Villajoyosa/9_na4ziy_ljb71z.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/9_na4ziy.png',
     alt: 'Gestión de vivendas turísticas en Villajoyosa',
   },
 ];

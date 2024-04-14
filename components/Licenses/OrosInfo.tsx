@@ -6,7 +6,7 @@ import { LicencesIcons } from './LicencesIcons';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649650/Dygav%20Images/Oros/C_64_sxdtov_i6t5io.jpg',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/C_64_sxdtov-scaled.jpg',
     alt: 'Licencias turísticas: Orós',
   },
 ];

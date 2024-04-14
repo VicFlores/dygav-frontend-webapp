@@ -6,7 +6,7 @@ import { LicencesIcons } from './LicencesIcons';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649805/Dygav%20Images/Biescas/C_44_hehtlu_xzmcub.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/C_44_hehtlu.png',
     alt: 'Licencias turísticas: Biescas ciudad',
   },
 ];

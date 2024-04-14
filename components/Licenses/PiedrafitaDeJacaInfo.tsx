@@ -6,7 +6,7 @@ import { LicencesIcons } from './LicencesIcons';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649531/Dygav%20Images/PiedrafitadeJaca/C_37_ew9ynt_hkosti.jpg',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/C_37_ew9ynt-scaled.jpg',
     alt: 'Licencias turísticas: Piedrafita de Jaca',
   },
 ];

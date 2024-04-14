@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649676/Dygav%20Images/La%20Mata/c_2_m0pzih_ayye8f.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/c_2_m0pzih.png',
     alt: 'Gestión de vivendas turísticas en La Mata',
   },
 ];

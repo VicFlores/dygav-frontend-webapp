@@ -5,22 +5,22 @@ import { CityImages } from './CityImages';
 
 const zoneImages = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649689/Dygav%20Images/GuardamarDelSegura/7_ufiq41_hxh8tx.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/7_ufiq41.png',
     alt: 'Licencias turísticas: Zonas permitidas para uso turistico',
   },
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649686/Dygav%20Images/GuardamarDelSegura/6_thb42c_lfwykb.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/6_thb42c.png',
     alt: 'Licencias turísticas: Zonas permitidas para uso turistico',
   },
 ];
 
 const townHallImages = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649689/Dygav%20Images/GuardamarDelSegura/1_kqhglr_k36x3q.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/1_kqhglr.png',
     alt: 'Licencias turísticas: Ayuntamiento de Guardamar del Segura',
   },
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649688/Dygav%20Images/GuardamarDelSegura/2_g8kxjz_pjxxqv.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/2_g8kxjz.png',
     alt: 'Licencias turísticas: Guardamar del Segura costa',
   },
 ];

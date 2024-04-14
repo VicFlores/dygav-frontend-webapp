@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649674/Dygav%20Images/Lanuza/c_lanuza_lacelk_zbrq5h.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/c_lanuza_lacelk.png',
     alt: 'Gestión de vivendas turísticas en Lanuza',
   },
 ];

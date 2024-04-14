@@ -5,11 +5,11 @@ import { CityImages } from './CityImages';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649446/Dygav%20Images/SantaPola/No_usada_todavia_usar_7_yuxl7h_ppsn8c.webp',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/No_usada_todavia_usar_7_yuxl7h.png',
     alt: 'Licencias turísticas: Ayuntamiento de Santa Pola',
   },
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649445/Dygav%20Images/SantaPola/Puerto_de_Santa_Pola_z22c85_zlm5so.webp',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/Puerto_de_Santa_Pola_z22c85.png',
     alt: 'Licencias turísticas: Santa Pola muelle',
   },
 ];

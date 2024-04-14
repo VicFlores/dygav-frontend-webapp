@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649530/Dygav%20Images/PiedrafitadeJaca/c_piedrafitadejaca_gzbgra_o0h074.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/c_piedrafitadejaca_gzbgra.png',
     alt: 'Gestión de vivendas turísticas en Piedrafita de Jaca',
   },
 ];

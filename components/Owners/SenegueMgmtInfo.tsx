@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649438/Dygav%20Images/Senegue/c_senegue_ycqsev_llo1gr.webp',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/c_senegue_ycqsev.png',
     alt: 'Gestión de vivendas turísticas en Senegüe',
   },
 ];
