@@ -72,10 +72,21 @@ export default function CitiesPage() {
   useEffect(() => {
     const getPosts = async () => {
       if (subCategories) {
-        const data = await fetchData(
-          `https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts?per_page=100`
-        );
-        setPosts(data);
+        const urls = [
+          'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts?per_page=100&page=1',
+          'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts?per_page=100&page=2',
+        ];
+
+        Promise.all(
+          urls.map((url) => fetch(url).then((response) => response.json()))
+        )
+          .then((data) => {
+            const allPosts = [].concat(...data);
+            setPosts(allPosts);
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
       }
     };
 
