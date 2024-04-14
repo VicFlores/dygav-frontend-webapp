@@ -11,7 +11,7 @@ export const Llamanos: FC<{ paddingX?: string }> = ({ paddingX = 'px-16' }) => {
         <figure className='relative w-52 h-52 md:w-64 md:h-64'>
           <Image
             src={
-              'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649291/Dygav%20Images/Icons/undraw_personal_email_re_4lx7_c7oydo_krvml7.svg'
+              'https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_personal_email_re_4lx7_c7oydo.svg'
             }
             alt='Contact Us Image'
             layout='fill'

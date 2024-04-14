@@ -4,7 +4,7 @@ import { CityImages } from './CityImages';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649815/Dygav%20Images/Alicante/Licencias_Tur%C3%ADsticas__Ayuntamiento_de_Alicante_nn3dun_nckcaj.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/Licencias_Turisticas__Ayuntamiento_de_Alicante_nn3dun.png',
     alt: 'Licencias turísticas: Ayuntamiento de Alicante',
   },
   {

@@ -8,11 +8,11 @@ interface Props {
 export const MainHero: FC<Props> = ({
   children,
   images = [
-    'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649260/Dygav%20Images/Mix/4_wq4pgw_kzzpp6.png',
-    'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649257/Dygav%20Images/Mix/5_mhpa2f_emcqe5.png',
-    'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649258/Dygav%20Images/Mix/13_qih5tu_weuree.png',
-    'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649263/Dygav%20Images/Mix/20_zc0zeu_jacvck.png',
-    'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649263/Dygav%20Images/Mix/1_j8qeqo_kr6jg8.png',
+    'https://multimedia.dygav.es/wp-content/uploads/2024/04/4_wq4pgw.png',
+    'https://multimedia.dygav.es/wp-content/uploads/2024/04/5_mhpa2f.png',
+    'https://multimedia.dygav.es/wp-content/uploads/2024/04/13_qih5tu.png',
+    'https://multimedia.dygav.es/wp-content/uploads/2024/04/20_zc0zeu.png',
+    'https://multimedia.dygav.es/wp-content/uploads/2024/04/1_j8qeqo.png',
   ],
 }) => {
   const [backgroundImage, setBackgroundImage] = useState('');

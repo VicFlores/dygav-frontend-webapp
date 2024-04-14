@@ -14,7 +14,7 @@ import {
 } from '@/utils';
 
 const imageUrl =
-  'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649331/Dygav%20Images/Icons/DYGAV_WHITE_izc04w_rphvtc.svg';
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/1.Dygav_Blanco_Vertical_z64ijw.svg';
 
 export const BurgerMenu: FC<TSession> = ({ session }) => {
   const { sideMenu, isToogleBurgerMenu } = useContext(UIContext);
@@ -89,7 +89,7 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
                   <Image
                     src={
                       session?.user.image ||
-                      'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649279/Dygav%20Images/Icons/undraw_Pic_profile_re_7g2h_o0irqa_kjoi1x.png'
+                      'https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_Pic_profile_re_7g2h_o0irqa-1.png'
                     }
                     alt={'Profile picture'}
                     layout='fill'

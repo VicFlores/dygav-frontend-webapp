@@ -137,7 +137,7 @@ const ApartamentosFiltros = () => {
             <div className='border border-p600 px-14 py-8 flex flex-col justify-center items-center rounded-xl'>
               <figure className='relative h-60 w-60 md:h-80 md:w-80'>
                 <Image
-                  src='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649282/Dygav%20Images/Icons/notfound_t5mgaw_pb1qc8.svg'
+                  src='https://multimedia.dygav.es/wp-content/uploads/2024/04/notfound_t5mgaw.svg'
                   alt=''
                   layout='fill'
                   className=''

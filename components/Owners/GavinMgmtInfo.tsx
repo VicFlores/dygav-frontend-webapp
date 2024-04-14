@@ -46,7 +46,7 @@ export const GavinMgmtInfo = () => {
         sector del alquiler vacacional.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649293/Dygav%20Images/Icons/navigator_n1cspg_gssjxj.svg' />
+      <OwnersIcons image='https://multimedia.dygav.es/wp-content/uploads/2024/04/navigator_n1cspg.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-16'>
         Inversión en Viviendas Turísticas en Gavin
@@ -61,7 +61,7 @@ export const GavinMgmtInfo = () => {
         experiencia vacacional completa.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649278/Dygav%20Images/Icons/ownersicon_tumwiv_ckdpnt.svg' />
+      <OwnersIcons image='https://multimedia.dygav.es/wp-content/uploads/2024/04/ownersicon_tumwiv.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-8'>
         Gestión Integral de Viviendas Vacacionales en Gavin

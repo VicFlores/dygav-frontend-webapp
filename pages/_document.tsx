@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <link
           rel='icon'
-          href='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649270/Dygav%20Images/Icons/DYGAV_lce25q_qxz9ha.svg'
+          href='https://multimedia.dygav.es/wp-content/uploads/2024/04/DYGAV_lce25q.svg'
         />
         <script
           dangerouslySetInnerHTML={{

@@ -26,7 +26,7 @@ export const PeachOwners = () => {
         </p>
       </div>
 
-      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649292/Dygav%20Images/Icons/undraw_sweet_home_dkhr_b0qc3r_mfon41.svg' />
+      <OwnersIcons image='https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_sweet_home_dkhr_b0qc3r.svg' />
     </section>
   );
 };

@@ -55,7 +55,7 @@ export const TorreviejaMgmtInfo = () => {
         <strong>alta tasa de ocupación y un buen retorno de inversión</strong>.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649266/Dygav%20Images/Icons/undraw_travelers_re_y25a_zbrkat_ihdtj8.svg' />
+      <OwnersIcons image='https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_travelers_re_y25a_zbrkat.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-16'>
         Oportunidades de Inversión en Viviendas Turísticas en Torrevieja
@@ -93,7 +93,7 @@ export const TorreviejaMgmtInfo = () => {
         </p>
       </div>
 
-      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649275/Dygav%20Images/Icons/undraw_buy_house_re_8xq7_obrxnk_so8fsx.svg' />
+      <OwnersIcons image='https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_buy_house_re_8xq7_obrxnk.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-24'>
         Servicios de Gestión Integral de Viviendas Vacacionales en Torrevieja

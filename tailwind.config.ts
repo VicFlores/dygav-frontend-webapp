@@ -26,21 +26,21 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         heroContent:
-          "url('https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649254/Dygav%20Images/Mix/12_yxhpq1_znqycz.png')",
+          "url('https://multimedia.dygav.es/wp-content/uploads/2024/04/12_yxhpq1.png')",
         costaBlanca:
-          "url('https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649263/Dygav%20Images/Mix/1_j8qeqo_kr6jg8.png')",
+          "url('https://multimedia.dygav.es/wp-content/uploads/2024/04/1_j8qeqo.png')",
         pirineos:
-          "url('https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649259/Dygav%20Images/Mix/11_uhpghg_jnnxph.webp')",
+          "url('https://multimedia.dygav.es/wp-content/uploads/2024/04/11_uhpghg.png')",
         madrid:
-          "url('https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649256/Dygav%20Images/Mix/15_kfihjl_pdaort.png')",
+          "url('https://multimedia.dygav.es/wp-content/uploads/2024/04/15_kfihjl.png')",
         welcomeWorld:
-          "url('https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649265/Dygav%20Images/Icons/undraw_World_re_768g_afxop1_b4k3ys.webp')",
+          "url('https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_World_re_768g_afxop1-1.png')",
         digitalAparment:
-          "url('https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649280/Dygav%20Images/Icons/undraw_Best_place_re_lne9_sn3p88_fty0js.png')",
+          "url('https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_Best_place_re_lne9_sn3p88-1.png')",
         aboutUsAviable:
-          "url('https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649285/Dygav%20Images/Icons/icon-image_gtwgyc_tyl0td.webp')",
+          "url('https://multimedia.dygav.es/wp-content/uploads/2024/04/icon-image_gtwgyc-1.png')",
         brandContent:
-          "url('https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649260/Dygav%20Images/Mix/19_skargh_fgpyuf.png')",
+          "url('https://multimedia.dygav.es/wp-content/uploads/2024/04/19_skargh.png')",
       },
     },
   },

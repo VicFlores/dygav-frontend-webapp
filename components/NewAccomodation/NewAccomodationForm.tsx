@@ -83,7 +83,7 @@ const NewAccomodationForm = () => {
         <figure className='relative w-[322px] h-[322px] lg:w-96 lg:h-96 '>
           <Image
             src={
-              'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649353/Dygav%20Images/Icons/add_accomodations_pcp0ra_dyjmfu.svg'
+              'https://multimedia.dygav.es/wp-content/uploads/2024/04/add_accomodations_pcp0ra.svg'
             }
             layout='fill'
             alt='Asignar alojamiento'

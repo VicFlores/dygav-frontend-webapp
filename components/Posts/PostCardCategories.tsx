@@ -40,7 +40,7 @@ export const PostCardCategories: FC<TPostCardCategoriesProps> = ({
       slug: 'madrid',
       cityName: 'Madrid',
       bgCity:
-        'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649256/Dygav%20Images/Mix/15_kfihjl_pdaort.png',
+        'https://multimedia.dygav.es/wp-content/uploads/2024/04/15_kfihjl.png',
     },
   ];
 

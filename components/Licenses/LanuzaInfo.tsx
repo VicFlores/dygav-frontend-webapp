@@ -6,7 +6,7 @@ import { LicencesIcons } from './LicencesIcons';
 
 const images = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649674/Dygav%20Images/Lanuza/c_lanuza_lacelk_zbrq5h.webp',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/c_lanuza_lacelk.png',
     alt: 'Licencias turísticas: Lanuza',
   },
 ];
@@ -141,7 +141,7 @@ export const LanuzaInfo = () => {
         .
       </p>
 
-      <LicencesIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649297/Dygav%20Images/Icons/undraw_file_searching_re_3evy_brkjza_ilcb0a.svg' />
+      <LicencesIcons image='https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_file_searching_re_3evy_brkjza.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-44 mt-16'>
         Requisitos para una vivienda de uso turístico en Lanuza
@@ -192,7 +192,7 @@ export const LanuzaInfo = () => {
         alojativa permitida en la vivienda.
       </p>
 
-      <LicencesIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649276/Dygav%20Images/Icons/undraw_house_searching_re_stk8_cjs9qi_scufj5.svg' />
+      <LicencesIcons image='https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_house_searching_re_stk8_cjs9qi.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-44 mt-16'>
         Proceso de Declaración Responsable en Lanuza
@@ -209,7 +209,7 @@ export const LanuzaInfo = () => {
         habitabilidad y seguridad.
       </p>
 
-      <LicencesIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649269/Dygav%20Images/Icons/undraw_attached_file_re_0n9b_wyqge2_sbuoak.svg' />
+      <LicencesIcons image='https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_attached_file_re_0n9b_wyqge2.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-44 mt-16'>
         Inscripción y Registro
@@ -235,7 +235,7 @@ export const LanuzaInfo = () => {
         experiencia turística óptima.
       </p>
 
-      <LicencesIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649275/Dygav%20Images/Icons/undraw_buy_house_re_8xq7_obrxnk_so8fsx.svg' />
+      <LicencesIcons image='https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_buy_house_re_8xq7_obrxnk.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-44 mt-16'>
         Cumplimiento y Régimen Sancionador
@@ -247,7 +247,7 @@ export const LanuzaInfo = () => {
         regionales para garantizar el total cumplimiento.
       </p>
 
-      <LicencesIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649297/Dygav%20Images/Icons/undraw_file_bundle_re_6q1e_z2q9i8_mizphu.svg' />
+      <LicencesIcons image='https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_file_bundle_re_6q1e_z2q9i8.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-44 mt-16'>
         Conclusión y Recursos Adicionales

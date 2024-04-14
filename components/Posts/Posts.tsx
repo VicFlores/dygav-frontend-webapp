@@ -65,15 +65,7 @@ const Posts = () => {
     );
   }
 
-  const transformedGeneralImages = [
-    ...generalImages,
-    {
-      slug: 'madrid',
-      cityName: 'Madrid',
-      bgCity:
-        'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649256/Dygav%20Images/Mix/15_kfihjl_pdaort.png',
-    },
-  ];
+  const transformedGeneralImages = [...generalImages];
 
   const costaBlancaCities = filterCities(transformedGeneralImages, categories);
 
@@ -92,6 +84,17 @@ const Posts = () => {
     categories
   );
 
+  const transformedMadridImages = [
+    {
+      slug: 'madrid',
+      cityName: 'Madrid',
+      bgCity:
+        'https://multimedia.dygav.es/wp-content/uploads/2024/04/15_kfihjl.png',
+    },
+  ];
+
+  const madridCities = filterCities(transformedMadridImages, categories);
+
   return (
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-28 flex flex-col items-center'>
       <PostCardCategories
@@ -103,7 +106,13 @@ const Posts = () => {
       <PostCardCategories
         filterByCategories={pirineosCities}
         title='Pirineo Aragonés'
-        subtitle='Pirineos/ De pico a pico, conoce los Pirineos a través de nuestros artículos: aventuras al aire libre, cultura local y lo último en alquiler vacacional.'
+        subtitle='De pico a pico, conoce los Pirineos a través de nuestros artículos: aventuras al aire libre, cultura local y lo último en alquiler vacacional.'
+      />
+
+      <PostCardCategories
+        filterByCategories={madridCities}
+        title='Madrid'
+        subtitle='Descubre Madrid a fondo: Explora sus históricas calles y azoteas, encuentra los mejores sitios para el mejor tardeo, vive su vida nocturna y comprende las normativas que moldean su creciente mercado de alquiler vacacional.'
       />
 
       <div className='grid lg:grid-cols-2 gap-y-10 md:gap-x-20'>

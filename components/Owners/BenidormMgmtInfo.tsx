@@ -49,7 +49,7 @@ export const BenidormMgmtInfo = () => {
         atracciones, tienen un alto potencial de alquiler durante todo el año.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649266/Dygav%20Images/Icons/undraw_travelers_re_y25a_zbrkat_ihdtj8.svg' />
+      <OwnersIcons image='https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_travelers_re_y25a_zbrkat.svg' />
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-16 md:mb-0'>
         Oportunidades de Inversión en Viviendas Turísticas en Benidorm
@@ -67,7 +67,7 @@ export const BenidormMgmtInfo = () => {
       </p>
 
       <OwnersIcons
-        image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649275/Dygav%20Images/Icons/undraw_buy_house_re_8xq7_obrxnk_so8fsx.svg'
+        image='https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_buy_house_re_8xq7_obrxnk.svg'
         customWidth='290px'
       />
 

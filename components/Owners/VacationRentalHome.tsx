@@ -81,7 +81,7 @@ export const VacationRentalHome: FC<{ typeOfPage?: string }> = ({
       <div className='flex justify-center items-center my-8'>
         <figure className='relative w-32 h-40 md:w-52 lg:w-60 md:h-72 lg:h-80'>
           <Image
-            src='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649274/Dygav%20Images/Icons/Blue_Modern_Bold_Minimalist_Mineral_Water_Logo_awcm4u_fv8irl.svg'
+            src='https://multimedia.dygav.es/wp-content/uploads/2024/04/Blue_Modern_Bold_Minimalist_Mineral_Water_Logo_awcm4u.svg'
             alt='15% comission image'
             layout='fill'
             objectFit='contain'
@@ -126,7 +126,7 @@ export const VacationRentalHome: FC<{ typeOfPage?: string }> = ({
       <figure className='relative w-52 h-52 md:w-80 md:h-80 self-center mt-10'>
         <Image
           src={
-            'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649284/Dygav%20Images/Icons/undraw_home_settings_re_pkya_bvz343_ssjm9a.svg'
+            'https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_home_settings_re_pkya_bvz343.svg'
           }
           alt=''
           layout='fill'
@@ -145,7 +145,7 @@ export const VacationRentalHome: FC<{ typeOfPage?: string }> = ({
         <strong>eficiente, transparente y accesible</strong>.
       </p>
 
-      <OwnersIcons image='https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649273/Dygav%20Images/Icons/undraw_smart_home_re_orvn_rd13cl_cxfdkv.svg' />
+      <OwnersIcons image='https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_smart_home_re_orvn_rd13cl.svg' />
     </>
   );
 };

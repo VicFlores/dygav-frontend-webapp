@@ -2,10 +2,10 @@ export const reservations = [
   {
     id: 1,
     src: [
-      'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649736/Dygav%20Images/FotosCasasFake/Casa%205/355871521_2352028871646012_1364603506285862344_n_fahq4k_k7ovoc.jpg',
-      'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649732/Dygav%20Images/FotosCasasFake/Casa%205/355840222_1617075832109631_5705936545059326589_n_irljxj_b1cinr.jpg',
-      'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649737/Dygav%20Images/FotosCasasFake/Casa%205/354803929_586623450171544_74377877471137664_n_caklv6_ogrogh.jpg',
-      'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649734/Dygav%20Images/FotosCasasFake/Casa%205/355425254_181386181319334_2203436108574430518_n_wfqjji_nymnnj.jpg',
+      'https://multimedia.dygav.es/wp-content/uploads/2024/04/355871521_2352028871646012_1364603506285862344_n_fahq4k-1.jpg',
+      'https://multimedia.dygav.es/wp-content/uploads/2024/04/355840222_1617075832109631_5705936545059326589_n_irljxj-1.jpg',
+      'https://multimedia.dygav.es/wp-content/uploads/2024/04/354803929_586623450171544_74377877471137664_n_caklv6-1.jpg',
+      'https://multimedia.dygav.es/wp-content/uploads/2024/04/355425254_181386181319334_2203436108574430518_n_wfqjji-1.jpg',
     ],
     title: 'Apartamento Plaza del Ayuntamiento Torrevieja',
     information:
@@ -67,7 +67,7 @@ export const reservations = [
   {
     id: 2,
     imgUrl:
-      'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649749/Dygav%20Images/FotosCasasFake/Casa%206/355583468_1452975642128909_5630854050548497334_n_rlavfw_z1dzlj.jpg',
+      'https://multimedia.dygav.es/wp-content/uploads/2024/04/355583468_1452975642128909_5630854050548497334_n_rlavfw-1.jpg',
     title: 'Casa Unifamiliar en Formigal',
     information:
       'Esta hermosa casa es el lugar perfecto para disfrutar de unas vacaciones inolvidables en la impresionante estación de esquí de Formigal. Con su diseño espacioso y su ubicación privilegiada, te brinda todo el confort y la comodidad que necesitas.',
@@ -143,7 +143,7 @@ export const reservations = [
   {
     id: 3,
     imgUrl:
-      'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649734/Dygav%20Images/FotosCasasFake/Casa%205/355425254_181386181319334_2203436108574430518_n_wfqjji_nymnnj.jpg',
+      'https://multimedia.dygav.es/wp-content/uploads/2024/04/355425254_181386181319334_2203436108574430518_n_wfqjji-1.jpg',
     title:
       'Un paraíso privado en Torrevieja: Casa unifamiliar con piscina, jacuzzi y sauna',
     information:

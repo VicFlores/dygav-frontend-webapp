@@ -4,37 +4,37 @@ import React from 'react';
 
 const imageProps: TImageProps[] = [
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649296/Dygav%20Images/Icons/Booking-Logo_osnjdx_ly0dot.webp',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/Booking-Logo_osnjdx.png',
     alt: 'Booking.com',
     height: 70,
     width: 125,
   },
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649300/Dygav%20Images/Icons/ABNB_ugauy3_kx6upc.webp',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/ABNB_ugauy3.png',
     alt: 'AirBnb',
     height: 100,
     width: 125,
   },
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649354/Dygav%20Images/Icons/0x0_j8hysr_jft13p.webp',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/0x0_j8hysr.png',
     alt: 'Rentalia',
     height: 40,
     width: 125,
   },
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649280/Dygav%20Images/Icons/Comment-contacter-Vrbo_jkhslp_l0kw3t.webp',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/Comment-contacter-Vrbo_jkhslp.png',
     alt: 'Vrbo',
     height: 100,
     width: 125,
   },
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649293/Dygav%20Images/Icons/Google_2015_logo.svg_sojqzx_uzngo3.webp',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/Google_2015_logo.svg_sojqzx-1.png',
     alt: 'Google',
     height: 45,
     width: 125,
   },
   {
-    src: 'https://res.cloudinary.com/dr9x3bjqy/image/upload/v1711649269/Dygav%20Images/Icons/EXPEDIA-LOGO-1_ko2beq_sjkq1d.webp',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/EXPEDIA-LOGO-1_ko2beq-1.png',
     alt: 'Xpedia',
     height: 100,
     width: 140,
