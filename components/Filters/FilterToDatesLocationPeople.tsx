@@ -3,14 +3,13 @@ import { BsPeopleFill } from 'react-icons/bs';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { DateRangePicker } from 'rsuite';
-import { registerLocale } from 'react-datepicker';
-import { es } from 'date-fns/locale';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import moment from 'moment';
 import 'rsuite/DateRangePicker/styles/index.css';
 import { FaRegCalendarAlt } from 'react-icons/fa';
-registerLocale('es', es);
+import { CustomProvider } from 'rsuite';
+import esES from 'rsuite/locales/es_ES';
 
 interface FormData {
   ubicacion: string;
@@ -54,7 +53,7 @@ export const FilterToDatesLocationPeople = () => {
     });
   };
 
-  const { combine, allowedMaxDays, beforeToday } = DateRangePicker;
+  const { beforeToday } = DateRangePicker;
 
   return (
     <form
@@ -88,23 +87,26 @@ export const FilterToDatesLocationPeople = () => {
         <div className='relative'>
           <FaRegCalendarAlt className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900 z-10' />
 
-          <DateRangePicker
-            placeholder='Fechas de reserva'
-            size='md'
-            showOneCalendar
-            caretAs={null}
-            showHeader={false}
-            shouldDisableDate={combine(allowedMaxDays(7), beforeToday())}
-            format='dd-MM-yyyy'
-            ranges={[]}
-            onChange={(dates) => {
-              if (dates) {
-                setStartDate(dates[0]);
-                setEndDate(dates[1]);
-              }
-            }}
-            className='rounded-lg lg:w-[275px] md:w-96 w-[240px] bg-white py-1'
-          />
+          <CustomProvider locale={esES}>
+            <DateRangePicker
+              isoWeek
+              showOneCalendar
+              ranges={[]}
+              placeholder='Fechas de reserva'
+              size='md'
+              caretAs={null}
+              showHeader={false}
+              shouldDisableDate={beforeToday()}
+              format='dd-MM-yyyy'
+              onChange={(dates) => {
+                if (dates) {
+                  setStartDate(dates[0]);
+                  setEndDate(dates[1]);
+                }
+              }}
+              className='rounded-lg lg:w-[275px] md:w-96 w-[240px] bg-white py-1'
+            />
+          </CustomProvider>
         </div>
       </div>
 
