@@ -161,3 +161,58 @@ span > .rs-icon {
   height: 18px !important;
   color: #404040 !important;
 }
+
+/* Calendar */
+
+/*
+
+.grid {
+  display: flex;
+  gap: 1.5em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+calendar-range {
+  &::part(button) {
+    border: 1px solid #adb5bd;
+    background-color: #fff;
+    border-radius: 3px;
+    width: 26px;
+    height: 26px;
+  }
+
+  &::part(button):focus-visible {
+    outline: 2px solid #7048e8;
+  }
+}
+
+calendar-month {
+  --color-accent: #7048e8;
+  --color-text-on-accent: #ffffff;
+
+  &::part(button) {
+    border-radius: 3px;
+  }
+
+  &::part(range-inner) {
+    border-radius: 0;
+    background-color: #845ef7;
+  }
+
+  &::part(range-start) {
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+  }
+
+  &::part(range-end) {
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+  }
+
+  &::part(range-start range-end) {
+    border-radius: 3px;
+  }
+}
+
+*/
