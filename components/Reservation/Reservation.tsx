@@ -121,7 +121,7 @@ export const Reservation: FC<{ id: string }> = ({ id }) => {
                   Comision de DYGAV:
                 </p>
                 <p className='text-sm md:text-base'>
-                  €{reservationInfo.totalAmount * 0.15}
+                  €{(reservationInfo.totalAmount * 0.15).toFixed(2)}
                 </p>
               </span>
             </div>
