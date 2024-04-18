@@ -33,40 +33,36 @@ export default async function handler(
         .json({ message: 'Password must be at least 6 characters' });
 
     try {
-
-      
       await connectDB();
-      
+
       const userFound = await User.findOne({ email });
-      
+
       if (userFound)
-      return res.status(400).json({ message: 'Email already exists' });
-    
-    const hashedPassword = await bcrypt.hash(password, 12);
-    
-    const user = new User({
-      fullname,
-      email,
-      password: hashedPassword,
-      role,
-      marketingPermissions,
-      acceptancePrivacyPolicies,
-    });
-    
-    const savedUser = await user.save();
-    
-    sendEmail(email, fullname, role)
-    
-    return res.status(200).json({
-      _id: savedUser._id,
-      fullname: savedUser.fullname,
-      email: savedUser.email,
-    });
-    
-    
-  } catch (error) {
-    if (error instanceof Error)
-    return res.status(400).json({ message: error.message });
+        return res.status(400).json({ message: 'Email already exists' });
+
+      const hashedPassword = await bcrypt.hash(password, 12);
+
+      const user = new User({
+        fullname,
+        email,
+        password: hashedPassword,
+        role,
+        marketingPermissions,
+        acceptancePrivacyPolicies,
+      });
+
+      const savedUser = await user.save();
+
+      sendEmail(email, fullname, role);
+
+      return res.status(200).json({
+        _id: savedUser._id,
+        fullname: savedUser.fullname,
+        email: savedUser.email,
+      });
+    } catch (error) {
+      if (error instanceof Error)
+        return res.status(400).json({ message: error.message });
     }
   } else return res.status(201).json('Cant access');
 }

@@ -20,8 +20,8 @@ export const Register = () => {
     fullname: '',
     email: '',
     password: '',
-    marketingPermissions: 'default',
-    acceptancePrivacyPolicies: 'default',
+    marketingPermissions: 'false',
+    acceptancePrivacyPolicies: 'false',
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
