@@ -3,7 +3,9 @@ import React, { FC, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { BsCheckCircle } from 'react-icons/bs';
 import axios from 'axios';
-import { PagarAlojamiento } from '..';
+import { ReservationCalendar } from './ReservationCalendar';
+import { TablePreview } from './TablePreview';
+import { ReservationInfoProvider } from '@/context';
 
 interface IRealAparmentDetails {
   depositAmount: number;
@@ -53,20 +55,6 @@ const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
   const [selectedStartDate, setSelectedStartDate] = useState<Date | null>(null);
   const [selectedEndDate, setSelectedEndDate] = useState<Date | null>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [accomodationDayBlock, setAccomodationDayBlock] = useState<
-    TAccomodation[]
-  >([
-    {
-      unit: '',
-      startDate: new Date(),
-      endDate: new Date(),
-      type: '',
-      booking: '',
-    },
-  ]);
-
   const [accomodation, setAccomodation] = useState<IRealAparmentDetails>({
     depositAmount: 0,
     id: '',
@@ -137,92 +125,6 @@ const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
     getAllAccomodations();
   }, [id]);
 
-  useEffect(() => {
-    const accomodationBlockDay = async (id: string) => {
-      if (id) {
-        const res = await axios.get(
-          `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/`,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
-            },
-          }
-        );
-
-        setAccomodationDayBlock(res.data);
-      }
-    };
-
-    let startDatePrice = selectedStartDate
-      ? new Date(selectedStartDate)
-      : new Date();
-    let endDatePrice = selectedEndDate ? new Date(selectedEndDate) : new Date();
-
-    startDatePrice.setDate(startDatePrice.getDate() - 1);
-    endDatePrice.setDate(endDatePrice.getDate() - 1);
-
-    let totalPrice = 0;
-
-    const smartSeason = accomodation.units[0].unitSeasons.filter((season) => {
-      const startDate = new Date(season.dateIni);
-      const endDate = new Date(season.dateEnd);
-
-      if (startDate >= startDatePrice && endDate <= endDatePrice) {
-        totalPrice += season.weekPrice;
-        return season;
-      }
-    });
-
-    setPrice(totalPrice);
-
-    setSelectedDate(
-      new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1)
-    );
-
-    accomodationBlockDay(id);
-  }, [selectedEndDate, accomodation.depositAmount]);
-
-  const handleDateClick = (date: Date) => {
-    if (!selectedStartDate) {
-      setSelectedStartDate(date);
-      setSelectedEndDate(null);
-    } else if (!selectedEndDate) {
-      if (date >= selectedStartDate) {
-        setSelectedEndDate(date);
-      } else {
-        setSelectedStartDate(date);
-        setSelectedEndDate(selectedStartDate);
-      }
-    } else {
-      setSelectedStartDate(date);
-      setSelectedEndDate(null);
-    }
-  };
-
-  const monthNames = [
-    'Enero',
-    'Febrero',
-    'Marzo',
-    'Abril',
-    'Mayo',
-    'Junio',
-    'Julio',
-    'Agosto',
-    'Septiembre',
-    'Octubre',
-    'Noviembre',
-    'Dicembre',
-  ];
-
-  const daysInMonth = new Date(
-    selectedDate.getFullYear(),
-    selectedDate.getMonth() + 1,
-    0
-  ).getDate();
-
-  const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
-
   const cleanUp =
     Number(accomodation.features.n_hab) === 1
       ? 65
@@ -246,321 +148,29 @@ const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
 
       {isMobile ? (
         <div className='flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:justify-evenly lg:items-center lg:space-x-8'>
-          <div className='bg-white rounded-lg shadow-lg p-10 md:py-8 md:px-12'>
-            <div className='flex justify-between items-center mb-4'>
-              <button
-                className='bg-gray-200 hover:bg-gray-300 rounded-lg px-2 py-1'
-                onClick={() =>
-                  setSelectedDate(
-                    new Date(
-                      selectedDate.getFullYear(),
-                      selectedDate.getMonth() - 1,
-                      1
-                    )
-                  )
-                }
-              >
-                Ant
-              </button>
-              <h2 className='text-lg font-bold'>
-                {monthNames[selectedDate.getMonth()]}{' '}
-                {selectedDate.getFullYear()}
-              </h2>
-              <button
-                className='bg-gray-200 hover:bg-gray-300 rounded-lg px-2 py-1'
-                onClick={() =>
-                  setSelectedDate(
-                    new Date(
-                      selectedDate.getFullYear(),
-                      selectedDate.getMonth() + 1,
-                      1
-                    )
-                  )
-                }
-              >
-                Sig
-              </button>
-            </div>
-            <div className='grid grid-cols-7 gap-y-6 gap-x-4'>
-              {['Lun', 'Mar', 'Miérc', 'Juev', 'Vier', 'Sáb', 'Dom'].map(
-                (day) => (
-                  <div
-                    key={day}
-                    className='text-center text-xs md:text-base font-bold text-gray-600'
-                  >
-                    {day}
-                  </div>
-                )
-              )}
-              {Array((selectedDate.getDay() + 6) % 7)
-                .fill(null)
-                .map((_, index) => (
-                  <div
-                    key={`empty-${index}`}
-                    className='text-center text-gray-400'
-                  >
-                    -
-                  </div>
-                ))}
-              {days.map((day) => {
-                const date = new Date(
-                  selectedDate.getFullYear(),
-                  selectedDate.getMonth(),
-                  day
-                );
+          <ReservationInfoProvider>
+            <TablePreview
+              startDate={new Date('2022-01-01')}
+              endDate={new Date('2022-12-31')}
+              cleanService={0}
+              totalAmount={0}
+            />
 
-                const currentDate = new Date();
-                currentDate.setHours(0, 0, 0, 0);
-
-                const isToday = date.getTime() === currentDate.getTime();
-                const isPast = date < currentDate;
-
-                const isInRange = accomodationDayBlock.some((range) => {
-                  const startDate = new Date(range.startDate);
-                  const endDate = new Date(range.endDate);
-
-                  return date >= startDate && date < endDate; // Use less than for endDate since we added 1 day
-                });
-
-                const isSelectedStart =
-                  selectedStartDate &&
-                  date.getTime() === selectedStartDate.getTime();
-
-                const isSelectedEnd =
-                  selectedEndDate &&
-                  date.getTime() === selectedEndDate.getTime();
-
-                const isSelectable =
-                  !selectedEndDate || date <= selectedEndDate;
-                const className = `text-center font-bold ${
-                  isInRange
-                    ? 'bg-p600 text-gray300'
-                    : isSelectedStart || isSelectedEnd
-                    ? 'text-black bg-p200'
-                    : isToday
-                    ? 'border border-p600 text-p600 rounded-full'
-                    : isPast
-                    ? 'text-white bg-p800 text-p600'
-                    : 'text-gray-600'
-                } ${
-                  isSelectable
-                    ? 'cursor-pointer hover:bg-blue-100'
-                    : 'text-gray-400'
-                }`;
-                return (
-                  <div
-                    key={day}
-                    className={className}
-                    onClick={() => isSelectable && handleDateClick(date)}
-                  >
-                    {day}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className='items-center justify-center overflow-x-auto pb-6'>
-            <table className='table-auto text-center text-[9.2px] md:text-base'>
-              <thead className='bg-p600 text-white'>
-                <tr>
-                  <th className='px-4 py-2'>Desde</th>
-                  <th className='px-4 py-2'>Hasta</th>
-                  <th className='px-4 py-2'>Precio limpieza</th>
-                  <th className='px-4 py-2'>Precio total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className='border px-6 py-4'>
-                    {selectedStartDate
-                      ? selectedStartDate.toLocaleDateString('en-GB', {
-                          day: '2-digit',
-                          month: '2-digit',
-                          year: 'numeric',
-                        })
-                      : 'Esperando fecha'}
-                  </td>
-                  <td className='border px-6 py-4'>
-                    {selectedEndDate
-                      ? selectedEndDate.toLocaleDateString('en-GB', {
-                          day: '2-digit',
-                          month: '2-digit',
-                          year: 'numeric',
-                        })
-                      : 'Esperando fecha'}
-                  </td>
-
-                  <td className='border px-6 py-4'>€{cleanUp}</td>
-
-                  <td className='border px-6 py-4'>
-                    {price !== 0 ? `€${price + cleanUp}` : 'Rango no permitido'}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-
-            <PagarAlojamiento />
-          </div>
+            <ReservationCalendar />
+          </ReservationInfoProvider>
         </div>
       ) : (
         <div className='flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:justify-evenly lg:items-center lg:space-x-8'>
-          <div className='items-center justify-center overflow-x-auto pb-6'>
-            <table className='table-auto text-center text-[9.2px] md:text-base'>
-              <thead className='bg-p600 text-white'>
-                <tr>
-                  <th className='px-4 py-2'>Desde</th>
-                  <th className='px-4 py-2'>Hasta</th>
-                  <th className='px-4 py-2'>Precio limpieza</th>
-                  <th className='px-4 py-2'>Precio total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className='border px-6 py-4'>
-                    {selectedStartDate
-                      ? selectedStartDate.toLocaleDateString('en-GB', {
-                          day: '2-digit',
-                          month: '2-digit',
-                          year: 'numeric',
-                        })
-                      : 'Esperando fecha'}
-                  </td>
-                  <td className='border px-6 py-4'>
-                    {selectedEndDate
-                      ? selectedEndDate.toLocaleDateString('en-GB', {
-                          day: '2-digit',
-                          month: '2-digit',
-                          year: 'numeric',
-                        })
-                      : 'Esperando fecha'}
-                  </td>
+          <ReservationInfoProvider>
+            <TablePreview
+              startDate={new Date('2022-01-01')}
+              endDate={new Date('2022-12-31')}
+              cleanService={0}
+              totalAmount={0}
+            />
 
-                  <td className='border px-6 py-4'>€{cleanUp}</td>
-
-                  <td className='border px-6 py-4'>
-                    {price !== 0 ? `€${price + cleanUp}` : 'Rango no permitido'}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-
-            <PagarAlojamiento />
-          </div>
-
-          <div className='bg-white rounded-lg shadow-lg p-10 md:py-8 md:px-12'>
-            <div className='flex justify-between items-center mb-4'>
-              <button
-                className='bg-gray-200 hover:bg-gray-300 rounded-lg px-2 py-1'
-                onClick={() =>
-                  setSelectedDate(
-                    new Date(
-                      selectedDate.getFullYear(),
-                      selectedDate.getMonth() - 1,
-                      1
-                    )
-                  )
-                }
-              >
-                Ant
-              </button>
-              <h2 className='text-lg font-bold'>
-                {monthNames[selectedDate.getMonth()]}{' '}
-                {selectedDate.getFullYear()}
-              </h2>
-              <button
-                className='bg-gray-200 hover:bg-gray-300 rounded-lg px-2 py-1'
-                onClick={() =>
-                  setSelectedDate(
-                    new Date(
-                      selectedDate.getFullYear(),
-                      selectedDate.getMonth() + 1,
-                      1
-                    )
-                  )
-                }
-              >
-                Sig
-              </button>
-            </div>
-            <div className='grid grid-cols-7 gap-y-6 gap-x-4'>
-              {['Lun', 'Mar', 'Miérc', 'Juev', 'Vier', 'Sáb', 'Dom'].map(
-                (day) => (
-                  <div
-                    key={day}
-                    className='text-center text-xs md:text-base font-bold text-gray-600'
-                  >
-                    {day}
-                  </div>
-                )
-              )}
-              {Array((selectedDate.getDay() + 6) % 7)
-                .fill(null)
-                .map((_, index) => (
-                  <div
-                    key={`empty-${index}`}
-                    className='text-center text-gray-400'
-                  >
-                    -
-                  </div>
-                ))}
-              {days.map((day) => {
-                const date = new Date(
-                  selectedDate.getFullYear(),
-                  selectedDate.getMonth(),
-                  day
-                );
-
-                const currentDate = new Date();
-                currentDate.setHours(0, 0, 0, 0);
-
-                const isToday = date.getTime() === currentDate.getTime();
-                const isPast = date < currentDate;
-
-                const isInRange = accomodationDayBlock.some((range) => {
-                  const startDate = new Date(range.startDate);
-                  const endDate = new Date(range.endDate);
-
-                  return date >= startDate && date < endDate; // Use less than for endDate since we added 1 day
-                });
-
-                const isSelectedStart =
-                  selectedStartDate &&
-                  date.getTime() === selectedStartDate.getTime();
-
-                const isSelectedEnd =
-                  selectedEndDate &&
-                  date.getTime() === selectedEndDate.getTime();
-
-                const isSelectable =
-                  !selectedEndDate || date <= selectedEndDate;
-                const className = `text-center font-bold ${
-                  isInRange
-                    ? 'bg-p600 text-gray300'
-                    : isSelectedStart || isSelectedEnd
-                    ? 'text-black bg-p200'
-                    : isToday
-                    ? 'border border-p600 text-p600 rounded-full'
-                    : isPast
-                    ? 'text-white bg-p800 text-p600'
-                    : 'text-gray-600'
-                } ${
-                  isSelectable
-                    ? 'cursor-pointer hover:bg-blue-100'
-                    : 'text-gray-400'
-                }`;
-                return (
-                  <div
-                    key={day}
-                    className={className}
-                    onClick={() => isSelectable && handleDateClick(date)}
-                  >
-                    {day}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+            <ReservationCalendar />
+          </ReservationInfoProvider>
         </div>
       )}
 
