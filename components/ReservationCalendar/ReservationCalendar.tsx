@@ -74,13 +74,24 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
           1
         );
 
+        let extraStartDate = new Date(startDate);
+        extraStartDate.setDate(startDate.getDate() + 91);
+
         // Get end date as 90 days from start date
         let endDate = new Date(startDate);
         endDate.setDate(startDate.getDate() + 90);
 
+        let extraEndDate = new Date(endDate);
+        extraEndDate.setDate(endDate.getDate() + 90);
+
         // Format dates in 'YYYY-MM-DD' format
         let formattedStartDate = startDate.toISOString().split('T')[0];
         let formattedEndDate = endDate.toISOString().split('T')[0];
+
+        let formattedExtraStartDate = extraStartDate
+          .toISOString()
+          .split('T')[0];
+        let formattedExtraEndDate = extraEndDate.toISOString().split('T')[0];
 
         const res = await axios.get(
           `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/?startDate=${formattedStartDate}&endDate=${formattedEndDate}`,
@@ -92,7 +103,19 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
           }
         );
 
-        setAccomodationDayBlock(res.data);
+        const extraRes = await axios.get(
+          `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/?startDate=${formattedExtraStartDate}&endDate=${formattedExtraEndDate}`,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+            },
+          }
+        );
+
+        const customResponse = [...res.data, ...extraRes.data];
+
+        setAccomodationDayBlock(customResponse);
       }
     };
 
