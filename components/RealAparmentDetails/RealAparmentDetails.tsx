@@ -149,12 +149,7 @@ const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
       {isMobile ? (
         <div className='flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:justify-evenly lg:items-center lg:space-x-8'>
           <ReservationInfoProvider>
-            <TablePreview
-              startDate={new Date('2022-01-01')}
-              endDate={new Date('2022-12-31')}
-              cleanService={0}
-              totalAmount={0}
-            />
+            <TablePreview />
 
             <ReservationCalendar />
           </ReservationInfoProvider>
@@ -162,12 +157,7 @@ const RealAparmentDetails: FC<{ id: string }> = ({ id }) => {
       ) : (
         <div className='flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:justify-evenly lg:items-center lg:space-x-8'>
           <ReservationInfoProvider>
-            <TablePreview
-              startDate={new Date('2022-01-01')}
-              endDate={new Date('2022-12-31')}
-              cleanService={0}
-              totalAmount={0}
-            />
+            <TablePreview />
 
             <ReservationCalendar />
           </ReservationInfoProvider>
