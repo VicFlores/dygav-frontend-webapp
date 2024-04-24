@@ -30,7 +30,7 @@ export const ReservationCalendar: React.FC = () => {
         }
       );
 
-      const formattedBlockedDates = res.data.map((item) => ({
+      const formattedBlockedDates = res.data.map((item: any) => ({
         start: new Date(item.startDate),
         end: new Date(item.endDate),
       }));
