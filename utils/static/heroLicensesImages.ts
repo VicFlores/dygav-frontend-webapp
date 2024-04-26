@@ -210,3 +210,18 @@ export const heroDehesaDeCampoamorImages = [
   'https://multimedia.dygav.es/wp-content/uploads/2024/04/Copia_de_7_xhahz0.png',
   'https://multimedia.dygav.es/wp-content/uploads/2024/04/6_azqjjg.png',
 ];
+
+export const heroMadridImages = [
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/0076-6499120373912739351-76.png',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/0075-6499120373912739351-75.png',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/0074-6499120373912739351-74.png',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/0073-6499120373912739351-73.png',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/0084-5946303516971574752-84.png',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/0083-5946303516971574752-83.png',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/0082-6499120373912739351-82.png',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/0081-6499120373912739351-81.png',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/0080-6499120373912739351-80.png',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/0079-6499120373912739351-79.png',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/0078-6499120373912739351-78.png',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/0077-6499120373912739351-77.png',
+];

@@ -255,3 +255,12 @@ export const costaBlancaImages: ImageProps[] = [
       'https://multimedia.dygav.es/wp-content/uploads/2024/04/5_fqgfli.png',
   },
 ];
+
+export const madridImages: ImageProps[] = [
+  {
+    slug: 'madrid',
+    cityName: 'Madrid',
+    bgCity:
+      'https://multimedia.dygav.es/wp-content/uploads/2024/04/0075-6499120373912739351-75.png',
+  },
+];

@@ -8,6 +8,7 @@ import { CityCards } from '../Licenses/CityCards';
 import {
   pirineosAragonImages,
   costaBlancaImages,
+  madridImages,
 } from '@/utils/static/licenseImages';
 
 export const Information = () => {
@@ -312,6 +313,24 @@ export const Information = () => {
         turísticas, garantizando experiencias únicas tanto para los propietarios
         como para los visitantes.
       </p>
+
+      <div className='w-full h-auto grid md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4 mb-14'>
+        <div className='md:self-center md:justify-self-center divide-y-4 divide-p600 text-center md:text-start'>
+          <h2 className='text-2xl lg:text-[31px] md:text-[26px] mb-4'>
+            Gestión de Viviendas Turísticas en Madrid
+          </h2>
+
+          <h3 className='text-center md:text-start text-2xl  md:text-3xl font-semibold pt-3'>
+            ¿Donde gestionamos tu vivienda?
+          </h3>
+        </div>
+
+        <CityCards
+          images={madridImages}
+          cardTitle='Gestión de Viviendas Turísticas'
+          link='/gestion-viviendas-turisticas'
+        />
+      </div>
 
       <div className='w-full h-auto grid md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4 mb-14'>
         <div className='md:self-center md:justify-self-center divide-y-4 divide-p600 text-center md:text-start'>

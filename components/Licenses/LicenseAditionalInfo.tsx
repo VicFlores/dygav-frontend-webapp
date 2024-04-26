@@ -3,6 +3,7 @@ import { AlquilerVacacional } from '..';
 import { CityCards } from './CityCards';
 import {
   generalImages,
+  madridImages,
   pirineosAragonImages,
 } from '@/utils/static/licenseImages';
 
@@ -73,6 +74,38 @@ export const LicenseAditionalInfo = () => {
           Vamos a analizar cómo obtener una licencia turística en distintas
           autonomías donde prestamos servicio de gestión de licencias
         </p>
+      </div>
+
+      <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-40 lg:px-4 mt-16'>
+        Licencias Turísticas en Madrid
+      </h2>
+
+      {/* <div className='text-justify text-sm md:text-lg pt-4 space-y-4'>
+        
+
+        <p>
+          <Link
+            className='underline text-p600'
+            target='_blank'
+            href={'https://dogv.gva.es/datos/2021/02/08/pdf/2021_999.pdf'}
+          >
+            Ver normativa
+          </Link>
+        </p>
+      </div> */}
+
+      <div className='w-full h-auto grid md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4 mb-14'>
+        <div className='md:self-center md:justify-self-center divide-y-4 divide-p600 text-center md:text-start'>
+          <h2 className='text-2xl lg:text-[31px] md:text-[26px]'>
+            GUÍAS ACTUALIZADAS <br /> POR MUNICIPIOS
+          </h2>
+
+          <h3 className='text-center md:text-start text-2xl  md:text-3xl font-semibold pt-3'>
+            ¿Cómo obtener una licencia turística en Madrid?
+          </h3>
+        </div>
+
+        <CityCards images={madridImages} />
       </div>
 
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 w-auto lg:mx-40 lg:px-4 mt-16'>
