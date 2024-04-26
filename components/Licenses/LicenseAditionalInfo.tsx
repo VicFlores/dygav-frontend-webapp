@@ -80,19 +80,58 @@ export const LicenseAditionalInfo = () => {
         Licencias Turísticas en Madrid
       </h2>
 
-      {/* <div className='text-justify text-sm md:text-lg pt-4 space-y-4'>
-        
+      <div className='text-justify text-sm md:text-lg pt-4 space-y-4'>
+        <p>
+          Obtener una licencia turística en Madrid, la capital de España,
+          representa una excelente oportunidad para propietarios e inversores en
+          uno de los mercados turísticos más dinámicos de Europa. Desde el año
+          2018, la normativa en Madrid se ha vuelto más estricta, introduciendo
+          requisitos más rigurosos para las viviendas de uso turístico que
+          buscan obtener una licencia.
+        </p>
+
+        <p>
+          Debido a estas regulaciones, el proceso para obtener una licencia
+          turística en Madrid puede ser desafiante, especialmente para aquellos
+          que son nuevos en el mercado o no están familiarizados con la
+          normativa local. En DYGAV, contamos con un profundo conocimiento de
+          las leyes y requisitos locales, y colaboramos con arquitectos de la
+          capital para poder ofrecer un servicio integral para la gestión y
+          tramitación de licencias turísticas. Nuestro equipo está aquí para
+          guiarte a través de cada paso del proceso, asegurando que tu propiedad
+          no solo cumpla con todos los estándares legales, sino que también
+          alcance su máximo potencial turístico.
+        </p>
+
+        <p>
+          Para facilitar aún más este proceso, hemos desarrollado guías
+          detalladas y actualizadas para Madrid, que proporcionan información
+          valiosa sobre cómo cumplir con los requisitos específicos de la ciudad
+          y la comunidad autónoma. Estas guías son herramientas esenciales para
+          cualquier propietario que busque entrar en el mercado de alquiler
+          vacacional en Madrid.
+        </p>
+
+        <p>
+          Si prefieres dejar este proceso en manos de expertos, en DYGAV estamos
+          listos para ayudarte. Nuestro objetivo es que tu experiencia de
+          obtención de licencia turística sea lo más fluida y rentable posible.
+          ¡Contáctanos y te ayudaremos a convertir tu propiedad en un exitoso
+          alojamiento turístico en el corazón de Madrid!
+        </p>
 
         <p>
           <Link
             className='underline text-p600'
             target='_blank'
-            href={'https://dogv.gva.es/datos/2021/02/08/pdf/2021_999.pdf'}
+            href={
+              'https://sede.comunidad.madrid/comunicaciones-declaraciones/inicio-actividad-apartamentos-turisticos'
+            }
           >
             Ver normativa
           </Link>
         </p>
-      </div> */}
+      </div>
 
       <div className='w-full h-auto grid md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4 mb-14'>
         <div className='md:self-center md:justify-self-center divide-y-4 divide-p600 text-center md:text-start'>

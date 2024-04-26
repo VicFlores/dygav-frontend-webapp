@@ -139,6 +139,8 @@ export const MadridInfo = () => {
         </li>
       </ul>
 
+      <OwnersIcons image='https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_subscriptions_re_k7jj.svg' />
+
       <h2 className='text-center text-2xl md:text-3xl pb-4 font-semibold border-b-4 border-b-p600 mt-16'>
         Proceso de Obtención de Licencias Turísticas en Madrid
       </h2>
@@ -171,7 +173,7 @@ export const MadridInfo = () => {
         Tiempo Estimado para la Obtención de la Licencia en Madrid
       </h2>
 
-      <div className='text-justify lg:text-start text-sm md:text-lg pt-4 space-y-4 mb-12'>
+      <div className='text-justify lg:text-start text-sm md:text-lg pt-4 space-y-4'>
         <p>
           El tiempo para{' '}
           <strong>obtener la licencia turística definitiva en Madrid</strong>
@@ -210,7 +212,7 @@ export const MadridInfo = () => {
         </p>
       </div>
 
-      <OwnersIcons image='https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_subscriptions_re_k7jj.svg' />
+      <HelpYouForm />
     </section>
   );
 };

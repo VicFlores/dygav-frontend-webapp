@@ -10,7 +10,7 @@ import {
   HelpFixedButton,
   Footer,
   MadridMgmtInfo,
-  CityLicense,
+  MadridFooter,
 } from '@/components';
 import { heroMadridImages } from '@/utils';
 
@@ -40,11 +40,7 @@ const MadridOwnersPage = () => {
 
       <MadridMgmtInfo />
 
-      <CityLicense
-        cityName={cityName}
-        images={costaBlancaImages}
-        typeOfPage='owners'
-      />
+      <MadridFooter cityName={cityName} typeOf={'managment'} />
 
       <Footer />
     </section>

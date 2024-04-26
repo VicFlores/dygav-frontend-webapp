@@ -7,6 +7,7 @@ import {
   CityLicense,
   Footer,
   MadridInfo,
+  MadridFooter,
 } from '@/components';
 import { heroMadridImages } from '@/utils';
 import { generalImages } from '@/utils/static/licenseImages';
@@ -40,7 +41,7 @@ const MadridLicensePage = () => {
 
       <MadridInfo />
 
-      <CityLicense cityName={cityName} images={generalImages} />
+      <MadridFooter cityName={cityName} typeOf={'licenses'} />
 
       <Footer />
     </section>

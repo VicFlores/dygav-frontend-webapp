@@ -119,3 +119,5 @@ export * from './Owners/PilarDeLaHoradadaMgmtInfo';
 export * from './Owners/LaMataMgmtInfo';
 export * from './Owners/DehesaDeCampoamorMgmtInfo';
 export * from './Owners/MadridMgmtInfo';
+export * from './Licenses/MadridFooter';
+export * from './Licenses/MadridCardsFooter';

@@ -1,6 +1,6 @@
 import { CityImages } from '../Licenses/CityImages';
 import { OwnersIcons } from './OwnersIcons';
-import { HelpYouForm, Llamanos } from '..';
+import { HelpYouForm, LicenciasTuristicas, Llamanos } from '..';
 import { VacationRentalHome } from './VacationRentalHome';
 import Link from 'next/link';
 
@@ -123,6 +123,8 @@ export const MadridMgmtInfo = () => {
         </strong>
         .
       </p>
+
+      <LicenciasTuristicas />
 
       <VacationRentalHome />
 
