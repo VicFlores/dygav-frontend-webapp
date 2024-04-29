@@ -254,6 +254,30 @@ export const costaBlancaImages: ImageProps[] = [
     bgCity:
       'https://multimedia.dygav.es/wp-content/uploads/2024/04/5_fqgfli.png',
   },
+  {
+    slug: 'guardamar-del-segura',
+    cityName: 'Guardamar del Segura',
+    bgCity:
+      'https://multimedia.dygav.es/wp-content/uploads/2024/04/3_kfk9jn.png',
+  },
+  {
+    slug: 'calpe',
+    cityName: 'Calpe',
+    bgCity:
+      'https://multimedia.dygav.es/wp-content/uploads/2024/04/29_c3w9ej.png',
+  },
+  {
+    slug: 'el-campello',
+    cityName: 'El Campello',
+    bgCity:
+      'https://multimedia.dygav.es/wp-content/uploads/2024/04/2_fldo0n.png',
+  },
+  {
+    slug: 'altea',
+    cityName: 'Altea',
+    bgCity:
+      'https://multimedia.dygav.es/wp-content/uploads/2024/04/7_dezkye.png',
+  },
 ];
 
 export const madridImages: ImageProps[] = [

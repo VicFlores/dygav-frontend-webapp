@@ -121,3 +121,7 @@ export * from './Owners/DehesaDeCampoamorMgmtInfo';
 export * from './Owners/MadridMgmtInfo';
 export * from './Licenses/MadridFooter';
 export * from './Licenses/MadridCardsFooter';
+export * from './Owners/GuardamarDelSeguraMgmtInfo';
+export * from './Owners/CalpeMgmtInfo';
+export * from './Owners/ElCampelloMgmtInfo';
+export * from './Owners/AlteaMgmtInfo';

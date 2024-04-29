@@ -20,13 +20,23 @@ export const CityLicense: FC<CityLicenseProps> = ({
 
   useEffect(() => {
     const getPosts = async () => {
-      const res = await axios.get(
-        'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts?per_page=100'
-      );
+      const [firstResponse, secondResponse] = await Promise.all([
+        axios.get(
+          'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts?per_page=100&page=1'
+        ),
+        axios.get(
+          'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts?per_page=100&page=2'
+        ),
+      ]);
 
-      const filterPosts = res.data.filter((post: BlogPost) => {
+      const allData = [...firstResponse.data, ...secondResponse.data];
+
+      const filterPosts = allData.filter((post: BlogPost) => {
         if (cityName === 'Valle de Tena') {
           return post.title.rendered.includes('Valle de Tena');
+        }
+        if (cityName === 'Guardamar del Segura') {
+          return post.title.rendered.includes('Guardamar del Segura');
         } else return post.title.rendered.includes(capitalizedCityName);
       });
 
