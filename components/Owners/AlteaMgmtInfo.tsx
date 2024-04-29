@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const images = [
   {
-    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/5_k3ebaw.png',
+    src: 'https://multimedia.dygav.es/wp-content/uploads/2024/04/7_dezkye.png',
     alt: 'Gestión de vivendas turísticas en Altea',
   },
 ];
