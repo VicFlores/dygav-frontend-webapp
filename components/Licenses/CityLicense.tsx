@@ -35,6 +35,9 @@ export const CityLicense: FC<CityLicenseProps> = ({
         if (cityName === 'Valle de Tena') {
           return post.title.rendered.includes('Valle de Tena');
         }
+        if (cityName === 'Pirineo Aragones') {
+          return post.title.rendered.includes('Pirineo');
+        }
         if (cityName === 'Guardamar del Segura') {
           return post.title.rendered.includes('Guardamar del Segura');
         } else return post.title.rendered.includes(capitalizedCityName);

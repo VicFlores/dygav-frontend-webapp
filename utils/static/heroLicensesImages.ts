@@ -225,3 +225,23 @@ export const heroMadridImages = [
   'https://multimedia.dygav.es/wp-content/uploads/2024/04/0078-6499120373912739351-78.png',
   'https://multimedia.dygav.es/wp-content/uploads/2024/04/0077-6499120373912739351-77.png',
 ];
+
+export const heroCostaBlancaImages = [
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/7_dezkye.png',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/Copia_de_2_doz1la.png',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/26_eip4rv.png',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/3_tkalnt.png',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/3_kfk9jn.png',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/c_3_u4rnsd.png',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/1_cnxjq9.png',
+];
+
+export const heroPirineoAragonesImages = [
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/C_42_pspkxn-scaled.jpg',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/c_pueyodejaca_wp3zm4.png',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/C_13_ecf4rc-scaled.jpg',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/C_57_jbw60z-scaled.jpg',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/53_dxpa2n-scaled.jpg',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/C_21_stkxrl-scaled.jpg',
+  'https://multimedia.dygav.es/wp-content/uploads/2024/04/C_45_qdbqzp-scaled.jpg',
+];

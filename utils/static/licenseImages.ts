@@ -2,6 +2,12 @@ import { ImageProps } from '@/types/TImageProps';
 
 export const generalImages: ImageProps[] = [
   {
+    slug: 'costa-blanca',
+    cityName: 'Costa Blanca',
+    bgCity:
+      'https://multimedia.dygav.es/wp-content/uploads/2024/04/3_knlkzn.png',
+  },
+  {
     slug: 'torrevieja',
     cityName: 'Torrevieja',
     bgCity:
@@ -82,6 +88,12 @@ export const generalImages: ImageProps[] = [
 ];
 
 export const pirineosAragonImages: ImageProps[] = [
+  {
+    slug: 'pirineo-aragones',
+    cityName: 'Pirineo Aragonés',
+    bgCity:
+      'https://multimedia.dygav.es/wp-content/uploads/2024/04/C_3_qvufgv-scaled.jpg',
+  },
   {
     slug: 'jaca',
     cityName: 'Jaca',
@@ -187,6 +199,12 @@ export const pirineosAragonImages: ImageProps[] = [
 ];
 
 export const costaBlancaImages: ImageProps[] = [
+  {
+    slug: 'costa-blanca',
+    cityName: 'Costa Blanca',
+    bgCity:
+      'https://multimedia.dygav.es/wp-content/uploads/2024/04/3_knlkzn.png',
+  },
   {
     slug: 'torrevieja',
     cityName: 'Torrevieja',
