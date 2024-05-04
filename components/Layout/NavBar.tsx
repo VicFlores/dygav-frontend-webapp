@@ -76,13 +76,24 @@ export const NavBar: FC<TSession> = ({ session }) => {
           <div className='lg:col-start-2 lg:col-end-4'>
             <ul className='flex justify-evenly items-center space-x-4'>
               {menuItems.map((item, index) => (
-                <Link
+                <li
                   key={index}
-                  className='text-[20px] text-white'
-                  href={item.path}
+                  className='group relative flex justify-center items-center'
                 >
-                  {item.title}
-                </Link>
+                  <Link className='text-[20px] text-white' href={item.path}>
+                    {item.title}
+                  </Link>
+
+                  {item.submenu && (
+                    <ul className='absolute top-[29px] text-center space-y-2 z-10 w-max bg-p400/80 text-white p-4 rounded-md shadow-lg hidden group-hover:block'>
+                      {item.submenu.map((subItem, subIndex) => (
+                        <li key={subIndex}>
+                          <Link href={subItem.path}>{subItem.title}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
               ))}
             </ul>
           </div>
