@@ -64,13 +64,15 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
         <nav className={`w-full h-auto lg:hidden p-4 static ${bkCurrentUrl}`}>
           <div className='flex justify-between items-center'>
             <div className='h-auto w-auto'>
-              <Image
-                src={imageUrl}
-                alt='DyGav Log'
-                width={70}
-                height={70}
-                priority
-              />
+              <Link href={'/'}>
+                <Image
+                  src={imageUrl}
+                  alt='DyGav Log'
+                  width={70}
+                  height={70}
+                  priority
+                />
+              </Link>
             </div>
 
             <div onClick={handlerToogleMenu}>

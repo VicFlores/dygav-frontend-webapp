@@ -4,6 +4,7 @@ import { GrInstagram, GrFacebook } from 'react-icons/gr';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import axios from 'axios';
 import { useState } from 'react';
+import { BrandContent } from '..';
 
 type Inputs = {
   email: string;
@@ -33,23 +34,26 @@ export const Footer = () => {
   };
 
   return (
-    <footer className='bg-p600 space-y-10 pt-8 pb-8 lg:pt-0 lg:pb-0 lg:space-y-0 h-auto lg:h-80 lg:flex lg:justify-around lg:items-center text-white text-center'>
-      <div className='flex flex-col space-y-2'>
-        <p className='text-xl'>Enlaces útiles</p>
-        <Link href='/login'>Iniciar Sesion</Link>
-        <Link href='/register'>Registrarse</Link>
-        <Link href='/blog'>Blog</Link>
-      </div>
+    <>
+      <BrandContent />
 
-      <div className='flex flex-col space-y-4'>
-        <p className='text-xl'>Políticas</p>
-        <Link href='/policies/privacyPolicy'>Política de Privacidad</Link>
-        <Link href='/policies/cookiesPolicy'>Política de Cookies</Link>
-        <Link href='/policies/formsPolicy'>Política de Formularios</Link>
-        <Link href='/policies/legalNotice'>Aviso Legal</Link>
-      </div>
+      <footer className='bg-p600 space-y-10 pt-8 pb-8 lg:pt-0 lg:pb-0 lg:space-y-0 h-auto lg:h-80 lg:flex lg:justify-around lg:items-center text-white text-center'>
+        <div className='flex flex-col space-y-2'>
+          <p className='text-xl'>Enlaces útiles</p>
+          <Link href='/login'>Iniciar Sesion</Link>
+          <Link href='/register'>Registrarse</Link>
+          <Link href='/blog'>Blog</Link>
+        </div>
 
-      {/* <div>
+        <div className='flex flex-col space-y-4'>
+          <p className='text-xl'>Políticas</p>
+          <Link href='/policies/privacyPolicy'>Política de Privacidad</Link>
+          <Link href='/policies/cookiesPolicy'>Política de Cookies</Link>
+          <Link href='/policies/formsPolicy'>Política de Formularios</Link>
+          <Link href='/policies/legalNotice'>Aviso Legal</Link>
+        </div>
+
+        {/* <div>
         <p className='text-xl mb-8'>Boletin informativo</p>
 
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -75,28 +79,29 @@ export const Footer = () => {
         {message && <span className='text-green-500'>{message}</span>}
       </div> */}
 
-      <div className='flex flex-col space-y-6'>
-        <p className='text-xl'>Contacto</p>
+        <div className='flex flex-col space-y-6'>
+          <p className='text-xl'>Contacto</p>
 
-        <p>
-          Avenida Gregorio <br /> Marañón 7, 7 29
-        </p>
+          <p>
+            Avenida Gregorio <br /> Marañón 7, 7 29
+          </p>
 
-        <div className='flex justify-center space-x-6 lg:space-x-0 lg:justify-around items-center'>
-          <Link href={'https://www.instagram.com/dygav_/'} target='_blanck'>
-            <GrInstagram className='w-8 h-8 text-black900' />
-          </Link>
-          <Link
-            href={'https://www.linkedin.com/company/dygav/'}
-            target='_blanck'
-          >
-            <BsLinkedin className='w-8 h-8 text-black900' />
-          </Link>
-          <Link href={'https://wa.me/+34614214250'} target='_blanck'>
-            <BsWhatsapp className='w-8 h-8 text-black900' />
-          </Link>
+          <div className='flex justify-center space-x-6 lg:space-x-0 lg:justify-around items-center'>
+            <Link href={'https://www.instagram.com/dygav_/'} target='_blanck'>
+              <GrInstagram className='w-8 h-8 text-black900' />
+            </Link>
+            <Link
+              href={'https://www.linkedin.com/company/dygav/'}
+              target='_blanck'
+            >
+              <BsLinkedin className='w-8 h-8 text-black900' />
+            </Link>
+            <Link href={'https://wa.me/+34614214250'} target='_blanck'>
+              <BsWhatsapp className='w-8 h-8 text-black900' />
+            </Link>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 };

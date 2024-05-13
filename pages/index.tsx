@@ -3,13 +3,12 @@ import {
   Carousel,
   AboutUs,
   OurComments,
-  BrandContent,
   Footer,
   MainHero,
   Layout,
   UtilHead,
-} from "@/components";
-import { useSession } from "next-auth/react";
+} from '@/components';
+import { useSession } from 'next-auth/react';
 
 export default function HomePage() {
   const { data: session } = useSession();
@@ -28,8 +27,6 @@ export default function HomePage() {
       <AboutUs />
 
       <OurComments />
-
-      <BrandContent />
 
       <Footer />
     </section>
