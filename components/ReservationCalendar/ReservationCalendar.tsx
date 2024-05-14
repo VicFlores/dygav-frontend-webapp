@@ -11,6 +11,7 @@ import { useRouter } from 'next/router';
 import { GrStatusUnknown } from 'react-icons/gr';
 import { axiosConfig } from '@/utils';
 import { useSession } from 'next-auth/react';
+import styles from './reservationCalendar.module.css';
 
 const localizer = momentLocalizer(moment);
 
@@ -288,6 +289,8 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
     }
   };
 
+  console.log(isEmailChecked);
+
   return (
     <div className='px-8 mb-24'>
       {showForm && (
@@ -313,15 +316,30 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
         </div>
       </div>
 
-      <div className='mb-10 flex justify-center items-center lg:justify-start'>
-        <input
-          type='checkbox'
-          checked={isEmailChecked}
-          onChange={handleGetNotification}
-          className='w-[15px] h-[15px]  border-gray-300 rounded'
-        />
+      <div className='flex flex-col md:flex-row items-center mb-10'>
+        <div
+          className={`relative inline-block w-12 mr-2 rounded-full align-middle select-none transition duration-200 ease-in bg-gray300`}
+        >
+          <input
+            type='checkbox'
+            name='toggle'
+            id='toggle'
+            checked={isEmailChecked}
+            onChange={handleGetNotification}
+            className={`${styles['toggle-checkbox']} absolute block w-6 h-6 rounded-full bg-p600 appearance-none cursor-pointer`}
+          />
 
-        <label className='pl-3'>Activar Notificaciones por Email</label>
+          <label
+            htmlFor='toggle'
+            className={` block overflow-hidden w-6 h-6 rounded-full bg-gray-300 cursor-pointer`}
+          ></label>
+        </div>
+
+        <label htmlFor='toggle' className='pl-3 mt-4 md:mt-0'>
+          {isEmailChecked
+            ? 'No Recibir notificaciones por email'
+            : 'Recibir notificaciones por email'}
+        </label>
       </div>
 
       <Calendar

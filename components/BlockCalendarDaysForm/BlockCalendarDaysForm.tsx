@@ -4,11 +4,11 @@ import { useSession } from 'next-auth/react';
 import { FC, useEffect, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import moment from 'moment';
-
-type FormValues = {
-  startDate: string;
-  endDate: string;
-};
+import esES from 'rsuite/locales/es_ES';
+import 'rsuite/DateRangePicker/styles/index.css';
+import { FaRegCalendarAlt } from 'react-icons/fa';
+import { CustomProvider } from 'rsuite';
+import { DateRangePicker } from 'rsuite';
 
 type BlockDayProps = {
   unit: string;
@@ -25,8 +25,9 @@ type Props = {
 
 const BlockCalendarDaysForm: FC<Props> = ({ setlistenBlockDate, id }) => {
   const [error, setError] = useState('');
-  const { register, handleSubmit } = useForm<FormValues>();
   const { data: session } = useSession();
+  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [endDate, setEndDate] = useState<Date | null>(null);
 
   const [findAccomodationById, setfindAccomodationById] = useState<{
     name: string;
@@ -50,15 +51,17 @@ const BlockCalendarDaysForm: FC<Props> = ({ setlistenBlockDate, id }) => {
     findAccomodation();
   }, [id]);
 
-  const onSubmit: SubmitHandler<FormValues> = async ({
-    startDate,
-    endDate,
-  }) => {
+  const onSubmit = async (e: any) => {
+    e.preventDefault();
+
+    const formatStartDate = moment(startDate).format('YYYY-MM-DD');
+    const formatEndDate = moment(endDate).format('YYYY-MM-DD');
+
     const res = await axios.post(
       `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/`,
       {
-        startDate,
-        endDate,
+        formatStartDate,
+        formatEndDate,
       },
       {
         headers: {
@@ -82,38 +85,41 @@ const BlockCalendarDaysForm: FC<Props> = ({ setlistenBlockDate, id }) => {
     setError('Dias bloqueados con exito');
   };
 
+  const { beforeToday } = DateRangePicker;
+
   return (
     <div className='flex justify-center items-center mt-10'>
       <form
-        onSubmit={handleSubmit(onSubmit)}
-        className='grid grid-cols-1 md:grid-cols-2 mt-4 bg-gray300/75 rounded-xl p-12 lg:p-10 lg:gap-10'
+        onSubmit={onSubmit}
+        className='flex flex-col mt-4 bg-gray300/75 rounded-xl p-12 lg:p-10 lg:gap-10'
       >
-        <div className='mb-8 text-center lg:text-start lg:mb-4'>
-          <label
-            className='text-gray-700 font-semibold block mb-2'
-            htmlFor='name'
-          >
-            Fecha incio de bloqueo
-          </label>
-          <input
-            className='border border-gray-400 p-2 w-full rounded-lg text-center lg:text-start'
-            type='date'
-            {...register('startDate')}
-          />
-        </div>
+        <div className='text-center self-center justify-self-center'>
+          <p className='pb-4 font-semibold'>Fecha inicio - Fecha final </p>
 
-        <div className='mb-8 text-center lg:text-start lg:mb-4'>
-          <label
-            className='text-gray-700 font-semibold block mb-2'
-            htmlFor='name'
-          >
-            Fecha fin de bloqueo
-          </label>
-          <input
-            className='border border-gray-400 p-2 w-full rounded-lg text-center lg:text-start'
-            type='date'
-            {...register('endDate')}
-          />
+          <div className='relative'>
+            <FaRegCalendarAlt className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900 z-10' />
+
+            <CustomProvider locale={esES}>
+              <DateRangePicker
+                isoWeek
+                showOneCalendar
+                ranges={[]}
+                placeholder='Fechas de reserva'
+                size='md'
+                caretAs={null}
+                showHeader={false}
+                shouldDisableDate={beforeToday()}
+                format='dd-MM-yyyy'
+                onChange={(dates) => {
+                  if (dates) {
+                    setStartDate(dates[0]);
+                    setEndDate(dates[1]);
+                  }
+                }}
+                className='rounded-lg lg:w-[275px] md:w-96 w-[240px] bg-white py-1'
+              />
+            </CustomProvider>
+          </div>
         </div>
 
         <button

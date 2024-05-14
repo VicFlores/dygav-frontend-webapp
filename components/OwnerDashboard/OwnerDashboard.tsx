@@ -1,15 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { FC, useEffect, useState } from 'react';
 import { Session } from 'next-auth';
-import Link from 'next/link';
-import Image from 'next/legacy/image';
-import { AiOutlineCheckCircle } from 'react-icons/ai';
+
 import { axiosConfig } from '@/utils';
 import axios from 'axios';
+import { AccomodationCarousel } from './AccomodationCarousel';
 
 export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
   const [data, setData] = useState<any[]>();
-  const [error, setError] = useState('');
 
   useEffect(() => {
     const accomodations = async () => {
@@ -52,48 +50,7 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
       <div className='grid gap-y-10 md:grid-cols-2 md:gap-y-8 lg:grid-cols-3'>
         {data !== undefined && data.length > 0 ? (
           data.map((item, index) => (
-            <div
-              key={index}
-              className='h-fit rounded-xl space-y-4 justify-self-center border-[1px] border-p600 px-5 py-5 bg-gray300/[.14] w-[300px] md:w-[330px]'
-            >
-              <figure className='text-center'>
-                <Image
-                  src={`${item.images[0].ORIGINAL}`}
-                  alt={''}
-                  height={176}
-                  width={267}
-                  priority
-                  className='rounded-[20px]'
-                />
-              </figure>
-
-              <div className='space-y-2'>
-                <p className='text-lg md:text-xl'>{`${item.name}`}</p>
-                <p className='text-xs md:text-sm'>{`${item.introduction.es}`}</p>
-              </div>
-
-              <div className='flex justify-center items-center relative'>
-                <AiOutlineCheckCircle className='w-5 md:h-5 text-p600 absolute top-1/2 -translate-y-1/2 right-5 md:right-12 lg:right-10' />
-                <Link
-                  href={`/private/owner/accomodation/${item.id}`}
-                  passHref
-                  className='text-center text-p600 hover:bg-gray300 border-[1px] border-p600 rounded-md text-[13px] md:text-sm lg:text-base py-2 px-4 w-full'
-                >
-                  Ver Reservas
-                </Link>
-              </div>
-
-              <div className='flex justify-center items-center relative'>
-                <AiOutlineCheckCircle className='w-5 md:h-5 text-p600 absolute top-1/2 -translate-y-1/2 right-5 md:right-12 lg:right-10' />
-                <Link
-                  href={`/private/owner/accomodationCallender/${item.id}`}
-                  passHref
-                  className='text-center text-p600 hover:bg-gray300 border-[1px] border-p600 rounded-md text-[13px] md:text-sm lg:text-base py-2 px-4 w-full'
-                >
-                  Ver Calendario
-                </Link>
-              </div>
-            </div>
+            <AccomodationCarousel key={index} item={item} index={index} />
           ))
         ) : (
           <div className='flex justify-center items-center'>
