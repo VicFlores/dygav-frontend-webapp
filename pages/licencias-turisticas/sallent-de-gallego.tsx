@@ -22,8 +22,6 @@ const SallentDeGallegoLicensePage = () => {
   let parts = path.split('/');
   let cityName = parts[parts.length - 1];
 
-  console.log(cityName);
-
   return (
     <section>
       <UtilHead

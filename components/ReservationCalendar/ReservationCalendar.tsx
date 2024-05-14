@@ -289,8 +289,6 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
     }
   };
 
-  console.log(isEmailChecked);
-
   return (
     <div className='px-8 mb-24'>
       {showForm && (
