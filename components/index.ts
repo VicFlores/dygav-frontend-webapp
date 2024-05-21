@@ -129,3 +129,4 @@ export * from './Owners/ElCampelloMgmtInfo';
 export * from './Owners/AlteaMgmtInfo';
 export * from './Owners/CostaBlancaMgmtInfo';
 export * from './Owners/PirineoAragonesMgmtInfo';
+export * from './AdminMultiCalendar/AdminMultiCalendar';

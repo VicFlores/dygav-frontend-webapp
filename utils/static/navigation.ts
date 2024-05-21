@@ -57,6 +57,5 @@ export const accounTouristMenuItem: TMenuItem[] = [
 
 export const accountAdminMenuItem: TMenuItem[] = [
   { title: 'Reservas admin', path: '/private/admin/dashboard' },
-  { title: 'Favoritos', path: '/private/admin/dashboard' },
-  { title: 'Inicio', path: '/' },
+  { title: 'Planning', path: '/private/admin/planning' },
 ];

@@ -11,11 +11,19 @@ export default withAuth(
       return NextResponse.rewrite(new URL('/login', req.url));
     }
 
-    if (pathname.startsWith('/private/owner') && role !== 'owner') {
+    if (
+      pathname.startsWith('/private/owner') &&
+      role !== 'owner' &&
+      role !== 'admin'
+    ) {
       return NextResponse.rewrite(new URL('/login', req.url));
     }
 
-    if (pathname.startsWith('/private/tourist') && role !== 'tourist' && role !== 'owner') {
+    if (
+      pathname.startsWith('/private/tourist') &&
+      role !== 'tourist' &&
+      role !== 'owner'
+    ) {
       return NextResponse.rewrite(new URL('/login', req.url));
     }
   },
