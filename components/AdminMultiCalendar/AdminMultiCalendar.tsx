@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { AccomodationsCalendar } from './AccomodationsCalendar';
-import axios from 'axios';
 import { TAvaibookAccomodations } from '@/types';
 import { FaSpinner } from 'react-icons/fa6';
+import axios from 'axios';
+import styles from './AdminMultiCalendar.module.css';
+import moment from 'moment';
+import Link from 'next/link';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 export const AdminMultiCalendar = () => {
   const [loading, setLoading] = useState(true);
@@ -118,15 +121,87 @@ export const AdminMultiCalendar = () => {
     fetchAccomodationsAndReservations();
   }, []);
 
-  const renderTabContent = () => {
-    const activeAccomodation = accomodations?.find(
-      (accomodation) => accomodation.name === activeTab
-    );
+  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
 
-    return activeAccomodation ? (
-      <AccomodationsCalendar {...activeAccomodation} />
-    ) : null;
+  const getDaysInMonth = (month: number, year: number) => {
+    return new Date(year, month, 0).getDate();
   };
+
+  const getDayOfWeek = (date: Date) => {
+    const days = ['D', 'L', 'M', 'X', 'J', 'V', 'S'];
+    return days[date.getDay()];
+  };
+
+  const getNextMonthAndYear = (month: number, year: number) => {
+    if (month === 11) {
+      return { month: 0, year: year + 1 };
+    } else {
+      return { month: month + 1, year: year };
+    }
+  };
+
+  const getPreviousMonthAndYear = (month: number, year: number) => {
+    if (month === 0) {
+      return { month: 11, year: year - 1 };
+    } else {
+      return { month: month - 1, year: year };
+    }
+  };
+
+  const getMonthName = (month: number) => {
+    const months = [
+      'Enero',
+      'Febrero',
+      'Marzo',
+      'Abril',
+      'Mayo',
+      'Junio',
+      'Julio',
+      'Agosto',
+      'Septiembre',
+      'Octubre',
+      'Noviembre',
+      'Diciembre',
+    ];
+    return months[month];
+  };
+
+  const goToNextMonth = () => {
+    const { month, year } = getNextMonthAndYear(currentMonth, currentYear);
+    setCurrentMonth(month);
+    setCurrentYear(year);
+  };
+
+  const goToPreviousMonth = () => {
+    const { month, year } = getPreviousMonthAndYear(currentMonth, currentYear);
+    setCurrentMonth(month);
+    setCurrentYear(year);
+  };
+
+  const daysInCurrentMonth = getDaysInMonth(currentMonth + 1, currentYear);
+
+  const daysOfWeekInCurrentMonth = Array.from(
+    { length: daysInCurrentMonth },
+    (_, i) => {
+      const date = new Date(currentYear, currentMonth, i + 1);
+      return getDayOfWeek(date);
+    }
+  );
+
+  const { month: nextMonth, year: nextYear } = getNextMonthAndYear(
+    currentMonth,
+    currentYear
+  );
+  const daysInNextMonth = getDaysInMonth(nextMonth + 1, nextYear);
+
+  const daysOfWeekInNextMonth = Array.from(
+    { length: daysInNextMonth },
+    (_, i) => {
+      const date = new Date(nextYear, nextMonth, i + 1);
+      return getDayOfWeek(date);
+    }
+  );
 
   return (
     <section className='px-2 lg:px-10 mt-12'>
@@ -156,24 +231,254 @@ export const AdminMultiCalendar = () => {
           </div>
         </div>
       ) : (
-        <div className='flex flex-col lg:flex-row justify-center items-center'>
-          <div>
-            <ul className='space-y-4'>
-              {accomodations?.map((accomodation) => (
-                <li
-                  key={accomodation.id}
-                  className={`cursor-pointer ${
-                    activeTab === accomodation.name ? 'text-p600' : ''
-                  }`}
-                  onClick={() => setActiveTab(accomodation.name)}
-                >
-                  {accomodation.name}
-                </li>
-              ))}
-            </ul>
+        <div>
+          <div className='flex flex-col md:flex-row justify-center items-center md:justify-between md:items-end border-b-[1px] mb-10'>
+            <p className=' text-black900/[.7]  text-2xl text-center md:text-left md:text-3xl  lg:text-4xl'>
+              Calendario de reservas
+            </p>
           </div>
 
-          {renderTabContent()}
+          <div className={`${styles.container} scrollbar`}>
+            <div>
+              {accomodations?.map((accomodation) => (
+                <div key={accomodation.id} className={styles.accommodationItem}>
+                  <p className='text-p800 font-semibold p-2 border-r-[1px] border-r-p600 lg:sticky left-0 bg-white z-20 text-sm text-center'>
+                    {accomodation.name}
+                  </p>
+
+                  <div className='flex'>
+                    {daysOfWeekInCurrentMonth.map((day, index) => {
+                      const date = moment()
+                        .year(currentYear)
+                        .month(currentMonth)
+                        .date(index + 1)
+                        .startOf('day');
+                      const reservations = accomodation.reservations.filter(
+                        (reservation) => {
+                          const startDate = moment(
+                            reservation.startDate
+                          ).startOf('day');
+                          let endDate = moment(reservation.endDate).startOf(
+                            'day'
+                          );
+                          endDate = endDate.add(1, 'days'); // Add a day to the endDate
+
+                          return (
+                            date.isSameOrAfter(startDate) &&
+                            date.isSameOrBefore(endDate)
+                          );
+                        }
+                      );
+
+                      return (
+                        <div
+                          key={index}
+                          className='flex justify-center items-center border-[1px] border-p600 border-b-0 border-t-0 w-28'
+                        >
+                          {reservations.map((reservation, reservationIndex) => {
+                            const isStartDate = date.isSame(
+                              moment(reservation.startDate).startOf('day')
+                            );
+                            const isEndDate = date.isSame(
+                              moment(reservation.endDate)
+                                .add(1, 'days')
+                                .startOf('day')
+                            );
+                            const roundedClass = isStartDate
+                              ? 'rounded-l-xl'
+                              : isEndDate
+                              ? 'rounded-r-xl'
+                              : '';
+
+                            return reservation.type === 'BLOCKED' ? (
+                              <p
+                                key={reservationIndex}
+                                className={`text-center bg-p600/80 text-white text-xs w-full py-1 overflow-hidden ${roundedClass} ${
+                                  reservations.length === 2 &&
+                                  reservationIndex === 0
+                                    ? 'mr-1'
+                                    : ''
+                                }`}
+                              >
+                                Bloqueado
+                              </p>
+                            ) : (
+                              <Link
+                                href={`/private/owner/reservation/${reservation.booking}`}
+                                className={`text-center bg-p600/80 text-white text-xs w-full py-1 overflow-hidden ${roundedClass} ${
+                                  reservations.length === 2 &&
+                                  reservationIndex === 0
+                                    ? 'mr-1'
+                                    : ''
+                                }`}
+                                key={reservation.booking}
+                              >
+                                {reservation.travellerName
+                                  ? reservation.travellerName
+                                      .substring(0, 6)
+                                      .toUpperCase()
+                                  : 'Desconocido'}
+                              </Link>
+                            );
+                          })}
+
+                          <div className='text-center' />
+                          <div className='text-center' />
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  <div className='flex'>
+                    {daysOfWeekInNextMonth.map((day, index) => {
+                      const date = moment()
+                        .year(nextYear)
+                        .month(nextMonth)
+                        .date(index + 1)
+                        .startOf('day');
+                      const reservations = accomodation.reservations.filter(
+                        (reservation) => {
+                          const startDate = moment(
+                            reservation.startDate
+                          ).startOf('day');
+                          let endDate = moment(reservation.endDate).startOf(
+                            'day'
+                          );
+                          endDate = endDate.add(1, 'days'); // Add a day to the endDate
+
+                          return (
+                            date.isSameOrAfter(startDate) &&
+                            date.isSameOrBefore(endDate)
+                          );
+                        }
+                      );
+
+                      return (
+                        <div
+                          key={index}
+                          className='flex justify-center items-center border-[1px] border-p600 border-b-0 border-t-0 w-28'
+                        >
+                          {reservations.map((reservation, reservationIndex) => {
+                            const isStartDate = date.isSame(
+                              moment(reservation.startDate).startOf('day')
+                            );
+                            const isEndDate = date.isSame(
+                              moment(reservation.endDate)
+                                .add(1, 'days')
+                                .startOf('day')
+                            );
+                            const roundedClass = isStartDate
+                              ? 'rounded-l-xl'
+                              : isEndDate
+                              ? 'rounded-r-xl'
+                              : '';
+
+                            return reservation.type === 'BLOCKED' ? (
+                              <p
+                                key={reservationIndex}
+                                className={`text-center bg-p600/80 text-white text-xs w-full py-1 overflow-hidden ${roundedClass} ${
+                                  reservations.length === 2 &&
+                                  reservationIndex === 0
+                                    ? 'mr-1'
+                                    : ''
+                                }`}
+                              >
+                                Bloqueado
+                              </p>
+                            ) : (
+                              <Link
+                                href={`/private/owner/reservation/${reservation.booking}`}
+                                className={`text-center bg-p600/80 text-white text-xs w-full py-1 overflow-hidden ${roundedClass} ${
+                                  reservations.length === 2 &&
+                                  reservationIndex === 0
+                                    ? 'mr-1'
+                                    : ''
+                                }`}
+                                key={reservation.booking}
+                              >
+                                {reservation.travellerName
+                                  ? reservation.travellerName
+                                      .substring(0, 6)
+                                      .toUpperCase()
+                                  : 'Desconocido'}
+                              </Link>
+                            );
+                          })}
+
+                          <div className='text-center' />
+                          <div className='text-center' />
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.calendarHeader}>
+              <div className='lg:sticky left-0 bg-white z-10 border-[1px] border-p600 border-b-0 flex justify-center'>
+                <button
+                  className='flex items-center justify-center text-p800 font-semibold'
+                  onClick={goToPreviousMonth}
+                >
+                  <FaArrowLeft className='mr-2' />
+                  Anterior
+                </button>
+
+                <button
+                  className='flex items-center justify-center ml-4 text-p800 font-semibold'
+                  onClick={goToNextMonth}
+                >
+                  Siguiente
+                  <FaArrowRight className='ml-2' />
+                </button>
+              </div>
+
+              <div className='border-[1px] border-p600 border-b-0 border-l-0'>
+                <p className='border-[1px] border-p600 border-t-0 border-l-0 border-r-0 pl-4 text-p800 font-bold'>
+                  {getMonthName(currentMonth)} {currentYear}
+                </p>
+
+                <div className='flex'>
+                  {daysOfWeekInCurrentMonth.map((day, index) => (
+                    <div
+                      key={index}
+                      className='border-[1px] border-p600 border-b-0 border-t-0 w-28'
+                    >
+                      <div className='text-center border-[1px] border-p600 border-t-0 border-r-0 border-l-0 text-p800 font-bold'>
+                        {day}
+                      </div>
+                      <div className='text-center border-[1px] border-p600 border-t-0 border-r-0 border-b-0 border-l-0 text-p800 font-bold'>
+                        {index + 1}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className='border-[1px] border-p600 border-b-0 border-l-0'>
+                <p className='border-[1px] border-p600 border-t-0 border-l-0 border-r-0 pl-4 text-p800 font-bold'>
+                  {getMonthName(nextMonth)} {nextYear}
+                </p>
+
+                <div className='flex'>
+                  {daysOfWeekInNextMonth.map((day, index) => (
+                    <div
+                      key={index}
+                      className='border-[1px] border-p600 border-b-0 border-t-0 border-l-0 w-28'
+                    >
+                      <div className='text-center border-[1px] border-p600 border-t-0 border-r-0 border-l-0 text-p800 font-bold'>
+                        {day}
+                      </div>
+                      <div className='text-center border-[1px] border-p600 border-t-0 border-r-0 border-b-0 border-l-0 text-p800 font-bold'>
+                        {index + 1}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </section>
