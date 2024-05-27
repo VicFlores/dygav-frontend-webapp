@@ -7,10 +7,11 @@ import moment from 'moment';
 import Link from 'next/link';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
+import { BsCalendar2Week } from 'react-icons/bs';
 
 export const AdminMultiCalendar = () => {
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('accomodation1');
+
   const [accomodations, setAccomodations] =
     useState<TAvaibookAccomodations[]>();
   const [scrollContainer, setScrollContainer] = useState<HTMLDivElement | null>(
@@ -114,10 +115,6 @@ export const AdminMultiCalendar = () => {
       );
 
       setAccomodations(accomodationsWithReservations);
-
-      if (accomodationsWithReservations.length > 0) {
-        setActiveTab(accomodationsWithReservations[0].name);
-      }
 
       setLoading(false);
     };
@@ -271,6 +268,14 @@ export const AdminMultiCalendar = () => {
             <p className=' text-black900/[.7]  text-2xl text-center md:text-left md:text-3xl  lg:text-4xl'>
               Calendario de reservas
             </p>
+
+            <Link
+              href={'/private/admin/accommodationsCalendars'}
+              className='bg-p600 text-white p-2 rounded-xl mb-4 mt-4 lg:mt-0 lg:mb-2 flex items-center text-sm md:text-base'
+            >
+              Calendarios por alojamientos{' '}
+              <BsCalendar2Week className='mx-3 text-xl' />
+            </Link>
           </div>
 
           <div className='flex items-center'>
