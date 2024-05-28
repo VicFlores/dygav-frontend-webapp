@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { TAvaibookAccomodations } from '@/types';
-import { FaAirbnb, FaBook, FaSpinner } from 'react-icons/fa6';
+import { FaAirbnb, FaSpinner } from 'react-icons/fa6';
 import axios from 'axios';
 import styles from './AdminMultiCalendar.module.css';
 import moment from 'moment';
@@ -8,6 +8,8 @@ import Link from 'next/link';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import { BsCalendar2Week } from 'react-icons/bs';
+import { TbBrandBooking, TbLockCancel } from 'react-icons/tb';
+import { GrStatusUnknown } from 'react-icons/gr';
 
 export const AdminMultiCalendar = () => {
   const [loading, setLoading] = useState(true);
@@ -296,7 +298,7 @@ export const AdminMultiCalendar = () => {
                     key={accomodation.id}
                     className={`${styles.accommodationItem} border border-p600 border-t-0 border-r-0`}
                   >
-                    <p className='text-xs lg:text-sm text-p800 font-semibold border border-p600 border-b-0 border-t-0 p-2 lg:py-2 lg:px-0 sticky left-0 bg-white z-10 text-center'>
+                    <p className='text-xs lg:text-sm text-p800 font-semibold border border-p600 border-b-0 border-t-0 p-2 lg:py-2 lg:px-0 sticky left-0 bg-white z-20 text-center'>
                       {accomodation.name}
                     </p>
 
@@ -315,7 +317,7 @@ export const AdminMultiCalendar = () => {
                             let endDate = moment(reservation.endDate).startOf(
                               'day'
                             );
-                            endDate = endDate.add(1, 'days'); // Add a day to the endDate
+                            endDate = endDate.add(1, 'days');
 
                             return (
                               date.isSameOrAfter(startDate) &&
@@ -348,32 +350,62 @@ export const AdminMultiCalendar = () => {
                                 return reservation.type === 'BLOCKED' ? (
                                   <p
                                     key={reservationIndex}
-                                    className={`text-center bg-p600/80 text-white h-2/6 lg:h-2/3 text-xs w-full py-1 overflow-hidden ${roundedClass} ${
-                                      reservations.length === 2 &&
-                                      reservationIndex === 0
-                                        ? 'mr-1'
-                                        : ''
+                                    className={`text-center bg-p600/80 relative text-white h-2/6 lg:h-2/3 text-xs w-full py-1 ${roundedClass} ${
+                                      (reservations.length === 2 &&
+                                        (reservationIndex === 0
+                                          ? 'mr-1'
+                                          : '')) ||
+                                      (isStartDate &&
+                                        reservations.length === 1 &&
+                                        'ml-16') ||
+                                      (isEndDate && 'mr-16')
                                     }`}
                                   >
-                                    {isStartDate ? 'Bloqueado' : ''}
+                                    <span className='flex items-center absolute z-10 left-2'>
+                                      {isStartDate ? (
+                                        <TbLockCancel className='w-4 h-4 mr-1' />
+                                      ) : (
+                                        ''
+                                      )}
+                                      {isStartDate ? 'Bloqueado' : ''}
+                                    </span>
                                   </p>
                                 ) : (
                                   <Link
                                     href={`/private/owner/reservation/${reservation.booking}`}
-                                    className={`text-center bg-p600/80 text-white text-xs w-full h-2/6 lg:h-2/3 py-1 overflow-hidden ${roundedClass} ${
-                                      reservations.length === 2 &&
-                                      reservationIndex === 0
-                                        ? 'mr-1'
-                                        : ''
+                                    className={` bg-p600/80  relative text-white text-xs w-full h-2/6 lg:h-2/3  py-1 ${roundedClass} ${
+                                      (reservations.length === 2 &&
+                                        (reservationIndex === 0
+                                          ? 'mr-1'
+                                          : '')) ||
+                                      (isStartDate &&
+                                        reservations.length === 1 &&
+                                        'ml-16') ||
+                                      (isEndDate && 'mr-16')
                                     }`}
                                     key={reservation.booking}
+                                    style={{ whiteSpace: 'nowrap' }}
                                   >
-                                    {isStartDate &&
-                                      (reservation.travellerName === ''
-                                        ? 'Desconocido'
-                                        : reservation.travellerName
-                                            .substring(0, 8)
-                                            .toUpperCase())}
+                                    <span className='flex items-center absolute z-10 left-2'>
+                                      {isStartDate &&
+                                        (reservation.partnerName ===
+                                        'Airbnb' ? (
+                                          <FaAirbnb className='mr-1' />
+                                        ) : reservation.partnerName ===
+                                          'Booking.com' ? (
+                                          <TbBrandBooking className='mr-1 h-4 w-4' />
+                                        ) : (
+                                          <GrStatusUnknown className='mr-1 w-4 h-4' />
+                                        ))}
+
+                                      {isStartDate &&
+                                        (reservation.travellerName.toUpperCase() ===
+                                        ''
+                                          ? 'Desconocido'
+                                          : reservation.travellerName
+                                              .substring(0, 17)
+                                              .toUpperCase())}
+                                    </span>
                                   </Link>
                                 );
                               }
@@ -434,32 +466,58 @@ export const AdminMultiCalendar = () => {
                                 return reservation.type === 'BLOCKED' ? (
                                   <p
                                     key={reservationIndex}
-                                    className={`text-center bg-p600/80 h-2/6 lg:h-2/3 text-white text-xs w-full py-1 overflow-hidden ${roundedClass} ${
-                                      reservations.length === 2 &&
-                                      reservationIndex === 0
-                                        ? 'mr-1'
-                                        : ''
+                                    className={`text-center bg-p600/80 h-2/6 lg:h-2/3 text-white text-xs w-full py-1 ${roundedClass} ${
+                                      (reservations.length === 2 &&
+                                        (reservationIndex === 0
+                                          ? 'mr-1'
+                                          : '')) ||
+                                      (isStartDate &&
+                                        reservations.length === 1 &&
+                                        'ml-16') ||
+                                      (isEndDate && 'mr-16')
                                     }`}
                                   >
-                                    {isStartDate ? 'Bloqueado' : ''}
+                                    <span className='flex items-center absolute z-10 left-2'>
+                                      <TbLockCancel className='w-4 h-4 mr-1' />
+                                      {isStartDate ? 'Bloqueado' : ''}
+                                    </span>
                                   </p>
                                 ) : (
                                   <Link
                                     href={`/private/owner/reservation/${reservation.booking}`}
-                                    className={`text-center bg-p600/80 h-2/6 lg:h-2/3 text-white text-xs w-full py-1 overflow-hidden ${roundedClass} ${
-                                      reservations.length === 2 &&
-                                      reservationIndex === 0
-                                        ? 'mr-1'
-                                        : ''
+                                    className={` bg-p600/80  relative text-white text-xs w-full h-2/6 lg:h-2/3  py-1 ${roundedClass} ${
+                                      (reservations.length === 2 &&
+                                        (reservationIndex === 0
+                                          ? 'mr-1'
+                                          : '')) ||
+                                      (isStartDate &&
+                                        reservations.length === 1 &&
+                                        'ml-16') ||
+                                      (isEndDate && 'mr-16')
                                     }`}
                                     key={reservation.booking}
+                                    style={{ whiteSpace: 'nowrap' }}
                                   >
-                                    {isStartDate &&
-                                      (reservation.travellerName === ''
-                                        ? 'Desconocido'
-                                        : reservation.travellerName
-                                            .substring(0, 8)
-                                            .toUpperCase())}
+                                    <span className='flex items-center absolute z-10 left-2'>
+                                      {isStartDate &&
+                                        (reservation.partnerName ===
+                                        'Airbnb' ? (
+                                          <FaAirbnb className='mr-1' />
+                                        ) : reservation.partnerName ===
+                                          'Booking.com' ? (
+                                          <TbBrandBooking className='mr-1 h-4 w-4' />
+                                        ) : (
+                                          <GrStatusUnknown className='mr-1 w-4 h-4' />
+                                        ))}
+
+                                      {isStartDate &&
+                                        (reservation.travellerName.toUpperCase() ===
+                                        ''
+                                          ? 'Desconocido'
+                                          : reservation.travellerName
+                                              .substring(0, 17)
+                                              .toUpperCase())}
+                                    </span>
                                   </Link>
                                 );
                               }
