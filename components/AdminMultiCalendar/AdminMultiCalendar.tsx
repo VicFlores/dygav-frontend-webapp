@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { TAvaibookAccomodations } from '@/types';
-import { FaSpinner } from 'react-icons/fa6';
+import { FaAirbnb, FaBook, FaSpinner } from 'react-icons/fa6';
 import axios from 'axios';
 import styles from './AdminMultiCalendar.module.css';
 import moment from 'moment';
@@ -125,7 +125,7 @@ export const AdminMultiCalendar = () => {
   useEffect(() => {
     if (scrollContainer) {
       const today = new Date().getDate();
-      const dayCellWidth = 112;
+      const dayCellWidth = 144;
       const scrollPosition = dayCellWidth * (today - 1);
       scrollContainer.scrollLeft = scrollPosition;
     }
@@ -296,7 +296,7 @@ export const AdminMultiCalendar = () => {
                     key={accomodation.id}
                     className={`${styles.accommodationItem} border border-p600 border-t-0 border-r-0`}
                   >
-                    <p className='text-p800 font-semibold border border-p600 border-b-0 border-t-0 p-2 lg:sticky left-0 bg-white z-10 text-sm text-center'>
+                    <p className='text-xs lg:text-sm text-p800 font-semibold border border-p600 border-b-0 border-t-0 p-2 lg:py-2 lg:px-0 sticky left-0 bg-white z-10 text-center'>
                       {accomodation.name}
                     </p>
 
@@ -327,7 +327,7 @@ export const AdminMultiCalendar = () => {
                         return (
                           <div
                             key={index}
-                            className='flex justify-center items-center border-[1px] border-p600 border-b-0 border-t-0 border-l-0 w-28'
+                            className='flex justify-center items-center border-[1px] border-p600 border-b-0 border-t-0 border-l-0 w-36'
                           >
                             {reservations.map(
                               (reservation, reservationIndex) => {
@@ -348,19 +348,19 @@ export const AdminMultiCalendar = () => {
                                 return reservation.type === 'BLOCKED' ? (
                                   <p
                                     key={reservationIndex}
-                                    className={`text-center bg-p600/80 text-white text-xs w-full py-1 overflow-hidden ${roundedClass} ${
+                                    className={`text-center bg-p600/80 text-white h-2/6 lg:h-2/3 text-xs w-full py-1 overflow-hidden ${roundedClass} ${
                                       reservations.length === 2 &&
                                       reservationIndex === 0
                                         ? 'mr-1'
                                         : ''
                                     }`}
                                   >
-                                    Bloqueado
+                                    {isStartDate ? 'Bloqueado' : ''}
                                   </p>
                                 ) : (
                                   <Link
                                     href={`/private/owner/reservation/${reservation.booking}`}
-                                    className={`text-center bg-p600/80 text-white text-xs w-full py-1 overflow-hidden ${roundedClass} ${
+                                    className={`text-center bg-p600/80 text-white text-xs w-full h-2/6 lg:h-2/3 py-1 overflow-hidden ${roundedClass} ${
                                       reservations.length === 2 &&
                                       reservationIndex === 0
                                         ? 'mr-1'
@@ -368,11 +368,12 @@ export const AdminMultiCalendar = () => {
                                     }`}
                                     key={reservation.booking}
                                   >
-                                    {reservation.travellerName
-                                      ? reservation.travellerName
-                                          .substring(0, 6)
-                                          .toUpperCase()
-                                      : 'Desconocido'}
+                                    {isStartDate &&
+                                      (reservation.travellerName === ''
+                                        ? 'Desconocido'
+                                        : reservation.travellerName
+                                            .substring(0, 8)
+                                            .toUpperCase())}
                                   </Link>
                                 );
                               }
@@ -412,7 +413,7 @@ export const AdminMultiCalendar = () => {
                         return (
                           <div
                             key={index}
-                            className='flex justify-center items-center border-[1px] border-p600 border-b-0 border-t-0 border-l-0 w-28'
+                            className='flex justify-center items-center border-[1px] border-p600 border-b-0 border-t-0 border-l-0 w-36'
                           >
                             {reservations.map(
                               (reservation, reservationIndex) => {
@@ -433,19 +434,19 @@ export const AdminMultiCalendar = () => {
                                 return reservation.type === 'BLOCKED' ? (
                                   <p
                                     key={reservationIndex}
-                                    className={`text-center bg-p600/80 text-white text-xs w-full py-1 overflow-hidden ${roundedClass} ${
+                                    className={`text-center bg-p600/80 h-2/6 lg:h-2/3 text-white text-xs w-full py-1 overflow-hidden ${roundedClass} ${
                                       reservations.length === 2 &&
                                       reservationIndex === 0
                                         ? 'mr-1'
                                         : ''
                                     }`}
                                   >
-                                    Bloqueado
+                                    {isStartDate ? 'Bloqueado' : ''}
                                   </p>
                                 ) : (
                                   <Link
                                     href={`/private/owner/reservation/${reservation.booking}`}
-                                    className={`text-center bg-p600/80 text-white text-xs w-full py-1 overflow-hidden ${roundedClass} ${
+                                    className={`text-center bg-p600/80 h-2/6 lg:h-2/3 text-white text-xs w-full py-1 overflow-hidden ${roundedClass} ${
                                       reservations.length === 2 &&
                                       reservationIndex === 0
                                         ? 'mr-1'
@@ -453,11 +454,12 @@ export const AdminMultiCalendar = () => {
                                     }`}
                                     key={reservation.booking}
                                   >
-                                    {reservation.travellerName
-                                      ? reservation.travellerName
-                                          .substring(0, 6)
-                                          .toUpperCase()
-                                      : 'Desconocido'}
+                                    {isStartDate &&
+                                      (reservation.travellerName === ''
+                                        ? 'Desconocido'
+                                        : reservation.travellerName
+                                            .substring(0, 8)
+                                            .toUpperCase())}
                                   </Link>
                                 );
                               }
@@ -474,7 +476,7 @@ export const AdminMultiCalendar = () => {
               </div>
 
               <div className={styles.calendarHeader}>
-                <div className='lg:sticky left-0 bg-white z-10 border border-p600  flex justify-center'>
+                <div className='text-xs lg:text-base space-y-2 lg:space-y-0 sticky left-0 bg-white z-10 border border-p600  flex flex-col lg:flex-row justify-center'>
                   <button
                     className='flex items-center justify-center text-p800 font-semibold'
                     onClick={goToPreviousMonth}
@@ -493,17 +495,17 @@ export const AdminMultiCalendar = () => {
                 </div>
 
                 <div>
-                  <p className='border border-p600 border-l-0 pl-4 text-p800 font-bold'>
+                  <p className='text-xs lg:text-base border border-p600 border-l-0 pl-4 text-p800 font-bold'>
                     {getMonthName(currentMonth)} {currentYear}
                   </p>
 
                   <div className='flex'>
                     {daysOfWeekInCurrentMonth.map((day, index) => (
-                      <div key={index} className='border-r border-r-p600 w-28'>
-                        <div className='text-center text-p800 font-bold'>
+                      <div key={index} className='border-r border-r-p600 w-36'>
+                        <div className='text-xs lg:text-base text-center text-p800 font-bold'>
                           {day}
                         </div>
-                        <div className='text-center border-y border-y-p600  text-p800 font-bold'>
+                        <div className='text-xs lg:text-base text-center border-y border-y-p600  text-p800 font-bold'>
                           {index + 1}
                         </div>
                       </div>
@@ -512,17 +514,17 @@ export const AdminMultiCalendar = () => {
                 </div>
 
                 <div>
-                  <p className='border border-p600 border-l-0 pl-4 text-p800 font-bold'>
+                  <p className='text-xs lg:text-base border border-p600 border-l-0 pl-4 text-p800 font-bold'>
                     {getMonthName(nextMonth)} {nextYear}
                   </p>
 
                   <div className='flex'>
                     {daysOfWeekInNextMonth.map((day, index) => (
-                      <div key={index} className='border-r border-r-p600 w-28'>
-                        <div className='text-center text-p800 font-bold'>
+                      <div key={index} className='border-r border-r-p600 w-36'>
+                        <div className='text-xs lg:text-base text-center text-p800 font-bold'>
                           {day}
                         </div>
-                        <div className='text-center border-y border-y-p600  text-p800 font-bold'>
+                        <div className='text-xs lg:text-base text-center border-y border-y-p600  text-p800 font-bold'>
                           {index + 1}
                         </div>
                       </div>

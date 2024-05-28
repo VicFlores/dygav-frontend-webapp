@@ -11,9 +11,17 @@
   grid-row: 1 / 2;
   display: grid;
   grid-template-columns: 380px repeat(2, 1fr);
+
+  @media (max-width: 480px) {
+    grid-template-columns: 160px repeat(2, 1fr);
+  }
 }
 
 .accommodationItem {
   display: grid;
   grid-template-columns: 380px repeat(2, 1fr);
+
+  @media (max-width: 480px) {
+    grid-template-columns: 160px repeat(2, 1fr);
+  }
 }
