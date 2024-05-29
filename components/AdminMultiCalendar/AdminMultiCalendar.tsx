@@ -10,10 +10,11 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import { BsCalendar2Week } from 'react-icons/bs';
 import { TbBrandBooking, TbLockCancel } from 'react-icons/tb';
 import { GrStatusUnknown } from 'react-icons/gr';
+import { BookingDetail } from './BookingDetail';
 
 export const AdminMultiCalendar = () => {
   const [loading, setLoading] = useState(true);
-
+  const [showDetails, setShowDetails] = useState<null | string>(null);
   const [accomodations, setAccomodations] =
     useState<TAvaibookAccomodations[]>();
   const [scrollContainer, setScrollContainer] = useState<HTMLDivElement | null>(
@@ -290,7 +291,7 @@ export const AdminMultiCalendar = () => {
 
             <div
               ref={(node) => setScrollContainer(node)}
-              className={`${styles.container} scrollbar`}
+              className={`${styles.container} ${styles.scrollbar}`}
             >
               <div>
                 {accomodations?.map((accomodation) => (
@@ -385,7 +386,17 @@ export const AdminMultiCalendar = () => {
                                     }`}
                                     key={reservation.booking}
                                     style={{ whiteSpace: 'nowrap' }}
+                                    onMouseEnter={() =>
+                                      setShowDetails(reservation.booking)
+                                    }
+                                    onMouseLeave={() => setShowDetails(null)}
                                   >
+                                    {showDetails === reservation.booking && (
+                                      <BookingDetail
+                                        bookingId={reservation.booking}
+                                      />
+                                    )}
+
                                     <span className='flex items-center absolute z-10 left-2'>
                                       {isStartDate &&
                                         (reservation.partnerName ===
@@ -497,7 +508,17 @@ export const AdminMultiCalendar = () => {
                                     }`}
                                     key={reservation.booking}
                                     style={{ whiteSpace: 'nowrap' }}
+                                    onMouseEnter={() =>
+                                      setShowDetails(reservation.booking)
+                                    }
+                                    onMouseLeave={() => setShowDetails(null)}
                                   >
+                                    {showDetails === reservation.booking && (
+                                      <BookingDetail
+                                        bookingId={reservation.booking}
+                                      />
+                                    )}
+
                                     <span className='flex items-center absolute z-10 left-2'>
                                       {isStartDate &&
                                         (reservation.partnerName ===

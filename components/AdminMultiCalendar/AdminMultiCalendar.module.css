@@ -1,9 +1,31 @@
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  overflow-x: auto;
+  overflow: auto;
+  scrollbar-width: 5px;
   padding-bottom: 2rem;
   margin-bottom: 4rem;
+}
+
+/* This will set the width of the vertical scrollbar */
+.container::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* This will set the height of the horizontal scrollbar */
+.container::-webkit-scrollbar {
+  height: 7px;
+}
+
+/* This will style the scrollbar thumb (the part you drag) */
+.container::-webkit-scrollbar-thumb {
+  background-color: #f4511e;
+  border-radius: 1000px;
+}
+
+/* This will style the scrollbar track (the part the thumb moves along) */
+.container::-webkit-scrollbar-track {
+  background: #d9d9d9;
 }
 
 .calendarHeader {
@@ -23,5 +45,28 @@
 
   @media (max-width: 480px) {
     grid-template-columns: 160px repeat(2, 1fr);
+  }
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  width: auto-fit;
+  top: 100%;
+  left: 0;
+  transform: translateX(-50%);
+  z-index: 20;
+  color: black;
+  margin-bottom: 20px;
+}
+
+a:hover .tooltip {
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    flex-direction: column;
   }
 }
