@@ -284,7 +284,7 @@ export const AdminMultiCalendar = () => {
           <div className='flex items-center'>
             <button
               onClick={scrollLeft}
-              className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 mr-3 -bottom-[218px]'
+              className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 mr-3 -bottom-[205px]'
             >
               <AiOutlineArrowLeft />
             </button>
@@ -615,7 +615,7 @@ export const AdminMultiCalendar = () => {
 
             <button
               onClick={scrollRight}
-              className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 ml-3 -bottom-[218px]'
+              className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 ml-3 -bottom-[205px]'
             >
               <AiOutlineArrowRight />
             </button>
