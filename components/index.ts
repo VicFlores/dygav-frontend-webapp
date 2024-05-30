@@ -130,3 +130,5 @@ export * from './Owners/AlteaMgmtInfo';
 export * from './Owners/CostaBlancaMgmtInfo';
 export * from './Owners/PirineoAragonesMgmtInfo';
 export * from './AdminMultiCalendar/AdminMultiCalendar';
+export * from './Recovery/GenerateLink';
+export * from './Recovery/ResetPassword';

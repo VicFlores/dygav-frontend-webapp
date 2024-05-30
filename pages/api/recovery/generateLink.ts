@@ -3,6 +3,7 @@ import { connectDB } from '@/utils/db/database';
 import User from '@/models/user';
 import jwt from 'jsonwebtoken';
 import { sendEmail } from '@/helpers';
+import recoveryPasswordTemplate from '@/utils/emails/templates/recoveryPassword';
 
 export default async function handler(
   req: NextApiRequest,
@@ -34,11 +35,7 @@ export default async function handler(
         from: process.env.USER_EMAIL,
         to: email,
         subject: 'Recuperar contraseña',
-        html: `
-                  <h1>Recuperar contraseña</h1>
-                  <p>Para recuperar tu contraseña, haz click en el siguiente enlace:</p>
-                  <a href="${link}">Recuperar contraseña</a>
-              `,
+        html: recoveryPasswordTemplate(link),
       };
 
       const response = await sendEmail(mail);

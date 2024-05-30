@@ -5,6 +5,7 @@ import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
 import { ChangeEvent, FC, useEffect, useState } from 'react';
 import { TSession } from '@/types';
+import Link from 'next/link';
 
 export const Login: FC<TSession> = ({ session }) => {
   const [error, setError] = useState('');
@@ -64,9 +65,9 @@ export const Login: FC<TSession> = ({ session }) => {
   };
 
   return (
-    <div className='flex items-center justify-center mt-10 md:mt-8 lg:mt-0'>
-      <div className='bg-white px-6 py-4 md:py-6 lg:py-10 space-y-5 w-[350px] md:w-[450px]'>
-        <div className='space-y-3'>
+    <div className='flex items-center justify-center pb-12 lg:pb-0 mt-10 md:mt-8 lg:mt-0'>
+      <div className='bg-white px-6 py-4 md:py-6 lg:py-10 space-y-5 w-[350px] md:w-[450px] h-[440px] lg:h-full rounded-xl'>
+        <div className='space-y-3 text-center'>
           <p className='font-semibold text-lg md:text-xl lg:text-3xl'>
             ¡Bienvenido!
           </p>
@@ -120,6 +121,12 @@ export const Login: FC<TSession> = ({ session }) => {
             >
               Iniciar Sesion con Google
             </button>
+          </div>
+
+          <div className='text-center text-p600 text-xs md:text-sm'>
+            <p>¿Olvidaste tu contraseña?</p>
+
+            <Link href='/recovery/generate-link'>Recuperala aquí</Link>
           </div>
         </div>
 

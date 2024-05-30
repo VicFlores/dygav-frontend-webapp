@@ -10,7 +10,7 @@ export default function LoginPage() {
 
       <div
         className={
-          'w-full bg-brandContent bg-center bg-cover bg-no-repeat h-[calc(100vh+280px)] md:h-screen'
+          'w-full bg-brandContent bg-center bg-cover bg-no-repeat h-[calc(100vh+240px)] md:h-screen'
         }
       >
         <Layout>
