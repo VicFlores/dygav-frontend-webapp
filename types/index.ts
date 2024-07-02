@@ -12,3 +12,4 @@ export * from './TBlogMedia';
 export * from './TBlogPostSubCategories';
 export * from './TImageProps';
 export * from './TAvaibookAccomodations';
+export * from './TCustomAccomodation';

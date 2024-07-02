@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
-import { TAvaibookAccomodations } from '@/types';
+import {
+  ReservationAvaibook,
+  TAvaibookAccomodations,
+  TCustomAccomodation,
+} from '@/types';
 import { FaAirbnb, FaSpinner } from 'react-icons/fa6';
 import axios from 'axios';
 import styles from './AdminMultiCalendar.module.css';
@@ -13,16 +17,17 @@ import { GrStatusUnknown } from 'react-icons/gr';
 import { BookingDetail } from './BookingDetail';
 
 export const AdminMultiCalendar = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [showDetails, setShowDetails] = useState<null | string>(null);
-  const [accomodations, setAccomodations] =
-    useState<TAvaibookAccomodations[]>();
+  const [accomodations, setAccomodations] = useState<TCustomAccomodation[]>();
   const [scrollContainer, setScrollContainer] = useState<HTMLDivElement | null>(
     null
   );
 
   useEffect(() => {
     const fetchAccomodationsAndReservations = async () => {
+      setLoading(true);
+
       const allAccomodationsResponse = await axios.get(
         'https://api.avaibook.com/api/owner/accommodations/',
         {
@@ -33,91 +38,63 @@ export const AdminMultiCalendar = () => {
         }
       );
 
-      const allAccomodations = allAccomodationsResponse.data;
+      const currentDay = moment().startOf('day').format('YYYY-MM-DD');
 
-      const accomodationsWithReservations = await Promise.all(
-        allAccomodations.map(async (accomodation: any) => {
-          const pastMonthStart = new Date();
-          pastMonthStart.setMonth(pastMonthStart.getMonth() - 1);
-          pastMonthStart.setDate(1);
+      const nextDay = moment(currentDay).add(1, 'days').format('YYYY-MM-DD');
 
-          const pastMonthEnd = new Date();
-          pastMonthEnd.setDate(0);
+      const firstDayNinetyDaysAgo = moment()
+        .subtract(90, 'days')
+        .startOf('day')
+        .format('YYYY-MM-DD');
 
-          const next90DaysStart = new Date();
-          next90DaysStart.setDate(1);
-          const next90DaysEnd = new Date();
-          next90DaysEnd.setDate(next90DaysStart.getDate() + 90);
+      const nextNinetyDays = moment(nextDay)
+        .add(90, 'days')
+        .format('YYYY-MM-DD');
 
-          const pastMonthResponse = await axios.get(
-            `https://api.avaibook.com/api/owner/accommodations/${
-              accomodation.id
-            }/calendar/?startDate=${
-              pastMonthStart.toISOString().split('T')[0]
-            }&endDate=${pastMonthEnd.toISOString().split('T')[0]}`,
-            {
-              headers: {
-                'Content-Type': 'application/json',
-                'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
-              },
-            }
-          );
-
-          const next90DaysResponse = await axios.get(
-            `https://api.avaibook.com/api/owner/accommodations/${
-              accomodation.id
-            }/calendar/?startDate=${
-              next90DaysStart.toISOString().split('T')[0]
-            }&endDate=${next90DaysEnd.toISOString().split('T')[0]}`,
-            {
-              headers: {
-                'Content-Type': 'application/json',
-                'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
-              },
-            }
-          );
-
-          const allReservations = [
-            ...new Map(
-              [...pastMonthResponse.data, ...next90DaysResponse.data].map(
-                (item) => [item['booking'], item]
-              )
-            ).values(),
-          ];
-
-          const reservationsWithBookingInfo = await Promise.all(
-            allReservations.map(async (reservation: any) => {
-              if (reservation.booking) {
-                const bookingResponse = await axios.get(
-                  `https://api.avaibook.com/api/owner/bookings/${reservation.booking}/`,
-                  {
-                    headers: {
-                      'Content-Type': 'application/json',
-                      'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
-                    },
-                  }
-                );
-
-                return {
-                  ...reservation,
-                  partnerName: bookingResponse.data.partnerName,
-                  travellerName: bookingResponse.data.travellerName,
-                };
-              } else {
-                return reservation;
-              }
-            })
-          );
-
-          return {
-            id: accomodation.id,
-            name: accomodation.name,
-            reservations: reservationsWithBookingInfo,
-          };
-        })
+      const ninetyAgoBookings = await axios.get(
+        `https://api.avaibook.com/api/owner/bookings/?checkinStartDate=${firstDayNinetyDaysAgo}&checkinEndDate=${currentDay}`,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+          },
+        }
       );
 
-      setAccomodations(accomodationsWithReservations);
+      const ninetyDaysBookings = await axios.get(
+        `https://api.avaibook.com/api/owner/bookings/?checkinStartDate=${nextDay}&checkinEndDate=${nextNinetyDays}`,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+          },
+        }
+      );
+
+      const accomodations = allAccomodationsResponse.data;
+      const afterBookings = ninetyAgoBookings.data;
+      const beforeBookings = ninetyDaysBookings.data;
+
+      accomodations.forEach((accomodation: TAvaibookAccomodations) => {
+        const afterReservations = afterBookings.filter(
+          (booking: ReservationAvaibook) =>
+            booking.accommodationId === accomodation.id &&
+            booking.status === 'CONFIRMED'
+        );
+
+        const beforeReservations = beforeBookings.filter(
+          (booking: ReservationAvaibook) =>
+            booking.accommodationId === accomodation.id &&
+            booking.status === 'CONFIRMED'
+        );
+
+        accomodation.reservations = [
+          ...afterReservations,
+          ...beforeReservations,
+        ];
+      });
+
+      setAccomodations(accomodations);
 
       setLoading(false);
     };
@@ -272,13 +249,13 @@ export const AdminMultiCalendar = () => {
               Calendario de reservas
             </p>
 
-            <Link
+            {/* <Link
               href={'/private/admin/accommodationsCalendars'}
               className='bg-p600 text-white p-2 rounded-xl mb-4 mt-4 lg:mt-0 lg:mb-2 flex items-center text-sm md:text-base'
             >
               Calendarios por alojamientos{' '}
               <BsCalendar2Week className='mx-3 text-xl' />
-            </Link>
+            </Link> */}
           </div>
 
           <div className='flex items-center'>
@@ -310,15 +287,15 @@ export const AdminMultiCalendar = () => {
                           .month(currentMonth)
                           .date(index + 1)
                           .startOf('day');
+
                         const reservations = accomodation.reservations.filter(
                           (reservation) => {
                             const startDate = moment(
-                              reservation.startDate
+                              reservation.checkInDate
                             ).startOf('day');
-                            let endDate = moment(reservation.endDate).startOf(
-                              'day'
-                            );
-                            endDate = endDate.add(1, 'days');
+                            let endDate = moment(
+                              reservation.checkOutDate
+                            ).startOf('day');
 
                             return (
                               date.isSameOrAfter(startDate) &&
@@ -335,65 +312,41 @@ export const AdminMultiCalendar = () => {
                             {reservations.map(
                               (reservation, reservationIndex) => {
                                 const isStartDate = date.isSame(
-                                  moment(reservation.startDate).startOf('day')
+                                  moment(reservation.checkInDate).startOf('day')
                                 );
                                 const isEndDate = date.isSame(
-                                  moment(reservation.endDate)
-                                    .add(1, 'days')
-                                    .startOf('day')
+                                  moment(reservation.checkOutDate).startOf(
+                                    'day'
+                                  )
                                 );
+
                                 const roundedClass = isStartDate
                                   ? 'rounded-l-xl'
                                   : isEndDate
                                   ? 'rounded-r-xl'
                                   : '';
 
-                                return reservation.type === 'BLOCKED' ? (
-                                  <p
-                                    key={reservationIndex}
-                                    className={`text-center bg-p600/80 relative text-white h-2/6 lg:h-2/3 text-xs w-full py-1 ${roundedClass} ${
-                                      (reservations.length === 2 &&
-                                        (reservationIndex === 0
-                                          ? 'mr-1'
-                                          : '')) ||
-                                      (isStartDate &&
-                                        reservations.length === 1 &&
-                                        'ml-16') ||
-                                      (isEndDate && 'mr-16')
-                                    }`}
-                                  >
-                                    <span className='flex items-center absolute z-10 left-2'>
-                                      {isStartDate ? (
-                                        <TbLockCancel className='w-4 h-4 mr-1' />
-                                      ) : (
-                                        ''
-                                      )}
-                                      {isStartDate ? 'Bloqueado' : ''}
-                                    </span>
-                                  </p>
-                                ) : (
+                                return (
                                   <Link
-                                    href={`/private/owner/reservation/${reservation.booking}`}
+                                    href={`/private/owner/reservation/${reservation.id}`}
                                     className={` bg-p600/80  relative text-white text-xs w-full h-2/6 lg:h-2/3  py-1 ${roundedClass} ${
-                                      (reservations.length === 2 &&
-                                        (reservationIndex === 0
-                                          ? 'mr-1'
-                                          : '')) ||
                                       (isStartDate &&
                                         reservations.length === 1 &&
                                         'ml-16') ||
-                                      (isEndDate && 'mr-16')
+                                      (isEndDate &&
+                                        reservations.length === 1 &&
+                                        'mr-16')
                                     }`}
-                                    key={reservation.booking}
+                                    key={reservation.id}
                                     style={{ whiteSpace: 'nowrap' }}
                                     onMouseEnter={() =>
-                                      setShowDetails(reservation.booking)
+                                      setShowDetails(reservation.id)
                                     }
                                     onMouseLeave={() => setShowDetails(null)}
                                   >
-                                    {showDetails === reservation.booking && (
+                                    {showDetails === reservation.id && (
                                       <BookingDetail
-                                        bookingId={reservation.booking}
+                                        bookingId={reservation.id}
                                       />
                                     )}
 
@@ -439,12 +392,11 @@ export const AdminMultiCalendar = () => {
                         const reservations = accomodation.reservations.filter(
                           (reservation) => {
                             const startDate = moment(
-                              reservation.startDate
+                              reservation.checkInDate
                             ).startOf('day');
-                            let endDate = moment(reservation.endDate).startOf(
-                              'day'
-                            );
-                            endDate = endDate.add(1, 'days'); // Add a day to the endDate
+                            let endDate = moment(
+                              reservation.checkOutDate
+                            ).startOf('day');
 
                             return (
                               date.isSameOrAfter(startDate) &&
@@ -461,61 +413,41 @@ export const AdminMultiCalendar = () => {
                             {reservations.map(
                               (reservation, reservationIndex) => {
                                 const isStartDate = date.isSame(
-                                  moment(reservation.startDate).startOf('day')
+                                  moment(reservation.checkInDate).startOf('day')
                                 );
                                 const isEndDate = date.isSame(
-                                  moment(reservation.endDate)
-                                    .add(1, 'days')
-                                    .startOf('day')
+                                  moment(reservation.checkOutDate).startOf(
+                                    'day'
+                                  )
                                 );
+
                                 const roundedClass = isStartDate
                                   ? 'rounded-l-xl'
                                   : isEndDate
                                   ? 'rounded-r-xl'
                                   : '';
 
-                                return reservation.type === 'BLOCKED' ? (
-                                  <p
-                                    key={reservationIndex}
-                                    className={`text-center bg-p600/80 h-2/6 lg:h-2/3 text-white text-xs w-full py-1 ${roundedClass} ${
-                                      (reservations.length === 2 &&
-                                        (reservationIndex === 0
-                                          ? 'mr-1'
-                                          : '')) ||
-                                      (isStartDate &&
-                                        reservations.length === 1 &&
-                                        'ml-16') ||
-                                      (isEndDate && 'mr-16')
-                                    }`}
-                                  >
-                                    <span className='flex items-center absolute z-10 left-2'>
-                                      <TbLockCancel className='w-4 h-4 mr-1' />
-                                      {isStartDate ? 'Bloqueado' : ''}
-                                    </span>
-                                  </p>
-                                ) : (
+                                return (
                                   <Link
-                                    href={`/private/owner/reservation/${reservation.booking}`}
+                                    href={`/private/owner/reservation/${reservation.id}`}
                                     className={` bg-p600/80  relative text-white text-xs w-full h-2/6 lg:h-2/3  py-1 ${roundedClass} ${
-                                      (reservations.length === 2 &&
-                                        (reservationIndex === 0
-                                          ? 'mr-1'
-                                          : '')) ||
                                       (isStartDate &&
                                         reservations.length === 1 &&
                                         'ml-16') ||
-                                      (isEndDate && 'mr-16')
+                                      (isEndDate &&
+                                        reservations.length === 1 &&
+                                        'mr-16')
                                     }`}
-                                    key={reservation.booking}
+                                    key={reservation.id}
                                     style={{ whiteSpace: 'nowrap' }}
                                     onMouseEnter={() =>
-                                      setShowDetails(reservation.booking)
+                                      setShowDetails(reservation.id)
                                     }
                                     onMouseLeave={() => setShowDetails(null)}
                                   >
-                                    {showDetails === reservation.booking && (
+                                    {showDetails === reservation.id && (
                                       <BookingDetail
-                                        bookingId={reservation.booking}
+                                        bookingId={reservation.id}
                                       />
                                     )}
 
