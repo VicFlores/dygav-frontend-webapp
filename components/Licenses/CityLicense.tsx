@@ -27,6 +27,12 @@ export const CityLicense: FC<CityLicenseProps> = ({
         axios.get(
           'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts?per_page=100&page=2'
         ),
+        axios.get(
+          'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts?per_page=100&page=3'
+        ),
+        axios.get(
+          'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts?per_page=100&page=4'
+        ),
       ]);
 
       const allData = [...firstResponse.data, ...secondResponse.data];

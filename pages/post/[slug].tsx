@@ -27,6 +27,8 @@ const BlogPage = () => {
         const urls = [
           'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts?per_page=100&page=1',
           'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts?per_page=100&page=2',
+          'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts?per_page=100&page=3',
+          'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2/posts?per_page=100&page=4',
         ];
 
         try {
@@ -35,6 +37,8 @@ const BlogPage = () => {
           );
 
           const allPosts = [].concat(...data);
+
+          console.log(allPosts);
 
           const filterPosts = allPosts.filter((post: BlogPost) => {
             return post.slug === router.query.slug;
