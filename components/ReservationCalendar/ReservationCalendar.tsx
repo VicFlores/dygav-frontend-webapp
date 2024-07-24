@@ -11,6 +11,7 @@ import { useRouter } from 'next/router';
 import { GrStatusUnknown } from 'react-icons/gr';
 import { axiosConfig } from '@/utils';
 import { useSession } from 'next-auth/react';
+import { TbLockOff } from 'react-icons/tb';
 import styles from './reservationCalendar.module.css';
 
 const localizer = momentLocalizer(moment);
@@ -232,6 +233,7 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
         start: moment(booking.startDate).format('YYYY-MM-DD'),
         end: moment(booking.endDate).add(2, 'days').format('YYYY-MM-DD'),
         title: 'Bloqueado',
+        partnerName: 'BLOCKED',
       };
     }
 
@@ -420,6 +422,11 @@ const CustomEvent = ({ event }: any) => (
           />
         ) : event.partnerName === 'Airbnb' ? (
           <TbBrandAirbnb
+            color='white'
+            className='mr-0 lg:mr-2 text-[20px] lg:text-[26px]'
+          />
+        ) : event.partnerName === 'BLOCKED' ? (
+          <TbLockOff
             color='white'
             className='mr-0 lg:mr-2 text-[20px] lg:text-[26px]'
           />
