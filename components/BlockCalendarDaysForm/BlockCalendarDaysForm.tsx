@@ -54,8 +54,12 @@ const BlockCalendarDaysForm: FC<Props> = ({ setlistenBlockDate, id }) => {
   const onSubmit = async (e: any) => {
     e.preventDefault();
 
+    setError('');
+
     const formatStartDate = moment(startDate).format('YYYY-MM-DD');
-    const formatEndDate = moment(endDate).format('YYYY-MM-DD');
+    const formatEndDate = moment(endDate)
+      .subtract(1, 'days')
+      .format('YYYY-MM-DD');
 
     const res = await axios.post(
       `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/`,
@@ -73,7 +77,7 @@ const BlockCalendarDaysForm: FC<Props> = ({ setlistenBlockDate, id }) => {
 
     setlistenBlockDate(res.data);
 
-    await axiosConfig.post('/api/mailing/blockDays', {
+    const response = await axiosConfig.post('/api/mailing/blockDays', {
       fullname: 'Jose Llaneza',
       owner: session?.user?.fullname,
       email: session?.user?.email,
@@ -81,6 +85,8 @@ const BlockCalendarDaysForm: FC<Props> = ({ setlistenBlockDate, id }) => {
       endDate: moment(endDate).format('dddd D [de] MMMM [de] YYYY'),
       accomodation: findAccomodationById.name,
     });
+
+    console.log(response);
 
     setError('Dias bloqueados con exito');
   };

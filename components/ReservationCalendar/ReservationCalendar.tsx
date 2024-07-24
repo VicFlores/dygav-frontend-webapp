@@ -141,6 +141,7 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
             const bookingExists = prevState.some(
               (booking) => booking.id === resBooking.data.id
             );
+
             if (!bookingExists) {
               // New booking detected
               // if (isEmailChecked) {
@@ -223,16 +224,30 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   const calculateMarginEnd = () => (windowWidth > 768 ? '30px' : '0px');
   const calculateWidthEnd = () => (windowWidth > 768 ? '85%' : '100%');
 
-  const reservations = bookingById.map((booking: any) => {
-    return {
-      id: booking.id,
-      start: moment(booking.occupiedPeriod.startDate).format('YYYY-MM-DD'),
-      end: moment(booking.occupiedPeriod.endDate)
-        .add(2, 'days')
-        .format('YYYY-MM-DD'),
-      title: booking.travellerName.toUpperCase(),
-      partnerName: booking.partnerName,
-    };
+  const mergeReservations = [...bookingById, ...accomodationDayBlock];
+
+  const reservations = mergeReservations.map((booking: any) => {
+    if (booking.type === 'BLOCKED') {
+      return {
+        start: moment(booking.startDate).format('YYYY-MM-DD'),
+        end: moment(booking.endDate).add(2, 'days').format('YYYY-MM-DD'),
+        title: 'Bloqueado',
+      };
+    }
+
+    if (booking.status === 'CONFIRMED') {
+      return {
+        id: booking.id,
+        start: moment(booking.occupiedPeriod.startDate).format('YYYY-MM-DD'),
+        end: moment(booking.occupiedPeriod.endDate)
+          .add(2, 'days')
+          .format('YYYY-MM-DD'),
+        title: booking.travellerName.toUpperCase(),
+        partnerName: booking.partnerName,
+      };
+    }
+
+    return {};
   });
 
   const dayStyleGetter = (date: Date) => {
