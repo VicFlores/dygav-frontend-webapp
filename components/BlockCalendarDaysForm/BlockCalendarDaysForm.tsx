@@ -60,8 +60,8 @@ const BlockCalendarDaysForm: FC<Props> = ({ setlistenBlockDate, id }) => {
     const res = await axios.post(
       `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/`,
       {
-        formatStartDate,
-        formatEndDate,
+        startDate: formatStartDate,
+        endDate: formatEndDate,
       },
       {
         headers: {
