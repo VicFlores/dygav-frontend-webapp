@@ -227,6 +227,8 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
 
   const mergeReservations = [...bookingById, ...accomodationDayBlock];
 
+  console.log('mergeReservations:', mergeReservations);
+
   const reservations = mergeReservations.map((booking: any) => {
     if (booking.type === 'BLOCKED') {
       return {
@@ -240,10 +242,8 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
     if (booking.status === 'CONFIRMED') {
       return {
         id: booking.id,
-        start: moment(booking.occupiedPeriod.startDate).format('YYYY-MM-DD'),
-        end: moment(booking.occupiedPeriod.endDate)
-          .add(2, 'days')
-          .format('YYYY-MM-DD'),
+        start: moment(booking.checkInDate).format('YYYY-MM-DD'),
+        end: moment(booking.checkOutDate).add(1, 'days').format('YYYY-MM-DD'),
         title: booking.travellerName.toUpperCase(),
         partnerName: booking.partnerName,
       };

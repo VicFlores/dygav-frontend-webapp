@@ -1,6 +1,5 @@
-import register from '@/pages/register';
 import axios from 'axios';
-import error from 'next/error';
+import moment from 'moment';
 import Link from 'next/link';
 import React, { FC, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -170,18 +169,15 @@ export const RangeOfDates: FC<{ id: string }> = ({ id }) => {
                 {item.occupiedPeriod && item.occupiedPeriod ? (
                   <p className='text-sm md:text-base'>
                     {(() => {
-                      let startDate = new Date(item.occupiedPeriod.startDate);
-                      let endDate = new Date(item.occupiedPeriod.endDate);
+                      let startDate = moment(item.occupiedPeriod.startDate);
+                      let endDate = moment(item.occupiedPeriod.endDate).add(
+                        1,
+                        'days'
+                      );
 
-                      // Add one day to startDate
-                      startDate.setDate(startDate.getDate() + 1);
-
-                      // Add two days to endDate
-                      endDate.setDate(endDate.getDate() + 2);
-
-                      return `${startDate.toLocaleDateString(
-                        'en-GB'
-                      )} - ${endDate.toLocaleDateString('en-GB')}`;
+                      return `${startDate.format(
+                        'DD/MM/YYYY'
+                      )} - ${endDate.format('DD/MM/YYYY')}`;
                     })()}
                   </p>
                 ) : (

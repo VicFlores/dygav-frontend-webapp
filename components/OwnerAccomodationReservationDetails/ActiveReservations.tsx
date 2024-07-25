@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React, { FC } from 'react';
+import moment from 'moment';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 interface IBookingId {
@@ -53,22 +54,16 @@ export const ActiveReservations: FC<{
                       {booking.occupiedPeriod && booking.occupiedPeriod ? (
                         <p className='text-sm md:text-base'>
                           {(() => {
-                            let startDate = new Date(
+                            let startDate = moment(
                               booking.occupiedPeriod.startDate
                             );
-                            let endDate = new Date(
+                            let endDate = moment(
                               booking.occupiedPeriod.endDate
-                            );
+                            ).add(1, 'days');
 
-                            // Add one day to startDate
-                            startDate.setDate(startDate.getDate() + 1);
-
-                            // Add two days to endDate
-                            endDate.setDate(endDate.getDate() + 2);
-
-                            return `${startDate.toLocaleDateString(
-                              'en-GB'
-                            )} - ${endDate.toLocaleDateString('en-GB')}`;
+                            return `${startDate.format(
+                              'DD/MM/YYYY'
+                            )} - ${endDate.format('DD/MM/YYYY')}`;
                           })()}
                         </p>
                       ) : (
@@ -116,13 +111,13 @@ export const ActiveReservations: FC<{
 
                       {booking.occupiedPeriod && booking.occupiedPeriod ? (
                         <p className='text-sm md:text-base'>
-                          {new Date(
-                            booking.occupiedPeriod.startDate
-                          ).toLocaleDateString('en-GB')}{' '}
+                          {moment(booking.occupiedPeriod.startDate).format(
+                            'DD/MM/YYYY'
+                          )}{' '}
                           -{' '}
-                          {new Date(
-                            booking.occupiedPeriod.endDate
-                          ).toLocaleDateString('en-GB')}{' '}
+                          {moment(booking.occupiedPeriod.endDate)
+                            .add(1, 'days')
+                            .format('DD/MM/YYYY')}{' '}
                         </p>
                       ) : (
                         <p className='text-sm md:text-base'>
