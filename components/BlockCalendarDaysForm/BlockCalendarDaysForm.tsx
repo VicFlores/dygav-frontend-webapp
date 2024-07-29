@@ -86,8 +86,6 @@ const BlockCalendarDaysForm: FC<Props> = ({ setlistenBlockDate, id }) => {
       accomodation: findAccomodationById.name,
     });
 
-    console.log(response);
-
     setError('Dias bloqueados con exito');
   };
 

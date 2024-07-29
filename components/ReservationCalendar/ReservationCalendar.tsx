@@ -66,57 +66,47 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   useEffect(() => {
     const accomodationBlockDay = async (id: string) => {
       if (id) {
-        // Get current date
+        // Initialize variables
         let currentDate = new Date();
+        let startDate = new Date(currentDate.getFullYear(), 0, 1); // Start from the beginning of the year
+        let endDate;
+        let customResponse: any = [];
 
-        // Get start date as first day of previous month
-        let startDate = new Date(
-          currentDate.getFullYear(),
-          currentDate.getMonth() - 1,
-          1
-        );
+        // Loop through the year in 90-day increments
+        while (startDate.getFullYear() === currentDate.getFullYear()) {
+          // Calculate end date as 90 days from start date
+          endDate = new Date(startDate);
+          endDate.setDate(startDate.getDate() + 90);
 
-        let extraStartDate = new Date(startDate);
-        extraStartDate.setDate(startDate.getDate() + 91);
-
-        // Get end date as 90 days from start date
-        let endDate = new Date(startDate);
-        endDate.setDate(startDate.getDate() + 90);
-
-        let extraEndDate = new Date(endDate);
-        extraEndDate.setDate(endDate.getDate() + 90);
-
-        // Format dates in 'YYYY-MM-DD' format
-        let formattedStartDate = startDate.toISOString().split('T')[0];
-        let formattedEndDate = endDate.toISOString().split('T')[0];
-
-        let formattedExtraStartDate = extraStartDate
-          .toISOString()
-          .split('T')[0];
-        let formattedExtraEndDate = extraEndDate.toISOString().split('T')[0];
-
-        const res = await axios.get(
-          `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/?startDate=${formattedStartDate}&endDate=${formattedEndDate}`,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
-            },
+          // Adjust end date if it exceeds the end of the year
+          if (endDate.getFullYear() !== startDate.getFullYear()) {
+            endDate = new Date(currentDate.getFullYear(), 11, 31);
           }
-        );
 
-        const extraRes = await axios.get(
-          `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/?startDate=${formattedExtraStartDate}&endDate=${formattedExtraEndDate}`,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
-            },
-          }
-        );
+          // Format dates in 'YYYY-MM-DD' format
+          let formattedStartDate = startDate.toISOString().split('T')[0];
+          let formattedEndDate = endDate.toISOString().split('T')[0];
 
-        const customResponse = [...res.data, ...extraRes.data];
+          // Make API call
+          const res = await axios.get(
+            `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/?startDate=${formattedStartDate}&endDate=${formattedEndDate}`,
+            {
+              headers: {
+                'Content-Type': 'application/json',
+                'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+              },
+            }
+          );
 
+          // Aggregate results
+          customResponse = [...customResponse, ...res.data];
+
+          // Move to the next 90-day period
+          startDate = new Date(endDate);
+          startDate.setDate(startDate.getDate() + 1);
+        }
+
+        // Update state with aggregated results
         setAccomodationDayBlock(customResponse);
       }
     };
@@ -210,6 +200,8 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   const handleEventClick = (e: any) => {
     const reservation: any = bookingById.filter((item) => item.id === e.id)[0];
 
+    if (!reservation) return;
+
     reservation.status === 'CONFIRMED'
       ? router.push(`/private/owner/reservation/${reservation.id}`)
       : reservation.status === 'PENDING_PAYMENT'
@@ -226,8 +218,6 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
   const calculateWidthEnd = () => (windowWidth > 768 ? '85%' : '100%');
 
   const mergeReservations = [...bookingById, ...accomodationDayBlock];
-
-  console.log('mergeReservations:', mergeReservations);
 
   const reservations = mergeReservations.map((booking: any) => {
     if (booking.type === 'BLOCKED') {

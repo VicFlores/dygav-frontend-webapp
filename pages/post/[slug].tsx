@@ -38,8 +38,6 @@ const BlogPage = () => {
 
           const allPosts = [].concat(...data);
 
-          console.log(allPosts);
-
           const filterPosts = allPosts.filter((post: BlogPost) => {
             return post.slug === router.query.slug;
           })[0];
