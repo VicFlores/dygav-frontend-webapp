@@ -43,9 +43,9 @@ export const publicMenuItem: TMenuItem[] = [
 ];
 
 export const accounOwnertMenuItem: TMenuItem[] = [
-  { title: 'Mis Alojamientos', path: '/private/owner/dashboard' },
-  /*   { title: 'Mis Finanzas', path: '/private/owner/finanzas' }, */
-  { title: 'Reservas', path: '/private/tourist/dashboard' },
+  { title: 'Panel General', path: '/private/owner/dashboard' },
+  { title: 'Reservaciones', path: '/private/owner/reservations' },
+  { title: 'Mis Finanzas', path: '/private/owner/finanzas' },
   { title: 'Favoritos', path: '/private/tourist/favorites' },
 ];
 

@@ -1,4 +1,4 @@
-import { Footer, Layout, Login, UtilHead } from '@/components';
+import { Login, UtilHead } from '@/components';
 import { useSession } from 'next-auth/react';
 
 export default function LoginPage() {
@@ -6,19 +6,9 @@ export default function LoginPage() {
 
   return (
     <section>
-      <UtilHead title='Dygav Login' content='' />
+      <UtilHead title='Dygav - Inicio de sesion' content='' />
 
-      <div
-        className={
-          'w-full bg-brandContent bg-center bg-cover bg-no-repeat h-[calc(100vh+240px)] md:h-screen'
-        }
-      >
-        <Layout>
-          <Login session={session} />
-        </Layout>
-      </div>
-
-      <Footer />
+      <Login session={session} />
     </section>
   );
 }

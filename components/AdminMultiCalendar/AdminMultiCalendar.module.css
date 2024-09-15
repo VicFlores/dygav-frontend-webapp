@@ -5,6 +5,10 @@
   scrollbar-width: 5px;
   padding-bottom: 2rem;
   margin-bottom: 4rem;
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 1rem;
+  }
 }
 
 /* This will set the width of the vertical scrollbar */

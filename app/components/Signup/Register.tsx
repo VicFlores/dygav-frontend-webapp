@@ -1,18 +1,22 @@
+'use client';
+
+import React from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import styles from '../shared/RegisterLoginRecovery/RegisterLoginRecovery.module.css';
+import Image from 'next/legacy/image';
+import axios, { AxiosError } from 'axios';
 import { signIn } from 'next-auth/react';
-import { FC, useEffect, useState } from 'react';
-import { TSession } from '@/types';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import Image from 'next/image';
-import styles from '@/app/components/shared/RegisterLoginRecovery/RegisterLoginRecovery.module.css';
-import Link from 'next/link';
 
 interface IFormInput {
+  fullname: string;
+  username: string;
   email: string;
   password: string;
 }
 
-export const Login: FC<TSession> = ({ session }) => {
+export const Register = () => {
   const [error, setError] = useState('');
   const router = useRouter();
   const {
@@ -22,46 +26,38 @@ export const Login: FC<TSession> = ({ session }) => {
     formState: { errors },
   } = useForm<IFormInput>();
 
-  useEffect(() => {
-    if (session !== null && session !== undefined) {
-      if (session?.user?.role === 'tourist') {
-        return router.push('/private/tourist/dashboard');
-      }
-      if (session?.user?.role === 'owner') {
-        return router.push('/private/owner/dashboard');
-      }
-      if (session?.user?.role === 'admin') {
-        return router.push('/private/admin/dashboard');
-      }
-    }
-  }, [session, router]);
-
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    console.log(data);
+    return data;
   };
 
-  const handleLogin = async () => {
-    const { email, password } = getValues();
+  const handleRegister = async () => {
+    const { fullname, username, email, password } = getValues();
 
     setError('');
 
-    const res = await signIn('credentials', {
-      email,
-      password,
-      redirect: false,
-    });
+    try {
+      const signupResponse = await axios.post('/api/auth/signup/route', {
+        fullname,
+        email,
+        password,
+      });
 
-    if (res?.error) return setError(res.error);
+      const res = await signIn('credentials', {
+        email: signupResponse.data.email,
+        password,
+        redirect: false,
+      });
 
-    setError('Cargando...');
-  };
+      if (res?.error) return setError(res.error);
 
-  const handleGoogleLogin = async () => {
-    const res = await signIn('google');
+      if (res?.ok) return router.push('/login');
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        setError(error.response?.data.message);
+      }
 
-    if (res?.error) return setError(res.error);
-
-    setError('Cargando...');
+      setError('Cargando...');
+    }
   };
 
   return (
@@ -77,7 +73,7 @@ export const Login: FC<TSession> = ({ session }) => {
           </figure> */}
 
           <div>
-            <h1 className={styles.formContainer__title}>Iniciar Sesion</h1>
+            <h1 className={styles.formContainer__title}>Crear nueva cuenta</h1>
 
             <p className={styles.formContainer__subtitle}>
               Hola, Bienvenido a DYGAV 👋
@@ -85,6 +81,36 @@ export const Login: FC<TSession> = ({ session }) => {
           </div>
 
           <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+            <div className={styles.formInputContainer}>
+              <input
+                type='text'
+                placeholder='Nombre completo'
+                {...register('fullname', { required: true })}
+                aria-invalid={errors.fullname ? 'true' : 'false'}
+              />
+
+              {errors.fullname?.type === 'required' && (
+                <p className={styles.error} role='alert'>
+                  El nombre completo es requerido
+                </p>
+              )}
+            </div>
+
+            <div className={styles.formInputContainer}>
+              <input
+                type='text'
+                placeholder='Nombre de usuario'
+                {...register('username', { required: true })}
+                aria-invalid={errors.username ? 'true' : 'false'}
+              />
+
+              {errors.username?.type === 'required' && (
+                <p className={styles.error} role='alert'>
+                  El nombre de usuario es requerido
+                </p>
+              )}
+            </div>
+
             <div className={styles.formInputContainer}>
               <input
                 type='email'
@@ -115,17 +141,9 @@ export const Login: FC<TSession> = ({ session }) => {
               )}
             </div>
 
-            <button type='submit' onClick={handleLogin}>
-              Iniciar sesión
+            <button type='submit' onClick={handleRegister}>
+              Crear nueva cuenta
             </button>
-
-            <button type='button' onClick={handleGoogleLogin}>
-              Iniciar sesión con Google
-            </button>
-
-            <Link className={styles.recov_pass} href='/recovery'>
-              ¿Olvidaste tu contraseña?
-            </Link>
 
             <p>{error}</p>
           </form>

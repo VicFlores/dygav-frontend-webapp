@@ -1,19 +1,19 @@
-import { useSession } from 'next-auth/react';
-import { Layout, OwnersFinanzas } from '@/components';
+import { getSession, useSession } from 'next-auth/react';
+import { Layout, OwnersReservation } from '@/components';
 import Head from 'next/head';
 
-export default function OwnerFianzasdPage() {
+export default function OwnersReservationPage() {
   const { data: session } = useSession();
 
   return (
     <section>
       <Head>
-        <title>Dygav Finanzas</title>
+        <title>Dygav Dash</title>
       </Head>
 
       <Layout session={session}>
         {session ? (
-          <OwnersFinanzas session={session} />
+          <OwnersReservation session={session} />
         ) : (
           <>
             <h1>Waiting</h1>

@@ -1,0 +1,117 @@
+.controlPanel {
+  padding: 50px 20px;
+  background: var(--Background, #f0f3f8);
+  min-height: 100vh;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+}
+
+.pagination button {
+  background-color: #f4511e;
+  color: white;
+  border: none;
+  padding: 5px 30px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.pagination button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #dc4314;
+}
+
+.pagination .activePage {
+  background-color: #dc4314;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+  padding: 25px;
+  border-radius: 10px;
+  gap: 30px;
+  background-color: white;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    font-size: 14px;
+    padding: 40px;
+  }
+}
+
+.form_inputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative; /* Add this to position the pseudo-element */
+  width: 200px; /* Set a fixed width or use a percentage */
+  gap: 10px 0;
+}
+
+.form_inputContainer::after {
+  content: '';
+  position: absolute;
+  right: -15px; /* Adjust this value to position the line correctly */
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #ccc; /* Adjust the color as needed */
+}
+
+.form_inputContainer:last-child::after {
+  display: none; /* Hide the line after the last element */
+}
+
+.form_buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.form_buttons button {
+  background-color: #f4511e;
+  color: white;
+  border: none;
+  padding: 5px 30px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+  padding: 20px 40px;
+  gap: 25px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+}

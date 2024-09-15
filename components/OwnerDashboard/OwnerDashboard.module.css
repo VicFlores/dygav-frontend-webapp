@@ -1,0 +1,321 @@
+.controlPanel {
+  padding: 50px 20px;
+  background: var(--Background, #f0f3f8);
+  min-height: 100vh;
+}
+
+.controlPanel__title {
+  color: var(--gray-dark, #707070);
+  font-family: Oswald;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  align-self: stretch;
+  margin-bottom: 10px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 28px;
+  }
+}
+
+.controlPanel__subtitle {
+  color: var(--gray-dark, #707070);
+  font-family: Oswald;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  align-self: stretch;
+
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.controlPanel__title,
+.controlPanel__subtitle {
+  padding-left: 20px;
+}
+
+.news {
+  margin-top: 30px;
+  padding: 0 20px;
+}
+
+.news__card {
+  margin-bottom: 30px;
+  position: relative;
+  padding: 20px; /* Adjust padding to make space for the line */
+  border-radius: 10px;
+  background-color: white;
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+.news__card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px; /* Adjust the width of the line */
+  background-color: var(
+    --gray-dark,
+    #008000
+  ); /* Adjust the color of the line */
+}
+
+.news__card h3,
+.news__card p {
+  margin: 0;
+  padding: 10px 0; /* Adjust padding as needed */
+}
+
+.news__cardTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.news__cardTitle h3 {
+  color: #f4511e;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: normal;
+}
+
+.bookings__card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  gap: 25px;
+  border-radius: 10px;
+  padding: 30px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.bookings__image {
+  position: relative;
+  width: 220px;
+  height: 170px;
+}
+
+.bookings__image img {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 8px;
+}
+
+.bookings_cardBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  flex-grow: 0.1;
+}
+
+.bookings_status {
+  color: #008000;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.bookings_accommodation {
+  color: var(--gray-dark, #707070);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.bookings_check {
+  display: flex;
+  justify-content: space-between;
+  color: var(--gray-dark, #707070);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.bookings_details {
+  color: var(--primary, #f4511e);
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  border-radius: 8px;
+  border: 1px solid var(--primary, #f4511e);
+  background: var(--white, #fff);
+  padding: 4px;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 10px;
+  }
+}
+
+.stadistics {
+  margin-top: 60px;
+  padding: 0 20px;
+}
+
+.graph {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  gap: 150px;
+  background-color: white;
+  border-radius: 10px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+  }
+}
+
+.donutContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Adjust as needed */
+}
+
+.donut {
+  width: 150px; /* Adjust as needed */
+  height: 150px; /* Adjust as needed */
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.donut::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px; /* Increase size to make filling thinner */
+  height: 120px; /* Increase size to make filling thinner */
+  background: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.donutText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px; /* Adjust as needed */
+  color: black; /* Adjust as needed */
+  text-align: center;
+}
+
+.circle {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.bookingcom {
+  background-color: #ff385c; /* Color for Booking.com */
+}
+
+.airbnb {
+  background-color: #ff9900; /* Color for Airbnb */
+}
+
+.other {
+  background-color: #003b95; /* Color for Other Platforms */
+}
+
+.graphInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 0;
+  flex-grow: 0.5;
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+.platform {
+  text-align: center;
+}
+
+.invoiceContainer {
+  background-color: var(--white, #fff);
+  padding: 20px;
+}
+
+.circleInfo {
+  color: #707070;
+  font-size: 16px;
+}
+
+.circleData {
+  color: #707070;
+  font-size: 22px;
+}
+
+.graphLine {
+  margin: 40px 0;
+}
+
+.chartContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.chart {
+  height: 289px;
+  width: 578px;
+
+  @media screen and (max-width: 768px) {
+    height: 200px;
+    width: 342px;
+  }
+}
