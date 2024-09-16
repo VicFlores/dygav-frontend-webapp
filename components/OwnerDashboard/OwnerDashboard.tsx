@@ -147,11 +147,11 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
     const otherPercentage = (bookingCounts.other / total) * 100;
 
     return `conic-gradient(
-      #FF385C ${bookingComPercentage}%,
-      #f4511e ${bookingComPercentage}% ${
+      #003b95 ${bookingComPercentage}%,
+      #ff385c ${bookingComPercentage}% ${
       bookingComPercentage + airbnbPercentage
     }%,
-      #003b95 ${bookingComPercentage + airbnbPercentage}% ${
+      #f4511e ${bookingComPercentage + airbnbPercentage}% ${
       bookingComPercentage + airbnbPercentage + otherPercentage
     }%,
       #00aaff ${bookingComPercentage + airbnbPercentage + otherPercentage}% 100%
@@ -412,7 +412,7 @@ const LineChart = () => {
     datasets: [
       {
         label: 'Earnings',
-        data: [500, 1500, 2000, 2500, 3000],
+        data: [500, 1500, 600, 700, 2000],
         fill: false,
         backgroundColor: '#ff385c',
         borderColor: '#ff385c',

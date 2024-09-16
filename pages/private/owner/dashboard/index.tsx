@@ -8,7 +8,7 @@ export default function OwnerDashboardPage() {
   return (
     <section>
       <Head>
-        <title>Dygav Dash</title>
+        <title>Dygav Dashboard</title>
       </Head>
 
       <Layout session={session}>

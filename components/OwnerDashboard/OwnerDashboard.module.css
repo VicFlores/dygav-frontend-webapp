@@ -254,15 +254,15 @@
 }
 
 .bookingcom {
-  background-color: #ff385c; /* Color for Booking.com */
+  background-color: #003b95; /* Color for Booking.com 003b95 */
 }
 
 .airbnb {
-  background-color: #f4511e; /* Color for Airbnb */
+  background-color: #ff385c; /* Color for Airbnb ff385c */
 }
 
 .other {
-  background-color: #003b95; /* Color for Other Platforms */
+  background-color: #f4511e; /* Color for Other Platforms f4511e */
 }
 
 .graphInfo {
