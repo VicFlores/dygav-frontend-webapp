@@ -44,10 +44,10 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
       bookingReservation: 2,
       othersReservation: 0,
 
-      percentage: (122.76 / 187.73) * 100,
-      dygavPercentage: 0,
-      airbnbPercentage: 0,
-      bookingPercentage: (122.76 / 187.73) * 100,
+      percentage: 16 + 1.3 + 15 + 8,
+      dygavPercentage: 8,
+      airbnbPercentage: 15,
+      bookingPercentage: 16 + 1.3,
       othersPercentage: 0,
 
       commission: 122.76,
@@ -77,10 +77,10 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
       bookingReservation: 3,
       othersReservation: 0,
 
-      percentage: (352.14 / 2187.15) * 100 + (328.08 / 2187.15) * 100,
-      dygavPercentage: (328.08 / 2187.15) * 100,
-      airbnbPercentage: 0,
-      bookingPercentage: (352.14 / 2187.15) * 100,
+      percentage: 16 + 1.1 + 15 + 8,
+      dygavPercentage: 8,
+      airbnbPercentage: 15,
+      bookingPercentage: 16 + 1.1,
       othersPercentage: 0,
 
       commission: 352.14 + 328.08,
@@ -110,10 +110,10 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
       bookingReservation: 3,
       othersReservation: 0,
 
-      percentage: (1872.25 / 12481.73) * 100 + (1430.67 / 12481.73) * 100,
-      dygavPercentage: (1872.25 / 12481.73) * 100,
-      airbnbPercentage: 0,
-      bookingPercentage: (1430.67 / 12481.73) * 100,
+      percentage: 16 + 1.3 + 15 + 8,
+      dygavPercentage: 8,
+      airbnbPercentage: 15,
+      bookingPercentage: 16 + 1.3,
       othersPercentage: 0,
 
       commission: 1872.25 + 1430.67,
@@ -143,10 +143,10 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
       bookingReservation: 3,
       othersReservation: 1,
 
-      percentage: (340.41 / 2088.42) * 100 + (313.26 / 2088.42) * 100,
-      dygavPercentage: (313.26 / 2088.42) * 100,
-      airbnbPercentage: 0,
-      bookingPercentage: (340.41 / 2088.42) * 100,
+      percentage: 16 + 1.3 + 15 + 8,
+      dygavPercentage: 8,
+      airbnbPercentage: 15,
+      bookingPercentage: 16 + 1.3,
       othersPercentage: 0,
 
       commission: 340.41 + 313.26,
@@ -402,13 +402,13 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
 
             <h4>Percentage</h4>
             <p className={styles.percentageOne}>
-              €{totalBookingPercentage.toFixed(2)}
+              {totalBookingPercentage.toFixed(2)}%
             </p>
             <p className={styles.percentageTwo}>
-              €{totalAirbnbPercentage.toFixed(2)}
+              {totalAirbnbPercentage.toFixed(2)}%
             </p>
             <p className={styles.percentageThree}>
-              €{totalDygavPercentage.toFixed(2)}
+              {totalDygavPercentage.toFixed(2)}%
             </p>
 
             <h4 className={styles.commissionTitle}>Commission</h4>
@@ -430,7 +430,7 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
 
             <div className={styles.totalPercentage}>
               <p>Total percentage</p>
-              <p>€{totalPercentage.toFixed(2)}</p>
+              <p>{totalPercentage.toFixed(2)}%</p>
             </div>
 
             <div className={styles.totalCommission}>
