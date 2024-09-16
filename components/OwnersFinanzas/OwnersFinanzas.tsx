@@ -430,7 +430,7 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
 
             <div className={styles.totalPercentage}>
               <p>Total percentage</p>
-              <p>{totalPercentage.toFixed(2)}%</p>
+              <p>€{totalPercentage.toFixed(2)}</p>
             </div>
 
             <div className={styles.totalCommission}>
