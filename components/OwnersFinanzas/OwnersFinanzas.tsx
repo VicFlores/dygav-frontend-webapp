@@ -406,9 +406,9 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
             <p className={styles.percentageThree}>{totalDygavPercentage}%</p>
 
             <h4 className={styles.commissionTitle}>Commission</h4>
-            <p className={styles.commissionOne}>${totalBookingCommission}</p>
-            <p className={styles.commissionTwo}>${totalAirbnbCommission}</p>
-            <p className={styles.commissionThree}>${totalDygavCommission}</p>
+            <p className={styles.commissionOne}>€{totalBookingCommission}</p>
+            <p className={styles.commissionTwo}>€{totalAirbnbCommission}</p>
+            <p className={styles.commissionThree}>€{totalDygavCommission}</p>
 
             <h4 className={styles.billingTitle}>Billing</h4>
             <p className={styles.billingOne}>€{totalBookingBilling}</p>
@@ -429,7 +429,7 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
 
             <div className={styles.totalCommission}>
               <p>Total commission</p>
-              <p>${totalCommission}</p>
+              <p>€{totalCommission}</p>
             </div>
 
             <div className={styles.totalBilling}>
