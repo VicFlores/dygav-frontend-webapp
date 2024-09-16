@@ -57,8 +57,8 @@
   background: var(--white, #fff);
 
   @media screen and (max-width: 768px) {
-    white-space: normal;
-    max-width: 238px;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -137,7 +137,7 @@
 
 .partnerThree {
   position: relative;
-  height: 32px;
+  height: 45px;
   width: 74px;
   grid-column: 1;
   grid-row: 4 / 5;
@@ -320,4 +320,59 @@
 .totalFinal__item p {
   color: #5f5f5f;
   font-size: 14px;
+}
+
+.billings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 0;
+
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.downloadButtons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.downloadButtons button {
+  padding: 6px 25px;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.downloadButtons button:nth-child(1) {
+  border-radius: 8px;
+  background: var(--primary, #f4511e);
+}
+
+.downloadButtons button:nth-child(2) {
+  border-radius: 8px;
+  background: #ff395d;
+}
+
+.downloadButtons button:nth-child(3) {
+  border-radius: 8px;
+  background: #003b95;
+}
+
+.downloadButtons button:nth-child(4) {
+  border-radius: 8px;
+  background: var(--primary, #f4511e);
 }

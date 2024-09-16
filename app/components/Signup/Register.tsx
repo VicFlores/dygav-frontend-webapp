@@ -64,13 +64,13 @@ export const Register = () => {
     <main className={styles.maincontainer}>
       <div className={styles.cardContainer}>
         <div className={styles.formContainer}>
-          {/* <figure>
+          <figure className={styles.formImage}>
             <Image
-              src='https://multimedia.dygav.es/wp-content/uploads/2024/04/1.Dygav_Blanco_Vertical_z64ijw.svg'
+              src='https://res.cloudinary.com/feraguilar695/image/upload/v1725208668/DYGAV_g6gpci.svg'
               alt='Login'
               layout='fill'
             />
-          </figure> */}
+          </figure>
 
           <div>
             <h1 className={styles.formContainer__title}>Crear nueva cuenta</h1>

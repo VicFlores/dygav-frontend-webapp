@@ -130,3 +130,4 @@ export * from './Owners/CostaBlancaMgmtInfo';
 export * from './Owners/PirineoAragonesMgmtInfo';
 export * from './AdminMultiCalendar/AdminMultiCalendar';
 export * from './OwnersReservation/OwnersReservation';
+export * from './CalendarOwner/CalendarOwner';

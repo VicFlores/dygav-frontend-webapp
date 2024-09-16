@@ -147,8 +147,8 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
     const otherPercentage = (bookingCounts.other / total) * 100;
 
     return `conic-gradient(
-      #ff385c ${bookingComPercentage}%,
-      #ff9900 ${bookingComPercentage}% ${
+      #FF385C ${bookingComPercentage}%,
+      #f4511e ${bookingComPercentage}% ${
       bookingComPercentage + airbnbPercentage
     }%,
       #003b95 ${bookingComPercentage + airbnbPercentage}% ${
@@ -203,12 +203,43 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
               </div>
 
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur.
+                New view in the dashboard where you can see billing on the
+                different platforms in real time.
+              </p>
+            </div>
+
+            <div className={styles.news__card}>
+              <div className={styles.news__cardTitle}>
+                <h3>New update available</h3>
+
+                <p>September 7, 2024</p>
+              </div>
+
+              <div className={styles.news__cardTitle}>
+                <h3>New dygav Owners Dashboard</h3>
+
+                <p>Version 1.5</p>
+              </div>
+
+              <p>Design changes to improve navigation in the owners account.</p>
+            </div>
+
+            <div className={styles.news__card}>
+              <div className={styles.news__cardTitle}>
+                <h3>New update available</h3>
+
+                <p>September 7, 2024</p>
+              </div>
+
+              <div className={styles.news__cardTitle}>
+                <h3>New dygav Owners Dashboard</h3>
+
+                <p>Version 1.5</p>
+              </div>
+
+              <p>
+                New archive page in your owner account where you can download
+                your history of invoices and settlements.
               </p>
             </div>
 
@@ -226,12 +257,8 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
               </div>
 
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur.
+                Ability to change the user account language to English or
+                Spanish (coming soon)
               </p>
             </div>
           </div>

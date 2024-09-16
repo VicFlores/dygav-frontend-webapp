@@ -14,6 +14,10 @@ import { useSession } from 'next-auth/react';
 import { TbLockOff } from 'react-icons/tb';
 import styles from './reservationCalendar.module.css';
 
+// Set the locale to English
+moment.locale('en');
+
+// Initialize the momentLocalizer with the configured moment instance
 const localizer = momentLocalizer(moment);
 
 interface ReservationCalendarProps {
@@ -307,7 +311,7 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
 
       <div className='flex flex-col justify-center items-center lg:flex-row lg:justify-between lg:items-end border-b-[1px] mt-20 mb-8'>
         <p className=' text-black900/[.7] text-2xl text-center md:text-left md:text-3xl lg:text-4xl'>
-          Reservas en mi alojamiento
+          Reservations at my accommodation
         </p>
 
         <div className='relative my-4 lg:my-0 lg:mb-2 '>
@@ -316,7 +320,7 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
             onClick={toggleForm}
             className='bg-p600 hover:bg-p800 text-center text-[13px] md:text-sm lg:text-base py-2 px-16 w-auto text-white'
           >
-            {showForm ? 'Ocultar Bloquear Dia' : 'Ver Bloquear Dia'}
+            {showForm ? 'Hide Block Day' : 'View Block Day'}
           </button>
         </div>
       </div>
@@ -342,8 +346,8 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
 
         <label htmlFor='toggle' className='pl-3 mt-4 md:mt-0'>
           {isEmailChecked
-            ? 'No Recibir notificaciones por email'
-            : 'Recibir notificaciones por email'}
+            ? 'Do Not Receive Email Notifications'
+            : 'Receive email notifications'}
         </label>
       </div>
 
@@ -360,10 +364,10 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
         views={['month']}
         messages={{
           agenda: 'Reservaciones',
-          month: 'Mes',
-          today: 'Hoy',
-          previous: 'Anterior',
-          next: 'Siguiente',
+          month: 'Month',
+          today: 'Today',
+          previous: 'Prev',
+          next: 'Next',
           work_week: 'Semana laboral',
           allDay: 'Todo el dia',
           date: 'Fecha',

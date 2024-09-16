@@ -1,14 +1,175 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect, FC } from 'react';
 import { axiosConfig } from '@/utils';
 import axios from 'axios';
 import { Session } from 'next-auth';
-import React, { FC, useEffect, useState } from 'react';
 import styles from './OwnersFinanzas.module.css';
 import Image from 'next/legacy/image';
 
 export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
   const [data, setData] = useState<any[]>([]);
-  const [selectedAccommodation, setSelectedAccommodation] = useState<any>(null);
+  const [selectedAccommodation, setSelectedAccommodation] = useState<
+    any | null
+  >(null);
+  const [selectedMonth, setSelectedMonth] = useState('August');
+  const [reservations, setReservations] = useState(0);
+  const [dygavReservation, setDygavReservation] = useState(0);
+  const [airbnbReservation, setAirbnbReservation] = useState(0);
+  const [bookingReservation, setBookingReservation] = useState(0);
+  const [othersReservation, setOthersReservation] = useState(0);
+  const [percentage, setPercentage] = useState(0);
+  const [commission, setCommission] = useState(0);
+  const [billing, setBilling] = useState(0);
+  const [cleaning, setCleaning] = useState(0);
+  const [partnerCommission, setPartnerCommission] = useState(0);
+  const [dygavCommission, setDygavCommission] = useState(0);
+  const [bookingCommission, setBookingCommission] = useState(0);
+  const [othersCommission, setOthersCommission] = useState(0);
+  const [airbnbCommission, setAirbnbCommission] = useState(0);
+  const [addtionalExpenses, setAdditionalExpenses] = useState(0);
+  const [dygavPercentage, setDygavPercentage] = useState(0);
+  const [airbnbPercentage, setAirbnbPercentage] = useState(0);
+  const [bookingPercentage, setBookingPercentage] = useState(0);
+  const [othersPercentage, setOthersPercentage] = useState(0);
+  const [dygavBilling, setDygavBilling] = useState(0);
+  const [airbnbBilling, setAirbnbBilling] = useState(0);
+  const [bookingBilling, setBookingBilling] = useState(0);
+  const [pdfUrls, setPdfUrls] = useState<string[]>([]);
+
+  const accommodationValues: Record<string, any> = {
+    'VT025 Orense 18, 6-6': {
+      reservations: 2,
+      dygavReservation: 0,
+      airbnbReservation: 0,
+      bookingReservation: 2,
+      othersReservation: 0,
+
+      percentage: 1.3,
+      dygavPercentage: 0,
+      airbnbPercentage: 0,
+      bookingPercentage: 1.3,
+      othersPercentage: 0,
+
+      commission: 122.76,
+      dygavCommission: 0,
+      bookingCommission: 122.76,
+      othersCommission: 0,
+      airbnbCommission: 0,
+
+      billing: 670.87,
+      dygavBilling: 0,
+      airbnbBilling: 0,
+      bookingBilling: 670.87,
+
+      cleaning: 102.26,
+      partnerCommission: 122.76,
+      additionalExpenses: 0,
+      pdfUrls: [
+        'https://dygav-storage.nyc3.cdn.digitaloceanspaces.com/dygav_official/025/FACVT-025-001-2024-08%20(1).pdf',
+        'https://dygav-storage.nyc3.cdn.digitaloceanspaces.com/dygav_official/025/LIQVT-025-001-2024-08%20(1).pdf',
+        'https://dygav-storage.nyc3.cdn.digitaloceanspaces.com/dygav_official/025/1000-1616126140.pdf',
+      ],
+    },
+    'VTM-020 Orense 18 2F': {
+      reservations: 3,
+      dygavReservation: 0,
+      airbnbReservation: 0,
+      bookingReservation: 3,
+      othersReservation: 0,
+
+      percentage: 1.1,
+      dygavPercentage: 0,
+      airbnbPercentage: 0,
+      bookingPercentage: 1.1,
+      othersPercentage: 0,
+
+      commission: 352.14,
+      dygavCommission: 0,
+      bookingCommission: 352.14,
+      othersCommission: 0,
+      airbnbCommission: 0,
+
+      billing: 2187.15,
+      dygavBilling: 0,
+      airbnbBilling: 0,
+      bookingBilling: 2187.15,
+
+      cleaning: 185.94,
+      partnerCommission: 352.14,
+      additionalExpenses: 0,
+      pdfUrls: [
+        'https://dygav-storage.nyc3.cdn.digitaloceanspaces.com/dygav_official/020/FACVT-020-001-2024-08%20(1).pdf',
+        'https://dygav-storage.nyc3.cdn.digitaloceanspaces.com/dygav_official/020/LIQVT-020-001-2024-08.pdf',
+        'https://dygav-storage.nyc3.cdn.digitaloceanspaces.com/dygav_official/020/invoice-1616126000.pdf',
+      ],
+    },
+    'VT040 Villa Bonavista': {
+      reservations: 4,
+      dygavReservation: 0,
+      airbnbReservation: 0,
+      bookingReservation: 3,
+      othersReservation: 1,
+
+      percentage: 2.6,
+      dygavPercentage: 0,
+      airbnbPercentage: 0,
+      bookingPercentage: 1.3,
+      othersPercentage: 1.3,
+
+      commission: 1801.12,
+      dygavCommission: 0,
+      bookingCommission: 1430.67,
+      othersCommission: 370.45,
+      airbnbCommission: 0,
+
+      billing: 12481.73,
+      dygavBilling: 0,
+      airbnbBilling: 0,
+      bookingBilling: 12481.73,
+
+      cleaning: 495.88,
+      partnerCommission: 1801.12,
+      additionalExpenses: 0,
+      pdfUrls: [
+        'https://dygav-storage.nyc3.cdn.digitaloceanspaces.com/dygav_official/040/FACVT-040-001-2024-08.pdf',
+        'https://dygav-storage.nyc3.cdn.digitaloceanspaces.com/dygav_official/040/LIQVT-040-001-2024-08%20_2_.pdf',
+        'https://dygav-storage.nyc3.cdn.digitaloceanspaces.com/dygav_official/040/1000-1616330650.pdf',
+      ],
+    },
+    'VT028 Islandia 1, 2C': {
+      reservations: 4,
+      dygavReservation: 0,
+      airbnbReservation: 0,
+      bookingReservation: 3,
+      othersReservation: 1,
+
+      percentage: 1.3,
+      dygavPercentage: 0,
+      airbnbPercentage: 0,
+      bookingPercentage: 1.3,
+      othersPercentage: 0,
+
+      commission: 340.41,
+      dygavCommission: 0,
+      bookingCommission: 340.41,
+      othersCommission: 0,
+      airbnbCommission: 0,
+
+      billing: 2088.42,
+      dygavBilling: 0,
+      airbnbBilling: 0,
+      bookingBilling: 2088.42,
+
+      cleaning: 214.88,
+      partnerCommission: 340.41,
+      additionalExpenses: 0,
+      pdfUrls: [
+        'https://dygav-storage.nyc3.cdn.digitaloceanspaces.com/dygav_official/028/FACVT-028-001-2024-08.pdf',
+        'https://dygav-storage.nyc3.cdn.digitaloceanspaces.com/dygav_official/028/LIQVT-028-001-2024-08.pdf',
+        'https://dygav-storage.nyc3.cdn.digitaloceanspaces.com/dygav_official/028/1000-1616212973.pdf',
+      ],
+    },
+  };
 
   useEffect(() => {
     const fetchAccommodations = async () => {
@@ -30,7 +191,10 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
                 },
               }
             );
-            return dataAvaibook;
+            return {
+              id: item.accomodationId,
+              name: dataAvaibook.name as keyof typeof accommodationValues,
+            };
           })
         );
 
@@ -46,6 +210,37 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
     fetchAccommodations();
   }, []);
 
+  useEffect(() => {
+    if (selectedAccommodation) {
+      const values = accommodationValues[selectedAccommodation.name.toString()];
+      if (values) {
+        setReservations(values.reservations);
+        setPercentage(values.percentage);
+        setCommission(values.commission);
+        setBilling(values.billing);
+        setPdfUrls(values.pdfUrls);
+        setCleaning(values.cleaning);
+        setPartnerCommission(values.partnerCommission);
+        setDygavCommission(values.dygavCommission);
+        setAdditionalExpenses(values.additionalExpenses);
+        setDygavReservation(values.dygavReservation);
+        setAirbnbReservation(values.airbnbReservation);
+        setBookingReservation(values.bookingReservation);
+        setOthersReservation(values.othersReservation);
+        setDygavPercentage(values.dygavPercentage);
+        setAirbnbPercentage(values.airbnbPercentage);
+        setBookingPercentage(values.bookingPercentage);
+        setOthersPercentage(values.othersPercentage);
+        setBookingCommission(values.bookingCommission);
+        setOthersCommission(values.othersCommission);
+        setAirbnbCommission(values.airbnbCommission);
+        setDygavBilling(values.dygavBilling);
+        setAirbnbBilling(values.airbnbBilling);
+        setBookingBilling(values.bookingBilling);
+      }
+    }
+  }, [selectedAccommodation]);
+
   const handleButtonClick = (accommodation: any) => {
     setSelectedAccommodation(accommodation);
   };
@@ -55,6 +250,57 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
     const currentYear = new Date().getFullYear(); // Gets the current year
     return `VT-${randomFourDigits}-${currentYear}`;
   };
+
+  const handleMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedMonth(event.target.value);
+  };
+
+  const downloadPDF = (url: string) => {
+    const link = document.createElement('a');
+    link.href = url;
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
+  const totalReservations = reservations;
+  const totalPercentage = percentage;
+  const totalCommission = commission;
+  const totalBilling = billing;
+  const totalCleaning = cleaning;
+  const totalPartnerCommission = partnerCommission;
+  const totalDygavCommission = dygavCommission;
+  const totalBookingCommission = bookingCommission;
+  const totalOthersCommission = othersCommission;
+  const totalAirbnbCommission = airbnbCommission;
+  const totalAdditionalExpenses = addtionalExpenses;
+  const totalDygavReservation = dygavReservation;
+  const totalAirbnbReservation = airbnbReservation;
+  const totalBookingReservation = bookingReservation;
+  const totalOthersReservation = othersReservation;
+  const totalDygavPercentage = dygavPercentage;
+  const totalAirbnbPercentage = airbnbPercentage;
+  const totalBookingPercentage = bookingPercentage;
+  const totalOthersPercentage = othersPercentage;
+  const totalDygavBilling = dygavBilling;
+  const totalAirbnbBilling = airbnbBilling;
+  const totalBookingBilling = bookingBilling;
 
   return (
     <div className={styles.controlPanel}>
@@ -76,7 +322,7 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
                   }`}
                   onClick={() => handleButtonClick(accommodation)}
                 >
-                  {accommodation.name}
+                  {accommodation.name.toString()}
                 </button>
               ))}
             </div>
@@ -87,142 +333,145 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
       </div>
 
       {selectedAccommodation && (
-        <div className={styles.invoiceContainer}>
-          <div className={styles.invoiceInfo}>
-            <h4>Invoice number</h4>
+        <div>
+          <div className={styles.invoiceContainer}>
+            <div className={styles.invoiceInfo}>
+              <h4>Invoice number</h4>
+              <p>{generateInvoiceNumber()}</p>
+            </div>
 
-            <p>{generateInvoiceNumber()}</p>
+            <div className={styles.invoiceInfo}>
+              <h4>Accommodation</h4>
+              <p>{selectedAccommodation.name.toString()}</p>
+            </div>
+
+            <div className={styles.invoiceInfo}>
+              <h4>Owner</h4>
+              <p>Jose Llaneza</p>
+            </div>
+
+            <div className={styles.invoiceInfo}>
+              <h4>Month</h4>
+              <select value={selectedMonth} onChange={handleMonthChange}>
+                {months.map((month, index) => (
+                  <option key={index} value={month}>
+                    {month}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
 
-          <div className={styles.invoiceInfo}>
-            <h4>Accommodation</h4>
+          <div className={styles.invoiceInfoContainer}>
+            <h4>Platform</h4>
 
-            <p>{selectedAccommodation.name}</p>
+            <div className={styles.partnerOne}>
+              <figure>
+                <Image
+                  src='https://multimedia.dygav.es/wp-content/uploads/2024/04/Booking-Logo_osnjdx.png'
+                  alt='Booking.com'
+                  layout='fill'
+                />
+              </figure>
+            </div>
+
+            <div className={styles.partnerTwo}>
+              <figure>
+                <Image
+                  src='https://multimedia.dygav.es/wp-content/uploads/2024/04/ABNB_ugauy3.png'
+                  alt='Airbnb'
+                  layout='fill'
+                />
+              </figure>
+            </div>
+
+            <div className={styles.partnerThree}>
+              <figure>
+                <Image
+                  src='https://res.cloudinary.com/feraguilar695/image/upload/v1725208668/DYGAV_g6gpci.svg'
+                  alt='Dygav'
+                  layout='fill'
+                />
+              </figure>
+            </div>
+
+            <h4>Reservations</h4>
+            <p className={styles.reservationOne}>{totalBookingReservation}</p>
+            <p className={styles.reservationTwo}>{totalAirbnbReservation}</p>
+            <p className={styles.reservationThree}>{totalDygavReservation}</p>
+
+            <h4>Percentage</h4>
+            <p className={styles.percentageOne}>{totalBookingPercentage}%</p>
+            <p className={styles.percentageTwo}>{totalAirbnbPercentage}%</p>
+            <p className={styles.percentageThree}>{totalDygavPercentage}%</p>
+
+            <h4 className={styles.commissionTitle}>Commission</h4>
+            <p className={styles.commissionOne}>${totalBookingCommission}</p>
+            <p className={styles.commissionTwo}>${totalAirbnbCommission}</p>
+            <p className={styles.commissionThree}>${totalDygavCommission}</p>
+
+            <h4 className={styles.billingTitle}>Billing</h4>
+            <p className={styles.billingOne}>€{totalBookingBilling}</p>
+            <p className={styles.billingTwo}>€{totalAirbnbBilling}</p>
+            <p className={styles.billingThree}>€{totalDygavBilling}</p>
+
+            <hr className={styles.divider} />
+
+            <div className={styles.totalReservations}>
+              <p>Total reservations</p>
+              <p>{totalReservations}</p>
+            </div>
+
+            <div className={styles.totalPercentage}>
+              <p>Total percentage</p>
+              <p>{totalPercentage}%</p>
+            </div>
+
+            <div className={styles.totalCommission}>
+              <p>Total commission</p>
+              <p>${totalCommission}</p>
+            </div>
+
+            <div className={styles.totalBilling}>
+              <p>Total billing</p>
+              <p>€{totalBilling}</p>
+            </div>
           </div>
 
-          <div className={styles.invoiceInfo}>
-            <h4>Owner</h4>
+          <div className={styles.totalFinal}>
+            <div className={styles.totalFinal__item}>
+              <h4>€{totalCleaning}</h4>
+              <p>Cleanings</p>
+            </div>
 
-            <p>Jose Llaneza</p>
+            <div className={styles.totalFinal__item}>
+              <h4>€{totalPartnerCommission}</h4>
+              <p>Partner Commission</p>
+            </div>
+
+            <div className={styles.totalFinal__item}>
+              <h4>€{totalDygavCommission}</h4>
+              <p>DYGAV&apos;s Total Commission</p>
+            </div>
+
+            <div className={styles.totalFinal__item}>
+              <h4>€{totalAdditionalExpenses}</h4>
+              <p>Total additional expenses</p>
+            </div>
           </div>
 
-          <div className={styles.invoiceInfo}>
-            <h4>Date</h4>
+          <div className={styles.billings}>
+            <h4>Download billing</h4>
 
-            <p>September</p>
+            <div className={styles.downloadButtons}>
+              <button onClick={() => downloadPDF(pdfUrls[0])}>Dygav 1</button>
+              <button>Airbnb 0</button>
+              <button onClick={() => downloadPDF(pdfUrls[2])}>Booking 1</button>
+              <button onClick={() => downloadPDF(pdfUrls[1])}>Others 1</button>
+            </div>
           </div>
         </div>
       )}
-
-      <div className={styles.invoiceInfoContainer}>
-        <h4>Platform</h4>
-
-        <div className={styles.partnerOne}>
-          <figure>
-            <Image
-              src='https://multimedia.dygav.es/wp-content/uploads/2024/04/Booking-Logo_osnjdx.png'
-              alt='Booking.com'
-              layout='fill'
-            />
-          </figure>
-        </div>
-
-        <div className={styles.partnerTwo}>
-          <figure>
-            <Image
-              src='https://multimedia.dygav.es/wp-content/uploads/2024/04/ABNB_ugauy3.png'
-              alt='Airbnb'
-              layout='fill'
-            />
-          </figure>
-        </div>
-
-        <div className={styles.partnerThree}>
-          <figure>
-            <Image
-              src='https://multimedia.dygav.es/wp-content/uploads/2024/04/0x0_j8hysr.png'
-              alt='Rentalia'
-              layout='fill'
-            />
-          </figure>
-        </div>
-
-        <h4>Reservations</h4>
-
-        <p className={styles.reservationOne}>10</p>
-
-        <p className={styles.reservationTwo}>5</p>
-
-        <p className={styles.reservationThree}>3</p>
-
-        <h4>Percentage</h4>
-
-        <p className={styles.percentageOne}>15%</p>
-
-        <p className={styles.percentageTwo}>20%</p>
-
-        <p className={styles.percentageThree}>25%</p>
-
-        <h4 className={styles.commissionTitle}>Commission</h4>
-
-        <p className={styles.commissionOne}>$150</p>
-
-        <p className={styles.commissionTwo}>$200</p>
-
-        <p className={styles.commissionThree}>$250</p>
-
-        <h4 className={styles.billingTitle}>Billing</h4>
-
-        <p className={styles.billingOne}>€1500</p>
-
-        <p className={styles.billingTwo}>€1000</p>
-
-        <p className={styles.billingThree}>€750</p>
-
-        <hr className={styles.divider} />
-
-        <div className={styles.totalReservations}>
-          <p>Total reservations</p>
-          <p>18</p>
-        </div>
-
-        <div className={styles.totalPercentage}>
-          <p>Total percentage</p>
-          <p>25%</p>
-        </div>
-
-        <div className={styles.totalCommission}>
-          <p>Total commission</p>
-          <p>$600</p>
-        </div>
-
-        <div className={styles.totalBilling}>
-          <p>Total billing</p>
-          <p>$2650</p>
-        </div>
-      </div>
-
-      <div className={styles.totalFinal}>
-        <div className={styles.totalFinal__item}>
-          <h4>€1.800</h4>
-          <p>Cleanings</p>
-        </div>
-
-        <div className={styles.totalFinal__item}>
-          <h4>€1.200</h4>
-          <p>Partner Commission</p>
-        </div>
-
-        <div className={styles.totalFinal__item}>
-          <h4>€1.356</h4>
-          <p>DYGAV&apos;s Total Commission</p>
-        </div>
-
-        <div className={styles.totalFinal__item}>
-          <h4>€1.120</h4>
-          <p>Total additional expenses</p>
-        </div>
-      </div>
     </div>
   );
 };
