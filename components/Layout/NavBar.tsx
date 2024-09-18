@@ -5,7 +5,6 @@ import {
   accounOwnertMenuItem,
   accounTouristMenuItem,
   accountAdminMenuItem,
-  publicMenuItem,
   useAccountAdminMenuItems,
   useAccountOwnerMenuItems,
   useAccountTouristMenuItems,
@@ -173,7 +172,7 @@ export const NavBar: FC<TSession> = ({ session }) => {
           </div>
 
           <div className='space-x-8'>
-            {publicMenuItem.map((item, index) => (
+            {publicMenuItems.map((item, index) => (
               <Link
                 key={index}
                 className=' text-[20px] text-white'
@@ -191,7 +190,7 @@ export const NavBar: FC<TSession> = ({ session }) => {
               id='toggle'
               className='bg-white text-p600 px-5 py-2'
             >
-              Crear Cuenta
+              {dictionary.nav?.createAccount}
             </Link>
 
             <Link
@@ -200,7 +199,7 @@ export const NavBar: FC<TSession> = ({ session }) => {
               id='toggle'
               className='bg-p600 text-white px-5 py-2'
             >
-              Iniciar Sesion
+              {dictionary.nav?.login}
             </Link>
           </div>
         </nav>

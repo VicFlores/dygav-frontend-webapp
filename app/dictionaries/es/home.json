@@ -64,8 +64,10 @@
     "nav": {
         "logout": "Cerrar Sesión",
         "welcome": "Bienvenido",
-        "hello": "Hola"
-
+        "hello": "Hola",
+        "createAccount": "Crear Cuenta",
+        "login": "Iniciar Sesión"
+        
     }
     
 }
