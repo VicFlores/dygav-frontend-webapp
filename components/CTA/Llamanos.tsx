@@ -33,7 +33,7 @@ export const Llamanos: FC<{ paddingX?: string }> = ({ paddingX = 'px-16' }) => {
                 id='toggle'
                 className='bg-p600 hover:bg-p800 text-center text-xs md:text-sm lg:text-base py-2 px-4 w-full md:w-[240px] lg:w-[280px] text-white justify-self-center self-center'
               >
-                +34 614 165 736
+                +34 614 124 863
               </button>
             </a>
           </div>
