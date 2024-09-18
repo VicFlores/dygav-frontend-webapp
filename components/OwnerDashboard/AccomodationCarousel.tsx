@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/legacy/image';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
+import useDictionary from '@/app/hooks/useDictionary';
 
 export const AccomodationCarousel = ({ item, index }: any) => {
   const [expanded, setExpanded] = useState(false);
+  const dictionary: any = useDictionary('calendar');
 
   return (
     <div
@@ -45,7 +47,7 @@ export const AccomodationCarousel = ({ item, index }: any) => {
           passHref
           className='text-center text-p600 hover:bg-gray300 border-[1px] border-p600 rounded-md text-[13px] md:text-sm lg:text-base py-2 px-4 w-full'
         >
-          See Calendar
+          {dictionary.calendarOwner?.seeCalendar}
         </Link>
       </div>
     </div>

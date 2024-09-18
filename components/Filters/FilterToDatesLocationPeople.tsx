@@ -10,15 +10,11 @@ import 'rsuite/DateRangePicker/styles/index.css';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import { CustomProvider } from 'rsuite';
 import esES from 'rsuite/locales/es_ES';
+import useDictionary from '@/app/hooks/useDictionary';
 
 interface FormData {
   ubicacion: string;
   huespedes: number;
-}
-
-interface ExampleCustomInputProps {
-  value?: string;
-  onClick?: () => void;
 }
 
 export const FilterToDatesLocationPeople = () => {
@@ -27,6 +23,7 @@ export const FilterToDatesLocationPeople = () => {
   const [endDate, setEndDate] = useState<Date | null>(null);
   const { register, handleSubmit } = useForm<FormData>();
   const router = useRouter();
+  const dictionary = useDictionary('home');
 
   const capitalizeFirstLetterOfEachWord = (string: string) => {
     return string
@@ -61,7 +58,9 @@ export const FilterToDatesLocationPeople = () => {
       className='grid grid-cols-1 lg:grid-cols-4 lg:gap-0 md:gap-8 gap-6 py-6 mt-16 bg-p600/50'
     >
       <div className='text-center self-center justify-self-center'>
-        <p className='pb-2 font-semibold'>Escoge tu ciudad</p>
+        <p className='pb-2 font-semibold'>
+          {dictionary.filterToDatesLocationPeople?.inputCity}
+        </p>
         <label className='relative'>
           <FaLocationDot className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
           <select
@@ -71,7 +70,7 @@ export const FilterToDatesLocationPeople = () => {
             onChange={(e) => setSelectedOption(e.target.value)}
           >
             <option value='default' disabled>
-              Ciudad
+              {dictionary.filterToDatesLocationPeople?.city}
             </option>
             <option value='torrevieja'>Torrevieja</option>
             <option value='madrid'>Madrid</option>
@@ -92,7 +91,7 @@ export const FilterToDatesLocationPeople = () => {
               isoWeek
               showOneCalendar
               ranges={[]}
-              placeholder='Fechas de reserva'
+              placeholder={dictionary.filterToDatesLocationPeople?.dates}
               size='md'
               caretAs={null}
               showHeader={false}
@@ -111,13 +110,15 @@ export const FilterToDatesLocationPeople = () => {
       </div>
 
       <div className='text-center self-center justify-self-center'>
-        <p className='pb-2 font-semibold'>Número de Viajeros</p>
+        <p className='pb-2 font-semibold'>
+          {dictionary.filterToDatesLocationPeople?.inputTravellers}
+        </p>
         <label className='relative'>
           <BsPeopleFill className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-black900' />
           <input
             {...register('huespedes', { required: true })}
             type='number'
-            placeholder='Huéspedes'
+            placeholder={dictionary.filterToDatesLocationPeople?.guests}
             className='rounded-lg pl-10 pr-4 lg:w-[275px] lg:h-11 md:w-96 w-[240px] bg-transparent shadow appearance-none bg-white border border-white placeholder:text-black900 py-2 text-black900 leading-tight focus:outline-none focus:shadow-outline'
           />
         </label>
@@ -128,9 +129,9 @@ export const FilterToDatesLocationPeople = () => {
           <AiOutlineCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 right-7' />
           <button
             type='submit'
-            className='bg-p600 hover:bg-p800 py-2 px-4 w-[180px] text-left text-white justify-self-center self-center'
+            className='bg-p600 hover:bg-p800 py-2 px-4 w-[180px] lg:w-[130px] text-left text-white justify-self-center self-center'
           >
-            Buscar ahora
+            {dictionary.filterToDatesLocationPeople?.searchButton}
           </button>
         </div>
       </div>

@@ -1,0 +1,38 @@
+{
+    "ownersFinanzas": {
+        "title": "Finanzas",
+        "subtitle": "Selecciona el alojamiento",
+        "invoiceNumber": "Numero de factura",
+        "accommodation": "Alojamiento",
+        "owner": "Propietario",
+        "month": "Mes",
+        "monthName": [
+            "Enero",
+            "Febrero",
+            "Marzo",
+            "Abril",
+            "Mayo",
+            "Junio",
+            "Julio",
+            "Agosto",
+            "Septiembre",
+            "Octubre",
+            "Noviembre",
+            "Diciembre"
+        ],
+        "platform": "Plataforma",
+        "reservations": "Reservas",
+        "percentage": "Porcentaje",
+        "commission": "Comisión",
+        "facturation": "Facturación",
+        "totalReservations": "Total de reservas",
+        "totalPercentage": "Porcentaje total",
+        "totalCommission": "Comisión total",
+        "totalFacturation": "Facturación total",
+        "cleaning": "Limpieza",
+        "partnerCommission": "Comisión de socio",
+        "dygavCommission": "Comisión de Dygav",
+        "totalAdditional": "Gastos adicionales totales",
+        "download": "Descargar facturación"
+    }
+}

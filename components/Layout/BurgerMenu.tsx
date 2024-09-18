@@ -11,7 +11,13 @@ import {
   accounTouristMenuItem,
   accountAdminMenuItem,
   publicMenuItem,
+  useAccountAdminMenuItems,
+  useAccountOwnerMenuItems,
+  useAccountTouristMenuItems,
+  usePublicMenuItems,
 } from '@/utils';
+import useDictionary from '@/app/hooks/useDictionary';
+import LanguageSwitcher from '@/app/components/shared/LanguageSwitcher/LanguageSwitcher';
 
 const imageUrl =
   'https://multimedia.dygav.es/wp-content/uploads/2024/04/1.Dygav_Blanco_Vertical_z64ijw.svg';
@@ -32,31 +38,44 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
       ? 'bg-p600'
       : 'bg-transparent';
 
-  const menuItems =
-    currentUrl.startsWith('/private/tourist') ||
-    currentUrl.startsWith('/private/owner') ||
-    currentUrl.startsWith('/private/admin')
-      ? publicMenuItem
-      : publicMenuItem;
+  const publicMenuItems = usePublicMenuItems();
+  const ownerMenuItems = useAccountOwnerMenuItems();
+  const touristMenuItems = useAccountTouristMenuItems();
+  const adminMenuItems = useAccountAdminMenuItems();
 
-  const hoverMenuItems =
-    session?.user?.role === 'owner'
-      ? currentUrl.startsWith('/private/owner')
-        ? accounOwnertMenuItem
-        : accounOwnertMenuItem
-      : session?.user?.role === 'tourist'
+  const menuItems =
+    session?.user?.role === 'tourist'
       ? currentUrl.startsWith('/private/tourist')
-        ? accounTouristMenuItem
-        : accounTouristMenuItem
-      : session?.user?.role === ('owner' as string)
-      ? currentUrl.startsWith('/private/tourist')
-        ? accounTouristMenuItem
-        : accounTouristMenuItem
+        ? touristMenuItems
+        : publicMenuItems
+      : session?.user?.role === 'owner'
+      ? currentUrl.startsWith('/private/owner') ||
+        currentUrl.startsWith('/private/tourist')
+        ? ownerMenuItems
+        : publicMenuItems
       : session?.user?.role === 'admin'
       ? currentUrl.startsWith('/private/admin')
-        ? accountAdminMenuItem
-        : accountAdminMenuItem
-      : publicMenuItem;
+        ? adminMenuItems
+        : publicMenuItems
+      : publicMenuItems;
+
+  const hoverMenuItems =
+    session?.user?.role === 'tourist'
+      ? !currentUrl.startsWith('/private/tourist')
+        ? touristMenuItems
+        : publicMenuItems
+      : session?.user?.role === 'admin'
+      ? !currentUrl.startsWith('/private/admin')
+        ? adminMenuItems
+        : publicMenuItems
+      : session?.user?.role === 'owner'
+      ? !currentUrl.startsWith('/private/owner') &&
+        !currentUrl.startsWith('/private/tourist')
+        ? ownerMenuItems
+        : publicMenuItems
+      : publicMenuItems;
+
+  const dictionary: any = useDictionary('home');
 
   return (
     <>
@@ -84,7 +103,8 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
             <div className='grid gap-y-8 bg-p400/70 h-auto pt-6 pb-6 mt-6'>
               <ul className='grid justify-center items-center text-center gap-y-2'>
                 <p className='text-[20px] text-white font-semibold'>
-                  ¡Hola {session.user.name || session.user.fullname}!
+                  ¡{dictionary.nav?.hello}{' '}
+                  {session.user.name || session.user.fullname}!
                 </p>
 
                 <figure className='h-16 w-16 relative justify-self-center self-center mb-4'>
@@ -120,6 +140,8 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
                     {item.title}
                   </Link>
                 ))}
+
+                <LanguageSwitcher />
               </ul>
 
               <div className='grid justify-center items-center gap-y-4'>
@@ -130,7 +152,7 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
                     router.push('/login');
                   }}
                 >
-                  Cerrar Sesion
+                  {dictionary.nav?.logout}
                 </button>
               </div>
             </div>

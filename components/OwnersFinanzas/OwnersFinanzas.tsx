@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Session } from 'next-auth';
 import styles from './OwnersFinanzas.module.css';
 import Image from 'next/legacy/image';
+import useDictionary from '@/app/hooks/useDictionary';
 
 export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
   const [data, setData] = useState<any[]>([]);
@@ -264,21 +265,6 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
     document.body.removeChild(link);
   };
 
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-
   const totalReservations = reservations;
   const totalPercentage = percentage;
   const totalCommission = commission;
@@ -302,12 +288,18 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
   const totalAirbnbBilling = airbnbBilling;
   const totalBookingBilling = bookingBilling;
 
+  const dictionary: any = useDictionary('finances');
+
   return (
     <div className={styles.controlPanel}>
-      <h1 className={styles.controlPanel__title}>Finance</h1>
+      <h1 className={styles.controlPanel__title}>
+        {dictionary.ownersFinanzas?.title}
+      </h1>
 
       <div className={styles.searcher}>
-        <p className={styles.controlPanel__subtitle}>Select accommodations</p>
+        <p className={styles.controlPanel__subtitle}>
+          {dictionary.ownersFinanzas?.subtitle}
+        </p>
 
         {data.length > 0 ? (
           <>
@@ -336,34 +328,36 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
         <div>
           <div className={styles.invoiceContainer}>
             <div className={styles.invoiceInfo}>
-              <h4>Invoice number</h4>
+              <h4>{dictionary.ownersFinanzas?.invoiceNumber}</h4>
               <p>{generateInvoiceNumber()}</p>
             </div>
 
             <div className={styles.invoiceInfo}>
-              <h4>Accommodation</h4>
+              <h4>{dictionary.ownersFinanzas?.accommodation}</h4>
               <p>{selectedAccommodation.name.toString()}</p>
             </div>
 
             <div className={styles.invoiceInfo}>
-              <h4>Owner</h4>
+              <h4>{dictionary.ownersFinanzas?.owner}</h4>
               <p>Jose Llaneza</p>
             </div>
 
             <div className={styles.invoiceInfo}>
-              <h4>Month</h4>
+              <h4>{dictionary.ownersFinanzas?.month}</h4>
               <select value={selectedMonth} onChange={handleMonthChange}>
-                {months.map((month, index) => (
-                  <option key={index} value={month}>
-                    {month}
-                  </option>
-                ))}
+                {dictionary.ownersFinanzas?.monthName?.map(
+                  (month: any, index: any) => (
+                    <option key={index} value={month}>
+                      {month}
+                    </option>
+                  )
+                )}
               </select>
             </div>
           </div>
 
           <div className={styles.invoiceInfoContainer}>
-            <h4>Platform</h4>
+            <h4>{dictionary.ownersFinanzas?.platform}</h4>
 
             <div className={styles.partnerOne}>
               <figure>
@@ -395,12 +389,12 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
               </figure>
             </div>
 
-            <h4>Reservations</h4>
+            <h4>{dictionary.ownersFinanzas?.reservations}</h4>
             <p className={styles.reservationOne}>{totalBookingReservation}</p>
             <p className={styles.reservationTwo}>{totalAirbnbReservation}</p>
             <p className={styles.reservationThree}>{totalDygavReservation}</p>
 
-            <h4>Percentage</h4>
+            <h4>{dictionary.ownersFinanzas?.percentage}</h4>
             <p className={styles.percentageOne}>
               {totalBookingPercentage.toFixed(2)}%
             </p>
@@ -411,12 +405,16 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
               {totalDygavPercentage.toFixed(2)}%
             </p>
 
-            <h4 className={styles.commissionTitle}>Commission</h4>
+            <h4 className={styles.commissionTitle}>
+              {dictionary.ownersFinanzas?.commission}
+            </h4>
             <p className={styles.commissionOne}>€{totalBookingCommission}</p>
             <p className={styles.commissionTwo}>€{totalAirbnbCommission}</p>
             <p className={styles.commissionThree}>€{totalDygavCommission}</p>
 
-            <h4 className={styles.billingTitle}>Billing</h4>
+            <h4 className={styles.billingTitle}>
+              {dictionary.ownersFinanzas?.facturation}
+            </h4>
             <p className={styles.billingOne}>€{totalBookingBilling}</p>
             <p className={styles.billingTwo}>€{totalAirbnbBilling}</p>
             <p className={styles.billingThree}>€{totalDygavBilling}</p>
@@ -424,22 +422,22 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
             <hr className={styles.divider} />
 
             <div className={styles.totalReservations}>
-              <p>Total reservations</p>
+              <p>{dictionary.ownersFinanzas?.totalReservations}</p>
               <p>{totalReservations}</p>
             </div>
 
             <div className={styles.totalPercentage}>
-              <p>Total percentage</p>
+              <p>{dictionary.ownersFinanzas?.totalPercentage}</p>
               <p>{totalPercentage.toFixed(2)}%</p>
             </div>
 
             <div className={styles.totalCommission}>
-              <p>Total commission</p>
+              <p>{dictionary.ownersFinanzas?.totalCommission}</p>
               <p>€{totalCommission.toFixed(2)}</p>
             </div>
 
             <div className={styles.totalBilling}>
-              <p>Total billing</p>
+              <p>{dictionary.ownersFinanzas?.totalFacturation}</p>
               <p>€{totalBilling.toFixed(2)}</p>
             </div>
           </div>
@@ -447,27 +445,27 @@ export const OwnersFinanzas: FC<{ session: Session }> = ({ session }) => {
           <div className={styles.totalFinal}>
             <div className={styles.totalFinal__item}>
               <h4>€{totalCleaning}</h4>
-              <p>Cleanings</p>
+              <p>{dictionary.ownersFinanzas?.cleaning}</p>
             </div>
 
             <div className={styles.totalFinal__item}>
               <h4>€{totalPartnerCommission}</h4>
-              <p>Partner Commission</p>
+              <p>{dictionary.ownersFinanzas?.partnerCommission}</p>
             </div>
 
             <div className={styles.totalFinal__item}>
               <h4>€{totalDygavCommission}</h4>
-              <p>DYGAV&apos;s Total Commission</p>
+              <p>{dictionary.ownersFinanzas?.dygavCommission}</p>
             </div>
 
             <div className={styles.totalFinal__item}>
               <h4>€{totalAdditionalExpenses}</h4>
-              <p>Total additional expenses</p>
+              <p>{dictionary.ownersFinanzas?.totalAdditional}</p>
             </div>
           </div>
 
           <div className={styles.billings}>
-            <h4>Download billing</h4>
+            <h4>{dictionary.ownersFinanzas?.download}</h4>
 
             <div className={styles.downloadButtons}>
               <button onClick={() => downloadPDF(pdfUrls[0])}>Dygav 1</button>

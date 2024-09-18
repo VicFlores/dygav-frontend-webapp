@@ -1,0 +1,9 @@
+{
+    "favorites": {
+        "accommodationTitle": "Mis alojamientos favoritos",
+        "articleTitle": "Mis artículos favoritos",
+        "accommodations": "Alojamientos",
+        "articles": "Artículos",
+        "empty": "Aún no tienes favoritos"
+    }
+}

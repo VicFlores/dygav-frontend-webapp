@@ -1,8 +1,11 @@
+import useDictionary from '@/app/hooks/useDictionary';
 import Image from 'next/legacy/image';
 import { FC } from 'react';
 import { BiPhoneCall } from 'react-icons/bi';
 
 export const Llamanos: FC<{ paddingX?: string }> = ({ paddingX = 'px-16' }) => {
+  const dictionary: any = useDictionary('licenses');
+
   return (
     <div className='flex justify-center items-center'>
       <div
@@ -20,7 +23,7 @@ export const Llamanos: FC<{ paddingX?: string }> = ({ paddingX = 'px-16' }) => {
 
         <div className='flex-col space-y-4 justify-center md:justify-evenly items-center'>
           <p className='text-center text-2xl px-14 md:text-3xl text-black700'>
-            ¡Llámanos!
+            {dictionary.licenseAditionalInfo?.callUs}
           </p>
 
           <div className='relative'>

@@ -9,6 +9,7 @@ import {
 } from '@/utils/static/licenseImages';
 import { useSession } from 'next-auth/react';
 import { axiosConfig } from '@/utils';
+import useDictionary from '@/app/hooks/useDictionary';
 
 const Posts = () => {
   const [data, setData] = useState<BlogPost[]>([]);
@@ -95,24 +96,26 @@ const Posts = () => {
 
   const madridCities = filterCities(transformedMadridImages, categories);
 
+  const dictionary: any = useDictionary('blog');
+
   return (
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-28 flex flex-col items-center'>
       <PostCardCategories
         filterByCategories={costaBlancaCities}
         title='Costa Blanca'
-        subtitle='Descubre todos nuestros artículos más recientes sobre ocio, gastronomía, destinos, tendencias y normativas sobre alquiler vacacional en la Costa Blanca'
+        subtitle={dictionary.posts?.costaBlancaSubtitle}
       />
 
       <PostCardCategories
         filterByCategories={pirineosCities}
         title='Pirineo Aragonés'
-        subtitle='De pico a pico, conoce los Pirineos a través de nuestros artículos: aventuras al aire libre, cultura local y lo último en alquiler vacacional.'
+        subtitle={dictionary.posts?.pirioneoSubtitle}
       />
 
       <PostCardCategories
         filterByCategories={madridCities}
         title='Madrid'
-        subtitle='Descubre Madrid a fondo: Explora sus históricas calles y azoteas, encuentra los mejores sitios para el mejor tardeo, vive su vida nocturna y comprende las normativas que moldean su creciente mercado de alquiler vacacional.'
+        subtitle={dictionary.posts?.madridSubtitle}
       />
 
       <div className='grid lg:grid-cols-2 gap-y-10 md:gap-x-20'>

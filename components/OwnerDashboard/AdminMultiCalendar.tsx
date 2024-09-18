@@ -15,6 +15,7 @@ import { BsCalendar2Week } from 'react-icons/bs';
 import { TbBrandBooking, TbLockCancel } from 'react-icons/tb';
 import { GrStatusUnknown } from 'react-icons/gr';
 import { BookingDetail } from '../AdminMultiCalendar/BookingDetail';
+import useDictionary from '@/app/hooks/useDictionary';
 
 export const AdminMultiCalendar = ({ allAccomodationsResponse }: any) => {
   const [loading, setLoading] = useState(false);
@@ -210,6 +211,8 @@ export const AdminMultiCalendar = ({ allAccomodationsResponse }: any) => {
     }
   };
 
+  const dictionary = useDictionary('ownersAccount');
+
   return (
     <section className='px-2 lg:px-10 mt-12 mb-16'>
       {loading ? (
@@ -233,7 +236,7 @@ export const AdminMultiCalendar = ({ allAccomodationsResponse }: any) => {
           <div className='flex items-center justify-center space-x-4 mt-6'>
             <FaSpinner className='animate-spin h-5 w-5 text-p400' />
             <span className='text-lg font-medium text-p600'>
-              Cargando alojamientos...
+              {dictionary.ownerDashboard?.loadingAccommodations}
             </span>
           </div>
         </div>
@@ -474,14 +477,14 @@ export const AdminMultiCalendar = ({ allAccomodationsResponse }: any) => {
                     onClick={goToPreviousMonth}
                   >
                     <FaArrowLeft className='mr-2' />
-                    Anterior
+                    {dictionary.ownerDashboard?.previousButton}
                   </button>
 
                   <button
                     className='flex items-center justify-center ml-4 text-p800 font-semibold'
                     onClick={goToNextMonth}
                   >
-                    Siguiente
+                    {dictionary.ownerDashboard?.nextButton}
                     <FaArrowRight className='ml-2' />
                   </button>
                 </div>

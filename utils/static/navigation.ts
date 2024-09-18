@@ -1,4 +1,40 @@
+import useDictionary from '@/app/hooks/useDictionary';
+import { PageKeys } from '@/app/types';
 import { TMenuItem } from '@/types';
+
+const getTranslatedMenuItems = (
+  dictionary: any,
+  menuItems: TMenuItem[]
+): TMenuItem[] => {
+  return menuItems.map((item) => ({
+    ...item,
+    title: dictionary[item.title] || item.title,
+    submenu: item.submenu
+      ? getTranslatedMenuItems(dictionary, item.submenu)
+      : undefined,
+  }));
+};
+
+const useTranslatedMenuItems = (
+  page: PageKeys,
+  menuItems: TMenuItem[]
+): TMenuItem[] => {
+  const dictionary = useDictionary(page);
+
+  return getTranslatedMenuItems(dictionary, menuItems);
+};
+
+export const usePublicMenuItems = () =>
+  useTranslatedMenuItems('navbar', publicMenuItem);
+
+export const useAccountOwnerMenuItems = () =>
+  useTranslatedMenuItems('navbar', accounOwnertMenuItem);
+
+export const useAccountTouristMenuItems = () =>
+  useTranslatedMenuItems('navbar', accounTouristMenuItem);
+
+export const useAccountAdminMenuItems = () =>
+  useTranslatedMenuItems('navbar', accountAdminMenuItem);
 
 export const publicMenuItem: TMenuItem[] = [
   { title: 'Viaja', path: '/' },

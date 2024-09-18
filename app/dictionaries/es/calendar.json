@@ -1,0 +1,12 @@
+{
+    "calendarOwner": {
+        "title": "Mis alojamientos",
+        "loading": "Cargando alojamientos",
+        "seeCalendar": "Ver calendario",
+        "eachCalendarTitle": "Reservas en mi alojamiento",
+        "hideBlockDays": "Ocultar bloqueo de día",
+        "showBlockDays": "Mostrar bloqueo de día",
+        "receiveEmail": "Recibir notificaciones por correo electrónico",
+        "noReceiveEmail": "No recibir notificaciones por correo electrónico"
+    }
+}

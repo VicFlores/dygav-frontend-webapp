@@ -1,0 +1,82 @@
+{
+    "heroLicense": {
+        "title": "Your Guide to Getting a Tourist License",
+        "description": "Your Tourist License is Closer Than You Think"
+    },
+
+    "licenseAditionalInfo": {
+        "whatIstitle": "What are tourism licenses?",
+        "whatIsdescriptionOne": "Tourist accommodations are those properties, regardless of their type, that are rented out for a fee, on a regular basis, with immediate availability, and for tourism, vacation, or leisure purposes. ",
+        "whatIsdescriptionTwo": "Obtaining a tourist license is required in most cities for renting out a property as a vacation rental. Failure to comply can lead to fines and penalties for the property owner.",
+        "whatIsdescriptionThree": "Additionally, a tourist license is required when using tourist marketing channels (such as Airbnb) to promote and advertise the property.",
+        "whatIsdescriptionFour": "All advertisements for registered tourist accommodations must display the property's registration numbers and categories. Without a tourist license, it is impossible to list the property on platforms like Airbnb, Booking, and others, as the required license code for the listing will not be available. ",
+        "whereHelpYou": "We offer a comprehensive service to help you obtain your Tourist License quickly and efficiently.",
+        "whereHelpYouOne": "The specific requirements for a vacation rental license can vary from one region to another in Spain.",
+        "whereHelpYouTwo": "In fact, even within the same region, different localities may have their own rules regarding license types, fees, and permitted areas.",
+        "whereHelpYouThree": "We'll explore the process of obtaining a tourist license in the various regions where we offer license management services.",
+        "licenseMadridTitle": "Tourist Accommodation Licenses in Madrid",
+        "licenseMadridDescriptionOne": "Obtaining a tourist license in Madrid, Spain's capital, presents an excellent opportunity for property owners and investors in one of Europe's most dynamic tourism markets. However, since 2018, Madrid's regulations have become stricter, introducing more rigorous requirements for tourist accommodations seeking a license.",
+        "licenseMadridDescriptionTwo": "Navigating the process of acquiring a tourist license in Madrid can be challenging due to the city's specific regulations. DYGAV, with our deep knowledge of local laws and partnerships with local architects, provides a comprehensive service to streamline this process. We guide you through every step, ensuring your property meets all legal requirements and reaches its full tourism potential.",
+        "licenseMadridDescriptionThree": "We've made it even simpler for you to navigate the process with our detailed and current guides for Madrid. These guides offer the essential information you need to comply with the city's specific regulations and successfully enter the vacation rental market.",
+        "licenseMadridDescriptionFour": "Want to skip the hassle of getting a tourist license? Let DYGAV take care of it for you. We'll ensure a smooth process and help you transform your property into a thriving tourist accommodation in the heart of Madrid. Contact us today!",
+        "licenseMadridDescriptionNormative": [
+          "https://sede.comunidad.madrid/comunicaciones-declaraciones/inicio-actividad-apartamentos-turisticos",
+          "Check the regulations."
+        ],
+        "licenseMadridCarouselTitle": "Municipality-by-municipality updated guides:",
+        "licenseMadridCarouselSubtitle": "How to obtain a tourist license in Madrid? ",
+        "licenseCostaBlancaTitle": "Costa Blanca tourist accommodation licenses",
+        "licenseCostaBlancaDescriptionOne": "A few years ago, obtaining a tourist license on the Costa Blanca and promoting a property on rental platforms was a very simple process. However, since 2018, the regulations have tightened, many restrictions have been included, and now it is more complicated to obtain a license for tourist accommodations.",
+        "licenseCostaBlancaDescriptionTwo": "Properties on the Costa Blanca must meet several requirements, including a minimum surface area, a specific number of rooms or accommodations, adherence to safety and accessibility regulations, civil liability insurance, and compliance with quality standards.",
+        "licenseCostaBlancaDescriptionThree": "Large cities have implemented strict regulations. In Alicante, for example, tourist rental licenses are typically restricted to ground floor, mezzanine, or first-floor properties, with upper-floor apartments rarely being approved.",
+        "licenseCostaBlancaDescriptionFour": "Additionally, since the Costa Blanca spans multiple provinces across both the Valencian Community and the Region of Murcia, regulations can vary significantly from one area to another. ",
+        "licenseCostaBlancaDescriptionFive": "To sum up, if you plan to rent out your Costa Blanca property, ensure you're fully informed about the licensing requirements. Consult our guides or contact us for assistance. ",
+        "licenseCostaBlancaDescriptionNormative": [
+            "https://dogv.gva.es/datos/2021/02/08/pdf/2021_999.pdf",
+            "Check the regulations."
+        ],
+        "licenseCostaBlancaCarouselSubtitle": "How to obtain a tourist license in Costa Blanca?",
+        "licensePirioneosTitle": "Tourist Accommodation Licenses in Pirineo Aragonés ",
+        "licensePirioneosDescriptionOne": "Obtaining a tourist license in the Pirineo Aragonés, particularly in the Valle de Tena and Jaca, offers a valuable opportunity for property owners and investors in one of Spain's most scenic and popular tourist regions. To succeed in this market, properties must meet specific requirements, including minimum surface area, number of rooms, and compliance with safety, accessibility, and quality standards.",
+        "licensePirineosDescriptionNormative": [
+            "https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1257201622626",
+            "Check the regulations."
+        ],
+        "licensePirioneosDescriptionTwo": [ 
+            {
+                "text": "To support you through this process, we've created detailed, locality-specific guides for the Pirineo Aragonés. These guides provide all the essential information to help you meet the requirements and unlock the full potential of your tourist property. If you’d rather leave it to the experts, DYGAV specializes in obtaining tourist licenses and",
+                "link": {
+                    "href": "https://dygav.es/gestion-viviendas-turisticas",
+                    "text": " managing vacation accommodations "      
+            }
+        },
+            {
+                "text": ". Contact us—we’d be happy to assist!"
+            
+            }
+        ],
+        "licensePirioneosCarouselSubtitle": "How to obtain a tourist license in Pirineo Aragonés.? ",
+        "licenseTitle": "Tourist License in",
+        "closerParagraphOne": "At DYGAV, we’re with you every step of the way in obtaining a tourist license for your apartment. As your trusted partner, we ensure the entire process is smooth and successful.",
+        "closerParagraphTwo": "From initial consultation to submitting all required documentation, we handle the paperwork and continuously track the progress, so you can focus on what matters",
+        "closerLink": [
+            "/gestion-integral-apartamentos-turisticos",
+            "most preparing your property to welcome guests"
+        ],
+        "callUs": "Call us now!",
+        "whatCanWeDo": "What can we do for you?",
+        "whatCanWeDoOne": "DYGAV is dedicated to helping you obtain your tourist license quickly and easily. We provide expert support throughout the entire process.",
+        "whatCanWeDoTwo": "Our team of tourist license experts keeps abreast of the latest regulations and requirements for your area, ensuring your application meets all current legal standards. Whether you prefer to reach us by phone, email, WhatsApp, or through our contact form, we're here to assist you and answer all your questions with pleasure.",
+        "whatCanWeDoThree": "Our team of specialist tourist license experts is well-versed in the current regulations across each autonomous community. We provide you with clear and thorough guidance on the following key aspects:",
+        "whatCanWeDoCardOneTitle": "Adherence to Regulations",
+        "whatCanWeDoCardOneDescription": "Benefit from our expertise in local regulations. We'll guide you through all aspects of compliance, from habitability to safety standards.",
+        "whatCanWeDoCardTwoTitle": "Required Documentation",
+        "whatCanWeDoCardTwoDescription": " We'll help you gather all the necessary paperwork for your license application.",
+        "whatCanWeDoCardThreeTitle": "Administrative Procedures",
+        "whatCanWeDoCardThreeDescription": "We manage all administrative tasks with the relevant tourism authority, including submitting your application and diligently following up to ensure a successful outcome.",
+        "getReadyTitle": "Get ready for success",
+        "getReadyDescriptionOne": "At DYGAV, we work to ensure that your property meets the required standards of habitability, safety, and services.",
+        "getReadyDescriptionTwo": "We are committed to your success, and we handle every detail of the process with the utmost care and precision",
+        "getReadyDescriptionThree": "We'll be your partner throughout the entire process, ensuring you have the support needed to succeed in the vacation rental market"
+    }
+}

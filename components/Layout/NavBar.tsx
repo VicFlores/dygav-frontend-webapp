@@ -1,9 +1,15 @@
+import LanguageSwitcher from '@/app/components/shared/LanguageSwitcher/LanguageSwitcher';
+import useDictionary from '@/app/hooks/useDictionary';
 import { TSession } from '@/types';
 import {
   accounOwnertMenuItem,
   accounTouristMenuItem,
   accountAdminMenuItem,
   publicMenuItem,
+  useAccountAdminMenuItems,
+  useAccountOwnerMenuItems,
+  useAccountTouristMenuItems,
+  usePublicMenuItems,
 } from '@/utils';
 import { signOut } from 'next-auth/react';
 import Image from 'next/legacy/image';
@@ -25,37 +31,44 @@ export const NavBar: FC<TSession> = ({ session }) => {
       ? 'bg-p600'
       : 'bg-transparent';
 
+  const publicMenuItems = usePublicMenuItems();
+  const ownerMenuItems = useAccountOwnerMenuItems();
+  const touristMenuItems = useAccountTouristMenuItems();
+  const adminMenuItems = useAccountAdminMenuItems();
+
   const menuItems =
     session?.user?.role === 'tourist'
       ? currentUrl.startsWith('/private/tourist')
-        ? accounTouristMenuItem
-        : publicMenuItem
+        ? touristMenuItems
+        : publicMenuItems
       : session?.user?.role === 'owner'
       ? currentUrl.startsWith('/private/owner') ||
         currentUrl.startsWith('/private/tourist')
-        ? accounOwnertMenuItem
-        : publicMenuItem
+        ? ownerMenuItems
+        : publicMenuItems
       : session?.user?.role === 'admin'
       ? currentUrl.startsWith('/private/admin')
-        ? accountAdminMenuItem
-        : publicMenuItem
-      : publicMenuItem;
+        ? adminMenuItems
+        : publicMenuItems
+      : publicMenuItems;
 
   const hoverMenuItems =
     session?.user?.role === 'tourist'
       ? !currentUrl.startsWith('/private/tourist')
-        ? accounTouristMenuItem
-        : publicMenuItem
+        ? touristMenuItems
+        : publicMenuItems
       : session?.user?.role === 'admin'
       ? !currentUrl.startsWith('/private/admin')
-        ? accountAdminMenuItem
-        : publicMenuItem
+        ? adminMenuItems
+        : publicMenuItems
       : session?.user?.role === 'owner'
       ? !currentUrl.startsWith('/private/owner') &&
         !currentUrl.startsWith('/private/tourist')
-        ? accounOwnertMenuItem
-        : publicMenuItem
-      : publicMenuItem;
+        ? ownerMenuItems
+        : publicMenuItems
+      : publicMenuItems;
+
+  const dictionary: any = useDictionary('home');
 
   return (
     <>
@@ -115,7 +128,8 @@ export const NavBar: FC<TSession> = ({ session }) => {
 
             <div className='z-20 absolute hidden group-hover:block bg-p400/80 p-4 space-y-4 rounded-lg shadow-lg text-center mt-[58px]'>
               <h4 className='text-[20px] text-white'>
-                Bienvenido: {session.user.name || session.user.fullname}
+                {dictionary.nav?.welcome}:{' '}
+                {session.user.name || session.user.fullname}
               </h4>
 
               <ul className='flex flex-col items-center justify-center'>
@@ -130,6 +144,8 @@ export const NavBar: FC<TSession> = ({ session }) => {
                 ))}
               </ul>
 
+              <LanguageSwitcher />
+
               <button
                 className='bg-white text-p600 px-5 py-2'
                 onClick={async () => {
@@ -137,7 +153,7 @@ export const NavBar: FC<TSession> = ({ session }) => {
                   router.push('/login');
                 }}
               >
-                Cerrar Sesion
+                {dictionary.nav?.logout}
               </button>
             </div>
           </div>

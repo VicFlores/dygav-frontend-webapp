@@ -3,6 +3,7 @@ import { SearcherRealCards } from '@/components';
 import { useSession } from 'next-auth/react';
 import { axiosConfig } from '../../utils/config/axiosConfig';
 import axios from 'axios';
+import useDictionary from '@/app/hooks/useDictionary';
 
 export const TouristAccomodationsFav = () => {
   const [favsAccomodations, setFavsAccomodations] = useState([]);
@@ -56,6 +57,7 @@ export const TouristAccomodationsFav = () => {
       );
     }
   }, [removedAccomodation]);
+  const dictionary = useDictionary('favorites');
 
   return (
     <>
@@ -73,7 +75,7 @@ export const TouristAccomodationsFav = () => {
         <div className='flex justify-center items-center'>
           <div className='flex flex-col justify-center items-center space-y-8 border-[1px] border-dashed h-[266px] w-[717px]'>
             <p className=' text-black900/[.7] lg:text-3xl'>
-              ¡Aún no tienes alojamientos favoritos!
+              {dictionary.favorites?.empty}
             </p>
           </div>
         </div>

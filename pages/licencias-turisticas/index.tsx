@@ -1,3 +1,4 @@
+import useDictionary from '@/app/hooks/useDictionary';
 import {
   Footer,
   GetLicense,
@@ -13,6 +14,7 @@ import { useSession } from 'next-auth/react';
 
 export default function License() {
   const { data: session } = useSession();
+  const dictionary = useDictionary('licenses');
 
   return (
     <section>
@@ -24,8 +26,8 @@ export default function License() {
       <MainHero>
         <Layout session={session}>
           <HeroLicense
-            title='¿Cómo obtener tu Licencia Turística?'
-            subtitle='Tú Licencia Turística Más Cerca de lo que Crees'
+            title={dictionary.heroLicense?.title}
+            subtitle={dictionary.heroLicense?.description}
           />
         </Layout>
       </MainHero>

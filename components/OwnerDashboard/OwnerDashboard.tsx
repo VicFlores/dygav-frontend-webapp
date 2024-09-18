@@ -9,6 +9,7 @@ import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
+import useDictionary from '@/app/hooks/useDictionary';
 
 export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
   const [data, setData] = useState<any[]>();
@@ -24,6 +25,7 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
     airbnb: 0,
     other: 0,
   });
+  const dictionary = useDictionary('ownersAccount');
 
   useEffect(() => {
     const fetchAccommodations = async () => {
@@ -161,10 +163,12 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
   return (
     <section>
       <div className={styles.controlPanel}>
-        <h1 className={styles.controlPanel__title}>Control Panel</h1>
+        <h1 className={styles.controlPanel__title}>
+          {dictionary.ownerDashboard?.controlPanelTitle}
+        </h1>
 
         <p className={styles.controlPanel__subtitle}>
-          General information about my available accommodations in Dygav
+          {dictionary.ownerDashboard?.controlPanelSubtitle}
         </p>
 
         <div>
@@ -174,100 +178,95 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
             <div className='flex justify-center items-center mt-10'>
               <div className='flex flex-col justify-center items-center space-y-8 border-[1px] border-dashed md:h-[200px] md:w-[600px] p-10'>
                 <p className=' text-black900/[.7] lg:text-xl'>
-                  You don&apos;t have accommodations yet!
+                  {dictionary.ownerDashboard?.waitingReservationsMessage}
                 </p>
               </div>
             </div>
           )}
         </div>
 
-        <div>
-          <h1 className={styles.controlPanel__title}>Latest news</h1>
+        <div className={styles.news__title}>
+          <h1 className={styles.controlPanel__title}>
+            {dictionary.ownerDashboard?.lastUpdateTitle}
+          </h1>
 
           <p className={styles.controlPanel__subtitle}>
-            Get the latest updates on your features in the dashboard
+            {dictionary.ownerDashboard?.lastUpdateSubtitle}
           </p>
 
           <div className={styles.news}>
             <div className={styles.news__card}>
               <div className={styles.news__cardTitle}>
-                <h3>New update available</h3>
+                <h3>{dictionary.ownerDashboard?.newUpdateTitle}</h3>
 
-                <p>September 7, 2024</p>
+                <p>{dictionary.ownerDashboard?.newUpdateDate}</p>
               </div>
 
               <div className={styles.news__cardTitle}>
-                <h3>New dygav Owners Dashboard</h3>
+                <h3>{dictionary.ownerDashboard?.newUpdateSubtitle}</h3>
 
                 <p>Version 1.5</p>
               </div>
 
-              <p>
-                New view in the dashboard where you can see billing on the
-                different platforms in real time.
-              </p>
+              <p>{dictionary.ownerDashboard?.newsOne}</p>
             </div>
 
             <div className={styles.news__card}>
               <div className={styles.news__cardTitle}>
                 <h3>New update available</h3>
 
-                <p>September 7, 2024</p>
+                <p>{dictionary.ownerDashboard?.newUpdateDate}</p>
               </div>
 
               <div className={styles.news__cardTitle}>
-                <h3>New dygav Owners Dashboard</h3>
+                <h3>{dictionary.ownerDashboard?.newUpdateSubtitle}</h3>
 
                 <p>Version 1.5</p>
               </div>
 
-              <p>Design changes to improve navigation in the owners account.</p>
+              <p>{dictionary.ownerDashboard?.newsTwo}</p>
             </div>
 
             <div className={styles.news__card}>
               <div className={styles.news__cardTitle}>
                 <h3>New update available</h3>
 
-                <p>September 7, 2024</p>
+                <p>{dictionary.ownerDashboard?.newUpdateDate}</p>
               </div>
 
               <div className={styles.news__cardTitle}>
-                <h3>New dygav Owners Dashboard</h3>
+                <h3>{dictionary.ownerDashboard?.newUpdateSubtitle}</h3>
 
                 <p>Version 1.5</p>
               </div>
 
-              <p>
-                New archive page in your owner account where you can download
-                your history of invoices and settlements.
-              </p>
+              <p>{dictionary.ownerDashboard?.newsThree}</p>
             </div>
 
             <div className={styles.news__card}>
               <div className={styles.news__cardTitle}>
                 <h3>New update available</h3>
 
-                <p>September 7, 2024</p>
+                <p>{dictionary.ownerDashboard?.newUpdateDate}</p>
               </div>
 
               <div className={styles.news__cardTitle}>
-                <h3>New dygav Owners Dashboard</h3>
+                <h3>{dictionary.ownerDashboard?.newUpdateSubtitle}</h3>
 
                 <p>Version 1.5</p>
               </div>
 
-              <p>
-                Ability to change the user account language to English or
-                Spanish (coming soon)
-              </p>
+              <p>{dictionary.ownerDashboard?.newsFour}</p>
             </div>
           </div>
 
           <div>
-            <h1 className={styles.controlPanel__title}>Upcoming bookings</h1>
+            <h1 className={styles.controlPanel__title}>
+              {dictionary.ownerDashboard?.upcomingBookingsTitle}
+            </h1>
 
             <p className={styles.controlPanel__subtitle}>
-              These are the latest reservations in your accommodations
+              {dictionary.ownerDashboard?.upcomingBookingsSubtitle}
             </p>
 
             {bookings.length > 0 ? (
@@ -283,7 +282,9 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
                     </figure>
 
                     <div className={styles.bookings_cardBody}>
-                      <h3 className={styles.bookings_status}>Active booking</h3>
+                      <h3 className={styles.bookings_status}>
+                        {dictionary.ownerDashboard?.bookingStatus}
+                      </h3>
 
                       <p className={styles.bookings_accommodation}>
                         {item.accommodation}
@@ -294,8 +295,7 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
                       </p>
 
                       <div className={styles.bookings_check}>
-                        <p>Check-in: {item.indate}</p>
-
+                        <p>Check-in: {item.indate}</p>/
                         <p>Check-out: {item.outdate}</p>
                       </div>
 
@@ -306,7 +306,7 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
                           href={`/private/owner/reservation/${item.booking}`}
                           className={styles.bookings_details}
                         >
-                          Detalles de reservacion
+                          {dictionary.ownerDashboard?.bookinButton}
                         </Link>
                       </div>
                     </div>
@@ -317,7 +317,7 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
               <div className='flex justify-center items-center mt-10'>
                 <div className='flex flex-col justify-center items-center space-y-8 border-[1px] border-dashed md:h-[200px] md:w-[600px] p-10'>
                   <p className=' text-black900/[.7] lg:text-xl'>
-                    You don&apos;t have reservations yet!
+                    {dictionary.ownerDashboard?.waitingReservationsMessage}
                   </p>
                 </div>
               </div>
@@ -327,10 +327,12 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
 
         <div className={styles.stadistics}>
           <div>
-            <h1 className={styles.controlPanel__title}>Bookings by platform</h1>
+            <h1 className={styles.controlPanel__title}>
+              {dictionary.ownerDashboard?.bookingPlatformTitle}
+            </h1>
 
             <p className={styles.controlPanel__subtitle}>
-              Booking statistics by platform in September
+              {dictionary.ownerDashboard?.bookingPlatformSubtitle}
             </p>
           </div>
 
@@ -343,7 +345,7 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
                 }}
               >
                 <div className={styles.donutText}>
-                  {bookingCounts.total} bookings
+                  {bookingCounts.total} {dictionary.ownerDashboard?.quantity}
                 </div>
               </div>
             </div>
@@ -354,7 +356,7 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
                   <span
                     className={styles.circle + ' ' + styles.bookingcom}
                   ></span>
-                  Booking.com Reservations
+                  {dictionary.ownerDashboard?.bookingReservation}
                 </p>
 
                 <p className={styles.circleData}>
@@ -365,7 +367,7 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
               <div className={styles.platform}>
                 <p className={styles.circleInfo}>
                   <span className={styles.circle + ' ' + styles.airbnb}></span>
-                  Airbnb Reservations
+                  {dictionary.ownerDashboard?.AirbnbReservation}
                 </p>
 
                 <p className={styles.circleData}>
@@ -376,7 +378,7 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
               <div className={styles.platform}>
                 <p className={styles.circleInfo}>
                   <span className={styles.circle + ' ' + styles.other}></span>
-                  Other Platforms Reservations
+                  {dictionary.ownerDashboard?.otherReservation}
                 </p>
 
                 <p className={styles.circleData}>
@@ -389,10 +391,10 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
 
         <div className={styles.graphLine}>
           <h1 className={styles.controlPanel__title}>
-            My earnings in the last few months
+            {dictionary.ownerDashboard?.earningsTitle}
           </h1>
           <p className={styles.controlPanel__subtitle}>
-            Historical line graph on my earnings over the past few months
+            {dictionary.ownerDashboard?.earningsSubtitle}
           </p>
 
           <div className={styles.chartContainer}>
@@ -407,11 +409,20 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
 };
 
 const LineChart = () => {
+  const dictionary = useDictionary('ownersAccount');
+
+  const months: any = dictionary.ownerDashboard?.monthEarnings;
+
   const data = {
-    labels: ['jun', 'jul', 'aug', 'sep'],
+    labels: [
+      `${months?.june}`,
+      `${months?.july}`,
+      `${months?.august}`,
+      `${months?.september}`,
+    ],
     datasets: [
       {
-        label: 'Earnings',
+        label: `${dictionary.ownerDashboard?.earnings}`,
         data: [500, 1500, 600, 700, 2000],
         fill: false,
         backgroundColor: '#ff385c',

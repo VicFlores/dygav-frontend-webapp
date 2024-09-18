@@ -1,9 +1,11 @@
+import useDictionary from '@/app/hooks/useDictionary';
 import { Footer, HeroLicense, Layout, MainHero, UtilHead } from '@/components';
 import Posts from '@/components/Posts/Posts';
 import { useSession } from 'next-auth/react';
 
 export default function BlogsPage() {
   const { data: session } = useSession();
+  const dictionary: any = useDictionary('blog');
 
   return (
     <>
@@ -14,8 +16,8 @@ export default function BlogsPage() {
       <MainHero>
         <Layout session={session}>
           <HeroLicense
-            title='Bienvenidos al Blog de DYGAV'
-            subtitle='Explora con nosotros los destinos más encantadores de España.'
+            title={dictionary.heroLicense?.title}
+            subtitle={dictionary.heroLicense?.subtitle}
           />
         </Layout>
       </MainHero>

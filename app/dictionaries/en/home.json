@@ -1,0 +1,69 @@
+{
+    "hero": {
+        "title": "Welcome to DYGAV",
+        "description": "Discover your new favorite place with just a few clicks."
+    },
+
+    "filterToDatesLocationPeople": {
+        "inputCity": "What city are you looking for?",
+        "inputTravellers": "Number of guests",
+        "searchButton": "Search",
+        "city": "City",
+        "dates": "Booking dates",
+        "guests": "Guests"
+    },
+
+    "carousel": {
+        "title": "Discover your <br /> ideal accommodation.",
+        "subtitle": "Where will your <br /> next journey take you?"
+    },
+
+    "aboutUs": {
+        "title": "Find out about us",
+        "subtitle": "About us"
+    },
+
+    "aboutUsCard": {
+        "worldTitle": "Welcome to our world.",
+        "worldSubtitle": "We are a company with extensive expertise in the real estate and asset management sector. We have a deep understanding of the needs and demands of today's market. We take pride in delivering comprehensive solutions aimed at maximizing the economic performance of your vacation properties. Our goal is to tailor our services to each client, providing personalized and high-quality support.",
+        "apartmentTitle": "Digitize your vacation rental.",
+        "apartmentSubtitle": "We optimize property management for our clients. As leaders in technology for vacation rentals, we offer streamlined and secure management services. We are committed to delivering innovative solutions that enhance the experience for property owners and maximize their return on investment, while creating unique experiences for our guests.",
+        "aviableTitle": "At your service",
+        "aviableSubtitle": "Our team of seasoned professionals possesses in-depth expertise in the real estate and asset management sectors. We provide premium services that consistently surpass guest expectations. Our adaptability enables us to cater to the unique needs of each property owner, ensuring seamless and efficient management for all parties involved."
+    },
+
+    "alquilerVacacional": {
+        "title": "We handle everything.",
+        "subtitle": "Full-service vacation rental management.",
+        "button": "Learn more."
+    },
+
+    "ourComments": {
+        "title": "What people are saying about us",
+        "subtitle": "Testimonials"
+    
+    },
+
+    "brandContent": {
+        "title": "Find your home away from home. Book family-friendly hotels with ease."
+    },
+
+    "footer": {
+        "usefulLinks": "Useful Links",
+        "login": "Login ",
+        "register": "Register ",
+        "blog": "Blog",
+        "termsAndConditions": "Terms & Policies",
+        "privacyPolicy": "Privacy Policy",
+        "cookiesPolicy": "Cookies Policy",
+        "formPolicy": "Form Policy",
+        "legalNotice": "Legal Notice",
+        "contactUs": "Contact Us"
+    },
+
+    "nav": {
+        "logout": "Logout",
+        "welcome": "Welcome",
+        "hello": "Hello"
+    }
+}

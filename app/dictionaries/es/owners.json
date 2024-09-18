@@ -1,0 +1,88 @@
+{
+    "heroOwners": {
+        "title": "Gestion de Viviendas Turísticas",
+        "description": "En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional"
+    },
+
+    "peachOwners": {
+        "title": "Especialistas en Gestión de Viviendas de Alquiler Vacacional",
+        "descriptionOne": "¿Tienes una casa de vacaciones o un apartamento en una ciudad turística que está vacío la mayor parte del año? Ahora puedes obtener un rendimiento económico cuando no la usas, de forma fácil y segura.",
+        "descriptionTwo": "¡Deja que tu casa de vacaciones trabaje para ti! Rentabiliza tu propiedad mientras no la utilizas y <strong> genera ingresos adicionales.¡Es hora de sacarle mayor partido económico! </strong>"
+    },
+  
+      "information": {
+        "title": "Descubre una forma más efectiva de gestionar tu vivienda turística",
+        "description": " En <strong>DYGAV</strong> somos especialistas en la gestión de viviendas vacacionales, nos encargamos de controlar todos los aspectos necesarios para <strong>   maximizar tus ingresos y garantizar una experiencia inigualable </strong> tanto para los <strong>propietarios</strong> como para los <strong>huéspedes</strong> de tu casa de alquiler vacacional.",
+        "listItems": [
+          {
+            "text": "Te ayudamos a ",
+            "link": {
+              "href": "http://dygav.es/licencias-turisticas",
+              "text": "obtener la licencia turística para tu vivienda"
+            },
+            "suffix": ", si todavía no la tienes."
+          },
+          {
+            "text": "Publicamos de forma optimizada tu casa en las principales plataformas de alquiler de casas particulares de alquiler para vacaciones (AirBnB, Booking,...)"
+          },
+          {
+            "text": "Nos aseguraremos de que tus apartamentos estén siempreos a la llegada, así, tus huéspedes podrán disfrutar de una estancia sin contratiempos y tú podrás obtener las mejores calificaciones y comentarios positivos."
+          }
+        ],
+
+        "managmentWithUs": "¡Descubre una forma más efectiva de <strong>gestionar tus apartamentos vacacionales con nosotros!</strong>",
+        "rentalManagement": "TE AYUDAMOS A RENTABILIZAR TU ALQUILER TURÍSTICO",
+        "callToAction": "¡Llámanos!",
+        "rentalHelp": "¿Cómo te ayudamos a rentabilizar tu casa de alquiler vacacional?",
+        "managMadrid": "Gestión de Viviendas Turísticas en Madrid",
+        "managPirineos": "Gestión de Viviendas Turísticas en el Pirineo Aragonés",
+        "managCostaBlanca": "Gestión de viviendas turísticas en Costa Blanca",
+        "managSubTitle": "¿Donde gestionamos tu vivienda?",
+        "faqTitle": "Preguntas Comunes sobre Nuestra Gestión de Viviendas Turísticas"
+      },
+
+    "vacationRentalHome": {
+        "cardOneTitle": "Inversiones y Mejoras",
+        "cardOneDescription": "Te ofrecemos asesoramiento personalizado sobre inversiones y mejoras clave en tu vivienda que te ayudarán a hacerla más atractiva, atraer más huéspedes e incrementar tus ganancias.",
+        "cardTwoTitle": "Reportaje Fotográfico Profesional",
+        "cardTwoDescription": "Nuestro servicio de reportaje fotográfico profesional resaltará la belleza y el encanto de tu casa, generando un mayor interés en tus huéspedes potenciales y aumentando tus reservas.",
+        "cardThreeTitle": "Marketing Y Promoción",
+        "cardThreeDescription": "Nos encargamos de la creación y actualización de los anuncios de tu vivienda en TODAS las plataformas de alquiler vacacional, así como de la gestión de las reservas y la optimización de tarifas.",
+        "cardFourTitle": "Precio Dinámico por IA",
+        "cardFourDescription": "Ponemos a tu disposición un potente motor de Inteligencia Artificial que analiza la demanda en tiempo real para ajustar estratégicamente tus tarifas y garantizarte la máxima rentabilidad.",
+        "cardFiveTitle": "Check In Check Out",
+        "cardFiveDescription": "Dile adiós a las preocupaciones relacionadas con el check-in y check-out al proporcionar a tus huéspedes un sistema sin contacto y totalmente digitalizado.",
+        "cardSixTitle": "Atención al Cliente",
+        "cardSixDescription": "Nuestro equipo de atención al cliente se encargará de brindar un servicio excepcional a tus huéspedes desde el momento de la reserva hasta su partida. Teléfono de emergencias las 24 horas del día.",
+        "cardSevenTitle": "Limpieza y Mantenimiento",
+        "cardSevenDescription": "Nos ocupamos de la limpieza y mantenimiento de tu vivienda, la limpieza de la ropa de cama y la reposición de amenities, garantizando higiene y presentación perfecta en cada estancia.",
+        "cardEightTitle": "Gestión de Seguros",
+        "cardEightDescription": "Gestionamos los seguros y fianzas de Airbnb, Booking y otras plataformas, y además, te ayudamos a conseguir los mejores precios en el seguro de tu",
+        "cardNineTitle": "Gestión de Reseñas",
+        "cardNineDescription": "Nuestro objetivo es ayudarte a obtener la mayor cantidad posible de reseñas positivas para que tu vivienda destaque en las plataformas de alquiler vacacional y atraiga a más huéspedes potenciales.",
+        "ourRentalFees": "Nuestras Tarifas de Gestión Integral de Viviendas Vacacionales",
+        "ourRentalFeesDescriptionOne": "Con nuestra tarifa de gestión integral de casas de alquiler vacacional altamente competitiva, obtendrás <strong>   todos los beneficios de nuestros servicios de gestión profesional para aumentar al máximo la rentabilidad de tu vivienda turística   durante todo el año </strong> .",
+        "ourRentalFeesDescriptionTwo": "<strong>Tù ganas, nosotros ganamos.</strong>",
+        "ourRentalFeesDescriptionThree": " Al contrario que otras empresas que ocultan sus tarifas y esconden sus comisiones en <strong>DYGAV</strong>, mantenemos una política de <strong>transparencia total</strong> en nuestras tarifas porque creemos en una relación donde <strong>   nuestros ingresos están directamente vinculados al éxito de nuestros   clientes </strong> .",
+        "ourRentalFeesDescriptionFour": "Por eso solo cobramos una comisión del <strong>15%+IVA sobre la facturación</strong> de las casas que gestionamos, que <strong>   incluye todos nuestros servicios profesionales de gestión </strong> .",
+        "ourRentalFeesDescriptionFive": "Es importante destacar que <strong>no hay costes adicionales ocultos</strong>. Además, los gastos de limpieza son asumidos directamente por los huéspedes, lo que significa <strong>   que no tendrás que preocuparte por ningún otro cargo adicional </strong> .",
+        "ourRentalFeesDescriptionSix": "Nos esforzamos por brindarte una gestión clara y sin sorpresas, permitiéndote maximizar tus ingresos de tu vivienda de alquiler vacacional y disfrutar de <strong>una experiencia libre de preocupaciones</strong>.",
+        "controlRental": "Todo el control de tu vivienda turística desde tu Smartphone",
+        "controlRentalDescriptionOne": "En <strong className='text-p600'>DYGAV</strong>, entendemos la importancia de tener el control total sobre tu propiedad vacacional, incluso cuando estás en movimiento.. Te ofrecemos la libertad y la flexibilidad de <strong>   gestionar todos los aspectos de tu vivienda turística directamente   desde tu smartphone </strong> .",
+        "controlRentalDescriptionTwo": "Visualiza y gestiona las <strong>reservas en tiempo real</strong>, accede al <strong>calendario de disponibilidad</strong> para ajustarlo según tus necesidades, y <strong>controla las fechas importantes</strong> con solo unos toques. Además, mantente al día con las <strong>liquidaciones mensuales</strong> y el historial financiero de tu propiedad. Todo esto, y mucho más, disponible en la palma de tu mano. Con DYGAV, lleva la gestión de tu alquiler vacacional al siguiente nivel: <strong>eficiente, transparente y accesible</strong>.",
+        "licensesPlacesTitle": "¿Dónde Gestionamos Viviendas Turísticas?",
+        "licensesPlacesDescription": "Actualmente en DYGAV, <strong> nos enorgullecemos de gestionar una selecta cartera de viviendas turísticas </strong> en tres diversos destinos de España: <strong>Madrid</strong>, con su agitada vida urbana y cultural; <strong>Costa Blanca</strong>, famosa por sus idílicas playas y clima mediterráneo; y los <strong>Pirineos</strong>, un épico destino para los amantes de la naturaleza y los deportes de montaña. En cada uno de estos lugares, ofrecemos nuestros servicios integrales de gestión de viviendas turísticas, garantizando experiencias únicas tanto para los propietarios como para los visitantes."
+    },
+
+    "helpYouForm": {
+      "title": "¿Necesitas ayuda?",
+      "subtitle": "Llámanos, escríbenos o <br /> acercate a nuestras <br /> oficinas",
+      "description": "Resolvemos todos tus dudas sin <br /> compromiso.",
+      "formTitle": "Te llamamos nosotros",
+      "inputOne": "Escribe tu nombre completo",
+      "inputTwo": "Escribe tu correo electronico",
+      "inputThree": "Escribe tu telefono",
+      "inputFour": "Ayúdanos a prepararnos: Cuéntanos tu caso para que podamos atenderte mejor cuando te contactemos.",
+      "button": "Solicitar informacion"
+    }
+}

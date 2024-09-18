@@ -5,6 +5,7 @@ import { Session } from 'next-auth';
 import { axiosConfig } from '@/utils';
 import axios from 'axios';
 import { AccomodationCarousel } from '../OwnerDashboard/AccomodationCarousel';
+import useDictionary from '@/app/hooks/useDictionary';
 
 export const CalendarOwner: FC<{ session: Session }> = ({ session }) => {
   const [data, setData] = useState<any[]>();
@@ -39,11 +40,13 @@ export const CalendarOwner: FC<{ session: Session }> = ({ session }) => {
     accomodations();
   }, []);
 
+  const dictionary: any = useDictionary('calendar');
+
   return (
     <div className='px-8 space-y-12 mb-24'>
       <div className='flex flex-col md:flex-row justify-center items-center md:justify-between md:items-end border-b-[1px]'>
         <p className=' text-black900/[.7]  mt-10 text-2xl text-center md:text-left md:text-3xl lg:mt-16 lg:text-4xl'>
-          My Accommodations
+          {dictionary.calendarOwner?.title}
         </p>
       </div>
 
@@ -56,7 +59,7 @@ export const CalendarOwner: FC<{ session: Session }> = ({ session }) => {
           <div className='flex justify-center items-center mt-10'>
             <div className='flex flex-col justify-center items-center space-y-8 border-[1px] border-dashed md:h-[200px] md:w-[600px] p-10'>
               <p className=' text-black900/[.7] lg:text-xl'>
-                You don&apos;t have accommodations yet!
+                {dictionary.calendarOwner?.loading}
               </p>
             </div>
           </div>

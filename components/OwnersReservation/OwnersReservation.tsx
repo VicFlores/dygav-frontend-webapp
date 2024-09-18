@@ -8,6 +8,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import styles from '../OwnerDashboard/OwnerDashboard.module.css';
 import stylesOwner from './OwnersReservation.module.css';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import useDictionary from '@/app/hooks/useDictionary';
 
 interface IFormInput {
   accommodation: string;
@@ -144,23 +145,31 @@ export const OwnersReservation: FC<{ session: Session }> = ({ session }) => {
     reset(); // Reset the form fields
   };
 
+  const dictionary = useDictionary('ownersAccount');
+
   return (
     <div className={stylesOwner.controlPanel}>
-      <h1 className={styles.controlPanel__title}>Upcoming bookings</h1>
+      <h1 className={styles.controlPanel__title}>
+        {dictionary.ownerDashboard?.upcomingBookingsTitle}
+      </h1>
 
       <p className={styles.controlPanel__subtitle}>
-        These are the latest reservations in your accommodations
+        {dictionary.ownerDashboard?.upcomingBookingsSubtitle}
       </p>
 
       <div className={stylesOwner.formContainer}>
         <form onSubmit={handleSubmit(onSubmit)} className={stylesOwner.form}>
           <div className={stylesOwner.form_inputContainer}>
-            <label htmlFor='accommodation'>Accommodation</label>
+            <label htmlFor='accommodation'>
+              {dictionary.ownerDashboard?.accommodationFilter}
+            </label>
             <select
               id='accommodation'
               {...register('accommodation', { required: true })}
             >
-              <option value=''>Select Accommodation</option>
+              <option value=''>
+                {dictionary.ownerDashboard?.selectAccommodation}
+              </option>
               {data.map((item) => (
                 <option key={item.id} value={item.id}>
                   {item.name}
@@ -171,7 +180,9 @@ export const OwnersReservation: FC<{ session: Session }> = ({ session }) => {
           </div>
 
           <div className={stylesOwner.form_inputContainer}>
-            <label htmlFor='startDate'>Start Date</label>
+            <label htmlFor='startDate'>
+              {dictionary.ownerDashboard?.startDate}
+            </label>
             <input
               type='date'
               id='startDate'
@@ -181,7 +192,9 @@ export const OwnersReservation: FC<{ session: Session }> = ({ session }) => {
           </div>
 
           <div className={stylesOwner.form_inputContainer}>
-            <label htmlFor='endDate'>End Date</label>
+            <label htmlFor='endDate'>
+              {dictionary.ownerDashboard?.endDate}
+            </label>
             <input
               type='date'
               id='endDate'
@@ -191,18 +204,24 @@ export const OwnersReservation: FC<{ session: Session }> = ({ session }) => {
           </div>
 
           <div className={stylesOwner.form_inputContainer}>
-            <label htmlFor='status'>Status</label>
+            <label htmlFor='status'>{dictionary.ownerDashboard?.status}</label>
             <select id='status' {...register('status', { required: true })}>
-              <option value='CONFIRMED'>Confirmed</option>
-              <option value='CANCELLED'>Cancelled</option>
+              <option value='CONFIRMED'>
+                {dictionary.ownerDashboard?.confirmStatus}
+              </option>
+              <option value='CANCELLED'>
+                {dictionary.ownerDashboard?.cancelledStatus}
+              </option>
             </select>
             {errors.status && <span>This field is required</span>}
           </div>
 
           <div className={stylesOwner.form_buttons}>
-            <button type='submit'>Search</button>
+            <button type='submit'>
+              {dictionary.ownerDashboard?.searchButton}
+            </button>
             <button type='button' onClick={clearSearch}>
-              Clear
+              {dictionary.ownerDashboard?.clearButton}
             </button>
           </div>
         </form>
@@ -221,7 +240,9 @@ export const OwnersReservation: FC<{ session: Session }> = ({ session }) => {
               </figure>
 
               <div className={styles.bookings_cardBody}>
-                <h3 className={styles.bookings_status}>Active booking</h3>
+                <h3 className={styles.bookings_status}>
+                  {dictionary.ownerDashboard?.bookingStatus}
+                </h3>
 
                 <p className={styles.bookings_accommodation}>
                   {item.accommodation}
@@ -232,24 +253,19 @@ export const OwnersReservation: FC<{ session: Session }> = ({ session }) => {
                 </p>
 
                 <div className={styles.bookings_check}>
-                  <p>Check-in: {item.indate}</p>
-
+                  <p>Check-in: {item.indate}</p>/
                   <p>Check-out: {item.outdate}</p>
                 </div>
 
                 <div className={styles.bookings_check}>
                   <p>€{item.totalamount}</p>
 
-                  {item.status === 'CONFIRMED' ? (
-                    <Link
-                      href={`/private/owner/reservation/${item.booking}`}
-                      className={styles.bookings_details}
-                    >
-                      Detalles de reservacion
-                    </Link>
-                  ) : (
-                    <p className={styles.bookings_status}>Cancelada</p>
-                  )}
+                  <Link
+                    href={`/private/owner/reservation/${item.booking}`}
+                    className={styles.bookings_details}
+                  >
+                    {dictionary.ownerDashboard?.bookinButton}
+                  </Link>
                 </div>
               </div>
             </div>
@@ -259,7 +275,7 @@ export const OwnersReservation: FC<{ session: Session }> = ({ session }) => {
         <div className='flex justify-center items-center mt-10'>
           <div className='flex flex-col justify-center items-center space-y-8 border-[1px] border-dashed md:h-[200px] md:w-[600px] p-10'>
             <p className=' text-black900/[.7] lg:text-xl'>
-              You don&apos;t have reservations yet!
+              {dictionary.ownerDashboard?.waitingReservationsMessage}
             </p>
           </div>
         </div>
@@ -270,14 +286,14 @@ export const OwnersReservation: FC<{ session: Session }> = ({ session }) => {
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
         >
-          Previous
+          {dictionary.ownerDashboard?.previousButton}
         </button>
 
         <button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
         >
-          Next
+          {dictionary.ownerDashboard?.nextButton}
         </button>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React, { FC, useRef } from 'react';
 import Link from 'next/link';
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
+import useDictionary from '@/app/hooks/useDictionary';
 
 interface ImageProps {
   cityName: string;
@@ -26,6 +27,8 @@ export const CityCards: FC<{
       scrollContainer.current.scrollLeft += 300;
     }
   };
+
+  const dictionary: any = useDictionary('licenses');
 
   return (
     <div className='flex items-center  overflow-x-auto overscroll-x-contain lg:col-start-2 lg:col-end-4'>
@@ -59,7 +62,9 @@ export const CityCards: FC<{
                 className='bg-cover bg-center flex items-end'
               >
                 <h4 className='text-white pl-4 pb-4 text-sm md:text-lg'>
-                  {cardTitle ? cardTitle : 'Licencia turística en'}{' '}
+                  {cardTitle
+                    ? cardTitle
+                    : `${dictionary.licenseAditionalInfo?.licenseTitle}`}{' '}
                   {image.cityName}
                 </h4>
               </div>

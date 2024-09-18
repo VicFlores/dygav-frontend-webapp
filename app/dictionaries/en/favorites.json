@@ -1,0 +1,9 @@
+{
+    "favorites": {
+        "accommodationTitle": "My favorites accommodation",
+        "articleTitle": "My favorites articles",
+        "accommodations": "Accommodations",
+        "articles": "Articles",
+        "empty": "No favorites yet"
+    }
+}

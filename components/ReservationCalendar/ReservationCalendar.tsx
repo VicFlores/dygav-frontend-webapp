@@ -13,6 +13,7 @@ import { axiosConfig } from '@/utils';
 import { useSession } from 'next-auth/react';
 import { TbLockOff } from 'react-icons/tb';
 import styles from './reservationCalendar.module.css';
+import useDictionary from '@/app/hooks/useDictionary';
 
 // Set the locale to English
 moment.locale('en');
@@ -300,6 +301,8 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
     }
   };
 
+  const dictionary: any = useDictionary('calendar');
+
   return (
     <div className='px-8 mb-24'>
       {showForm && (
@@ -311,7 +314,7 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
 
       <div className='flex flex-col justify-center items-center lg:flex-row lg:justify-between lg:items-end border-b-[1px] mt-20 mb-8'>
         <p className=' text-black900/[.7] text-2xl text-center md:text-left md:text-3xl lg:text-4xl'>
-          Reservations at my accommodation
+          {dictionary.calendarOwner?.eachCalendarTitle}
         </p>
 
         <div className='relative my-4 lg:my-0 lg:mb-2 '>
@@ -320,7 +323,9 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
             onClick={toggleForm}
             className='bg-p600 hover:bg-p800 text-center text-[13px] md:text-sm lg:text-base py-2 px-16 w-auto text-white'
           >
-            {showForm ? 'Hide Block Day' : 'View Block Day'}
+            {showForm
+              ? `${dictionary.calendarOwner?.hideBlockDays}`
+              : `${dictionary.calendarOwner?.showBlockDays}`}
           </button>
         </div>
       </div>
@@ -346,8 +351,8 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
 
         <label htmlFor='toggle' className='pl-3 mt-4 md:mt-0'>
           {isEmailChecked
-            ? 'Do Not Receive Email Notifications'
-            : 'Receive email notifications'}
+            ? `${dictionary.calendarOwner?.receiveEmail}`
+            : `${dictionary.calendarOwner?.noReceiveEmail}`}
         </label>
       </div>
 

@@ -43,6 +43,14 @@
   padding: 0 20px;
 }
 
+.news__title {
+  padding-top: 30px;
+
+  @media screen and (max-width: 768px) {
+    padding-top: 20px;
+  }
+}
+
 .news__card {
   margin-bottom: 30px;
   position: relative;

@@ -1,0 +1,87 @@
+{
+    "heroOwners": {
+        "title": "Vacation Rental Management ",
+        "description": "At DYGAV, we specialize in providing comprehensive solutions for vacation rentals."
+    },
+
+    "peachOwners": {
+        "title": "Vacation Rental Management Specialists",
+        "descriptionOne": "Do you have a vacation home or apartment in a tourist city that's empty most of the year? Now you can earn income even when you're not using it, easily and securely.",
+        "descriptionTwo": "Let your vacation property work for you! Maximize your earnings and generate additional income while you're away. It's time to make the most of your investment! "
+    },
+
+    "information": {
+        "title": "Let us show you a better way to manage your vacation rental. ",
+        "description": "At DYGAV, we specialize in vacation rental management. We oversee every aspect of your property to maximize your income and ensure an exceptional experience for both owners and guests.",
+        "listItems": [
+      {
+        "text": "We'll assist you in ",
+        "link": {
+          "href": "http://dygav.es/licencias-turisticas",
+          "text": "obtaining the necessary tourist license for your property"
+        },
+        "suffix": "."
+      },
+      {
+        "text": "We'll optimize your listing on leading vacation rental platforms such as Airbnb and Booking.com."
+      },
+      {
+        "text": "We'll ensure your property is always guest-ready, providing a smooth stay and encouraging positive reviews."
+      }
+    ],
+      "managmentWithUs": "Experience a more efficient way to manage your properties.! ",
+      "rentalManagement": "Take your vacation rental to the next level",
+      "callToAction": " Call today",
+      "rentalHelp": "How can we help you increase your vacation rental revenue? ",
+      "managMadrid": "Vacation Rental Management in Madrid",
+        "managPirineos": "Vacation Rental Management in Pirineo Aragones",
+        "managCostaBlanca": "Vacation Rental Management in Costa Blanca",
+        "managSubTitle": "Where do we manage vacation rentals?",
+        "faqTitle": "Frequently Asked Questions About Our Tourist Housing Management"
+    },
+
+    "vacationRentalHome": {
+        "cardOneTitle": "Investments and Improvements",
+        "cardOneDescription": "We offer personalized advice on key investments and improvements for your property to make it more attractive, attract more guests, and increase your earnings. ",
+        "cardTwoTitle": "Professional Photography",
+        "cardTwoDescription": "Our high-quality photos will create a lasting impression and encourage more bookings",
+        "cardThreeTitle": "Marketing and Promotion",
+        "cardThreeDescription": "We handle the creation and updating of your property listings on ALL vacation rental platforms, as well as reservation management and rate optimization.",
+        "cardFourTitle": "Dynamic Pricing Powered by AI",
+        "cardFourDescription": "We provide a powerful AI engine that analyzes real-time demand to strategically adjust your rates, maximizing your revenue.",
+        "cardFiveTitle": "Check In Check Out",
+        "cardFiveDescription": "Say goodbye to check-in and check-out hassles with our contactless, fully digital system.",
+        "cardSixTitle": "Customer Service",
+        "cardSixDescription": "Our dedicated customer support team provides exceptional service to your guests from booking to departure. 24/7 emergency hotline available.",
+        "cardSevenTitle": "Cleaning and Maintenance",
+        "cardSevenDescription": "We take care of cleaning and maintaining your property, including bed linens and restocking amenities, ensuring a spotless and welcoming stay for your guests.",
+        "cardEightTitle": "Insurance Management",
+        "cardEightDescription": "We manage insurance and security deposits for Airbnb, Booking.com, and other platforms. Plus, we help you find the best rates on home and liability insurance.",
+        "cardNineTitle": "Review Management",
+        "cardNineDescription": "Our goal is to help you get as many positive reviews as possible, so your property stands out on vacation rental platforms and attracts more guests.",
+        "ourRentalFees": "Our All-Inclusive Vacation Rental Management Fees ",
+        "ourRentalFeesDescriptionOne": "With our highly competitive all-inclusive vacation rental management fee, you'll enjoy all the benefits of our professional management services to maximize your property's year-round rental income.",
+        "ourRentalFeesDescriptionTwo": "Let's make this a win-win deal.",
+        "ourRentalFeesDescriptionThree": "Unlike other companies that hide their fees and bury their commissions, at DYGAV, we maintain a policy of total transparency in our pricing. We believe in a relationship where our earnings are directly tied to the success of our clients. ",
+        "ourRentalFeesDescriptionFour": "We believe in transparency. That's why we charge a clear and competitive 15% + VAT commission on your property's income. This fee covers all our professional management services.",
+        "ourRentalFeesDescriptionFive": "It's important to highlight that there are no hidden costs. Additionally, cleaning costs are covered directly by the guests, meaning you won't have to worry about any extra charges.",
+        "ourRentalFeesDescriptionSix": "We strive to provide clear and hassle-free management, allowing you to maximize your vacation rental income and enjoy a worry-free experience.",
+        "controlRental": "Complete control of your vacation rental from your smartphone. ",
+        "controlRentalDescriptionOne": "At DYGAV, we understand the importance of having full control over your vacation rental, even when you're on the go. We offer you the freedom and flexibility to manage all aspects of your property directly from your smartphone.",
+        "controlRentalDescriptionTwo": "View and manage bookings in real time, access the availability calendar to adjust it to your needs, and keep track of important dates with just a few taps. Additionally, stay up to date with monthly settlements and your property's financial history. All this, and much more, is available at your fingertips. With DYGAV, take your vacation rental management to the next level: efficient, transparent, and accessible.",
+        "licensesPlacesTitle": "Where do we manage vacation rentals?",
+        "licensesPlacesDescription": "Currently, at DYGAV, we are proud to manage a select portfolio of vacation rentals in three diverse destinations in Spain: Madrid, with its vibrant urban and cultural life; the Costa Blanca, famous for its idyllic beaches and Mediterranean climate; and the Pyrenees, an epic destination for nature lovers and mountain sports enthusiasts. In each of these locations, we offer comprehensive vacation rental management services, guaranteeing unique experiences for both owners and guests."
+    },
+
+    "helpYouForm": {
+      "title": "Need help?",
+      "subtitle": "Call us, send us a message, or <br /> visit our office.",
+      "description": "We'll answer all your questions, <br /> no strings attached",
+      "formTitle": "We call you.",
+      "inputOne": "Provide your email",
+      "inputTwo": "Full name",
+      "inputThree": "phone number",
+      "inputFour": "Tell us about your situation",
+      "button": "Request information"
+    }
+}

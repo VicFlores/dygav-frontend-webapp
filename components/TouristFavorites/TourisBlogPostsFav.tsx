@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useSession } from 'next-auth/react';
 import React, { useEffect, useState } from 'react';
 import { PostCards } from '../Posts/PostCards';
+import useDictionary from '@/app/hooks/useDictionary';
 
 export const TourisBlogPostsFav = () => {
   const [favsBlogPosts, setFavsBlogPosts] = useState([]);
@@ -74,6 +75,8 @@ export const TourisBlogPostsFav = () => {
     }
   }, [removedBlogPost]);
 
+  const dictionary = useDictionary('favorites');
+
   return (
     <div className='px-8 space-y-12 mb-24'>
       {favsBlogPosts.length > 0 ? (
@@ -93,7 +96,7 @@ export const TourisBlogPostsFav = () => {
         <div className='flex justify-center items-center'>
           <div className='flex flex-col justify-center items-center space-y-8 border-[1px] border-dashed h-[266px] w-[717px]'>
             <p className=' text-black900/[.7] lg:text-3xl'>
-              ¡Aún no tienes articulos favoritos!
+              {dictionary.favorites?.empty}
             </p>
           </div>
         </div>

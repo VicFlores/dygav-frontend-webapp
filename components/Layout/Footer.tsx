@@ -5,6 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import axios from 'axios';
 import { useState } from 'react';
 import { BrandContent } from '..';
+import useDictionary from '@/app/hooks/useDictionary';
 
 type Inputs = {
   email: string;
@@ -33,24 +34,34 @@ export const Footer = () => {
     }
   };
 
+  const dictionary = useDictionary('home');
+
   return (
     <>
       <BrandContent />
 
       <footer className='bg-p600 space-y-10 pt-8 pb-8 lg:pt-0 lg:pb-0 lg:space-y-0 h-auto lg:h-80 lg:flex lg:justify-around lg:items-center text-white text-center'>
         <div className='flex flex-col space-y-2'>
-          <p className='text-xl'>Enlaces útiles</p>
-          <Link href='/login'>Iniciar Sesion</Link>
-          <Link href='/register'>Registrarse</Link>
-          <Link href='/blog'>Blog</Link>
+          <p className='text-xl'>{dictionary.footer?.usefulLinks}</p>
+          <Link href='/login'>{dictionary.footer?.login}</Link>
+          <Link href='/register'>{dictionary.footer?.register}</Link>
+          <Link href='/blog'>{dictionary.footer?.blog}</Link>
         </div>
 
         <div className='flex flex-col space-y-4'>
-          <p className='text-xl'>Políticas</p>
-          <Link href='/policies/privacyPolicy'>Política de Privacidad</Link>
-          <Link href='/policies/cookiesPolicy'>Política de Cookies</Link>
-          <Link href='/policies/formsPolicy'>Política de Formularios</Link>
-          <Link href='/policies/legalNotice'>Aviso Legal</Link>
+          <p className='text-xl'>{dictionary.footer?.termsAndConditions}</p>
+          <Link href='/policies/privacyPolicy'>
+            {dictionary.footer?.privacyPolicy}
+          </Link>
+          <Link href='/policies/cookiesPolicy'>
+            {dictionary.footer?.cookiesPolicy}
+          </Link>
+          <Link href='/policies/formsPolicy'>
+            {dictionary.footer?.formPolicy}
+          </Link>
+          <Link href='/policies/legalNotice'>
+            {dictionary.footer?.legalNotice}
+          </Link>
         </div>
 
         {/* <div>
@@ -80,7 +91,7 @@ export const Footer = () => {
       </div> */}
 
         <div className='flex flex-col space-y-6'>
-          <p className='text-xl'>Contacto</p>
+          <p className='text-xl'>{dictionary.footer?.contactUs}</p>
 
           <p>
             Avenida Gregorio <br /> Marañón 7, 7 29

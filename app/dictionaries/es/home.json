@@ -1,0 +1,71 @@
+{
+    "hero": {
+        "title": "Bienvenidos a DYGAV",
+        "description": "Estás a unos clics de tu nuevo lugar favorito"
+    },
+
+    "filterToDatesLocationPeople": {
+        "inputCity": "Escoge tu ciudad",
+        "inputTravellers": "Número de viajeros",
+        "searchButton": "Buscar",
+        "city": "Ciudad",
+        "dates": "Fechas de reserva",
+        "guests": "Huéspedes"
+    },
+
+    "carousel": {
+        "title": "ENCUENTRA TU <br /> ALOJAMIENTO IDEAL",
+        "subtitle": "¿Donde Será Tú Próxima <br /> Aventura?"
+    },
+
+    "aboutUs": {
+        "title": "DESCUBRE QUIENES SOMOS",
+        "subtitle": "Sobre nosotros"
+    },
+ 
+    "aboutUsCard": {
+        "worldTitle": "Bienvenido a \n nuestro mundo",
+        "worldSubtitle": "Somos una empresa con amplia experiencia en el sector inmobiliario y gestión de patrimonio. Entendemos las necesidades y exigencias del mercado actual. Nos enorgullecemos de ofrecer soluciones integrales enfocadas en maximizar el rendimiento económico de tus propiedades vacacionales. Nuestro objetivo es adaptarnos a cada cliente para ofrecer un servicio personalizado y de alta calidad.",
+        "apartmentTitle": "Digitaliza tu apartamentos turistico",
+        "apartmentSubtitle": "Mediante la digitalización, optimizamos la gestión de propiedades para nuestros clientes. Somos líderes en tecnología para apartamentos turísticos, ofreciendo una gestión ágil y segura. Nos comprometemos a brindar soluciones innovadoras que mejoren la experiencia de los propietarios y maximicen su retorno de inversión, creando experiencias únicas para nuestros huéspedes.",
+        "aviableTitle": "Siempre disponible \n para ti",
+        "aviableSubtitle": "Nuestro equipo de profesionales expertos tiene un conocimiento profundo del sector inmobiliario y de la gestión de patrimonio. Ofrecemos un servicio de alta calidad que supera las expectativas de nuestros huéspedes. Nuestra flexibilidad nos permite adaptarnos a las necesidades específicas de cada propietario, asegurando una gestión eficaz y sin complicaciones para todos los involucrados."
+    },
+
+    "alquilerVacacional": {
+        "title": "Nos encargamos nosotros",
+        "subtitle": "Gestionamos integralmente tu alquiler vacacional",
+        "button": "Más información"
+    },
+
+    "ourComments": {
+        "title": "LO QUE DICEN DE NOSOTROS",
+        "subtitle": "Las experiencias de nuestros propietarios"
+    
+    },
+
+    "brandContent": {
+        "title": "Descubre tu refugio perfecto a solo un clic de distancia."
+    },
+
+    "footer": {
+        "usefulLinks": "Enlaces útiles",
+        "login": "Iniciar Sesión",
+        "register": "Registrarse",
+        "blog": "Blog",
+        "termsAndConditions": "Políticas",
+        "privacyPolicy": "Política de Privacidad",
+        "cookiesPolicy": "Política de Cookies",
+        "formPolicy": "Política de Formularios",
+        "legalNotice": "Aviso Legal",
+        "contactUs": "Contacto"
+    },
+
+    "nav": {
+        "logout": "Cerrar Sesión",
+        "welcome": "Bienvenido",
+        "hello": "Hola"
+
+    }
+    
+}

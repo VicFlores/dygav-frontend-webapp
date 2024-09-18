@@ -10,8 +10,13 @@ import {
   costaBlancaImages,
   madridImages,
 } from '@/utils/static/licenseImages';
+import useDictionary from '@/app/hooks/useDictionary';
+import { sanitizeHtmlConfig } from '@/utils/static/sanitizeHtmlConfig';
+import sanitizeHtml from 'sanitize-html';
 
 export const Information = () => {
+  const dictionary: any = useDictionary('owners');
+
   const generalFAQS = [
     {
       question: '¿Puedo reservar mi apartamento para ir yo cuando quiera?',
@@ -188,54 +193,57 @@ export const Information = () => {
     },
   ];
 
+  const sanitizedDescription = sanitizeHtml(
+    dictionary.information?.description || '',
+    sanitizeHtmlConfig
+  );
+
+  const sanitizeMangWithUs = sanitizeHtml(
+    dictionary.information?.managmentWithUs || '',
+    sanitizeHtmlConfig
+  );
+
+  const sanitizelicensesPlacesDescription = sanitizeHtml(
+    dictionary.vacationRentalHome?.licensesPlacesDescription || '',
+    sanitizeHtmlConfig
+  );
+
   return (
     <section className='mt-24 mb-16 px-6 md:px-12 lg:px-32 flex flex-col'>
       <h2 className='text-center px-4 md:px-0 text-2xl md:text-3xl text-black700 pb-4 font-semibold'>
-        Descubre una forma más efectiva de gestionar tu vivienda turística
+        {dictionary.information?.title}
       </h2>
 
       <p className='text-justify lg:text-start text-sm md:text-lg border-t-4 border-t-p600 pt-5 space-y-4 text-black900'>
-        En <strong className='text-p600'>DYGAV</strong> somos especialistas en
-        la gestión de viviendas vacacionales, nos encargamos de controlar todos
-        los aspectos necesarios para{' '}
-        <strong>
-          maximizar tus ingresos y garantizar una experiencia inigualable
-        </strong>{' '}
-        tanto para los <strong>propietarios</strong> como para los{' '}
-        <strong>huéspedes</strong> de tu casa de alquiler vacacional.
+        <span
+          dangerouslySetInnerHTML={{
+            __html: sanitizedDescription,
+          }}
+        ></span>
       </p>
 
       <ul className='text-justify lg:text-start text-sm md:text-lg px-3 pt-8 list-disc pl-4 md:pl-16 space-y-4'>
-        <li>
-          Te ayudamos a{' '}
-          <span>
-            <Link
-              href={'http://dygav.es/licencias-turisticas'}
-              className='underline text-p600'
-            >
-              obtener la licencia turística para tu vivienda
-            </Link>
-          </span>
-          , si todavía no la tienes.
-        </li>
-
-        <li>
-          Publicamos de forma optimizada tu casa en las principales plataformas
-          de alquiler de casas particulares de alquiler para vacaciones (
-          AirBnB, Booking,...)
-        </li>
-
-        <li>
-          Nos aseguraremos de que tus apartamentos estén siempre listos a la
-          llegada, así, tus huéspedes podrán disfrutar de una estancia sin
-          contratiempos y tú podrás obtener las mejores calificaciones y
-          comentarios positivos.
-        </li>
+        {dictionary.information?.listItems.map((item: any, index: any) => (
+          <li key={index}>
+            {item.text}
+            {item.link && (
+              <span>
+                <Link href={item.link.href} className='underline text-p600'>
+                  {item.link.text}
+                </Link>
+              </span>
+            )}
+            {item.suffix}
+          </li>
+        ))}
       </ul>
 
       <p className='text-justify lg:text-start text-sm md:text-lg pt-5 text-black900'>
-        ¡Descubre una forma más efectiva de{' '}
-        <strong>gestionar tus apartamentos vacacionales con nosotros!</strong>
+        <span
+          dangerouslySetInnerHTML={{
+            __html: sanitizeMangWithUs,
+          }}
+        ></span>
       </p>
 
       <div className='flex justify-center items-center mt-16'>
@@ -243,7 +251,7 @@ export const Information = () => {
           className={`grid lg:grid-cols-2 bg-gray300/40 border border-p600 rounded-xl px-9 md:px-10 lg:px-28 py-10 md:py-5`}
         >
           <p className='text-lg lg:text-2xl mt-8 space-y-4 text-p600 text-center mb-10 font-semibold lg:col-start-1 lg:col-end-3'>
-            TE AYUDAMOS A RENTABILIZAR TU ALQUILER TURÍSTICO
+            {dictionary.information?.rentalManagement}
           </p>
 
           <figure className='relative w-52 h-52 md:w-64 md:h-64 self-center justify-self-center mb-4 md:mb-0'>
@@ -258,7 +266,7 @@ export const Information = () => {
 
           <div className='flex-col space-y-4 justify-center md:justify-evenly items-center self-center justify-self-center'>
             <p className='text-center text-2xl px-14 md:text-3xl text-black700'>
-              ¡Llámanos!
+              {dictionary.information?.callToAction}
             </p>
 
             <div className='relative'>
@@ -289,39 +297,30 @@ export const Information = () => {
       </div>
 
       <h2 className='text-center px-4 md:px-0 text-2xl md:text-3xl pb-4 border-b-4 border-b-p600 font-semibold mb-16 mt-28'>
-        ¿Cómo te ayudamos a rentabilizar tu casa de alquiler vacacional?
+        {dictionary.information?.rentalHelp}
       </h2>
 
       <VacationRentalHome />
 
       <h2 className='text-center text-2xl md:text-3xl border-b-4 border-b-p600 mt-24 pb-2 font-semibold'>
-        ¿Dónde Gestionamos Viviendas Turísticas?
+        {dictionary.vacationRentalHome?.licensesPlacesTitle}
       </h2>
 
-      <p className='text-justify lg:text-start text-sm md:text-lg mt-4'>
-        Actualmente en DYGAV,{' '}
-        <strong>
-          nos enorgullecemos de gestionar una selecta cartera de viviendas
-          turísticas
-        </strong>{' '}
-        en tres diversos destinos de España: <strong>Madrid</strong>, con su
-        agitada vida urbana y cultural; <strong>Costa Blanca</strong>, famosa
-        por sus idílicas playas y clima mediterráneo; y los{' '}
-        <strong>Pirineos</strong>, un épico destino para los amantes de la
-        naturaleza y los deportes de montaña. En cada uno de estos lugares,
-        ofrecemos nuestros servicios integrales de gestión de viviendas
-        turísticas, garantizando experiencias únicas tanto para los propietarios
-        como para los visitantes.
-      </p>
+      <p
+        dangerouslySetInnerHTML={{
+          __html: sanitizelicensesPlacesDescription,
+        }}
+        className='text-justify lg:text-start text-sm md:text-lg mt-4'
+      ></p>
 
       <div className='w-full h-auto grid md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4 mb-14'>
         <div className='md:self-center md:justify-self-center divide-y-4 divide-p600 text-center md:text-start'>
           <h2 className='text-2xl lg:text-[31px] md:text-[26px] mb-4'>
-            Gestión de Viviendas Turísticas en Madrid
+            {dictionary.information?.managMadrid}
           </h2>
 
           <h3 className='text-center md:text-start text-2xl  md:text-3xl font-semibold pt-3'>
-            ¿Donde gestionamos tu vivienda?
+            {dictionary.information?.managSubTitle}
           </h3>
         </div>
 
@@ -335,11 +334,11 @@ export const Information = () => {
       <div className='w-full h-auto grid md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4 mb-14'>
         <div className='md:self-center md:justify-self-center divide-y-4 divide-p600 text-center md:text-start'>
           <h2 className='text-2xl lg:text-[31px] md:text-[26px] mb-4'>
-            Gestión de Viviendas Turísticas en el Pirineo Aragonés
+            {dictionary.information?.managPirineos}
           </h2>
 
           <h3 className='text-center md:text-start text-2xl  md:text-3xl font-semibold pt-3'>
-            ¿Donde gestionamos tu vivienda?
+            {dictionary.information?.managSubTitle}
           </h3>
         </div>
 
@@ -353,11 +352,11 @@ export const Information = () => {
       <div className='w-full h-auto grid md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-10 px-6 md:px-2 lg:px-0 gap-x-4 mb-14'>
         <div className='md:self-center md:justify-self-center divide-y-4 divide-p600 text-center md:text-start'>
           <h2 className='text-2xl lg:text-[31px] md:text-[26px] mb-4'>
-            Gestión de viviendas turísticas en Costa Blanca
+            {dictionary.information?.managCostaBlanca}
           </h2>
 
           <h3 className='text-center md:text-start text-2xl  md:text-3xl font-semibold pt-3'>
-            ¿Donde gestionamos tu vivienda?
+            {dictionary.information?.managSubTitle}
           </h3>
         </div>
 
@@ -371,7 +370,7 @@ export const Information = () => {
       <HelpYouForm />
 
       <h2 className='text-center text-2xl md:text-3xl border-b-4 border-b-p600 mt-16 pb-2 font-semibold'>
-        Preguntas Comunes sobre Nuestra Gestión de Viviendas Turísticas
+        {dictionary.information?.faqTitle}
       </h2>
 
       <FAQSection title='Preguntas Generales' faqs={generalFAQS} />

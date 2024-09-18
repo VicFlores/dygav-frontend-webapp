@@ -1,0 +1,13 @@
+{
+    "calendarOwner": {
+        "title": "My accommodations",
+        "loading": "Loading accommodations",
+        "seeCalendar": "See calendar",
+        "eachCalendarTitle": "Reservations at my accommodation",
+        "hideBlockDays": "Hide Day Lock",
+        "showBlockDays": "Show Day Lock",
+        "receiveEmail": "Receive email notifications",
+        "noReceiveEmail": "Do not receive email notifications"
+        
+    }
+}
