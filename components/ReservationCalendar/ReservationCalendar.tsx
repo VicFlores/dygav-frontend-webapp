@@ -208,10 +208,10 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
     if (!reservation) return;
 
     reservation.status === 'CONFIRMED'
-      ? router.push(`/private/owner/reservation/${reservation.id}`)
+      ? router.push(`/private/owners/reservation/${reservation.id}`)
       : reservation.status === 'PENDING_PAYMENT'
       ? router.push(
-          `/private/owner/accomodation/${reservation.accommodationId}`
+          `/private/owners/accomodation/${reservation.accommodationId}`
         )
       : null;
   };

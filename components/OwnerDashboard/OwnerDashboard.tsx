@@ -303,7 +303,7 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
                         <p>€{item.totalamount}</p>
 
                         <Link
-                          href={`/private/owner/reservation/${item.booking}`}
+                          href={`/private/owners/reservation/${item.booking}`}
                           className={styles.bookings_details}
                         >
                           {dictionary.ownerDashboard?.bookinButton}

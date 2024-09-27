@@ -12,7 +12,7 @@ export default withAuth(
     }
 
     if (
-      pathname.startsWith('/private/owner') &&
+      pathname.startsWith('/private/owners') &&
       role !== 'owner' &&
       role !== 'admin'
     ) {

@@ -206,7 +206,7 @@ export const RangeOfDates: FC<{ id: string }> = ({ id }) => {
                     <div className='flex justify-center items-center relative'>
                       <AiOutlineCheckCircle className='w-5 md:h-5 text-p600 absolute top-1/2 -translate-y-1/2 right-5 md:right-12 lg:right-12' />
                       <Link
-                        href={`/private/owner/reservation/${item.id}`}
+                        href={`/private/owners/reservation/${item.id}`}
                         passHref
                         className='text-center text-p600 hover:bg-gray300 border-[1px] border-p600 rounded-md text-[13px] md:text-sm lg:text-base py-2 px-4 w-full'
                       >

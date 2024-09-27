@@ -328,7 +328,7 @@ export const AdminMultiCalendar = () => {
 
                                 return (
                                   <Link
-                                    href={`/private/owner/reservation/${reservation.id}`}
+                                    href={`/private/owners/reservation/${reservation.id}`}
                                     className={` bg-p600/80  relative text-white text-xs w-full h-2/6 lg:h-2/3  py-1 ${roundedClass} ${
                                       (isStartDate &&
                                         reservations.length === 1 &&
@@ -429,7 +429,7 @@ export const AdminMultiCalendar = () => {
 
                                 return (
                                   <Link
-                                    href={`/private/owner/reservation/${reservation.id}`}
+                                    href={`/private/owners/reservation/${reservation.id}`}
                                     className={` bg-p600/80  relative text-white text-xs w-full h-2/6 lg:h-2/3  py-1 ${roundedClass} ${
                                       (isStartDate &&
                                         reservations.length === 1 &&

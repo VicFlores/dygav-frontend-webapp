@@ -25,7 +25,7 @@ export const NavBar: FC<TSession> = ({ session }) => {
 
   const bkCurrentUrl =
     currentUrl.startsWith('/private/tourist') ||
-    currentUrl.startsWith('/private/owner') ||
+    currentUrl.startsWith('/private/owners') ||
     currentUrl.startsWith('/private/admin')
       ? 'bg-p600'
       : 'bg-transparent';
@@ -41,7 +41,7 @@ export const NavBar: FC<TSession> = ({ session }) => {
         ? touristMenuItems
         : publicMenuItems
       : session?.user?.role === 'owner'
-      ? currentUrl.startsWith('/private/owner') ||
+      ? currentUrl.startsWith('/private/owners') ||
         currentUrl.startsWith('/private/tourist')
         ? ownerMenuItems
         : publicMenuItems
@@ -61,7 +61,7 @@ export const NavBar: FC<TSession> = ({ session }) => {
         ? adminMenuItems
         : publicMenuItems
       : session?.user?.role === 'owner'
-      ? !currentUrl.startsWith('/private/owner') &&
+      ? !currentUrl.startsWith('/private/owners') &&
         !currentUrl.startsWith('/private/tourist')
         ? ownerMenuItems
         : publicMenuItems

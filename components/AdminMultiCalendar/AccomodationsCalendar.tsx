@@ -36,7 +36,7 @@ export const AccomodationsCalendar = (accomodation: TAvaibookAccomodations) => {
 
   const handleEventClick = (e: any) => {
     if (e.partnerName !== 'Bloqueado') {
-      router.push(`/private/owner/reservation/${e.id}`);
+      router.push(`/private/owners/reservation/${e.id}`);
     }
   };
 

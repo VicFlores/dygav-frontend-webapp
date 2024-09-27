@@ -28,7 +28,7 @@ export const Login: FC<TSession> = ({ session }) => {
         return router.push('/private/tourist/dashboard');
       }
       if (session?.user?.role === 'owner') {
-        return router.push('/private/owner/dashboard');
+        return router.push('/private/owners/dashboard');
       }
       if (session?.user?.role === 'admin') {
         return router.push('/private/admin/dashboard');

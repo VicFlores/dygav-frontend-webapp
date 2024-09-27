@@ -79,10 +79,10 @@ export const publicMenuItem: TMenuItem[] = [
 ];
 
 export const accounOwnertMenuItem: TMenuItem[] = [
-  { title: 'General Panel', path: '/private/owner/dashboard' },
-  { title: 'Reservations', path: '/private/owner/reservations' },
-  { title: 'My Finances', path: '/private/owner/finanzas' },
-  { title: 'Calendar', path: '/private/owner/calendar' },
+  { title: 'General Panel', path: '/private/owners/dashboard' },
+  { title: 'Reservations', path: '/private/owners/reservations' },
+  { title: 'My Finances', path: '/private/owners/finanzas' },
+  { title: 'Calendar', path: '/private/owners/calendar' },
   { title: 'Favorites', path: '/private/tourist/favorites' },
 ];
 

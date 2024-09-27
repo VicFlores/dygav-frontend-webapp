@@ -46,7 +46,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ title, faqs }) => {
                   <span>
                     {`${faq.answer}`}{' '}
                     <Link
-                      href={'/private/owner/dashboard'}
+                      href={'/private/owners/dashboard'}
                       className='underline text-p600'
                     >
                       en el calendario de disponibilidad de tu vivienda
