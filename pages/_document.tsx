@@ -8,7 +8,7 @@ export default function Document() {
           rel='icon'
           href='https://multimedia.dygav.es/wp-content/uploads/2024/04/DYGAV_lce25q.svg'
         />
-        <link rel='manifest' href='../manifest.json' />
+        <link rel='manifest' href='/manifest.json' />
         <link rel='apple-touch-icon' href='../public/DYGAV_lce25q.png'></link>
         <script
           dangerouslySetInnerHTML={{

@@ -1,19 +1,20 @@
-import { useRouter } from 'next/navigation';
-import { signIn } from 'next-auth/react';
-import { FC, useEffect, useState } from 'react';
-import { TSession } from '@/types';
+'use client';
+
 import { useForm, SubmitHandler } from 'react-hook-form';
-import Image from 'next/image';
 import styles from '@/app/components/shared/RegisterLoginRecovery/RegisterLoginRecovery.module.css';
 import Link from 'next/link';
+import Image from 'next/legacy/image';
+import { setLoginCookies } from '@/app/actions';
+import { AxiosError } from 'axios';
+import { crmFinanzas } from '@/app/utils';
+import { useRouter } from 'next/navigation';
 
 interface IFormInput {
   email: string;
   password: string;
 }
 
-export const Login: FC<TSession> = ({ session }) => {
-  const [error, setError] = useState('');
+export const Login = () => {
   const router = useRouter();
   const {
     register,
@@ -22,47 +23,38 @@ export const Login: FC<TSession> = ({ session }) => {
     formState: { errors },
   } = useForm<IFormInput>();
 
-  useEffect(() => {
-    if (session !== null && session !== undefined) {
-      if (session?.user?.role === 'tourist') {
-        return router.push('/private/tourist/dashboard');
-      }
-      if (session?.user?.role === 'owner') {
-        return router.push('/private/owners/dashboard');
-      }
-      if (session?.user?.role === 'admin') {
-        return router.push('/private/admin/dashboard');
-      }
-    }
-  }, [session, router]);
-
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     console.log(data);
   };
 
   const handleLogin = async () => {
-    const { email, password } = getValues();
+    try {
+      const { email, password } = getValues();
 
-    setError('');
+      if (!email || !password) {
+        return;
+      }
 
-    const res = await signIn('credentials', {
-      email,
-      password,
-      redirect: false,
-    });
+      const response = await crmFinanzas.post('/auth/login', {
+        username_email: email,
+        password,
+      });
 
-    if (res?.error) return setError(res.error);
+      const { data } = response.data;
 
-    setError('Cargando...');
+      await setLoginCookies(data.access_token, data.refresh_token);
+
+      router.push('/');
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        console.error(error.response?.data);
+      } else {
+        console.error(error);
+      }
+    }
   };
 
-  const handleGoogleLogin = async () => {
-    const res = await signIn('google');
-
-    if (res?.error) return setError(res.error);
-
-    setError('Cargando...');
-  };
+  const handleGoogleLogin = async () => {};
 
   return (
     <main className={styles.maincontainer}>
@@ -87,7 +79,7 @@ export const Login: FC<TSession> = ({ session }) => {
           <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.formInputContainer}>
               <input
-                type='email'
+                type='text'
                 placeholder='Correo electronico'
                 {...register('email', { required: true })}
                 aria-invalid={errors.email ? 'true' : 'false'}
@@ -126,8 +118,6 @@ export const Login: FC<TSession> = ({ session }) => {
             <Link className={styles.recov_pass} href='/recovery'>
               ¿Olvidaste tu contraseña?
             </Link>
-
-            <p>{error}</p>
           </form>
         </div>
 

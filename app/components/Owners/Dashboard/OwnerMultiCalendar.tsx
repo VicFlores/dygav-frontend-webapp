@@ -1,23 +1,23 @@
-import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import {
   ReservationAvaibook,
   TAvaibookAccomodations,
   TCustomAccomodation,
 } from '@/types';
+import React, { useState, useEffect } from 'react';
 import { FaAirbnb, FaSpinner } from 'react-icons/fa6';
 import axios from 'axios';
-import styles from '../AdminMultiCalendar/AdminMultiCalendar.module.css';
+import styles from '../../../../components/AdminMultiCalendar/AdminMultiCalendar.module.css';
 import moment from 'moment';
 import Link from 'next/link';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
-import { BsCalendar2Week } from 'react-icons/bs';
-import { TbBrandBooking, TbLockCancel } from 'react-icons/tb';
+import { TbBrandBooking } from 'react-icons/tb';
 import { GrStatusUnknown } from 'react-icons/gr';
-import { BookingDetail } from '../AdminMultiCalendar/BookingDetail';
-import useDictionary from '@/app/hooks/useDictionary';
 
-export const AdminMultiCalendar = ({ allAccomodationsResponse }: any) => {
+import useDictionary from '@/app/hooks/useDictionary';
+import { BookingDetail } from '@/components/AdminMultiCalendar/BookingDetail';
+
+export const OwnerMultiCalendar = ({ allAccomodationsResponse }: any) => {
   const [loading, setLoading] = useState(false);
   const [showDetails, setShowDetails] = useState<null | string>(null);
   const [accomodations, setAccomodations] = useState<TCustomAccomodation[]>();

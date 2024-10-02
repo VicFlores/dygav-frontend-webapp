@@ -5,7 +5,7 @@ import Image from 'next/legacy/image';
 import Link from 'next/link';
 import React, { FC, useEffect, useState } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
-import styles from '../OwnerDashboard/OwnerDashboard.module.css';
+import styles from '../../app/components/Owners/Dashboard/OwnerDashboard.module.css';
 import stylesOwner from './OwnersReservation.module.css';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import useDictionary from '@/app/hooks/useDictionary';

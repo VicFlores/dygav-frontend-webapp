@@ -4,7 +4,7 @@ import { Session } from 'next-auth';
 
 import { axiosConfig } from '@/utils';
 import axios from 'axios';
-import { AccomodationCarousel } from '../OwnerDashboard/AccomodationCarousel';
+import { AccomodationCarousel } from '../../app/components/Owners/Dashboard/AccomodationCarousel';
 import useDictionary from '@/app/hooks/useDictionary';
 
 export const CalendarOwner: FC<{ session: Session }> = ({ session }) => {

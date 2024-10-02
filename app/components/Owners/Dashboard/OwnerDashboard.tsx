@@ -1,9 +1,11 @@
+'use client';
+
 /* eslint-disable react-hooks/exhaustive-deps */
-import { FC, useEffect, useState } from 'react';
-import { Session } from 'next-auth';
+import { useEffect, useState } from 'react';
+
 import { axiosConfig } from '@/utils';
 import axios from 'axios';
-import { AdminMultiCalendar } from './AdminMultiCalendar';
+import { OwnerMultiCalendar } from './OwnerMultiCalendar';
 import styles from './OwnerDashboard.module.css';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
@@ -11,7 +13,7 @@ import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 import useDictionary from '@/app/hooks/useDictionary';
 
-export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
+export const OwnerDashboard = () => {
   const [data, setData] = useState<any[]>();
   const [bookings, setBookings] = useState<any[]>([]);
   const [bookingCounts, setBookingCounts] = useState({
@@ -173,7 +175,7 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
 
         <div>
           {data !== undefined && data.length > 0 ? (
-            <AdminMultiCalendar allAccomodationsResponse={data} />
+            <OwnerMultiCalendar allAccomodationsResponse={data} />
           ) : (
             <div className='flex justify-center items-center mt-10'>
               <div className='flex flex-col justify-center items-center space-y-8 border-[1px] border-dashed md:h-[200px] md:w-[600px] p-10'>

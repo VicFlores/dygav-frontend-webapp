@@ -3,12 +3,12 @@
     "short_name": "Dygav",
     "icons": [
         {
-            "src": "./public/DYGAV_lce25q.png",
+            "src": "./DYGAV_lce25q.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "./public/DYGAV_lce25q.png",
+            "src": "./DYGAV_lce25q.png",
             "type": "image/png",
             "sizes": "512x512"
         }
