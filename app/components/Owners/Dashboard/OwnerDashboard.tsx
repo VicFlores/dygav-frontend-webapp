@@ -158,7 +158,7 @@ export const OwnerDashboard: FC<Props> = ({ accessToken }) => {
           )}
         </div>
 
-        <div className={styles.news__title}>
+        <div>
           <h1 className={styles.controlPanel__title}>
             {dictionary.ownerDashboard?.lastUpdateTitle}
           </h1>

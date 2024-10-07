@@ -6,8 +6,9 @@ import Link from 'next/link';
 import Image from 'next/legacy/image';
 import { setLoginCookies } from '@/app/actions';
 import { AxiosError } from 'axios';
-import { crmFinanzas } from '@/app/utils';
+import { crmFinanzas, getOwnerInfo, validateAccessToken } from '@/app/utils';
 import { useRouter } from 'next/navigation';
+import Partners from '../shared/Partners/Partners';
 
 interface IFormInput {
   email: string;
@@ -44,7 +45,13 @@ export const Login = () => {
 
       await setLoginCookies(data.access_token, data.refresh_token);
 
-      router.push('/');
+      const userRole = await getOwnerInfo(data.access_token);
+
+      if (userRole?.ROLE === 'OWNER') {
+        router.push('/private/owners/dashboard');
+      } else {
+        router.push('/');
+      }
     } catch (error) {
       if (error instanceof AxiosError) {
         console.error(error.response?.data);
@@ -132,54 +139,7 @@ export const Login = () => {
         </div>
       </div>
 
-      <div className={styles.containerPartners}>
-        <h1>Descubre tu refugio perfecto a solo un clic de distancia.</h1>
-
-        <div className={styles.partners}>
-          <figure>
-            <Image
-              src='https://multimedia.dygav.es/wp-content/uploads/2024/04/Booking-Logo_osnjdx.png'
-              alt='Booking.com'
-              layout='fill'
-            />
-          </figure>
-          <figure>
-            <Image
-              src='https://multimedia.dygav.es/wp-content/uploads/2024/04/ABNB_ugauy3.png'
-              alt='Airbnb'
-              layout='fill'
-            />
-          </figure>
-          <figure>
-            <Image
-              src='https://multimedia.dygav.es/wp-content/uploads/2024/04/0x0_j8hysr.png'
-              alt='Rentalia'
-              layout='fill'
-            />
-          </figure>
-          <figure>
-            <Image
-              src='https://multimedia.dygav.es/wp-content/uploads/2024/04/Comment-contacter-Vrbo_jkhslp.png'
-              alt='Vrbo'
-              layout='fill'
-            />
-          </figure>
-          <figure>
-            <Image
-              src='https://multimedia.dygav.es/wp-content/uploads/2024/04/Google_2015_logo.svg_sojqzx-1.png'
-              alt='Google'
-              layout='fill'
-            />
-          </figure>
-          <figure>
-            <Image
-              src='https://multimedia.dygav.es/wp-content/uploads/2024/04/EXPEDIA-LOGO-1_ko2beq-1.png'
-              alt='Expedia'
-              layout='fill'
-            />
-          </figure>
-        </div>
-      </div>
+      <Partners />
     </main>
   );
 };

@@ -8,9 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function RegisterPage() {
-  return (
-    <section>
-      <Register />
-    </section>
-  );
+  return <Register />;
 }

@@ -210,7 +210,7 @@ export const OwnerMultiCalendar = ({ allAccomodationsResponse }: any) => {
           <div className='flex items-center'>
             <button
               onClick={scrollLeft}
-              className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 mr-3 -bottom-[205px]'
+              className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 mr-3 -bottom-[100px]'
             >
               <AiOutlineArrowLeft />
             </button>
@@ -388,7 +388,7 @@ export const OwnerMultiCalendar = ({ allAccomodationsResponse }: any) => {
 
             <button
               onClick={scrollRight}
-              className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 ml-3 -bottom-[205px]'
+              className='hidden lg:flex p-2 relative z-10 text-white bg-p600/80 ml-3 -bottom-[100px]'
             >
               <AiOutlineArrowRight />
             </button>

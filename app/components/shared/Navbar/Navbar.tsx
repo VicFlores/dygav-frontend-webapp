@@ -7,10 +7,13 @@ import styles from './Navbar.module.css';
 import Link from 'next/link';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { validateAccessToken } from '@/app/utils';
+import { delCookies } from '@/app/actions';
+import { useRouter } from 'next/navigation';
 
 export const Navbar: FC<{ accessToken: string }> = ({ accessToken }) => {
   const [isActive, setIsActive] = useState(false);
   const [userInfo, setUserInfo] = useState({ data: { username: '' } });
+  const router = useRouter();
 
   useEffect(() => {
     try {
@@ -27,6 +30,12 @@ export const Navbar: FC<{ accessToken: string }> = ({ accessToken }) => {
       console.log(error);
     }
   }, [accessToken]);
+
+  const handleLogout = () => {
+    delCookies();
+
+    router.push('/login');
+  };
 
   return (
     <nav className={styles.navbar}>
@@ -85,9 +94,11 @@ export const Navbar: FC<{ accessToken: string }> = ({ accessToken }) => {
             />
           </figure>
 
-          <p>{userInfo.data.username}</p>
+          <p className={styles.username}>{userInfo.data.username}</p>
 
-          <button className={styles.logout__button}>Cerrar Sesión</button>
+          <button className={styles.logout__button} onClick={handleLogout}>
+            Cerrar Sesión
+          </button>
         </div>
       </div>
     </nav>
