@@ -1,4 +1,5 @@
-const BASE_URL = 'https://dygav-crm-backend.onrender.com/api/v1/auth';
+const BASE_URL =
+  'https://dygav-backend-crm-me7xd.ondigitalocean.app/api/v1/auth';
 const API_KEY = '&FGYK?IJ$hCw$zUpzpSf';
 
 export const validateAccessToken = async (accessToken: string) => {

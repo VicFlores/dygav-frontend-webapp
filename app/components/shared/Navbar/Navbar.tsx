@@ -1,14 +1,32 @@
 'use client';
 
 import Image from 'next/legacy/image';
-import React, { useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 import styles from './Navbar.module.css';
 import Link from 'next/link';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { validateAccessToken } from '@/app/utils';
 
-export const Navbar = () => {
+export const Navbar: FC<{ accessToken: string }> = ({ accessToken }) => {
   const [isActive, setIsActive] = useState(false);
+  const [userInfo, setUserInfo] = useState({ data: { username: '' } });
+
+  useEffect(() => {
+    try {
+      const getUserByAccessToken = async () => {
+        const res = await validateAccessToken(accessToken);
+
+        const user = await res.json();
+
+        setUserInfo(user);
+      };
+
+      getUserByAccessToken();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [accessToken]);
 
   return (
     <nav className={styles.navbar}>
@@ -67,9 +85,9 @@ export const Navbar = () => {
             />
           </figure>
 
-          <p>Nombre de Usuario</p>
+          <p>{userInfo.data.username}</p>
 
-          <button>Cerrar Sesión</button>
+          <button className={styles.logout__button}>Cerrar Sesión</button>
         </div>
       </div>
     </nav>

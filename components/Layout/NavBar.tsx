@@ -122,6 +122,7 @@ export const NavBar: FC<TSession> = ({ session }) => {
                 alt={'Profile picture'}
                 layout='fill'
                 className='rounded-full'
+                priority
               />
             </figure>
 

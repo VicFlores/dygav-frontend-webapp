@@ -1,102 +1,92 @@
-import {
-  ReservationAvaibook,
-  TAvaibookAccomodations,
-  TCustomAccomodation,
-} from '@/types';
-import React, { useState, useEffect } from 'react';
-import { FaAirbnb, FaSpinner } from 'react-icons/fa6';
+import { ReservationAvaibook } from '@/types';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import axios from 'axios';
 import styles from '../../../../components/AdminMultiCalendar/AdminMultiCalendar.module.css';
 import moment from 'moment';
-import Link from 'next/link';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
-import { TbBrandBooking } from 'react-icons/tb';
-import { GrStatusUnknown } from 'react-icons/gr';
-
 import useDictionary from '@/app/hooks/useDictionary';
-import { BookingDetail } from '@/components/AdminMultiCalendar/BookingDetail';
+import { Accommodation } from '@/app/types';
+import ReservationLink from './ReservationLink';
+import LoadingPlaceholder from '../../shared/LoadingPlaceholder/LoadingPlaceholder';
 
 export const OwnerMultiCalendar = ({ allAccomodationsResponse }: any) => {
+  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [loading, setLoading] = useState(false);
   const [showDetails, setShowDetails] = useState<null | string>(null);
-  const [accomodations, setAccomodations] = useState<TCustomAccomodation[]>();
+  const [accomodations, setAccomodations] = useState<Accommodation[]>();
   const [scrollContainer, setScrollContainer] = useState<HTMLDivElement | null>(
     null
   );
+  const dictionary = useDictionary('ownersAccount');
+
+  const fetchBookings = async (startDate: string, endDate: string) => {
+    const response = await axios.get(
+      `https://api.avaibook.com/api/owner/bookings/?checkinStartDate=${startDate}&checkinEndDate=${endDate}`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+        },
+      }
+    );
+    return response.data;
+  };
+
+  const fetchAccomodationsAndReservations = useCallback(async () => {
+    setLoading(true);
+
+    if (allAccomodationsResponse && allAccomodationsResponse.length > 0) {
+      const currentDay = moment().startOf('day').format('YYYY-MM-DD');
+      const nextDay = moment(currentDay).add(1, 'days').format('YYYY-MM-DD');
+      const firstDayNinetyDaysAgo = moment()
+        .subtract(90, 'days')
+        .startOf('day')
+        .format('YYYY-MM-DD');
+      const nextNinetyDays = moment(nextDay)
+        .add(90, 'days')
+        .format('YYYY-MM-DD');
+
+      try {
+        const [ninetyAgoBookings, ninetyDaysBookings] = await Promise.all([
+          fetchBookings(firstDayNinetyDaysAgo, currentDay),
+          fetchBookings(nextDay, nextNinetyDays),
+        ]);
+
+        const updatedAccomodations = allAccomodationsResponse.map(
+          (accomodation: Accommodation) => {
+            const afterReservations = ninetyAgoBookings.filter(
+              (booking: ReservationAvaibook) =>
+                booking.accommodationId === accomodation.accomodationid &&
+                booking.status === 'CONFIRMED'
+            );
+
+            const beforeReservations = ninetyDaysBookings.filter(
+              (booking: ReservationAvaibook) =>
+                booking.accommodationId === accomodation.accomodationid &&
+                booking.status === 'CONFIRMED'
+            );
+
+            return {
+              ...accomodation,
+              reservations: [...afterReservations, ...beforeReservations],
+            };
+          }
+        );
+
+        setAccomodations(updatedAccomodations);
+      } catch (error) {
+        console.error('Error fetching bookings:', error);
+      }
+    }
+
+    setLoading(false);
+  }, [allAccomodationsResponse]);
 
   useEffect(() => {
-    const fetchAccomodationsAndReservations = async () => {
-      setLoading(true);
-
-      if (
-        allAccomodationsResponse !== undefined &&
-        allAccomodationsResponse.length > 0
-      ) {
-        const currentDay = moment().startOf('day').format('YYYY-MM-DD');
-
-        const nextDay = moment(currentDay).add(1, 'days').format('YYYY-MM-DD');
-
-        const firstDayNinetyDaysAgo = moment()
-          .subtract(90, 'days')
-          .startOf('day')
-          .format('YYYY-MM-DD');
-
-        const nextNinetyDays = moment(nextDay)
-          .add(90, 'days')
-          .format('YYYY-MM-DD');
-
-        const ninetyAgoBookings = await axios.get(
-          `https://api.avaibook.com/api/owner/bookings/?checkinStartDate=${firstDayNinetyDaysAgo}&checkinEndDate=${currentDay}`,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
-            },
-          }
-        );
-
-        const ninetyDaysBookings = await axios.get(
-          `https://api.avaibook.com/api/owner/bookings/?checkinStartDate=${nextDay}&checkinEndDate=${nextNinetyDays}`,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
-            },
-          }
-        );
-
-        const accomodations = allAccomodationsResponse;
-        const afterBookings = ninetyAgoBookings.data;
-        const beforeBookings = ninetyDaysBookings.data;
-
-        accomodations.forEach((accomodation: TAvaibookAccomodations) => {
-          const afterReservations = afterBookings.filter(
-            (booking: ReservationAvaibook) =>
-              booking.accommodationId === accomodation.id &&
-              booking.status === 'CONFIRMED'
-          );
-
-          const beforeReservations = beforeBookings.filter(
-            (booking: ReservationAvaibook) =>
-              booking.accommodationId === accomodation.id &&
-              booking.status === 'CONFIRMED'
-          );
-
-          accomodation.reservations = [
-            ...afterReservations,
-            ...beforeReservations,
-          ];
-        });
-
-        setAccomodations(accomodations);
-      }
-
-      setLoading(false);
-    };
-
     fetchAccomodationsAndReservations();
-  }, [allAccomodationsResponse]);
+  }, [fetchAccomodationsAndReservations]);
 
   useEffect(() => {
     if (scrollContainer) {
@@ -107,11 +97,8 @@ export const OwnerMultiCalendar = ({ allAccomodationsResponse }: any) => {
     }
   }, [scrollContainer]);
 
-  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
-  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-
   const getDaysInMonth = (month: number, year: number) => {
-    return new Date(year, month, 0).getDate();
+    return new Date(year, month + 1, 0).getDate();
   };
 
   const getDayOfWeek = (date: Date) => {
@@ -159,7 +146,6 @@ export const OwnerMultiCalendar = ({ allAccomodationsResponse }: any) => {
     setCurrentYear(year);
     if (scrollContainer) {
       scrollContainer.scrollLeft = 0;
-      setScrollContainer(scrollContainer);
     }
   };
 
@@ -169,77 +155,56 @@ export const OwnerMultiCalendar = ({ allAccomodationsResponse }: any) => {
     setCurrentYear(year);
     if (scrollContainer) {
       scrollContainer.scrollLeft = 0;
-      setScrollContainer(scrollContainer);
     }
   };
 
-  const daysInCurrentMonth = getDaysInMonth(currentMonth + 1, currentYear);
+  const daysInCurrentMonth = useMemo(
+    () => getDaysInMonth(currentMonth, currentYear),
+    [currentMonth, currentYear]
+  );
 
-  const daysOfWeekInCurrentMonth = Array.from(
-    { length: daysInCurrentMonth },
-    (_, i) => {
+  const daysOfWeekInCurrentMonth = useMemo(() => {
+    return Array.from({ length: daysInCurrentMonth }, (_, i) => {
       const date = new Date(currentYear, currentMonth, i + 1);
       return getDayOfWeek(date);
-    }
-  );
+    });
+  }, [daysInCurrentMonth, currentMonth, currentYear]);
 
   const { month: nextMonth, year: nextYear } = getNextMonthAndYear(
     currentMonth,
     currentYear
   );
-  const daysInNextMonth = getDaysInMonth(nextMonth + 1, nextYear);
 
-  const daysOfWeekInNextMonth = Array.from(
-    { length: daysInNextMonth },
-    (_, i) => {
+  const daysInNextMonth = useMemo(
+    () => getDaysInMonth(nextMonth, nextYear),
+    [nextMonth, nextYear]
+  );
+
+  const daysOfWeekInNextMonth = useMemo(() => {
+    return Array.from({ length: daysInNextMonth }, (_, i) => {
       const date = new Date(nextYear, nextMonth, i + 1);
       return getDayOfWeek(date);
-    }
-  );
+    });
+  }, [daysInNextMonth, nextMonth, nextYear]);
 
   const scrollLeft = () => {
     if (scrollContainer) {
       scrollContainer.scrollLeft -= 70;
-      setScrollContainer(scrollContainer);
     }
   };
 
   const scrollRight = () => {
     if (scrollContainer) {
       scrollContainer.scrollLeft += 70;
-      setScrollContainer(scrollContainer);
     }
   };
-
-  const dictionary = useDictionary('ownersAccount');
 
   return (
     <section className='px-2 lg:px-10 mt-12 mb-16'>
       {loading ? (
-        <div className='col-start-1 col-end-4'>
-          <div className='border border-p600/30 shadow rounded-md px-6 py-10 max-w-sm w-full mx-auto '>
-            <div className='animate-pulse flex space-x-4'>
-              <div className='rounded-full bg-p600/60 h-10 w-10'></div>
-              <div className='flex-1 space-y-6 py-1'>
-                <div className='h-2 bg-p600/60 rounded'></div>
-                <div className='space-y-3'>
-                  <div className='grid grid-cols-3 gap-4'>
-                    <div className='h-2 bg-p600/60 rounded col-span-2'></div>
-                    <div className='h-2 bg-p600/60 rounded col-span-1'></div>
-                  </div>
-                  <div className='h-2 bg-p600/60 rounded'></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className='flex items-center justify-center space-x-4 mt-6'>
-            <FaSpinner className='animate-spin h-5 w-5 text-p400' />
-            <span className='text-lg font-medium text-p600'>
-              {dictionary.ownerDashboard?.loadingAccommodations}
-            </span>
-          </div>
-        </div>
+        <LoadingPlaceholder
+          message={dictionary.ownerDashboard?.loadingAccommodations}
+        />
       ) : (
         <div>
           <div className='flex items-center'>
@@ -257,7 +222,7 @@ export const OwnerMultiCalendar = ({ allAccomodationsResponse }: any) => {
               <div>
                 {accomodations?.map((accomodation) => (
                   <div
-                    key={accomodation.id}
+                    key={accomodation.accomodationid}
                     className={`${styles.accommodationItem} border border-p600 border-t-0 border-r-0`}
                   >
                     <p className='text-xs lg:text-sm text-p800 font-semibold border border-p600 border-b-0 border-t-0 p-2 lg:py-2 lg:px-0 sticky left-0 bg-white z-20 text-center'>
@@ -294,69 +259,15 @@ export const OwnerMultiCalendar = ({ allAccomodationsResponse }: any) => {
                             className='flex justify-center items-center border-[1px] border-p600 border-b-0 border-t-0 border-l-0 w-36'
                           >
                             {reservations.map(
-                              (reservation, reservationIndex) => {
-                                const isStartDate = date.isSame(
-                                  moment(reservation.checkInDate).startOf('day')
-                                );
-                                const isEndDate = date.isSame(
-                                  moment(reservation.checkOutDate).startOf(
-                                    'day'
-                                  )
-                                );
-
-                                const roundedClass = isStartDate
-                                  ? 'rounded-l-xl'
-                                  : isEndDate
-                                  ? 'rounded-r-xl'
-                                  : '';
-
-                                return (
-                                  <Link
-                                    href={`/private/owners/reservation/${reservation.id}`}
-                                    className={` bg-p600/80  relative text-white text-xs w-full h-[18px] lg:h-2/3  lg:py-1 ${roundedClass} ${
-                                      (isStartDate &&
-                                        reservations.length === 1 &&
-                                        'ml-16') ||
-                                      (isEndDate &&
-                                        reservations.length === 1 &&
-                                        'mr-16')
-                                    }`}
-                                    key={reservation.id}
-                                    style={{ whiteSpace: 'nowrap' }}
-                                    onMouseEnter={() =>
-                                      setShowDetails(reservation.id)
-                                    }
-                                    onMouseLeave={() => setShowDetails(null)}
-                                  >
-                                    {showDetails === reservation.id && (
-                                      <BookingDetail
-                                        bookingId={reservation.id}
-                                      />
-                                    )}
-
-                                    <span className='flex items-center absolute z-10 left-2'>
-                                      {isStartDate &&
-                                        (reservation.partnerName ===
-                                        'Airbnb' ? (
-                                          <FaAirbnb className='mr-1' />
-                                        ) : reservation.partnerName ===
-                                          'Booking.com' ? (
-                                          <TbBrandBooking className='mr-1 h-4 w-4' />
-                                        ) : (
-                                          <GrStatusUnknown className='mr-1 w-4 h-4' />
-                                        ))}
-
-                                      {isStartDate &&
-                                        (reservation.travellerName.toUpperCase() ===
-                                        ''
-                                          ? 'Desconocido'
-                                          : reservation.travellerName
-                                              .substring(0, 17)
-                                              .toUpperCase())}
-                                    </span>
-                                  </Link>
-                                );
-                              }
+                              (reservation: any, reservationIndex) => (
+                                <ReservationLink
+                                  key={index}
+                                  reservation={reservation}
+                                  date={date}
+                                  showDetails={showDetails}
+                                  setShowDetails={setShowDetails}
+                                />
+                              )
                             )}
 
                             <div className='text-center' />
@@ -395,69 +306,15 @@ export const OwnerMultiCalendar = ({ allAccomodationsResponse }: any) => {
                             className='flex justify-center items-center border-[1px] border-p600 border-b-0 border-t-0 border-l-0 w-36'
                           >
                             {reservations.map(
-                              (reservation, reservationIndex) => {
-                                const isStartDate = date.isSame(
-                                  moment(reservation.checkInDate).startOf('day')
-                                );
-                                const isEndDate = date.isSame(
-                                  moment(reservation.checkOutDate).startOf(
-                                    'day'
-                                  )
-                                );
-
-                                const roundedClass = isStartDate
-                                  ? 'rounded-l-xl'
-                                  : isEndDate
-                                  ? 'rounded-r-xl'
-                                  : '';
-
-                                return (
-                                  <Link
-                                    href={`/private/owners/reservation/${reservation.id}`}
-                                    className={` bg-p600/80  relative text-white text-xs w-full h-[18px] lg:h-2/3  lg:py-1 ${roundedClass} ${
-                                      (isStartDate &&
-                                        reservations.length === 1 &&
-                                        'ml-16') ||
-                                      (isEndDate &&
-                                        reservations.length === 1 &&
-                                        'mr-16')
-                                    }`}
-                                    key={reservation.id}
-                                    style={{ whiteSpace: 'nowrap' }}
-                                    onMouseEnter={() =>
-                                      setShowDetails(reservation.id)
-                                    }
-                                    onMouseLeave={() => setShowDetails(null)}
-                                  >
-                                    {showDetails === reservation.id && (
-                                      <BookingDetail
-                                        bookingId={reservation.id}
-                                      />
-                                    )}
-
-                                    <span className='flex items-center absolute z-10 left-2'>
-                                      {isStartDate &&
-                                        (reservation.partnerName ===
-                                        'Airbnb' ? (
-                                          <FaAirbnb className='mr-1' />
-                                        ) : reservation.partnerName ===
-                                          'Booking.com' ? (
-                                          <TbBrandBooking className='mr-1 h-4 w-4' />
-                                        ) : (
-                                          <GrStatusUnknown className='mr-1 w-4 h-4' />
-                                        ))}
-
-                                      {isStartDate &&
-                                        (reservation.travellerName.toUpperCase() ===
-                                        ''
-                                          ? 'Desconocido'
-                                          : reservation.travellerName
-                                              .substring(0, 17)
-                                              .toUpperCase())}
-                                    </span>
-                                  </Link>
-                                );
-                              }
+                              (reservation: any, reservationIndex) => (
+                                <ReservationLink
+                                  key={index}
+                                  reservation={reservation}
+                                  date={date}
+                                  showDetails={showDetails}
+                                  setShowDetails={setShowDetails}
+                                />
+                              )
                             )}
 
                             <div className='text-center' />

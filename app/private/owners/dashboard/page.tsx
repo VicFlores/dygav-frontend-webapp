@@ -1,6 +1,7 @@
 import { OwnerDashboard } from '@/app/components';
 import { Navbar } from '@/app/components/shared';
 import { Metadata } from 'next';
+import { cookies } from 'next/headers';
 import React from 'react';
 
 export const metadata: Metadata = {
@@ -9,11 +10,15 @@ export const metadata: Metadata = {
 };
 
 const OwnerPanel = () => {
+  const cookieStore = cookies();
+
+  const accessToken = cookieStore.get('access_token');
+
   return (
     <section>
-      <Navbar />
+      <Navbar accessToken={accessToken?.value || ''} />
 
-      <OwnerDashboard />
+      <OwnerDashboard accessToken={accessToken} />
     </section>
   );
 };

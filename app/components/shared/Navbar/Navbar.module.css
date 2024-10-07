@@ -22,6 +22,7 @@
   justify-content: space-between;
   align-items: center;
   flex-grow: 1;
+  color: #707070;
 }
 
 .navbar__linkContainer {
@@ -52,6 +53,14 @@
   height: 100%;
   width: 100%;
   border-radius: 100%;
+}
+
+.logout__button {
+  padding: 7px 10px;
+  color: white;
+  border-radius: 8px;
+  border: 1px solid #e53611;
+  background: #f4511e;
 }
 
 @media screen and (max-width: 768px) {

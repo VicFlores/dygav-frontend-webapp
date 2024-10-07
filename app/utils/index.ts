@@ -1,2 +1,3 @@
 export * from './axiosConfig/crmFinanzas';
-export * from './authFetcher';
+export * from './fetchers/authFetcher';
+export * from './fetchers/getOwnerInfo';

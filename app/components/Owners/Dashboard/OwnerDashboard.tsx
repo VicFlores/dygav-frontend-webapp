@@ -1,19 +1,18 @@
 'use client';
 
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from 'react';
-
-import { axiosConfig } from '@/utils';
-import axios from 'axios';
+import { FC, useEffect, useState } from 'react';
 import { OwnerMultiCalendar } from './OwnerMultiCalendar';
-import styles from './OwnerDashboard.module.css';
-import Image from 'next/legacy/image';
-import Link from 'next/link';
 import { Line } from 'react-chartjs-2';
-import 'chart.js/auto';
+import { getOwnerAccommodations } from '@/app/utils';
+import { avaibookExtraction } from '@/app/utils/axiosConfig/avaibookExtraction';
+import { Accommodation, Booking, Props } from '@/app/types';
 import useDictionary from '@/app/hooks/useDictionary';
+import styles from './OwnerDashboard.module.css';
+import 'chart.js/auto';
+import OwnerBookingCard from '../../shared/OwnerBookingCard/OwnerBookingCard';
+import WaitingReservationsOrAccommodations from '../../shared/WaitingReservationsOrAccommodations/WaitingReservationsOrAccommodations';
 
-export const OwnerDashboard = () => {
+export const OwnerDashboard: FC<Props> = ({ accessToken }) => {
   const [data, setData] = useState<any[]>();
   const [bookings, setBookings] = useState<any[]>([]);
   const [bookingCounts, setBookingCounts] = useState({
@@ -32,113 +31,89 @@ export const OwnerDashboard = () => {
   useEffect(() => {
     const fetchAccommodations = async () => {
       try {
-        const { data: accommodations } = await axiosConfig.get(
-          `/api/accomodations/findByUserId/${
-            session.user?._id || session.user?.id
-          }`
+        const accommodations = await getOwnerAccommodations(
+          accessToken?.value || ''
         );
-
-        const accommodationDetails = await Promise.all(
-          accommodations.map(async (item: any) => {
-            const { data: dataAvaibook } = await axios.get(
-              `https://api.avaibook.com/api/owner/accommodations/${item.accomodationId}/`,
-              {
-                headers: {
-                  'Content-Type': 'application/json',
-                  'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
-                },
-              }
-            );
-            return dataAvaibook;
-          })
+        const accommodationDetails = await fetchAccommodationDetails(
+          accommodations
         );
-
         setData(accommodationDetails);
+
+        if (accommodationDetails.length > 0) {
+          const bookings = await fetchBookings(accommodationDetails);
+          setBookings(bookings);
+
+          const { counts, sums } = calculateBookingStats(bookings);
+          setBookingCounts(counts);
+          setBookingSums(sums);
+        }
       } catch (error) {
         console.error('Error fetching accommodations:', error);
       }
     };
 
     fetchAccommodations();
-  }, []);
+  }, [accessToken?.value]);
 
-  useEffect(() => {
-    const fetchBookings = async () => {
-      try {
-        if (data !== undefined && data.length > 0) {
-          const bookings: any = await Promise.all(
-            data.map(async (item: any) => {
-              const { data: bookings } = await axios.get(
-                `https://avaibook-data-extraction-production.up.railway.app/api/v1/bookings/${item.id}?startDate=2024-09-1&endDate=2024-09-30`
-              );
+  const fetchAccommodationDetails = async (
+    accommodations: any[]
+  ): Promise<Accommodation[]> => {
+    const details = await Promise.all(
+      accommodations.map(async (item) => {
+        const { data } = await avaibookExtraction.get(
+          `/accomodation/${item.aviabook_id}/`
+        );
+        return data;
+      })
+    );
+    return details.flat();
+  };
 
-              const res = bookings.map((booking: any) => {
-                return {
-                  ...booking,
-                  accommodation: item.name,
-                  images: item.images,
-                };
-              });
+  const fetchBookings = async (
+    accommodations: Accommodation[]
+  ): Promise<Booking[]> => {
+    const bookings = await Promise.all(
+      accommodations.map(async (item) => {
+        const { data } = await avaibookExtraction.get(
+          `/bookings/${item.accomodationid}?startDate=2024-09-1&endDate=2024-09-30`
+        );
+        return data.map((booking: any) => ({
+          ...booking,
+          accommodation: item.name,
+          images: item.images,
+        }));
+      })
+    );
+    return bookings.flat();
+  };
 
-              return res;
-            })
-          );
+  const calculateBookingStats = (bookings: Booking[]) => {
+    const total = bookings.length;
+    const bookingCom = bookings.filter(
+      (b) => b.partnername === 'Booking.com'
+    ).length;
+    const airbnb = bookings.filter((b) => b.partnername === 'Airbnb').length;
+    const other = bookings.filter(
+      (b) => b.partnername !== 'Booking.com' && b.partnername !== 'Airbnb'
+    ).length;
 
-          // Flatten the nested arrays of bookings into a single array
-          const flattenedBookings = bookings.flat();
-          setBookings(flattenedBookings);
+    const bookingComSum = bookings
+      .filter((b) => b.partnername === 'Booking.com')
+      .reduce((sum, b) => sum + b.totalamount, 0);
+    const airbnbSum = bookings
+      .filter((b) => b.partnername === 'Airbnb')
+      .reduce((sum, b) => sum + b.totalamount, 0);
+    const otherSum = bookings
+      .filter(
+        (b) => b.partnername !== 'Booking.com' && b.partnername !== 'Airbnb'
+      )
+      .reduce((sum, b) => sum + b.totalamount, 0);
 
-          // Calculate the counts and sums
-          const total = flattenedBookings.length;
-          const bookingCom = flattenedBookings.filter(
-            (booking: any) => booking.partnername === 'Booking.com'
-          ).length;
-          const airbnb = flattenedBookings.filter(
-            (booking: any) => booking.partnername === 'Airbnb'
-          ).length;
-          const other = flattenedBookings.filter(
-            (booking: any) =>
-              booking.partnername !== 'Booking.com' &&
-              booking.partnername !== 'Airbnb'
-          ).length;
-
-          const bookingComSum = flattenedBookings
-            .filter((booking: any) => booking.partnername === 'Booking.com')
-            .reduce(
-              (sum: number, booking: any) => sum + booking.totalamount,
-              0
-            );
-          const airbnbSum = flattenedBookings
-            .filter((booking: any) => booking.partnername === 'Airbnb')
-            .reduce(
-              (sum: number, booking: any) => sum + booking.totalamount,
-              0
-            );
-          const otherSum = flattenedBookings
-            .filter(
-              (booking: any) =>
-                booking.partnername !== 'Booking.com' &&
-                booking.partnername !== 'Airbnb'
-            )
-            .reduce(
-              (sum: number, booking: any) => sum + booking.totalamount,
-              0
-            );
-
-          setBookingCounts({ total, bookingCom, airbnb, other });
-          setBookingSums({
-            bookingCom: bookingComSum,
-            airbnb: airbnbSum,
-            other: otherSum,
-          });
-        }
-      } catch (error) {
-        console.error('Error fetching bookings:', error);
-      }
+    return {
+      counts: { total, bookingCom, airbnb, other },
+      sums: { bookingCom: bookingComSum, airbnb: airbnbSum, other: otherSum },
     };
-
-    fetchBookings();
-  }, [data]);
+  };
 
   // Function to generate the conic-gradient string
   const calculateGradient = (bookingCounts: any) => {
@@ -177,13 +152,9 @@ export const OwnerDashboard = () => {
           {data !== undefined && data.length > 0 ? (
             <OwnerMultiCalendar allAccomodationsResponse={data} />
           ) : (
-            <div className='flex justify-center items-center mt-10'>
-              <div className='flex flex-col justify-center items-center space-y-8 border-[1px] border-dashed md:h-[200px] md:w-[600px] p-10'>
-                <p className=' text-black900/[.7] lg:text-xl'>
-                  {dictionary.ownerDashboard?.waitingReservationsMessage}
-                </p>
-              </div>
-            </div>
+            <WaitingReservationsOrAccommodations
+              message={dictionary.ownerDashboard?.waitingReservationsMessage}
+            />
           )}
         </div>
 
@@ -272,57 +243,19 @@ export const OwnerDashboard = () => {
             </p>
 
             {bookings.length > 0 ? (
-              bookings.slice(0, 2).map((item: any, index) => (
-                <div key={item.booking} className={styles.bookings__card}>
-                  <div className={styles.card}>
-                    <figure className={styles.bookings__image}>
-                      <Image
-                        src={item.images[0].ORIGINAL}
-                        alt='Accommodation'
-                        layout='fill'
-                      />
-                    </figure>
-
-                    <div className={styles.bookings_cardBody}>
-                      <h3 className={styles.bookings_status}>
-                        {dictionary.ownerDashboard?.bookingStatus}
-                      </h3>
-
-                      <p className={styles.bookings_accommodation}>
-                        {item.accommodation}
-                      </p>
-
-                      <p className={styles.bookings_accommodation}>
-                        {item.traveller_name}
-                      </p>
-
-                      <div className={styles.bookings_check}>
-                        <p>Check-in: {item.indate}</p>/
-                        <p>Check-out: {item.outdate}</p>
-                      </div>
-
-                      <div className={styles.bookings_check}>
-                        <p>€{item.totalamount}</p>
-
-                        <Link
-                          href={`/private/owners/reservation/${item.booking}`}
-                          className={styles.bookings_details}
-                        >
-                          {dictionary.ownerDashboard?.bookinButton}
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))
+              bookings
+                .slice(0, 2)
+                .map((item: any, index) => (
+                  <OwnerBookingCard
+                    key={item.booking}
+                    booking={item}
+                    dictionary={dictionary}
+                  />
+                ))
             ) : (
-              <div className='flex justify-center items-center mt-10'>
-                <div className='flex flex-col justify-center items-center space-y-8 border-[1px] border-dashed md:h-[200px] md:w-[600px] p-10'>
-                  <p className=' text-black900/[.7] lg:text-xl'>
-                    {dictionary.ownerDashboard?.waitingReservationsMessage}
-                  </p>
-                </div>
-              </div>
+              <WaitingReservationsOrAccommodations
+                message={dictionary.ownerDashboard?.waitingReservationsMessage}
+              />
             )}
           </div>
         </div>
