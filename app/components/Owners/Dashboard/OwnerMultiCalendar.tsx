@@ -261,7 +261,7 @@ export const OwnerMultiCalendar = ({ allAccomodationsResponse }: any) => {
                             {reservations.map(
                               (reservation: any, reservationIndex) => (
                                 <ReservationLink
-                                  key={index}
+                                  key={`${index}-${reservation.id}`}
                                   reservation={reservation}
                                   date={date}
                                   showDetails={showDetails}
@@ -308,7 +308,7 @@ export const OwnerMultiCalendar = ({ allAccomodationsResponse }: any) => {
                             {reservations.map(
                               (reservation: any, reservationIndex) => (
                                 <ReservationLink
-                                  key={index}
+                                  key={`${index}-${reservation.id}`}
                                   reservation={reservation}
                                   date={date}
                                   showDetails={showDetails}

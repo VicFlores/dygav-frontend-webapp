@@ -11,6 +11,7 @@ export type Booking = {
   totalamount: number;
   accommodation: string;
   images: string[];
+  indate: string;
 };
 
 interface Reservation {

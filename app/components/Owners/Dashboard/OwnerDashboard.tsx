@@ -2,7 +2,6 @@
 
 import { FC, useEffect, useState } from 'react';
 import { OwnerMultiCalendar } from './OwnerMultiCalendar';
-import { Line } from 'react-chartjs-2';
 import { getOwnerAccommodations } from '@/app/utils';
 import { avaibookExtraction } from '@/app/utils/axiosConfig/avaibookExtraction';
 import { Accommodation, Booking, Props } from '@/app/types';
@@ -11,6 +10,7 @@ import styles from './OwnerDashboard.module.css';
 import 'chart.js/auto';
 import OwnerBookingCard from '../../shared/OwnerBookingCard/OwnerBookingCard';
 import WaitingReservationsOrAccommodations from '../../shared/WaitingReservationsOrAccommodations/WaitingReservationsOrAccommodations';
+import { LineChart } from './LineChart';
 
 export const OwnerDashboard: FC<Props> = ({ accessToken }) => {
   const [data, setData] = useState<any[]>();
@@ -346,46 +346,11 @@ export const OwnerDashboard: FC<Props> = ({ accessToken }) => {
 
           <div className={styles.chartContainer}>
             <div className={styles.chart}>
-              <LineChart />
+              <LineChart accessToken={accessToken?.value as string} />
             </div>
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-const LineChart = () => {
-  const dictionary = useDictionary('ownersAccount');
-
-  const months: any = dictionary.ownerDashboard?.monthEarnings;
-
-  const data = {
-    labels: [
-      `${months?.june}`,
-      `${months?.july}`,
-      `${months?.august}`,
-      `${months?.september}`,
-    ],
-    datasets: [
-      {
-        label: `${dictionary.ownerDashboard?.earnings}`,
-        data: [500, 1500, 600, 700, 2000],
-        fill: false,
-        backgroundColor: '#ff385c',
-        borderColor: '#ff385c',
-        pointBorderWidth: 1,
-      },
-    ],
-  };
-
-  const options = {
-    scales: {
-      y: {
-        beginAtZero: true,
-      },
-    },
-  };
-
-  return <Line data={data} options={options} />;
 };

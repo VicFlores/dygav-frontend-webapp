@@ -308,11 +308,12 @@
   border-radius: 10px;
   padding: 20px;
   margin-top: 30px;
+  width: 100%;
 }
 
-.chart {
-  height: 289px;
-  width: 578px;
+.chart > canvas {
+  height: 300px;
+  width: 700px;
 
   @media screen and (max-width: 768px) {
     height: 200px;
