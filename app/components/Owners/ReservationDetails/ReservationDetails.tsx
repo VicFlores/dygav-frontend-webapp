@@ -1,8 +1,10 @@
+'use client';
+
 import { TReservation } from '@/types';
 import axios from 'axios';
 import { FC, useEffect, useState } from 'react';
 
-export const Reservation: FC<{ id: string }> = ({ id }) => {
+export const ReservationDetails: FC<{ id: string }> = ({ id }) => {
   const [reservationInfo, setReservationInfo] = useState<TReservation>();
 
   useEffect(() => {

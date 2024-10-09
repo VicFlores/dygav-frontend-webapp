@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const avaibookExtraction = axios.create({
-  baseURL: 'https://avaibook-data-extraction-production.up.railway.app/api/v1',
+  baseURL: 'https://aviabook-data-extraction-llv4d.ondigitalocean.app/api/v1',
   headers: {
     'Content-Type': 'application/json',
   },

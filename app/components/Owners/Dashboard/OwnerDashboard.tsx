@@ -41,6 +41,7 @@ export const OwnerDashboard: FC<Props> = ({ accessToken }) => {
 
         if (accommodationDetails.length > 0) {
           const bookings = await fetchBookings(accommodationDetails);
+
           setBookings(bookings);
 
           const { counts, sums } = calculateBookingStats(bookings);
@@ -72,11 +73,22 @@ export const OwnerDashboard: FC<Props> = ({ accessToken }) => {
   const fetchBookings = async (
     accommodations: Accommodation[]
   ): Promise<Booking[]> => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // getMonth() returns 0-based month
+    const startDate = `${year}-${month}-01`;
+    const endDate = `${year}-${month}-${new Date(
+      year,
+      now.getMonth() + 1,
+      0
+    ).getDate()}`;
+
     const bookings = await Promise.all(
       accommodations.map(async (item) => {
         const { data } = await avaibookExtraction.get(
-          `/bookings/${item.accomodationid}?startDate=2024-09-1&endDate=2024-09-30`
+          `/bookings/${item.accomodationid}?startDate=${startDate}&endDate=${endDate}`
         );
+
         return data.map((booking: any) => ({
           ...booking,
           accommodation: item.name,

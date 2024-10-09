@@ -1,14 +1,16 @@
-import { axiosConfig } from '@/utils';
-import axios from 'axios';
-import { Session } from 'next-auth';
+'use client';
+
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import React, { FC, useEffect, useState } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
-import styles from '../../app/components/Owners/Dashboard/OwnerDashboard.module.css';
-import stylesOwner from './OwnersReservation.module.css';
+import styles from '../Dashboard/OwnerDashboard.module.css';
+import stylesOwner from './SearchBookings.module.css';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import useDictionary from '@/app/hooks/useDictionary';
+import { Accommodation, Booking } from '@/app/types';
+import { avaibookExtraction } from '@/app/utils/axiosConfig/avaibookExtraction';
+import { getOwnerAccommodations } from '@/app/utils';
 
 interface IFormInput {
   accommodation: string;
@@ -17,7 +19,9 @@ interface IFormInput {
   status: string;
 }
 
-export const OwnersReservation: FC<{ session: Session }> = ({ session }) => {
+export const SearchBookings: FC<{ accessToken: string }> = ({
+  accessToken,
+}) => {
   const [data, setData] = useState<any[]>([]);
   const [bookings, setBookings] = useState<any[]>([]);
   const [originalBookings, setOriginalBookings] = useState<any[]>([]);
@@ -34,69 +38,66 @@ export const OwnersReservation: FC<{ session: Session }> = ({ session }) => {
   useEffect(() => {
     const fetchAccommodations = async () => {
       try {
-        const { data: accommodations } = await axiosConfig.get(
-          `/api/accomodations/findByUserId/${
-            session.user?._id || session.user?.id
-          }`
+        const accommodations = await getOwnerAccommodations(accessToken || '');
+        const accommodationDetails = await fetchAccommodationDetails(
+          accommodations
         );
-
-        const accommodationDetails = await Promise.all(
-          accommodations.map(async (item: any) => {
-            const { data: dataAvaibook } = await axios.get(
-              `https://api.avaibook.com/api/owner/accommodations/${item.accomodationId}/`,
-              {
-                headers: {
-                  'Content-Type': 'application/json',
-                  'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
-                },
-              }
-            );
-            return dataAvaibook;
-          })
-        );
-
         setData(accommodationDetails);
+
+        if (accommodationDetails.length > 0) {
+          const bookings = await fetchBookings(accommodationDetails);
+          setBookings(bookings);
+          setOriginalBookings(bookings); // Store the original bookings
+        }
       } catch (error) {
         console.error('Error fetching accommodations:', error);
       }
     };
 
     fetchAccommodations();
-  }, []);
+  }, [accessToken]);
 
-  useEffect(() => {
-    const fetchBookings = async () => {
-      try {
-        if (data.length > 0) {
-          const bookings: any = await Promise.all(
-            data.map(async (item: any) => {
-              const { data: bookings } = await axios.get(
-                `https://avaibook-data-extraction-production.up.railway.app/api/v1/bookings/${item.id}?startDate=2024-09-1&endDate=2024-09-30`
-              );
+  const fetchAccommodationDetails = async (
+    accommodations: any[]
+  ): Promise<Accommodation[]> => {
+    const details = await Promise.all(
+      accommodations.map(async (item) => {
+        const { data } = await avaibookExtraction.get(
+          `/accomodation/${item.aviabook_id}/`
+        );
+        return data;
+      })
+    );
+    return details.flat();
+  };
 
-              const res = bookings.map((booking: any) => {
-                return {
-                  ...booking,
-                  accommodation: item.name,
-                  images: item.images,
-                };
-              });
+  const fetchBookings = async (
+    accommodations: Accommodation[]
+  ): Promise<Booking[]> => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // getMonth() returns 0-based month
+    const startDate = `${year}-${month}-01`;
+    const endDate = `${year}-${month}-${new Date(
+      year,
+      now.getMonth() + 1,
+      0
+    ).getDate()}`;
 
-              return res;
-            })
-          );
-
-          const flattenedBookings = bookings.flat();
-          setBookings(flattenedBookings);
-          setOriginalBookings(flattenedBookings); // Store the original bookings
-        }
-      } catch (error) {
-        console.error('Error fetching bookings:', error);
-      }
-    };
-
-    fetchBookings();
-  }, [data]);
+    const bookings = await Promise.all(
+      accommodations.map(async (item) => {
+        const { data } = await avaibookExtraction.get(
+          `/bookings/${item.accomodationid}?startDate=${startDate}&endDate=${endDate}`
+        );
+        return data.map((booking: any) => ({
+          ...booking,
+          accommodation: item.name,
+          images: item.images,
+        }));
+      })
+    );
+    return bookings.flat();
+  };
 
   const indexOfLastBooking = currentPage * itemsPerPage;
   const indexOfFirstBooking = indexOfLastBooking - itemsPerPage;
@@ -171,7 +172,7 @@ export const OwnersReservation: FC<{ session: Session }> = ({ session }) => {
                 {dictionary.ownerDashboard?.selectAccommodation}
               </option>
               {data.map((item) => (
-                <option key={item.id} value={item.id}>
+                <option key={item.accomodationid} value={item.accomodationid}>
                   {item.name}
                 </option>
               ))}

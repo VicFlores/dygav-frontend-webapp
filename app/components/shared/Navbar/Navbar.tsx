@@ -65,13 +65,22 @@ export const Navbar: FC<{ accessToken: string }> = ({ accessToken }) => {
       >
         <div>
           <ul className={styles.navbar__linkContainer}>
-            <Link className={styles.navbar__link} href={'/'}>
+            <Link
+              className={styles.navbar__link}
+              href={'/private/owners/dashboard'}
+            >
               Panel General
             </Link>
-            <Link className={styles.navbar__link} href={'/'}>
+            <Link
+              className={styles.navbar__link}
+              href={'/private/owners/reservations'}
+            >
               Reservaciones
             </Link>
-            <Link className={styles.navbar__link} href={'/'}>
+            <Link
+              className={styles.navbar__link}
+              href={'/private/owners/finanzas'}
+            >
               Mis Finanzas
             </Link>
             <Link className={styles.navbar__link} href={'/'}>
@@ -94,7 +103,7 @@ export const Navbar: FC<{ accessToken: string }> = ({ accessToken }) => {
             />
           </figure>
 
-          <p className={styles.username}>{userInfo.data.username}</p>
+          <p className={styles.username}>{userInfo?.data?.username}</p>
 
           <button className={styles.logout__button} onClick={handleLogout}>
             Cerrar Sesión
