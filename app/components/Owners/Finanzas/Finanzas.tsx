@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, FC } from 'react';
+import moment from 'moment';
 import styles from './Finanzas.module.css';
 import Image from 'next/legacy/image';
 import useDictionary from '@/app/hooks/useDictionary';
@@ -9,12 +10,17 @@ import { avaibookExtraction } from '@/app/utils/axiosConfig/avaibookExtraction';
 import { getOwnerAccommodations } from '@/app/utils';
 import LoadingPlaceholder from '../../shared/LoadingPlaceholder/LoadingPlaceholder';
 
+import 'moment/locale/es';
+import 'moment/locale/en-gb';
+
 export const Finanzas: FC<{ accessToken: string }> = ({ accessToken }) => {
   const [data, setData] = useState<any[]>([]);
   const [selectedAccommodation, setSelectedAccommodation] = useState<
     any | null
   >(null);
-  const [selectedMonth, setSelectedMonth] = useState('August');
+  const [selectedMonth, setSelectedMonth] = useState(
+    `${moment().format('MMMM')}`
+  );
   const [bookings, setBookings] = useState<any[]>([]);
   const [pdfUrls, setPdfUrls] = useState<string[]>([]);
   const [platformCounts, setPlatformCounts] = useState<{
@@ -34,7 +40,10 @@ export const Finanzas: FC<{ accessToken: string }> = ({ accessToken }) => {
         setData(accommodationDetails);
 
         if (accommodationDetails.length > 0) {
-          const bookings = await fetchBookings(accommodationDetails);
+          const bookings = await fetchBookings(
+            accommodationDetails,
+            selectedMonth
+          );
           setBookings(bookings);
           countPlatformBookings(bookings);
         }
@@ -44,7 +53,19 @@ export const Finanzas: FC<{ accessToken: string }> = ({ accessToken }) => {
     };
 
     fetchAccommodations();
-  }, [accessToken]);
+  }, [accessToken, selectedMonth]);
+
+  useEffect(() => {
+    const fetchBookingsForSelectedMonth = async () => {
+      if (data.length > 0) {
+        const bookings = await fetchBookings(data, selectedMonth);
+        setBookings(bookings);
+        countPlatformBookings(bookings);
+      }
+    };
+
+    fetchBookingsForSelectedMonth();
+  }, [selectedMonth, data]);
 
   const fetchAccommodationDetails = async (
     accommodations: any[]
@@ -61,17 +82,23 @@ export const Finanzas: FC<{ accessToken: string }> = ({ accessToken }) => {
   };
 
   const fetchBookings = async (
-    accommodations: Accommodation[]
+    accommodations: Accommodation[],
+    month: string
   ): Promise<Booking[]> => {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0'); // getMonth() returns 0-based month
-    const startDate = `${year}-${month}-01`;
-    const endDate = `${year}-${month}-${new Date(
-      year,
-      now.getMonth() + 1,
-      0
-    ).getDate()}`;
+    // Detect the language of the month
+    const isSpanish = moment(month, 'MMMM', 'es', true).isValid();
+    const locale = isSpanish ? 'es' : 'en-gb';
+
+    // Set the locale
+    moment.locale(locale);
+
+    const now = moment();
+    const year = now.year();
+    const monthIndex = moment(month, 'MMMM').month() + 1;
+    const startDate = moment(`${year}-${monthIndex}-01`, 'YYYY-M-D').format(
+      'YYYY-MM-DD'
+    );
+    const endDate = moment(startDate).endOf('month').format('YYYY-MM-DD');
 
     const bookings = await Promise.all(
       accommodations.map(async (item) => {
@@ -99,8 +126,11 @@ export const Finanzas: FC<{ accessToken: string }> = ({ accessToken }) => {
     return `VT-${randomFourDigits}-${currentYear}`;
   };
 
-  const handleMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedMonth(event.target.value);
+  const handleMonthChange = async (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const month = event.target.value;
+    setSelectedMonth(month);
   };
 
   const downloadPDF = (url: string) => {
@@ -294,16 +324,19 @@ export const Finanzas: FC<{ accessToken: string }> = ({ accessToken }) => {
             {selectedAccommodation && (
               <>
                 <p className={styles.billingOne}>
+                  €
                   {platformCounts[
                     selectedAccommodation.name
                   ]?.totalBookingAmount.toFixed(2) || 0}
                 </p>
                 <p className={styles.billingTwo}>
+                  €
                   {platformCounts[
                     selectedAccommodation.name
                   ]?.totalAirbnbAmount.toFixed(2) || 0}
                 </p>
                 <p className={styles.billingThree}>
+                  €
                   {platformCounts[
                     selectedAccommodation.name
                   ]?.totalOtherAmount.toFixed(2) || 0}
@@ -334,6 +367,7 @@ export const Finanzas: FC<{ accessToken: string }> = ({ accessToken }) => {
             <div className={styles.totalBilling}>
               <p>{dictionary.ownersFinanzas?.totalFacturation}</p>
               <p>
+                €
                 {platformCounts[
                   selectedAccommodation.name
                 ]?.totalAmount.toFixed(2) || 0}
@@ -343,12 +377,13 @@ export const Finanzas: FC<{ accessToken: string }> = ({ accessToken }) => {
 
           <div className={styles.totalFinal}>
             <div className={styles.totalFinal__item}>
-              <h4>0</h4>
+              <h4>€0</h4>
               <p>{dictionary.ownersFinanzas?.cleaning}</p>
             </div>
 
             <div className={styles.totalFinal__item}>
               <h4>
+                €
                 {platformCounts[
                   selectedAccommodation.name
                 ]?.totalPartnerfee.toFixed(2) || 0}
@@ -358,6 +393,7 @@ export const Finanzas: FC<{ accessToken: string }> = ({ accessToken }) => {
 
             <div className={styles.totalFinal__item}>
               <h4>
+                €
                 {platformCounts[
                   selectedAccommodation.name
                 ]?.totalDygavFee.toFixed(2) || 0}
@@ -366,7 +402,7 @@ export const Finanzas: FC<{ accessToken: string }> = ({ accessToken }) => {
             </div>
 
             <div className={styles.totalFinal__item}>
-              <h4>0</h4>
+              <h4>€0</h4>
               <p>{dictionary.ownersFinanzas?.totalAdditional}</p>
             </div>
           </div>

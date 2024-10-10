@@ -55,10 +55,6 @@ export const BookingDetail: FC<{ bookingId: string }> = ({ bookingId }) => {
             {bookingInfo.totalAmount}
           </p>
           <p>
-            <strong className='text-p800'>Telefono:</strong>{' '}
-            {bookingInfo.defaultLeaderPhone || 'Desconocido'}
-          </p>
-          <p>
             <strong className='text-p800'>Huespedes:</strong>{' '}
             {bookingInfo.travellers?.standard}
           </p>
