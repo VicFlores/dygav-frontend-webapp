@@ -1,46 +1,48 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+'use client';
+
 import { FC, useEffect, useState } from 'react';
-import { Session } from 'next-auth';
-
-import { axiosConfig } from '@/utils';
-import axios from 'axios';
-import { AccomodationCarousel } from '../Dashboard/AccomodationCarousel';
+import { AccomodationCarousel } from './AccomodationCarousel';
 import useDictionary from '@/app/hooks/useDictionary';
+import { getOwnerAccommodations } from '@/app/utils';
+import { Accommodation } from '@/app/types';
+import { avaibookExtraction } from '@/app/utils/axiosConfig/avaibookExtraction';
 
-export const CalendarOwner: FC<{ session: Session }> = ({ session }) => {
+export const Calendar: FC<{ accessToken: string | undefined }> = ({
+  accessToken,
+}) => {
   const [data, setData] = useState<any[]>();
+  const dictionary: any = useDictionary('calendar');
 
   useEffect(() => {
-    const accomodations = async () => {
-      const { data } = await axiosConfig.get(
-        `/api/accomodations/findByUserId/${
-          session.user?._id || session.user?.id
-        }`
-      );
-
-      const dataArray = [];
-
-      for (const item of data) {
-        const { data: dataAvaibook } = await axios.get(
-          `https://api.avaibook.com/api/owner/accommodations/${item.accomodationId}/`,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
-            },
-          }
+    const fetchAccommodations = async () => {
+      try {
+        const accommodations = await getOwnerAccommodations(accessToken || '');
+        const accommodationDetails = await fetchAccommodationDetails(
+          accommodations
         );
-
-        dataArray.push(dataAvaibook);
+        setData(accommodationDetails);
+      } catch (error) {
+        console.error('Error fetching accommodations:', error);
       }
-
-      setData(dataArray);
     };
 
-    accomodations();
+    fetchAccommodations();
   }, []);
 
-  const dictionary: any = useDictionary('calendar');
+  const fetchAccommodationDetails = async (
+    accommodations: any[]
+  ): Promise<Accommodation[]> => {
+    const details = await Promise.all(
+      accommodations.map(async (item) => {
+        const { data } = await avaibookExtraction.get(
+          `/accomodation/${item.aviabook_id}/`
+        );
+        return data;
+      })
+    );
+    return details.flat();
+  };
 
   return (
     <div className='px-8 space-y-12 mb-24'>

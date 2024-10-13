@@ -47,7 +47,7 @@ export const Login = () => {
 
       const userRole = await getOwnerInfo(data.access_token);
 
-      if (userRole?.ROLE === 'OWNER') {
+      if (userRole?.data?.ROLE === 'OWNER') {
         router.push('/private/owners/dashboard');
       } else {
         router.push('/');

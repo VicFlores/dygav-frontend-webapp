@@ -25,8 +25,10 @@ export const getOwnerAccommodations = async (accessToken: string) => {
   try {
     const getOwner = await getOwnerInfo(accessToken);
 
+    console.log('getOwner', getOwner.data.OWNERID);
+
     const getOwnerAccommodations = await crmFinanzas.get(
-      `/accommodation/owner/${getOwner.OWNERID}`,
+      `/accommodation/owner/${getOwner.data.OWNERID}`,
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,

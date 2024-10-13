@@ -1,3 +1,5 @@
+'use client';
+
 import { axiosConfig } from '@/utils';
 import axios from 'axios';
 import { useSession } from 'next-auth/react';
@@ -25,7 +27,6 @@ type Props = {
 
 const BlockCalendarDaysForm: FC<Props> = ({ setlistenBlockDate, id }) => {
   const [error, setError] = useState('');
-  const { data: session } = useSession();
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
 
@@ -77,14 +78,14 @@ const BlockCalendarDaysForm: FC<Props> = ({ setlistenBlockDate, id }) => {
 
     setlistenBlockDate(res.data);
 
-    const response = await axiosConfig.post('/api/mailing/blockDays', {
-      fullname: 'Jose Llaneza',
-      owner: session?.user?.fullname,
-      email: session?.user?.email,
-      startDate: moment(startDate).format('dddd D [de] MMMM [de] YYYY'),
-      endDate: moment(endDate).format('dddd D [de] MMMM [de] YYYY'),
-      accomodation: findAccomodationById.name,
-    });
+    // const response = await axiosConfig.post('/api/mailing/blockDays', {
+    //   fullname: 'Jose Llaneza',
+    //   owner: session?.user?.fullname,
+    //   email: session?.user?.email,
+    //   startDate: moment(startDate).format('dddd D [de] MMMM [de] YYYY'),
+    //   endDate: moment(endDate).format('dddd D [de] MMMM [de] YYYY'),
+    //   accomodation: findAccomodationById.name,
+    // });
 
     setError('Dias bloqueados con exito');
   };

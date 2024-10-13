@@ -66,7 +66,7 @@ async function verifyTokenAndRole(
 
   const verifiedUserRole = await verifyUserRole.json();
 
-  if (verifiedUserRole.data.ROLE !== expectedRole) {
+  if (verifiedUserRole.data.role !== expectedRole) {
     return redirectToLogin(request, true);
   }
 

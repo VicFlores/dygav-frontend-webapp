@@ -1,25 +1,19 @@
+'use client';
+
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'moment/locale/es';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { FC, useEffect, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import { TbBrandAirbnb, TbBrandBooking } from 'react-icons/tb';
 import axios from 'axios';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
-import BlockCalendarDaysForm from '../BlockCalendarDaysForm/BlockCalendarDaysForm';
-import { useRouter } from 'next/router';
 import { GrStatusUnknown } from 'react-icons/gr';
-import { axiosConfig } from '@/utils';
-import { useSession } from 'next-auth/react';
 import { TbLockOff } from 'react-icons/tb';
 import styles from './reservationCalendar.module.css';
 import useDictionary from '@/app/hooks/useDictionary';
-
-// Set the locale to English
-moment.locale('en');
-
-// Initialize the momentLocalizer with the configured moment instance
-const localizer = momentLocalizer(moment);
+import BlockCalendarDaysForm from '@/app/components/Owners/AccommodationCalendar/BlockCalendarDaysForm/BlockCalendarDaysForm';
+import { useRouter } from 'next/navigation';
 
 interface ReservationCalendarProps {
   startDate: string;
@@ -34,9 +28,15 @@ type BlockDayProps = {
   booking: string;
 };
 
-export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
+export const AccommodationCalendar: FC<{ id: string }> = ({ id }) => {
+  // Set the locale to English
+  moment.locale('es');
+
+  // Initialize the momentLocalizer with the configured moment instance
+  const localizer = momentLocalizer(moment);
+
   const [showForm, setShowForm] = useState(false);
-  const { data: session } = useSession();
+  const session = null;
   const router = useRouter();
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== 'undefined' ? window.innerWidth : 0
@@ -66,7 +66,18 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
       },
     },
   ]);
-  const [isEmailChecked, setIsEmailChecked] = useState(false);
+  const [date, setDate] = useState(moment());
+
+  const onNavigate = useCallback(
+    (newDate: Date) => {
+      return setDate(moment(newDate));
+    },
+    [setDate]
+  );
+
+  const dictionary: any = useDictionary('calendar');
+
+  const convertedDate = date.toDate();
 
   useEffect(() => {
     const accomodationBlockDay = async (id: string) => {
@@ -176,32 +187,6 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
     }
   }, []);
 
-  useEffect(() => {
-    if ((session?.user?._id || session?.user?.id) && id) {
-      const findUserEmail = async () => {
-        try {
-          const res = await axiosConfig.get(
-            `/api/reservations/usersToSendEmail?userId=${
-              session?.user?._id || session?.user?.id
-            }&accomodationId=${id}`
-          );
-
-          if (res.data) {
-            setIsEmailChecked(true);
-          }
-        } catch (error) {
-          console.error('Error fetching user email:', error);
-        }
-      };
-
-      try {
-        findUserEmail();
-      } catch (error) {
-        console.error('Error calling findUserEmail function:', error);
-      }
-    }
-  }, [session?.user?._id, session?.user?.id, id, isEmailChecked]);
-
   const handleEventClick = (e: any) => {
     const reservation: any = bookingById.filter((item) => item.id === e.id)[0];
 
@@ -273,36 +258,6 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
     setShowForm(!showForm);
   };
 
-  const handleGetNotification = async () => {
-    if (isEmailChecked) {
-      try {
-        await axiosConfig.delete(`/api/reservations/usersToSendEmail`, {
-          data: {
-            userId: session?.user?._id || session?.user?.id,
-            accomodationId: id,
-          },
-        });
-
-        setIsEmailChecked(false);
-      } catch (error) {
-        console.error('Error deleting user email:', error);
-      }
-    } else {
-      try {
-        await axiosConfig.post(`/api/reservations/usersToSendEmail`, {
-          userId: session?.user?._id || session?.user?.id,
-          accomodationId: id,
-        });
-
-        setIsEmailChecked(true);
-      } catch (error) {
-        console.error('Error adding user email:', error);
-      }
-    }
-  };
-
-  const dictionary: any = useDictionary('calendar');
-
   return (
     <div className='px-8 mb-24'>
       {showForm && (
@@ -330,7 +285,7 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
         </div>
       </div>
 
-      <div className='flex flex-col md:flex-row items-center mb-10'>
+      {/* <div className='flex flex-col md:flex-row items-center mb-10'>
         <div
           className={`relative inline-block w-12 mr-2 rounded-full align-middle select-none transition duration-200 ease-in bg-gray300`}
         >
@@ -354,9 +309,11 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
             ? `${dictionary.calendarOwner?.receiveEmail}`
             : `${dictionary.calendarOwner?.noReceiveEmail}`}
         </label>
-      </div>
+      </div> */}
 
       <Calendar
+        onNavigate={onNavigate}
+        date={convertedDate}
         dayPropGetter={dayStyleGetter}
         localizer={localizer}
         events={reservations}

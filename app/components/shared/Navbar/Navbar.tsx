@@ -83,7 +83,10 @@ export const Navbar: FC<{ accessToken: string }> = ({ accessToken }) => {
             >
               Mis Finanzas
             </Link>
-            <Link className={styles.navbar__link} href={'/'}>
+            <Link
+              className={styles.navbar__link}
+              href={'/private/owners/calendar'}
+            >
               Calendario
             </Link>
             <Link className={styles.navbar__link} href={'/'}>

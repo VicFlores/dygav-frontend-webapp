@@ -5,3 +5,5 @@ export * from './Owners/Dashboard/OwnerDashboard';
 export * from './Owners/SearchBookings/SearchBookings';
 export * from './Owners/ReservationDetails/ReservationDetails';
 export * from './Owners/Finanzas/Finanzas';
+export * from './Owners/Calendar/Calendar';
+export * from './Owners/AccommodationCalendar/AccommodationCalendar';
