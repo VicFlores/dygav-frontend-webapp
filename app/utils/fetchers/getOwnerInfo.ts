@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { crmFinanzas } from '../axiosConfig/crmFinanzas';
 import { validateAccessToken } from './authFetcher';
 
@@ -24,8 +23,6 @@ export const getOwnerInfo = async (accessToken: string) => {
 export const getOwnerAccommodations = async (accessToken: string) => {
   try {
     const getOwner = await getOwnerInfo(accessToken);
-
-    console.log('getOwner', getOwner.data.OWNERID);
 
     const getOwnerAccommodations = await crmFinanzas.get(
       `/accommodation/owner/${getOwner.data.OWNERID}`,

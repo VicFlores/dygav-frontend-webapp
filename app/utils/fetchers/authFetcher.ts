@@ -1,6 +1,6 @@
 const BASE_URL =
   'https://dygav-backend-crm-me7xd.ondigitalocean.app/api/v1/auth';
-const API_KEY = '&FGYK?IJ$hCw$zUpzpSf';
+const API_KEY = `${process.env.NEXT_PUBLIC_CRM_API_KEY}`;
 
 export const validateAccessToken = async (accessToken: string) => {
   try {
