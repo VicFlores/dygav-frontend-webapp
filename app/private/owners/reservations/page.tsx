@@ -8,16 +8,14 @@ export const metadata: Metadata = {
   description: 'Owner Search Bookings page',
 };
 
-export default function SearchBookingsPage() {
-  const cookieStore = cookies();
-
-  const accessToken = cookieStore.get('access_token');
+export default async function SearchBookingsPage() {
+  const accessToken = cookies().get('access_token');
 
   return (
     <section>
-      <Navbar accessToken={accessToken?.value || ''} />
+      <Navbar accessToken={accessToken?.value} />
 
-      <SearchBookings accessToken={accessToken?.value || ''} />
+      <SearchBookings />
     </section>
   );
 }

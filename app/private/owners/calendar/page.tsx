@@ -9,15 +9,13 @@ export const metadata: Metadata = {
 };
 
 const CalendarPage = () => {
-  const cookieStore = cookies();
-
-  const accessToken = cookieStore.get('access_token');
+  const accessToken = cookies().get('access_token');
 
   return (
     <section>
-      <Navbar accessToken={accessToken?.value || ''} />
+      <Navbar accessToken={accessToken?.value} />
 
-      <Calendar accessToken={accessToken?.value} />
+      <Calendar />
     </section>
   );
 };

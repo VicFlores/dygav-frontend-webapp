@@ -9,13 +9,11 @@ export const metadata: Metadata = {
 };
 
 const AccomodationCallenderPage = ({ params }: { params: { id: string } }) => {
-  const cookieStore = cookies();
-
-  const accessToken = cookieStore.get('access_token');
+  const accessToken = cookies().get('access_token');
 
   return (
     <section>
-      <Navbar accessToken={accessToken?.value || ''} />
+      <Navbar accessToken={accessToken?.value} />
 
       <AccommodationCalendar id={params.id} />
     </section>

@@ -8,16 +8,14 @@ import { getOwnerAccommodations } from '@/app/utils';
 import { Accommodation } from '@/app/types';
 import { avaibookExtraction } from '@/app/utils/axiosConfig/avaibookExtraction';
 
-export const Calendar: FC<{ accessToken: string | undefined }> = ({
-  accessToken,
-}) => {
+export const Calendar = () => {
   const [data, setData] = useState<any[]>();
   const dictionary: any = useDictionary('calendar');
 
   useEffect(() => {
     const fetchAccommodations = async () => {
       try {
-        const accommodations = await getOwnerAccommodations(accessToken || '');
+        const accommodations = await getOwnerAccommodations();
         const accommodationDetails = await fetchAccommodationDetails(
           accommodations
         );

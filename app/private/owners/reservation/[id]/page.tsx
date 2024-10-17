@@ -13,13 +13,11 @@ export default function ReservationDetailsPage({
 }: {
   params: { id: string };
 }) {
-  const cookieStore = cookies();
-
-  const accessToken = cookieStore.get('access_token');
+  const accessToken = cookies().get('access_token');
 
   return (
     <section>
-      <Navbar accessToken={accessToken?.value || ''} />
+      <Navbar accessToken={accessToken?.value} />
 
       <ReservationDetails id={params.id} />
     </section>

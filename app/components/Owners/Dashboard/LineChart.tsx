@@ -6,14 +6,14 @@ import { FC, useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import { subMonths, format } from 'date-fns';
 
-export const LineChart: FC<{ accessToken: string }> = ({ accessToken }) => {
+export const LineChart = () => {
   const [bookings, setBookings] = useState<Booking[]>([]);
   const dictionary = useDictionary('ownersAccount');
 
   useEffect(() => {
     const fetchAccommodations = async () => {
       try {
-        const accommodations = await getOwnerAccommodations(accessToken || '');
+        const accommodations = await getOwnerAccommodations();
 
         const accommodationDetails = await fetchAccommodationDetails(
           accommodations
@@ -30,7 +30,7 @@ export const LineChart: FC<{ accessToken: string }> = ({ accessToken }) => {
     };
 
     fetchAccommodations();
-  }, [accessToken]);
+  }, []);
 
   const fetchBookings = async (
     accommodations: Accommodation[]

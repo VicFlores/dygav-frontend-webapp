@@ -1,36 +1,48 @@
+'use server';
+
+import { cookies } from 'next/headers';
 import { crmFinanzas } from '../axiosConfig/crmFinanzas';
 import { validateAccessToken } from './authFetcher';
+import { verifyTokens } from '../axiosConfig';
 
-export const getOwnerInfo = async (accessToken: string) => {
+verifyTokens();
+
+export const getOwnerInfo = async (accessToken: string | undefined) => {
   try {
-    const getUserByAcessToken = await validateAccessToken(accessToken);
+    const getUserByAcessToken = await validateAccessToken(
+      accessToken as string
+    );
 
     const user = await getUserByAcessToken.json();
 
-    const getOwenerById = await crmFinanzas.get(`/owner/${user.data.id}/user`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
+    const getUserInfo = await crmFinanzas.get(
+      `/auth/user?email_username=${user.data.email}`
+    );
 
-    return getOwenerById.data;
+    return {
+      ...getUserInfo.data.data,
+      access_token: accessToken,
+    };
   } catch (error) {
     console.error('Error fetching getUserByAcessToken', error);
     throw error;
   }
 };
 
-export const getOwnerAccommodations = async (accessToken: string) => {
+export const getOwnerAccommodations = async () => {
   try {
-    const getOwner = await getOwnerInfo(accessToken);
+    const accessToken = cookies().get('access_token');
+
+    const getOwner = await getOwnerInfo(accessToken?.value as string);
+
+    const ownerInfo = await crmFinanzas.get(`/owner/${getOwner.userid}/user`, {
+      headers: {
+        Authorization: `Bearer ${getOwner.access_token}`,
+      },
+    });
 
     const getOwnerAccommodations = await crmFinanzas.get(
-      `/accommodation/owner/${getOwner.data.OWNERID}`,
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      }
+      `/accommodation/owner/${ownerInfo.data.data.OWNERID}`
     );
 
     return getOwnerAccommodations.data.data;

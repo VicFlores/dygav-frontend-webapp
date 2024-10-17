@@ -9,11 +9,10 @@ import { Accommodation, Booking } from '@/app/types';
 import { avaibookExtraction } from '@/app/utils/axiosConfig/avaibookExtraction';
 import { getOwnerAccommodations } from '@/app/utils';
 import LoadingPlaceholder from '../../shared/LoadingPlaceholder/LoadingPlaceholder';
-
 import 'moment/locale/es';
 import 'moment/locale/en-gb';
 
-export const Finanzas: FC<{ accessToken: string }> = ({ accessToken }) => {
+export const Finanzas = () => {
   const [data, setData] = useState<any[]>([]);
   const [selectedAccommodation, setSelectedAccommodation] = useState<
     any | null
@@ -21,7 +20,6 @@ export const Finanzas: FC<{ accessToken: string }> = ({ accessToken }) => {
   const [selectedMonth, setSelectedMonth] = useState(
     `${moment().format('MMMM')}`
   );
-  const [bookings, setBookings] = useState<any[]>([]);
   const [pdfUrls, setPdfUrls] = useState<string[]>([]);
   const [platformCounts, setPlatformCounts] = useState<{
     [key: string]: { [key: string]: number };
@@ -31,7 +29,7 @@ export const Finanzas: FC<{ accessToken: string }> = ({ accessToken }) => {
   useEffect(() => {
     const fetchAccommodations = async () => {
       try {
-        const accommodations = await getOwnerAccommodations(accessToken || '');
+        const accommodations = await getOwnerAccommodations();
         const accommodationDetails = await fetchAccommodationDetails(
           accommodations
         );
@@ -44,7 +42,7 @@ export const Finanzas: FC<{ accessToken: string }> = ({ accessToken }) => {
             accommodationDetails,
             selectedMonth
           );
-          setBookings(bookings);
+
           countPlatformBookings(bookings);
         }
       } catch (error) {
@@ -53,13 +51,12 @@ export const Finanzas: FC<{ accessToken: string }> = ({ accessToken }) => {
     };
 
     fetchAccommodations();
-  }, [accessToken, selectedMonth]);
+  }, [selectedMonth]);
 
   useEffect(() => {
     const fetchBookingsForSelectedMonth = async () => {
       if (data.length > 0) {
         const bookings = await fetchBookings(data, selectedMonth);
-        setBookings(bookings);
         countPlatformBookings(bookings);
       }
     };

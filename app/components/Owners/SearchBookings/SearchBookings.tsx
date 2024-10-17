@@ -19,9 +19,7 @@ interface IFormInput {
   status: string;
 }
 
-export const SearchBookings: FC<{ accessToken: string }> = ({
-  accessToken,
-}) => {
+export const SearchBookings = () => {
   const [data, setData] = useState<any[]>([]);
   const [bookings, setBookings] = useState<any[]>([]);
   const [originalBookings, setOriginalBookings] = useState<any[]>([]);
@@ -38,7 +36,7 @@ export const SearchBookings: FC<{ accessToken: string }> = ({
   useEffect(() => {
     const fetchAccommodations = async () => {
       try {
-        const accommodations = await getOwnerAccommodations(accessToken || '');
+        const accommodations = await getOwnerAccommodations();
         const accommodationDetails = await fetchAccommodationDetails(
           accommodations
         );
@@ -55,7 +53,7 @@ export const SearchBookings: FC<{ accessToken: string }> = ({
     };
 
     fetchAccommodations();
-  }, [accessToken]);
+  }, []);
 
   const fetchAccommodationDetails = async (
     accommodations: any[]

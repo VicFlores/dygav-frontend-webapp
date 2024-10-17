@@ -10,7 +10,9 @@ import { validateAccessToken } from '@/app/utils';
 import { delCookies } from '@/app/actions';
 import { useRouter } from 'next/navigation';
 
-export const Navbar: FC<{ accessToken: string }> = ({ accessToken }) => {
+export const Navbar: FC<{ accessToken: string | undefined }> = ({
+  accessToken,
+}) => {
   const [isActive, setIsActive] = useState(false);
   const [userInfo, setUserInfo] = useState({ data: { username: '' } });
   const router = useRouter();
@@ -18,11 +20,13 @@ export const Navbar: FC<{ accessToken: string }> = ({ accessToken }) => {
   useEffect(() => {
     try {
       const getUserByAccessToken = async () => {
-        const res = await validateAccessToken(accessToken);
+        if (accessToken) {
+          const res = await validateAccessToken(accessToken);
 
-        const user = await res.json();
+          const user = await res.json();
 
-        setUserInfo(user);
+          setUserInfo(user);
+        }
       };
 
       getUserByAccessToken();

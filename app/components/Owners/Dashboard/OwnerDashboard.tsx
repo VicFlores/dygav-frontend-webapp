@@ -4,7 +4,7 @@ import { FC, useEffect, useState } from 'react';
 import { OwnerMultiCalendar } from './OwnerMultiCalendar';
 import { getOwnerAccommodations } from '@/app/utils';
 import { avaibookExtraction } from '@/app/utils/axiosConfig/avaibookExtraction';
-import { Accommodation, Booking, Props } from '@/app/types';
+import { Accommodation, Booking } from '@/app/types';
 import useDictionary from '@/app/hooks/useDictionary';
 import styles from './OwnerDashboard.module.css';
 import 'chart.js/auto';
@@ -12,7 +12,7 @@ import OwnerBookingCard from '../../shared/OwnerBookingCard/OwnerBookingCard';
 import WaitingReservationsOrAccommodations from '../../shared/WaitingReservationsOrAccommodations/WaitingReservationsOrAccommodations';
 import { LineChart } from './LineChart';
 
-export const OwnerDashboard: FC<Props> = ({ accessToken }) => {
+export const OwnerDashboard = () => {
   const [data, setData] = useState<any[]>();
   const [bookings, setBookings] = useState<any[]>([]);
   const [bookingCounts, setBookingCounts] = useState({
@@ -31,12 +31,11 @@ export const OwnerDashboard: FC<Props> = ({ accessToken }) => {
   useEffect(() => {
     const fetchAccommodations = async () => {
       try {
-        const accommodations = await getOwnerAccommodations(
-          accessToken?.value || ''
-        );
+        const accommodations = await getOwnerAccommodations();
         const accommodationDetails = await fetchAccommodationDetails(
           accommodations
         );
+
         setData(accommodationDetails);
 
         if (accommodationDetails.length > 0) {
@@ -54,7 +53,7 @@ export const OwnerDashboard: FC<Props> = ({ accessToken }) => {
     };
 
     fetchAccommodations();
-  }, [accessToken?.value]);
+  }, []);
 
   const fetchAccommodationDetails = async (
     accommodations: any[]
@@ -346,7 +345,7 @@ export const OwnerDashboard: FC<Props> = ({ accessToken }) => {
 
           <div className={styles.chartContainer}>
             <div className={styles.chart}>
-              <LineChart accessToken={accessToken?.value as string} />
+              <LineChart />
             </div>
           </div>
         </div>

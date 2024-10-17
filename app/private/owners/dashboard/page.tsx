@@ -9,16 +9,14 @@ export const metadata: Metadata = {
   description: 'Owner Dashboard page',
 };
 
-const OwnerPanel = () => {
-  const cookieStore = cookies();
-
-  const accessToken = cookieStore.get('access_token');
+const OwnerPanel = async () => {
+  const accessToken = cookies().get('access_token');
 
   return (
     <section>
-      <Navbar accessToken={accessToken?.value || ''} />
+      <Navbar accessToken={accessToken?.value} />
 
-      <OwnerDashboard accessToken={accessToken} />
+      <OwnerDashboard />
     </section>
   );
 };
