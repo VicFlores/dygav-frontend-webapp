@@ -2,9 +2,6 @@ import LanguageSwitcher from '@/app/components/shared/LanguageSwitcher/LanguageS
 import useDictionary from '@/app/hooks/useDictionary';
 import { TSession } from '@/types';
 import {
-  accounOwnertMenuItem,
-  accounTouristMenuItem,
-  accountAdminMenuItem,
   useAccountAdminMenuItems,
   useAccountOwnerMenuItems,
   useAccountTouristMenuItems,

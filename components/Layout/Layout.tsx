@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, ReactNode } from 'react';
 import { BurgerMenu, NavBar } from '..';
 import { Session } from 'next-auth';

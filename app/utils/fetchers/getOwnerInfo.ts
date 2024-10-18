@@ -7,10 +7,12 @@ import { verifyTokens } from '../axiosConfig';
 
 verifyTokens();
 
-export const getOwnerInfo = async (accessToken: string | undefined) => {
+export const getOwnerInfo = async () => {
   try {
+    const accessToken = cookies().get('access_token');
+
     const getUserByAcessToken = await validateAccessToken(
-      accessToken as string
+      accessToken?.value as string
     );
 
     const user = await getUserByAcessToken.json();
@@ -31,9 +33,7 @@ export const getOwnerInfo = async (accessToken: string | undefined) => {
 
 export const getOwnerAccommodations = async () => {
   try {
-    const accessToken = cookies().get('access_token');
-
-    const getOwner = await getOwnerInfo(accessToken?.value as string);
+    const getOwner = await getOwnerInfo();
 
     const ownerInfo = await crmFinanzas.get(`/owner/${getOwner.userid}/user`, {
       headers: {

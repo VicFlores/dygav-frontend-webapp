@@ -2,7 +2,7 @@
 
 import { FC, useEffect, useState } from 'react';
 import { OwnerMultiCalendar } from './OwnerMultiCalendar';
-import { getOwnerAccommodations } from '@/app/utils';
+import { getOwnerAccommodations, getOwnerInfo } from '@/app/utils';
 import { avaibookExtraction } from '@/app/utils/axiosConfig/avaibookExtraction';
 import { Accommodation, Booking } from '@/app/types';
 import useDictionary from '@/app/hooks/useDictionary';
