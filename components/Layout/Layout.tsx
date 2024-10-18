@@ -13,7 +13,7 @@ export const Layout: FC<Props> = ({ children, user }) => {
   return (
     <div>
       <NavBar user={user} />
-      {/* <BurgerMenu user={user} /> */}
+      <BurgerMenu user={user} />
       {children}
     </div>
   );

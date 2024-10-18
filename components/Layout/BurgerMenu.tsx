@@ -22,7 +22,7 @@ import LanguageSwitcher from '@/app/components/shared/LanguageSwitcher/LanguageS
 const imageUrl =
   'https://multimedia.dygav.es/wp-content/uploads/2024/04/1.Dygav_Blanco_Vertical_z64ijw.svg';
 
-export const BurgerMenu: FC<TSession> = ({ session }) => {
+export const BurgerMenu: FC<{ user: TSession }> = ({ user }) => {
   const { sideMenu, isToogleBurgerMenu } = useContext(UIContext);
   const router = useRouter();
   const currentUrl = router.asPath;
@@ -44,31 +44,31 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
   const adminMenuItems = useAccountAdminMenuItems();
 
   const menuItems =
-    session?.user?.role === 'tourist'
+    user?.role === 'tourist'
       ? currentUrl.startsWith('/private/tourist')
         ? touristMenuItems
         : publicMenuItems
-      : session?.user?.role === 'owner'
+      : user?.role === 'OWNER'
       ? currentUrl.startsWith('/private/owners') ||
         currentUrl.startsWith('/private/tourist')
         ? ownerMenuItems
         : publicMenuItems
-      : session?.user?.role === 'admin'
+      : user?.role === 'admin'
       ? currentUrl.startsWith('/private/admin')
         ? adminMenuItems
         : publicMenuItems
       : publicMenuItems;
 
   const hoverMenuItems =
-    session?.user?.role === 'tourist'
+    user?.role === 'tourist'
       ? !currentUrl.startsWith('/private/tourist')
         ? touristMenuItems
         : publicMenuItems
-      : session?.user?.role === 'admin'
+      : user?.role === 'admin'
       ? !currentUrl.startsWith('/private/admin')
         ? adminMenuItems
         : publicMenuItems
-      : session?.user?.role === 'owner'
+      : user?.role === 'owner'
       ? !currentUrl.startsWith('/private/owners') &&
         !currentUrl.startsWith('/private/tourist')
         ? ownerMenuItems
@@ -79,7 +79,7 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
 
   return (
     <>
-      {session?.user ? (
+      {user ? (
         <nav className={`w-full h-auto lg:hidden p-4 static ${bkCurrentUrl}`}>
           <div className='flex justify-between items-center'>
             <div className='h-auto w-auto'>
@@ -103,14 +103,12 @@ export const BurgerMenu: FC<TSession> = ({ session }) => {
             <div className='grid gap-y-8 bg-p400/70 h-auto pt-6 pb-6 mt-6'>
               <ul className='grid justify-center items-center text-center gap-y-2'>
                 <p className='text-[20px] text-white font-semibold'>
-                  ¡{dictionary.nav?.hello}{' '}
-                  {session.user.name || session.user.fullname}!
+                  ¡{dictionary.nav?.hello} {user.username}!
                 </p>
 
                 <figure className='h-16 w-16 relative justify-self-center self-center mb-4'>
                   <Image
                     src={
-                      session?.user.image ||
                       'https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_Pic_profile_re_7g2h_o0irqa-1.png'
                     }
                     alt={'Profile picture'}
