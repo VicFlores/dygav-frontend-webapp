@@ -8,12 +8,24 @@ import {
   Footer,
   SenegueInfo,
 } from '@/components';
-import { heroSenegueImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroSenegueImages } from '@/utils';
 import { pirineosAragonImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import React from 'react';
 
-const SenegueLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const SenegueLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
 
   return (
@@ -23,7 +35,7 @@ const SenegueLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Senegüe de forma sencilla y rápida.`}
       />
       <MainHero images={heroSenegueImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Senegüe`}
             subtitle={`Como conseguir tu licencia turística en Senegüe en 2023`}

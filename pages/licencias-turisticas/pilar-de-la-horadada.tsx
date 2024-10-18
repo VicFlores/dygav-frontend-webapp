@@ -8,13 +8,25 @@ import {
   Footer,
   PilarHoradadaInfo,
 } from '@/components';
-import { heroPilarDeLaHoradadaImages } from '@/utils';
+import { getUserFromCookies, heroPilarDeLaHoradadaImages } from '@/utils';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { generalImages } from '../../utils/static/licenseImages';
+import { TSession } from '@/types';
+import { GetServerSideProps } from 'next';
 
-const PilarDeLaHoradadaLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const PilarDeLaHoradadaLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const PilarDeLaHoradadaLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Pilar De La Horadada de forma sencilla y rápida.`}
       />
       <MainHero images={heroPilarDeLaHoradadaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Pilar De La Horadada`}
             subtitle={`Como conseguir tu licencia turística en Pilar De La Horadada en 2023`}

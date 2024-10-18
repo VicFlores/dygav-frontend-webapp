@@ -10,9 +10,22 @@ import {
   MainHero,
   UtilHead,
 } from '@/components';
+import { TSession } from '@/types';
+import { getUserFromCookies } from '@/utils';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 
-export default function License() {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+export default function License({ user }: { user: TSession }) {
   const { data: session } = useSession();
   const dictionary = useDictionary('licenses');
 
@@ -24,7 +37,7 @@ export default function License() {
       />
 
       <MainHero>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={dictionary.heroLicense?.title}
             subtitle={dictionary.heroLicense?.description}

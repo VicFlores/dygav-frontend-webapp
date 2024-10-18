@@ -1,5 +1,4 @@
-import { Session } from 'next-auth';
-
 export type TSession = {
-  session?: Session | null;
+  username: string;
+  role: string;
 };

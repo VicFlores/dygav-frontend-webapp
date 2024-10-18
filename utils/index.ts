@@ -6,3 +6,4 @@ export * from './static/seacherCardInfo';
 export * from './static/reservationInfo';
 export * from './static/heroLicensesImages';
 export * from './static/cityData';
+export * from './auth';

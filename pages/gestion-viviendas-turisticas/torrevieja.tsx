@@ -15,9 +15,21 @@ import {
   TorreviejaMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroTorreviejaImages } from '@/utils';
+import { getUserFromCookies, heroTorreviejaImages } from '@/utils';
+import { TSession } from '@/types';
+import { GetServerSideProps } from 'next';
 
-const TorreviejaOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const TorreviejaOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -32,7 +44,7 @@ const TorreviejaOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Torrevieja de forma sencilla y rápida.`}
       />
       <MainHero images={heroTorreviejaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

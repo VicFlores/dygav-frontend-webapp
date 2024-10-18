@@ -8,13 +8,25 @@ import {
   Footer,
   VillajoyosaInfo,
 } from '@/components';
-import { heroVillajoyosaImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroVillajoyosaImages } from '@/utils';
 import { generalImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-const VillajoyosaLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const VillajoyosaLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const VillajoyosaLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Villajoyosa de forma sencilla y rápida.`}
       />
       <MainHero images={heroVillajoyosaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Villajoyosa`}
             subtitle={`Como conseguir tu licencia turística en Villajoyosa en 2023`}

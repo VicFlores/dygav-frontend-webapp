@@ -8,13 +8,25 @@ import {
   Footer,
   BiescasInfo,
 } from '@/components';
-import { heroBiescasImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroBiescasImages } from '@/utils';
 import { pirineosAragonImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-const BiescasLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const BiescasLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const BiescasLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Biescas de forma sencilla y rápida.`}
       />
       <MainHero images={heroBiescasImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Biescas`}
             subtitle={`Como conseguir tu licencia turística en Biescas en 2023`}

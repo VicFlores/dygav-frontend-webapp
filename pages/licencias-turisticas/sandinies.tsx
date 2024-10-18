@@ -8,13 +8,25 @@ import {
   Footer,
   SandiniesInfo,
 } from '@/components';
-import { heroSandiniesImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroSandiniesImages } from '@/utils';
 import { pirineosAragonImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-const SandiniesLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const SandiniesLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const SandiniesLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Sandiniés de forma sencilla y rápida.`}
       />
       <MainHero images={heroSandiniesImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Sandiniés`}
             subtitle={`Como conseguir tu licencia turística en Sandiniés en 2023`}

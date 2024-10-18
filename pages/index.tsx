@@ -8,16 +8,27 @@ import {
   Layout,
   UtilHead,
 } from '@/components';
-import { useSession } from 'next-auth/react';
+import { TSession } from '@/types';
+import { getUserFromCookies } from '@/utils';
+import { GetServerSideProps } from 'next';
 
-export default function HomePage() {
-  const { data: session } = useSession();
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+export default function HomePage({ user }: { user: TSession }) {
   return (
     <section>
       <UtilHead title='Dygav Home' content='' />
 
       <MainHero>
-        <Layout session={session}>
+        <Layout user={user}>
           <Hero />
         </Layout>
       </MainHero>

@@ -12,9 +12,21 @@ import {
   HozDeJacaMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroHozDeJacaImages } from '@/utils';
+import { getUserFromCookies, heroHozDeJacaImages } from '@/utils';
+import { TSession } from '@/types';
+import { GetServerSideProps } from 'next';
 
-const HozDeJacaOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const HozDeJacaOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const HozDeJacaOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en HozDeJaca de forma sencilla y rápida.`}
       />
       <MainHero images={heroHozDeJacaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

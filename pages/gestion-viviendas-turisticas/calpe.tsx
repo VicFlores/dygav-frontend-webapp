@@ -11,10 +11,22 @@ import {
   CalpeMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroCalpeImages } from '@/utils';
+import { getUserFromCookies, heroCalpeImages } from '@/utils';
 import { useRouter } from 'next/router';
+import { GetServerSideProps } from 'next';
+import { TSession } from '@/types';
 
-const CalpeOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const CalpeOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const CalpeOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Calpe de forma sencilla y rápida.`}
       />
       <MainHero images={heroCalpeImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

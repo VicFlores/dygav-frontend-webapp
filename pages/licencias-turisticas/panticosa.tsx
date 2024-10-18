@@ -8,13 +8,25 @@ import {
   Footer,
   PanticosaInfo,
 } from '@/components';
-import { heroPanticosaImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroPanticosaImages } from '@/utils';
 import { pirineosAragonImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-const PanticosaLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const PanticosaLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const PanticosaLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Panticosa de forma sencilla y rápida.`}
       />
       <MainHero images={heroPanticosaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Panticosa`}
             subtitle={`Como conseguir tu licencia turística en Panticosa en 2023`}

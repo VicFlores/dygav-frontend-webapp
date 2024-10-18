@@ -16,7 +16,7 @@ import React, { FC } from 'react';
 const imageUrl =
   'https://multimedia.dygav.es/wp-content/uploads/2024/04/1.Dygav_Blanco_Vertical_z64ijw.svg';
 
-export const NavBar: FC<TSession> = ({ session }) => {
+export const NavBar: FC<{ user: TSession }> = ({ user }) => {
   const router = useRouter();
   const currentUrl = router.asPath;
 
@@ -33,31 +33,31 @@ export const NavBar: FC<TSession> = ({ session }) => {
   const adminMenuItems = useAccountAdminMenuItems();
 
   const menuItems =
-    session?.user?.role === 'tourist'
+    user?.role === 'tourist'
       ? currentUrl.startsWith('/private/tourist')
         ? touristMenuItems
         : publicMenuItems
-      : session?.user?.role === 'owner'
+      : user?.role === 'OWNER'
       ? currentUrl.startsWith('/private/owners') ||
         currentUrl.startsWith('/private/tourist')
         ? ownerMenuItems
         : publicMenuItems
-      : session?.user?.role === 'admin'
+      : user?.role === 'admin'
       ? currentUrl.startsWith('/private/admin')
         ? adminMenuItems
         : publicMenuItems
       : publicMenuItems;
 
   const hoverMenuItems =
-    session?.user?.role === 'tourist'
+    user?.role === 'tourist'
       ? !currentUrl.startsWith('/private/tourist')
         ? touristMenuItems
         : publicMenuItems
-      : session?.user?.role === 'admin'
+      : user?.role === 'admin'
       ? !currentUrl.startsWith('/private/admin')
         ? adminMenuItems
         : publicMenuItems
-      : session?.user?.role === 'owner'
+      : user?.role === 'OWNER'
       ? !currentUrl.startsWith('/private/owners') &&
         !currentUrl.startsWith('/private/tourist')
         ? ownerMenuItems
@@ -68,7 +68,7 @@ export const NavBar: FC<TSession> = ({ session }) => {
 
   return (
     <>
-      {session?.user ? (
+      {user ? (
         <nav
           className={`w-full h-28 hidden lg:grid lg:grid-cols-4 justify-between items-center static ${bkCurrentUrl}`}
         >
@@ -113,7 +113,6 @@ export const NavBar: FC<TSession> = ({ session }) => {
             <figure className='h-14 w-14 relative '>
               <Image
                 src={
-                  session?.user.image ||
                   'https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_Pic_profile_re_7g2h_o0irqa-1.png'
                 }
                 alt={'Profile picture'}
@@ -125,8 +124,7 @@ export const NavBar: FC<TSession> = ({ session }) => {
 
             <div className='z-20 absolute hidden group-hover:block bg-p400/80 p-4 space-y-4 rounded-lg shadow-lg text-center mt-[58px]'>
               <h4 className='text-[20px] text-white'>
-                {dictionary.nav?.welcome}:{' '}
-                {session.user.name || session.user.fullname}
+                {dictionary.nav?.welcome}: {user.username}
               </h4>
 
               <ul className='flex flex-col items-center justify-center'>

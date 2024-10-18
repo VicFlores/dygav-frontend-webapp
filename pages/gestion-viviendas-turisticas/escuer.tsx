@@ -12,9 +12,21 @@ import {
   EscuerMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroEscuerImages } from '@/utils';
+import { getUserFromCookies, heroEscuerImages } from '@/utils';
+import { TSession } from '@/types';
+import { GetServerSideProps } from 'next';
 
-const EscuerOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const EscuerOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const EscuerOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Escuer de forma sencilla y rápida.`}
       />
       <MainHero images={heroEscuerImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

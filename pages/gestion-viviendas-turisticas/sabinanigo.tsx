@@ -12,9 +12,21 @@ import {
   SabinanigoMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroSabiñánigoImages } from '@/utils';
+import { getUserFromCookies, heroSabiñánigoImages } from '@/utils';
+import { TSession } from '@/types';
+import { GetServerSideProps } from 'next';
 
-const SabinanigoOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const SabinanigoOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const SabinanigoOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Sabiñánigo de forma sencilla y rápida.`}
       />
       <MainHero images={heroSabiñánigoImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

@@ -1,4 +1,4 @@
-import { axiosConfig } from '@/utils';
+import { axiosConfig, getUserFromCookies } from '@/utils';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
@@ -13,6 +13,9 @@ import {
   SearcherRealCards,
 } from '@/components';
 import Image from 'next/legacy/image';
+import user from '@/models/user';
+import { GetServerSideProps } from 'next';
+import { TSession } from '@/types';
 
 type Unit = {
   weekPrice: number;
@@ -55,8 +58,17 @@ interface FilterAccomodation {
   };
 }
 
-const ApartamentosFiltros = () => {
-  const { data: session } = useSession();
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const ApartamentosFiltros = ({ user }: { user: TSession }) => {
   const [data, setData] = useState<FilterAccomodation[]>([
     {
       accomodationFull: {
@@ -126,7 +138,7 @@ const ApartamentosFiltros = () => {
       <UtilHead title={`Dygav Apartamentos en ${ubicacion}`} content='' />
 
       <MainHero>
-        <Layout session={session}>
+        <Layout user={user}>
           <ApartamentosTuristicosHero ubicacion={ubicacion as string} />
         </Layout>
       </MainHero>

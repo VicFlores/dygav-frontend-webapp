@@ -15,9 +15,21 @@ import {
   AlicanteMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroAlicanteImages } from '@/utils';
+import { getUserFromCookies, heroAlicanteImages } from '@/utils';
+import { GetServerSideProps } from 'next';
+import { TSession } from '@/types';
 
-const AlicanteOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const AlicanteOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -32,7 +44,7 @@ const AlicanteOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Alicante de forma sencilla y rápida.`}
       />
       <MainHero images={heroAlicanteImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

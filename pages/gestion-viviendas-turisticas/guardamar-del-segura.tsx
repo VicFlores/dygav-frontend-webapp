@@ -11,10 +11,22 @@ import {
   GuardamarDelSeguraMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroGuardamarDelSeguraImages } from '@/utils';
+import { getUserFromCookies, heroGuardamarDelSeguraImages } from '@/utils';
 import { useRouter } from 'next/router';
+import { TSession } from '@/types';
+import { GetServerSideProps } from 'next';
 
-const GuardamarDelSeguraOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const GuardamarDelSeguraOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const GuardamarDelSeguraOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Guardamar Del Segura de forma sencilla y rápida.`}
       />
       <MainHero images={heroGuardamarDelSeguraImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

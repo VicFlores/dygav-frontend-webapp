@@ -8,13 +8,24 @@ import {
   Footer,
   PirineoAragonesInfo,
 } from '@/components';
-import { heroPirineoAragonesImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroPirineoAragonesImages } from '@/utils';
 import { pirineosAragonImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
 import React from 'react';
 
-const PirineoAragonesLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const PirineoAragonesLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
 
   return (
@@ -24,7 +35,7 @@ const PirineoAragonesLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Pirineo Aragones de forma sencilla y rápida.`}
       />
       <MainHero images={heroPirineoAragonesImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Pirineo Aragones`}
             subtitle={`Como conseguir tu licencia turística en Pirineo Aragones en 2023`}

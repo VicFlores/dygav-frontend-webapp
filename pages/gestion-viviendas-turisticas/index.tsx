@@ -8,9 +8,22 @@ import {
   UtilHead,
   HelpFixedButton,
 } from '@/components';
+import { TSession } from '@/types';
+import { getUserFromCookies } from '@/utils';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 
-const OwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const OwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
 
   return (
@@ -18,7 +31,7 @@ const OwnersPage = () => {
       <UtilHead title='DYGAV - Gestión de viviendas turísticas' content='' />
 
       <MainHero>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroOwners />
         </Layout>
       </MainHero>

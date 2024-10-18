@@ -11,9 +11,21 @@ import {
   SandiniesMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroSandiniesImages } from '@/utils';
+import { getUserFromCookies, heroSandiniesImages } from '@/utils';
+import { TSession } from '@/types';
+import { GetServerSideProps } from 'next';
 
-const SandiniesOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const SandiniesOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
 
   return (
@@ -23,7 +35,7 @@ const SandiniesOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Sandiniés de forma sencilla y rápida.`}
       />
       <MainHero images={heroSandiniesImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

@@ -1,10 +1,22 @@
 import useDictionary from '@/app/hooks/useDictionary';
 import { Footer, HeroLicense, Layout, MainHero, UtilHead } from '@/components';
 import Posts from '@/components/Posts/Posts';
-import { useSession } from 'next-auth/react';
+import user from '@/models/user';
+import { TSession } from '@/types';
+import { getUserFromCookies } from '@/utils';
+import { GetServerSideProps } from 'next';
 
-export default function BlogsPage() {
-  const { data: session } = useSession();
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+export default function BlogsPage({ user }: { user: TSession }) {
   const dictionary: any = useDictionary('blog');
 
   return (
@@ -14,7 +26,7 @@ export default function BlogsPage() {
         content='Ahora el descubre el nuevo blog de Dygav'
       />
       <MainHero>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={dictionary.heroLicense?.title}
             subtitle={dictionary.heroLicense?.subtitle}

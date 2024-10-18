@@ -2,18 +2,18 @@
 
 import React, { FC, ReactNode } from 'react';
 import { BurgerMenu, NavBar } from '..';
-import { Session } from 'next-auth';
+import { TSession } from '@/types';
 
 interface Props {
   children?: ReactNode;
-  session?: Session | null;
+  user: TSession;
 }
 
-export const Layout: FC<Props> = ({ children, session = null }) => {
+export const Layout: FC<Props> = ({ children, user }) => {
   return (
     <div>
-      <NavBar session={session} />
-      <BurgerMenu session={session} />
+      <NavBar user={user} />
+      {/* <BurgerMenu user={user} /> */}
       {children}
     </div>
   );

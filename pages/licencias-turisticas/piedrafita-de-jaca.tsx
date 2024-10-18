@@ -8,13 +8,25 @@ import {
   Footer,
   PiedrafitaDeJacaInfo,
 } from '@/components';
-import { heroPiedraficaDeJacaImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroPiedraficaDeJacaImages } from '@/utils';
 import { pirineosAragonImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-const PiedraficaDeJacaLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const PiedraficaDeJacaLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const PiedraficaDeJacaLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Piedrafica De Jaca de forma sencilla y rápida.`}
       />
       <MainHero images={heroPiedraficaDeJacaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Piedrafica De Jaca`}
             subtitle={`Como conseguir tu licencia turística en Piedrafica De Jaca en 2023`}

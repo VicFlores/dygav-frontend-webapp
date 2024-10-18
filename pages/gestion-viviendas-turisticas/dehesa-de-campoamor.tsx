@@ -15,9 +15,21 @@ import {
   DehesaDeCampoamorMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroDehesaDeCampoamorImages } from '@/utils';
+import { getUserFromCookies, heroDehesaDeCampoamorImages } from '@/utils';
+import { GetServerSideProps } from 'next';
+import { TSession } from '@/types';
 
-const DehesaDeCampoamorOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const DehesaDeCampoamorOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -32,7 +44,7 @@ const DehesaDeCampoamorOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Dehesa De Campoamor de forma sencilla y rápida.`}
       />
       <MainHero images={heroDehesaDeCampoamorImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

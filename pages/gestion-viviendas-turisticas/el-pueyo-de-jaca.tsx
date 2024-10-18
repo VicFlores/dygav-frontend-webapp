@@ -11,9 +11,21 @@ import {
   ElPueyoDeJacaMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroElPueyoDeJacaImages } from '@/utils';
+import { getUserFromCookies, heroElPueyoDeJacaImages } from '@/utils';
+import { GetServerSideProps } from 'next';
+import { TSession } from '@/types';
 
-const ElPueyoDeJacaOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const ElPueyoDeJacaOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
 
   return (
@@ -23,7 +35,7 @@ const ElPueyoDeJacaOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en El Pueyo De Jaca de forma sencilla y rápida.`}
       />
       <MainHero images={heroElPueyoDeJacaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

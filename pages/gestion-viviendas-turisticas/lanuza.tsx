@@ -11,9 +11,21 @@ import {
   LanuzaMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroLanuzaImages } from '@/utils';
+import { getUserFromCookies, heroLanuzaImages } from '@/utils';
+import { TSession } from '@/types';
+import { GetServerSideProps } from 'next';
 
-const LanuzaOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const LanuzaOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
 
   return (
@@ -23,7 +35,7 @@ const LanuzaOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Lanuza de forma sencilla y rápida.`}
       />
       <MainHero images={heroLanuzaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

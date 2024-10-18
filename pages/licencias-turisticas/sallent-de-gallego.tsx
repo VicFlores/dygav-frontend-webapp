@@ -8,13 +8,25 @@ import {
   Footer,
   SallenDeGallegoInfo,
 } from '@/components';
-import { heroSallenDeGallegoImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroSallenDeGallegoImages } from '@/utils';
 import { pirineosAragonImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-const SallentDeGallegoLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const SallentDeGallegoLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const SallentDeGallegoLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Sallent De Gallego de forma sencilla y rápida.`}
       />
       <MainHero images={heroSallenDeGallegoImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Sallent De Gallego`}
             subtitle={`Como conseguir tu licencia turística en Sallent De Gallego en 2023`}

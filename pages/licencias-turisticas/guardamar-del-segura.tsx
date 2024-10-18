@@ -8,13 +8,25 @@ import {
   Footer,
   GuardamarSeguraInfo,
 } from '@/components';
-import { heroGuardamarDelSeguraImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroGuardamarDelSeguraImages } from '@/utils';
 import { generalImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-const GuardamarDelSeguraLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const GuardamarDelSeguraLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const GuardamarDelSeguraLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Guardamar Del Segura de forma sencilla y rápida.`}
       />
       <MainHero images={heroGuardamarDelSeguraImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Guardamar Del Segura`}
             subtitle={`Como conseguir tu licencia turística en Guardamar Del Segura en 2023`}

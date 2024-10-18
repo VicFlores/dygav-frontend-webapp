@@ -29,7 +29,7 @@ const OrihuelaLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Orihuela de forma sencilla y rápida.`}
       />
       <MainHero images={heroOrihuelaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Orihuela`}
             subtitle={`Como conseguir tu licencia turística en Orihuela en 2023`}

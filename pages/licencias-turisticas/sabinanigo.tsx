@@ -8,13 +8,25 @@ import {
   Footer,
   SabiñánigoInfo,
 } from '@/components';
-import { heroSabiñánigoImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroSabiñánigoImages } from '@/utils';
 import { pirineosAragonImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-const SabiñánigoLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const SabiñánigoLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const SabiñánigoLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Sabiñánigo de forma sencilla y rápida.`}
       />
       <MainHero images={heroSabiñánigoImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Sabiñánigo`}
             subtitle={`Como conseguir tu licencia turística en Sabiñánigo en 2023`}

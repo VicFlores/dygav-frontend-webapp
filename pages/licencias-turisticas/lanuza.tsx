@@ -8,13 +8,25 @@ import {
   Footer,
   LanuzaInfo,
 } from '@/components';
-import { heroLanuzaImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroLanuzaImages } from '@/utils';
 import { pirineosAragonImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-const LanuzaLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const LanuzaLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const LanuzaLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Lanuza de forma sencilla y rápida.`}
       />
       <MainHero images={heroLanuzaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Lanuza`}
             subtitle={`Como conseguir tu licencia turística en Lanuza en 2023`}

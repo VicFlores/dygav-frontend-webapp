@@ -8,12 +8,24 @@ import {
   Footer,
   OrosInfo,
 } from '@/components';
-import { heroOrosImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroOrosImages } from '@/utils';
 import { pirineosAragonImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import React from 'react';
 
-const OrosLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const OrosLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
 
   return (
@@ -23,7 +35,7 @@ const OrosLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Orós de forma sencilla y rápida.`}
       />
       <MainHero images={heroOrosImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Orós`}
             subtitle={`Como conseguir tu licencia turística en Orós en 2023`}

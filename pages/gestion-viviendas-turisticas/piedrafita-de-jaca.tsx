@@ -11,9 +11,21 @@ import {
   PiedrafitaDeJacaMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroPiedraficaDeJacaImages } from '@/utils';
+import { getUserFromCookies, heroPiedraficaDeJacaImages } from '@/utils';
+import { TSession } from '@/types';
+import { GetServerSideProps } from 'next';
 
-const PiedrafitaDeJacaOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const PiedrafitaDeJacaOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
 
   return (
@@ -23,7 +35,7 @@ const PiedrafitaDeJacaOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Piedrafita De Jaca de forma sencilla y rápida.`}
       />
       <MainHero images={heroPiedraficaDeJacaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

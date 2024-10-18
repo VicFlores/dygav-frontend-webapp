@@ -11,9 +11,21 @@ import {
   GavinMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroGavinImages } from '@/utils';
+import { getUserFromCookies, heroGavinImages } from '@/utils';
+import { TSession } from '@/types';
+import { GetServerSideProps } from 'next';
 
-const GavinOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const GavinOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
 
   return (
@@ -23,7 +35,7 @@ const GavinOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Gavin de forma sencilla y rápida.`}
       />
       <MainHero images={heroGavinImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

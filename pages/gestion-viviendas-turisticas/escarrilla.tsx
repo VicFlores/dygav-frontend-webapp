@@ -12,9 +12,21 @@ import {
   EscarrillaMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroEscarrillaImages } from '@/utils';
+import { getUserFromCookies, heroEscarrillaImages } from '@/utils';
+import { GetServerSideProps } from 'next';
+import { TSession } from '@/types';
 
-const EscarrillaOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const EscarrillaOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const EscarrillaOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Escarrilla de forma sencilla y rápida.`}
       />
       <MainHero images={heroEscarrillaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

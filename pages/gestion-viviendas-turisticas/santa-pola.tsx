@@ -15,9 +15,21 @@ import {
   SantaPolaMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroSantaPolaImages } from '@/utils';
+import { getUserFromCookies, heroSantaPolaImages } from '@/utils';
+import { TSession } from '@/types';
+import { GetServerSideProps } from 'next';
 
-const SantaPolaOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const SantaPolaOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -32,7 +44,7 @@ const SantaPolaOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Santa Pola de forma sencilla y rápida.`}
       />
       <MainHero images={heroSantaPolaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

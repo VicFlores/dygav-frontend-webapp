@@ -15,9 +15,21 @@ import {
   VillajoyosaMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroVillajoyosaImages } from '@/utils';
+import { getUserFromCookies, heroVillajoyosaImages } from '@/utils';
+import { TSession } from '@/types';
+import { GetServerSideProps } from 'next';
 
-const VillajoyosaOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const VillajoyosaOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -32,7 +44,7 @@ const VillajoyosaOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Villajoyosa de forma sencilla y rápida.`}
       />
       <MainHero images={heroVillajoyosaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

@@ -12,9 +12,21 @@ import {
   OrosMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroOrosImages } from '@/utils';
+import { getUserFromCookies, heroOrosImages } from '@/utils';
+import { TSession } from '@/types';
+import { GetServerSideProps } from 'next';
 
-const OrosOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const OrosOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const OrosOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Oros de forma sencilla y rápida.`}
       />
       <MainHero images={heroOrosImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

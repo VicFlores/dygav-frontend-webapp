@@ -8,13 +8,25 @@ import {
   Footer,
   BenidormInfo,
 } from '@/components';
-import { heroBenidormImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroBenidormImages } from '@/utils';
 import { generalImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-const BenidormLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const BenidormLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const BenidormLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Benidorm de forma sencilla y rápida.`}
       />
       <MainHero images={heroBenidormImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Benidorm`}
             subtitle={`Como conseguir tu licencia turística en Benidorm en 2023`}

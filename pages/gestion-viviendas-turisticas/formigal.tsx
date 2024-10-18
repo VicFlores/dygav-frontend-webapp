@@ -12,9 +12,21 @@ import {
   FormigalMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroFormigalImages } from '@/utils';
+import { getUserFromCookies, heroFormigalImages } from '@/utils';
+import { TSession } from '@/types';
+import { GetServerSideProps } from 'next';
 
-const FormigalOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const FormigalOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const FormigalOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Formigal de forma sencilla y rápida.`}
       />
       <MainHero images={heroFormigalImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

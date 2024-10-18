@@ -8,13 +8,25 @@ import {
   Footer,
   TorreviejaInfo,
 } from '@/components';
-import { heroTorreviejaImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroTorreviejaImages } from '@/utils';
 import { generalImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-const TorreviejaLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const TorreviejaLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const TorreviejaLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Torrevieja de forma sencilla y rápida.`}
       />
       <MainHero images={heroTorreviejaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Torrevieja`}
             subtitle={`Como conseguir tu licencia turística en Torrevieja en 2023`}

@@ -11,10 +11,22 @@ import {
   ElCampelloMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroElCampelloImages } from '@/utils';
+import { getUserFromCookies, heroElCampelloImages } from '@/utils';
 import { useRouter } from 'next/router';
+import { GetServerSideProps } from 'next';
+import { TSession } from '@/types';
 
-const ElCampelloOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const ElCampelloOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const ElCampelloOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en El Campello de forma sencilla y rápida.`}
       />
       <MainHero images={heroElCampelloImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

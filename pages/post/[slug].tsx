@@ -6,15 +6,26 @@ import {
   Footer,
   Post,
 } from '@/components';
-import { BlogPost } from '@/types';
-import { cityData } from '@/utils';
+import { BlogPost, TSession } from '@/types';
+import { cityData, getUserFromCookies } from '@/utils';
 import axios from 'axios';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { PostsCardsCarrusel } from '../../components/Licenses/PostsCardsCarrusel';
+import { GetServerSideProps } from 'next';
 
-const BlogPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const BlogPage = ({ user }: { user: TSession }) => {
   const [data, setData] = useState<BlogPost>({} as BlogPost);
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [cityName, setCityName] = useState<string | undefined>();
@@ -87,7 +98,7 @@ const BlogPage = () => {
         content='Ahora el descubre el nuevo blog de Dygav'
       />
       <MainHero>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={cityInfo?.title || 'Dygav Blog'}
             subtitle={

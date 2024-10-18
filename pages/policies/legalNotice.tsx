@@ -5,10 +5,23 @@ import {
   LegalNotice,
   LegalNoticeDetails,
 } from '@/components';
+import { TSession } from '@/types';
+import { getUserFromCookies } from '@/utils';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import Head from 'next/head';
 
-const LegalNoticePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const LegalNoticePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
 
   return (
@@ -19,7 +32,7 @@ const LegalNoticePage = () => {
       </Head>
 
       <MainHero>
-        <Layout session={session}>
+        <Layout user={user}>
           <LegalNotice />
         </Layout>
       </MainHero>

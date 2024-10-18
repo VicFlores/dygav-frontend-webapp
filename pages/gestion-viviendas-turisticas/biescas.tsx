@@ -12,9 +12,21 @@ import {
   BiescasMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroBiescasImages } from '@/utils';
+import { getUserFromCookies, heroBiescasImages } from '@/utils';
+import { GetServerSideProps } from 'next';
+import { TSession } from '@/types';
 
-const BiescasOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const BiescasOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const BiescasOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Biescas de forma sencilla y rápida.`}
       />
       <MainHero images={heroBiescasImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

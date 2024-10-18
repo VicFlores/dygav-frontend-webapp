@@ -7,14 +7,24 @@ import {
   SearcherRealCards,
   UtilHead,
 } from '@/components';
-import { searcherCard } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, searcherCard } from '@/utils';
 import axios from 'axios';
-import { useSession } from 'next-auth/react';
+import { GetServerSideProps } from 'next';
 import { useEffect, useState } from 'react';
 
-export default function SearcherPage() {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+export default function SearcherPage({ user }: { user: TSession }) {
   const [data, setData] = useState<any[]>([]);
-  const { data: session } = useSession();
 
   useEffect(() => {
     const getAllAccomodations = async () => {
@@ -55,7 +65,7 @@ export default function SearcherPage() {
       <UtilHead title='Dygav Apartamentos' content='' />
 
       <MainHero>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroSearcher />
         </Layout>
       </MainHero>

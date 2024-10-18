@@ -11,10 +11,22 @@ import {
   CostaBlancaMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroCostaBlancaImages } from '@/utils';
+import { getUserFromCookies, heroCostaBlancaImages } from '@/utils';
 import { useRouter } from 'next/router';
+import { GetServerSideProps } from 'next';
+import { TSession } from '@/types';
 
-const CostaBlancaOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const CostaBlancaOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const CostaBlancaOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Costa Blanca de forma sencilla y rápida.`}
       />
       <MainHero images={heroCostaBlancaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

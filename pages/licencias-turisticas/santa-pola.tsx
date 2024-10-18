@@ -8,13 +8,25 @@ import {
   Footer,
   SantaPolaInfo,
 } from '@/components';
-import { heroSantaPolaImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroSantaPolaImages } from '@/utils';
 import { generalImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-const SantaPolaLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const SantaPolaLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const SantaPolaLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Santa Pola de forma sencilla y rápida.`}
       />
       <MainHero images={heroSantaPolaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Santa Pola`}
             subtitle={`Como conseguir tu licencia turística en Santa Pola en 2023`}

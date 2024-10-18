@@ -15,9 +15,21 @@ import {
   OrihuelaMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroOrihuelaImages } from '@/utils';
+import { getUserFromCookies, heroOrihuelaImages } from '@/utils';
+import { TSession } from '@/types';
+import { GetServerSideProps } from 'next';
 
-const OrihuelaOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const OrihuelaOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -32,7 +44,7 @@ const OrihuelaOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Orihuela de forma sencilla y rápida.`}
       />
       <MainHero images={heroOrihuelaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

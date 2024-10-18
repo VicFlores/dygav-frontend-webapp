@@ -6,12 +6,24 @@ import {
   MainHero,
   UtilHead,
 } from '@/components';
-import { BlogPost, Category, TBlogPostsSubCategories } from '@/types';
-import { cityData } from '@/utils';
+import user from '@/models/user';
+import { BlogPost, Category, TBlogPostsSubCategories, TSession } from '@/types';
+import { cityData, getUserFromCookies } from '@/utils';
 import axios from 'axios';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React, { useEffect, useMemo, useState } from 'react';
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
 
 const API_BASE_URL = 'https://dygav-wordpress.app.bigital.es/wp-json/wp/v2';
 
@@ -24,7 +36,7 @@ type BlogPostWithSubCategory = BlogPost & {
   subCategoryName: string | null;
 };
 
-export default function CitiesPage() {
+export default function CitiesPage({ user }: { user: TSession }) {
   const [category, setCategory] = useState<Category>();
   const [posts, setPosts] = useState<BlogPostWithSubCategory[]>([]);
   const [categories, setcategories] = useState<Category[]>([]);
@@ -152,7 +164,7 @@ export default function CitiesPage() {
         content='Ahora el descubre el nuevo blog de Dygav'
       />
       <MainHero>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={
               cityData[capitalizedCityName]?.title ||

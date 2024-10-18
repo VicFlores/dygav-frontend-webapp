@@ -8,13 +8,25 @@ import {
   Footer,
   ElCampelloInfo,
 } from '@/components';
-import { heroElCampelloImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroElCampelloImages } from '@/utils';
 import { generalImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-const ElCampelloLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const ElCampelloLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const ElCampelloLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en El Campello de forma sencilla y rápida.`}
       />
       <MainHero images={heroElCampelloImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas El Campello`}
             subtitle={`Como conseguir tu licencia turística en El Campello en 2023`}

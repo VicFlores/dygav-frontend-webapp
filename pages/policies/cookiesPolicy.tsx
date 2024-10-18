@@ -8,8 +8,21 @@ import React from 'react';
 import { Footer } from '../../components/Layout/Footer';
 import { useSession } from 'next-auth/react';
 import Head from 'next/head';
+import { TSession } from '@/types';
+import { getUserFromCookies } from '@/utils';
+import { GetServerSideProps } from 'next';
 
-const CookiesPolicyPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const CookiesPolicyPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
 
   return (
@@ -20,7 +33,7 @@ const CookiesPolicyPage = () => {
       </Head>
 
       <MainHero>
-        <Layout session={session}>
+        <Layout user={user}>
           <CookiesPolicy />
         </Layout>
       </MainHero>

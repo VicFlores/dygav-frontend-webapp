@@ -8,13 +8,25 @@ import {
   Footer,
   AlteaInfo,
 } from '@/components';
-import { heroAlteaImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroAlteaImages } from '@/utils';
 import { generalImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-const AlteaLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const AlteaLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const AlteaLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Altea de forma sencilla y rápida.`}
       />
       <MainHero images={heroAlteaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Altea`}
             subtitle={`Como conseguir tu licencia turística en Altea en 2023`}

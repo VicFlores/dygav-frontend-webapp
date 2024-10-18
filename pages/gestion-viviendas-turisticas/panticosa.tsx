@@ -12,9 +12,21 @@ import {
   PanticosaMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroPanticosaImages } from '@/utils';
+import { getUserFromCookies, heroPanticosaImages } from '@/utils';
+import { TSession } from '@/types';
+import { GetServerSideProps } from 'next';
 
-const PanticosaOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const PanticosaOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const PanticosaOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Panticosa de forma sencilla y rápida.`}
       />
       <MainHero images={heroPanticosaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

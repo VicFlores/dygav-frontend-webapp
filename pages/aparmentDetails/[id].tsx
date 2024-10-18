@@ -5,21 +5,32 @@ import {
   Layout,
   MainHero,
   UtilHead,
-} from "@/components";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
-import React from "react";
+} from '@/components';
+import { TSession } from '@/types';
+import { getUserFromCookies } from '@/utils';
+import { GetServerSideProps } from 'next';
+import { useRouter } from 'next/router';
+import React from 'react';
 
-const AparmentDetailsPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const AparmentDetailsPage = ({ user }: { user: TSession }) => {
   const router = useRouter();
-  const { data: session } = useSession();
 
   return (
     <section>
       <UtilHead title='Detalles de apartamento' content='' />
 
       <MainHero>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroAparmentDetails />
         </Layout>
       </MainHero>

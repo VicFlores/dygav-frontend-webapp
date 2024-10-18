@@ -15,9 +15,21 @@ import {
   FinestratMgmtInfo,
   CityLicense,
 } from '@/components';
-import { heroFinestrartImages } from '@/utils';
+import { getUserFromCookies, heroFinestrartImages } from '@/utils';
+import { TSession } from '@/types';
+import { GetServerSideProps } from 'next';
 
-const FinestratOwnersPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const FinestratOwnersPage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -32,7 +44,7 @@ const FinestratOwnersPage = () => {
         content={`Descubre todo lo necesario para gestionar tu vivienda turística en Finestrat de forma sencilla y rápida.`}
       />
       <MainHero images={heroFinestrartImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Gestion de Viviendas Turísticas`}
             subtitle={`En DYGAV nos especializamos en brindar soluciones integrales para el alquiler vacacional`}

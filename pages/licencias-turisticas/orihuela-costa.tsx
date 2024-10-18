@@ -8,13 +8,25 @@ import {
   Footer,
   OrihuelaOrihuelaCostaInfo,
 } from '@/components';
-import { heroOrihuelaImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroOrihuelaImages } from '@/utils';
 import { generalImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-const OrihuelaCostaLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const OrihuelaCostaLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -29,7 +41,7 @@ const OrihuelaCostaLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Orihuela Costa de forma sencilla y rápida.`}
       />
       <MainHero images={heroOrihuelaImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Orihuela Costa`}
             subtitle={`Como conseguir tu licencia turística en Orihuela Costa en 2023`}

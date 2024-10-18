@@ -9,13 +9,25 @@ import {
   MadridInfo,
   MadridFooter,
 } from '@/components';
-import { heroMadridImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroMadridImages } from '@/utils';
 import { generalImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-const MadridLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const MadridLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -30,7 +42,7 @@ const MadridLicensePage = () => {
         content={`Descubre todo lo necesario para adquirir tu licencia turística en Madrid de forma sencilla y rápida.`}
       />
       <MainHero images={heroMadridImages}>
-        <Layout session={session}>
+        <Layout user={user}>
           <HeroLicense
             title={`Licencias Turísticas Madrid`}
             subtitle={`Como conseguir tu licencia turística en Madrid en 2023`}
