@@ -8,13 +8,25 @@ import {
   Footer,
   OrihuelaOrihuelaCostaInfo,
 } from '@/components';
-import { heroOrihuelaImages } from '@/utils';
+import { TSession } from '@/types';
+import { getUserFromCookies, heroOrihuelaImages } from '@/utils';
 import { generalImages } from '@/utils/static/licenseImages';
+import { GetServerSideProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-const OrihuelaLicensePage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const user = await getUserFromCookies(context);
+
+  return {
+    props: {
+      user,
+    },
+  };
+};
+
+const OrihuelaLicensePage = ({ user }: { user: TSession }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
