@@ -9,22 +9,38 @@ import { Accommodation, Booking } from '@/app/types';
 import { avaibookExtraction } from '@/app/utils/axiosConfig/avaibookExtraction';
 import { getOwnerAccommodations } from '@/app/utils';
 import LoadingPlaceholder from '../../shared/LoadingPlaceholder/LoadingPlaceholder';
-import 'moment/locale/es';
-import 'moment/locale/en-gb';
+import { useLocale } from '@/app/context/LocaleContext';
 
 export const Finanzas = () => {
+  const { locale } = useLocale();
+  const [monthNames, setMonthNames] = useState<string[]>([]);
   const [data, setData] = useState<any[]>([]);
   const [selectedAccommodation, setSelectedAccommodation] = useState<
     any | null
   >(null);
-  const [selectedMonth, setSelectedMonth] = useState(
-    `${moment().format('MMMM')}`
-  );
+  const [selectedMonth, setSelectedMonth] = useState(moment().format('MMMM'));
   const [pdfUrls, setPdfUrls] = useState<string[]>([]);
   const [platformCounts, setPlatformCounts] = useState<{
     [key: string]: { [key: string]: number };
   }>({});
   const dictionary: any = useDictionary('finances');
+
+  console.log(selectedMonth);
+
+  useEffect(() => {
+    if (locale === 'es') {
+      moment.locale('es');
+    } else {
+      moment.locale('en');
+    }
+    setSelectedMonth(moment().format('MMMM'));
+
+    const allMonths = moment.months();
+    const currentMonthIndex = moment().month();
+    const juneIndex = 5; // June is the 6th month, but index is 5
+    const filteredMonths = allMonths.slice(juneIndex, currentMonthIndex + 1);
+    setMonthNames(filteredMonths);
+  }, [locale]);
 
   useEffect(() => {
     const fetchAccommodations = async () => {
@@ -143,8 +159,18 @@ export const Finanzas = () => {
     const platformCounts: Record<string, Record<string, number>> = {};
 
     bookings.forEach((booking: any) => {
-      const { accommodation, partnername, dygavfee, partnerfee, totalamount } =
-        booking;
+      const {
+        accommodation,
+        partnername,
+        dygavfee,
+        partnerfee,
+        totalamount,
+        cleaning,
+        cleaning_iva,
+        booking_commission,
+        airbnb_commission,
+        other_platforms,
+      } = booking;
 
       if (!platformCounts[accommodation]) {
         platformCounts[accommodation] = {
@@ -158,6 +184,9 @@ export const Finanzas = () => {
           totalAirbnbAmount: 0,
           totalOtherAmount: 0,
           totalReservations: 0,
+          totalCleaning: 0,
+          totalCleaningIva: 0,
+          totalPreventionPayment: 0,
         };
       }
 
@@ -176,6 +205,15 @@ export const Finanzas = () => {
       platformCounts[accommodation].totalPartnerfee += partnerfee;
       platformCounts[accommodation].totalAmount += totalamount;
       platformCounts[accommodation].totalReservations += 1;
+      platformCounts[accommodation].totalCleaning += cleaning;
+      platformCounts[accommodation].totalCleaningIva += cleaning_iva;
+      platformCounts[accommodation].totalPreventionPayment +=
+        totalamount -
+        cleaning -
+        booking_commission -
+        airbnb_commission -
+        other_platforms -
+        dygavfee;
     });
 
     setPlatformCounts(platformCounts);
@@ -238,13 +276,11 @@ export const Finanzas = () => {
             <div className={styles.invoiceInfo}>
               <h4>{dictionary.ownersFinanzas?.month}</h4>
               <select value={selectedMonth} onChange={handleMonthChange}>
-                {dictionary.ownersFinanzas?.monthName?.map(
-                  (month: any, index: any) => (
-                    <option key={index} value={month}>
-                      {month}
-                    </option>
-                  )
-                )}
+                {monthNames.map((month, index) => (
+                  <option key={index} value={month}>
+                    {month}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
@@ -351,10 +387,10 @@ export const Finanzas = () => {
               </p>
             </div>
 
-            <div className={styles.totalPercentage}>
+            {/* <div className={styles.totalPercentage}>
               <p>{dictionary.ownersFinanzas?.totalPercentage}</p>
               <p>0</p>
-            </div>
+            </div> */}
 
             <div className={styles.totalCommission}>
               <p>{dictionary.ownersFinanzas?.totalCommission}</p>
@@ -373,8 +409,20 @@ export const Finanzas = () => {
           </div>
 
           <div className={styles.totalFinal}>
-            <div className={styles.totalFinal__item}>
-              <h4>€0</h4>
+            <div
+              className={styles.totalFinal__item}
+              data-tooltip={`€${
+                platformCounts[
+                  selectedAccommodation.name
+                ]?.totalCleaningIva.toFixed(2) || 0
+              }`}
+            >
+              <h4>
+                €
+                {platformCounts[
+                  selectedAccommodation.name
+                ]?.totalCleaning.toFixed(2) || 0}
+              </h4>
               <p>{dictionary.ownersFinanzas?.cleaning}</p>
             </div>
 
@@ -402,6 +450,16 @@ export const Finanzas = () => {
               <h4>€0</h4>
               <p>{dictionary.ownersFinanzas?.totalAdditional}</p>
             </div>
+
+            <div className={styles.totalFinal__item}>
+              <h4>
+                €
+                {platformCounts[
+                  selectedAccommodation.name
+                ]?.totalPreventionPayment.toFixed(2) || 0}
+              </h4>
+              <p>Prevencion de pago al huesped</p>
+            </div>
           </div>
 
           <div className={styles.billings}>
@@ -409,14 +467,14 @@ export const Finanzas = () => {
 
             <div className={styles.downloadButtons}>
               <button disabled onClick={() => downloadPDF(pdfUrls[0])}>
-                Dygav 1
+                Dygav 0
               </button>
               <button disabled>Airbnb 0</button>
               <button disabled onClick={() => downloadPDF(pdfUrls[2])}>
-                Booking 1
+                Booking 0
               </button>
               <button disabled onClick={() => downloadPDF(pdfUrls[1])}>
-                Others 1
+                Others 0
               </button>
             </div>
           </div>

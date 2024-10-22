@@ -294,7 +294,7 @@
 
 .totalFinal {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   background-color: white;
   border-radius: 10px;
   margin-top: 30px;
@@ -375,4 +375,43 @@
 .downloadButtons button:nth-child(4) {
   border-radius: 8px;
   background: var(--primary, #f4511e);
+}
+
+/* Style for disabled buttons */
+.downloadButtons button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  color: #666;
+}
+
+.totalFinal__item {
+  position: relative;
+  text-align: center;
+  padding: 0 46px;
+  font-size: 30px;
+  border-right: 1px solid #f4511e; /* Add border to each item */
+}
+
+.totalFinal__item:not(:last-child) {
+  border-right: 1px solid #f4511e; /* Ensure the last item does not have a border */
+}
+
+.totalFinal__item p {
+  color: #5f5f5f;
+  font-size: 14px;
+}
+
+.totalFinal__item[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f4511e;
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  font-size: 14px;
+  z-index: 10;
 }

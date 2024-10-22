@@ -94,22 +94,6 @@ export const ReservationDetails: FC<{ id: string }> = ({ id }) => {
               </span>
 
               <span>
-                <p className='text-base md:text-lg font-semibold'>Anticipo:</p>
-                <p className='text-sm md:text-base'>
-                  €{reservationInfo.advance}
-                </p>
-              </span>
-
-              <span>
-                <p className='text-base md:text-lg font-semibold'>
-                  Resto a pagar:
-                </p>
-                <p className='text-sm md:text-base'>
-                  €{reservationInfo.secondPayment}
-                </p>
-              </span>
-
-              <span>
                 <p className='text-base md:text-lg font-semibold'>
                   Comision de plataforma vacacional:
                 </p>
