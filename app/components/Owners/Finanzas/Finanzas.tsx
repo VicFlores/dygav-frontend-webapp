@@ -14,6 +14,7 @@ import { useLocale } from '@/app/context/LocaleContext';
 export const Finanzas = () => {
   const { locale } = useLocale();
   const [monthNames, setMonthNames] = useState<string[]>([]);
+  const [ivaPriceCheck, setIvaPriceCheck] = useState(false);
   const [data, setData] = useState<any[]>([]);
   const [selectedAccommodation, setSelectedAccommodation] = useState<
     any | null
@@ -187,6 +188,9 @@ export const Finanzas = () => {
           totalCleaning: 0,
           totalCleaningIva: 0,
           totalPreventionPayment: 0,
+          totalPartnerFeeWithIva: 0,
+          totalDygavFeeWithIva: 0,
+          totalPreventionPaymentWithIva: 0,
         };
       }
 
@@ -214,10 +218,24 @@ export const Finanzas = () => {
         airbnb_commission -
         other_platforms -
         dygavfee;
+      platformCounts[accommodation].totalPreventionPaymentWithIva +=
+        (totalamount -
+          cleaning -
+          booking_commission -
+          airbnb_commission -
+          other_platforms -
+          dygavfee) *
+        1.21;
+      platformCounts[accommodation].totalPartnerFeeWithIva += partnerfee * 1.21;
+      platformCounts[accommodation].totalDygavFeeWithIva += dygavfee * 1.21;
     });
 
     setPlatformCounts(platformCounts);
     return platformCounts;
+  };
+
+  const handleIvaPriceCheck = () => {
+    setIvaPriceCheck(!ivaPriceCheck);
   };
 
   return (
@@ -408,6 +426,30 @@ export const Finanzas = () => {
             </div>
           </div>
 
+          <div className='flex flex-col md:flex-row items-center mb-10 mt-10'>
+            <div
+              className={`relative inline-block w-12 mr-2 rounded-full align-middle select-none transition duration-200 ease-in bg-gray300`}
+            >
+              <input
+                type='checkbox'
+                name='toggle'
+                checked={ivaPriceCheck}
+                onChange={handleIvaPriceCheck}
+                id='toggle'
+                className={`${styles['toggle-checkbox']} absolute block w-6 h-6 rounded-full bg-p600 appearance-none cursor-pointer`}
+              />
+
+              <label
+                htmlFor='toggle'
+                className={` block overflow-hidden w-6 h-6 rounded-full bg-gray-300 cursor-pointer`}
+              ></label>
+            </div>
+
+            <label htmlFor='toggle' className='pl-3 mt-4 md:mt-0'>
+              {ivaPriceCheck ? 'Precio sin IVA' : 'Precio con IVA'}
+            </label>
+          </div>
+
           <div className={styles.totalFinal}>
             <div
               className={styles.totalFinal__item}
@@ -419,9 +461,13 @@ export const Finanzas = () => {
             >
               <h4>
                 €
-                {platformCounts[
-                  selectedAccommodation.name
-                ]?.totalCleaning.toFixed(2) || 0}
+                {ivaPriceCheck
+                  ? platformCounts[
+                      selectedAccommodation.name
+                    ]?.totalCleaningIva.toFixed(2) || 0
+                  : platformCounts[
+                      selectedAccommodation.name
+                    ]?.totalCleaning.toFixed(2) || 0}
               </h4>
               <p>{dictionary.ownersFinanzas?.cleaning}</p>
             </div>
@@ -429,9 +475,13 @@ export const Finanzas = () => {
             <div className={styles.totalFinal__item}>
               <h4>
                 €
-                {platformCounts[
-                  selectedAccommodation.name
-                ]?.totalPartnerfee.toFixed(2) || 0}
+                {ivaPriceCheck
+                  ? platformCounts[
+                      selectedAccommodation.name
+                    ]?.totalPartnerFeeWithIva.toFixed(2) || 0
+                  : platformCounts[
+                      selectedAccommodation.name
+                    ]?.totalPartnerfee.toFixed(2) || 0}
               </h4>
               <p>{dictionary.ownersFinanzas?.partnerCommission}</p>
             </div>
@@ -439,9 +489,13 @@ export const Finanzas = () => {
             <div className={styles.totalFinal__item}>
               <h4>
                 €
-                {platformCounts[
-                  selectedAccommodation.name
-                ]?.totalDygavFee.toFixed(2) || 0}
+                {ivaPriceCheck
+                  ? platformCounts[
+                      selectedAccommodation.name
+                    ]?.totalDygavFeeWithIva.toFixed(2) || 0
+                  : platformCounts[
+                      selectedAccommodation.name
+                    ]?.totalDygavFee.toFixed(2) || 0}
               </h4>
               <p>{dictionary.ownersFinanzas?.dygavCommission}</p>
             </div>
@@ -454,9 +508,13 @@ export const Finanzas = () => {
             <div className={styles.totalFinal__item}>
               <h4>
                 €
-                {platformCounts[
-                  selectedAccommodation.name
-                ]?.totalPreventionPayment.toFixed(2) || 0}
+                {ivaPriceCheck
+                  ? platformCounts[
+                      selectedAccommodation.name
+                    ]?.totalPreventionPaymentWithIva.toFixed(2) || 0
+                  : platformCounts[
+                      selectedAccommodation.name
+                    ]?.totalPreventionPayment.toFixed(2) || 0}
               </h4>
               <p>Prevencion de pago al huesped</p>
             </div>

@@ -36,7 +36,6 @@ export const AccommodationCalendar: FC<{ id: string }> = ({ id }) => {
   const localizer = momentLocalizer(moment);
 
   const [showForm, setShowForm] = useState(false);
-  const session = null;
   const router = useRouter();
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== 'undefined' ? window.innerWidth : 0
