@@ -115,7 +115,9 @@
   border-radius: 10px;
 
   @media screen and (max-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0 20px;
+    overflow-x: auto;
   }
 }
 
@@ -143,6 +145,15 @@
   grid-row: 4 / 5;
 }
 
+.partneFour {
+  position: relative;
+  height: 45px;
+  width: 74px;
+  grid-column: 1;
+  grid-row: 5 / 6;
+  text-align: center;
+}
+
 .reservationOne {
   grid-column: 2;
   grid-row: 2 / 3;
@@ -156,6 +167,11 @@
 .reservationThree {
   grid-column: 2;
   grid-row: 4 / 5;
+}
+
+.reservationFour {
+  grid-column: 2;
+  grid-row: 5 / 6;
 }
 
 .percentageOne {
@@ -173,79 +189,62 @@
   grid-row: 4 / 5;
 }
 
-.commissionTitle {
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
+.percentageFour {
+  grid-column: 3;
+  grid-row: 5 / 6;
 }
 
 .commissionOne {
   grid-column: 4;
   grid-row: 2 / 3;
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
 }
 
 .commissionTwo {
   grid-column: 4;
   grid-row: 3 / 4;
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
 }
 
 .commissionThree {
   grid-column: 4;
   grid-row: 4 / 5;
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
 }
 
-.billingTitle {
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
+.commissionFour {
+  grid-column: 4;
+  grid-row: 5 / 6;
 }
 
 .billingOne {
   grid-column: 5;
   grid-row: 2 / 3;
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
 }
 
 .billingTwo {
   grid-column: 5;
   grid-row: 3 / 4;
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
 }
 
 .billingThree {
   grid-column: 5;
   grid-row: 4 / 5;
+}
 
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
+.billingFour {
+  grid-column: 5;
+  grid-row: 5 / 6;
 }
 
 .totalReservations {
   grid-column: 2;
-  grid-row: 6 / 7;
+  grid-row: 7 / 8;
   text-align: center;
   font-weight: 600;
   color: #8b8b8b;
   padding-bottom: 15px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 .totalPercentage {
@@ -255,37 +254,41 @@
   font-weight: 600;
   color: #8b8b8b;
   padding-bottom: 15px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 .totalCommission {
   grid-column: 4;
-  grid-row: 6 / 7;
+  grid-row: 7 / 8;
   text-align: center;
   font-weight: 600;
   color: #8b8b8b;
   padding-bottom: 15px;
 
   @media screen and (max-width: 768px) {
-    display: none;
+    font-size: 14px;
   }
 }
 
 .totalBilling {
   grid-column: 5;
-  grid-row: 6 / 7;
+  grid-row: 7 / 8;
   text-align: center;
   font-weight: 600;
   color: #8b8b8b;
   padding-bottom: 15px;
 
   @media screen and (max-width: 768px) {
-    display: none;
+    font-size: 14px;
   }
 }
 
 .divider {
   grid-column: 1 / 6;
-  grid-row: 5 / 6;
+  grid-row: 6 / 7;
   width: 100%;
   border: 0;
   border-top: 1px solid #f4511e;

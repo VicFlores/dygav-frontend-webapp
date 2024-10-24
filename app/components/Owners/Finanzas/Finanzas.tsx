@@ -336,6 +336,10 @@ export const Finanzas = () => {
               </figure>
             </div>
 
+            <div className={styles.partneFour}>
+              <p>Mas plataformas</p>
+            </div>
+
             <h4>{dictionary.ownersFinanzas?.reservations}</h4>
 
             {selectedAccommodation && (
@@ -353,6 +357,8 @@ export const Finanzas = () => {
                 <p className={styles.reservationThree}>
                   {platformCounts[selectedAccommodation.name]?.['Other'] || 0}
                 </p>
+
+                <p className={styles.reservationFour}>0</p>
               </>
             )}
 
@@ -360,17 +366,15 @@ export const Finanzas = () => {
             <p className={styles.percentageOne}>0</p>
             <p className={styles.percentageTwo}>0</p>
             <p className={styles.percentageThree}>0</p>
+            <p className={styles.percentageFour}>0</p>
 
-            <h4 className={styles.commissionTitle}>
-              {dictionary.ownersFinanzas?.commission}
-            </h4>
+            <h4>{dictionary.ownersFinanzas?.commission}</h4>
             <p className={styles.commissionOne}>0</p>
             <p className={styles.commissionTwo}>0</p>
             <p className={styles.commissionThree}>0</p>
+            <p className={styles.commissionFour}>0</p>
 
-            <h4 className={styles.billingTitle}>
-              {dictionary.ownersFinanzas?.facturation}
-            </h4>
+            <h4>{dictionary.ownersFinanzas?.facturation}</h4>
 
             {selectedAccommodation && (
               <>
@@ -392,6 +396,7 @@ export const Finanzas = () => {
                     selectedAccommodation.name
                   ]?.totalOtherAmount.toFixed(2) || 0}
                 </p>
+                <p className={styles.billingFour}>€0</p>
               </>
             )}
 
@@ -516,7 +521,7 @@ export const Finanzas = () => {
                       selectedAccommodation.name
                     ]?.totalPreventionPayment.toFixed(2) || 0}
               </h4>
-              <p>Prevencion de pago al huesped</p>
+              <p>{dictionary.ownersFinanzas?.paymentPrevention}</p>
             </div>
           </div>
 
