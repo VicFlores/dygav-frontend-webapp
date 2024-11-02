@@ -2,7 +2,7 @@
     "ownersFinanzas": {
         "title": "Finances",
         "subtitle": "Select accommodation",
-        "invoiceNumber": "Invoice number",
+        "invoiceNumber": "License",
         "accommodation": "Accommodation",
         "owner": "Owner",
         "month": "Month",
@@ -29,12 +29,11 @@
         "totalPercentage": "Percentage of reservation",
         "totalCommission":  "Total commission",
         "totalFacturation": "Total facturation",
-
-        "cleaning": "Cleanings",
+        "additionalPlatform": "Other platforms",
+        "cleaning": "Cleaning costs",
         "partnerCommission": "Platform fees",
         "dygavCommission": "Dygav commission",
         "totalAdditional": "Total additional expenses",
-        "paymentPrevention": "Guest payment preventions",
         "download": "Download billing"
     }
 }

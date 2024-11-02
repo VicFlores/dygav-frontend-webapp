@@ -51,3 +51,18 @@ export const getOwnerAccommodations = async () => {
     throw error;
   }
 };
+
+export const getAccommodationsInfo = async () => {
+  try {
+    const { data } = await crmFinanzas.get(`/accommodation/${381374}/aviabook`);
+
+    const accommodationByCrm = await crmFinanzas.get(
+      `/accommodation/${data.data.accommodation_id}`
+    );
+
+    return accommodationByCrm.data.data;
+  } catch (error) {
+    console.error('Error fetching getOwnerAccommodations', error);
+    throw error;
+  }
+};

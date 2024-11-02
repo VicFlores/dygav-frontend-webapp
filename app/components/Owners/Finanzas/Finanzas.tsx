@@ -7,9 +7,38 @@ import Image from 'next/legacy/image';
 import useDictionary from '@/app/hooks/useDictionary';
 import { Accommodation, Booking } from '@/app/types';
 import { avaibookExtraction } from '@/app/utils/axiosConfig/avaibookExtraction';
-import { getOwnerAccommodations } from '@/app/utils';
+import { getAccommodationsInfo, getOwnerAccommodations } from '@/app/utils';
 import LoadingPlaceholder from '../../shared/LoadingPlaceholder/LoadingPlaceholder';
 import { useLocale } from '@/app/context/LocaleContext';
+import axios from 'axios';
+
+interface PlatformFinance {
+  platform: string;
+  booking_count: number;
+  percentage: number;
+  commission: number;
+  total_amount: number;
+}
+
+interface Accounting {
+  total_bookings: number;
+  cleaning_price: number;
+  partner_commission: number;
+  dygav_fee: number;
+  total_amount: number;
+}
+
+interface Billing {
+  platform: string;
+  document_url: string;
+  type: string; // Add this line
+}
+
+interface FinanceData {
+  platform_finance: PlatformFinance[];
+  accounting: Accounting;
+  billing: Billing[];
+}
 
 export const Finanzas = () => {
   const { locale } = useLocale();
@@ -20,13 +49,11 @@ export const Finanzas = () => {
     any | null
   >(null);
   const [selectedMonth, setSelectedMonth] = useState(moment().format('MMMM'));
-  const [pdfUrls, setPdfUrls] = useState<string[]>([]);
-  const [platformCounts, setPlatformCounts] = useState<{
-    [key: string]: { [key: string]: number };
-  }>({});
-  const dictionary: any = useDictionary('finances');
+  const [selectedDocumentType, setSelectedDocumentType] =
+    useState('Select Document');
+  const [financeData, setFinanceData] = useState<FinanceData>();
 
-  console.log(selectedMonth);
+  const dictionary: any = useDictionary('finances');
 
   useEffect(() => {
     if (locale === 'es') {
@@ -47,21 +74,22 @@ export const Finanzas = () => {
     const fetchAccommodations = async () => {
       try {
         const accommodations = await getOwnerAccommodations();
+
+        const accommodationByCrm = await getAccommodationsInfo();
+
         const accommodationDetails = await fetchAccommodationDetails(
           accommodations
         );
 
-        setSelectedAccommodation(accommodationDetails[0]);
-        setData(accommodationDetails);
+        const updatedAccommodationDetails = accommodationDetails.map(
+          (detail) => ({
+            ...detail,
+            license: accommodationByCrm.finance.license,
+          })
+        );
 
-        if (accommodationDetails.length > 0) {
-          const bookings = await fetchBookings(
-            accommodationDetails,
-            selectedMonth
-          );
-
-          countPlatformBookings(bookings);
-        }
+        setSelectedAccommodation(updatedAccommodationDetails[0]);
+        setData(updatedAccommodationDetails);
       } catch (error) {
         console.error('Error fetching accommodations:', error);
       }
@@ -71,15 +99,50 @@ export const Finanzas = () => {
   }, [selectedMonth]);
 
   useEffect(() => {
-    const fetchBookingsForSelectedMonth = async () => {
-      if (data.length > 0) {
-        const bookings = await fetchBookings(data, selectedMonth);
-        countPlatformBookings(bookings);
+    const fetchFinanceData = async () => {
+      try {
+        const monthMapping = {
+          January: 1,
+          February: 2,
+          March: 3,
+          April: 4,
+          May: 5,
+          June: 6,
+          July: 7,
+          August: 8,
+          September: 9,
+          October: 10,
+          November: 11,
+          December: 12,
+          enero: 1,
+          febrero: 2,
+          marzo: 3,
+          abril: 4,
+          mayo: 5,
+          junio: 6,
+          julio: 7,
+          agosto: 8,
+          septiembre: 9,
+          octubre: 10,
+          noviembre: 11,
+          diciembre: 12,
+        };
+
+        const selectedMonthNumber =
+          monthMapping[selectedMonth as keyof typeof monthMapping];
+        const response = await axios.get(
+          `https://seahorse-app-9q52a.ondigitalocean.app/api/v1/finances/${selectedMonthNumber}/2024/${selectedAccommodation.accomodationid}`
+        );
+        setFinanceData(response.data.data[0]);
+      } catch (error) {
+        console.error('Error fetching finance data:', error);
       }
     };
 
-    fetchBookingsForSelectedMonth();
-  }, [selectedMonth, data]);
+    if (selectedAccommodation && selectedMonth) {
+      fetchFinanceData();
+    }
+  }, [selectedAccommodation, selectedMonth]);
 
   const fetchAccommodationDetails = async (
     accommodations: any[]
@@ -95,49 +158,8 @@ export const Finanzas = () => {
     return details.flat();
   };
 
-  const fetchBookings = async (
-    accommodations: Accommodation[],
-    month: string
-  ): Promise<Booking[]> => {
-    // Detect the language of the month
-    const isSpanish = moment(month, 'MMMM', 'es', true).isValid();
-    const locale = isSpanish ? 'es' : 'en-gb';
-
-    // Set the locale
-    moment.locale(locale);
-
-    const now = moment();
-    const year = now.year();
-    const monthIndex = moment(month, 'MMMM').month() + 1;
-    const startDate = moment(`${year}-${monthIndex}-01`, 'YYYY-M-D').format(
-      'YYYY-MM-DD'
-    );
-    const endDate = moment(startDate).endOf('month').format('YYYY-MM-DD');
-
-    const bookings = await Promise.all(
-      accommodations.map(async (item) => {
-        const { data } = await avaibookExtraction.get(
-          `/bookings/${item.accomodationid}?startDate=${startDate}&endDate=${endDate}`
-        );
-
-        return data.map((booking: any) => ({
-          ...booking,
-          accommodation: item.name,
-          images: item.images,
-        }));
-      })
-    );
-    return bookings.flat();
-  };
-
   const handleButtonClick = (accommodation: any) => {
     setSelectedAccommodation(accommodation);
-  };
-
-  const generateInvoiceNumber = () => {
-    const randomFourDigits = Math.floor(1000 + Math.random() * 9000); // Generates a random 4-digit number
-    const currentYear = new Date().getFullYear(); // Gets the current year
-    return `VT-${randomFourDigits}-${currentYear}`;
   };
 
   const handleMonthChange = async (
@@ -147,96 +169,42 @@ export const Finanzas = () => {
     setSelectedMonth(month);
   };
 
-  const downloadPDF = (url: string) => {
-    const link = document.createElement('a');
-    link.href = url;
-    link.target = '_blank';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
-  const countPlatformBookings = (bookings: any) => {
-    const platformCounts: Record<string, Record<string, number>> = {};
-
-    bookings.forEach((booking: any) => {
-      const {
-        accommodation,
-        partnername,
-        dygavfee,
-        partnerfee,
-        totalamount,
-        cleaning,
-        cleaning_iva,
-        booking_commission,
-        airbnb_commission,
-        other_platforms,
-      } = booking;
-
-      if (!platformCounts[accommodation]) {
-        platformCounts[accommodation] = {
-          'Booking.com': 0,
-          Airbnb: 0,
-          Other: 0,
-          totalDygavFee: 0,
-          totalPartnerfee: 0,
-          totalAmount: 0,
-          totalBookingAmount: 0,
-          totalAirbnbAmount: 0,
-          totalOtherAmount: 0,
-          totalReservations: 0,
-          totalCleaning: 0,
-          totalCleaningIva: 0,
-          totalPreventionPayment: 0,
-          totalPartnerFeeWithIva: 0,
-          totalDygavFeeWithIva: 0,
-          totalPreventionPaymentWithIva: 0,
-        };
-      }
-
-      if (partnername === 'Booking.com') {
-        platformCounts[accommodation]['Booking.com'] += 1;
-        platformCounts[accommodation].totalBookingAmount += totalamount;
-      } else if (partnername === 'Airbnb') {
-        platformCounts[accommodation]['Airbnb'] += 1;
-        platformCounts[accommodation].totalAirbnbAmount += totalamount;
-      } else {
-        platformCounts[accommodation]['Other'] += 1;
-        platformCounts[accommodation].totalOtherAmount += totalamount;
-      }
-
-      platformCounts[accommodation].totalDygavFee += dygavfee;
-      platformCounts[accommodation].totalPartnerfee += partnerfee;
-      platformCounts[accommodation].totalAmount += totalamount;
-      platformCounts[accommodation].totalReservations += 1;
-      platformCounts[accommodation].totalCleaning += cleaning;
-      platformCounts[accommodation].totalCleaningIva += cleaning_iva;
-      platformCounts[accommodation].totalPreventionPayment +=
-        totalamount -
-        cleaning -
-        booking_commission -
-        airbnb_commission -
-        other_platforms -
-        dygavfee;
-      platformCounts[accommodation].totalPreventionPaymentWithIva +=
-        (totalamount -
-          cleaning -
-          booking_commission -
-          airbnb_commission -
-          other_platforms -
-          dygavfee) *
-        1.21;
-      platformCounts[accommodation].totalPartnerFeeWithIva += partnerfee * 1.21;
-      platformCounts[accommodation].totalDygavFeeWithIva += dygavfee * 1.21;
-    });
-
-    setPlatformCounts(platformCounts);
-    return platformCounts;
-  };
-
   const handleIvaPriceCheck = () => {
     setIvaPriceCheck(!ivaPriceCheck);
   };
+
+  const handleDownload = (platform: string, type?: string) => {
+    const documents =
+      financeData?.billing?.filter(
+        (bill) => bill.platform === platform && (!type || bill.type === type)
+      ) || [];
+
+    documents.forEach((doc) => {
+      const link = document.createElement('a');
+      link.href = doc.document_url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.click();
+    });
+
+    setSelectedDocumentType('Select Document');
+  };
+
+  const hasDocuments = (platform: string, type?: string) => {
+    return financeData?.billing.some(
+      (bill) => bill.platform === platform && (!type || bill.type === type)
+    );
+  };
+
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedType = e.target.value;
+    setSelectedDocumentType(selectedType);
+    if (selectedType && selectedType !== 'Select Document') {
+      handleDownload('DYGAV', selectedType);
+    }
+  };
+
+  console.log(selectedAccommodation);
 
   return (
     <div className={styles.controlPanel}>
@@ -273,12 +241,38 @@ export const Finanzas = () => {
         )}
       </div>
 
+      <div className='flex flex-col md:flex-row items-center mb-10 mt-10'>
+        <div
+          className={`relative inline-block w-12 mr-2 rounded-full align-middle select-none transition duration-200 ease-in bg-gray300`}
+        >
+          <input
+            type='checkbox'
+            name='toggle'
+            checked={ivaPriceCheck}
+            onChange={handleIvaPriceCheck}
+            id='toggle'
+            className={`${styles['toggle-checkbox']} absolute block w-6 h-6 rounded-full bg-p600 appearance-none cursor-pointer`}
+          />
+
+          <label
+            htmlFor='toggle'
+            className={` block overflow-hidden w-6 h-6 rounded-full bg-gray-300 cursor-pointer`}
+          ></label>
+        </div>
+
+        <label htmlFor='toggle' className='pl-3 mt-4 md:mt-0'>
+          {ivaPriceCheck ? 'Precio sin IVA' : 'Precio con IVA'}
+        </label>
+      </div>
+
       {selectedAccommodation && (
         <div>
           <div className={styles.invoiceContainer}>
             <div className={styles.invoiceInfo}>
               <h4>{dictionary.ownersFinanzas?.invoiceNumber}</h4>
-              <p>{generateInvoiceNumber()}</p>
+              <p>
+                {selectedAccommodation.license ?? 'No license number available'}
+              </p>
             </div>
 
             <div className={styles.invoiceInfo}>
@@ -337,7 +331,7 @@ export const Finanzas = () => {
             </div>
 
             <div className={styles.partneFour}>
-              <p>Mas plataformas</p>
+              <p>{dictionary.ownersFinanzas?.additionalPlatform}</p>
             </div>
 
             <h4>{dictionary.ownersFinanzas?.reservations}</h4>
@@ -345,17 +339,21 @@ export const Finanzas = () => {
             {selectedAccommodation && (
               <>
                 <p className={styles.reservationOne}>
-                  {platformCounts[selectedAccommodation.name]?.[
-                    'Booking.com'
-                  ] || 0}
+                  {financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'BOOKING'
+                  )?.booking_count ?? 0}
                 </p>
 
                 <p className={styles.reservationTwo}>
-                  {platformCounts[selectedAccommodation.name]?.['Airbnb'] || 0}
+                  {financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'AIRBNB'
+                  )?.booking_count ?? 0}
                 </p>
 
                 <p className={styles.reservationThree}>
-                  {platformCounts[selectedAccommodation.name]?.['Other'] || 0}
+                  {financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'DYGAV'
+                  )?.booking_count ?? 0}
                 </p>
 
                 <p className={styles.reservationFour}>0</p>
@@ -363,51 +361,127 @@ export const Finanzas = () => {
             )}
 
             <h4>{dictionary.ownersFinanzas?.percentage}</h4>
-            <p className={styles.percentageOne}>0</p>
-            <p className={styles.percentageTwo}>0</p>
-            <p className={styles.percentageThree}>0</p>
-            <p className={styles.percentageFour}>0</p>
+            <p className={styles.percentageOne}>
+              {(ivaPriceCheck
+                ? (financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'BOOKING'
+                  )?.percentage ?? 0) * 1.21
+                : financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'BOOKING'
+                  )?.percentage ?? 0
+              ).toFixed(2)}{' '}
+              %
+            </p>
+
+            <p className={styles.percentageTwo}>
+              {(ivaPriceCheck
+                ? (financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'AIRBNB'
+                  )?.percentage ?? 0) * 1.21
+                : financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'AIRBNB'
+                  )?.percentage ?? 0
+              ).toFixed(2)}{' '}
+              %
+            </p>
+
+            <p className={styles.percentageThree}>
+              {ivaPriceCheck
+                ? Math.round(
+                    (financeData?.platform_finance?.find(
+                      (p: any) => p.platform === 'DYGAV'
+                    )?.percentage ?? 0) * 1.21
+                  )
+                : financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'DYGAV'
+                  )?.percentage ?? 0}{' '}
+              %
+            </p>
 
             <h4>{dictionary.ownersFinanzas?.commission}</h4>
-            <p className={styles.commissionOne}>0</p>
-            <p className={styles.commissionTwo}>0</p>
-            <p className={styles.commissionThree}>0</p>
+            <p className={styles.commissionOne}>
+              {(ivaPriceCheck
+                ? (financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'BOOKING'
+                  )?.commission ?? 0) * 1.21
+                : financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'BOOKING'
+                  )?.commission ?? 0
+              ).toFixed(2)}{' '}
+              €
+            </p>
+
+            <p className={styles.commissionTwo}>
+              {(ivaPriceCheck
+                ? (financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'AIRBNB'
+                  )?.commission ?? 0) * 1.21
+                : financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'AIRBNB'
+                  )?.commission ?? 0
+              ).toFixed(2)}{' '}
+              €
+            </p>
+
+            <p className={styles.commissionThree}>
+              {(ivaPriceCheck
+                ? (financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'DYGAV'
+                  )?.commission ?? 0) * 1.21
+                : financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'DYGAV'
+                  )?.commission ?? 0
+              ).toFixed(2)}{' '}
+              €
+            </p>
+
             <p className={styles.commissionFour}>0</p>
 
             <h4>{dictionary.ownersFinanzas?.facturation}</h4>
 
-            {selectedAccommodation && (
-              <>
-                <p className={styles.billingOne}>
-                  €
-                  {platformCounts[
-                    selectedAccommodation.name
-                  ]?.totalBookingAmount.toFixed(2) || 0}
-                </p>
-                <p className={styles.billingTwo}>
-                  €
-                  {platformCounts[
-                    selectedAccommodation.name
-                  ]?.totalAirbnbAmount.toFixed(2) || 0}
-                </p>
-                <p className={styles.billingThree}>
-                  €
-                  {platformCounts[
-                    selectedAccommodation.name
-                  ]?.totalOtherAmount.toFixed(2) || 0}
-                </p>
-                <p className={styles.billingFour}>€0</p>
-              </>
-            )}
+            <p className={styles.billingOne}>
+              {(ivaPriceCheck
+                ? (financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'BOOKING'
+                  )?.total_amount ?? 0) * 1.21
+                : financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'BOOKING'
+                  )?.total_amount ?? 0
+              ).toFixed(2)}{' '}
+              €
+            </p>
+
+            <p className={styles.billingTwo}>
+              {(ivaPriceCheck
+                ? (financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'AIRBNB'
+                  )?.total_amount ?? 0) * 1.21
+                : financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'AIRBNB'
+                  )?.total_amount ?? 0
+              ).toFixed(2)}
+              €
+            </p>
+
+            <p className={styles.billingThree}>
+              {(ivaPriceCheck
+                ? (financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'DYGAV'
+                  )?.total_amount ?? 0) * 1.21
+                : financeData?.platform_finance?.find(
+                    (p: any) => p.platform === 'DYGAV'
+                  )?.total_amount ?? 0
+              ).toFixed(2)}{' '}
+              €
+            </p>
+
+            <p className={styles.billingFour}>0</p>
 
             <hr className={styles.divider} />
 
             <div className={styles.totalReservations}>
               <p>{dictionary.ownersFinanzas?.totalReservations}</p>
-              <p>
-                {platformCounts[selectedAccommodation.name]
-                  ?.totalReservations || 0}
-              </p>
+              <p>{financeData?.accounting?.total_bookings ?? 0}</p>
             </div>
 
             {/* <div className={styles.totalPercentage}>
@@ -417,111 +491,73 @@ export const Finanzas = () => {
 
             <div className={styles.totalCommission}>
               <p>{dictionary.ownersFinanzas?.totalCommission}</p>
-              <p>0</p>
-            </div>
-
-            <div className={styles.totalBilling}>
-              <p>{dictionary.ownersFinanzas?.totalFacturation}</p>
               <p>
+                {(
+                  financeData?.platform_finance?.reduce((total, platform) => {
+                    const commission = platform.commission ?? 0;
+                    return (
+                      total + (ivaPriceCheck ? commission * 1.21 : commission)
+                    );
+                  }, 0) ?? 0
+                ).toFixed(2)}{' '}
                 €
-                {platformCounts[
-                  selectedAccommodation.name
-                ]?.totalAmount.toFixed(2) || 0}
               </p>
             </div>
-          </div>
 
-          <div className='flex flex-col md:flex-row items-center mb-10 mt-10'>
-            <div
-              className={`relative inline-block w-12 mr-2 rounded-full align-middle select-none transition duration-200 ease-in bg-gray300`}
-            >
-              <input
-                type='checkbox'
-                name='toggle'
-                checked={ivaPriceCheck}
-                onChange={handleIvaPriceCheck}
-                id='toggle'
-                className={`${styles['toggle-checkbox']} absolute block w-6 h-6 rounded-full bg-p600 appearance-none cursor-pointer`}
-              />
-
-              <label
-                htmlFor='toggle'
-                className={` block overflow-hidden w-6 h-6 rounded-full bg-gray-300 cursor-pointer`}
-              ></label>
-            </div>
-
-            <label htmlFor='toggle' className='pl-3 mt-4 md:mt-0'>
-              {ivaPriceCheck ? 'Precio sin IVA' : 'Precio con IVA'}
-            </label>
+            {/* <div className={styles.totalBilling}>
+              <p>{dictionary.ownersFinanzas?.totalFacturation}</p>
+              <p>0</p>
+            </div> */}
           </div>
 
           <div className={styles.totalFinal}>
-            <div
-              className={styles.totalFinal__item}
-              data-tooltip={`€${
-                platformCounts[
-                  selectedAccommodation.name
-                ]?.totalCleaningIva.toFixed(2) || 0
-              }`}
-            >
+            <div className={styles.totalFinal__item}>
               <h4>
+                {(ivaPriceCheck
+                  ? (financeData?.accounting?.cleaning_price ?? 0) * 1.21
+                  : financeData?.accounting?.cleaning_price ?? 0
+                ).toFixed(2)}{' '}
                 €
-                {ivaPriceCheck
-                  ? platformCounts[
-                      selectedAccommodation.name
-                    ]?.totalCleaningIva.toFixed(2) || 0
-                  : platformCounts[
-                      selectedAccommodation.name
-                    ]?.totalCleaning.toFixed(2) || 0}
               </h4>
               <p>{dictionary.ownersFinanzas?.cleaning}</p>
             </div>
 
             <div className={styles.totalFinal__item}>
               <h4>
+                {(ivaPriceCheck
+                  ? (financeData?.accounting?.partner_commission ?? 0) * 1.21
+                  : financeData?.accounting?.partner_commission ?? 0
+                ).toFixed(2)}{' '}
                 €
-                {ivaPriceCheck
-                  ? platformCounts[
-                      selectedAccommodation.name
-                    ]?.totalPartnerFeeWithIva.toFixed(2) || 0
-                  : platformCounts[
-                      selectedAccommodation.name
-                    ]?.totalPartnerfee.toFixed(2) || 0}
               </h4>
               <p>{dictionary.ownersFinanzas?.partnerCommission}</p>
             </div>
 
             <div className={styles.totalFinal__item}>
               <h4>
+                {(ivaPriceCheck
+                  ? (financeData?.accounting?.dygav_fee ?? 0) * 1.21
+                  : financeData?.accounting?.dygav_fee ?? 0
+                ).toFixed(2)}{' '}
                 €
-                {ivaPriceCheck
-                  ? platformCounts[
-                      selectedAccommodation.name
-                    ]?.totalDygavFeeWithIva.toFixed(2) || 0
-                  : platformCounts[
-                      selectedAccommodation.name
-                    ]?.totalDygavFee.toFixed(2) || 0}
               </h4>
               <p>{dictionary.ownersFinanzas?.dygavCommission}</p>
             </div>
 
             <div className={styles.totalFinal__item}>
-              <h4>€0</h4>
+              <h4>0</h4>
               <p>{dictionary.ownersFinanzas?.totalAdditional}</p>
             </div>
 
             <div className={styles.totalFinal__item}>
               <h4>
+                {(ivaPriceCheck
+                  ? (financeData?.accounting?.total_amount ?? 0) * 1.21
+                  : financeData?.accounting?.total_amount ?? 0
+                ).toFixed(2)}{' '}
                 €
-                {ivaPriceCheck
-                  ? platformCounts[
-                      selectedAccommodation.name
-                    ]?.totalPreventionPaymentWithIva.toFixed(2) || 0
-                  : platformCounts[
-                      selectedAccommodation.name
-                    ]?.totalPreventionPayment.toFixed(2) || 0}
               </h4>
-              <p>{dictionary.ownersFinanzas?.paymentPrevention}</p>
+              <p>{dictionary.ownersFinanzas?.totalFacturation}</p>
             </div>
           </div>
 
@@ -529,14 +565,32 @@ export const Finanzas = () => {
             <h4>{dictionary.ownersFinanzas?.download}</h4>
 
             <div className={styles.downloadButtons}>
-              <button disabled onClick={() => downloadPDF(pdfUrls[0])}>
-                Dygav 0
+              <select
+                value={selectedDocumentType}
+                onChange={handleSelectChange}
+                disabled={!hasDocuments('DYGAV')}
+              >
+                <option value='Select Document'>Select Document</option>
+                <option value='INVOICE'>Dygav Invoice</option>
+                <option value='LIQUIDATION'>Dygav Liquidation</option>
+              </select>
+
+              <button
+                onClick={() => handleDownload('AIRBNB')}
+                disabled={!hasDocuments('AIRBNB')}
+              >
+                Airbnb 0
               </button>
-              <button disabled>Airbnb 0</button>
-              <button disabled onClick={() => downloadPDF(pdfUrls[2])}>
+              <button
+                onClick={() => handleDownload('BOOKING')}
+                disabled={!hasDocuments('BOOKING')}
+              >
                 Booking 0
               </button>
-              <button disabled onClick={() => downloadPDF(pdfUrls[1])}>
+              <button
+                onClick={() => handleDownload('OTHERS')}
+                disabled={!hasDocuments('OTHERS')}
+              >
                 Others 0
               </button>
             </div>

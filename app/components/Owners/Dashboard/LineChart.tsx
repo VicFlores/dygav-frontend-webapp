@@ -78,7 +78,7 @@ export const LineChart = () => {
     const earnings = [0, 0, 0, 0];
     const now = new Date();
 
-    bookings.forEach((booking) => {
+    bookings.forEach((booking: any) => {
       const bookingDate = new Date(booking.indate);
       const monthDiff =
         now.getMonth() -
@@ -86,7 +86,12 @@ export const LineChart = () => {
         (now.getFullYear() - bookingDate.getFullYear()) * 12;
 
       if (monthDiff > 0 && monthDiff <= 4) {
-        earnings[4 - monthDiff] += booking.totalamount;
+        const earning =
+          booking.totalamount -
+          booking.cleaning -
+          booking.partner_commission -
+          booking.dygavfee;
+        earnings[4 - monthDiff] += earning;
       }
     });
 
