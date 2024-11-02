@@ -77,6 +77,9 @@ export const Finanzas = () => {
 
         const accommodationByCrm = await getAccommodationsInfo();
 
+        const firstName = accommodationByCrm.owner.name.split(' ')[0];
+        const lastName = accommodationByCrm.owner.lastname.split(' ')[0];
+
         const accommodationDetails = await fetchAccommodationDetails(
           accommodations
         );
@@ -85,6 +88,7 @@ export const Finanzas = () => {
           (detail) => ({
             ...detail,
             license: accommodationByCrm.finance.license,
+            ownerName: `${firstName} ${lastName}`,
           })
         );
 
@@ -173,19 +177,12 @@ export const Finanzas = () => {
     setIvaPriceCheck(!ivaPriceCheck);
   };
 
-  const handleDownload = (platform: string, type?: string) => {
-    const documents =
-      financeData?.billing?.filter(
-        (bill) => bill.platform === platform && (!type || bill.type === type)
-      ) || [];
-
-    documents.forEach((doc) => {
-      const link = document.createElement('a');
-      link.href = doc.document_url;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      link.click();
-    });
+  const handleDownload = (url: string) => {
+    const link = document.createElement('a');
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.click();
 
     setSelectedDocumentType('Select Document');
   };
@@ -197,14 +194,25 @@ export const Finanzas = () => {
   };
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedType = e.target.value;
-    setSelectedDocumentType(selectedType);
-    if (selectedType && selectedType !== 'Select Document') {
-      handleDownload('DYGAV', selectedType);
+    const selectedUrl = e.target.value;
+    setSelectedDocumentType(selectedUrl);
+    if (selectedUrl && selectedUrl !== 'Select Document') {
+      handleDownload(selectedUrl);
     }
   };
 
-  console.log(selectedAccommodation);
+  const airbnbInvoices = financeData?.billing.filter(
+    (bill) => bill.platform === 'AIRBNB' && bill.type === 'INVOICE'
+  );
+  const dygavInvoices = financeData?.billing.filter(
+    (bill) => bill.platform === 'DYGAV' && bill.type === 'INVOICE'
+  );
+  const dygavLiquidations = financeData?.billing.filter(
+    (bill) => bill.platform === 'DYGAV' && bill.type === 'LIQUIDATION'
+  );
+  const bookingDocuments = financeData?.billing.filter(
+    (bill) => bill.platform === 'BOOKING'
+  );
 
   return (
     <div className={styles.controlPanel}>
@@ -282,7 +290,9 @@ export const Finanzas = () => {
 
             <div className={styles.invoiceInfo}>
               <h4>{dictionary.ownersFinanzas?.owner}</h4>
-              <p>Jose Llaneza</p>
+              <p>
+                {selectedAccommodation.ownerName ?? 'No owner name available'}
+              </p>
             </div>
 
             <div className={styles.invoiceInfo}>
@@ -550,14 +560,10 @@ export const Finanzas = () => {
             </div>
 
             <div className={styles.totalFinal__item}>
-              <h4>
-                {(ivaPriceCheck
-                  ? (financeData?.accounting?.total_amount ?? 0) * 1.21
-                  : financeData?.accounting?.total_amount ?? 0
-                ).toFixed(2)}{' '}
-                €
-              </h4>
-              <p>{dictionary.ownersFinanzas?.totalFacturation}</p>
+              <h4>{financeData?.accounting?.total_amount ?? 0}€</h4>
+              <p>
+                {dictionary.ownersFinanzas?.totalFacturation} {selectedMonth}
+              </p>
             </div>
           </div>
 
@@ -570,29 +576,47 @@ export const Finanzas = () => {
                 onChange={handleSelectChange}
                 disabled={!hasDocuments('DYGAV')}
               >
-                <option value='Select Document'>Select Document</option>
-                <option value='INVOICE'>Dygav Invoice</option>
-                <option value='LIQUIDATION'>Dygav Liquidation</option>
+                <option value='Select Document'>
+                  {dictionary.ownersFinanzas?.selectDocument}
+                </option>
+                {dygavInvoices?.map((invoice, index) => (
+                  <option key={index} value={invoice.document_url}>
+                    Dygav Invoice {index + 1}
+                  </option>
+                ))}
+                {dygavLiquidations?.map((liquidation, index) => (
+                  <option key={index} value={liquidation.document_url}>
+                    Dygav Liquidation {index + 1}
+                  </option>
+                ))}
               </select>
 
-              <button
-                onClick={() => handleDownload('AIRBNB')}
+              <select
+                value={selectedDocumentType}
+                onChange={handleSelectChange}
                 disabled={!hasDocuments('AIRBNB')}
               >
-                Airbnb 0
-              </button>
-              <button
-                onClick={() => handleDownload('BOOKING')}
-                disabled={!hasDocuments('BOOKING')}
-              >
-                Booking 0
-              </button>
-              <button
-                onClick={() => handleDownload('OTHERS')}
-                disabled={!hasDocuments('OTHERS')}
-              >
-                Others 0
-              </button>
+                <option value='Select Document'>
+                  {dictionary.ownersFinanzas?.selectDocument}
+                </option>
+                {airbnbInvoices?.map((invoice, index) => (
+                  <option key={index} value={invoice.document_url}>
+                    Airbnb {index + 1}
+                  </option>
+                ))}
+              </select>
+
+              {bookingDocuments?.map((document, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleDownload(document.document_url)}
+                  disabled={!hasDocuments('BOOKING')}
+                >
+                  Booking {index + 1}
+                </button>
+              ))}
+
+              <button disabled={!hasDocuments('OTHERS')}>Otros 0</button>
             </div>
           </div>
         </div>

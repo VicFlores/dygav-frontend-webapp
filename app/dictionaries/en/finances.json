@@ -28,12 +28,13 @@
         "totalReservations": "Total reservations",
         "totalPercentage": "Percentage of reservation",
         "totalCommission":  "Total commission",
-        "totalFacturation": "Total facturation",
+        "totalFacturation": "Total Settled in",
         "additionalPlatform": "Other platforms",
         "cleaning": "Cleaning costs",
         "partnerCommission": "Platform fees",
         "dygavCommission": "Dygav commission",
         "totalAdditional": "Total additional expenses",
-        "download": "Download billing"
+        "download": "Download billing",
+        "selectDocument": "Select a document"
     }
 }

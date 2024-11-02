@@ -361,20 +361,21 @@
   cursor: pointer;
 }
 
-.downloadButtons select {
+.downloadButtons select:nth-child(1) {
   border-radius: 8px;
   text-align: center;
   background: var(--primary, #f4511e);
 }
 
+.downloadButtons select:nth-child(2) {
+  border-radius: 8px;
+  text-align: center;
+  background: #ff395d;
+}
+
 .downloadButtons select option {
   background: var(--white, #fff);
   color: #000;
-}
-
-.downloadButtons button:nth-child(2) {
-  border-radius: 8px;
-  background: #ff395d;
 }
 
 .downloadButtons button:nth-child(3) {
