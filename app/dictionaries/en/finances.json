@@ -29,6 +29,7 @@
         "totalPercentage": "Percentage of reservation",
         "totalCommission":  "Total commission",
         "totalFacturation": "Total Settled in",
+        "facturationAmount": "Total facturation of reservations",
         "additionalPlatform": "Other platforms",
         "cleaning": "Cleaning costs",
         "partnerCommission": "Platform fees",

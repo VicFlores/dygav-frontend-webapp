@@ -372,14 +372,15 @@ export const Finanzas = () => {
 
             <h4>{dictionary.ownersFinanzas?.percentage}</h4>
             <p className={styles.percentageOne}>
-              {(ivaPriceCheck
-                ? (financeData?.platform_finance?.find(
-                    (p: any) => p.platform === 'BOOKING'
-                  )?.percentage ?? 0) * 1.21
+              {ivaPriceCheck
+                ? Math.round(
+                    (financeData?.platform_finance?.find(
+                      (p: any) => p.platform === 'BOOKING'
+                    )?.percentage ?? 0) * 1.21
+                  )
                 : financeData?.platform_finance?.find(
                     (p: any) => p.platform === 'BOOKING'
-                  )?.percentage ?? 0
-              ).toFixed(2)}{' '}
+                  )?.percentage ?? 0}{' '}
               %
             </p>
 
@@ -410,13 +411,19 @@ export const Finanzas = () => {
 
             <h4>{dictionary.ownersFinanzas?.commission}</h4>
             <p className={styles.commissionOne}>
-              {(ivaPriceCheck
-                ? (financeData?.platform_finance?.find(
-                    (p: any) => p.platform === 'BOOKING'
-                  )?.commission ?? 0) * 1.21
-                : financeData?.platform_finance?.find(
-                    (p: any) => p.platform === 'BOOKING'
-                  )?.commission ?? 0
+              {Number(
+                ivaPriceCheck
+                  ? ((financeData?.platform_finance?.find(
+                      (p: any) => p.platform === 'BOOKING'
+                    )?.commission ?? 0) *
+                      21) /
+                      100 +
+                      (financeData?.platform_finance?.find(
+                        (p: any) => p.platform === 'BOOKING'
+                      )?.commission ?? 0)
+                  : financeData?.platform_finance?.find(
+                      (p: any) => p.platform === 'BOOKING'
+                    )?.commission ?? 0
               ).toFixed(2)}{' '}
               €
             </p>
@@ -450,37 +457,28 @@ export const Finanzas = () => {
             <h4>{dictionary.ownersFinanzas?.facturation}</h4>
 
             <p className={styles.billingOne}>
-              {(ivaPriceCheck
-                ? (financeData?.platform_finance?.find(
-                    (p: any) => p.platform === 'BOOKING'
-                  )?.total_amount ?? 0) * 1.21
-                : financeData?.platform_finance?.find(
-                    (p: any) => p.platform === 'BOOKING'
-                  )?.total_amount ?? 0
+              {(
+                financeData?.platform_finance?.find(
+                  (p: any) => p.platform === 'BOOKING'
+                )?.total_amount ?? 0
               ).toFixed(2)}{' '}
               €
             </p>
 
             <p className={styles.billingTwo}>
-              {(ivaPriceCheck
-                ? (financeData?.platform_finance?.find(
-                    (p: any) => p.platform === 'AIRBNB'
-                  )?.total_amount ?? 0) * 1.21
-                : financeData?.platform_finance?.find(
-                    (p: any) => p.platform === 'AIRBNB'
-                  )?.total_amount ?? 0
-              ).toFixed(2)}
+              {(
+                financeData?.platform_finance?.find(
+                  (p: any) => p.platform === 'AIRBNB'
+                )?.total_amount ?? 0
+              ).toFixed(2)}{' '}
               €
             </p>
 
             <p className={styles.billingThree}>
-              {(ivaPriceCheck
-                ? (financeData?.platform_finance?.find(
-                    (p: any) => p.platform === 'DYGAV'
-                  )?.total_amount ?? 0) * 1.21
-                : financeData?.platform_finance?.find(
-                    (p: any) => p.platform === 'DYGAV'
-                  )?.total_amount ?? 0
+              {(
+                financeData?.platform_finance?.find(
+                  (p: any) => p.platform === 'DYGAV'
+                )?.total_amount ?? 0
               ).toFixed(2)}{' '}
               €
             </p>
@@ -502,7 +500,7 @@ export const Finanzas = () => {
             <div className={styles.totalCommission}>
               <p>{dictionary.ownersFinanzas?.totalCommission}</p>
               <p>
-                {(
+                {Number(
                   financeData?.platform_finance?.reduce((total, platform) => {
                     const commission = platform.commission ?? 0;
                     return (
@@ -514,10 +512,36 @@ export const Finanzas = () => {
               </p>
             </div>
 
-            {/* <div className={styles.totalBilling}>
-              <p>{dictionary.ownersFinanzas?.totalFacturation}</p>
-              <p>0</p>
-            </div> */}
+            <div className={styles.totalBilling}>
+              <p>{dictionary.ownersFinanzas?.facturationAmount}</p>
+              <p>
+                {ivaPriceCheck
+                  ? (
+                      ((financeData?.platform_finance?.find(
+                        (p: any) => p.platform === 'BOOKING'
+                      )?.total_amount ?? 0) +
+                        (financeData?.platform_finance?.find(
+                          (p: any) => p.platform === 'AIRBNB'
+                        )?.total_amount ?? 0) +
+                        (financeData?.platform_finance?.find(
+                          (p: any) => p.platform === 'DYGAV'
+                        )?.total_amount ?? 0)) *
+                      1.21
+                    ).toFixed(2)
+                  : (
+                      (financeData?.platform_finance?.find(
+                        (p: any) => p.platform === 'BOOKING'
+                      )?.total_amount ?? 0) +
+                      (financeData?.platform_finance?.find(
+                        (p: any) => p.platform === 'AIRBNB'
+                      )?.total_amount ?? 0) +
+                      (financeData?.platform_finance?.find(
+                        (p: any) => p.platform === 'DYGAV'
+                      )?.total_amount ?? 0)
+                    ).toFixed(2)}{' '}
+                €
+              </p>
+            </div>
           </div>
 
           <div className={styles.totalFinal}>
@@ -534,9 +558,13 @@ export const Finanzas = () => {
 
             <div className={styles.totalFinal__item}>
               <h4>
-                {(ivaPriceCheck
-                  ? (financeData?.accounting?.partner_commission ?? 0) * 1.21
-                  : financeData?.accounting?.partner_commission ?? 0
+                {Number(
+                  financeData?.platform_finance?.reduce((total, platform) => {
+                    const commission = platform.commission ?? 0;
+                    return (
+                      total + (ivaPriceCheck ? commission * 1.21 : commission)
+                    );
+                  }, 0) ?? 0
                 ).toFixed(2)}{' '}
                 €
               </h4>
