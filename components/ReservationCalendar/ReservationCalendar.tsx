@@ -111,6 +111,34 @@ export const ReservationCalendar: FC<{ id: string }> = ({ id }) => {
           startDate.setDate(startDate.getDate() + 1);
         }
 
+        // Calculate another 90 days after the last end date
+        let anotherEndDate = endDate ? new Date(endDate) : new Date();
+        if (endDate) {
+          anotherEndDate.setDate(endDate.getDate() + 90);
+        }
+
+        // Format dates in 'YYYY-MM-DD' format
+        let formattedAnotherStartDate = endDate
+          ? endDate.toISOString().split('T')[0]
+          : '';
+        let formattedAnotherEndDate = anotherEndDate
+          .toISOString()
+          .split('T')[0];
+
+        // Make API call for another 90 days
+        const anotherRes = await axios.get(
+          `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/?startDate=${formattedAnotherStartDate}&endDate=${formattedAnotherEndDate}`,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+            },
+          }
+        );
+
+        // Aggregate results
+        customResponse = [...customResponse, ...anotherRes.data];
+
         // Update state with aggregated results
         setAccomodationDayBlock(customResponse);
       }
