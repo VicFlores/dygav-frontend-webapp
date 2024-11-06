@@ -64,10 +64,20 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
     const fetchBookings = async () => {
       try {
         if (data !== undefined && data.length > 0) {
+          const now = new Date();
+          const year = now.getFullYear();
+          const month = String(now.getMonth() + 1).padStart(2, '0'); // getMonth() returns 0-based month
+          const startDate = `${year}-${month}-01`;
+          const endDate = `${year}-${month}-${new Date(
+            year,
+            now.getMonth() + 1,
+            0
+          ).getDate()}`;
+
           const bookings: any = await Promise.all(
             data.map(async (item: any) => {
               const { data: bookings } = await axios.get(
-                `https://avaibook-data-extraction-production.up.railway.app/api/v1/bookings/${item.id}?startDate=2024-09-1&endDate=2024-09-30`
+                `https://avaibook-data-extraction-production.up.railway.app/api/v1/bookings/${item.id}?startDate=${startDate}&endDate=${endDate}`
               );
 
               const res = bookings.map((booking: any) => {
@@ -84,6 +94,8 @@ export const OwnerDashboard: FC<{ session: Session }> = ({ session }) => {
 
           // Flatten the nested arrays of bookings into a single array
           const flattenedBookings = bookings.flat();
+
+          console.log('flattenedBookings', flattenedBookings);
           setBookings(flattenedBookings);
 
           // Calculate the counts and sums

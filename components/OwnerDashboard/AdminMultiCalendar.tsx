@@ -46,6 +46,10 @@ export const AdminMultiCalendar = ({ allAccomodationsResponse }: any) => {
           .add(90, 'days')
           .format('YYYY-MM-DD');
 
+        const anotherNinetyDays = moment(nextNinetyDays)
+          .add(90, 'days')
+          .format('YYYY-MM-DD');
+
         const ninetyAgoBookings = await axios.get(
           `https://api.avaibook.com/api/owner/bookings/?checkinStartDate=${firstDayNinetyDaysAgo}&checkinEndDate=${currentDay}`,
           {
@@ -66,9 +70,20 @@ export const AdminMultiCalendar = ({ allAccomodationsResponse }: any) => {
           }
         );
 
+        const anotherNinetyDaysBookings = await axios.get(
+          `https://api.avaibook.com/api/owner/bookings/?checkinStartDate=${nextNinetyDays}&checkinEndDate=${anotherNinetyDays}`,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+            },
+          }
+        );
+
         const accomodations = allAccomodationsResponse;
         const afterBookings = ninetyAgoBookings.data;
         const beforeBookings = ninetyDaysBookings.data;
+        const furtherBookings = anotherNinetyDaysBookings.data;
 
         accomodations.forEach((accomodation: TAvaibookAccomodations) => {
           const afterReservations = afterBookings.filter(
@@ -83,9 +98,16 @@ export const AdminMultiCalendar = ({ allAccomodationsResponse }: any) => {
               booking.status === 'CONFIRMED'
           );
 
+          const furtherReservations = furtherBookings.filter(
+            (booking: ReservationAvaibook) =>
+              booking.accommodationId === accomodation.id &&
+              booking.status === 'CONFIRMED'
+          );
+
           accomodation.reservations = [
             ...afterReservations,
             ...beforeReservations,
+            ...furtherReservations,
           ];
         });
 
