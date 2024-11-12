@@ -52,12 +52,14 @@ export const getOwnerAccommodations = async () => {
   }
 };
 
-export const getAccommodationsInfo = async () => {
+export const getAccommodationsInfo = async (avaibookId: number) => {
   try {
-    const { data } = await crmFinanzas.get(`/accommodation/${381374}/aviabook`);
+    const { data } = await crmFinanzas.get(
+      `/accommodation/${avaibookId}/aviabook`
+    );
 
     const accommodationByCrm = await crmFinanzas.get(
-      `/accommodation/${data.data.accommodation_id}`
+      `/accommodation/${data.data.aviabook_id}`
     );
 
     return accommodationByCrm.data.data;

@@ -75,25 +75,12 @@ export const Finanzas = () => {
       try {
         const accommodations = await getOwnerAccommodations();
 
-        const accommodationByCrm = await getAccommodationsInfo();
-
-        const firstName = accommodationByCrm.owner.name.split(' ')[0];
-        const lastName = accommodationByCrm.owner.lastname.split(' ')[0];
-
         const accommodationDetails = await fetchAccommodationDetails(
           accommodations
         );
 
-        const updatedAccommodationDetails = accommodationDetails.map(
-          (detail) => ({
-            ...detail,
-            license: accommodationByCrm.finance.license,
-            ownerName: `${firstName} ${lastName}`,
-          })
-        );
-
-        setSelectedAccommodation(updatedAccommodationDetails[0]);
-        setData(updatedAccommodationDetails);
+        setSelectedAccommodation(accommodationDetails[0]);
+        setData(accommodationDetails);
       } catch (error) {
         console.error('Error fetching accommodations:', error);
       }
@@ -156,7 +143,19 @@ export const Finanzas = () => {
         const { data } = await avaibookExtraction.get(
           `/accomodation/${item.aviabook_id}/`
         );
-        return data;
+
+        const accommodationByCrm = await getAccommodationsInfo(
+          item.aviabook_id
+        );
+
+        const firstName = accommodationByCrm.owner.name.split(' ')[0];
+        const lastName = accommodationByCrm.owner.lastname.split(' ')[0];
+
+        return {
+          ...data[0],
+          license: accommodationByCrm.finance.license,
+          ownerName: `${firstName} ${lastName}`,
+        };
       })
     );
     return details.flat();
