@@ -41,6 +41,21 @@ interface FinanceData {
   platform_finance: PlatformFinance[];
   accounting: Accounting;
   billing: Billing[];
+  booking_count: number;
+  airbnb_count: number;
+  other_platforms_count: number;
+  booking_commission: number;
+  airbnb_commission: number;
+  other_platforms: number;
+  total_amount_booking: number;
+  total_amount_airbnb: number;
+  total_amount_other_platforms: number;
+  cleaning: number;
+  partnerfee: number;
+  dygavfee: number;
+  total_bookings: number;
+  partner_commission: number;
+  forecast_payment_huesped: number;
 }
 
 export const Finanzas = () => {
@@ -124,12 +139,26 @@ export const Finanzas = () => {
 
         const selectedMonthNumber =
           monthMapping[selectedMonth as keyof typeof monthMapping];
-        const response = await axios.get(
-          `https://seahorse-app-9q52a.ondigitalocean.app/api/v1/finances/${selectedMonthNumber}/2024/${selectedAccommodation.accomodationid}`
-        );
-        setFinanceData(response.data.data[0]);
+        const currentMonthNumber = moment().month() + 1; // moment().month() is zero-based
+
+        let response;
+
+        if (selectedMonthNumber === currentMonthNumber) {
+          response = await axios.get(
+            `https://aviabook-data-extraction-llv4d.ondigitalocean.app/api/v1/accumulated_by_month/${selectedAccommodation.accomodationid}?month=${selectedMonthNumber}`
+          );
+
+          setFinanceData(response.data);
+        } else {
+          response = await axios.get(
+            `https://seahorse-app-9q52a.ondigitalocean.app/api/v1/finances/${selectedMonthNumber}/2024/${selectedAccommodation.accomodationid}`
+          );
+
+          setFinanceData(response.data.data[0]);
+        }
       } catch (error) {
         console.error('Error fetching finance data:', error);
+        setFinanceData(undefined);
       }
     };
 
@@ -190,7 +219,7 @@ export const Finanzas = () => {
   };
 
   const hasDocuments = (platform: string, type?: string) => {
-    return financeData?.accounting.billing.some(
+    return financeData?.accounting?.billing.some(
       (bill) => bill.platform === platform && (!type || bill.type === type)
     );
   };
@@ -203,16 +232,16 @@ export const Finanzas = () => {
     }
   };
 
-  const airbnbInvoices = financeData?.accounting.billing.filter(
+  const airbnbInvoices = financeData?.accounting?.billing.filter(
     (bill) => bill.platform === 'AIRBNB' && bill.type === 'INVOICE'
   );
-  const dygavInvoices = financeData?.accounting.billing.filter(
+  const dygavInvoices = financeData?.accounting?.billing.filter(
     (bill) => bill.platform === 'DYGAV' && bill.type === 'INVOICE'
   );
-  const dygavLiquidations = financeData?.accounting.billing.filter(
+  const dygavLiquidations = financeData?.accounting?.billing.filter(
     (bill) => bill.platform === 'DYGAV' && bill.type === 'LIQUIDATION'
   );
-  const bookingDocuments = financeData?.accounting.billing.filter(
+  const bookingDocuments = financeData?.accounting?.billing.filter(
     (bill) => bill.platform === 'BOOKING'
   );
 
@@ -351,21 +380,27 @@ export const Finanzas = () => {
             {selectedAccommodation && (
               <>
                 <p className={styles.reservationOne}>
-                  {financeData?.accounting.platform_finance?.find(
+                  {financeData?.accounting?.platform_finance?.find(
                     (p: any) => p.platform === 'BOOKING'
-                  )?.booking_count ?? 0}
+                  )?.booking_count ||
+                    financeData?.booking_count ||
+                    0}
                 </p>
 
                 <p className={styles.reservationTwo}>
-                  {financeData?.accounting.platform_finance?.find(
+                  {financeData?.accounting?.platform_finance?.find(
                     (p: any) => p.platform === 'AIRBNB'
-                  )?.booking_count ?? 0}
+                  )?.booking_count ||
+                    financeData?.airbnb_count ||
+                    0}
                 </p>
 
                 <p className={styles.reservationThree}>
-                  {financeData?.accounting.platform_finance?.find(
+                  {financeData?.accounting?.platform_finance?.find(
                     (p: any) => p.platform === 'DYGAV'
-                  )?.booking_count ?? 0}
+                  )?.booking_count ||
+                    financeData?.other_platforms_count ||
+                    0}
                 </p>
 
                 <p className={styles.reservationFour}>0</p>
@@ -376,11 +411,11 @@ export const Finanzas = () => {
             <p className={styles.percentageOne}>
               {ivaPriceCheck
                 ? Math.round(
-                    (financeData?.accounting.platform_finance?.find(
+                    (financeData?.accounting?.platform_finance?.find(
                       (p: any) => p.platform === 'BOOKING'
                     )?.percentage ?? 0) * 1.21
                   )
-                : financeData?.accounting.platform_finance?.find(
+                : financeData?.accounting?.platform_finance?.find(
                     (p: any) => p.platform === 'BOOKING'
                   )?.percentage ?? 0}{' '}
               %
@@ -388,10 +423,10 @@ export const Finanzas = () => {
 
             <p className={styles.percentageTwo}>
               {(ivaPriceCheck
-                ? (financeData?.accounting.platform_finance?.find(
+                ? (financeData?.accounting?.platform_finance?.find(
                     (p: any) => p.platform === 'AIRBNB'
                   )?.percentage ?? 0) * 1.21
-                : financeData?.accounting.platform_finance?.find(
+                : financeData?.accounting?.platform_finance?.find(
                     (p: any) => p.platform === 'AIRBNB'
                   )?.percentage ?? 0
               ).toFixed(2)}{' '}
@@ -401,11 +436,11 @@ export const Finanzas = () => {
             <p className={styles.percentageThree}>
               {ivaPriceCheck
                 ? Math.round(
-                    (financeData?.accounting.platform_finance?.find(
+                    (financeData?.accounting?.platform_finance?.find(
                       (p: any) => p.platform === 'DYGAV'
                     )?.percentage ?? 0) * 1.21
                   )
-                : financeData?.accounting.platform_finance?.find(
+                : financeData?.accounting?.platform_finance?.find(
                     (p: any) => p.platform === 'DYGAV'
                   )?.percentage ?? 0}{' '}
               %
@@ -415,41 +450,55 @@ export const Finanzas = () => {
             <p className={styles.commissionOne}>
               {Number(
                 ivaPriceCheck
-                  ? ((financeData?.accounting.platform_finance?.find(
+                  ? ((financeData?.accounting?.platform_finance?.find(
                       (p: any) => p.platform === 'BOOKING'
-                    )?.commission ?? 0) *
+                    )?.commission ||
+                      financeData?.booking_commission ||
+                      0) *
                       21) /
                       100 +
-                      (financeData?.accounting.platform_finance?.find(
+                      (financeData?.accounting?.platform_finance?.find(
                         (p: any) => p.platform === 'BOOKING'
-                      )?.commission ?? 0)
-                  : financeData?.accounting.platform_finance?.find(
+                      )?.commission ||
+                        financeData?.booking_commission ||
+                        0)
+                  : financeData?.accounting?.platform_finance?.find(
                       (p: any) => p.platform === 'BOOKING'
-                    )?.commission ?? 0
+                    )?.commission ||
+                      financeData?.booking_commission ||
+                      0
               ).toFixed(2)}{' '}
               €
             </p>
 
             <p className={styles.commissionTwo}>
               {(ivaPriceCheck
-                ? (financeData?.accounting.platform_finance?.find(
+                ? (financeData?.accounting?.platform_finance?.find(
                     (p: any) => p.platform === 'AIRBNB'
-                  )?.commission ?? 0) * 1.21
-                : financeData?.accounting.platform_finance?.find(
+                  )?.commission ||
+                    financeData?.airbnb_commission ||
+                    0) * 1.21
+                : financeData?.accounting?.platform_finance?.find(
                     (p: any) => p.platform === 'AIRBNB'
-                  )?.commission ?? 0
+                  )?.commission ||
+                  financeData?.airbnb_commission ||
+                  0
               ).toFixed(2)}{' '}
               €
             </p>
 
             <p className={styles.commissionThree}>
               {(ivaPriceCheck
-                ? (financeData?.accounting.platform_finance?.find(
+                ? (financeData?.accounting?.platform_finance?.find(
                     (p: any) => p.platform === 'DYGAV'
-                  )?.commission ?? 0) * 1.21
-                : financeData?.accounting.platform_finance?.find(
+                  )?.commission ||
+                    financeData?.other_platforms ||
+                    0) * 1.21
+                : financeData?.accounting?.platform_finance?.find(
                     (p: any) => p.platform === 'DYGAV'
-                  )?.commission ?? 0
+                  )?.commission ||
+                  financeData?.other_platforms ||
+                  0
               ).toFixed(2)}{' '}
               €
             </p>
@@ -460,27 +509,33 @@ export const Finanzas = () => {
 
             <p className={styles.billingOne}>
               {(
-                financeData?.accounting.platform_finance?.find(
+                financeData?.accounting?.platform_finance?.find(
                   (p: any) => p.platform === 'BOOKING'
-                )?.total_amount ?? 0
+                )?.total_amount ||
+                financeData?.total_amount_booking ||
+                0
               ).toFixed(2)}{' '}
               €
             </p>
 
             <p className={styles.billingTwo}>
               {(
-                financeData?.accounting.platform_finance?.find(
+                financeData?.accounting?.platform_finance?.find(
                   (p: any) => p.platform === 'AIRBNB'
-                )?.total_amount ?? 0
+                )?.total_amount ||
+                financeData?.total_amount_airbnb ||
+                0
               ).toFixed(2)}{' '}
               €
             </p>
 
             <p className={styles.billingThree}>
               {(
-                financeData?.accounting.platform_finance?.find(
+                financeData?.accounting?.platform_finance?.find(
                   (p: any) => p.platform === 'DYGAV'
-                )?.total_amount ?? 0
+                )?.total_amount ||
+                financeData?.total_amount_other_platforms ||
+                0
               ).toFixed(2)}{' '}
               €
             </p>
@@ -491,7 +546,11 @@ export const Finanzas = () => {
 
             <div className={styles.totalReservations}>
               <p>{dictionary.ownersFinanzas?.totalReservations}</p>
-              <p>{financeData?.accounting?.total_bookings ?? 0}</p>
+              <p>
+                {financeData?.accounting?.total_bookings ||
+                  financeData?.total_bookings ||
+                  0}
+              </p>
             </div>
 
             {/* <div className={styles.totalPercentage}>
@@ -503,7 +562,7 @@ export const Finanzas = () => {
               <p>{dictionary.ownersFinanzas?.totalCommission}</p>
               <p>
                 {Number(
-                  financeData?.accounting.platform_finance?.reduce(
+                  financeData?.accounting?.platform_finance?.reduce(
                     (total, platform) => {
                       const commission = platform.commission ?? 0;
                       return (
@@ -511,7 +570,9 @@ export const Finanzas = () => {
                       );
                     },
                     0
-                  ) ?? 0
+                  ) ||
+                    financeData?.partner_commission ||
+                    0
                 ).toFixed(2)}{' '}
                 €
               </p>
@@ -520,30 +581,39 @@ export const Finanzas = () => {
             <div className={styles.totalBilling}>
               <p>{dictionary.ownersFinanzas?.facturationAmount}</p>
               <p>
-                {ivaPriceCheck
-                  ? (
-                      ((financeData?.accounting.platform_finance?.find(
-                        (p: any) => p.platform === 'BOOKING'
-                      )?.total_amount ?? 0) +
-                        (financeData?.accounting.platform_finance?.find(
-                          (p: any) => p.platform === 'AIRBNB'
-                        )?.total_amount ?? 0) +
-                        (financeData?.accounting.platform_finance?.find(
-                          (p: any) => p.platform === 'DYGAV'
-                        )?.total_amount ?? 0)) *
-                      1.21
-                    ).toFixed(2)
-                  : (
-                      (financeData?.accounting.platform_finance?.find(
-                        (p: any) => p.platform === 'BOOKING'
-                      )?.total_amount ?? 0) +
-                      (financeData?.accounting.platform_finance?.find(
+                {(ivaPriceCheck
+                  ? ((financeData?.accounting?.platform_finance?.find(
+                      (p: any) => p.platform === 'BOOKING'
+                    )?.total_amount ??
+                      financeData?.total_amount_booking ??
+                      0) +
+                      (financeData?.accounting?.platform_finance?.find(
                         (p: any) => p.platform === 'AIRBNB'
-                      )?.total_amount ?? 0) +
-                      (financeData?.accounting.platform_finance?.find(
+                      )?.total_amount ??
+                        financeData?.total_amount_airbnb ??
+                        0) +
+                      (financeData?.accounting?.platform_finance?.find(
                         (p: any) => p.platform === 'DYGAV'
-                      )?.total_amount ?? 0)
-                    ).toFixed(2)}{' '}
+                      )?.total_amount ??
+                        financeData?.total_amount_other_platforms ??
+                        0)) *
+                    1.21
+                  : (financeData?.accounting?.platform_finance?.find(
+                      (p: any) => p.platform === 'BOOKING'
+                    )?.total_amount ??
+                      financeData?.total_amount_booking ??
+                      0) +
+                    (financeData?.accounting?.platform_finance?.find(
+                      (p: any) => p.platform === 'AIRBNB'
+                    )?.total_amount ??
+                      financeData?.total_amount_airbnb ??
+                      0) +
+                    (financeData?.accounting?.platform_finance?.find(
+                      (p: any) => p.platform === 'DYGAV'
+                    )?.total_amount ??
+                      financeData?.total_amount_other_platforms ??
+                      0)
+                ).toFixed(2)}{' '}
                 €
               </p>
             </div>
@@ -553,8 +623,12 @@ export const Finanzas = () => {
             <div className={styles.totalFinal__item}>
               <h4>
                 {(ivaPriceCheck
-                  ? (financeData?.accounting?.cleaning_price ?? 0) * 1.21
-                  : financeData?.accounting?.cleaning_price ?? 0
+                  ? (financeData?.accounting?.cleaning_price ||
+                      financeData?.cleaning ||
+                      0) * 1.21
+                  : financeData?.accounting?.cleaning_price ||
+                    financeData?.cleaning ||
+                    0
                 ).toFixed(2)}{' '}
                 €
               </h4>
@@ -564,7 +638,7 @@ export const Finanzas = () => {
             <div className={styles.totalFinal__item}>
               <h4>
                 {Number(
-                  financeData?.accounting.platform_finance?.reduce(
+                  financeData?.accounting?.platform_finance?.reduce(
                     (total, platform) => {
                       const commission = platform.commission ?? 0;
                       return (
@@ -572,7 +646,11 @@ export const Finanzas = () => {
                       );
                     },
                     0
-                  ) ?? 0
+                  ) ||
+                    (ivaPriceCheck
+                      ? (financeData?.partnerfee ?? 0) * 1.21
+                      : financeData?.partnerfee) ||
+                    0
                 ).toFixed(2)}{' '}
                 €
               </h4>
@@ -582,8 +660,12 @@ export const Finanzas = () => {
             <div className={styles.totalFinal__item}>
               <h4>
                 {(ivaPriceCheck
-                  ? (financeData?.accounting?.dygav_fee ?? 0) * 1.21
-                  : financeData?.accounting?.dygav_fee ?? 0
+                  ? (financeData?.accounting?.dygav_fee ||
+                      financeData?.dygavfee ||
+                      0) * 1.21
+                  : financeData?.accounting?.dygav_fee ||
+                    financeData?.dygavfee ||
+                    0
                 ).toFixed(2)}{' '}
                 €
               </h4>
@@ -596,9 +678,16 @@ export const Finanzas = () => {
             </div>
 
             <div className={styles.totalFinal__item}>
-              <h4>{financeData?.accounting?.settlement ?? 0}€</h4>
+              <h4>
+                {financeData?.accounting?.settlement ||
+                  financeData?.forecast_payment_huesped ||
+                  0}
+                €
+              </h4>
               <p>
-                {dictionary.ownersFinanzas?.totalFacturation} {selectedMonth}
+                {selectedMonth === moment().format('MMMM')
+                  ? `${dictionary.ownersFinanzas?.paymentForecast}`
+                  : `${dictionary.ownersFinanzas?.totalFacturation} ${selectedMonth}`}
               </p>
             </div>
           </div>

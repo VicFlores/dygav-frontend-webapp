@@ -36,6 +36,7 @@
         "dygavCommission": "Dygav commission",
         "totalAdditional": "Total additional expenses",
         "download": "Download billing",
-        "selectDocument": "Select a document"
+        "selectDocument": "Select a document",
+        "paymentForecast": "Payment forecast"
     }
 }

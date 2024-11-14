@@ -36,6 +36,7 @@
         "dygavCommission": "Comisión de Dygav",
         "totalAdditional": "Gastos adicionales totales",
         "download": "Descargar facturación",
-        "selectDocument": "Selecciona un documento"
+        "selectDocument": "Selecciona un documento",
+        "paymentForecast": "Previsión de pago"
     }
 }
