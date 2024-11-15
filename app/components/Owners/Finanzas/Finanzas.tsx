@@ -239,11 +239,13 @@ export const Finanzas = () => {
     (bill) => bill.platform === 'DYGAV' && bill.type === 'INVOICE'
   );
   const dygavLiquidations = financeData?.accounting?.billing.filter(
-    (bill) => bill.platform === 'DYGAV' && bill.type === 'LIQUIDATION'
+    (bill) => bill.platform === 'DYGAV' && bill.type === 'SETTLEMENT'
   );
   const bookingDocuments = financeData?.accounting?.billing.filter(
     (bill) => bill.platform === 'BOOKING'
   );
+
+  console.log(financeData);
 
   return (
     <div className={styles.controlPanel}>
