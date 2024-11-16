@@ -97,7 +97,9 @@ export const Finanzas = () => {
           accommodations
         );
 
-        setSelectedAccommodation(accommodationDetails[0]);
+        if (!selectedAccommodation) {
+          setSelectedAccommodation(accommodationDetails[0]);
+        }
         setData(accommodationDetails);
       } catch (error) {
         console.error('Error fetching accommodations:', error);
@@ -244,8 +246,6 @@ export const Finanzas = () => {
   const bookingDocuments = financeData?.accounting?.billing.filter(
     (bill) => bill.platform === 'BOOKING'
   );
-
-  console.log(financeData);
 
   return (
     <div className={styles.controlPanel}>
