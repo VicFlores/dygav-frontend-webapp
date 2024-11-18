@@ -29,6 +29,7 @@ interface Accounting {
   billing: Billing[];
   platform_finance: PlatformFinance[];
   settlement: number;
+  partner_fee: number;
 }
 
 interface Billing {
@@ -564,16 +565,12 @@ export const Finanzas = () => {
               <p>{dictionary.ownersFinanzas?.totalCommission}</p>
               <p>
                 {Number(
-                  financeData?.accounting?.platform_finance?.reduce(
-                    (total, platform) => {
-                      const commission = platform.commission ?? 0;
-                      return (
-                        total + (ivaPriceCheck ? commission * 1.21 : commission)
-                      );
-                    },
-                    0
-                  ) ||
-                    financeData?.partner_commission ||
+                  (ivaPriceCheck
+                    ? (financeData?.accounting?.partner_fee ?? 0) * 1.21
+                    : financeData?.accounting?.partner_fee) ||
+                    (ivaPriceCheck
+                      ? (financeData?.partner_commission ?? 0) * 1.21
+                      : financeData?.partner_commission) ||
                     0
                 ).toFixed(2)}{' '}
                 €
@@ -607,8 +604,8 @@ export const Finanzas = () => {
               <h4>
                 {Number(
                   (ivaPriceCheck
-                    ? (financeData?.accounting?.partner_commission ?? 0) * 1.21
-                    : financeData?.accounting?.partner_commission) ||
+                    ? (financeData?.accounting?.partner_fee ?? 0) * 1.21
+                    : financeData?.accounting?.partner_fee) ||
                     (ivaPriceCheck
                       ? (financeData?.partnerfee ?? 0) * 1.21
                       : financeData?.partnerfee) ||
