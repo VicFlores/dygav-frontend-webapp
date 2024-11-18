@@ -30,6 +30,7 @@ interface Accounting {
   platform_finance: PlatformFinance[];
   settlement: number;
   partner_fee: number;
+  additional_price: number;
 }
 
 interface Billing {
@@ -632,7 +633,7 @@ export const Finanzas = () => {
             </div>
 
             <div className={styles.totalFinal__item}>
-              <h4>0</h4>
+              <h4>{financeData?.accounting?.additional_price ?? 0} €</h4>
               <p>{dictionary.ownersFinanzas?.totalAdditional}</p>
             </div>
 
