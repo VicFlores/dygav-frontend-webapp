@@ -302,7 +302,7 @@ export const Finanzas = () => {
         </div>
 
         <label htmlFor='toggle' className='pl-3 mt-4 md:mt-0'>
-          {ivaPriceCheck ? 'Precio sin IVA' : 'Precio con IVA'}
+          {ivaPriceCheck ? 'Precio con IVA' : 'Precio sin IVA'}
         </label>
       </div>
 
@@ -582,42 +582,8 @@ export const Finanzas = () => {
 
             <div className={styles.totalBilling}>
               <p>{dictionary.ownersFinanzas?.facturationAmount}</p>
-              <p>
-                {(ivaPriceCheck
-                  ? ((financeData?.accounting?.platform_finance?.find(
-                      (p: any) => p.platform === 'BOOKING'
-                    )?.total_amount ??
-                      financeData?.total_amount_booking ??
-                      0) +
-                      (financeData?.accounting?.platform_finance?.find(
-                        (p: any) => p.platform === 'AIRBNB'
-                      )?.total_amount ??
-                        financeData?.total_amount_airbnb ??
-                        0) +
-                      (financeData?.accounting?.platform_finance?.find(
-                        (p: any) => p.platform === 'DYGAV'
-                      )?.total_amount ??
-                        financeData?.total_amount_other_platforms ??
-                        0)) *
-                    1.21
-                  : (financeData?.accounting?.platform_finance?.find(
-                      (p: any) => p.platform === 'BOOKING'
-                    )?.total_amount ??
-                      financeData?.total_amount_booking ??
-                      0) +
-                    (financeData?.accounting?.platform_finance?.find(
-                      (p: any) => p.platform === 'AIRBNB'
-                    )?.total_amount ??
-                      financeData?.total_amount_airbnb ??
-                      0) +
-                    (financeData?.accounting?.platform_finance?.find(
-                      (p: any) => p.platform === 'DYGAV'
-                    )?.total_amount ??
-                      financeData?.total_amount_other_platforms ??
-                      0)
-                ).toFixed(2)}{' '}
-                €
-              </p>
+
+              <p>{financeData?.accounting?.total_amount} €</p>
             </div>
           </div>
 
@@ -640,15 +606,9 @@ export const Finanzas = () => {
             <div className={styles.totalFinal__item}>
               <h4>
                 {Number(
-                  financeData?.accounting?.platform_finance?.reduce(
-                    (total, platform) => {
-                      const commission = platform.commission ?? 0;
-                      return (
-                        total + (ivaPriceCheck ? commission * 1.21 : commission)
-                      );
-                    },
-                    0
-                  ) ||
+                  (ivaPriceCheck
+                    ? (financeData?.accounting?.partner_commission ?? 0) * 1.21
+                    : financeData?.accounting?.partner_commission) ||
                     (ivaPriceCheck
                       ? (financeData?.partnerfee ?? 0) * 1.21
                       : financeData?.partnerfee) ||
