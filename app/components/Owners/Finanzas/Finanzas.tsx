@@ -635,12 +635,10 @@ export const Finanzas = () => {
             <div className={styles.totalFinal__item}>
               <h4>
                 {ivaPriceCheck
-                  ? (
-                      (financeData?.accounting?.additional_price || 0) * 1.21
-                    ).toFixed(2)
-                  : (financeData?.accounting?.additional_price || 0).toFixed(
-                      2
-                    )}{' '}
+                  ? (financeData?.accounting?.additional_price || 0).toFixed(2)
+                  : (
+                      (financeData?.accounting?.additional_price || 0) / 1.21
+                    ).toFixed(2)}{' '}
                 €
               </h4>
 
