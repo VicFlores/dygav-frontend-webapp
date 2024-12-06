@@ -14,7 +14,6 @@ import styles from './reservationCalendar.module.css';
 import useDictionary from '@/app/hooks/useDictionary';
 import BlockCalendarDaysForm from '@/app/components/Owners/AccommodationCalendar/BlockCalendarDaysForm/BlockCalendarDaysForm';
 import { useRouter } from 'next/navigation';
-import { ReservationAvaibook, TAvaibookAccomodations } from '@/types';
 
 interface ReservationCalendarProps {
   startDate: string;
@@ -122,22 +121,23 @@ export const AccommodationCalendar: FC<{ id: string }> = ({ id }) => {
           startDate.setDate(startDate.getDate() + 1);
         }
 
-        // Fetch bookings and reservations
-        const currentDay = moment().startOf('day').format('YYYY-MM-DD');
-        const nextDay = moment(currentDay).add(1, 'days').format('YYYY-MM-DD');
-        const firstDayNinetyDaysAgo = moment()
-          .subtract(90, 'days')
-          .startOf('day')
-          .format('YYYY-MM-DD');
-        const nextNinetyDays = moment(nextDay)
-          .add(90, 'days')
-          .format('YYYY-MM-DD');
-        const anotherNinetyDays = moment(nextNinetyDays)
-          .add(90, 'days')
-          .format('YYYY-MM-DD');
+        // Calculate another 90 days after the last end date
+        let anotherEndDate = endDate ? new Date(endDate) : new Date();
+        if (endDate) {
+          anotherEndDate.setDate(endDate.getDate() + 90);
+        }
 
-        const ninetyAgoBookings = await axios.get(
-          `https://api.avaibook.com/api/owner/bookings/?checkinStartDate=${firstDayNinetyDaysAgo}&checkinEndDate=${currentDay}`,
+        // Format dates in 'YYYY-MM-DD' format
+        let formattedAnotherStartDate = endDate
+          ? endDate.toISOString().split('T')[0]
+          : '';
+        let formattedAnotherEndDate = anotherEndDate
+          .toISOString()
+          .split('T')[0];
+
+        // Make API call for another 90 days
+        const anotherRes = await axios.get(
+          `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/?startDate=${formattedAnotherStartDate}&endDate=${formattedAnotherEndDate}`,
           {
             headers: {
               'Content-Type': 'application/json',
@@ -146,55 +146,8 @@ export const AccommodationCalendar: FC<{ id: string }> = ({ id }) => {
           }
         );
 
-        const ninetyDaysBookings = await axios.get(
-          `https://api.avaibook.com/api/owner/bookings/?checkinStartDate=${nextDay}&checkinEndDate=${nextNinetyDays}`,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
-            },
-          }
-        );
-
-        const anotherNinetyDaysBookings = await axios.get(
-          `https://api.avaibook.com/api/owner/bookings/?checkinStartDate=${nextNinetyDays}&checkinEndDate=${anotherNinetyDays}`,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
-            },
-          }
-        );
-
-        const afterBookings = ninetyAgoBookings.data;
-        const beforeBookings = ninetyDaysBookings.data;
-        const furtherBookings = anotherNinetyDaysBookings.data;
-
-        customResponse.forEach((accomodation: TAvaibookAccomodations) => {
-          const afterReservations = afterBookings.filter(
-            (booking: ReservationAvaibook) =>
-              booking.accommodationId === accomodation.id &&
-              booking.status === 'CONFIRMED'
-          );
-
-          const beforeReservations = beforeBookings.filter(
-            (booking: ReservationAvaibook) =>
-              booking.accommodationId === accomodation.id &&
-              booking.status === 'CONFIRMED'
-          );
-
-          const furtherReservations = furtherBookings.filter(
-            (booking: ReservationAvaibook) =>
-              booking.accommodationId === accomodation.id &&
-              booking.status === 'CONFIRMED'
-          );
-
-          accomodation.reservations = [
-            ...afterReservations,
-            ...beforeReservations,
-            ...furtherReservations,
-          ];
-        });
+        // Aggregate results
+        customResponse = [...customResponse, ...anotherRes.data];
 
         // Update state with aggregated results
         setAccomodationDayBlock(customResponse);
