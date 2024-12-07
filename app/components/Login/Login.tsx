@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import styles from '@/app/components/shared/RegisterLoginRecovery/RegisterLoginRecovery.module.css';
 import Link from 'next/link';
@@ -17,6 +18,7 @@ interface IFormInput {
 
 export const Login = () => {
   const router = useRouter();
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -54,9 +56,11 @@ export const Login = () => {
       }
     } catch (error) {
       if (error instanceof AxiosError) {
-        console.error(error.response?.data);
+        setErrorMessage(
+          error.response?.data.message || 'Error al iniciar sesión'
+        );
       } else {
-        console.error(error);
+        setErrorMessage('Error al iniciar sesión');
       }
     }
   };
@@ -113,6 +117,8 @@ export const Login = () => {
                 </p>
               )}
             </div>
+
+            {errorMessage && <p className={styles.error}>{errorMessage}</p>}
 
             <button type='submit' onClick={handleLogin}>
               Iniciar sesión
