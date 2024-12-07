@@ -93,9 +93,9 @@ export const Navbar: FC<{ accessToken: string | undefined }> = ({
             >
               Calendario
             </Link>
-            <Link className={styles.navbar__link} href={'/'}>
+            {/* <Link className={styles.navbar__link} href={'/'}>
               Favoritos
-            </Link>
+            </Link> */}
           </ul>
         </div>
 
