@@ -66,7 +66,7 @@ export const AdminDashboard = () => {
               onClick={onClose}
               className='bg-[#1B3C73] py-2 px-6 md:py-2 md:px-8 rounded-xl mt-6'
             >
-              No
+              No.
             </button>
           </div>
         );
