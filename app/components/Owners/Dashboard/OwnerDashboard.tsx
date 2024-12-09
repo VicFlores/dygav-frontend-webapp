@@ -44,6 +44,7 @@ export const OwnerDashboard = () => {
           setBookings(bookings);
 
           const { counts, sums } = calculateBookingStats(bookings);
+
           setBookingCounts(counts);
           setBookingSums(sums);
         }
@@ -88,13 +89,16 @@ export const OwnerDashboard = () => {
           `/bookings/${item.accomodationid}?startDate=${startDate}&endDate=${endDate}`
         );
 
-        return data.map((booking: any) => ({
-          ...booking,
-          accommodation: item.name,
-          images: item.images,
-        }));
+        return data
+          .filter((booking: any) => booking.status !== 'CANCELLED')
+          .map((booking: any) => ({
+            ...booking,
+            accommodation: item.name,
+            images: item.images,
+          }));
       })
     );
+
     return bookings.flat();
   };
 

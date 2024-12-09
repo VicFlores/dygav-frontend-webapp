@@ -45,11 +45,13 @@ export const LineChart = () => {
               `/bookings/${item.accomodationid}?startDate=${startDate}&endDate=${endDate}`
             );
 
-            return data.map((booking: any) => ({
-              ...booking,
-              accommodation: item.name,
-              images: item.images,
-            }));
+            return data
+              .filter((booking: any) => booking.status !== 'CANCELLED')
+              .map((booking: any) => ({
+                ...booking,
+                accommodation: item.name,
+                images: item.images,
+              }));
           })
         );
 
@@ -59,6 +61,8 @@ export const LineChart = () => {
 
     return bookings.flat();
   };
+
+  console.log(bookings);
 
   const fetchAccommodationDetails = async (
     accommodations: any[]
