@@ -59,21 +59,21 @@ export const RecoveryPassword = () => {
           <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.formInputContainer}>
               <input
-                type='password'
-                placeholder='Contraseña'
+                type='text'
+                placeholder='Ingresa tu correo electronico'
                 {...register('password', { required: true })}
                 aria-invalid={errors.password ? 'true' : 'false'}
               />
 
               {errors.password?.type === 'required' && (
                 <p className={styles.error} role='alert'>
-                  La contraseña es requer
+                  El campo email es requerido
                 </p>
               )}
             </div>
 
             <button type='submit' onClick={handleRegister}>
-              Iniciar sesion
+              Enviar
             </button>
 
             <p>{error}</p>
