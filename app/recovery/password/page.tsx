@@ -1,12 +1,12 @@
 import React from 'react';
-import { EmailForm } from '../components';
 import { Metadata } from 'next';
+import { PasswordForm } from '@/app/components';
 
 export const metadata: Metadata = {
-  title: 'Recuperar contraseña - Enviar correo',
+  title: 'Recuperar contraseña - Cambiar contraseña',
   description: 'Recupera tu contraseña en el sistema de recuperación',
 };
 
 export default function RecoveryPasswordSendEmailPage() {
-  return <EmailForm />;
+  return <PasswordForm />;
 }

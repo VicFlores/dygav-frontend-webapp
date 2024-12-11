@@ -2,19 +2,19 @@
 
 import React from 'react';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import styles from '../shared/RegisterLoginRecovery/RegisterLoginRecovery.module.css';
+import { useForm } from 'react-hook-form';
+import styles from '../../shared/RegisterLoginRecovery/RegisterLoginRecovery.module.css';
 import Image from 'next/legacy/image';
-import Partners from '../shared/Partners/Partners';
+import Partners from '../../shared/Partners/Partners';
+import { crmFinanzas } from '@/app/utils';
+import { AxiosError } from 'axios';
 
 interface IFormInput {
-  password: string;
+  email: string;
 }
 
-export const RecoveryPassword = () => {
+export const EmailForm = () => {
   const [error, setError] = useState('');
-  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -22,16 +22,33 @@ export const RecoveryPassword = () => {
     formState: { errors },
   } = useForm<IFormInput>();
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    console.log(data);
-  };
-
   const handleRegister = async () => {
-    const { password } = getValues();
+    const { email } = getValues();
 
-    setError('');
+    try {
+      if (!email) {
+        setError('El campo email es requerido');
+        return;
+      }
 
-    setError('Cargando...');
+      setError('Cargando...');
+
+      await crmFinanzas.post(
+        `/auth/send-reset-password-email?email=${email}`,
+        {}
+      );
+
+      setError('Correo enviado');
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        setError(
+          error.response?.data.detail.message || 'Error al enviar el correo'
+        );
+        return;
+      }
+
+      setError('Error al enviar el correo');
+    }
   };
 
   return (
@@ -56,25 +73,23 @@ export const RecoveryPassword = () => {
             </p>
           </div>
 
-          <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+          <form className={styles.form} onSubmit={handleSubmit(handleRegister)}>
             <div className={styles.formInputContainer}>
               <input
                 type='text'
                 placeholder='Ingresa tu correo electronico'
-                {...register('password', { required: true })}
-                aria-invalid={errors.password ? 'true' : 'false'}
+                {...register('email', { required: true })}
+                aria-invalid={errors.email ? 'true' : 'false'}
               />
 
-              {errors.password?.type === 'required' && (
+              {errors.email?.type === 'required' && (
                 <p className={styles.error} role='alert'>
                   El campo email es requerido
                 </p>
               )}
             </div>
 
-            <button type='submit' onClick={handleRegister}>
-              Enviar
-            </button>
+            <button type='submit'>Enviar</button>
 
             <p>{error}</p>
           </form>

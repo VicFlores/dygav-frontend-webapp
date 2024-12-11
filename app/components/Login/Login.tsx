@@ -57,10 +57,10 @@ export const Login = () => {
     } catch (error) {
       if (error instanceof AxiosError) {
         setErrorMessage(
-          error.response?.data.message || 'Error al iniciar sesión'
+          error.response?.data.message || 'Credenciales invalidas'
         );
       } else {
-        setErrorMessage('Error al iniciar sesión');
+        setErrorMessage('Credenciales invalidas');
       }
     }
   };
