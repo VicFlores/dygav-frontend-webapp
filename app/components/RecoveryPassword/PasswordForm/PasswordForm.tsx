@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
@@ -15,7 +15,7 @@ interface IFormInput {
   confirmPassword: string;
 }
 
-export const PasswordForm = () => {
+const PasswordFormContent = () => {
   const [error, setError] = useState('');
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -48,7 +48,7 @@ export const PasswordForm = () => {
         password,
       });
 
-      setError('Contraseña actualizada');
+      setError('Contraseña actualizada, redirigiendo...');
 
       setTimeout(() => {
         router.push('/login');
@@ -154,3 +154,9 @@ export const PasswordForm = () => {
     </main>
   );
 };
+
+export const PasswordForm = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <PasswordFormContent />
+  </Suspense>
+);
