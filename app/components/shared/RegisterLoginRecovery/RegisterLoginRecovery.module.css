@@ -96,6 +96,15 @@
   }
 }
 
+.googleLoginButton {
+  align-self: stretch;
+  border-radius: 8px;
+
+  @media screen and (max-width: 768px) {
+    padding: 8px;
+  }
+}
+
 .formInfo {
   display: flex;
   width: 380px;
@@ -110,6 +119,12 @@
   @media screen and (max-width: 768px) {
     display: none;
   }
+}
+
+.successMessage {
+  color: #f4511e;
+  font-size: 14px;
+  padding-top: 10px;
 }
 
 .formInfo h2 {
