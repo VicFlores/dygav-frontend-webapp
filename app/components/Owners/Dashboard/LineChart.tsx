@@ -62,8 +62,6 @@ export const LineChart = () => {
     return bookings.flat();
   };
 
-  console.log(bookings);
-
   const fetchAccommodationDetails = async (
     accommodations: any[]
   ): Promise<Accommodation[]> => {

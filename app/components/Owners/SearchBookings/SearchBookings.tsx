@@ -76,9 +76,14 @@ export const SearchBookings = () => {
     const year = now.getFullYear();
     const month = String(now.getMonth() + 1).padStart(2, '0'); // getMonth() returns 0-based month
     const startDate = `${year}-${month}-01`;
-    const endDate = `${year}-${month}-${new Date(
-      year,
-      now.getMonth() + 1,
+
+    // Add one month to the current date
+    const nextMonth = new Date(year, now.getMonth() + 1, 1);
+    const nextYear = nextMonth.getFullYear();
+    const nextMonthStr = String(nextMonth.getMonth() + 1).padStart(2, '0');
+    const endDate = `${nextYear}-${nextMonthStr}-${new Date(
+      nextYear,
+      nextMonth.getMonth() + 1,
       0
     ).getDate()}`;
 
