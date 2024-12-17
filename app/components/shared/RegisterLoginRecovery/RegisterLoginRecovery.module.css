@@ -97,7 +97,6 @@
 }
 
 .googleLoginButton {
-  align-self: stretch;
   border-radius: 8px;
 
   @media screen and (max-width: 768px) {
