@@ -236,7 +236,7 @@ export const RangeOfDates: FC<{ id: string }> = ({ id }) => {
         <div className='flex justify-center items-center'>
           <div className='flex justify-center items-center px-4 border-[1px] border-dashed h-[266px] w-[717px]'>
             <p className=' text-black900/[.7] lg:text-3xl text-center'>
-              ¡Aún no tienes reservaciones en tu alojamiento!
+              ¡Aún no tienes reservas en tu alojamiento!
             </p>
           </div>
         </div>

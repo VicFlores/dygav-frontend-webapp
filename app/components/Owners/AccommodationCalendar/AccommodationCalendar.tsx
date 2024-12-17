@@ -352,7 +352,7 @@ export const AccommodationCalendar: FC<{ id: string }> = ({ id }) => {
         style={{ height: 500 }}
         views={['month']}
         messages={{
-          agenda: 'Reservaciones',
+          agenda: 'reservas',
           month: 'Month',
           today: 'Today',
           previous: 'Prev',
@@ -362,7 +362,7 @@ export const AccommodationCalendar: FC<{ id: string }> = ({ id }) => {
           date: 'Fecha',
           time: 'Hora',
           event: 'Evento',
-          noEventsInRange: 'No hay reservaciones en este rango',
+          noEventsInRange: 'No hay reservas en este rango',
 
           showMore: (total) => `+ Ver mas (${total})`,
         }}

@@ -82,7 +82,7 @@ export const AccomodationsCalendar = (accomodation: TAvaibookAccomodations) => {
         style={{ height: 500 }}
         views={['month']}
         messages={{
-          agenda: 'Reservaciones',
+          agenda: 'reservas',
           month: 'Mes',
           today: 'Hoy',
           previous: 'Anterior',
@@ -92,7 +92,7 @@ export const AccomodationsCalendar = (accomodation: TAvaibookAccomodations) => {
           date: 'Fecha',
           time: 'Hora',
           event: 'Evento',
-          noEventsInRange: 'No hay reservaciones en este rango',
+          noEventsInRange: 'No hay reservas en este rango',
 
           showMore: (total) => `+ Ver mas (${total})`,
         }}
