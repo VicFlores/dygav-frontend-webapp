@@ -79,7 +79,7 @@ export const Navbar: FC<{ accessToken: string | undefined }> = ({
               className={styles.navbar__link}
               href={'/private/owners/reservations'}
             >
-              Reservaciones
+              Reservas
             </Link>
             <Link
               className={styles.navbar__link}
