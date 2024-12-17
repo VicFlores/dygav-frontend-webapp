@@ -68,7 +68,7 @@ export const BurgerMenu: FC<{ user: TSession }> = ({ user }) => {
       ? !currentUrl.startsWith('/private/admin')
         ? adminMenuItems
         : publicMenuItems
-      : user?.role === 'owner'
+      : user?.role === 'OWNER'
       ? !currentUrl.startsWith('/private/owners') &&
         !currentUrl.startsWith('/private/tourist')
         ? ownerMenuItems
