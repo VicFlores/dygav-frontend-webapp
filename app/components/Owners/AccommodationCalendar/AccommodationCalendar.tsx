@@ -80,29 +80,27 @@ export const AccommodationCalendar: FC<{ id: string }> = ({ id }) => {
 
   useEffect(() => {
     const accomodationBlockDay = async (id: string) => {
-      if (id) {
-        // Initialize variables
-        let currentDate = new Date();
-        let startDate = new Date(currentDate.getFullYear(), 0, 1); // Start from the beginning of the year
-        let endDate;
-        let customResponse: any = [];
+      if (!id) return;
 
-        // Loop through the year in 90-day increments
-        while (startDate.getFullYear() === currentDate.getFullYear()) {
-          // Calculate end date as 90 days from start date
-          endDate = new Date(startDate);
-          endDate.setDate(startDate.getDate() + 90);
+      const currentDate = new Date();
+      const sixMonthsAgo = new Date();
+      sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
 
-          // Adjust end date if it exceeds the end of the year
-          if (endDate.getFullYear() !== startDate.getFullYear()) {
-            endDate = new Date(currentDate.getFullYear(), 11, 31);
-          }
+      let startDate = new Date(currentDate);
+      let customResponse: any = [];
 
-          // Format dates in 'YYYY-MM-DD' format
-          let formattedStartDate = startDate.toISOString().split('T')[0];
-          let formattedEndDate = endDate.toISOString().split('T')[0];
+      while (startDate >= sixMonthsAgo) {
+        const endDate = new Date(startDate);
+        endDate.setDate(startDate.getDate() - 90);
 
-          // Make API call
+        if (endDate < sixMonthsAgo) {
+          endDate.setTime(sixMonthsAgo.getTime());
+        }
+
+        const formattedStartDate = endDate.toISOString().split('T')[0];
+        const formattedEndDate = startDate.toISOString().split('T')[0];
+
+        try {
           const res = await axios.get(
             `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/?startDate=${formattedStartDate}&endDate=${formattedEndDate}`,
             {
@@ -113,45 +111,16 @@ export const AccommodationCalendar: FC<{ id: string }> = ({ id }) => {
             }
           );
 
-          // Aggregate results
           customResponse = [...customResponse, ...res.data];
-
-          // Move to the next 90-day period
-          startDate = new Date(endDate);
-          startDate.setDate(startDate.getDate() + 1);
+        } catch (error) {
+          console.error('Error fetching data:', error);
         }
 
-        // Calculate another 90 days after the last end date
-        let anotherEndDate = endDate ? new Date(endDate) : new Date();
-        if (endDate) {
-          anotherEndDate.setDate(endDate.getDate() + 90);
-        }
-
-        // Format dates in 'YYYY-MM-DD' format
-        let formattedAnotherStartDate = endDate
-          ? endDate.toISOString().split('T')[0]
-          : '';
-        let formattedAnotherEndDate = anotherEndDate
-          .toISOString()
-          .split('T')[0];
-
-        // Make API call for another 90 days
-        const anotherRes = await axios.get(
-          `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/?startDate=${formattedAnotherStartDate}&endDate=${formattedAnotherEndDate}`,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
-            },
-          }
-        );
-
-        // Aggregate results
-        customResponse = [...customResponse, ...anotherRes.data];
-
-        // Update state with aggregated results
-        setAccomodationDayBlock(customResponse);
+        startDate = new Date(endDate);
+        startDate.setDate(startDate.getDate() - 1);
       }
+
+      setAccomodationDayBlock(customResponse);
     };
 
     accomodationBlockDay(id);

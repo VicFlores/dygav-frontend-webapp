@@ -63,6 +63,7 @@ interface FinanceData {
 export const Finanzas = () => {
   const { locale } = useLocale();
   const [monthNames, setMonthNames] = useState<string[]>([]);
+  const [year, setYear] = useState(new Date().getFullYear());
   const [ivaPriceCheck, setIvaPriceCheck] = useState(false);
   const [data, setData] = useState<any[]>([]);
   const [selectedAccommodation, setSelectedAccommodation] = useState<
@@ -85,8 +86,13 @@ export const Finanzas = () => {
 
     const allMonths = moment.months();
     const currentMonthIndex = moment().month();
-    const juneIndex = 5; // June is the 6th month, but index is 5
-    const filteredMonths = allMonths.slice(juneIndex, currentMonthIndex + 1);
+    const sixMonthsAgoIndex = (currentMonthIndex - 5 + 12) % 12; // Calculate the index for six months ago
+    const filteredMonths = [];
+
+    for (let i = 0; i < 6; i++) {
+      filteredMonths.push(allMonths[(sixMonthsAgoIndex + i) % 12]);
+    }
+
     setMonthNames(filteredMonths);
   }, [locale]);
 
@@ -332,10 +338,12 @@ export const Finanzas = () => {
 
             <div className={styles.invoiceInfo}>
               <h4>{dictionary.ownersFinanzas?.month}</h4>
+
               <select value={selectedMonth} onChange={handleMonthChange}>
                 {monthNames.map((month, index) => (
                   <option key={index} value={month}>
-                    {month}
+                    {month}{' '}
+                    {month === 'january' || month === 'enero' ? 2025 : 2024}
                   </option>
                 ))}
               </select>

@@ -40,29 +40,29 @@ export const OwnerMultiCalendar = ({ allAccomodationsResponse }: any) => {
     if (allAccomodationsResponse && allAccomodationsResponse.length > 0) {
       const currentDay = moment().startOf('day').format('YYYY-MM-DD');
       const nextDay = moment(currentDay).add(1, 'days').format('YYYY-MM-DD');
-      const firstDayNinetyDaysAgo = moment()
-        .subtract(90, 'days')
-        .startOf('day')
+      const firstDaySixMonthsAgo = moment()
+        .subtract(6, 'months')
+        .startOf('month')
         .format('YYYY-MM-DD');
       const nextNinetyDays = moment(nextDay)
         .add(90, 'days')
         .format('YYYY-MM-DD');
 
       try {
-        const [ninetyAgoBookings, ninetyDaysBookings] = await Promise.all([
-          fetchBookings(firstDayNinetyDaysAgo, currentDay),
+        const [sixMonthsAgoBookings, ninetyDaysBookings] = await Promise.all([
+          fetchBookings(firstDaySixMonthsAgo, currentDay),
           fetchBookings(nextDay, nextNinetyDays),
         ]);
 
         const updatedAccomodations = allAccomodationsResponse.map(
           (accomodation: Accommodation) => {
-            const afterReservations = ninetyAgoBookings.filter(
+            const pastReservations = sixMonthsAgoBookings.filter(
               (booking: ReservationAvaibook) =>
                 booking.accommodationId === accomodation.accomodationid &&
                 booking.status === 'CONFIRMED'
             );
 
-            const beforeReservations = ninetyDaysBookings.filter(
+            const futureReservations = ninetyDaysBookings.filter(
               (booking: ReservationAvaibook) =>
                 booking.accommodationId === accomodation.accomodationid &&
                 booking.status === 'CONFIRMED'
@@ -70,7 +70,7 @@ export const OwnerMultiCalendar = ({ allAccomodationsResponse }: any) => {
 
             return {
               ...accomodation,
-              reservations: [...afterReservations, ...beforeReservations],
+              reservations: [...pastReservations, ...futureReservations],
             };
           }
         );
