@@ -78,27 +78,29 @@ export const AccommodationCalendar: FC<{ id: string }> = ({ id }) => {
 
   const convertedDate = date.toDate();
 
-  useEffect(() => {
-    const accomodationBlockDay = async (id: string) => {
-      if (!id) return;
+  const fetchAccomodationsAndReservations = useCallback(async () => {
+    if (id) {
+      const currentDay = moment().startOf('day').format('YYYY-MM-DD');
+      const sixMonthsAgo = moment()
+        .subtract(6, 'months')
+        .startOf('month')
+        .format('YYYY-MM-DD');
+      const fourMonthsAfter = moment()
+        .add(4, 'months')
+        .endOf('month')
+        .format('YYYY-MM-DD');
 
-      const currentDate = new Date();
-      const sixMonthsAgo = new Date();
-      sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
-
-      let startDate = new Date(currentDate);
+      let startDate = moment(currentDay);
       let customResponse: any = [];
 
-      while (startDate >= sixMonthsAgo) {
-        const endDate = new Date(startDate);
-        endDate.setDate(startDate.getDate() - 90);
+      // Fetch data for the past 6 months
+      while (startDate.isSameOrAfter(sixMonthsAgo)) {
+        const endDate = moment(startDate).subtract(90, 'days');
 
-        if (endDate < sixMonthsAgo) {
-          endDate.setTime(sixMonthsAgo.getTime());
-        }
-
-        const formattedStartDate = endDate.toISOString().split('T')[0];
-        const formattedEndDate = startDate.toISOString().split('T')[0];
+        const formattedStartDate = endDate.isBefore(sixMonthsAgo)
+          ? sixMonthsAgo
+          : endDate.format('YYYY-MM-DD');
+        const formattedEndDate = startDate.format('YYYY-MM-DD');
 
         try {
           const res = await axios.get(
@@ -116,15 +118,47 @@ export const AccommodationCalendar: FC<{ id: string }> = ({ id }) => {
           console.error('Error fetching data:', error);
         }
 
-        startDate = new Date(endDate);
-        startDate.setDate(startDate.getDate() - 1);
+        startDate = moment(endDate).subtract(1, 'days');
+      }
+
+      // Reset startDate to current day to fetch data for the next 4 months
+      startDate = moment(currentDay);
+
+      // Fetch data for the next 4 months
+      while (startDate.isSameOrBefore(fourMonthsAfter)) {
+        const endDate = moment(startDate).add(90, 'days');
+
+        const formattedStartDate = startDate.format('YYYY-MM-DD');
+        const formattedEndDate = endDate.isAfter(fourMonthsAfter)
+          ? fourMonthsAfter
+          : endDate.format('YYYY-MM-DD');
+
+        try {
+          const res = await axios.get(
+            `https://api.avaibook.com/api/owner/accommodations/${id}/calendar/?startDate=${formattedStartDate}&endDate=${formattedEndDate}`,
+            {
+              headers: {
+                'Content-Type': 'application/json',
+                'X-AUTH-TOKEN': process.env.AVAIBOOK_API_TOKEN,
+              },
+            }
+          );
+
+          customResponse = [...customResponse, ...res.data];
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+
+        startDate = moment(endDate).add(1, 'days');
       }
 
       setAccomodationDayBlock(customResponse);
-    };
+    }
+  }, [id]);
 
-    accomodationBlockDay(id);
-  }, [id, listenBlockDate]);
+  useEffect(() => {
+    fetchAccomodationsAndReservations();
+  }, [id, listenBlockDate, fetchAccomodationsAndReservations]);
 
   useEffect(() => {
     const getBookingById = async (id: string) => {
@@ -341,6 +375,7 @@ export const AccommodationCalendar: FC<{ id: string }> = ({ id }) => {
             borderRadius: '15px',
             backgroundColor: '#F4511E',
             width: '100%',
+            height: '25px',
           };
 
           if (event.start) {
@@ -365,27 +400,27 @@ export const AccommodationCalendar: FC<{ id: string }> = ({ id }) => {
 
 const CustomEvent = ({ event }: any) => (
   <div className='text-white lg:text-[14px] text-[10px]'>
-    <div className='flex justify-center items-center '>
-      <div className=''>
+    <div className='flex justify-center items-center'>
+      <div>
         {event.partnerName === 'Booking.com' ? (
           <TbBrandBooking
             color='white'
-            className='mr-0 lg:mr-2 text-[20px] lg:text-[26px]'
+            className='mr-0 lg:mr-2 text-[14px] lg:text-[15px]'
           />
         ) : event.partnerName === 'Airbnb' ? (
           <TbBrandAirbnb
             color='white'
-            className='mr-0 lg:mr-2 text-[20px] lg:text-[26px]'
+            className='mr-0 lg:mr-2 text-[14px] lg:text-[15px]'
           />
         ) : event.partnerName === 'BLOCKED' ? (
           <TbLockOff
             color='white'
-            className='mr-0 lg:mr-2 text-[20px] lg:text-[26px]'
+            className='mr-0 lg:mr-2 text-[14px] lg:text-[15px]'
           />
         ) : (
           <GrStatusUnknown
             color='white'
-            className='mr-0 lg:mr-2 text-[20px] lg:text-[26px]'
+            className='mr-0 lg:mr-2 text-[14px] lg:text-[15px]'
           />
         )}
       </div>

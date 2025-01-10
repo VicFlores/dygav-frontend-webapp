@@ -49,14 +49,16 @@ export const OwnerMultiCalendar = ({ allAccomodationsResponse }: any) => {
         .format('YYYY-MM-DD');
 
       try {
-        const [sixMonthsAgoBookings, ninetyDaysBookings] = await Promise.all([
-          fetchBookings(firstDaySixMonthsAgo, currentDay),
-          fetchBookings(nextDay, nextNinetyDays),
-        ]);
+        const [twelveMonthsAgoBookings, ninetyDaysBookings] = await Promise.all(
+          [
+            fetchBookings(firstDaySixMonthsAgo, currentDay),
+            fetchBookings(nextDay, nextNinetyDays),
+          ]
+        );
 
         const updatedAccomodations = allAccomodationsResponse.map(
           (accomodation: Accommodation) => {
-            const pastReservations = sixMonthsAgoBookings.filter(
+            const pastReservations = twelveMonthsAgoBookings.filter(
               (booking: ReservationAvaibook) =>
                 booking.accommodationId === accomodation.accomodationid &&
                 booking.status === 'CONFIRMED'
