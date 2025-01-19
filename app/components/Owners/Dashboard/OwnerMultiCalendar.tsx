@@ -47,14 +47,25 @@ export const OwnerMultiCalendar = ({ allAccomodationsResponse }: any) => {
       const nextNinetyDays = moment(nextDay)
         .add(90, 'days')
         .format('YYYY-MM-DD');
+      const nextOneEightyDays = moment(nextNinetyDays)
+        .add(90, 'days')
+        .format('YYYY-MM-DD');
+      const nextTwoSeventyDays = moment(nextOneEightyDays)
+        .add(90, 'days')
+        .format('YYYY-MM-DD');
 
       try {
-        const [twelveMonthsAgoBookings, ninetyDaysBookings] = await Promise.all(
-          [
-            fetchBookings(firstDaySixMonthsAgo, currentDay),
-            fetchBookings(nextDay, nextNinetyDays),
-          ]
-        );
+        const [
+          twelveMonthsAgoBookings,
+          firstNinetyDaysBookings,
+          secondNinetyDaysBookings,
+          thirdNinetyDaysBookings,
+        ] = await Promise.all([
+          fetchBookings(firstDaySixMonthsAgo, currentDay),
+          fetchBookings(nextDay, nextNinetyDays),
+          fetchBookings(nextNinetyDays, nextOneEightyDays),
+          fetchBookings(nextOneEightyDays, nextTwoSeventyDays),
+        ]);
 
         const updatedAccomodations = allAccomodationsResponse.map(
           (accomodation: Accommodation) => {
@@ -64,7 +75,11 @@ export const OwnerMultiCalendar = ({ allAccomodationsResponse }: any) => {
                 booking.status === 'CONFIRMED'
             );
 
-            const futureReservations = ninetyDaysBookings.filter(
+            const futureReservations = [
+              ...firstNinetyDaysBookings,
+              ...secondNinetyDaysBookings,
+              ...thirdNinetyDaysBookings,
+            ].filter(
               (booking: ReservationAvaibook) =>
                 booking.accommodationId === accomodation.accomodationid &&
                 booking.status === 'CONFIRMED'

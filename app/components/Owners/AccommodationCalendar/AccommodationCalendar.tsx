@@ -81,12 +81,14 @@ export const AccommodationCalendar: FC<{ id: string }> = ({ id }) => {
   const fetchAccomodationsAndReservations = useCallback(async () => {
     if (id) {
       const currentDay = moment().startOf('day').format('YYYY-MM-DD');
+
       const sixMonthsAgo = moment()
         .subtract(6, 'months')
         .startOf('month')
         .format('YYYY-MM-DD');
-      const fourMonthsAfter = moment()
-        .add(4, 'months')
+
+      const sevenMonthsAfter = moment()
+        .add(7, 'months')
         .endOf('month')
         .format('YYYY-MM-DD');
 
@@ -121,16 +123,16 @@ export const AccommodationCalendar: FC<{ id: string }> = ({ id }) => {
         startDate = moment(endDate).subtract(1, 'days');
       }
 
-      // Reset startDate to current day to fetch data for the next 4 months
+      // Reset startDate to current day to fetch data for the next 7 months
       startDate = moment(currentDay);
 
-      // Fetch data for the next 4 months
-      while (startDate.isSameOrBefore(fourMonthsAfter)) {
+      // Fetch data for the next 7 months
+      while (startDate.isSameOrBefore(sevenMonthsAfter)) {
         const endDate = moment(startDate).add(90, 'days');
 
         const formattedStartDate = startDate.format('YYYY-MM-DD');
-        const formattedEndDate = endDate.isAfter(fourMonthsAfter)
-          ? fourMonthsAfter
+        const formattedEndDate = endDate.isAfter(sevenMonthsAfter)
+          ? sevenMonthsAfter
           : endDate.format('YYYY-MM-DD');
 
         try {
