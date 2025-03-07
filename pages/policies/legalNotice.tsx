@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   return {
     props: {
-      user,
+      user: user || null,
     },
   };
 };
