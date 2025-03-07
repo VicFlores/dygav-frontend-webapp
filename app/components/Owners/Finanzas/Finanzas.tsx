@@ -5,7 +5,7 @@ import moment from 'moment';
 import styles from './Finanzas.module.css';
 import Image from 'next/legacy/image';
 import useDictionary from '@/app/hooks/useDictionary';
-import { Accommodation, Booking } from '@/app/types';
+import { Accommodation } from '@/app/types';
 import { avaibookExtraction } from '@/app/utils/axiosConfig/avaibookExtraction';
 import { getAccommodationsInfo, getOwnerAccommodations } from '@/app/utils';
 import LoadingPlaceholder from '../../shared/LoadingPlaceholder/LoadingPlaceholder';
@@ -63,7 +63,6 @@ interface FinanceData {
 export const Finanzas = () => {
   const { locale } = useLocale();
   const [monthNames, setMonthNames] = useState<string[]>([]);
-  const [year, setYear] = useState(new Date().getFullYear());
   const [ivaPriceCheck, setIvaPriceCheck] = useState(false);
   const [data, setData] = useState<any[]>([]);
   const [selectedAccommodation, setSelectedAccommodation] = useState<
@@ -115,7 +114,7 @@ export const Finanzas = () => {
     };
 
     fetchAccommodations();
-  }, [selectedMonth]);
+  }, [selectedMonth, selectedAccommodation]);
 
   useEffect(() => {
     const fetchFinanceData = async () => {
@@ -151,6 +150,17 @@ export const Finanzas = () => {
           monthMapping[selectedMonth as keyof typeof monthMapping];
         const currentMonthNumber = moment().month() + 1; // moment().month() is zero-based
 
+        // Determine the year based on the month name - include January, February, and March
+        const year =
+          selectedMonth === 'January' ||
+          selectedMonth === 'February' ||
+          selectedMonth === 'March' ||
+          selectedMonth === 'enero' ||
+          selectedMonth === 'febrero' ||
+          selectedMonth === 'marzo'
+            ? 2025
+            : 2024;
+
         let response;
 
         if (selectedMonthNumber === currentMonthNumber) {
@@ -161,7 +171,7 @@ export const Finanzas = () => {
           setFinanceData(response.data);
         } else {
           response = await axios.get(
-            `https://seahorse-app-9q52a.ondigitalocean.app/api/v1/finances/${selectedMonthNumber}/2024/${selectedAccommodation.accomodationid}`
+            `https://seahorse-app-9q52a.ondigitalocean.app/api/v1/finances/${selectedMonthNumber}/${year}/${selectedAccommodation.accomodationid}`
           );
 
           setFinanceData(response.data.data[0]);
@@ -343,7 +353,14 @@ export const Finanzas = () => {
                 {monthNames.map((month, index) => (
                   <option key={index} value={month}>
                     {month}{' '}
-                    {month === 'january' || month === 'enero' ? 2025 : 2024}
+                    {month === 'January' ||
+                    month === 'February' ||
+                    month === 'March' ||
+                    month === 'enero' ||
+                    month === 'febrero' ||
+                    month === 'marzo'
+                      ? 2025
+                      : 2024}
                   </option>
                 ))}
               </select>
