@@ -2,7 +2,11 @@
 
 import { FC, useEffect, useState } from 'react';
 import { OwnerMultiCalendar } from './OwnerMultiCalendar';
-import { getOwnerAccommodations, getOwnerInfo } from '@/app/utils';
+import {
+  getOwnerAccommodations,
+  getOwnerInfo,
+  getOwnerInfoById,
+} from '@/app/utils';
 import { avaibookExtraction } from '@/app/utils/axiosConfig/avaibookExtraction';
 import { Accommodation, Booking } from '@/app/types';
 import useDictionary from '@/app/hooks/useDictionary';
@@ -11,10 +15,22 @@ import 'chart.js/auto';
 import OwnerBookingCard from '../../shared/OwnerBookingCard/OwnerBookingCard';
 import WaitingReservationsOrAccommodations from '../../shared/WaitingReservationsOrAccommodations/WaitingReservationsOrAccommodations';
 import { LineChart } from './LineChart';
+import NotificationSettings from './NotificationSettings';
 
 export const OwnerDashboard = () => {
-  const [data, setData] = useState<any[]>();
+  const [data, setData] = useState<any[]>([
+    {
+      accomodationid: 1,
+      name: 'Casa de la playa',
+      images: [
+        'https://images.unsplash.com/photo-1574169208013-6f2e8e3e5e0c',
+        'https://images.unsplash.com/photo-1574169208013-6f2e8e3e5e0c',
+        'https://images.unsplash.com/photo-1574169208013-6f2e8e3e5e0c',
+      ],
+    },
+  ]);
   const [bookings, setBookings] = useState<any[]>([]);
+  const [userInfo, setUserInfo] = useState<any>();
   const [bookingCounts, setBookingCounts] = useState({
     total: 0,
     bookingCom: 0,
@@ -27,6 +43,22 @@ export const OwnerDashboard = () => {
     other: 0,
   });
   const dictionary = useDictionary('ownersAccount');
+
+  useEffect(() => {
+    try {
+      const getUserByAccessToken = async () => {
+        const userInfo = await getOwnerInfo();
+
+        const getOwner = await getOwnerInfoById(userInfo.userid);
+
+        setUserInfo(getOwner);
+      };
+
+      getUserByAccessToken();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
 
   useEffect(() => {
     const fetchAccommodations = async () => {
@@ -177,6 +209,15 @@ export const OwnerDashboard = () => {
             />
           )}
         </div>
+
+        {/* Add this before the statistics section */}
+        {data.length > 0 && userInfo && userInfo.USERID && (
+          <NotificationSettings
+            accommodations={data}
+            ownerId={userInfo.OWNERID}
+            dictionary={dictionary}
+          />
+        )}
 
         <div>
           <h1 className={styles.controlPanel__title}>

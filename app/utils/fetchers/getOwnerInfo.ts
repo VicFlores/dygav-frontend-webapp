@@ -31,6 +31,17 @@ export const getOwnerInfo = async () => {
   }
 };
 
+export const getOwnerInfoById = async (userId: number) => {
+  try {
+    const getOwner = await crmFinanzas.get(`/owner/${userId}/user`);
+
+    return getOwner.data.data;
+  } catch (error) {
+    console.error('Error fetching getOwnerInfoById', error);
+    throw error;
+  }
+};
+
 export const getOwnerAccommodations = async () => {
   try {
     const getOwner = await getOwnerInfo();
