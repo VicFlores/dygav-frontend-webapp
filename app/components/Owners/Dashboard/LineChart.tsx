@@ -145,6 +145,8 @@ export const LineChart = () => {
   };
 
   const options = {
+    responsive: true,
+    maintainAspectRatio: false,
     scales: {
       y: {
         beginAtZero: true,
@@ -152,5 +154,9 @@ export const LineChart = () => {
     },
   };
 
-  return <Line data={data} options={options} />;
+  return (
+    <div style={{ width: '100%', height: '300px', position: 'relative' }}>
+      <Line data={data} options={options} />
+    </div>
+  );
 };
