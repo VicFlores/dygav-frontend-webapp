@@ -104,7 +104,7 @@ export const Navbar: FC<{ accessToken: string | undefined }> = ({
 
           <figure className={styles.navbar__user}>
             <Image
-              src='https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_Pic_profile_re_7g2h_o0irqa-1.png'
+              src='https://dygav-storage.nyc3.cdn.digitaloceanspaces.com/dygav_official/undraw_pic-profile_nr49.svg'
               alt='Profile'
               layout='fill'
             />
