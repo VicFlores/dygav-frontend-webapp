@@ -8,6 +8,7 @@ const nextConfig = {
       'www.avaibook.com',
       'dygav-wordpress.app.bigital.es',
       'multimedia.dygav.es',
+      'dygav-storage.nyc3.cdn.digitaloceanspaces.com',
     ],
   },
   env: {

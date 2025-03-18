@@ -110,10 +110,10 @@ export const NavBar: FC<{ user: TSession }> = ({ user }) => {
           </div>
 
           <div className='group relative flex flex-col items-center'>
-            <figure className='h-14 w-14 relative '>
+            <figure className='h-12 w-12 relative '>
               <Image
                 src={
-                  'https://multimedia.dygav.es/wp-content/uploads/2024/04/undraw_Pic_profile_re_7g2h_o0irqa-1.png'
+                  'https://dygav-storage.nyc3.cdn.digitaloceanspaces.com/dygav_official/undraw_pic-profile_nr49.svg'
                 }
                 alt={'Profile picture'}
                 layout='fill'
