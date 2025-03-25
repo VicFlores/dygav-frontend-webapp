@@ -1,0 +1,464 @@
+.container {
+  padding: 0 20px 1rem;
+  margin-top: 20px;
+}
+
+.title {
+  font-size: 2.1rem;
+  font-weight: 400;
+  margin-bottom: 0.2rem;
+  padding-left: 0.5rem;
+  color: #4d4d4d;
+}
+
+.subtitle {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+  color: #4d4d4d;
+  text-wrap: balance;
+}
+
+.paragraph {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+  color: #4d4d4d;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 50% repeat(2, minmax(auto, 1fr));
+  gap: 0.8rem;
+  margin: 1rem 0 2rem 0;
+}
+
+.imageContainer {
+  position: relative;
+  overflow: hidden;
+  width: auto;
+  height: 28vh;
+  cursor: pointer;
+}
+
+.imageContainer:nth-child(1) {
+  grid-row: span 2;
+  height: 100%;
+  border-radius: 12px 0 0 12px;
+}
+
+.imageContainer:nth-child(3),
+.imageContainer:nth-child(5) {
+  border-radius: 0 12px 12px 0;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.galleryContainer {
+  position: relative;
+}
+
+.showAllButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #f4511e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.showAllButton svg {
+  margin-right: 8px;
+}
+
+.showAllButton:hover {
+  background-color: #e53611;
+}
+
+/* Add these new classes for the mobile counter button */
+.counterButton {
+  display: none;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 85%;
+  max-height: 90%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.modalGallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.modalImageContainer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.portrait {
+  grid-row: span 2;
+  min-height: 60vh;
+}
+
+.landscape {
+  grid-row: span 1;
+  height: 35vh;
+}
+
+.modalImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slideshowOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+.slideshowContent {
+  position: relative;
+  width: 90%;
+  height: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slideshowImageContainer {
+  position: relative;
+  width: 80%;
+  height: 80%;
+}
+
+.slideshowImage {
+  object-fit: contain;
+}
+
+.slideshowClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1101;
+  transition: background-color 0.3s ease;
+}
+
+.slideshowClose:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.slideshowPrev,
+.slideshowNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.slideshowPrev:hover,
+.slideshowNext:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.slideshowPrev {
+  left: 20px;
+}
+
+.slideshowNext {
+  right: 20px;
+}
+
+.slideshowCounter {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1rem;
+}
+
+/* Modal image hover effect */
+.modalImageContainer {
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.modalImageContainer:hover {
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+  }
+
+  .paragraph {
+    font-size: 0.9rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  .gallery figure:first-child {
+    display: none;
+  }
+
+  .imageContainer {
+    height: 25vh;
+  }
+
+  .imageContainer:nth-child(1) {
+    grid-column: span 2;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .imageContainer:nth-child(3),
+  .imageContainer:nth-child(5) {
+    border-radius: 0;
+  }
+
+  .imageContainer:nth-child(2) {
+    border-radius: 0 0 0 12px;
+  }
+
+  .imageContainer:nth-child(3) {
+    border-radius: 0 0 12px 0;
+  }
+
+  .modalGallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portrait {
+    min-height: 50vh;
+  }
+
+  .landscape {
+    height: 30vh;
+  }
+
+  .slideshowContent {
+    width: 95%;
+  }
+
+  .slideshowImageContainer {
+    width: 85%;
+  }
+
+  .showAllButton {
+    display: none;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .counterButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 8px 12px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+
+  .counterButton svg {
+    margin-right: 6px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .container {
+    padding: 0 10px 1rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+    text-wrap: balance;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .paragraph {
+    font-size: 0.8rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery figure:not(:last-child) {
+    display: none;
+  }
+
+  .gallery figure .imageContainer {
+    height: 50vh;
+  }
+
+  .imageContainer:nth-child(1) {
+    grid-row: span 1;
+    border-radius: 12px;
+  }
+
+  .imageContainer:nth-child(3),
+  .imageContainer:nth-child(5) {
+    border-radius: 0;
+  }
+
+  .showAllButton {
+    bottom: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+
+  .counterButton {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .modalContent {
+    padding: 20px;
+    width: 95%;
+  }
+
+  .closeButton {
+    top: 3px;
+    right: 3px;
+    font-size: 1.2rem;
+  }
+
+  .modalGallery {
+    grid-template-columns: repeat(1, minmax(150px, 1fr));
+  }
+
+  .portrait {
+    min-height: 40vh;
+  }
+
+  .landscape {
+    height: 25vh;
+  }
+
+  .slideshowContent {
+    width: 100%;
+    height: 75%;
+  }
+
+  .slideshowImageContainer {
+    width: 95%;
+  }
+
+  .slideshowClose {
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+
+  .slideshowPrev,
+  .slideshowNext {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    z-index: 1;
+  }
+
+  .slideshowPrev {
+    left: 10px;
+  }
+
+  .slideshowNext {
+    right: 10px;
+  }
+}

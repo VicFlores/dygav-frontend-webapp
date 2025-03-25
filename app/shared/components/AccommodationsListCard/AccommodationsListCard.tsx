@@ -44,21 +44,20 @@ export const AccommodationsListCard: FC<{
         onTouchMove={handleTouchMove}
       >
         {accommodations.map((accommodation) => (
-          <Link
-            key={accommodation.id}
-            href={`/accommodation-details/${accommodation.slug}`}
-            className={styles.cardLink}
-          >
-            <div className={styles.card}>
-              <figure className={styles.imageContainer}>
-                <AiOutlineHeart className={styles.heartIcon} />
+          <div key={accommodation.id} className={styles.card}>
+            <figure className={styles.imageContainer}>
+              <AiOutlineHeart className={styles.heartIcon} />
 
-                <ImagesCarousel
-                  images={accommodation.images}
-                  alt={accommodation.alt}
-                />
-              </figure>
+              <ImagesCarousel
+                images={accommodation.images}
+                alt={accommodation.alt}
+              />
+            </figure>
 
+            <Link
+              href={`/apartamentoss/detalles/${accommodation.slug}`}
+              className={styles.cardLink}
+            >
               <h3 className={styles.cardTitle}>{accommodation.title}</h3>
 
               <p className={styles.cardDescription}>
@@ -88,8 +87,8 @@ export const AccommodationsListCard: FC<{
                   {accommodation.maxGuests}
                 </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
         ))}
       </div>
 

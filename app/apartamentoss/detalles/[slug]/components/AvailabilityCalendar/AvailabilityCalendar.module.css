@@ -1,0 +1,310 @@
+.calendarContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.calendarTitle {
+  margin: 30px 0;
+}
+
+.navigationButtons {
+  display: flex;
+  gap: 18px;
+}
+
+.navButton {
+  cursor: pointer;
+  font-size: 2.3rem;
+  padding: 8px;
+  color: #f4511e;
+}
+
+.navButton:hover {
+  opacity: 0.7;
+}
+
+.calendarWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.calendarMonth {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.monthHeader {
+  color: #737373;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 10px;
+  width: 100%;
+  color: #444444;
+}
+
+.dayName {
+  text-align: center;
+}
+
+.calendarCell {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.calendarCell:hover {
+  background-color: #f4511e;
+  color: white;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.inRange {
+  background-color: #e53611;
+  color: white;
+  border-left: none; /* Remove left border for in-range cells */
+  border-right: none; /* Remove right border for in-range cells */
+}
+
+.firstInRange {
+  border-radius: 10px 0 0 10px; /* Add border radius to the first in-range cell */
+}
+
+.lastInRange {
+  border-radius: 0 10px 10px 0; /* Add border radius to the last in-range cell */
+}
+
+.reserved {
+  background-color: #faa477;
+  cursor: not-allowed;
+  color: white;
+}
+
+.firstReserved {
+  border-radius: 10px 0 0 10px; /* Add border radius to the first reserved cell */
+}
+
+.lastReserved {
+  border-radius: 0 10px 10px 0; /* Add border radius to the last reserved cell */
+}
+
+.errorMessage {
+  color: red;
+  margin-top: 20px;
+}
+
+.submitButton {
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: #e53611;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #f4511e;
+}
+
+.selectedDates {
+  margin-top: 30px;
+}
+
+.selectedDates p {
+  margin-bottom: 10px;
+}
+
+.rates {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  height: 6rem;
+  margin: 2rem 0;
+  border: 1px solid #afafaf;
+  border-radius: 10px;
+}
+
+.rates button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: #f4511e;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.rates button:hover {
+  background-color: #e53611;
+}
+
+.rates button svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.rate_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid #afafaf;
+  gap: 1rem;
+}
+
+.rate_item svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  color: #afafaf;
+}
+
+.rate_item div h3 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #545454;
+}
+
+.rate_item div p {
+  font-size: 1rem;
+  color: #afafaf;
+}
+
+.currentDay {
+  background-color: #e53611; /* Highlight color for the current day */
+  color: white;
+  font-weight: bold; /* Make the text bold */
+}
+
+@media screen and (max-width: 768px) {
+  .calendarWrapper {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .monthHeader {
+    font-size: 1rem;
+  }
+
+  .rates {
+    margin: 1rem 0;
+  }
+
+  .rates button {
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    text-wrap: balance;
+  }
+
+  .rates button svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .rate_item {
+    gap: 0.5rem;
+  }
+
+  .rate_item svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .rate_item div h3 {
+    font-size: 0.9rem;
+  }
+
+  .rate_item div p {
+    font-size: 0.8rem;
+    text-wrap: balance;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .calendarContainer {
+    padding: 10px;
+  }
+
+  .calendarWrapper {
+    flex-direction: column;
+    row-gap: 35px;
+  }
+
+  .calendarGrid {
+    row-gap: 5px;
+  }
+
+  .monthHeader {
+    font-size: 1rem;
+  }
+
+  .dayName {
+    font-size: 0.8rem;
+  }
+
+  .calendarCell {
+    height: 30px;
+    font-size: 0.8rem;
+  }
+
+  .rates {
+    height: auto;
+    flex-direction: column;
+    border: none;
+    padding: 1rem 0;
+  }
+
+  .rates button {
+    font-size: 0.7rem;
+    height: 3rem;
+    width: 60%;
+  }
+
+  .rate_item {
+    border: 1px solid #afafaf;
+    width: 60%;
+    height: 4.5rem;
+    gap: 0.6rem;
+  }
+
+  .rate_item svg {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  .rate_item div h3 {
+    font-size: 0.9rem;
+  }
+
+  .rate_item div p {
+    font-size: 0.8rem;
+  }
+}

@@ -1,9 +1,11 @@
 import React from 'react';
 import { AccommodationsListCard } from '@/app/shared';
 import { getAccommodationsByCategory } from '@/app/shared/utils';
-import { getAccommodations, getCategories } from '../../services';
+
 import { Category } from '../../interfaces';
 import styles from './ListCard.module.css';
+
+import { getAccommodations, getCategories } from '../../services';
 
 export const ListCard = async () => {
   const accommodations = await getAccommodations();
