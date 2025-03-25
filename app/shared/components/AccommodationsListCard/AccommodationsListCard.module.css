@@ -42,7 +42,7 @@
 }
 
 .card {
-  width: 335px;
+  min-width: 335px;
   height: 450px; /* Set a fixed height for all cards */
   margin: 0 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
