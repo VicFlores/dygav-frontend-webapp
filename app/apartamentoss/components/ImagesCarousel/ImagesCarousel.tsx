@@ -25,7 +25,6 @@ export const ImagesCarousel: FC<{ images: { url: string }[]; alt: string }> = ({
   };
 
   const handleNext = (e: React.MouseEvent) => {
-    e.stopPropagation();
     e.preventDefault(); // Prevent the default link behavior
     setCurrentIndex((prevIndex) =>
       prevIndex === limitedImages.length - 1 ? 0 : prevIndex + 1
