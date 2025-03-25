@@ -1,0 +1,131 @@
+.search_form {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 10px;
+  background-color: white;
+  border-radius: 8px;
+  height: 7rem;
+  color: #f4511e;
+}
+
+.input_group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.input_group:nth-child(1),
+.input_group:nth-child(2) {
+  border-right: 1px solid #afafaf;
+}
+
+.input_group:last-child {
+  background-color: #f4511e;
+}
+
+.input_group_icon {
+  margin-right: 15px;
+  color: #afafaf;
+  font-size: 28px;
+}
+
+.input_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input_container input,
+.input_container select {
+  border: none;
+  color: #545454;
+  text-align: left;
+  font-size: 15px;
+  outline: none;
+}
+
+.input_container input[type='text'] {
+  width: 10rem;
+}
+
+.input_container label {
+  font-size: 12px;
+  font-weight: 400;
+  color: #afafaf;
+}
+
+.search_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4511e;
+  color: white;
+  border: none;
+  border-top-right-radius: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.search_button_icon {
+  margin-right: 4px;
+  font-size: 22px;
+}
+
+@media screen and (max-width: 768px) {
+  .input_group_icon {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+
+  .input_container input,
+  .input_container select {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .search_form {
+    flex-direction: column;
+    height: 30rem;
+    margin: 1.5rem 2rem 0;
+  }
+
+  .input_group {
+    border-right: none;
+    height: 100%;
+  }
+
+  .input_container input,
+  .input_container select {
+    font-size: 15px;
+    width: 100%;
+    background-color: white;
+  }
+
+  .input_group:nth-child(1),
+  .input_group:nth-child(2) {
+    border-bottom: 1px solid #afafaf;
+  }
+
+  .input_group_icon {
+    font-size: 28px;
+    margin-right: 10px;
+  }
+
+  .input_container input,
+  .input_container select {
+    font-size: 15px;
+    width: 100%;
+  }
+
+  .search_button {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+}

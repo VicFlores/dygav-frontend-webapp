@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 90vh;
+  background-image: url('https://multimedia.dygav.es/wp-content/uploads/2024/04/13_qih5tu.png');
+  background-size: cover;
+  background-attachment: fixed; /* Add this line for parallax effect */
+  background-position: center;
+  padding: 0 40px;
+  color: white;
+  position: relative;
+}
+
+.title {
+  font-size: 2.6rem;
+  font-weight: 400;
+}
+
+.subtitle {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    height: 70vh;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .container {
+    height: calc(95vh - -30px);
+    background-attachment: scroll; /* Add this line for parallax effect */
+  }
+
+  .title {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}

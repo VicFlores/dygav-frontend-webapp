@@ -1,0 +1,113 @@
+.calendarContainer {
+  position: absolute;
+  background-color: white;
+  border-radius: 14px;
+  border: 1px solid #ccc;
+  padding: 12px;
+  z-index: 1000;
+  opacity: 0; /* Add this line */
+  transform: translateY(-10px); /* Add this line */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Add this line */
+}
+
+.calendarContainer.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
+  padding: 0 6px;
+}
+
+.header span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.arrowContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.arrowContainer button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.dayName {
+  font-weight: bold;
+  text-align: center;
+}
+
+.day {
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.day.selected {
+  background-color: #f4511e;
+  color: white;
+  border-radius: 10px;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.closeButton svg {
+  font-size: 24px;
+}
+
+@media screen and (max-width: 430px) {
+  .calendarContainer {
+    width: 90%; /* Add this line */
+    left: 22px; /* Ensure this line is present */
+    transform: translateY(-10px); /* Ensure this line is present */
+    padding: 10px; /* Ensure this line is present */
+  }
+
+  .header span {
+    font-size: 14px;
+  }
+
+  .day {
+    padding: 8px;
+  }
+
+  .closeButton svg {
+    font-size: 22px;
+  }
+
+  .arrowContainer button {
+    font-size: 16px;
+  }
+
+  .dayName {
+    font-size: 14px;
+  }
+
+  .day {
+    font-size: 14px;
+  }
+
+  .calendar {
+    gap: 3px;
+  }
+}

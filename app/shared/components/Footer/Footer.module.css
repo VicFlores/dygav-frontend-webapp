@@ -1,0 +1,250 @@
+.platforms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  background-image: url('https://multimedia.dygav.es/wp-content/uploads/2024/04/12_yxhpq1.png');
+  background-size: cover;
+  background-attachment: fixed; /* Add this line for parallax effect */
+  background-position: center;
+  color: white;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 400;
+}
+
+.platforms_icons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+  position: relative;
+  width: 55%;
+}
+
+.image_container {
+  width: 110px;
+  height: 95px;
+  position: relative;
+}
+
+.image_container:last-child {
+  width: 170px;
+}
+
+.platforms_icons img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.information_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  background-color: #f4511e;
+  color: white;
+  padding: 1.5rem 1.5rem;
+}
+
+.dygav_icon {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.dygav_icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.social_media {
+  display: flex;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.social_media svg {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+}
+
+.social_media svg:hover {
+  cursor: pointer;
+}
+
+.infoLegend {
+  font-size: 0.8rem;
+  text-wrap: balance;
+  margin-top: 0.5rem;
+}
+
+.quickLinks {
+  display: flex;
+  gap: 3rem;
+}
+
+.quickLinks div ul {
+  list-style-type: none;
+}
+
+.quickLinks div h5 {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.quickLinks div ul li,
+.quickLinks div p {
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.quickLinks div ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.quickLinks div ul li a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 1.9rem;
+  }
+
+  .platforms {
+    height: 40vh;
+  }
+
+  .platforms_icons {
+    width: 80%;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .image_container {
+    width: 130px;
+    height: 60px;
+  }
+
+  .image_container:nth-child(2) {
+    width: 110px;
+    height: 95px;
+  }
+
+  .image_container:nth-child(4) {
+    width: 110px;
+    height: 95px;
+  }
+
+  .image_container:last-child {
+    width: 160px;
+    height: 130px;
+  }
+
+  .information_container {
+    padding: 1rem 1rem;
+  }
+
+  .dygav_icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social_media svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .infoLegend {
+    font-size: 0.7rem;
+  }
+
+  .quickLinks div ul {
+    margin-left: 1rem;
+  }
+
+  .quickLinks div h5 {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .quickLinks div ul li,
+  .quickLinks div p {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .platforms {
+    height: auto;
+    padding: 1rem 0;
+    background-attachment: scroll;
+  }
+
+  .title {
+    font-size: 1.4rem;
+    text-wrap: balance;
+    text-align: center;
+  }
+
+  .platforms_icons {
+    width: 100%;
+  }
+
+  .image_container {
+    width: 100px;
+    height: 50px;
+  }
+
+  .image_container:nth-child(2) {
+    width: 90px;
+    height: 80px;
+  }
+
+  .image_container:nth-child(4) {
+    width: 90px;
+    height: 80px;
+  }
+
+  .information_container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .information_container div figure {
+    margin: auto;
+  }
+
+  .information_container div {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dygav_icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .social_media {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .social_media svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .quickLinks div ul {
+    margin-left: 0;
+  }
+}

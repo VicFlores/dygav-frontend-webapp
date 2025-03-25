@@ -1,0 +1,160 @@
+.navigationContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  margin-top: 20px;
+  color: white;
+  background-color: transparent;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
+
+.navigationContainer figure {
+  position: relative;
+  margin: 4px 0 0 0;
+  width: 50px;
+  height: 50px;
+}
+
+.navigationContainer figure img {
+  width: 100%;
+  height: 100%;
+}
+
+.navigationContainer ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.navigationContainer ul li {
+  margin: 0 10px;
+}
+
+.navigationContainer ul li:nth-child(5) {
+  background-color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.navigationContainer ul li:nth-child(6) {
+  background-color: #f4511e;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.navigationContainer ul li a {
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 4px;
+  text-align: center;
+  color: white;
+}
+
+.navigationContainer ul li:nth-child(5) a {
+  color: #f4511e;
+}
+
+.burgerMenu {
+  display: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.burgerMenu.open {
+  transform: rotate(90deg);
+}
+
+@media screen and (max-width: 430px) {
+  .navigationContainer {
+    padding: 0 10px;
+  }
+
+  .burgerMenu {
+    display: block;
+  }
+
+  .burgerMenu_icon {
+    font-size: 28px;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #f4511e;
+    transition: left 0.3s ease;
+    z-index: 20;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .sidebar .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 25px;
+    cursor: pointer;
+    color: white;
+    z-index: 30;
+  }
+
+  .sidebar .logoMobile {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .logoMobile img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .sidebar ul {
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar ul li {
+    margin: 10px 0;
+  }
+
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  .sidebar ul li:nth-child(5) {
+    background-color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+  }
+
+  .sidebar ul li:nth-child(5) a {
+    color: #f4511e;
+  }
+
+  .sidebar ul li:nth-child(6) {
+    background-color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+  }
+
+  .sidebar ul li:nth-child(6) a {
+    color: #f4511e;
+  }
+}
