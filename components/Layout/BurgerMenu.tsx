@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC, useContext } from 'react';
 import Link from 'next/link';
 import { TSession } from '@/types';
@@ -5,11 +7,8 @@ import { UIContext } from '@/context';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import Image from 'next/legacy/image';
 import { signOut } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import { usePathname, useRouter } from 'next/navigation';
 import {
-  accounOwnertMenuItem,
-  accounTouristMenuItem,
-  accountAdminMenuItem,
   publicMenuItem,
   useAccountAdminMenuItems,
   useAccountOwnerMenuItems,
@@ -24,19 +23,23 @@ const imageUrl =
 
 export const BurgerMenu: FC<{ user: TSession }> = ({ user }) => {
   const { sideMenu, isToogleBurgerMenu } = useContext(UIContext);
+  const pathname = usePathname();
   const router = useRouter();
-  const currentUrl = router.asPath;
 
   const handlerToogleMenu = () => {
     isToogleBurgerMenu(!sideMenu);
   };
 
   const bkCurrentUrl =
-    currentUrl.startsWith('/private/tourist') ||
-    currentUrl.startsWith('/private/owners') ||
-    currentUrl.startsWith('/private/admin')
+    pathname?.startsWith('/private/tourist') ||
+    pathname?.startsWith('/private/owners') ||
+    pathname?.startsWith('/private/admin')
       ? 'bg-p600'
       : 'bg-transparent';
+
+  const isSpecialRoute = pathname?.startsWith('/apartamentoss')
+    ? 'absolute z-50'
+    : '';
 
   const publicMenuItems = usePublicMenuItems();
   const ownerMenuItems = useAccountOwnerMenuItems();
@@ -45,32 +48,32 @@ export const BurgerMenu: FC<{ user: TSession }> = ({ user }) => {
 
   const menuItems =
     user?.role === 'tourist'
-      ? currentUrl.startsWith('/private/tourist')
+      ? pathname?.startsWith('/private/tourist')
         ? touristMenuItems
         : publicMenuItems
       : user?.role === 'OWNER'
-      ? currentUrl.startsWith('/private/owners') ||
-        currentUrl.startsWith('/private/tourist')
+      ? pathname?.startsWith('/private/owners') ||
+        pathname?.startsWith('/private/tourist')
         ? ownerMenuItems
         : publicMenuItems
       : user?.role === 'admin'
-      ? currentUrl.startsWith('/private/admin')
+      ? pathname?.startsWith('/private/admin')
         ? adminMenuItems
         : publicMenuItems
       : publicMenuItems;
 
   const hoverMenuItems =
     user?.role === 'tourist'
-      ? !currentUrl.startsWith('/private/tourist')
+      ? !pathname?.startsWith('/private/tourist')
         ? touristMenuItems
         : publicMenuItems
       : user?.role === 'admin'
-      ? !currentUrl.startsWith('/private/admin')
+      ? !pathname?.startsWith('/private/admin')
         ? adminMenuItems
         : publicMenuItems
       : user?.role === 'OWNER'
-      ? !currentUrl.startsWith('/private/owners') &&
-        !currentUrl.startsWith('/private/tourist')
+      ? !pathname?.startsWith('/private/owners') &&
+        !pathname?.startsWith('/private/tourist')
         ? ownerMenuItems
         : publicMenuItems
       : publicMenuItems;
@@ -80,7 +83,9 @@ export const BurgerMenu: FC<{ user: TSession }> = ({ user }) => {
   return (
     <>
       {user ? (
-        <nav className={`w-full h-auto lg:hidden p-4 static ${bkCurrentUrl}`}>
+        <nav
+          className={`w-full h-auto lg:hidden p-4 static ${bkCurrentUrl} ${isSpecialRoute}`}
+        >
           <div className='flex justify-between items-center'>
             <div className='h-auto w-auto'>
               <Link href={'/'}>

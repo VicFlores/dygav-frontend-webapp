@@ -6,13 +6,17 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMdClose } from 'react-icons/io';
 import Link from 'next/link';
 import styles from './Navbar.module.css';
+import { usePathname } from 'next/navigation';
 
 export const Navbar = () => {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  console.log(pathname);
 
   return (
     <nav className={styles.navigationContainer}>

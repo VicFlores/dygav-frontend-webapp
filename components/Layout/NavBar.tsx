@@ -1,3 +1,5 @@
+'use client';
+
 import LanguageSwitcher from '@/app/components/shared/LanguageSwitcher/LanguageSwitcher';
 import useDictionary from '@/app/hooks/useDictionary';
 import { TSession } from '@/types';
@@ -10,22 +12,26 @@ import {
 import { signOut } from 'next-auth/react';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname, useRouter } from 'next/navigation';
 import React, { FC } from 'react';
 
 const imageUrl =
   'https://multimedia.dygav.es/wp-content/uploads/2024/04/1.Dygav_Blanco_Vertical_z64ijw.svg';
 
 export const NavBar: FC<{ user: TSession }> = ({ user }) => {
+  const pathname = usePathname();
   const router = useRouter();
-  const currentUrl = router.asPath;
 
   const bkCurrentUrl =
-    currentUrl.startsWith('/private/tourist') ||
-    currentUrl.startsWith('/private/owners') ||
-    currentUrl.startsWith('/private/admin')
+    pathname?.startsWith('/private/tourist') ||
+    pathname?.startsWith('/private/owners') ||
+    pathname?.startsWith('/private/admin')
       ? 'bg-p600'
       : 'bg-transparent';
+
+  const isSpecialRoute = pathname?.startsWith('/apartamentoss')
+    ? 'absolute z-50'
+    : '';
 
   const publicMenuItems = usePublicMenuItems();
   const ownerMenuItems = useAccountOwnerMenuItems();
@@ -34,32 +40,32 @@ export const NavBar: FC<{ user: TSession }> = ({ user }) => {
 
   const menuItems =
     user?.role === 'tourist'
-      ? currentUrl.startsWith('/private/tourist')
+      ? pathname?.startsWith('/private/tourist')
         ? touristMenuItems
         : publicMenuItems
       : user?.role === 'OWNER'
-      ? currentUrl.startsWith('/private/owners') ||
-        currentUrl.startsWith('/private/tourist')
+      ? pathname?.startsWith('/private/owners') ||
+        pathname?.startsWith('/private/tourist')
         ? ownerMenuItems
         : publicMenuItems
       : user?.role === 'admin'
-      ? currentUrl.startsWith('/private/admin')
+      ? pathname?.startsWith('/private/admin')
         ? adminMenuItems
         : publicMenuItems
       : publicMenuItems;
 
   const hoverMenuItems =
     user?.role === 'tourist'
-      ? !currentUrl.startsWith('/private/tourist')
+      ? !pathname?.startsWith('/private/tourist')
         ? touristMenuItems
         : publicMenuItems
       : user?.role === 'admin'
-      ? !currentUrl.startsWith('/private/admin')
+      ? !pathname?.startsWith('/private/admin')
         ? adminMenuItems
         : publicMenuItems
       : user?.role === 'OWNER'
-      ? !currentUrl.startsWith('/private/owners') &&
-        !currentUrl.startsWith('/private/tourist')
+      ? !pathname?.startsWith('/private/owners') &&
+        !pathname?.startsWith('/private/tourist')
         ? ownerMenuItems
         : publicMenuItems
       : publicMenuItems;
@@ -70,7 +76,7 @@ export const NavBar: FC<{ user: TSession }> = ({ user }) => {
     <>
       {user ? (
         <nav
-          className={`w-full h-28 hidden lg:grid lg:grid-cols-4 justify-between items-center static ${bkCurrentUrl}`}
+          className={`w-full h-28 hidden lg:grid lg:grid-cols-4 justify-between items-center static ${bkCurrentUrl} ${isSpecialRoute}`}
         >
           <div className='h-auto w-auto relative'>
             <Link href={'/'}>

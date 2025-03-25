@@ -1,4 +1,6 @@
-import { FC, PropsWithChildren, ReactNode, useReducer } from 'react';
+'use client';
+
+import { FC, ReactNode, useReducer } from 'react';
 import { UIContext, uiReducer } from './';
 
 export interface UIState {

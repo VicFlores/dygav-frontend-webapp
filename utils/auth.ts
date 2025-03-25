@@ -1,9 +1,11 @@
 import { GetServerSidePropsContext } from 'next';
 
 export const getUserFromCookies = async (
-  context: GetServerSidePropsContext
+  context?: GetServerSidePropsContext,
+  access_token?: string,
+  refresh_token?: string
 ) => {
-  const cookieHeader = context.req.headers.cookie || '';
+  const cookieHeader = context?.req.headers.cookie || '';
   const cookies = cookieHeader.split(';').reduce((acc, cookie) => {
     const [key, value] = cookie.split('=').map((c) => c.trim());
     acc[key] = value;
@@ -12,7 +14,11 @@ export const getUserFromCookies = async (
 
   let user;
 
-  if (cookies.access_token && cookies.refresh_token) {
+  if (
+    cookies.access_token ||
+    (access_token && cookies.refresh_token) ||
+    refresh_token
+  ) {
     const verifyAccessToken = await fetch(
       'https://dygav-backend-crm-me7xd.ondigitalocean.app/api/v1/auth/verify-token',
       {
@@ -21,7 +27,7 @@ export const getUserFromCookies = async (
           'Content-Type': 'application/json',
           'x-api-key': `${process.env.NEXT_PUBLIC_CRM_API_KEY}`,
         },
-        body: JSON.stringify({ token: cookies.access_token }),
+        body: JSON.stringify({ token: cookies.access_token || access_token }),
       }
     );
 
@@ -34,7 +40,9 @@ export const getUserFromCookies = async (
             'Content-Type': 'application/json',
             'x-api-key': `${process.env.NEXT_PUBLIC_CRM_API_KEY}`,
           },
-          body: JSON.stringify({ token: cookies.refresh_token }),
+          body: JSON.stringify({
+            token: cookies.refresh_token || refresh_token,
+          }),
         }
       );
 
@@ -86,7 +94,7 @@ export const getUserFromCookies = async (
           headers: {
             'Content-Type': 'application/json,',
             'x-api-key': `${process.env.NEXT_PUBLIC_CRM_API_KEY}`,
-            Authorization: `Bearer ${cookies.access_token}`,
+            Authorization: `Bearer ${cookies.access_token || access_token}`,
           },
         }
       );

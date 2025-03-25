@@ -1,3 +1,5 @@
+'use client';
+
 // app/hooks/useDictionary.ts
 import { useState, useEffect } from 'react';
 import { useLocale } from '../context/LocaleContext';

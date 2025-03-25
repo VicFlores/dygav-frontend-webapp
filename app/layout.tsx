@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { LocaleProvider } from './context/LocaleContext';
 import { Oswald } from 'next/font/google';
 import '../styles/globals.css';
+import { UIProvider } from '@/context';
 
 const oswald = Oswald({
   subsets: ['latin'],
@@ -20,9 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <LocaleProvider>
-      <html lang='en'>
-        <body className={oswald.className}>{children}</body>
-      </html>
+      <UIProvider>
+        <html lang='en'>
+          <body className={oswald.className}>{children}</body>
+        </html>
+      </UIProvider>
     </LocaleProvider>
   );
 }

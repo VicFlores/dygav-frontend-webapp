@@ -1,3 +1,5 @@
+'use client';
+
 import { UIState } from './';
 
 type UIActionType = { type: 'UI - Toogle Burger Menu'; payload: boolean };
