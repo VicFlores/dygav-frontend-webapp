@@ -39,15 +39,13 @@ export const FilterToDatesLocationPeople = () => {
       return alert('Por favor, selecciona las fechas de reserva');
     }
 
-    router.push({
-      pathname: `/apartamentos-turisticos/${capitalizedUbicacion}`,
-      query: {
-        ubicacion: capitalizedUbicacion,
-        checkin: moment(startDate).format('YYYY-MM-DD'),
-        checkout: moment(endDate).format('YYYY-MM-DD'),
-        huespedes,
-      },
-    });
+    router.push(
+      `/apartamentoss/busqueda?city=${capitalizedUbicacion}&checkin=${moment(
+        startDate
+      ).format('YYYY-MM-DD')}&checkout=${moment(endDate).format(
+        'YYYY-MM-DD'
+      )}&guests=${huespedes}`
+    );
   };
 
   const { beforeToday } = DateRangePicker;
@@ -72,11 +70,18 @@ export const FilterToDatesLocationPeople = () => {
             <option value='default' disabled>
               {dictionary.filterToDatesLocationPeople?.city}
             </option>
-            <option value='torrevieja'>Torrevieja</option>
-            <option value='madrid'>Madrid</option>
-            <option value='puerto de mazarron'>Puerto De Mazarron</option>
-            <option value='lo pagan'>Lo Pagan</option>
-            <option value='finestrat'>Finestrat</option>
+            <option value='Santa Pola'>Santa Pola</option>
+            <option value='Madrid'>Madrid</option>
+            <option value='Elx/Elche'>Elx/Elche</option>
+            <option value='Torrevieja'>Torrevieja</option>
+            <option value='Finestrat'>Finestrat</option>
+            <option value='Panticosa (Pueblo)'>Panticosa (Pueblo)</option>
+            <option value='Pueyo De Jaca, El'>Pueyo De Jaca, El</option>
+            <option value='Formigal'>Formigal</option>
+            <option value='Alicante/Alacant'>Alicante/Alacant</option>
+            <option value='Monte Zenia'>Monte Zenia</option>
+            <option value='Pagan, Lo'>Pagan, Lo</option>
+            <option value='Oros Alto'>Oros Alto</option>
           </select>
         </label>
       </div>

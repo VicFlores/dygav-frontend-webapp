@@ -26,10 +26,6 @@ export const SearchForm = () => {
 
   const handleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('City:', city);
-    console.log('Check-in:', checkin);
-    console.log('Check-out:', checkout);
-    console.log('Guests:', guests);
 
     router.push(
       `/apartamentoss/busqueda?city=${city}&checkin=${checkin}&checkout=${checkout}&guests=${guests}`

@@ -28,8 +28,6 @@ const BusquedaPage = async ({
     `/accommodations/search?city=${city}&checkin=${checkin}&checkout=${checkout}&guests=${guests}`
   );
 
-  console.log(accommodations.data);
-
   return (
     <>
       <NavBar user={user as TSession} />
