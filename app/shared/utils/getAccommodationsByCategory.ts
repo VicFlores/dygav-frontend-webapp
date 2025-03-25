@@ -12,6 +12,10 @@ interface ProcessedAccommodation {
   size: string;
   maxGuests: number;
   slug: string;
+  introductions: {
+    en: string;
+    es: string;
+  };
 }
 
 export const getAccommodationsByCategory = (
@@ -28,6 +32,10 @@ export const getAccommodationsByCategory = (
       images: acc.images,
       alt: acc.accommodation,
       title: acc.accommodation,
+      introductions: {
+        es: acc.introductions.es || '',
+        en: acc.introductions.en || '',
+      },
       description: acc.introductions.es || acc.introductions.en,
       pricePerNight: 'Consultar precio',
       bedrooms:

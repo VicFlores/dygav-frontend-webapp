@@ -9,6 +9,7 @@ import { cookies } from 'next/headers';
 import { NavBar } from '@/components/Layout/NavBar';
 import { BurgerMenu } from '@/components/Layout/BurgerMenu';
 import { TSession } from '@/types';
+import { getAccommodations } from './services';
 
 export const metadata: Metadata = {
   title: 'Accomodations',
@@ -26,6 +27,8 @@ const AccommodationsPage = async () => {
     refresh_token?.value
   );
 
+  const accommodations = await getAccommodations();
+
   return (
     <>
       <NavBar user={user as TSession} />
@@ -38,7 +41,7 @@ const AccommodationsPage = async () => {
         <SearchForm />
       </Hero>
 
-      <ListCard />
+      <ListCard accommodations={accommodations} />
 
       <Footer />
     </>

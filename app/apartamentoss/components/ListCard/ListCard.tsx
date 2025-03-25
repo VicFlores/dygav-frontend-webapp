@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { AccommodationsListCard } from '@/app/shared';
 import { getAccommodationsByCategory } from '@/app/shared/utils';
 
-import { Category } from '../../interfaces';
+import { Accommodation, Category } from '../../interfaces';
 import styles from './ListCard.module.css';
 
 import { getAccommodations, getCategories } from '../../services';
 
-export const ListCard = async () => {
-  const accommodations = await getAccommodations();
+export const ListCard: FC<{ accommodations: Accommodation[] }> = async ({
+  accommodations,
+}) => {
   const categories = await getCategories();
 
   return (

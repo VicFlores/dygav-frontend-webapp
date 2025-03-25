@@ -6,7 +6,7 @@ import { UIProvider } from '@/context';
 
 const oswald = Oswald({
   subsets: ['latin'],
-  weight: ['400', '500', '700'],
+  weight: ['200', '300', '400', '500', '700'],
 });
 
 export const metadata: Metadata = {

@@ -61,7 +61,10 @@ export const AccommodationsListCard: FC<{
               <h3 className={styles.cardTitle}>{accommodation.title}</h3>
 
               <p className={styles.cardDescription}>
-                {truncateDescription(accommodation.description, 100)}
+                {truncateDescription(
+                  accommodation.description || accommodation.introductions.es,
+                  100
+                )}
               </p>
 
               <p className={styles.cardPrice}>{accommodation.pricePerNight}</p>

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { Footer, Hero, Navbar } from '@/app/shared';
-
+import { Footer, Hero } from '@/app/shared';
+import { NavBar } from '@/components/Layout/NavBar';
+import { BurgerMenu } from '@/components/Layout/BurgerMenu';
 import {
   AmenitiesUbicacion,
   AvailabilityCalendar,
@@ -10,6 +11,9 @@ import {
 } from './components';
 import { getAccommodations } from '../../services/getAccommodations';
 import { getAccommodation } from './services/getAccommodation';
+import { TSession } from '@/types';
+import { getUserFromCookies } from '@/utils';
+import { cookies } from 'next/headers';
 
 export const metadata: Metadata = {
   title: 'Accommodation Details',
@@ -22,6 +26,15 @@ export default async function AccommodationDetailPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  const cookieStore = await cookies();
+  const access_token = cookieStore.get('access_token');
+  const refresh_token = cookieStore.get('refresh_token');
+  const user = await getUserFromCookies(
+    undefined,
+    access_token?.value,
+    refresh_token?.value
+  );
+
   const { slug } = await params;
 
   const accommodations = await getAccommodations();
@@ -44,7 +57,8 @@ export default async function AccommodationDetailPage({
 
   return (
     <>
-      <Navbar />
+      <NavBar user={user as TSession} />
+      <BurgerMenu user={user as TSession} />
 
       <Hero
         title='Detalles de tu alojamiento'

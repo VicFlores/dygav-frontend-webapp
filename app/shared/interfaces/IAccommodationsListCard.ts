@@ -10,4 +10,8 @@ export interface AccommodationsList {
   size: string;
   maxGuests: number;
   slug: string;
+  introductions: {
+    en: string;
+    es: string;
+  };
 }
