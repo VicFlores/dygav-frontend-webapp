@@ -352,7 +352,7 @@
   }
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 480px) {
   .container {
     padding: 0 10px 1rem;
   }
@@ -378,18 +378,12 @@
     display: none;
   }
 
+  .gallery figure:last-child {
+    border-radius: 10px;
+  }
+
   .gallery figure .imageContainer {
     height: 50vh;
-  }
-
-  .imageContainer:nth-child(1) {
-    grid-row: span 1;
-    border-radius: 12px;
-  }
-
-  .imageContainer:nth-child(3),
-  .imageContainer:nth-child(5) {
-    border-radius: 0;
   }
 
   .showAllButton {

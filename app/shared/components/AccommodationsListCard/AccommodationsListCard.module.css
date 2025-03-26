@@ -46,7 +46,6 @@
   width: 335px;
   height: 450px; /* Set a fixed height for all cards */
   margin: 0 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
@@ -61,7 +60,6 @@
 
 .card:hover {
   transform: translateY(6px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .imageContainer {
