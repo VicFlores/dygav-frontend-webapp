@@ -1,8 +1,8 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { Footer, Hero } from '@/app/shared';
-import { NavBar } from '@/components/Layout/NavBar';
 import { BurgerMenu } from '@/components/Layout/BurgerMenu';
+import { NavBar } from '@/components/Layout/NavBar';
 import {
   AmenitiesUbicacion,
   AvailabilityCalendar,
