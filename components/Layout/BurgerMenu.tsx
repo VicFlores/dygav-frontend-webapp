@@ -164,7 +164,9 @@ export const BurgerMenu: FC<{ user: TSession }> = ({ user }) => {
           )}
         </nav>
       ) : (
-        <nav className='w-full h-auto lg:hidden p-4 static'>
+        <nav
+          className={`w-full h-auto lg:hidden p-4 static ${isSpecialRoute}}`}
+        >
           <div className='flex justify-between items-center'>
             <div className='h-auto w-auto'>
               <Link href='/'>
