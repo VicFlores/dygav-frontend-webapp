@@ -8,6 +8,7 @@ import { Footer, Hero } from '@/app/shared';
 import { crmApi } from '@/app/config';
 import { ListCard } from '../components';
 import { Metadata } from 'next';
+import { SearchForm } from '../components/SearchForm/SearchForm';
 
 export const metadata: Metadata = {
   title: 'Dygav - Busqueda de Alojamiento',
@@ -43,7 +44,9 @@ const BusquedaPage = async ({
       <Hero
         title='Descubre tu próximo alojamiento'
         subtitle='Encuentra tu alojamiento ideal en cualquier lugar de España'
-      />
+      >
+        <SearchForm />
+      </Hero>
 
       <ListCard accommodations={accommodations.data} />
 

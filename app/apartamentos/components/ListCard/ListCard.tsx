@@ -22,7 +22,7 @@ export const ListCard: FC<{ accommodations: Accommodation[] }> = async ({
       {accommodations.length === 0 ? (
         <div className='col-start-1 col-end-4 flex flex-col justify-center items-center mx-12 my-20'>
           <div className='border border-p600 px-14 py-8 flex flex-col justify-center items-center rounded-xl'>
-            <figure className='relative h-60 w-60 md:h-80 md:w-80'>
+            <figure className='relative h-60 w-60 md:h-[18rem] md:w-[18rem]'>
               <Image
                 src='https://multimedia.dygav.es/wp-content/uploads/2024/04/notfound_t5mgaw.svg'
                 alt='No se encontraron alojamientos'
@@ -32,8 +32,12 @@ export const ListCard: FC<{ accommodations: Accommodation[] }> = async ({
             </figure>
 
             <p className='text-p600 text-base md:text-lg lg:text-xl text-center lg:text-start'>
-              ¡Upsss…! Parece que no hemos encontrado ningún alojamiento
-              disponible para tu búsqueda.{' '}
+              ¡Upsss! Parece que no hemos encontrado ningún alojamiento
+              disponible para tu búsqueda.
+            </p>
+
+            <p className='text-p600 text-base md:text-lg lg:text-xl text-center lg:text-start mt-4'>
+              ¡Actualiza tu busqueda para encontrar tu alojamiento. !
             </p>
           </div>
         </div>
