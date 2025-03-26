@@ -44,17 +44,6 @@ export default async function AccommodationDetailPage({
     return null;
   }
 
-  const {
-    aviabookid,
-    public_cleaning_price,
-    accommodation,
-    images,
-    descriptions,
-    location,
-    features,
-    categories,
-  } = accommodationDetails;
-
   return (
     <>
       <NavBar user={user as TSession} />
@@ -66,22 +55,25 @@ export default async function AccommodationDetailPage({
       />
 
       <PhotoGallery
-        title={accommodation}
-        subtitle={location.city}
-        images={images}
-        introductions={descriptions.es}
+        title={accommodationDetails.accommodation}
+        subtitle={accommodationDetails.location.city}
+        images={accommodationDetails.images}
+        introductions={accommodationDetails.descriptions.es}
       />
 
       <AvailabilityCalendar
-        avaibookId={aviabookid}
-        cleaningPrice={public_cleaning_price}
+        avaibookId={accommodationDetails.aviabookid}
+        cleaningPrice={accommodationDetails.public_cleaning_price}
       />
 
-      <AmenitiesUbicacion amenities={features} location={location} />
+      <AmenitiesUbicacion
+        amenities={accommodationDetails.features}
+        location={accommodationDetails.location}
+      />
 
       <Recommendations
         accommodations={accommodations}
-        categoryId={categories[0].category_id}
+        categoryId={accommodationDetails.categories[0].category_id}
       />
 
       <Footer />
