@@ -37,8 +37,10 @@ export default async function AccommodationDetailPage({
 
   const { slug } = await params;
 
-  const accommodations = await getAccommodations();
-  const accommodationDetails = await getAccommodation(slug);
+  const [accommodations, accommodationDetails] = await Promise.all([
+    getAccommodations(),
+    getAccommodation(slug),
+  ]);
 
   if (!accommodationDetails) {
     return null;
