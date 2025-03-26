@@ -374,11 +374,17 @@
     grid-template-columns: 1fr;
   }
 
-  .gallery figure:not(:last-child) {
+  .gallery figure:first-child {
+    display: block;
+    height: 40vh;
+    border-radius: 12px;
+  }
+
+  .gallery figure:not(:first-child) {
     display: none;
   }
 
-  .gallery figure:last-child {
+  .gallery figure:first-child {
     border-radius: 10px;
   }
 

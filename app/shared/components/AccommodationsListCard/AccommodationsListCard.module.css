@@ -11,8 +11,14 @@
   gap: 14px;
 }
 
+/* Fix cardLink styles to handle expansion */
 .cardLink {
   text-decoration: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Move overflow hidden here */
+  border-radius: 10px;
 }
 
 .leftArrow {
@@ -20,7 +26,7 @@
   top: 58%;
   left: 0;
   transform: translateY(-50%);
-  z-index: 1;
+  z-index: 2;
   color: #f4511e;
   background-color: rgba(244, 81, 30, 0.11);
   border-radius: 100%;
@@ -33,7 +39,7 @@
   top: 58%;
   right: 0;
   transform: translateY(-50%);
-  z-index: 1;
+  z-index: 2;
   color: #f4511e;
   background-color: rgba(244, 81, 30, 0.11);
   border-radius: 100%;
@@ -41,16 +47,22 @@
   font-size: 2.8rem;
 }
 
+/* Fix card styles */
 .card {
   min-width: 335px;
   width: 335px;
-  height: 450px; /* Set a fixed height for all cards */
+  height: 450px;
   margin: 0 10px;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out,
+    height 0.3s ease;
   display: flex;
-  flex-direction: column; /* Stack child elements vertically */
+  flex-direction: column;
+  overflow: visible; /* Change to visible so expanded content shows */
+  position: relative; /* Add position relative */
+  border-radius: 10px;
+  background: white;
 }
 
 .card.visible {
@@ -58,8 +70,56 @@
   transform: translateY(0);
 }
 
+.card.expanded {
+  height: auto;
+  z-index: 1; /* Use a higher z-index */
+}
+
+/* Fix description container and text */
+.cardDescriptionContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+  flex-grow: 1;
+  position: relative; /* Add position relative */
+}
+
+.cardDescription {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #afafaf;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  max-height: 80px; /* Specific max-height for collapsed state */
+  padding: 0; /* Remove conflicting padding */
+}
+
+.expanded .cardDescription {
+  max-height: 1000px; /* Very large max-height for expanded state */
+}
+
+.expanded .cardLink {
+  overflow: visible; /* Allow overflow when expanded */
+}
+
 .card:hover {
   transform: translateY(6px);
+}
+
+/* Fix read more button to stay in position */
+.readMoreButton {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: #f4511e;
+  padding: 4px 8px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 5px;
+  z-index: 1; /* Ensure it's clickable */
 }
 
 .imageContainer {
@@ -101,6 +161,8 @@
   font-size: 14px;
   color: #afafaf;
   padding: 10px;
+  flex-grow: 1; /* This will make the description take up available space */
+  overflow: hidden; /* Prevent overflow */
 }
 
 .cardPrice {
@@ -192,6 +254,10 @@
 
   .cardDescription {
     font-size: 10px;
+  }
+
+  .card:hover {
+    transform: none;
   }
 
   .cardPrice {
