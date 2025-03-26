@@ -9,6 +9,8 @@ export const getAccommodation = async (slug: string) => {
 
     return response.data;
   } catch (error) {
-    throw new Error(error instanceof Error ? error.message : String(error));
+    console.error('Error fetching accommodations:', error);
+    // Return empty array instead of throwing error
+    return null;
   }
 };

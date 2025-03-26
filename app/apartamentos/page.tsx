@@ -18,16 +18,19 @@ export const metadata: Metadata = {
 };
 
 const AccommodationsPage = async () => {
-  const cookieStore = await cookies();
-  const access_token = cookieStore.get('access_token');
-  const refresh_token = cookieStore.get('refresh_token');
-  const user = await getUserFromCookies(
-    undefined,
-    access_token?.value,
-    refresh_token?.value
-  );
-
-  const accommodations = await getAccommodations();
+  const [user, accommodations] = await Promise.all([
+    (async () => {
+      const cookieStore = cookies();
+      const access_token = cookieStore.get('access_token');
+      const refresh_token = cookieStore.get('refresh_token');
+      return getUserFromCookies(
+        undefined,
+        access_token?.value,
+        refresh_token?.value
+      );
+    })(),
+    getAccommodations(),
+  ]);
 
   return (
     <>
