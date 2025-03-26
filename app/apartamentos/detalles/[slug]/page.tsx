@@ -1,8 +1,8 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { Footer, Hero } from '@/app/shared';
-import { BurgerMenu } from '@/components/Layout/BurgerMenu';
 import { NavBar } from '@/components/Layout/NavBar';
+import { BurgerMenu } from '@/components/Layout/BurgerMenu';
 import {
   AmenitiesUbicacion,
   AvailabilityCalendar,
@@ -37,10 +37,8 @@ export default async function AccommodationDetailPage({
 
   const { slug } = await params;
 
-  const [accommodations, accommodationDetails] = await Promise.all([
-    getAccommodations(),
-    getAccommodation(slug),
-  ]);
+  const accommodations = await getAccommodations();
+  const accommodationDetails = await getAccommodation(slug);
 
   if (!accommodationDetails) {
     return null;
