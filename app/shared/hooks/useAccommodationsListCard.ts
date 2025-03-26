@@ -7,13 +7,13 @@ export const useAccommodationsListCard = (styles: Record<string, string>) => {
 
   const scrollLeftHandler = () => {
     if (containerRef.current) {
-      containerRef.current.scrollBy({ left: -260, behavior: 'smooth' });
+      containerRef.current.scrollBy({ left: -300, behavior: 'smooth' });
     }
   };
 
   const scrollRightHandler = () => {
     if (containerRef.current) {
-      containerRef.current.scrollBy({ left: 260, behavior: 'smooth' });
+      containerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
     }
   };
 
