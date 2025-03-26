@@ -38,7 +38,7 @@ export const BurgerMenu: FC<{ user: TSession }> = ({ user }) => {
       : 'bg-transparent';
 
   const isSpecialRoute = pathname?.startsWith('/apartamentos')
-    ? 'absolute z-50'
+    ? 'absolute z-50 bg-transparent'
     : '';
 
   const publicMenuItems = usePublicMenuItems();
