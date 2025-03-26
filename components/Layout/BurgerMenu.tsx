@@ -37,7 +37,7 @@ export const BurgerMenu: FC<{ user: TSession }> = ({ user }) => {
       ? 'bg-p600'
       : 'bg-transparent';
 
-  const isSpecialRoute = pathname?.startsWith('/apartamentoss')
+  const isSpecialRoute = pathname?.startsWith('/apartamentos')
     ? 'absolute z-50'
     : '';
 

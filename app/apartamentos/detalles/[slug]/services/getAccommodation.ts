@@ -1,4 +1,4 @@
-import { Accommodation } from '@/app/apartamentoss/interfaces';
+import { Accommodation } from '@/app/apartamentos/interfaces';
 import { crmApi } from '@/app/config';
 
 export const getAccommodation = async (slug: string) => {

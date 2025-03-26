@@ -10,7 +10,7 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import styles from './AccommodationsListCard.module.css';
 import { useAccommodationsListCard } from '../../hooks';
 import { AccommodationsList } from '../../interfaces';
-import { ImagesCarousel } from '@/app/apartamentoss/components';
+import { ImagesCarousel } from '@/app/apartamentos/components';
 
 export const AccommodationsListCard: FC<{
   accommodations: AccommodationsList[];
@@ -55,7 +55,7 @@ export const AccommodationsListCard: FC<{
             </figure>
 
             <Link
-              href={`/apartamentoss/detalles/${accommodation.slug}`}
+              href={`/apartamentos/detalles/${accommodation.slug}`}
               className={styles.cardLink}
             >
               <h3 className={styles.cardTitle}>{accommodation.title}</h3>

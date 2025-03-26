@@ -28,7 +28,7 @@ export const SearchForm = () => {
     e.preventDefault();
 
     router.push(
-      `/apartamentoss/busqueda?city=${city}&checkin=${checkin}&checkout=${checkout}&guests=${guests}`
+      `/apartamentos/busqueda?city=${city}&checkin=${checkin}&checkout=${checkout}&guests=${guests}`
     );
   };
 

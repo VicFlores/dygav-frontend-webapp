@@ -1,4 +1,4 @@
-import { Accommodation } from '@/app/apartamentoss/interfaces';
+import { Accommodation } from '@/app/apartamentos/interfaces';
 
 interface ProcessedAccommodation {
   id: number;

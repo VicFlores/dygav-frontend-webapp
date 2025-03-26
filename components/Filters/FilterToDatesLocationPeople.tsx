@@ -40,7 +40,7 @@ export const FilterToDatesLocationPeople = () => {
     }
 
     router.push(
-      `/apartamentoss/busqueda?city=${capitalizedUbicacion}&checkin=${moment(
+      `/apartamentos/busqueda?city=${capitalizedUbicacion}&checkin=${moment(
         startDate
       ).format('YYYY-MM-DD')}&checkout=${moment(endDate).format(
         'YYYY-MM-DD'

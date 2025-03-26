@@ -6,7 +6,7 @@ import { CiCircleChevLeft, CiCircleChevRight } from 'react-icons/ci';
 import { AccommodationsListCard } from '@/app/shared';
 import styles from './Recommendations.module.css';
 import { getAccommodationsByCategory } from '@/app/shared/utils';
-import { Accommodation } from '@/app/apartamentoss/interfaces';
+import { Accommodation } from '@/app/apartamentos/interfaces';
 
 interface ReccomendationProps {
   accommodations: Accommodation[];
