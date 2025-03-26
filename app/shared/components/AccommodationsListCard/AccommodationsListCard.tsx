@@ -63,7 +63,7 @@ export const AccommodationsListCard: FC<{
               <p className={styles.cardDescription}>
                 {truncateDescription(
                   accommodation.description || accommodation.introductions.es,
-                  100
+                  140
                 )}
               </p>
 
