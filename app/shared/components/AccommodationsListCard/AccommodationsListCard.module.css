@@ -160,7 +160,6 @@
   margin: 10px 0;
   font-size: 14px;
   color: #afafaf;
-  padding: 10px;
   flex-grow: 1; /* This will make the description take up available space */
   overflow: hidden; /* Prevent overflow */
 }
@@ -176,7 +175,7 @@
 .card_amenities {
   display: flex;
   justify-content: space-between;
-  background-color: #f4511e;
+  background-color: #ff3d00;
   color: white;
   min-height: 55px;
   border-radius: 0 0 10px 10px;
