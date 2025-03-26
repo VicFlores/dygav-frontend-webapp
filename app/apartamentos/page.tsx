@@ -12,9 +12,9 @@ import { TSession } from '@/types';
 import { getAccommodations } from './services';
 
 export const metadata: Metadata = {
-  title: 'Accomodations',
-  description: 'Accomodations for the wedding',
-  keywords: 'accomodations, wedding',
+  title: 'Dygav - Alojamientos',
+  description: 'Descubre tu próximo alojamiento en cualquier lugar de España',
+  keywords: 'Alojamientos, España, Vacaciones',
 };
 
 const AccommodationsPage = async () => {

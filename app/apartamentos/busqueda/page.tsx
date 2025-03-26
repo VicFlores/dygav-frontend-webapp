@@ -4,9 +4,16 @@ import { BurgerMenu } from '@/components/Layout/BurgerMenu';
 import { TSession } from '../../../types/UI/TSession';
 import { cookies } from 'next/headers';
 import { getUserFromCookies } from '@/utils';
-import { AccommodationsListCard, Footer, Hero } from '@/app/shared';
+import { Footer, Hero } from '@/app/shared';
 import { crmApi } from '@/app/config';
 import { ListCard } from '../components';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Dygav - Busqueda de Alojamiento',
+  description: 'Encuentra tu alojamiento ideal en cualquier lugar de España',
+  keywords: 'Alojamientos, España, Vacaciones',
+};
 
 const BusquedaPage = async ({
   searchParams,

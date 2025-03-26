@@ -16,9 +16,10 @@ import { getUserFromCookies } from '@/utils';
 import { cookies } from 'next/headers';
 
 export const metadata: Metadata = {
-  title: 'Accommodation Details',
-  description: 'Accommodation Details Page',
-  keywords: 'Accommodation, Details',
+  title: 'Dygav - Detalles de Alojamiento',
+  description:
+    'Conoce los detalles de tu alojamiento, para que puedas hacer una mejor eleccion segun tus necesidades.',
+  keywords: 'Alojamientos, España, Vacaciones',
 };
 
 export default async function AccommodationDetailPage({
