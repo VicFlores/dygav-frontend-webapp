@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 30vh;
+  height: 50vh;
   background-image: url('https://multimedia.dygav.es/wp-content/uploads/2024/04/12_yxhpq1.png');
   background-size: cover;
   background-attachment: fixed; /* Add this line for parallax effect */

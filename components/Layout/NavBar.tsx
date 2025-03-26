@@ -30,7 +30,7 @@ export const NavBar: FC<{ user: TSession }> = ({ user }) => {
       : 'bg-transparent';
 
   const isSpecialRoute = pathname?.startsWith('/apartamentoss')
-    ? 'absolute z-50'
+    ? 'absolute z-50 bg-transparent'
     : '';
 
   const publicMenuItems = usePublicMenuItems();
@@ -160,7 +160,9 @@ export const NavBar: FC<{ user: TSession }> = ({ user }) => {
           </div>
         </nav>
       ) : (
-        <nav className='w-full h-32 hidden lg:flex p-4 justify-between items-center static'>
+        <nav
+          className={`w-full h-32 hidden lg:flex p-4 justify-between items-center static ${isSpecialRoute}}`}
+        >
           <div className='h-auto w-auto relative'>
             <Link href='/'>
               <Image
