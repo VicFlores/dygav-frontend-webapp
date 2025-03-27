@@ -28,6 +28,7 @@
   color: #4d4d4d;
 }
 
+/* Add these new classes to support vertical first image */
 .gallery {
   display: grid;
   grid-template-columns: 50% repeat(2, minmax(auto, 1fr));
@@ -35,11 +36,48 @@
   margin: 1rem 0 2rem 0;
 }
 
+.verticalFirstImage {
+  grid-template-columns: 29% repeat(2, minmax(auto, 1fr));
+}
+
+.firstImage {
+  grid-row: span 2;
+  height: 100%;
+  border-radius: 12px 0 0 12px;
+}
+
+.portraitImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.verticalFirstImage .portraitImage {
+  object-fit: contain;
+}
+
+/* For better layout when first image is vertical */
+.verticalFirstImage .imageContainer:nth-child(2),
+.verticalFirstImage .imageContainer:nth-child(4) {
+  border-radius: 0;
+}
+
+.verticalFirstImage .imageContainer:nth-child(3) {
+  border-radius: 0 12px 0 0;
+}
+
+.verticalFirstImage .imageContainer:nth-child(5) {
+  border-radius: 0 0 12px 0;
+}
+
+.verticalFirstImage .imageContainer:nth-child(6) {
+  border-radius: 0 0 0 0;
+}
+
 .imageContainer {
   position: relative;
   overflow: hidden;
   width: auto;
-  height: 28vh;
+  height: 32vh;
   cursor: pointer;
 }
 

@@ -41,13 +41,26 @@ export const PhotoGallery: FC<PhotoGalleryProps> = ({
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  // Filter to include only horizontal images
-  const horizontalImages = images.filter(
-    (image) =>
-      image.orientation === 'landscape' || image.orientation === 'square'
-  );
+  // Get the first image regardless of orientation
+  const firstImage = images[0];
+  const isFirstImageVertical = firstImage?.orientation === 'portrait';
 
-  const displayedImages = horizontalImages.slice(0, 5);
+  // For remaining images, we'll still prefer landscape/square for smaller thumbnails
+  const remainingImages = images.slice(1);
+  const preferredRemainingImages = [
+    ...remainingImages.filter(
+      (img) => img.orientation === 'landscape' || img.orientation === 'square'
+    ),
+    ...remainingImages.filter((img) => img.orientation === 'portrait'),
+  ];
+
+  // Display more images if the first one is vertical (6 total instead of 5)
+  const maxSmallImages = isFirstImageVertical ? 4 : 4;
+  const displayedSmallImages = preferredRemainingImages.slice(
+    0,
+    maxSmallImages
+  );
+  const allDisplayedImages = [firstImage, ...displayedSmallImages];
 
   return (
     <section className={styles.container}>
@@ -56,19 +69,27 @@ export const PhotoGallery: FC<PhotoGalleryProps> = ({
       <p className={styles.subtitle}>{subtitle}</p>
 
       <div className={styles.galleryContainer}>
-        <div className={styles.gallery}>
-          {displayedImages.map((image, index) => (
+        <div
+          className={`${styles.gallery} ${
+            isFirstImageVertical ? styles.verticalFirstImage : ''
+          }`}
+        >
+          {allDisplayedImages.map((image, index) => (
             <figure
               key={index}
-              className={styles.imageContainer}
+              className={`${styles.imageContainer} ${
+                index === 0 ? styles.firstImage : ''
+              } ${
+                image.orientation === 'portrait' ? styles.portraitImage : ''
+              }`}
               onClick={openModal}
             >
               <Image
                 src={image.url}
-                alt='Image'
+                alt={`Image ${index + 1}`}
                 fill
                 className={styles.image}
-                priority
+                priority={index === 0}
               />
             </figure>
           ))}
