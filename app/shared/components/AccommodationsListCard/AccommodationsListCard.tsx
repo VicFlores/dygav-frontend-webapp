@@ -26,6 +26,7 @@ export const AccommodationsListCard: FC<{
     scrollRightHandler,
     handleTouchStart,
     handleTouchMove,
+    handleMouseDown,
   } = useAccommodationsListCard(styles);
 
   const truncateDescription = (description: string, maxLength: number) => {
@@ -59,6 +60,8 @@ export const AccommodationsListCard: FC<{
         ref={containerRef}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
+        onMouseDown={handleMouseDown}
+        style={{ cursor: 'grab' }}
       >
         {accommodations.map((accommodation) => {
           const isExpanded = expandedIds.has(accommodation.id);
