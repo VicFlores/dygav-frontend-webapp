@@ -1,19 +1,46 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 
 export const useAccommodationsListCard = (styles: Record<string, string>) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [cardWidth, setCardWidth] = useState(335); // Default card width from CSS
   let startX: number;
   let scrollLeft: number;
 
+  useEffect(() => {
+    // Calculate card width including gap when component mounts
+    if (containerRef.current) {
+      const cards = containerRef.current.querySelectorAll(`.${styles.card}`);
+      if (cards.length > 0) {
+        const firstCard = cards[0] as HTMLElement;
+        const cardStyle = window.getComputedStyle(firstCard);
+        const cardFullWidth =
+          firstCard.offsetWidth +
+          parseInt(cardStyle.marginLeft || '0') +
+          parseInt(cardStyle.marginRight || '0') +
+          14; // Adding the gap from CSS
+
+        setCardWidth(cardFullWidth);
+      }
+    }
+  }, [styles]);
+
   const scrollLeftHandler = () => {
     if (containerRef.current) {
-      containerRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+      // Scroll by 4 cards at a time
+      containerRef.current.scrollBy({
+        left: -cardWidth * 4,
+        behavior: 'smooth',
+      });
     }
   };
 
   const scrollRightHandler = () => {
     if (containerRef.current) {
-      containerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+      // Scroll by 4 cards at a time
+      containerRef.current.scrollBy({
+        left: cardWidth * 4,
+        behavior: 'smooth',
+      });
     }
   };
 
