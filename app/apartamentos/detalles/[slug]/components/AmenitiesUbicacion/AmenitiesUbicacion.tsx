@@ -43,8 +43,43 @@ export const AmenitiesUbicacion: FC<AmenitiesUbicacionProps> = ({
     new Set(amenities.map((item) => item.CATEGORY_ES))
   );
 
+  // Define the custom order
+  const customOrder = [
+    'UBICACION',
+    'GENERAL',
+    'ALOJAMIENTO',
+    'ACCESIBILIDAD',
+    'EXTERIOR',
+    'DORMITORIO',
+    'COCINA',
+    'VENTILACION',
+    'ENTRETENIMIENTO',
+    'INTERNET',
+    'LIMPIEZA',
+    'BAÑO',
+    'DETALLES_PRINCIPALES',
+  ];
+
+  // Sort the uniqueCategories based on the custom order
+  const sortedCategories = [...uniqueCategories].sort((a, b) => {
+    const indexA = customOrder.indexOf(a);
+    const indexB = customOrder.indexOf(b);
+
+    // If both items are in the custom order, sort by their position
+    if (indexA !== -1 && indexB !== -1) {
+      return indexA - indexB;
+    }
+
+    // If only one item is in the custom order, prioritize it
+    if (indexA !== -1) return -1;
+    if (indexB !== -1) return 1;
+
+    // If neither item is in the custom order, maintain their original order
+    return 0;
+  });
+
   const [selectedCategory, setSelectedCategory] = useState<string>(
-    uniqueCategories[0]
+    sortedCategories.length > 0 ? sortedCategories[0] : ''
   );
 
   const handleCategoryClick = (category: string) => {
@@ -56,7 +91,7 @@ export const AmenitiesUbicacion: FC<AmenitiesUbicacionProps> = ({
       <h1 className={styles.title}>Comodidades</h1>
 
       <ul className={styles.amenties}>
-        {uniqueCategories.map((category) => (
+        {sortedCategories.map((category) => (
           <li
             key={category}
             onClick={() => handleCategoryClick(category)}
