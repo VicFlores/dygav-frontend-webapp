@@ -14,6 +14,7 @@ import { getAccommodation } from './services/getAccommodation';
 import { TSession } from '@/types';
 import { getUserFromCookies } from '@/utils';
 import { cookies } from 'next/headers';
+import { ScrollToGallery } from './components/ScrollToGallery/ScrollToGallery';
 
 export const metadata: Metadata = {
   title: 'Dygav - Detalles de Alojamiento',
@@ -54,6 +55,8 @@ export default async function AccommodationDetailPage({
         title='Detalles de tu alojamiento'
         subtitle='Conoce los detalles de tu alojamiento, para que puedas hacer una mejor eleccion segun tus necesidades.'
       />
+
+      <ScrollToGallery />
 
       <PhotoGallery
         title={accommodationDetails.accommodation}

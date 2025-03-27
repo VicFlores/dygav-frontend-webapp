@@ -63,7 +63,7 @@ export const PhotoGallery: FC<PhotoGalleryProps> = ({
   const allDisplayedImages = [firstImage, ...displayedSmallImages];
 
   return (
-    <section className={styles.container}>
+    <section id='photo-gallery' className={styles.container}>
       <h1 className={styles.title}>{title}</h1>
 
       <p className={styles.subtitle}>{subtitle}</p>

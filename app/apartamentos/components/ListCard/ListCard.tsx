@@ -37,7 +37,7 @@ export const ListCard: FC<{ accommodations: Accommodation[] }> = async ({
             </p>
 
             <p className='text-p600 text-base md:text-lg lg:text-xl text-center lg:text-start mt-4'>
-              ¡Actualiza tu busqueda para encontrar tu alojamiento. !
+              ¡Actualiza tu busqueda para encontrar tu alojamiento!
             </p>
           </div>
         </div>
