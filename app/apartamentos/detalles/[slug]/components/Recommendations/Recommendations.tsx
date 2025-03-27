@@ -34,6 +34,28 @@ export const Recommendations: FC<ReccomendationProps> = ({
     }
   };
 
+  // Handle wheel events for horizontal scrolling with touchpad
+  const handleWheel = (event: React.WheelEvent) => {
+    if (articlesContainerRef.current) {
+      // If the shift key is pressed, or if the touchpad is sending horizontal scrolling
+      if (event.deltaX !== 0) {
+        // Natural horizontal scrolling
+        event.preventDefault();
+        articlesContainerRef.current.scrollBy({
+          left: event.deltaX,
+          behavior: 'smooth',
+        });
+      } else if (event.shiftKey) {
+        // Shift + vertical scroll = horizontal scroll
+        event.preventDefault();
+        articlesContainerRef.current.scrollBy({
+          left: event.deltaY,
+          behavior: 'smooth',
+        });
+      }
+    }
+  };
+
   const accommodationsByCategories = getAccommodationsByCategory(
     accommodations,
     categoryId
@@ -53,7 +75,11 @@ export const Recommendations: FC<ReccomendationProps> = ({
           onClick={scrollLeft}
         />
 
-        <div className={styles.articlesContainer} ref={articlesContainerRef}>
+        <div
+          className={styles.articlesContainer}
+          ref={articlesContainerRef}
+          onWheel={handleWheel}
+        >
           <figure className={styles.article_image}>
             <div className={styles.article_text}>
               <p className={styles.article_category}>Ocio y entretenimiento</p>
