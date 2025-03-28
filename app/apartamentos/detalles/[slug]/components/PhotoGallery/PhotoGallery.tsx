@@ -105,7 +105,14 @@ export const PhotoGallery: FC<PhotoGalleryProps> = ({
 
       <h1 className={styles.title}>Detalles de tu futuro alojamiento</h1>
 
-      <p className={styles.paragraph}>{introductions}</p>
+      <p className={styles.paragraph}>
+        {introductions.split('\n').map((text, index) => (
+          <React.Fragment key={index}>
+            {text}
+            {index !== introductions.split('\n').length - 1 && <br />}
+          </React.Fragment>
+        ))}
+      </p>
 
       {isModalOpen && <Modal images={images} onClose={closeModal} />}
     </section>
