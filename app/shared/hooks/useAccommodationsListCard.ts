@@ -9,6 +9,7 @@ export const useAccommodationsListCard = (styles: Record<string, string>) => {
   let lastX: number;
   let velocity: number = 0;
   let animationFrameId: number;
+  let lastTimestamp: number = 0; // Add this for more precise timing
 
   useEffect(() => {
     // Calculate card width including gap when component mounts
@@ -109,14 +110,16 @@ export const useAccommodationsListCard = (styles: Record<string, string>) => {
   const handleTouchMove = (e: React.TouchEvent) => {
     if (containerRef.current) {
       const x = e.touches[0].pageX - containerRef.current.offsetLeft;
-      const walk = (x - startX) * 2;
+      const walk = (x - startX) * 2.2; // Slight increase from 2 for better responsiveness
       containerRef.current.scrollLeft = scrollLeft - walk;
 
       // Calculate velocity (pixels per millisecond)
       const now = Date.now();
       const elapsed = now - startTime;
       if (elapsed > 0) {
-        velocity = (lastX - x) / elapsed;
+        // Use a weighted average for smoother velocity calculations
+        const newVelocity = (lastX - x) / elapsed;
+        velocity = velocity * 0.3 + newVelocity * 0.7; // Weighted average
         startTime = now;
         lastX = x;
       }
@@ -124,20 +127,25 @@ export const useAccommodationsListCard = (styles: Record<string, string>) => {
   };
 
   const handleTouchEnd = () => {
-    if (containerRef.current && Math.abs(velocity) > 0.1) {
-      // Start momentum scrolling
-      const momentumScroll = () => {
-        if (Math.abs(velocity) < 0.01 || !containerRef.current) {
-          return;
-        }
+    if (containerRef.current) {
+      // Lower threshold to make momentum kick in more often
+      if (Math.abs(velocity) > 0.05) {
+        // Changed from 0.1 to 0.05
+        // Start momentum scrolling with improved parameters
+        const momentumScroll = () => {
+          if (Math.abs(velocity) < 0.005 || !containerRef.current) {
+            // Lower threshold for stopping
+            return;
+          }
 
-        containerRef.current.scrollLeft += velocity * 10;
-        velocity *= 0.95; // Deceleration factor
+          containerRef.current.scrollLeft += velocity * 15; // Increased from 10 to 15
+          velocity *= 0.97; // Changed from 0.95 for smoother deceleration
 
-        animationFrameId = requestAnimationFrame(momentumScroll);
-      };
+          animationFrameId = requestAnimationFrame(momentumScroll);
+        };
 
-      momentumScroll();
+        momentumScroll();
+      }
     }
   };
 
@@ -162,14 +170,15 @@ export const useAccommodationsListCard = (styles: Record<string, string>) => {
   const handleMouseMove = (e: MouseEvent) => {
     if (containerRef.current) {
       const x = e.pageX - containerRef.current.offsetLeft;
-      const walk = (x - startX) * 1.5;
+      const walk = (x - startX) * 1.8; // Increased from 1.5 for better responsiveness
       containerRef.current.scrollLeft = scrollLeft - walk;
 
-      // Calculate velocity (pixels per millisecond)
+      // Calculate velocity with weighted average
       const now = Date.now();
       const elapsed = now - startTime;
       if (elapsed > 0) {
-        velocity = (lastX - x) / elapsed;
+        const newVelocity = (lastX - x) / elapsed;
+        velocity = velocity * 0.3 + newVelocity * 0.7; // Weighted average
         startTime = now;
         lastX = x;
       }
@@ -180,15 +189,17 @@ export const useAccommodationsListCard = (styles: Record<string, string>) => {
     if (containerRef.current) {
       containerRef.current.style.cursor = 'grab';
 
-      if (Math.abs(velocity) > 0.1) {
+      if (Math.abs(velocity) > 0.05) {
+        // Lower threshold from 0.1 to 0.05
         // Start momentum scrolling
         const momentumScroll = () => {
-          if (Math.abs(velocity) < 0.01 || !containerRef.current) {
+          if (Math.abs(velocity) < 0.005 || !containerRef.current) {
+            // Lower threshold
             return;
           }
 
-          containerRef.current.scrollLeft += velocity * 10;
-          velocity *= 0.95; // Deceleration factor
+          containerRef.current.scrollLeft += velocity * 15; // Increased from 10 to 15
+          velocity *= 0.97; // Changed from 0.95 for smoother deceleration
 
           animationFrameId = requestAnimationFrame(momentumScroll);
         };
