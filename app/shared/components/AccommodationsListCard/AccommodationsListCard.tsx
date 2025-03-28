@@ -26,6 +26,7 @@ export const AccommodationsListCard: FC<{
     scrollRightHandler,
     handleTouchStart,
     handleTouchMove,
+    handleTouchEnd, // Add the touch end handler
     handleMouseDown,
   } = useAccommodationsListCard(styles);
 
@@ -60,6 +61,7 @@ export const AccommodationsListCard: FC<{
         ref={containerRef}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd} // Add the touch end event
         onMouseDown={handleMouseDown}
         style={{ cursor: 'grab' }}
       >

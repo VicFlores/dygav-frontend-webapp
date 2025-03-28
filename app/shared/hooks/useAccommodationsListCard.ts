@@ -5,6 +5,10 @@ export const useAccommodationsListCard = (styles: Record<string, string>) => {
   const [cardWidth, setCardWidth] = useState(335); // Default card width from CSS
   let startX: number;
   let scrollLeft: number;
+  let startTime: number;
+  let lastX: number;
+  let velocity: number = 0;
+  let animationFrameId: number;
 
   useEffect(() => {
     // Calculate card width including gap when component mounts
@@ -91,24 +95,63 @@ export const useAccommodationsListCard = (styles: Record<string, string>) => {
 
   const handleTouchStart = (e: React.TouchEvent) => {
     if (containerRef.current) {
+      // Cancel any ongoing momentum scrolling
+      cancelAnimationFrame(animationFrameId);
+
       startX = e.touches[0].pageX - containerRef.current.offsetLeft;
       scrollLeft = containerRef.current.scrollLeft;
+      startTime = Date.now();
+      lastX = startX;
+      velocity = 0;
     }
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (containerRef.current) {
       const x = e.touches[0].pageX - containerRef.current.offsetLeft;
-      const walk = (x - startX) * 2; // Increased from 1 to 2.5 for faster scrolling
+      const walk = (x - startX) * 2;
       containerRef.current.scrollLeft = scrollLeft - walk;
+
+      // Calculate velocity (pixels per millisecond)
+      const now = Date.now();
+      const elapsed = now - startTime;
+      if (elapsed > 0) {
+        velocity = (lastX - x) / elapsed;
+        startTime = now;
+        lastX = x;
+      }
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (containerRef.current && Math.abs(velocity) > 0.1) {
+      // Start momentum scrolling
+      const momentumScroll = () => {
+        if (Math.abs(velocity) < 0.01 || !containerRef.current) {
+          return;
+        }
+
+        containerRef.current.scrollLeft += velocity * 10;
+        velocity *= 0.95; // Deceleration factor
+
+        animationFrameId = requestAnimationFrame(momentumScroll);
+      };
+
+      momentumScroll();
     }
   };
 
   // Add mouse drag support for better touchpad interaction
   const handleMouseDown = (e: React.MouseEvent) => {
     if (containerRef.current) {
+      // Cancel any ongoing momentum scrolling
+      cancelAnimationFrame(animationFrameId);
+
       startX = e.pageX - containerRef.current.offsetLeft;
       scrollLeft = containerRef.current.scrollLeft;
+      startTime = Date.now();
+      lastX = startX;
+      velocity = 0;
       containerRef.current.style.cursor = 'grabbing';
 
       document.addEventListener('mousemove', handleMouseMove);
@@ -119,18 +162,52 @@ export const useAccommodationsListCard = (styles: Record<string, string>) => {
   const handleMouseMove = (e: MouseEvent) => {
     if (containerRef.current) {
       const x = e.pageX - containerRef.current.offsetLeft;
-      const walk = (x - startX) * 1.5; // scroll-fast, slightly faster than touch
+      const walk = (x - startX) * 1.5;
       containerRef.current.scrollLeft = scrollLeft - walk;
+
+      // Calculate velocity (pixels per millisecond)
+      const now = Date.now();
+      const elapsed = now - startTime;
+      if (elapsed > 0) {
+        velocity = (lastX - x) / elapsed;
+        startTime = now;
+        lastX = x;
+      }
     }
   };
 
   const handleMouseUp = () => {
     if (containerRef.current) {
       containerRef.current.style.cursor = 'grab';
+
+      if (Math.abs(velocity) > 0.1) {
+        // Start momentum scrolling
+        const momentumScroll = () => {
+          if (Math.abs(velocity) < 0.01 || !containerRef.current) {
+            return;
+          }
+
+          containerRef.current.scrollLeft += velocity * 10;
+          velocity *= 0.95; // Deceleration factor
+
+          animationFrameId = requestAnimationFrame(momentumScroll);
+        };
+
+        momentumScroll();
+      }
     }
+
     document.removeEventListener('mousemove', handleMouseMove);
     document.removeEventListener('mouseup', handleMouseUp);
   };
+
+  // Clean up any pending animations when component unmounts
+  useEffect(() => {
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return {
     containerRef,
@@ -138,6 +215,7 @@ export const useAccommodationsListCard = (styles: Record<string, string>) => {
     scrollRightHandler,
     handleTouchStart,
     handleTouchMove,
+    handleTouchEnd, // Added touch end handler
     handleMouseDown,
   };
 };
