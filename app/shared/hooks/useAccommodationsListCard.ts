@@ -99,7 +99,7 @@ export const useAccommodationsListCard = (styles: Record<string, string>) => {
   const handleTouchMove = (e: React.TouchEvent) => {
     if (containerRef.current) {
       const x = e.touches[0].pageX - containerRef.current.offsetLeft;
-      const walk = (x - startX) * 2.5; // Increased from 1 to 2.5 for faster scrolling
+      const walk = (x - startX) * 2; // Increased from 1 to 2.5 for faster scrolling
       containerRef.current.scrollLeft = scrollLeft - walk;
     }
   };

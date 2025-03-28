@@ -242,9 +242,18 @@
   }
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 480px) {
   .card {
     min-width: 280px;
+    /* Remove animations for mobile */
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Remove hover effect for mobile */
+  .card:hover {
+    transform: none;
   }
 
   .cardTitle {
