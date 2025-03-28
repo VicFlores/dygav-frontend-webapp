@@ -31,9 +31,11 @@ export const useAccommodationsListCard = (styles: Record<string, string>) => {
 
   const scrollLeftHandler = () => {
     if (containerRef.current) {
-      // Scroll by 4 cards at a time
+      // Use screen width to determine scroll behavior
+      const isMobile = window.innerWidth <= 768;
+
       containerRef.current.scrollBy({
-        left: -cardWidth * 4,
+        left: isMobile ? -300 : -cardWidth * 4,
         behavior: 'smooth',
       });
     }
@@ -41,9 +43,11 @@ export const useAccommodationsListCard = (styles: Record<string, string>) => {
 
   const scrollRightHandler = () => {
     if (containerRef.current) {
-      // Scroll by 4 cards at a time
+      // Use screen width to determine scroll behavior
+      const isMobile = window.innerWidth <= 768;
+
       containerRef.current.scrollBy({
-        left: cardWidth * 4,
+        left: isMobile ? 300 : cardWidth * 4,
         behavior: 'smooth',
       });
     }
