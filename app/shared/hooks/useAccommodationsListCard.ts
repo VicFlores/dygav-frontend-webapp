@@ -110,7 +110,7 @@ export const useAccommodationsListCard = (styles: Record<string, string>) => {
   const handleTouchMove = (e: React.TouchEvent) => {
     if (containerRef.current) {
       const x = e.touches[0].pageX - containerRef.current.offsetLeft;
-      const walk = (x - startX) * 2.2; // Slight increase from 2 for better responsiveness
+      const walk = (x - startX) * 2; // Slight increase from 2 for better responsiveness
       containerRef.current.scrollLeft = scrollLeft - walk;
 
       // Calculate velocity (pixels per millisecond)
