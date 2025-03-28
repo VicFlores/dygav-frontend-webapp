@@ -8,10 +8,41 @@ import styles from './ListCard.module.css';
 import { getCategories } from '../../services';
 import Image from 'next/image';
 
+// Define order of priority for categories
+const CATEGORY_ORDER = [
+  'Viviendas turísticas en Costa Blanca',
+  'Viviendas turísticas en Pirineos',
+  'Viviendas turísticas en Madrid',
+];
+
 export const ListCard: FC<{ accommodations: Accommodation[] }> = async ({
   accommodations,
 }) => {
   const categories = await getCategories();
+
+  // Sort categories based on priority order
+  const sortedCategories = [...categories].sort((a, b) => {
+    const indexA = CATEGORY_ORDER.indexOf(a.category_name);
+    const indexB = CATEGORY_ORDER.indexOf(b.category_name);
+
+    // If both categories are in our priority list
+    if (indexA !== -1 && indexB !== -1) {
+      return indexA - indexB;
+    }
+
+    // If only a is in our priority list
+    if (indexA !== -1) {
+      return -1;
+    }
+
+    // If only b is in our priority list
+    if (indexB !== -1) {
+      return 1;
+    }
+
+    // If neither are in our priority list, maintain original order
+    return 0;
+  });
 
   return (
     <section className={styles.container}>
@@ -42,7 +73,7 @@ export const ListCard: FC<{ accommodations: Accommodation[] }> = async ({
           </div>
         </div>
       ) : (
-        categories.map((category: Category) => {
+        sortedCategories.map((category: Category) => {
           const categoryAccommodations = getAccommodationsByCategory(
             accommodations,
             category.category_id
