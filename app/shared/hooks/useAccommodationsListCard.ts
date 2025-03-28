@@ -9,7 +9,6 @@ export const useAccommodationsListCard = (styles: Record<string, string>) => {
   let lastX: number;
   let velocity: number = 0;
   let animationFrameId: number;
-  let lastTimestamp: number = 0; // Add this for more precise timing
 
   useEffect(() => {
     // Calculate card width including gap when component mounts
@@ -114,7 +113,7 @@ export const useAccommodationsListCard = (styles: Record<string, string>) => {
   const handleTouchMove = (e: React.TouchEvent) => {
     if (containerRef.current) {
       const x = e.touches[0].pageX - containerRef.current.offsetLeft;
-      const walk = (x - startX) * 2; // Slight increase from 2 for better responsiveness
+      const walk = (x - startX) * 1.5; // Slight increase from 2 for better responsiveness
       containerRef.current.scrollLeft = scrollLeft - walk;
 
       // Calculate velocity (pixels per millisecond)
