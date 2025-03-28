@@ -9,6 +9,7 @@ const nextConfig = {
       'dygav-wordpress.app.bigital.es',
       'multimedia.dygav.es',
       'dygav-storage.nyc3.cdn.digitaloceanspaces.com',
+      'dygav-storage.nyc3.digitaloceanspaces.com',
     ],
   },
   env: {
