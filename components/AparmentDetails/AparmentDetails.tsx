@@ -10,7 +10,7 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
   const [selectedStartDate, setSelectedStartDate] = useState<Date | null>(null);
   const [selectedEndDate, setSelectedEndDate] = useState<Date | null>(null);
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [accomodation, setAccomodation] = useState<TSearcherCard[]>([
+  const [accomodation, setAccomodation] = useState<any[]>([
     {
       id: 0,
       imgSubtitle: '',
@@ -29,7 +29,9 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
     },
   ]);
   const [price, setPrice] = useState(0);
-  const infoAparment = searcherCard.filter((item) => item.id === Number(id));
+  const infoAparment = searcherCard.filter(
+    (item) => item.accommodationid === id
+  );
 
   useEffect(() => {
     setAccomodation(infoAparment);
@@ -244,7 +246,7 @@ export const AparmentDetails: FC<{ id: string }> = ({ id }) => {
       </p>
 
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-center'>
-        {accomodation[0]?.services.map((item, index) => (
+        {accomodation[0]?.services.map((item: any, index: any) => (
           <div key={index} className='relative'>
             <BsCheckCircle className='w-5 h-5 absolute top-1/2 -translate-y-1/2 left-2 md:left-3 text-p600' />
             <h3 className='pl-10 md:pl-12'>{item}</h3>
