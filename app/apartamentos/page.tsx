@@ -4,12 +4,16 @@ import { Footer, Hero } from '../shared';
 import { SearchForm } from './components/SearchForm/SearchForm';
 import { ListCard } from './components';
 
-import { getUserFromCookies } from '@/utils';
+import {
+  getUserFromCookies,
+  searcherCard as fakeAccommodations,
+} from '@/utils';
 import { cookies } from 'next/headers';
 import { NavBar } from '@/components/Layout/NavBar';
 import { BurgerMenu } from '@/components/Layout/BurgerMenu';
 import { TSession } from '@/types';
 import { getAccommodations } from './services';
+import { Accommodation } from './interfaces';
 
 export const metadata: Metadata = {
   title: 'Dygav - Alojamientos',
@@ -21,13 +25,18 @@ const AccommodationsPage = async () => {
   const cookieStore = cookies();
   const access_token = cookieStore.get('access_token');
   const refresh_token = cookieStore.get('refresh_token');
-  const user = await getUserFromCookies(
-    undefined,
-    access_token?.value,
-    refresh_token?.value
-  );
 
-  const accommodations = await getAccommodations();
+  const [user, realAccommodations] = await Promise.all([
+    getUserFromCookies(undefined, access_token?.value, refresh_token?.value),
+    getAccommodations(),
+  ]);
+
+  // Combine both accommodation sources
+  // Using a Set to avoid duplicates if there are any common IDs
+  const combinedAccommodations: any[] = [
+    ...realAccommodations,
+    ...fakeAccommodations,
+  ];
 
   return (
     <>
@@ -41,7 +50,7 @@ const AccommodationsPage = async () => {
         <SearchForm />
       </Hero>
 
-      <ListCard accommodations={accommodations} />
+      <ListCard accommodations={combinedAccommodations} />
 
       <Footer />
     </>

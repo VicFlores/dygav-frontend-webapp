@@ -1,7 +1,7 @@
 import { Accommodation } from '@/app/apartamentos/interfaces';
 
 interface ProcessedAccommodation {
-  id: number;
+  id: number | string;
   images: { url: string }[];
   alt: string;
   title: string;

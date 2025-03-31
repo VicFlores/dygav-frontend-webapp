@@ -1,5 +1,5 @@
 export interface Accommodation {
-  accommodationid: number;
+  accommodationid: number | string;
   slug: string;
   accommodation: string;
   introductions: {

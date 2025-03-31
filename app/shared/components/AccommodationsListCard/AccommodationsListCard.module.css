@@ -199,6 +199,58 @@
   font-size: 26px;
 }
 
+.unavailable {
+  position: relative;
+  opacity: 0.85;
+  filter: grayscale(0.4);
+  pointer-events: all;
+  cursor: not-allowed;
+}
+
+.unavailableOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px 10px 0 0;
+  z-index: 3;
+}
+
+.unavailable .cardLink {
+  cursor: not-allowed;
+  pointer-events: none; /* This prevents any click events */
+}
+
+.unavailableText {
+  background-color: rgba(244, 81, 30, 0.85);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transform: rotate(-15deg);
+}
+
+/* Adjust for different screen sizes */
+@media screen and (max-width: 768px) {
+  .unavailableText {
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .unavailableText {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .card {
     min-width: 300px;

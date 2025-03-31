@@ -26,7 +26,7 @@ export const AccommodationsListCard: FC<{
     scrollRightHandler,
     handleTouchStart,
     handleTouchMove,
-    handleTouchEnd, // Add the touch end handler
+    handleTouchEnd,
     handleMouseDown,
   } = useAccommodationsListCard(styles);
 
@@ -38,8 +38,8 @@ export const AccommodationsListCard: FC<{
   };
 
   const toggleDescription = (id: string | number, e: React.MouseEvent) => {
-    e.preventDefault(); // Prevent the Link navigation
-    e.stopPropagation(); // Stop event propagation
+    e.preventDefault();
+    e.stopPropagation();
     const newExpandedIds = new Set(expandedIds);
     if (expandedIds.has(id)) {
       newExpandedIds.delete(id);
@@ -47,6 +47,11 @@ export const AccommodationsListCard: FC<{
       newExpandedIds.add(id);
     }
     setExpandedIds(newExpandedIds);
+  };
+
+  // Check if accommodation is from fake data (has numeric ID)
+  const isFakeAccommodation = (id: string | number) => {
+    return typeof id === 'string';
   };
 
   return (
@@ -61,26 +66,28 @@ export const AccommodationsListCard: FC<{
         ref={containerRef}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd} // Add the touch end event
+        onTouchEnd={handleTouchEnd}
         onMouseDown={handleMouseDown}
         style={{ cursor: 'grab' }}
       >
         {accommodations.map((accommodation) => {
           const isExpanded = expandedIds.has(accommodation.id);
           const description =
-            accommodation.description || accommodation.introductions.es;
+            accommodation.description || accommodation.introductions?.es || '';
           const needsExpansion = description.length > 160;
+          const isFake = isFakeAccommodation(accommodation.id);
 
           return (
             <div
               key={accommodation.id}
               className={`${styles.card} ${isExpanded ? styles.expanded : ''} ${
                 styles.visible
-              }`}
+              } ${isFake ? styles.unavailable : ''}`}
             >
               <Link
                 href={`/apartamentos/detalles/${accommodation.slug}`}
                 className={styles.cardLink}
+                onClick={(e) => isFake && e.preventDefault()}
               >
                 <figure className={styles.imageContainer}>
                   <AiOutlineHeart className={styles.heartIcon} />
@@ -89,6 +96,14 @@ export const AccommodationsListCard: FC<{
                     images={accommodation.images}
                     alt={accommodation.alt}
                   />
+
+                  {isFake && (
+                    <div className={styles.unavailableOverlay}>
+                      <span className={styles.unavailableText}>
+                        No Disponible
+                      </span>
+                    </div>
+                  )}
                 </figure>
 
                 <h3 className={styles.cardTitle}>{accommodation.title}</h3>

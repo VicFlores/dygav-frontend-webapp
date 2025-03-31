@@ -31,16 +31,17 @@ export default async function AccommodationDetailPage({
   const cookieStore = cookies();
   const access_token = cookieStore.get('access_token');
   const refresh_token = cookieStore.get('refresh_token');
-  const user = await getUserFromCookies(
-    undefined,
-    access_token?.value,
-    refresh_token?.value
-  );
 
+  // Wait for params first as we need the slug for accommodation details
   const { slug } = await params;
 
   const accommodations = await getAccommodations();
-  const accommodationDetails = await getAccommodation(slug);
+
+  // Then fetch all other data concurrently
+  const [user, accommodationDetails] = await Promise.all([
+    getUserFromCookies(undefined, access_token?.value, refresh_token?.value),
+    getAccommodation(slug),
+  ]);
 
   if (!accommodationDetails) {
     return null;
