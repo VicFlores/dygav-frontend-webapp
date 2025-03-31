@@ -93,9 +93,12 @@
 }
 
 @media screen and (max-width: 430px) {
+  .wrapper {
+    width: 90%;
+  }
   .search_form {
     flex-direction: column;
-    height: 30rem;
+    height: 25rem;
     margin: 1.5rem 2rem 0;
   }
 
@@ -132,5 +135,9 @@
     border-top-left-radius: 0;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
+  }
+  .search_button {
+    width: 100%;
+    height: 80%;
   }
 }
