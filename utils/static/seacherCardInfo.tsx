@@ -75,7 +75,7 @@ export const searcherCard = [
     capacity: 6,
     categories: [
       {
-        category_id: 1, // Assuming category 1 is for "Apartment"
+        category_id: 3, // Assuming category 1 is for "Apartment"
       },
     ],
     aviabookid: 1001, // This is a placeholder, needs real value
@@ -273,7 +273,7 @@ export const searcherCard = [
     capacity: 4,
     categories: [
       {
-        category_id: 1, // Assuming category 1 is for "Apartment"
+        category_id: 3, // Assuming category 1 is for "Apartment"
       },
     ],
     aviabookid: 1003, // This is a placeholder, needs real value
@@ -376,7 +376,7 @@ export const searcherCard = [
     capacity: 4,
     categories: [
       {
-        category_id: 1, // Assuming category 1 is for "Apartment"
+        category_id: 3, // Assuming category 1 is for "Apartment"
       },
     ],
     aviabookid: 1004, // This is a placeholder, needs real value
@@ -483,7 +483,7 @@ export const searcherCard = [
     capacity: 6,
     categories: [
       {
-        category_id: 1, // Assuming category 1 is for "Apartment"
+        category_id: 3, // Assuming category 1 is for "Apartment"
       },
     ],
     aviabookid: 1005, // This is a placeholder, needs real value
@@ -826,7 +826,7 @@ export const searcherCard = [
     capacity: 6,
     categories: [
       {
-        category_id: 1, // Assuming category 3 is for "House"
+        category_id: 3, // Assuming category 3 is for "House"
       },
     ],
     aviabookid: 1008, // Following the sequential pattern

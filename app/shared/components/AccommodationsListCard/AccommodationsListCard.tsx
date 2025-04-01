@@ -100,7 +100,7 @@ export const AccommodationsListCard: FC<{
                   {isFake && (
                     <div className={styles.unavailableOverlay}>
                       <span className={styles.unavailableText}>
-                        No Disponible
+                        No Disponible temporalmente
                       </span>
                     </div>
                   )}
