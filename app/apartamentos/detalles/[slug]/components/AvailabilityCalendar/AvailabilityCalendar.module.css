@@ -44,6 +44,7 @@
   background-color: #f0f0f0;
   border-radius: 10px;
   padding: 20px;
+  min-height: 380px; /* Add minimum height to ensure consistency */
 }
 
 .monthHeader {
@@ -56,9 +57,16 @@
 .calendarGrid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: auto repeat(6, 1fr); /* Force 6 rows (header + 6 weeks) */
   row-gap: 10px;
   width: 100%;
   color: #444444;
+  flex: 1;
+}
+
+.emptyCell {
+  height: 36px;
+  visibility: hidden;
 }
 
 .dayName {
@@ -256,6 +264,10 @@
   .calendarWrapper {
     flex-direction: column;
     row-gap: 35px;
+  }
+
+  .calendarMonth {
+    min-height: 320px; /* Adjust for smaller screens */
   }
 
   .calendarGrid {
