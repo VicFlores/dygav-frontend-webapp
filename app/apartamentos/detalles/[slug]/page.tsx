@@ -47,8 +47,6 @@ export default async function AccommodationDetailPage({
     return null;
   }
 
-  console.log('accommodationDetails', accommodationDetails);
-
   return (
     <>
       <NavBar user={user as TSession} />
